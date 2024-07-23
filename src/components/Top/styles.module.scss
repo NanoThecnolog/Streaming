@@ -1,0 +1,203 @@
+/* TOP SECTION */
+
+
+.top_container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #141414;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+
+    .image_container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        // transition: opacity 1s ease-in-out;
+
+
+        background: rgb(24, 24, 24);
+        background: linear-gradient(0deg,
+                rgba(20, 20, 20, 1) 0%,
+                rgba(255, 255, 255, 0) 36%);
+
+        .left_side {
+            width: 60%;
+            height: 80%;
+            padding-left: 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+
+            h1 {
+                margin: 0;
+                font-family: "Montserrat", sans-serif;
+                font-weight: 600;
+                font-size: 65px;
+                color: white;
+                text-shadow: 5px 5px 10px black;
+            }
+
+            .button_section {
+                width: 100%;
+                display: flex;
+                font-family: "Roboto", sans-serif;
+
+                svg {
+                    width: 25px;
+                    height: 25px;
+                    min-width: 25px;
+                    padding-left: 10px;
+                }
+
+                .watch,
+                .queue {
+                    padding: 10px 25px;
+                    border-radius: 8px;
+                }
+
+                .watch {
+                    color: white;
+                    display: flex;
+                    background-color: var(--red);
+                    transition: all 0.5s;
+
+                    &:hover {
+                        background-color: var(--red-selected);
+                        cursor: pointer;
+                        // transform: ;
+                        transform: translateY(5px) scale(1.1);
+                    }
+                }
+
+                .queue {
+                    color: white;
+                    display: flex;
+                    background-color: var(--grey);
+                    margin-left: 30px;
+                    transition: all 0.5s;
+
+                    &:hover {
+                        background-color: var(--grey-selected);
+                        cursor: pointer;
+                        transform: translateY(5px) scale(1.1);
+                    }
+                }
+
+            }
+
+
+        }
+
+    }
+
+
+
+
+
+    .subtitulo_principal {
+        margin: 0px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        font-size: 45px;
+        color: white;
+        text-shadow: 5px 5px 10px black;
+    }
+
+    p {
+        margin: 0px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+        color: white;
+        text-shadow: 2px 2px 1px black;
+        padding: 25px 0px;
+    }
+
+    h3 {
+        display: flex;
+        align-items: center;
+    }
+
+
+
+
+}
+
+
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+}
+
+.fadeOut {
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+
+
+}
+
+
+
+
+
+
+
+
+/* END TOP SECTION*/

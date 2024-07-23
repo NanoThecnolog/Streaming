@@ -1,0 +1,31 @@
+:root {
+  --blue: #2349bd;
+  --blue-selected: #1e49d2cc;
+  --grey: #686868;
+  --grey-selected: #a29f9f;
+  --red: #d42c2c;
+  --red-selected: #aa2323e6;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #141414;
+  box-sizing: border-box;
+}
+
+h1,
+h3,
+h2,
+h5,
+h6,
+h4,
+p {
+  margin: 0px;
+}
+
+a {
+  text-decoration: none;
+}
