@@ -23,13 +23,13 @@ export default function CardContainer({ section, handleOpenModal }: ContainerPro
             console.log(width)
 
             //ajustar os breakpoints depois
-            if (width < 600) {
+            if (width < 780) {
                 setCardsPerPage(1)
-            } else if (width < 900) {
+            } else if (width < 1100) {
                 setCardsPerPage(2)
-            } else if (width < 1200) {
+            } else if (width < 1480) {
                 setCardsPerPage(3)
-            } else if (width < 1500) {
+            } else if (width < 1650) {
                 setCardsPerPage(4)
             } else {
                 setCardsPerPage(5)

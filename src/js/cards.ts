@@ -1,6 +1,68 @@
 import { CardsProps } from "@/@types/Cards";
 
 export const cards: CardsProps[] = [
+    /*
+    {
+    background: "",
+    overlay: "",
+    title: "",
+    subtitle: "",
+    description: "",
+    src: "",
+    duration: "",
+    genero: ["",""]
+    },
+    */
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblogger.googleusercontent.com%2Fimg%2Fb%2FR29vZ2xl%2FAVvXsEgpYvvWCGvmuhnWIVZEmTzjCCTkWLA4thF8jir_LrPBw4ZRzr1RSM1vYInoyfpkDYPra4Dw_N1y1zCt01xuEUjeLM4UsNn5ZAITXEUw2AHL5qinD8CYPHGvlzt4TY4lFzTv1FluVbbGi0jEhV1as0wINp-LUIdKCrEt4FHMIraDO_REV7zwMn6eCy23%2Fw1200-h630-p-k-no-nu%2FDungeons%2520Dragons%2520Honra%2520Entre%2520Ladr%25C3%25B5es.webp&f=1&nofb=1&ipt=1bbf9425123b232f35c57fc13d6c1e34d219ec6ef0b9c5c2b9b0c04a7b347c51&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fencrypted-tbn2.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcRBNu4jnuw7mcPfQNSIGtyzCSqtywv2abQJXV3VEESW46lm6m6H&f=1&nofb=1&ipt=f05a83846bbf8cdfc0e90364135595df8b010dae056b0ccf8a128b2ae430edc0&ipo=images",
+        title: "Dungeons & Dragons",
+        subtitle: "Honra entre Rebeldes",
+        description: "Um ladrão e um bando de aventureiros embarcam em uma jornada épica para recuperar uma relíquia.",
+        src: "https://drive.google.com/file/d/143CZ8stsx0bZ-D1TSXug2Gqv_E6M4aoP/preview",
+        duration: "02h 14m",
+        genero: ["Aventura", "Ação"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fovicio.com.br%2Fwp-content%2Fuploads%2F2024%2F06%2F20240627-um-lugar-silencioso-dia-um-com-lupita-nyongo.webp&f=1&nofb=1&ipt=a4f6c0e8afe0bac8c34f8690644a9a4884cd1b3085fb03abe37e73cb4c171248&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FgyEnhITeHLky85XJxuTPqniPrzE.jpg&f=1&nofb=1&ipt=bd8af7bc9f3fd9b08c63e246312ce72e82ff530d15f1f137b320fdc73e93fe40&ipo=images",
+        title: "Um Lugar Silencioso",
+        subtitle: "Dia Um",
+        description: "Uma mulher luta pela sobrevivência durante uma invasão alienígena na cidade de Nova York.",
+        src: "https://drive.google.com/file/d/12JmKWBDZysngiIAS3gKJLjBaVui2bgrN/preview",
+        duration: "01h 39m",
+        genero: ["Terror", "Suspense", "Ficção Científica"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.augustman.com%2Fwp-content%2Fuploads%2Fsites%2F6%2F2024%2F02%2F15141507%2Ftwisters-movie-2024.jpg&f=1&nofb=1&ipt=4bff84aefb5de118f496fac873f6ba3ab3f59d57560323c30940c01530adf1a4&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fg7yg6jJj4Z377j5h6S3MBRmjQ7U.jpg&f=1&nofb=1&ipt=db10888b8a8a15136838734fbd4fd5edc7bd75b054eb94102248d80abfd2d21d&ipo=images",
+        title: "Twisters 2024",
+        subtitle: "",
+        description: "Dois caçadores de tempestades arriscam suas vidas na tentativa de testar um sistema experimental de alerta meteorológico.",
+        src: "https://drive.google.com/file/d/1rUTXl_ltpWNdSaZgZlktBDeRQbUZBncs/preview",
+        duration: "02h 02m",
+        genero: ["Ação", "Suspense", "Drama"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fentretetizei.com.br%2Fwp-content%2Fuploads%2F2024%2F07%2Fm-night-shyamalan-e-josh-hartnett-vem-ao-brasil-divulgar-armadilha.jpg&f=1&nofb=1&ipt=5afa9e8c05a8e412954079aa367cad5a32309325ca97fe9e0ed5b237ad7c58b6&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcomandotorrentsgratishd.biz%2Fwp-content%2Fuploads%2F2024%2F08%2FBaixar-Filmes-e-Series-Gratis-38.jpg.webp&f=1&nofb=1&ipt=32dfc944ca317bc144d96c9ebd5b3a7beafe5dc552941c5d9cb9696db771a042&ipo=images",
+        title: "Armadilha",
+        subtitle: "",
+        description: 'Cooper (Josh Hartnett) e sua filha Riley (Ariel Donoghue) estão prontos para uma noite inesquecível no show da maior popstar do momento. No entanto, a atmosfera de diversão rapidamente se transforma em tensão quando Cooper percebe uma presença anormal de policiais no local. Em um jogo de olhares e desconfiança, ele logo compreende que a polícia está em busca de um serial killer extremamente perigoso. À medida que o cerco se fecha, Cooper percebe uma aterrorizante verdade: ele é o alvo da caçada. O que deveria ser uma noite de alegria entre pai e filha se transforma em uma desesperada e silenciosa fuga pela sobrevivência, enquanto Cooper tenta proteger Riley e escapar da captura iminente, tudo enquanto esconde de todos – e até de si mesmo – os segredos obscuros que o levaram a essa situação. Em "Armadilha", a linha entre herói e vilão se desmancha, e a maior ameaça pode estar mais perto do que parece.',
+        src: "https://drive.google.com/file/d/11NTrnOSHb6cqaZKUR-6pHeKCZdssWXSE/preview",
+        duration: "01h 45m",
+        genero: ["Suspense", "Mistério"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fportal6.com.br%2Fwp-content%2Fuploads%2F2024%2F09%2Ffilme-rebel-ridge.jpg&f=1&nofb=1&ipt=aef102a74745e3e730adbc6c24bc2d20d1bf3dc6f15402d4517fb2bfaf22a48b&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.moviefone.com%2Fimage-assets%2F646097%2FrOIy79DDrmX8ecveVBB6QIavd02.jpg%3Fd%3D360x540%26q%3D60&f=1&nofb=1&ipt=144a34ec07e3d7bdaec894af1eb53210cccf4f9f938b9dfd8baa57197f256397&ipo=images",
+        title: "Rebel Ridge",
+        subtitle: "",
+        description: "Um ex-fuzileiro descobre a extensão da corrupção de uma pequena cidade quando uma tentativa de resgatar seu primo se transforma em um confronto violento com a polícia.",
+        src: "https://drive.google.com/file/d/1-22kFxe8TSAkWWtA9dDI7SQs0uAZBqeP/preview",
+        duration: "02h 11m",
+        genero: ["Suspense", "Ação"]
+    },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FrLb2cwF3Pazuxaj0sRXQ037tGI1.jpg&f=1&nofb=1&ipt=c9f5fa14726c518eea48c9f7895f761a34c2657f0b3092b9d99fd586846d0711&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.sitopreferito.it%2Fwp-content%2Fuploads%2F2023%2F12%2FOppenheimer.jpg&f=1&nofb=1&ipt=0b613c97ee4996046edb47a2d0916ed854084522ac5716827540704a25267c04&ipo=images",
