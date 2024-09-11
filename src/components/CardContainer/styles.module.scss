@@ -1,0 +1,74 @@
+.content_area {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+
+
+    .content_title {
+        font-family: "Bebas Neue", cursive;
+        color: white;
+        font-size: 35px;
+        letter-spacing: 5px;
+        padding-left: 40px;
+
+    }
+
+    .card_carousel {
+        display: flex;
+        //overflow: hidden;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        margin: 25px 0px;
+        transition: all .5s;
+        position: relative;
+        gap: 8px;
+
+        .cardContainer {
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            width: 100%;
+            gap: 8px;
+        }
+
+
+        button {
+            background-color: transparent;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+
+        .beforeButton {
+            position: absolute;
+            top: 50%;
+            right: 99%;
+            color: white;
+            border-radius: 4px;
+        }
+
+        .nextButton {
+            position: absolute;
+            color: white;
+            top: 50%;
+            left: 99%;
+            border-radius: 4px;
+        }
+
+        button:disabled {
+            background-color: none;
+            cursor: not-allowed;
+        }
+    }
+
+    .controls {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+
+
+    }
+}

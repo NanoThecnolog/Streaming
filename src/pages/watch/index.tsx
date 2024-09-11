@@ -1,42 +1,44 @@
 import Head from "next/head";
 import styles from '@/styles/Watch.module.scss';
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import ReactPlayer from "react-player";
 
-interface WatchProps {
-    title: string;
-    subTitle: string;
-    src: string;
-}
 
-export default function Watch({ title, subTitle, src }: WatchProps) {
+
+export default function Watch() {
+    const router = useRouter()
+    const { title, subTitle, src } = router.query;
+    const [movieData, setMovieData] = useState({ title: '', subTitle: '', src: '' });
+
+    useEffect(() => {
+        if (title && src) {
+            setMovieData({
+                title: title as string,
+                subTitle: subTitle as string || '',
+                src: src as string
+            })
+        }
+
+    }, [title, subTitle, src])
+
     return (
         <>
             <Head>
                 <title>Assistir {title}</title>
             </Head>
             <div className={styles.container}>
-                <div className="movie">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="position-absolute movie">
-                                <h3 id="titulo">{title} {subTitle != "" && `- ${subTitle}`}</h3>
-                                <iframe title={title} id="movie-iframe" allowFullScreen width="100%" height="100%" src={src} allow="autoplay"></iframe>
-                            </div>
-                        </div>
-                    </div>
+                <div className={styles.movie}>
+                    <h3>{title} {subTitle != "" && `- ${subTitle}`}</h3>
+                    <iframe
+                        title={movieData.title}
+                        allowFullScreen
+                        width="100%"
+                        height="100%"
+                        src={movieData.src}
+                    />
                 </div>
             </div>
         </>
     )
-}
-
-export const getServerSideProps = async (ctx: WatchProps) => {
-    const { title, subTitle, src } = ctx;
-    return {
-        props: {
-            title,
-            subTitle,
-            src
-        }
-    }
 }

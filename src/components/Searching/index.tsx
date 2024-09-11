@@ -1,4 +1,5 @@
-import { cards, CardsProps } from '@/js/cards'
+import { cards } from '@/js/cards'
+import { CardsProps } from '@/@types/Cards';
 import Card from '../Card';
 import { useState } from 'react'
 import { CiSearch } from "react-icons/ci";
@@ -56,6 +57,7 @@ export default function Search({ handleOpenModal }: SearchProps) {
                         <Card
                             modalWatchLater={handleOpenModal}
                             section={card.genero[0]}
+                            card={card}
                         />
                     </div>
                 </div>

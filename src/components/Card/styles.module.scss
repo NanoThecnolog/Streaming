@@ -1,350 +1,101 @@
 .card {
-    background-color: #242424;
-    background-size: cover;
-
-    width: 20%;
-    height: 100%;
-    margin: 0 2px;
+    width: 360px;
+    height: 600px;
+    color: var(--white);
+    position: relative;
+    //overflow: hidden;
+    border-radius: .6rem;
     transition: all 0.5s;
-
-    h3 {
-        font-family: "Roboto", sans-serif;
-        font-size: 14px;
-        color: #fff;
-    }
-
-    h4 {
-        font-family: "Roboto", sans-serif;
-        font-size: 20px;
-        color: #fff;
-        text-shadow: 1px 1px 3px #000;
-    }
-
-    h6 {
-        font-family: "Roboto", sans-serif;
-        font-size: 15px;
-        color: #fff;
-    }
-
-    p {
-        font-family: "Roboto", sans-serif;
-        font-size: 14px;
-        color: #fff;
-        text-shadow: 1px 1px 1px #000;
-        text-overflow: ellipsis;
-    }
-
-    svg {
-        width: 25px;
-        height: 25px;
-    }
-
-    .queue,
-    .star {
-        margin-left: 8px;
-        padding: 7px;
-        border-radius: 50px;
-        background-color: #333;
-        color: white;
-        border: 2px solid #878585;
-
-        &:hover {
-            background-color: #616161;
-        }
-    }
-
-    .watch {
-        padding: 7px;
-        border-radius: 50px;
-        border: 2px solid var(--red);
-    }
+    cursor: pointer;
+    z-index: 9;
 
     &:hover {
-        transform: scale(1.3);
-        z-index: 1;
-
         .overlay {
-            display: flex;
-            background-image: linear-gradient(to right,
-                    rgba(51, 51, 51, 0.95),
-                    rgba(255, 255, 255, 0.01));
+            opacity: 1;
+            visibility: visible;
         }
     }
 
-
-}
-
-.overlay {
-    height: 100%;
-    width: calc(100% - 30px);
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    justify-content: flex-end;
-    padding: 0px 15px;
-    text-overflow: ellipsis;
-    display: none;
-    border-radius: 5px;
-
-    .button_container {
+    .backgroundImage {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        display: flex;
-        margin-bottom: 15px;
-        margin-top: 15px;
+        height: 100%;
+        z-index: 1;
+        object-fit: cover;
 
-        svg {
-            width: 15px;
-            height: 15px;
-            min-width: 15px;
-            padding: 2px;
-        }
-    }
-
-    p {
-        color: #bdbdbd;
-    }
-}
-
-.main_nav {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    margin-left: 50px;
-
-
-    .button_container {
-        height: calc(100% - 10px);
-        margin-top: 5px;
-        padding: 0px 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-bottom: 5px solid transparent;
-        border-bottom-color: transparent;
-        transition: border-bottom-color 0.3s;
-
-        h2 {
-            font-family: "Roboto", sans-serif;
-            font-size: 26px;
-            color: white;
-        }
-
-        &:hover {
-            cursor: pointer;
-            border-bottom-color: var(--red);
-            transition: border-bottom-color 0.3s;
-        }
-    }
-}
-
-.right_nav {
-    .button_container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 8px 25px;
-        border-radius: 8px;
-
-        h2 {
-            font-family: "Roboto", sans-serif;
-            font-size: 20px;
-            color: white;
-        }
-    }
-}
-
-@media (width >=1661px) {
-    .main_nav {
-
-        .button_container {
-            h2 {
-                font-size: 20px;
-            }
-        }
-    }
-
-    .right_nav {
-        .button_container {
-            h2 {
-                font-size: 16px;
-            }
-        }
-    }
-}
-
-@media(width <=1660px) {
-    .main_nav {
-        .button_container {
-            h2 {
-                font-size: 20px;
-            }
-        }
-    }
-
-    .right_nav {
-        .button_container {
-            h2 {
-                font-size: 16px;
-            }
-        }
-    }
-}
-
-
-
-
-@media (width <=1430px) {
-    .card {
-        h4 {
-            font-size: 16px;
-        }
-
-        p {
-            font-size: 11px;
-        }
     }
 
     .overlay {
-        width: calc(100% - 20px);
-        padding: 0px 10px;
+        position: inherit;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        //border-radius: .6rem;
+        background: linear-gradient(to top, black 20%, transparent);
+        height: 100%;
+        padding: 0 0 0 1rem;
+        transition: all 0.3s;
+        z-index: 10;
+        opacity: 0;
+        visibility: hidden;
 
-        .button_container {
-            margin-bottom: 10px;
-            margin-top: 10px;
+        h3 {
+            font-size: 1.5rem;
         }
     }
 
-    .main_nav {
-        .button_container {
-            h2 {
-                font-size: 20px;
+    .button_container {
+        display: flex;
+        gap: 12px;
+        width: 100%;
+        padding-bottom: 1rem;
+        padding-top: .5rem;
+
+
+        .watch {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            object-position: center;
+            width: 45px;
+            height: 45px;
+            background-color: var(--red-selected);
+            cursor: pointer;
+            border-radius: 2rem;
+            border: 3px solid var(--red);
+            transition: all 0.5s;
+
+            &:hover {
+                background-color: var(--red);
             }
-        }
-    }
 
-    .right_nav {
-        .button_container {
-            h2 {
-                font-size: 16px;
+            button {
+                color: var(--white);
             }
-        }
-    }
-}
-
-@media (width <=1330px) {
-    .main_nav {
-        .button_container {
-            h2 {
-                font-size: 20px;
-            }
-        }
-    }
-
-    .right_nav {
-        .button_container {
-            h2 {
-                font-size: 16px;
-            }
-        }
-    }
-}
-
-@media(width <=1230px) {
-    .main_nav {
-        .button_container {
-            h2 {
-                font-size: 20px;
-            }
-        }
-    }
-
-    .right_nav {
-        .button_container {
-            h2 {
-                font-size: 16px;
-            }
-        }
-    }
-
-    .card {
-        svg {
-            width: 20px;
-            height: 20px;
-            min-width: 20px;
-        }
-    }
-}
-
-@media (width <=737px) {
-    .card {
-        display: flex !important;
-        overflow-y: visible;
-
-        svg {
-            width: 10px;
-            height: 10px;
-            min-width: 10px;
-        }
-
-        &:hover {
-            position: relative;
-            margin: 0px 30px !important;
-        }
-    }
-}
-
-@media (width <=710px) {
-    .card {
-        h4 {
-            font-size: 13px;
-        }
-
-        p {
-            font-size: 8px;
         }
 
         .queue {
-            margin-left: 8px;
-            color: #772626;
-        }
+            background-color: #303030;
+            width: 45px;
+            height: 45px;
+            padding: 0;
+            border: 3px solid var(--grey);
+            border-radius: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
 
-        .queue,
-        .watch,
-        .star {
-            padding: 4px;
-        }
-    }
+            svg {
 
-    .overlay {
-        width: calc(100% - 16px);
-        padding: 0 8px;
+                transition: all 0.5s;
 
-        .button_container {
-            margin-bottom: 8px;
-            margin-top: 8px;
-        }
-    }
-}
-
-@media (width <=610px) {
-    .card {
-        svg {
-            width: 8px;
-            height: 8px;
-            min-width: 8px;
-        }
-    }
-}
-
-
-@media (width <=545px) {
-    .card {
-        h4 {
-            font-size: 10px;
-        }
-
-        p {
-            font-size: 6px;
+                &:hover {
+                    color: var(--grey-selected);
+                }
+            }
         }
     }
 }

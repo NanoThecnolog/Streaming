@@ -1,17 +1,13 @@
 import Head from "next/head";
-import Router from "next/router";
-import Image from "next/image";
-import Link from "next/link";
-import Card from "@/components/Card";
 import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.scss";
-import { CiSearch } from "react-icons/ci";
+import Header from "@/components/Header";
 import CardContainer from "@/components/CardContainer";
 import Footer from "@/components/Footer";
 import WatchLater from "@/components/modals/WatchLater";
 import { useState } from "react";
-import { FaUserCircle } from "react-icons/fa";
 import Top from "@/components/Top";
+
+import styles from "@/styles/Home.module.scss";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,10 +27,7 @@ export default function Home() {
     }
     setVisible(true)
   }
-  function handleUserClick() {
-    Router.push('/me');
 
-  }
   return (
     <>
       <Head>
@@ -45,51 +38,16 @@ export default function Home() {
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
         <div className={styles.content}>
-          <div className={styles.header}>
-            <div className={styles.brand}>
-              <h1 className={styles.red}>FLiX</h1>
-              <h1 className={styles.white}>NEXT</h1>
-            </div>
-            <div className={styles.main_nav}>
-              <Link href="#inicio" className={styles.button_container}>
-                <h2>INÍCIO</h2>
-              </Link>
-              <Link href="#acao" className={styles.button_container}>
-                <h2>FILMES</h2>
-              </Link>
-              <Link href="#alta" className={styles.button_container}>
-                <h2>EM ALTA</h2>
-              </Link>
-              <Link href="#lancamentos" className={styles.button_container}>
-                <h2>LANÇAMENTOS</h2>
-              </Link>
-              <Link href="#buscar" className={styles.button_container}>
-                <h2><CiSearch size={25} color="#fff" /></h2>
-              </Link>
-            </div>
-            <div className={styles.right_nav}>
-              <div className={`${styles.button_container} ${styles.login}`} onClick={handleUserClick}>
-                <FaUserCircle size={25} color="#fff" className={styles.loginIcon} />
-              </div>
-            </div>
-          </div>
+          <Header />
           <Top />
           <div className={styles.mid}>
-
-
-
             <CardContainer
               handleOpenModal={handleOpenModalWatchLater}
-              section="alta"
+              section="ação"
             />
             <CardContainer
               handleOpenModal={handleOpenModalWatchLater}
-              section="lancamentos"
-            />
-
-            <CardContainer
-              handleOpenModal={handleOpenModalWatchLater}
-              section="acao"
+              section="aventura"
             />
             <CardContainer
               handleOpenModal={handleOpenModalWatchLater}
@@ -109,6 +67,10 @@ export default function Home() {
             />
             <CardContainer
               handleOpenModal={handleOpenModalWatchLater}
+              section="fantasia"
+            />
+            <CardContainer
+              handleOpenModal={handleOpenModalWatchLater}
               section="romance"
             />
             <CardContainer
@@ -117,7 +79,7 @@ export default function Home() {
             />
             <CardContainer
               handleOpenModal={handleOpenModalWatchLater}
-              section="cd"
+              section="DC"
             />
             <CardContainer
               handleOpenModal={handleOpenModalWatchLater}

@@ -1,0 +1,97 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    padding: 240px 100px;
+    color: var(--white);
+    justify-content: center;
+    align-items: center;
+
+    .card {
+        width: 420px;
+        height: 600px;
+        color: var(--white);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 0.6rem;
+        transition: all 0.5s;
+
+        &:hover {
+            .overlay {
+                display: flex;
+            }
+        }
+
+        .overlay {
+            display: none;
+            flex-direction: column;
+            justify-content: flex-end;
+            border-radius: 0.6rem;
+            background-color: rgba(0, 0, 0, 0.349);
+            height: 100%;
+            padding: 0 0 0 1rem;
+            transition: all 0.5s;
+
+            h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        .button_container {
+            display: flex;
+            gap: 12px;
+            width: 100%;
+            padding-bottom: 1rem;
+            padding-top: .5rem;
+
+
+            .watch {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                object-position: center;
+                width: 45px;
+                height: 45px;
+                background-color: var(--red-selected);
+                cursor: pointer;
+                border-radius: 2rem;
+                border: 3px solid var(--red);
+                transition: all 0.5s;
+
+                &:hover {
+                    background-color: var(--red);
+                }
+
+                button {
+                    background: transparent;
+                    border: none;
+                    color: var(--white);
+                    cursor: pointer;
+                }
+            }
+
+            .queue {
+                background-color: #303030;
+                width: 45px;
+                height: 45px;
+                padding: 0;
+                border: 3px solid var(--grey);
+                border-radius: 2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+
+                svg {
+
+                    transition: all 0.5s;
+
+                    &:hover {
+                        color: var(--grey-selected);
+                    }
+                }
+            }
+        }
+    }
+}

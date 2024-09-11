@@ -1,8 +1,8 @@
-body {
-    height: 100%;
-    margin: 0;
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
     overflow: hidden;
-
 }
 
 .movie {
@@ -10,12 +10,18 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-}
 
-#titulo {
-    z-index: 99;
-    position: absolute;
-    top: 3%;
-    left: 2%;
-    color: #E0E0E0;
+    h3 {
+        z-index: 99;
+        position: absolute;
+        top: 3%;
+        left: 2%;
+        color: #E0E0E0;
+        font-size: 2rem;
+    }
+
+    iframe {
+        border: none;
+        object-fit: 'contain';
+    }
 }
