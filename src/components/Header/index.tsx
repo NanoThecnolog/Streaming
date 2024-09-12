@@ -40,7 +40,7 @@ export default function Header({ handleSearching }: HeaderProps) {
                 <input
                     value={searchInput}
                     onChange={(e) => setSearchInput(e.target.value)}
-                    placeholder="Digite aqui seu filme"
+                    placeholder="Procure aqui seu filme"
                     className={styles.searchInput}
                 />
 

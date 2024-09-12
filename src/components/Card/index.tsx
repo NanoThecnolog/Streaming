@@ -14,8 +14,8 @@ import Image from "next/image";
 
 interface CardProps {
     card: CardsProps;
-    section: string;
-    modalWatchLater: (title: string, subTitle?: string) => void;
+    section?: string;
+    modalWatchLater?: (title: string, subTitle?: string) => void;
 }
 
 
@@ -23,7 +23,7 @@ interface CardProps {
 export default function Card({ card, section, modalWatchLater }: CardProps) {
 
     const [modalVisible, setModalVisible] = useState<boolean>(false)
-    const [sessão, setSessão] = useState<string>(section)
+    //const [sessão, setSessão] = useState<string | undefined>(section)
     const movie = new URLSearchParams({
         title: `${card.title}`,
         subTitle: `${card.subtitle}` || "",

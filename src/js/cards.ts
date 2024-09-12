@@ -14,6 +14,66 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbr.trace.tv%2Fwp-content%2Fuploads%2F2023%2F05%2FScream6_BR_3840x2160-scaled.jpg&f=1&nofb=1&ipt=355d2c761693025e37ed956b30cec5d98f31d3977f9a9e154053529c357fa3ac&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsupercinema.com.br%2Fposters%2F2023%2Fposter-panico-vi-scream-vi.jpg&f=1&nofb=1&ipt=e1df854955b4166e1e583eb23c69c90bb639543cac8577cdd0919c7c9fa352e4&ipo=images",
+        title: "Pânico 6",
+        subtitle: "2023",
+        description: "Os sobreviventes dos assassinatos de Ghostface deixam Woodsboro para trás e iniciam um novo capítulo na cidade de Nova York, mas uma antiga ameaça resurge.",
+        src: "https://drive.google.com/file/d/1--T-Vn5BFjsVkpG5_15_pKwYmUEahUAu/preview",
+        duration: "02h 05m",
+        genero: ["Terror", "Suspense"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fv1PuxThVwlpaxP3s99XuuZA5HX0.jpg&f=1&nofb=1&ipt=15eb7c05de0cdb15e32b7b8d7b17440b6c0ec8c73dcf5e155394e2ae75127aea&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fw0.peakpx.com%2Fwallpaper%2F375%2F379%2FHD-wallpaper-scream-5-panic-panico-panico-5-todo-mundo-em-panico.jpg&f=1&nofb=1&ipt=778d1f2a3a22c52a0e294430885921b6954b166e4db89ac2ab64e1de71960940&ipo=images",
+        title: "Pânico 5",
+        subtitle: "2022",
+        description: "25 anos depois de uma série de assassinatos chocar a pacata cidade de Woodsboro, na Califórnia, um novo assassino veste a máscara de Ghostface e começa a atacar um grupo de adolescentes.",
+        src: "https://drive.google.com/file/d/1-ZaR88SATR7-Ij2KtNl_tul2mbSQ8ocy/preview",
+        duration: "01h 52m",
+        genero: ["Terror", "Suspense"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fis5-ssl.mzstatic.com%2Fimage%2Fthumb%2FR8ByCGulvMBP9scxwCn-Hw%2F2000x1125.jpg&f=1&nofb=1&ipt=323e6475a50b29bf1eb9875712a7cab519dd3820f826ed0fe6a4d994b070902d&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FS%2Fpv-target-images%2F95c37522ea259b38d73d228bf5f1bff04b8506f0bef4d8abd5059767757f155c._RI_V_TTW_.jpg&f=1&nofb=1&ipt=8b8f1c20a3c26a83f01c75baa7fe8ef4433f671c7a2291aa749f6b709969796e&ipo=images",
+        title: "Pânico 4",
+        subtitle: "2011",
+        description: "Dez anos se passaram, e Sidney Prescott, que se reergueu graças, em parte, a sua escrita, é visitada pelo assassino Ghostface mais uma vez.",
+        src: "https://drive.google.com/file/d/1PVGcjQTBnnyFYA7Uqo-O0AhT9mDYQ0Ux/preview",
+        duration: "01h 50m",
+        genero: ["Terror", "Suspense"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FAbFWty0o5nKGo4iLJaGRgqFtC8W.jpg&f=1&nofb=1&ipt=5bdb428cda22b01a760d5688942f9f564e8016ec7e80e199ba55372568ffcc6b&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.nossocinema.com.br%2Fwp-content%2Fuploads%2F2022%2F01%2FPanico-3-cartaz-scaled.jpg&f=1&nofb=1&ipt=2ca3f47a53e5f97636f7f36ed23cfb88d3fc50c5667a595fdfcc14ca3b130957&ipo=images",
+        title: "Pânico 3",
+        subtitle: "2000",
+        description: "Enquanto Sidney e suas amigas visitam o set de Hollywood de Stab 3, outro assassino do Ghostface aparece para aterrorizá-los.",
+        src: "https://drive.google.com/file/d/1NSSzGFuc0Ph_dbDULPbtF8IU666GMIlr/preview",
+        duration: "01h 56m",
+        genero: ["Terror", "Suspense"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2020%2F12%2Fpanico-2.jpg&f=1&nofb=1&ipt=58b6b3718a761ef3fc0ae2b6ed61711a3740b14c03566aeac3d15d45c00d96df&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.nossocinema.com.br%2Fwp-content%2Fuploads%2F2022%2F01%2FPanico-2-cartaz-scaled.jpg&f=1&nofb=1&ipt=a837713a7c2ba0c4b0ee0e2bf19ce0e5a26b29998a885e7e17bc2b7b662e039a&ipo=images",
+        title: "Pânico 2",
+        subtitle: "1997",
+        description: "Dois anos após o massacre de Woodsboro, Sidney e Randy estão refazendo suas vidas numa nova cidade. Mas uma nova onda de assassinatos mostra que o psicopata voltou na véspera do lançamento de um filme baseado nos seus crimes.",
+        src: "https://drive.google.com/file/d/1N8wB63dpoKUjU006pkMwoHl53bkB7s71/preview",
+        duration: "02h 00m",
+        genero: ["Terror", "Suspense"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbr.web.img3.acsta.net%2Fpictures%2F22%2F01%2F07%2F17%2F03%2F1507158.jpg&f=1&nofb=1&ipt=637352a6e14047a444fac1aa790cada891ce6ee9a763dfcb32720504c64370d7&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FlQjLnyc4zUYbJ9aFAz2pazf8Erz.jpg&f=1&nofb=1&ipt=cd553642752e445ac056dc3914b702c5ea16823b248e86eccbb0b6b623ebf99d&ipo=images",
+        title: "Pânico",
+        subtitle: "1996",
+        description: "Um ano apís o assassinato de sua mãe, uma adolescente é aterrorizada por um novo assassino que a escolheu como alvo e usa filmes de terror como parte de seu jogo mortal.",
+        src: "https://drive.google.com/file/d/1LXqbSWzbuD8XN83xzsOH_xjAUb8H5FoG/preview",
+        duration: "01h 50m",
+        genero: ["Terror", "Suspense"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblogger.googleusercontent.com%2Fimg%2Fb%2FR29vZ2xl%2FAVvXsEgpYvvWCGvmuhnWIVZEmTzjCCTkWLA4thF8jir_LrPBw4ZRzr1RSM1vYInoyfpkDYPra4Dw_N1y1zCt01xuEUjeLM4UsNn5ZAITXEUw2AHL5qinD8CYPHGvlzt4TY4lFzTv1FluVbbGi0jEhV1as0wINp-LUIdKCrEt4FHMIraDO_REV7zwMn6eCy23%2Fw1200-h630-p-k-no-nu%2FDungeons%2520Dragons%2520Honra%2520Entre%2520Ladr%25C3%25B5es.webp&f=1&nofb=1&ipt=1bbf9425123b232f35c57fc13d6c1e34d219ec6ef0b9c5c2b9b0c04a7b347c51&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fencrypted-tbn2.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcRBNu4jnuw7mcPfQNSIGtyzCSqtywv2abQJXV3VEESW46lm6m6H&f=1&nofb=1&ipt=f05a83846bbf8cdfc0e90364135595df8b010dae056b0ccf8a128b2ae430edc0&ipo=images",
         title: "Dungeons & Dragons",

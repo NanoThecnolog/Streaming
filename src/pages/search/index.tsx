@@ -6,6 +6,7 @@ import { CardsProps } from "@/@types/Cards";
 import { cards } from "@/js/cards";
 import Link from "next/link";
 import { FaInfoCircle, FaPlay, FaRegClock, FaStar } from "react-icons/fa";
+import Card from "@/components/Card";
 
 export default function Search() {
     const router = useRouter();
@@ -43,7 +44,11 @@ export default function Search() {
 
                     const play: string = `/watch?${movie}`
                     return (
-                        <div key={index} className={styles.card} id={card.genero[0].toLowerCase()} style={{ backgroundImage: `url(${card.overlay})` }}>
+                        <Card
+                            key={index}
+                            card={card}
+                        />
+                        /*<div key={index} className={styles.card} id={card.genero[0].toLowerCase()} style={{ backgroundImage: `url(${card.overlay})` }}>
                             <div className={styles.overlay}>
                                 <h3>{card.title.toUpperCase()}</h3>
                                 {card.subtitle && (
@@ -72,7 +77,7 @@ export default function Search() {
                                 </div>
                             </div>
 
-                        </div>
+                        </div>*/
                     )
                 }
                 ) : "Carregando..."}
