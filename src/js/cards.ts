@@ -10,9 +10,79 @@ export const cards: CardsProps[] = [
     description: "",
     src: "",
     duration: "",
-    genero: ["",""]
+    genero: [""]
     },
     */
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.uhdpaper.com%2Fwallpaper%2Fmiles-morales-spider-man-across-the-spider-verse-903%400%40h-pc-4k.jpg&f=1&nofb=1&ipt=ad512d959d8c6d21ebe247c2d0fb2caaa3b009136bfe18f996c2bfd0602f1ff0&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FxxPXsL8V95dTwL5vHWIIQALkJQS.jpg&f=1&nofb=1&ipt=8c97b2f3d674a19eb56682db59c990cf680e7936d7d9ab48dd0353cc58f455dc&ipo=images",
+        title: "Homem Aranha",
+        subtitle: "Através do Aranhaverso",
+        description: "Depois de se reunir com Gwen Stacy, Homem-Aranha é jogado no multiverso. Lá, o super-herói aracnídeo encontra uma numerosa equipe encarregada de proteger sua própria existência.",
+        src: "https://drive.google.com/file/d/1SgxSsNXm_cq6wmQdQwuxQXjtbAX-FPrc/preview",
+        duration: "02h 14m",
+        genero: ["Animação", "Marvel"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpalomaynacho.com%2Fwp-content%2Fuploads%2F2023%2F04%2Fbarbie-margot-robbie-kent-ryan-gosling-patines-coche-rosa.jpg&f=1&nofb=1&ipt=851d7219a14b960b187779a334c6cd986b1f76e287ac430a9ee09aed99861de7&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flakewoodsnn.com%2Fwp-content%2Fuploads%2F2023%2F09%2F71BgdzmFDAL.jpg&f=1&nofb=1&ipt=e4542ee971ac03f00a5cef314566a83abfbc58d5c3a7adf2ee699ad9702feaad&ipo=images",
+        title: "Barbie",
+        subtitle: "",
+        description: "Depois de ser expulsa da Barbieland por ser uma boneca de aparência menos do que perfeita, Barbie parte para o mundo humano em busca da verdadeira felicidade.",
+        src: "https://drive.google.com/file/d/1suaHMDw-J_3tL77OcEyAzqH5nfwLlY3b/preview",
+        duration: "01h 54m",
+        genero: ["Comédia", "Fantasia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F6fNGc1bnVPOa1ZAVItkCqrXObe9.jpg&f=1&nofb=1&ipt=1365a4e52cc351aa3c6cac21f4cd7e59d5cd387d4e8516a13605b73dde2a2045&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcontainermedia.com.br%2Fassets%2Fimages%2Fposter-cidade-perdida.webp&f=1&nofb=1&ipt=f7bb5869a2d81ad3ab84cf1cc0537900b1b66a211b6ed42fac8b29a4d3b36018&ipo=images",
+        title: "Cidade Perdida",
+        subtitle: "",
+        description: "A Brilhante e reclusa autora Loretta Sage escreve romances populares de aventura, cujas capas são estreladas pelo belo modelo Alan. Durante a turnê de promoção de seu novo livro, Loretta é raptada.",
+        src: "https://drive.google.com/file/d/132j8HSZC-wW6viLjeNAjVIw0xAh-RDm-/preview",
+        duration: "01h 53m",
+        genero: ["Aventura", "Ação"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F3yxxAeQ18z7mnomodO4klVEu64.jpg&f=1&nofb=1&ipt=473f2e39e833e8cf42273c708d0ed546fb3b0c45b73e123a34846621a3fc488b&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.7ZkPtKxec6D_12yuV9W0FwAAAA%26pid%3DApi&f=1&ipt=0c9ea06bf1c91810a6ff5617b54335b5d1326cdc7d0402b61270427c816b4be5&ipo=images",
+        title: "Lift",
+        subtitle: "Roubo nas Alturas",
+        description: "Um ladrão e sua equipe tentam fazer um assalto de 500 milhões de dólares em um avião.",
+        src: "https://drive.google.com/file/d/1-7d0_24vWN_jdnz1iNWc0M1M1ed_lBYF/preview",
+        duration: "01h 47m",
+        genero: ["Ação", "Aventura", "Netflix"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F4MCKNAc6AbWjEsM2h9Xc29owo4z.jpg&f=1&nofb=1&ipt=2c216a5c1fed59e2da5f313887924dedbe7dfbe3e99341227392892db9aae5d7&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.justwatch.com%2Fposter%2F311662879%2Fs718%2Fthe-beekeeper-2024.jpg&f=1&nofb=1&ipt=52979235f858e86faa60b7fc42ddeaf75d3157788bd5b4f3e8b0ee4b46f2d442&ipo=images",
+        title: "Beekeeper",
+        subtitle: "Rede de Vingança",
+        description: "As ações brutais de vingança de um homem assume riscos de proporções nacionais quando é revelado que ele é um ex-agente de uma organização poderosa e clandestina.",
+        src: "https://drive.google.com/file/d/1dF09H9_pt33hjlPZ-p1uesblK_iIcciu/preview",
+        duration: "01h 45m",
+        genero: ["Ação", "Suspense"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fis1-ssl.mzstatic.com%2Fimage%2Fthumb%2Fx_ZoMsZ5bh0RpKLv2txiHg%2F2000x1125.jpg&f=1&nofb=1&ipt=3ad9dc96a9acb454191cd6afbe87bab374ecceb83bc5910314afe8cd2c75ff7a&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FS%2Fpv-target-images%2F93c670a4c21235724c5e7afbb0a72474cc47fd9d185eeff98fe71f9a22e08a96._RI_TTW_.jpg&f=1&nofb=1&ipt=af68abc82cb80451402caa6df7cad58f631faf95e1d034edc8e2b207a49127d9&ipo=images",
+        title: "Sim Senhor",
+        subtitle: "",
+        description: "Carl Allen é um homem que perdeu muitas oportunidades por causa da palavra não. Ele decide ir para um seminário de autoajuda para aprender a dizer sim. Respondendo positivamente a todos os convites e oportunidades, Carl passa por experiências incríveis e logo descobre que as mudanças não precisariam ser tão drásticas.",
+        src: "https://drive.google.com/file/d/1fmK0Nb0xlO65i-JohN-ILTilA9a_y18X/preview",
+        duration: "01h 44m",
+        genero: ["Comédia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F9fkYHcOtaz4cKmlDWw7tqUr5TUt.jpg&f=1&nofb=1&ipt=0a31f54ac52e2ba514354cb5f345cc8af0d17279fadb2d99c8444783605d786f&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.wikia.nocookie.net%2Fdublagem%2Fimages%2Fb%2Fb1%2FQueromatarmeuchefe.jpg%2Frevision%2Flatest%2Fscale-to-width-down%2F1200%3Fcb%3D20240202224119%26path-prefix%3Dpt-br&f=1&nofb=1&ipt=a48e3884d011271f383dc3235566fc32be57702bb369277049a20bc81a2d8e26&ipo=images",
+        title: "Quero Matar Meu Chefe",
+        subtitle: "",
+        description: "Nick, Kurt e Dale sofrem nas mãos de seus chefes Dave, Bobby e Julia, respectivamente. Juntos, eles resolvem colocar em ação um plano para eliminá-los.",
+        src: "https://drive.google.com/file/d/1VzmeF-DlG-MAigii3_v7xxu_PxspF2Lq/preview",
+        duration: "01h 37m",
+        genero: ["Comédia"]
+    },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbr.trace.tv%2Fwp-content%2Fuploads%2F2023%2F05%2FScream6_BR_3840x2160-scaled.jpg&f=1&nofb=1&ipt=355d2c761693025e37ed956b30cec5d98f31d3977f9a9e154053529c357fa3ac&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsupercinema.com.br%2Fposters%2F2023%2Fposter-panico-vi-scream-vi.jpg&f=1&nofb=1&ipt=e1df854955b4166e1e583eb23c69c90bb639543cac8577cdd0919c7c9fa352e4&ipo=images",
@@ -827,11 +897,7 @@ export const cards: CardsProps[] = [
         description: "Ana, uma aspirante a estagiária de arte que é convidada para uma viagem de trabalho de última hora a Londres por seu chefe e acaba conhecendo o belo e rico William no avião.",
         src: "https://drive.google.com/file/d/1asYDH3uOd0XOXECJC_LrkW1yMgU-BN13/preview",
         duration: "1h 45m",
-        genero: ["Romance",
-            "Comédia",
-            "Lançamento",
-            "Prime Video"
-        ]
+        genero: ["Romance", "Comédia", "Prime Video"]
     },
     {
         background: "https://i0.wp.com/oquartonerd.com.br/wp-content/uploads/2020/07/Thumbnail.jpg?fit=1920%2C1080&ssl=1",
@@ -841,9 +907,7 @@ export const cards: CardsProps[] = [
         description: "Em 2045, Wade Watts, assim como o resto da humanidade, prefere a realidade virtual do jogo OASIS ao mundo real. James Halliday, o excêntrico criador do jogo, morre e deixa sua fortuna inestimável para a primeira pessoa que descobrir a chave de um quebra-cabeça diabólico que ele arquitetou. Para vencer, Watts precisa abandonar a existência virtual e experimentar o amor e a realidade.",
         src: "https://drive.google.com/file/d/1ogehUC8CXWagoPDKANzBZFT4KqxTu_TW/preview",
         duration: "2h 20m",
-        genero: ["Ficção Científica",
-            "Ação"
-        ]
+        genero: ["Ficção Científica", "Ação"]
     },
     {
         background: "https://image.tmdb.org/t/p/original/yOm993lsJyPmBodlYjgpPwBjXP9.jpg",
