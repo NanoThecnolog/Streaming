@@ -14,6 +14,16 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fgetwallpapers.com%2Fwallpaper%2Ffull%2F0%2F2%2F5%2F839892-spiderman-2018-wallpaper-1920x1080-photos.jpg&f=1&nofb=1&ipt=c3cac6ed5595cae5d72881a41c8f0e0359f21de9437ecc276097968ec49acea8&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmusicart.xboxlive.com%2F7%2F94fc5000-0000-0000-0000-000000000002%2F504%2Fimage.jpg%3Fw%3D1920%26h%3D1080&f=1&nofb=1&ipt=b10399b40985d38f1adf4b1b0ea123e9349831d4bb6700d99a38802459b28742&ipo=images",
+        title: "Homem Aranha",
+        subtitle: "No Aranhaverso",
+        description: "Após ser mordido por uma aranha radioativa, Miles Morales, um jovem negro do Brooklyn, se torna o Homem-Aranha, inspirado no legado do já falecido Peter Parker. Entretanto, ao visitar o túmulo de seu ídolo em uma noite chuvosa, ele é surpreendido com a presença do próprio Peter, vestindo o traje do herói por baixo de um sobretudo. A surpresa fica ainda maior quando Miles descobre que ele veio de uma dimensão paralela, assim como outras versões do Homem-Aranha.",
+        src: "https://drive.google.com/file/d/1cIn12Q4t3Xaiaqf54dVB2kxbUnSG6VOt/preview",
+        duration: "01h 56m",
+        genero: ["Animação", "Marvel"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.uhdpaper.com%2Fwallpaper%2Fmiles-morales-spider-man-across-the-spider-verse-903%400%40h-pc-4k.jpg&f=1&nofb=1&ipt=ad512d959d8c6d21ebe247c2d0fb2caaa3b009136bfe18f996c2bfd0602f1ff0&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FxxPXsL8V95dTwL5vHWIIQALkJQS.jpg&f=1&nofb=1&ipt=8c97b2f3d674a19eb56682db59c990cf680e7936d7d9ab48dd0353cc58f455dc&ipo=images",
         title: "Homem Aranha",
