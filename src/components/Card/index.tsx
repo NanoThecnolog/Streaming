@@ -10,6 +10,7 @@ import { FaInfoCircle } from "react-icons/fa";
 import { IoCloseCircle } from "react-icons/io5";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import Image from "next/image";
+import CardInfoModal from "../modals/CardInfos";
 
 
 interface CardProps {
@@ -22,6 +23,14 @@ interface CardProps {
 
 export default function Card({ card, section, modalWatchLater }: CardProps) {
 
+    function handleClick() {
+        setModalVisible(!modalVisible)
+    }
+    function handleModalClose() {
+        console.log("Click")
+        setModalVisible(false)
+    }
+
     const [modalVisible, setModalVisible] = useState<boolean>(false)
     //const [sessão, setSessão] = useState<string | undefined>(section)
     const movie = new URLSearchParams({
@@ -32,47 +41,58 @@ export default function Card({ card, section, modalWatchLater }: CardProps) {
 
     const play: string = `/watch?${movie}`
     return (
-        <div className={styles.card} id={card.genero[0].toLowerCase()}>
-            <Image
-                src={card.overlay}
-                alt={card.title}
-                fill
-                placeholder="blur"
-                blurDataURL="/blurImage.png"
-                quality={35}
-                className={styles.backgroundImage}
-                priority
-                sizes="100%"
-            />
-            <div className={styles.overlay}>
-                <h3>{card.title.toUpperCase()}</h3>
-                {card.subtitle && (
-                    <h4>{card.subtitle}</h4>
-                )}
-                <p>{card.duration} - {card.genero.join(', ')}</p>
+        <>
+            <div className={styles.card} id={card.genero[0].toLowerCase()} onClick={() => handleClick()}>
+                <Image
+                    src={card.overlay}
+                    alt={card.title}
+                    fill
+                    placeholder="blur"
+                    blurDataURL="/blurImage.png"
+                    quality={35}
+                    className={styles.backgroundImage}
+                    priority
+                    sizes="100%"
+                />
+                <div className={styles.overlay}>
+                    <h3>{card.title.toUpperCase()}</h3>
+                    {card.subtitle && (
+                        <h4>{card.subtitle}</h4>
+                    )}
+                    <p>{card.duration} - {card.genero.join(', ')}</p>
 
-                <div className={styles.button_container}>
-                    <div className={styles.watch}>
-                        <Link href={`${play}`}>
-                            <button>
-                                <FaPlay size={15} />
-                            </button>
-                        </Link>
+                    <div className={styles.button_container}>
+                        <div className={styles.watch}>
+                            <Link href={`${play}`}>
+                                <button>
+                                    <FaPlay size={15} />
+                                </button>
+                            </Link>
 
-                    </div>
-                    <div className={styles.queue}>
-                        <FaRegClock size={20} />
-                    </div>
-                    <div className={`${styles.star} ${styles.queue}`}>
-                        <FaStar size={20} />
-                    </div>
-                    <div className={`${styles.star} ${styles.queue}`} onClick={() => setModalVisible(true)}>
-                        <FaInfoCircle size={20} />
+                        </div>
+                        <div className={styles.queue}>
+                            <FaRegClock size={20} />
+                        </div>
+                        <div className={`${styles.star} ${styles.queue}`}>
+                            <FaStar size={20} />
+                        </div>
+                        <div className={`${styles.star} ${styles.queue}`} onClick={() => setModalVisible(true)}>
+                            <FaInfoCircle size={20} />
+                        </div>
                     </div>
                 </div>
+
             </div>
 
-        </div>
+            {modalVisible &&
+                <div className={styles.modalInfo}>
+                    <CardInfoModal
+                        card={card}
+                        handleModalClose={handleModalClose}
+                    />
+                </div>
+            }
+        </>
     )
 }
 

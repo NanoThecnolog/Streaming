@@ -12,7 +12,79 @@ export const cards: CardsProps[] = [
     duration: "",
     genero: [""]
     },
+    
     */
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2Fnt2ReQXxU1bk2o6JNpZzD0Y5mrx.jpg&f=1&nofb=1&ipt=f074742dca23bd7cef8798a810c477e8106e876e01dc7b813b7908a6ed517a50&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F1drWAmWvOalrGAV6PGdwMowSJVW.jpg&f=1&nofb=1&ipt=f771166f7c16659a810f40c2c6fe72dbce3872f485f256b7587adb4975fdf936&ipo=images",
+        title: "Matrix",
+        subtitle: "Revolution",
+        description: "Após enfrentar os sentinelas no mundo real, Neo, a maior esperança da humanidade, está preso entre a Matrix e a realidade. A maioria da população do planeta permanece em um estado de suspensão da realidade virtual. Os poucos humanos que estão cientes das duras realidades tentam desesperadamente afastar as máquinas a tempo de Neo escapar e salvar o dia. Mas as coisas pioram quando o poderoso programa de computador, Agente Smith, aparece na forma humana.",
+        src: "https://drive.google.com/file/d/1cUBYcc5noLTgyr1PAwgI0DVobAwnjx7h/preview",
+        duration: "02h 09m",
+        genero: ["Ação", "Ficção Científica"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.wallpaperflare.com%2Fstatic%2F580%2F391%2F793%2Fthe-matrix-movies-neo-keanu-reeves-wallpaper.jpg&f=1&nofb=1&ipt=025ff314b2e10427bcf1a09883de73f840e8fe60736d7f37d964e63ad281c0fd&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FpEoqbqtLc4CcwDUDqxmEDSWpWTZ.jpg&f=1&nofb=1&ipt=59c3ea3eb4367a1d1bd3a65e40b4bca0b26d4c17c6bc8b01824b3d928ff13f56&ipo=images",
+        title: "Matrix",
+        subtitle: "",
+        description: "O jovem programador Thomas Anderson é atormentado por estranhos pesadelos em que está sempre conectado por cabos a um imenso sistema de computadores do futuro. À medida que o sonho se repete, ele começa a desconfiar da realidade. Thomas conhece os misteriosos Morpheus e Trinity e descobre que é vítima de um sistema inteligente e artificial chamado Matrix, que manipula a mente das pessoas e cria a ilusão de um mundo real enquanto usa os cérebros e corpos dos indivíduos para produzir energia.",
+        src: "https://drive.google.com/file/d/1Ffx2nq5lLMcgGjlDXB3r-knf3iwGqGwZ/preview",
+        duration: "02h 16m",
+        genero: ["Ação", "Ficção Científica"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wallpapersden.com%2Fimage%2Fdownload%2Fghostbusters-2021-movie_bG5saGaUmZqaraWkpJRmbmdlrWZlbWU.jpg&f=1&nofb=1&ipt=0a2682ea5bf6dbf5aee07eb295dfaae3d2a5acd69f06f5eb29e3c3221811ad33&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn32.ntcdn.pro%2Ftestme%2Fdle2%2Fposts%2F2024-08%2F719aIhGrTrJ0yzkZ806Ea4rbonV.jpg&f=1&nofb=1&ipt=ce1040a87cd1864927bd9505ca374df7e529fd2d5bfe67a5e9fe5c14c3a817a3&ipo=images",
+        title: "Ghostbusters",
+        subtitle: "Mais Além",
+        description: "Uma mãe solo e seus dois filhos se mudam para uma nova cidade e descobrem que têm uma conexão com os Caça-Fantasmas originais e o legado secreto de seu avô.",
+        src: "https://drive.google.com/file/d/1-7MAlM13mL-I47wGhOD90vppWxyPsD5a/preview",
+        duration: "02h 04m",
+        genero: ["Comédia", "Aventura", "Fantasia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FwfdHCilp8cNPK7tK4jLgdUT7703.jpg&f=1&nofb=1&ipt=0d2680cb9d9fd1bb3e4c4a9cfa2756f6609df8fe014bceb0d53295317848a6e1&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.theposterdb.com%2Fprod%2Fpublic%2Fimages%2Fposters%2Foptimized%2Fmovies%2F1682829%2FKVxQ8a5bbLIfLWSyHcRSEOXxiDqKpqPMhboEZY6Q.jpg&f=1&nofb=1&ipt=8fdd4a26c984f68580c3996d5ad07e527e15414081b73d7e57d224db2197a5c8&ipo=images",
+        title: "Rick Stanicky",
+        subtitle: "",
+        description: "Após uma pegadinha, três adolescentes acabaram queimando a casa de um vizinho. Para escaparem de punição, eles inventam uma outra pessoa para assumir a culpa: Ricky Stanicky. Mais de 20 anos depois, os três caras continuam colocando a culpa no sujeito. Incomodadas com a má influência, as esposas dos três exigem um encontro com Stanicky, o que obrigou o grupo a contratar um ator para viver o cara.",
+        src: "https://drive.google.com/file/d/1eV0qyTnfZlg5lVvT2glHP7TN8ui7KXS9/preview",
+        duration: "01h 54m",
+        genero: ["Comédia", "Prime Video"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsimkl.in%2Ffanart%2F11%2F11016130fb71dd0025_medium.jpg&f=1&nofb=1&ipt=d6defe0ecaef97978e958b0198147f55b3b3c8789a21fac8179fedfe16f2eb5a&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F2.bp.blogspot.com%2F-WQnnQ8OCdss%2FVlSkVlyrjwI%2FAAAAAAAADfE%2FcsK8Vr4trbo%2Fs1600%2F127%252BHoras.jpg&f=1&nofb=1&ipt=acbd0c76dc0c23d37c3e7d90ad8a0672245439c6661fd41525e0b88b67c644fd&ipo=images",
+        title: "127 Horas",
+        subtitle: "",
+        description: "Ao explorar um cânion remoto em Utah, o alpinista e aventureiro Aron Ralston fica preso em uma fenda quando uma pedra cai. Nos cinco dias seguintes, Ralston examina sua vida e considera suas opções, as quais o levam a uma situação angustiante. Aron precisa tomar uma atitude para que possa se libertar e tentar voltar para a civilização.",
+        src: "https://drive.google.com/file/d/1dynuM5hIgh4OGY0m1kKWixTZjFmPGHKv/preview",
+        duration: "01h 34m",
+        genero: ["Aventura", "Suspense"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fsn8shU6NtmweFJnRsUnGVXtT22P.jpg&f=1&nofb=1&ipt=b158a42691c0520c67e79e485a79a5fb28922bce9135d5d50caeaa5127999026&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Fw500%2Fm3291Tju4htO3p6P2TG5G8nrAx9.jpg&f=1&nofb=1&ipt=6ea34bbeb628e34194f93923e28d71d755cedba1e1183ceea072174f173c5caf&ipo=images",
+        title: "Guerra Sem Regras",
+        subtitle: "",
+        description: "A história da primeira organização de forças especiais, formada durante a Segunda Guerra pelo primeiro-ministro britânico Winston Churchill e um pequeno grupo de oficiais militares. A unidade de combate ultrassecreta, composta por uma heterogênea equipe de insubordinados e rebeldes, deve enfrentar uma audaciosa missão contra os nazistas lançando mão de técnicas não convencionais e nada cavalheirescas.",
+        src: "https://drive.google.com/file/d/1JOcPcDDm29TcMaPT952jMHFx1HrJzWd-/preview",
+        duration: "02h 01m",
+        genero: ["Ação", "Comédia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.slashfilm.com%2Fwp%2Fwp-content%2Fimages%2FI-Am-Legend.jpg&f=1&nofb=1&ipt=e8440820924799e4ff16f31de8e30f339caab3a34f0b6d9a8628d7e12c65340a&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcafecomnerd.com.br%2Fwp-content%2Fuploads%2F2022%2F03%2FEu-sou-a-lenda-2-Will-Smith.jpg&f=1&nofb=1&ipt=e71f162eb922512423818a7d02b9de1191be166b1c8c313d7a309b45cef40360&ipo=images",
+        title: "Eu Sou a Lenda",
+        subtitle: "",
+        description: "Robert Neville é um brilhante cientista e o único sobrevivente de uma epidemia que transformou os humanos em mutantes sedentos por sangue. Andando pela cidade de Nova York, ele procura por outros possíveis sobreviventes e tenta achar a cura da praga usando seu próprio sangue, que é imune.",
+        src: "https://drive.google.com/file/d/1HdYNkRSbUpOwTUvI5Egr0Qm0_fDDShEC/preview",
+        duration: "01h 41m",
+        genero: ["Ação", "Suspense"]
+    },
+
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fgetwallpapers.com%2Fwallpaper%2Ffull%2F0%2F2%2F5%2F839892-spiderman-2018-wallpaper-1920x1080-photos.jpg&f=1&nofb=1&ipt=c3cac6ed5595cae5d72881a41c8f0e0359f21de9437ecc276097968ec49acea8&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmusicart.xboxlive.com%2F7%2F94fc5000-0000-0000-0000-000000000002%2F504%2Fimage.jpg%3Fw%3D1920%26h%3D1080&f=1&nofb=1&ipt=b10399b40985d38f1adf4b1b0ea123e9349831d4bb6700d99a38802459b28742&ipo=images",
@@ -769,10 +841,7 @@ export const cards: CardsProps[] = [
         description: "Em uma cidade onde pessoas com superpoderes são vigiadas e oprimidas, um ex-criminoso se une a um traficante para proteger uma adolescente de um policial corrupto.",
         src: "https://drive.google.com/file/d/1KlI6MA-cUTT2thodBQstKk8i1ezuNVfs/preview",
         duration: "1h 40m",
-        genero: ["Ação",
-            "Suspense",
-            "Super poderes"
-        ]
+        genero: ["Ação", "Suspense", "Super poderes", "Ficção Científica"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FraspMdRYIj0cCF6SQH8NQ1lLLMB.jpg&f=1&nofb=1&ipt=306b8fadf586a938ccb327bff62898d1e8c7e6ae76e627e7467600097c466a66&ipo=images",
@@ -782,10 +851,7 @@ export const cards: CardsProps[] = [
         description: "Em um mundo em que 4% da população nasce com poderes sobrenaturais, um jovem usa seu dom para cometer uma série de pequenos crimes, mas é caçado por uma força policial militarizada.",
         src: "https://drive.google.com/file/d/1JCiiYuVCrN7_4SJXf5ue9EMoxwZoqOa2/preview",
         duration: "1h 38m",
-        genero: ["Ação",
-            "Ficção Científica",
-            "Super poderes"
-        ]
+        genero: ["Ação", "Ficção Científica", "Super poderes", "Suspense"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2023%2F01%2Fx-a-marca-da-morte-mia-goth-maxxxine-foto-reproducao.jpg&f=1&nofb=1&ipt=8bb5e4854bd79777f4e69c195e4b5628b465b9f7c5fdffce246cabff446b57cc&ipo=images",

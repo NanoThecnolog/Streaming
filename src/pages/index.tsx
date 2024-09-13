@@ -49,13 +49,14 @@ export default function Home() {
               handleOpenModal={handleOpenModalWatchLater}
               section="aventura"
             />
-            <CardContainer
-              handleOpenModal={handleOpenModalWatchLater}
-              section="drama"
-            />
+
             <CardContainer
               handleOpenModal={handleOpenModalWatchLater}
               section="suspense"
+            />
+            <CardContainer
+              handleOpenModal={handleOpenModalWatchLater}
+              section="comédia"
             />
             <CardContainer
               handleOpenModal={handleOpenModalWatchLater}
@@ -63,8 +64,13 @@ export default function Home() {
             />
             <CardContainer
               handleOpenModal={handleOpenModalWatchLater}
-              section="comédia"
+              section="drama"
             />
+            <CardContainer
+              handleOpenModal={handleOpenModalWatchLater}
+              section="ficção científica"
+            />
+
             <CardContainer
               handleOpenModal={handleOpenModalWatchLater}
               section="fantasia"

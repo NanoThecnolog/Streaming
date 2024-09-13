@@ -2,18 +2,21 @@ import { CardsProps } from "@/@types/Cards"
 import styles from './styles.module.scss'
 import { IoCloseCircle } from "react-icons/io5"
 import { FaCirclePlay } from "react-icons/fa6"
-import Link from "next/link"
 import { IoIosAddCircleOutline } from "react-icons/io"
+import Router from "next/router"
+import { CircleX, CircleXIcon, X } from "lucide-react"
 
-export default function CardInfoModal(card: CardsProps) {
+interface InfoModalProps {
+    card: CardsProps;
+    handleModalClose: () => void
+}
 
+export default function CardInfoModal({ card, handleModalClose }: InfoModalProps) {
 
-    function setModalVisible(state: boolean) {
-
-    }
     function modalWatchLater(title: string, subTitle?: string) {
 
     }
+
 
     const movie = new URLSearchParams({
         title: `${card.title}`,
@@ -23,28 +26,32 @@ export default function CardInfoModal(card: CardsProps) {
 
     const play: string = `/watch?${movie}`
 
+    function handlePlay() {
+
+        Router.push(play)
+    }
+
     return (
 
         <div className={styles.movie_desc}>
             <div className={styles.modal_content}>
                 <div className={styles.desc_image} style={{ backgroundImage: `url(${card.background})` }}>
-                    <div>
-                        <div className={styles.close_btn} onClick={() => setModalVisible(false)}>
-                            <IoCloseCircle size={35} color="#313131" />
+                    <div className={styles.imageBackground}>
+                        <div className={styles.close_btn} onClick={handleModalClose}>
+                            <X size={30} />
                         </div>
                     </div>
                 </div>
                 <div className={styles.desc_top}>
-                    <h1>{card.title}</h1>
-                    {card.subtitle && (
-                        <h3 className={styles.subtitulo}>{card.subtitle}</h3>
-                    )}
-                    <div className={styles.button_selection}>
-                        <div className={styles.watch}>
-                            <Link href={`${play}`}>
-                                <h3>Play</h3>
-                                <FaCirclePlay size={35} color="#772626" />
-                            </Link>
+                    <h1 className={styles.titulo}>{card.title} {card.subtitle && (
+                        <span className={styles.subtitulo}> - {card.subtitle}</span>
+                    )}</h1>
+
+                    <div className={styles.button_container}>
+                        <div className={styles.watch} onClick={handlePlay}>
+                            <h3>Play</h3>
+                            <FaCirclePlay size={35} color="#fff" />
+
                         </div>
                         <div className={styles.queue} onClick={() => modalWatchLater(card.title, card.subtitle)}>
                             <h3>Assistir mais tarde</h3>
@@ -54,9 +61,9 @@ export default function CardInfoModal(card: CardsProps) {
                     </div>
                 </div>
                 <div className={styles.gen_mid}>
-                    <p>{card.genero.map((gen, index) => (
+                    <p>"{card.genero.map((gen, index) => (
                         <span key={index}>{gen}{index < card.genero.length - 1 && ", "}</span>
-                    ))}
+                    ))}"
                     </p>
                 </div>
                 <div className={styles.desc_mid}>

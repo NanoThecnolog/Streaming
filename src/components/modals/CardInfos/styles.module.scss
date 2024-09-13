@@ -1,8 +1,151 @@
 .movie_desc {
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    width: 650px;
-    height: 700px;
-    background-color: aqua;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 100px);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    backdrop-filter: blur(4px);
+
+    .modal_content {
+        border-radius: 8px;
+        width: 100%;
+        max-width: 980px;
+        position: relative;
+        background-color: rgba(51, 51, 51, 1);
+        z-index: 999;
+        padding-bottom: 2rem;
+
+
+        .desc_image {
+            width: 100%;
+            height: 60vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+            object-position: center;
+            border-radius: 8px;
+
+            .imageBackground {
+                width: 100%;
+                height: 100%;
+                background: rgb(51, 51, 51);
+                background: linear-gradient(0deg,
+                        rgba(51, 51, 51, 1) 0%,
+                        rgba(255, 255, 255, 0) 36%);
+
+                .close_btn {
+                    display: flex;
+                    justify-content: flex-end;
+                    padding: 10px;
+                    color: var(--white);
+                    cursor: pointer;
+
+                    svg {
+                        transition: all 0.1s;
+                        border-radius: 2rem;
+                        //border: 2px solid var(--red);
+                        background-color: rgba(51, 51, 51);
+                        padding: 7px;
+                        filter: brightness(1.2);
+
+                        &:hover {
+                            transform: scale(1.1);
+                        }
+                    }
+
+                }
+            }
+        }
+
+        .desc_top {
+            padding: 1rem;
+
+
+            .titulo {
+                font-size: 2.5rem;
+                font-family: "Bebas Neue", cursive;
+                color: var(--white);
+                margin-bottom: 0;
+                border-bottom: 5px solid var(--red);
+                display: flex;
+                align-items: center;
+
+                .subtitulo {
+                    font-size: 1.7rem;
+                    font-weight: 300;
+                    font-family: "Bebas Neue", cursive;
+
+                    color: var(--white);
+                    padding-left: 0.4rem;
+                }
+            }
+
+            .button_container {
+                display: flex;
+                padding-top: 15px;
+                gap: 10px;
+
+                .watch {
+                    padding: 10px 30px;
+                    background-color: var(--red);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                    transition: all 0.2s;
+                    cursor: pointer;
+                    color: var(--white);
+
+                    &:hover {
+                        background-color: var(--red-selected);
+                    }
+
+                }
+
+                .queue {
+                    padding: 10px 30px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                    color: var(--white);
+                    background-color: var(--grey);
+                    cursor: pointer;
+                    transition: all 0.2s;
+
+                    &:hover {
+                        background-color: var(--grey-selected);
+                    }
+                }
+
+            }
+        }
+
+        .gen_mid {
+            padding: 0 0 0.5rem 1rem;
+
+            p {
+                font-family: "Roboto", sans-serif;
+                color: var(--white);
+                font-style: italic;
+            }
+        }
+
+        .desc_mid {
+            padding: 0 1rem 1rem 1rem;
+
+            p {
+                color: var(--white);
+                font-family: "Roboto", sans-serif;
+                font-size: 1.2rem;
+            }
+        }
+
+    }
 }
