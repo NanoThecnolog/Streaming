@@ -61,9 +61,11 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
                     </div>
                 </div>
                 <div className={styles.gen_mid}>
-                    <p>"{card.genero.map((gen, index) => (
-                        <span key={index}>{gen}{index < card.genero.length - 1 && ", "}</span>
-                    ))}"
+                    <p>&quot;
+                        {card.genero.map((gen, index) => (
+                            <span key={index}>{gen}{index < card.genero.length - 1 && ", "}</span>
+                        ))}
+                        &quot;
                     </p>
                 </div>
                 <div className={styles.desc_mid}>
