@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import CardContainer from "@/components/CardContainer";
 import Footer from "@/components/Footer";
 import WatchLater from "@/components/modals/WatchLater";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Top from "@/components/Top";
 
 import styles from "@/styles/Home.module.scss";
@@ -17,6 +17,33 @@ export default function Home() {
   const [visible, setVisible] = useState(false)
   const [movieTitle, setMovieTitle] = useState<string | null>(null)
   const [movieSubTitle, setMovieSubTitle] = useState<string | null>(null)
+  const [cardPerContainer, setCardPerContainer] = useState<number>(5)
+
+  useEffect(() => {
+    function handleResize() {
+      const width = window.innerWidth;
+      console.log(width)
+
+      //ajustar os breakpoints depois
+      if (width < 780) {
+        setCardPerContainer(1)
+      } else if (width < 1100) {
+        setCardPerContainer(2)
+      } else if (width < 1480) {
+        setCardPerContainer(3)
+      } else if (width < 1650) {
+        setCardPerContainer(4)
+      } else {
+        setCardPerContainer(5)
+      }
+
+    }
+    window.addEventListener('resize', handleResize)
+
+    handleResize()
+
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   function handleCloseModalWatchLater() {
     setVisible(false);
@@ -45,52 +72,64 @@ export default function Home() {
             <CardContainer
               handleOpenModal={handleOpenModalWatchLater}
               section="ação"
+              cardPerContainer={cardPerContainer}
             />
             <CardContainer
               handleOpenModal={handleOpenModalWatchLater}
               section="aventura"
+              cardPerContainer={cardPerContainer}
             />
             <Search />
             <CardContainer
               handleOpenModal={handleOpenModalWatchLater}
               section="suspense"
+              cardPerContainer={cardPerContainer}
             />
             <CardContainer
               handleOpenModal={handleOpenModalWatchLater}
               section="comédia"
+              cardPerContainer={cardPerContainer}
             />
             <CardContainer
               handleOpenModal={handleOpenModalWatchLater}
               section="terror"
+              cardPerContainer={cardPerContainer}
             />
             <CardContainer
               handleOpenModal={handleOpenModalWatchLater}
               section="drama"
+              cardPerContainer={cardPerContainer}
             />
             <CardContainer
               handleOpenModal={handleOpenModalWatchLater}
               section="ficção científica"
+              cardPerContainer={cardPerContainer}
             />
 
             <CardContainer
               handleOpenModal={handleOpenModalWatchLater}
               section="fantasia"
+              cardPerContainer={cardPerContainer}
             />
             <CardContainer
               handleOpenModal={handleOpenModalWatchLater}
               section="romance"
+              cardPerContainer={cardPerContainer}
             />
             <CardContainer
               handleOpenModal={handleOpenModalWatchLater}
               section="marvel"
+              cardPerContainer={cardPerContainer}
             />
             <CardContainer
               handleOpenModal={handleOpenModalWatchLater}
               section="DC"
+              cardPerContainer={cardPerContainer}
             />
             <CardContainer
               handleOpenModal={handleOpenModalWatchLater}
               section="animação"
+              cardPerContainer={cardPerContainer}
             />
 
           </div>

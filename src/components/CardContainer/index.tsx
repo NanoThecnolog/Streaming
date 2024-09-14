@@ -10,38 +10,19 @@ import { MdNavigateBefore } from "react-icons/md";
 interface ContainerProps {
     section: string
     handleOpenModal: (title: string, subTitle?: string) => void;
+    cardPerContainer: number
 }
 
-export default function CardContainer({ section, handleOpenModal }: ContainerProps) {
+export default function CardContainer({ section, handleOpenModal, cardPerContainer }: ContainerProps) {
     const [currentIndex, setCurrentIndex] = useState(0)
-    const [cardsPerPage, setCardsPerPage] = useState(5);
+    const [cardsPerPage, setCardsPerPage] = useState(cardPerContainer);
     const filteredCards = cards.filter(card => card.genero.some(gen => gen.toLowerCase() === section?.toLowerCase()))
 
     useEffect(() => {
-        function handleResize() {
-            const width = window.innerWidth;
-            console.log(width)
-
-            //ajustar os breakpoints depois
-            if (width < 780) {
-                setCardsPerPage(1)
-            } else if (width < 1100) {
-                setCardsPerPage(2)
-            } else if (width < 1480) {
-                setCardsPerPage(3)
-            } else if (width < 1650) {
-                setCardsPerPage(4)
-            } else {
-                setCardsPerPage(5)
-            }
-
+        if (cardPerContainer) {
+            setCardsPerPage(cardPerContainer)
         }
-        window.addEventListener('resize', handleResize)
-
-        handleResize()
-
-        return () => window.removeEventListener('resize', handleResize)
-    }, [])
+    }, [cardPerContainer])
 
     function nextPage() {
         if (currentIndex + 1 < filteredCards.length) {
