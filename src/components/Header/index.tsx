@@ -5,18 +5,11 @@ import Router from "next/router";
 import styles from './styles.module.scss'
 import { useState } from "react";
 
-interface HeaderProps {
-    handleSearching?: (movie: string) => void;
-}
-
-export default function Header({ handleSearching }: HeaderProps) {
+export default function Header() {
     const [searchInput, setSearchInput] = useState<string>('')
 
     function handleSearch(input: string) {
         const search = new URLSearchParams({ input: input });
-        if (handleSearching) {
-            handleSearching(input)
-        }
         Router.push(`/search?${search.toString()}`);
     }
     function handleUserClick() {

@@ -15,6 +15,16 @@ export const cards: CardsProps[] = [
     
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.collider.com%2Fwp-content%2Fuploads%2F2016%2F03%2Fbatman-v-superman-dawn-of-justice-image.jpg&f=1&nofb=1&ipt=88176495630c74386c97c9e7f105596dbc40d546a8ef88a6cd0cae9ad862a3ec&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2Fvh6pjeGH0GQupLepPCZn5PylcRg.jpg&f=1&nofb=1&ipt=768b7bd341aa5bc0b565101ca3955d1bcb41bf66ebaac77fee5d85dcc033eb34&ipo=images",
+        title: "Batman vs Superman",
+        subtitle: "A Origem da Justiça",
+        description: "O confronto entre Superman e Zod em Metrópolis fez a população mundial se dividir sobre a presença de extraterrestres na Terra. Enquanto muitos consideram Superman um novo deus, há aqueles que entendem ser extremamente perigosa a existência de um ser tão poderoso sem qualquer tipo de controle. Bruce Wayne é um dos que acreditam nesta segunda hipótese. Sob o manto de um Batman violento e obcecado, ele enfrenta Superman enquanto o mundo se pergunta que tipo de herói precisa.",
+        src: "https://drive.google.com/file/d/1nZl5FpWzhE5zlw8sGChziRoI_ZiVKMKx/preview",
+        duration: "02h 31m",
+        genero: ["Ação", "DC", "Ficção Científica", "Super Herói"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2Fnt2ReQXxU1bk2o6JNpZzD0Y5mrx.jpg&f=1&nofb=1&ipt=f074742dca23bd7cef8798a810c477e8106e876e01dc7b813b7908a6ed517a50&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F1drWAmWvOalrGAV6PGdwMowSJVW.jpg&f=1&nofb=1&ipt=f771166f7c16659a810f40c2c6fe72dbce3872f485f256b7587adb4975fdf936&ipo=images",
         title: "Matrix",
@@ -1005,11 +1015,7 @@ export const cards: CardsProps[] = [
         description: "Ethan Hunt e sua equipe devem rastrear uma nova arma que pode ameaçar toda a humanidade se cair em mãos erradas. Com o destino do mundo em jogo, se inicia uma corrida mortal ao redor do globo. Confrontado por um inimigo misterioso e poderoso, Ethan é forçado a considerar que talvez nada importe mais do que a missão, nem mesmo as vidas daqueles com quem ele mais se importa.",
         src: "https://drive.google.com/file/d/1hzxcRpOMzKccYTgjkrFPXUVURxrZ6uw-/preview",
         duration: "2h 43m",
-        genero: ["Lançamento",
-            "Ação",
-            "Suspense",
-            "Alta"
-        ]
+        genero: ["Ação", "Suspense"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi0.wp.com%2Fthedisinsider.com%2Fwp-content%2Fuploads%2F2022%2F06%2Fimage0-2022-06-14T092638.174.jpeg%3Ffit%3D3264%252C1836%26ssl%3D1&f=1&nofb=1&ipt=8ae7d225eab372370b3c41a610c1879cf9ea482901003dc023ae2105a794c1ab&ipo=images",
@@ -1033,11 +1039,7 @@ export const cards: CardsProps[] = [
         description: "Impulsionado pela restauração de sua fé na humanidade e inspirado pelo ato altruísta do Superman, Bruce Wayne convoca sua nova aliada Diana Prince para o combate contra um inimigo ainda maior, recém-despertado. Juntos, Batman e Mulher-Maravilha buscam e recrutam com agilidade um time de meta-humanos, mas mesmo com a formação da liga de heróis sem precedentes o ataque ao planeta ainda pode ser catastrófico.",
         src: "https://drive.google.com/file/d/1-k3rhJUWNF1htmeqtgHY4xLTkaPkRHDP/preview",
         duration: "4h 02m",
-        genero: ["Alta",
-            "Ação",
-            "Aventura",
-            "DC"
-        ]
+        genero: ["Ação", "Super Herói", "DC"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fhn5TleW44PcZCejyz0BHdLch5yy.jpg&f=1&nofb=1&ipt=1b12df4fc13832960f1ca49b7313a9d295ec61530a454a1b3d8f574fcd8dd62a&ipo=images",

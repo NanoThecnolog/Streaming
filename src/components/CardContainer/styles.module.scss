@@ -44,23 +44,44 @@
 
         .beforeButton {
             position: absolute;
-            top: 50%;
+            top: 0;
             right: 99%;
             color: white;
             border-radius: 4px;
+            height: 600px;
+            margin: 0 0.4rem;
+            transition: all 0.2s;
+
+            &:hover {
+                background-color: #c0c0c0;
+                color: #000;
+            }
         }
 
         .nextButton {
             position: absolute;
             color: white;
-            top: 50%;
+            top: 0;
             left: 99%;
             border-radius: 4px;
+            //border: 2px solid #141414;
+            height: 600px;
+            margin: 0 0.4rem;
+            transition: all 0.2s;
+
+            &:hover {
+                background-color: #c0c0c0;
+                color: #000;
+            }
         }
 
         button:disabled {
             background-color: none;
             cursor: not-allowed;
+
+            &:hover {
+                background-color: none;
+            }
         }
     }
 

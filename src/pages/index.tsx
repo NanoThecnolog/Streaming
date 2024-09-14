@@ -8,6 +8,7 @@ import { useState } from "react";
 import Top from "@/components/Top";
 
 import styles from "@/styles/Home.module.scss";
+import Search from "@/components/Searching";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -49,7 +50,7 @@ export default function Home() {
               handleOpenModal={handleOpenModalWatchLater}
               section="aventura"
             />
-
+            <Search />
             <CardContainer
               handleOpenModal={handleOpenModalWatchLater}
               section="suspense"
