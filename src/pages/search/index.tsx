@@ -32,7 +32,7 @@ export default function Search() {
 
     return (
         <>
-            <Header handleSearching={searchingMovie} />
+            <Header />
             <div className={styles.container}>
 
                 {searchCards ? searchCards?.map((card, index) => {
