@@ -15,6 +15,16 @@ export const cards: CardsProps[] = [
     
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbr.web.img2.acsta.net%2Fpictures%2F24%2F03%2F15%2F08%2F46%2F4543621.jpg&f=1&nofb=1&ipt=6922d39947ffb689f2643b71015c393d6c34e612ac8d1e84f2d9641dddcb320f&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fp2.trrsf.com%2Fimage%2Ffget%2Fcf%2F774%2F0%2Fimages.terra.com%2F2024%2F03%2F14%2Fgio9d0fwkaakm-6-uv8o8x2tgbja.jpg&f=1&nofb=1&ipt=4b5fe2ac9fc17d86525637e7b7ec8a952e0447e06b008c764550b7963f9ec6da&ipo=images",
+        title: "O Corvo",
+        subtitle: "2024 - Legendado",
+        description: "As almas gêmeas Eric Draven e Shelly Webster são brutalmente assassinadas quando os demônios de seu passado sombrio os alcançam. Atravessando os mundos dos vivos e dos mortos, Draven retorna em busca de vingança sangrenta contra os assassinos.",
+        src: "https://drive.google.com/file/d/12-dMBXQZql8RvQFkmAeapH4GGxmenED5/preview",
+        duration: "01h 51m",
+        genero: ["Ação", "Fantasia"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.collider.com%2Fwp-content%2Fuploads%2F2016%2F03%2Fbatman-v-superman-dawn-of-justice-image.jpg&f=1&nofb=1&ipt=88176495630c74386c97c9e7f105596dbc40d546a8ef88a6cd0cae9ad862a3ec&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2Fvh6pjeGH0GQupLepPCZn5PylcRg.jpg&f=1&nofb=1&ipt=768b7bd341aa5bc0b565101ca3955d1bcb41bf66ebaac77fee5d85dcc033eb34&ipo=images",
         title: "Batman vs Superman",
