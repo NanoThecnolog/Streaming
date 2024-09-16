@@ -11,7 +11,7 @@
     background-color: #141414;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+
 
 
 
@@ -403,11 +403,27 @@
 }
 
 //telas notebooks e monitores pequenos
-@media (min-width: 769px) and (max-width: 1024px) {}
+@media (min-width: 769px) and (max-width: 1024px) {
+    .top_container {
+        background-position: center;
+    }
+}
 
-@media (min-width: 1025px) and (max-width: 1280px) {}
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .top_container {
+        background-position: center;
+    }
+}
 
 //telas de monitores maiores
-@media (min-width: 1281px) and (max-width: 1440px) {}
+@media (min-width: 1281px) and (max-width: 1440px) {
+    .top_container {
+        background-position: center;
+    }
+}
 
-@media (min-width: 1441px) {}
+@media (min-width: 1441px) {
+    .top_container {
+        background-position: center;
+    }
+}
