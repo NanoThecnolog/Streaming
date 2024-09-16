@@ -20,13 +20,28 @@ export default function Home() {
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
   const [width, setWidth] = useState<number>()
 
+  const divisaoPorGenero = [
+    "ação",
+    "aventura",
+    "suspense",
+    "comédia",
+    "terror",
+    "romance",
+    "drama",
+    "ficção científica",
+    "fantasia",
+    "marvel",
+    "dc",
+    "animação"
+  ]
+
   useEffect(() => {
     function handleResize() {
       const width = window.innerWidth;
       //console.log(width)
       setWidth(width)
 
-      //ajustar os breakpoints depois
+      // Ajustar os breakpoints depois
       if (width < 780) {
         setCardPerContainer(1)
       } else if (width < 1100) {
@@ -47,49 +62,43 @@ export default function Home() {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
   useEffect(() => {
-    // Função para impedir o clique com o botão direito
+    // Impede o clique com o botão direito
     const handleContextMenu = (event: MouseEvent) => {
       event.preventDefault();
     };
 
-    // Função para impedir atalhos de ferramentas de desenvolvedor
+    // Impede atalhos de ferramentas de desenvolvedor
     const handleKeyDown = (event: KeyboardEvent) => {
-      // Impede F12 (Ferramentas de Desenvolvedor)
+
       if (event.key === 'F12') {
         event.preventDefault();
       }
 
-      // Impede Ctrl+Shift+I (Inspecionar Elemento)
       if (event.ctrlKey && event.shiftKey && event.key === 'I') {
         event.preventDefault();
       }
 
-      // Impede Ctrl+Shift+C (Inspecionar Elemento)
       if (event.ctrlKey && event.shiftKey && event.key === 'C') {
         event.preventDefault();
       }
 
-      // Impede Ctrl+Shift+J (Console)
       if (event.ctrlKey && event.shiftKey && event.key === 'J') {
         event.preventDefault();
       }
 
-      // Impede Ctrl+U (Ver código-fonte da página)
       if (event.ctrlKey && event.key === 'U') {
         event.preventDefault();
       }
     };
 
-    // Adiciona os eventos quando o componente é montado
     document.addEventListener('contextmenu', handleContextMenu);
     document.addEventListener('keydown', handleKeyDown);
 
-    // Remove os eventos quando o componente é desmontado
     return () => {
       document.removeEventListener('contextmenu', handleContextMenu);
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, []); // O array vazio [] garante que o efeito seja executado apenas uma vez
+  }, []);
 
 
   function handleCloseModalWatchLater() {
@@ -116,69 +125,20 @@ export default function Home() {
           <Header />
           <Top />
           <div className={styles.mid}>
-            <CardContainer
-              handleOpenModal={handleOpenModalWatchLater}
-              section="ação"
-              cardPerContainer={cardPerContainer}
-            />
-            <CardContainer
-              handleOpenModal={handleOpenModalWatchLater}
-              section="aventura"
-              cardPerContainer={cardPerContainer}
-            />
-            {width &&
-              width >= 780 && <Search />}
-            <CardContainer
-              handleOpenModal={handleOpenModalWatchLater}
-              section="suspense"
-              cardPerContainer={cardPerContainer}
-            />
-            <CardContainer
-              handleOpenModal={handleOpenModalWatchLater}
-              section="comédia"
-              cardPerContainer={cardPerContainer}
-            />
-            <CardContainer
-              handleOpenModal={handleOpenModalWatchLater}
-              section="terror"
-              cardPerContainer={cardPerContainer}
-            />
-            <CardContainer
-              handleOpenModal={handleOpenModalWatchLater}
-              section="drama"
-              cardPerContainer={cardPerContainer}
-            />
-            <CardContainer
-              handleOpenModal={handleOpenModalWatchLater}
-              section="ficção científica"
-              cardPerContainer={cardPerContainer}
-            />
+            {divisaoPorGenero.map((sec, index) => (
+              <>
+                <CardContainer
+                  key={index}
+                  handleOpenModal={handleOpenModalWatchLater}
+                  section={sec}
+                  cardPerContainer={cardPerContainer}
+                />
+                {index === 1 && <Search />}
+              </>
 
-            <CardContainer
-              handleOpenModal={handleOpenModalWatchLater}
-              section="fantasia"
-              cardPerContainer={cardPerContainer}
-            />
-            <CardContainer
-              handleOpenModal={handleOpenModalWatchLater}
-              section="romance"
-              cardPerContainer={cardPerContainer}
-            />
-            <CardContainer
-              handleOpenModal={handleOpenModalWatchLater}
-              section="marvel"
-              cardPerContainer={cardPerContainer}
-            />
-            <CardContainer
-              handleOpenModal={handleOpenModalWatchLater}
-              section="DC"
-              cardPerContainer={cardPerContainer}
-            />
-            <CardContainer
-              handleOpenModal={handleOpenModalWatchLater}
-              section="animação"
-              cardPerContainer={cardPerContainer}
-            />
+            )
+
+            )}
 
           </div>
           <Footer />
