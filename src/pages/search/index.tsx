@@ -12,6 +12,8 @@ export default function Search() {
     const router = useRouter();
     const [movie, setMovie] = useState<string>();
     const [searchCards, setSearchCards] = useState<CardsProps[]>()
+    const [cardPerContainer, setCardPerContainer] = useState<number>(5)
+    const [width, setWidth] = useState<number>()
 
     useEffect(() => {
         if (router.isReady) {
@@ -24,6 +26,33 @@ export default function Search() {
 
     }, [router.isReady, router.query, movie])
 
+    useEffect(() => {
+        function handleResize() {
+            const width = window.innerWidth;
+            //console.log(width)
+            setWidth(width)
+
+            //ajustar os breakpoints depois
+            if (width < 780) {
+                setCardPerContainer(1)
+            } else if (width < 1100) {
+                setCardPerContainer(2)
+            } else if (width < 1480) {
+                setCardPerContainer(3)
+            } else if (width < 1650) {
+                setCardPerContainer(4)
+            } else {
+                setCardPerContainer(5)
+            }
+
+        }
+        window.addEventListener('resize', handleResize)
+
+        handleResize()
+
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
+
     function searchingMovie(movie: string) {
         const filteredCards = cards.filter((card) => card.title.toLowerCase().includes(movie.toLowerCase()));
         setSearchCards(filteredCards)
@@ -33,53 +62,16 @@ export default function Search() {
     return (
         <>
             <Header />
+            <div className={styles.title}>
+                <h2>Resultados da busca:</h2>
+            </div>
             <div className={styles.container}>
 
-                {searchCards ? searchCards?.map((card, index) => {
-                    const movie = new URLSearchParams({
-                        title: `${card.title}`,
-                        subTitle: `${card.subtitle}` || "",
-                        src: `${card.src}`
-                    });
-
-                    const play: string = `/watch?${movie}`
-                    return (
-                        <Card
-                            key={index}
-                            card={card}
-                        />
-                        /*<div key={index} className={styles.card} id={card.genero[0].toLowerCase()} style={{ backgroundImage: `url(${card.overlay})` }}>
-                            <div className={styles.overlay}>
-                                <h3>{card.title.toUpperCase()}</h3>
-                                {card.subtitle && (
-                                    <h4>{card.subtitle}</h4>
-                                )}
-                                <p>{card.duration} - {card.genero.join(', ')}</p>
-
-                                <div className={styles.button_container}>
-                                    <div className={styles.watch}>
-                                        <Link href={`${play}`}>
-                                            <button>
-                                                <FaPlay size={15} />
-                                            </button>
-                                        </Link>
-
-                                    </div>
-                                    <div className={styles.queue}>
-                                        <FaRegClock size={20} />
-                                    </div>
-                                    <div className={`${styles.star} ${styles.queue}`}>
-                                        <FaStar size={20} />
-                                    </div>
-                                    <div className={`${styles.star} ${styles.queue}`}>
-                                        <FaInfoCircle size={20} />
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>*/
-                    )
-                }
+                {searchCards ? searchCards?.map((card, index) =>
+                    <Card
+                        key={index}
+                        card={card}
+                    />
                 ) : "Carregando..."}
 
             </div>
