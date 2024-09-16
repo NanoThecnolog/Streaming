@@ -15,6 +15,16 @@ export const cards: CardsProps[] = [
     
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn-images.rtp.pt%2FEPG%2Fimagens%2F32578_38722_28399.jpg%3Famp%3Bw%3D270&f=1&nofb=1&ipt=c4f5bc53341029bb1adad5b37da1cc85a67f65eb7e57d54ed316064ac99decf8&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FS%2Fpv-target-images%2Fe5a295dcc5441e9a1fd5907e191578d510ed7f8be46c5e85a5dd51354bfd3cb6.jpg&f=1&nofb=1&ipt=c3463aaa5af77b022139b0a64111fb1728301f888e08f1ab920f8367ba31a510&ipo=images",
+        title: "Orgulho e Preconceito",
+        subtitle: "",
+        description: "Elizabeth Bennet vive com sua mãe, pai e irmãs no campo, na Inglaterra. Por ser uma das filhas mais velhas, ela enfrenta uma crescente pressão de seus pais para se casar. Quando Elizabeth é apresentada ao belo e rico Darcy, faíscas voam. Embora haja uma química óbvia entre os dois, a natureza excessivamente reservada de Darcy ameaça a relação.",
+        src: "https://drive.google.com/file/d/1zc4c-wb3VgAtX5OufT3GbH5Ti35x0iLj/preview",
+        duration: "02h 07m",
+        genero: ["Romance", "Comédia"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fu2IlqBzlGqMwDnQsoskjCohgaPO.jpg&f=1&nofb=1&ipt=09728cb535ec1531f813fae8418c8912f0e5857a14485e3697d5c9fd66bc0618&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F_3N0VetpYvQE%2FSxWMkXzkNfI%2FAAAAAAAAA_Y%2FlN74D1gMERA%2Fs1600%2FMatrix_Reloaded_1.jpg&f=1&nofb=1&ipt=08527209b73117f738d037f77535a30a66af28e8d616fc383c0b0039e6318290&ipo=images",
         title: "Matrix",

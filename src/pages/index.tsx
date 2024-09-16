@@ -126,15 +126,14 @@ export default function Home() {
           <Top />
           <div className={styles.mid}>
             {divisaoPorGenero.map((sec, index) => (
-              <>
+              <div key={index}>
                 <CardContainer
-                  key={index}
                   handleOpenModal={handleOpenModalWatchLater}
                   section={sec}
                   cardPerContainer={cardPerContainer}
                 />
                 {index === 1 && <Search />}
-              </>
+              </div>
 
             )
 
