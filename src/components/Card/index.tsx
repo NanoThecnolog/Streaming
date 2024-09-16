@@ -42,7 +42,7 @@ export default function Card({ card, section, modalWatchLater }: CardProps) {
     const play: string = `/watch?${movie}`
     return (
         <>
-            <div className={styles.card} id={card.genero[0].toLowerCase()} onClick={() => handleClick()}>
+            <div className={styles.card} id={card.genero[0].toLowerCase()}>
                 <Image
                     src={card.overlay}
                     alt={card.title}
@@ -53,6 +53,7 @@ export default function Card({ card, section, modalWatchLater }: CardProps) {
                     className={styles.backgroundImage}
                     priority
                     sizes="100%"
+                    onClick={() => handleClick()}
 
 
                 />
