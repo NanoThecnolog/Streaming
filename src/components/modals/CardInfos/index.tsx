@@ -35,7 +35,7 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
 
         <div className={styles.movie_desc}>
             <div className={styles.modal_content}>
-                <div className={styles.desc_image} style={{ backgroundImage: `url(${card.background})` }}>
+                <div className={styles.desc_image} style={{ backgroundImage: `url(${card.background})`, backgroundPosition: 'center' }}>
                     <div className={styles.imageBackground}>
                         <div className={styles.close_btn} onClick={handleModalClose}>
                             <X size={30} />

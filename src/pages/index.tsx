@@ -18,11 +18,13 @@ export default function Home() {
   const [movieTitle, setMovieTitle] = useState<string | null>(null)
   const [movieSubTitle, setMovieSubTitle] = useState<string | null>(null)
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
+  const [width, setWidth] = useState<number>()
 
   useEffect(() => {
     function handleResize() {
       const width = window.innerWidth;
-      console.log(width)
+      //console.log(width)
+      setWidth(width)
 
       //ajustar os breakpoints depois
       if (width < 780) {
@@ -44,6 +46,51 @@ export default function Home() {
 
     return () => window.removeEventListener('resize', handleResize)
   }, [])
+  useEffect(() => {
+    // Função para impedir o clique com o botão direito
+    const handleContextMenu = (event: MouseEvent) => {
+      event.preventDefault();
+    };
+
+    // Função para impedir atalhos de ferramentas de desenvolvedor
+    const handleKeyDown = (event: KeyboardEvent) => {
+      // Impede F12 (Ferramentas de Desenvolvedor)
+      if (event.key === 'F12') {
+        event.preventDefault();
+      }
+
+      // Impede Ctrl+Shift+I (Inspecionar Elemento)
+      if (event.ctrlKey && event.shiftKey && event.key === 'I') {
+        event.preventDefault();
+      }
+
+      // Impede Ctrl+Shift+C (Inspecionar Elemento)
+      if (event.ctrlKey && event.shiftKey && event.key === 'C') {
+        event.preventDefault();
+      }
+
+      // Impede Ctrl+Shift+J (Console)
+      if (event.ctrlKey && event.shiftKey && event.key === 'J') {
+        event.preventDefault();
+      }
+
+      // Impede Ctrl+U (Ver código-fonte da página)
+      if (event.ctrlKey && event.key === 'U') {
+        event.preventDefault();
+      }
+    };
+
+    // Adiciona os eventos quando o componente é montado
+    document.addEventListener('contextmenu', handleContextMenu);
+    document.addEventListener('keydown', handleKeyDown);
+
+    // Remove os eventos quando o componente é desmontado
+    return () => {
+      document.removeEventListener('contextmenu', handleContextMenu);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []); // O array vazio [] garante que o efeito seja executado apenas uma vez
+
 
   function handleCloseModalWatchLater() {
     setVisible(false);
@@ -79,7 +126,8 @@ export default function Home() {
               section="aventura"
               cardPerContainer={cardPerContainer}
             />
-            <Search />
+            {width &&
+              width >= 780 && <Search />}
             <CardContainer
               handleOpenModal={handleOpenModalWatchLater}
               section="suspense"

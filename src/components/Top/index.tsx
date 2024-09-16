@@ -58,11 +58,11 @@ export default function Top() {
                     <div className={styles.button_section}>
                         <div className={styles.watch} onClick={(e) => handleWatch()}>
                             <h3>Play</h3>
-                            <FaCirclePlay size={35} color='#fff' />
+                            <FaCirclePlay color='#fff' />
                         </div>
                         <div className={styles.queue} onClick={() => toggleWatchLater(cards[cardOn].title, cards[cardOn].subtitle)}>
                             <h3>ASSISTIR MAIS TARDE</h3>
-                            <IoIosAddCircleOutline size={35} />
+                            <IoIosAddCircleOutline />
                         </div>
                     </div>
                 </div>

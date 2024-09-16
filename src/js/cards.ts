@@ -15,6 +15,16 @@ export const cards: CardsProps[] = [
     
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fu2IlqBzlGqMwDnQsoskjCohgaPO.jpg&f=1&nofb=1&ipt=09728cb535ec1531f813fae8418c8912f0e5857a14485e3697d5c9fd66bc0618&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F_3N0VetpYvQE%2FSxWMkXzkNfI%2FAAAAAAAAA_Y%2FlN74D1gMERA%2Fs1600%2FMatrix_Reloaded_1.jpg&f=1&nofb=1&ipt=08527209b73117f738d037f77535a30a66af28e8d616fc383c0b0039e6318290&ipo=images",
+        title: "Matrix",
+        subtitle: "Reloaded",
+        description: "Após derrotar as máquinas em seu combate inicial, Neo ainda vive na Nabucodonosor ao lado de Morpheus, Trinity e Link, o novo tripulante da nave. As máquinas estão realizando uma grande ofensiva contra Zion, onde 250 mil delas escavam rumo à cidade e podem alcançá-la em poucos dias. A Nabucodonosor é convocada para retornar a Zion e participar da reunião que definirá o contra-ataque para salvar a humanidade da extinção. Entretanto, um recado enviado pelo Oráculo faz com que Neo retorne à Matrix.",
+        src: "https://drive.google.com/file/d/1Oo692s7ngpz_L1sSLIgnfSpkU-F2hd-X/preview",
+        duration: "02h 18m",
+        genero: ["Ação", "Ficção Científica"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbr.web.img2.acsta.net%2Fpictures%2F24%2F03%2F15%2F08%2F46%2F4543621.jpg&f=1&nofb=1&ipt=6922d39947ffb689f2643b71015c393d6c34e612ac8d1e84f2d9641dddcb320f&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fp2.trrsf.com%2Fimage%2Ffget%2Fcf%2F774%2F0%2Fimages.terra.com%2F2024%2F03%2F14%2Fgio9d0fwkaakm-6-uv8o8x2tgbja.jpg&f=1&nofb=1&ipt=4b5fe2ac9fc17d86525637e7b7ec8a952e0447e06b008c764550b7963f9ec6da&ipo=images",
         title: "O Corvo",

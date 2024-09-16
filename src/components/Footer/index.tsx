@@ -7,15 +7,19 @@ import styles from './styles.module.scss'
 export default function Footer() {
     return (
         <div className={styles.bottom}>
-            <div className={styles.btn_row}>
-                <h4>Suporte ao assinante</h4>
-                <h4>Política de Privacidade</h4>
-                <h4>Entre em Contato</h4>
-            </div>
-            <div className={styles.btn_row}>
-                <h4>Termos de uso</h4>
-                <h4>Faça parte do nosso time</h4>
-                <h4>Avisos Legais</h4>
+            <div className={styles.links}>
+                <div className={styles.btn_row}>
+                    <h4>Suporte ao assinante</h4>
+                    <h4>Termos de uso</h4>
+                </div>
+                <div className={styles.btn_row}>
+                    <h4>Política de Privacidade</h4>
+                    <h4>Faça parte do nosso time</h4>
+                </div>
+                <div className={styles.btn_row}>
+                    <h4>Avisos Legais</h4>
+                    <h4>Entre em Contato</h4>
+                </div>
             </div>
             <div className={styles.btn_row}>
                 <div className={styles.brand}>
