@@ -46,6 +46,7 @@ export default function CardContainer({ section, handleOpenModal, cardPerContain
                     {filteredCards.slice(currentIndex, currentIndex + cardsPerPage).map((card, index) => (
                         <div className={styles.card} key={index}>
                             <Card
+                                key={index}
                                 card={card}
                                 modalWatchLater={handleOpenModal}
                                 section={section}
