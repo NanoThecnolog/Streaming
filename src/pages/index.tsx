@@ -132,7 +132,7 @@ export default function Home() {
                   section={sec}
                   cardPerContainer={cardPerContainer}
                 />
-                {index === 1 && <Search />}
+                {index === 1 && cardPerContainer >= 2 && <Search />}
               </div>
 
             )
