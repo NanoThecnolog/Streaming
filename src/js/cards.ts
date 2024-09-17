@@ -10,10 +10,19 @@ export const cards: CardsProps[] = [
     description: "",
     src: "",
     duration: "",
-    genero: [""]
-    },
-    
+    genero: ["", "", ""]
+    },    
     */
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fnv6F6tz7r61DUhE7zgHwLJFcTYp.jpg&f=1&nofb=1&ipt=18d44dc12a51c6b989fb138ec7fc8ba8e8678823f9d58c9532454db9a141c590&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.termometrooscar.com%2Fuploads%2F1%2F4%2F8%2F8%2F1488234%2Fs118581882355374300_p90_i10_w510.jpeg&f=1&nofb=1&ipt=304bdd0573b6922c656439c7893b156a8f1da4a5b79a1b2a72fde6c6174945a1&ipo=images",
+        title: "Assassino por acaso",
+        subtitle: "",
+        description: "Um assassino quebra o protocolo para ajudar uma mulher desesperada que tenta fugir de seu marido.",
+        src: "https://drive.google.com/file/d/1nj5tpLsG-sBiPps_mMI0xmy0kXKFPl0H/preview",
+        duration: "01h 50m",
+        genero: ["Comédia", "Ação", "Romance"]
+    },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn-images.rtp.pt%2FEPG%2Fimagens%2F32578_38722_28399.jpg%3Famp%3Bw%3D270&f=1&nofb=1&ipt=c4f5bc53341029bb1adad5b37da1cc85a67f65eb7e57d54ed316064ac99decf8&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FS%2Fpv-target-images%2Fe5a295dcc5441e9a1fd5907e191578d510ed7f8be46c5e85a5dd51354bfd3cb6.jpg&f=1&nofb=1&ipt=c3463aaa5af77b022139b0a64111fb1728301f888e08f1ab920f8367ba31a510&ipo=images",
@@ -948,7 +957,7 @@ export const cards: CardsProps[] = [
         title: "Maze Runner",
         subtitle: "Correr ou Morrer",
         description: "Em um futuro apocalíptico, o jovem Thomas é escolhido para enfrentar o sistema. Ele acorda dentro de um escuro elevador em movimento e não consegue se lembrar nem de seu nome. Na comunidade isolada em que foi abandonado, Thomas conhece outros garotos que passaram pela mesma situação. Para conseguir escapar, ele precisa descobrir os sombrios segredos guardados em sua mente e correr muito.",
-        src: "https://drive.google.com/file/d/1vE8bOHRd10dzVchyJI60tajEtpWHtkrQ/preview",
+        src: "https://drive.google.com/file/d/1nWX9odS5E-xQn2HRJDiqL7ggJUzBbLeZ/preview",
         duration: "1h 53m",
         genero: ["Ficção Científica",
             "Ação"
