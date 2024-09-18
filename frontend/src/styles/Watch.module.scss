@@ -10,12 +10,31 @@
     width: 100%;
     margin: 0;
     padding: 0;
+    position: relative;
+
+    .buttonPreview {
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        top: 3%;
+        left: 2%;
+        width: 50px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        svg {
+            color: var(--white);
+        }
+    }
 
     h3 {
         z-index: 99;
         position: absolute;
         top: 3%;
-        left: 2%;
+        left: 5%;
         color: #E0E0E0;
         font-size: 2rem;
     }
