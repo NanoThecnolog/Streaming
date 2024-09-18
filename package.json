@@ -1,0 +1,13 @@
+{
+  "name": "streaming",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/NanoThecnolog/Streaming.git",
+  "author": "NanoThecnolog <contato@ericssongomes.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev backend/src/server.ts",
+    "build": "cd backend && tsc",
+    "start": "node backend/dist/server.js"
+  }
+}
