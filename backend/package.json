@@ -1,14 +1,16 @@
 {
   "scripts": {
     "dev": "ts-node-dev src/server.ts",
-    "build": "tsc",
+    "build": "prisma migrate deploy && tsc",
     "start": "node src/server.js"
   },
   "dependencies": {
+    "@prisma/client": "^5.19.1",
     "axios": "^1.7.7",
     "cors": "^2.8.5",
     "express": "^4.21.0",
     "pix-payload": "^1.0.4",
+    "prisma": "^5.19.1",
     "qrcode": "^1.5.4"
   },
   "devDependencies": {
