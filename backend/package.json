@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dev": "ts-node-dev src/server.ts",
-    "build": "prisma migrate deploy && tsc",
+    "build": "npx prisma migrate deploy && tsc",
     "start": "node src/server.js"
   },
   "dependencies": {
