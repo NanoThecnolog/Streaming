@@ -2,7 +2,8 @@
   "scripts": {
     "dev": "ts-node-dev src/server.ts",
     "build": "npx prisma migrate deploy && tsc",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "postinstall": "npx prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^5.19.1",
