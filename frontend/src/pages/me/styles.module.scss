@@ -1,8 +1,30 @@
 .container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     //background-color: #858585;
-    color: var(--white)
+    color: var(--white);
+
+    .infoContainer {
+        background-color: #a7a7a7;
+        color: var(--black);
+        padding: 2rem;
+        border-radius: 1rem;
+        display: flex;
+
+        .avatarContainer {
+            width: 500px;
+            height: 500px;
+
+            .avatars {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 12px;
+
+            }
+        }
+
+    }
 }

@@ -3,6 +3,26 @@ import { CardsProps } from "@/@types/Cards";
 export const cards: CardsProps[] = [
     /*
     {
+        background: "",
+        overlay: "",
+        title: "O Agente Faixa Preta",
+        subtitle: "",
+        description: "",
+        src: "https://drive.google.com/file/d/1-LUFQgeYsuBA-4aFr8eJOR9W2lh0Uwke/preview    ",
+        duration: "01h 49m",
+        genero: ["Ação", "Netflix", "Coreano"]
+        },
+        {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fentretenimento.oportaln10.com.br%2Fwp-content%2Fuploads%2F2024%2F09%2Ffilme-feios-na-netflix.jpg&f=1&nofb=1&ipt=67021188a1af61ee6de8f2b28575fa00b588dfc90bec21aadbeb934c9d0b4ac4&ipo=images",
+        overlay: "",
+        title: "Feios",
+        subtitle: "",
+        description: "",
+        src: "https://drive.google.com/file/d/1-Xo3DU8KR4zJ5rWTcdVPLbBpT8epXyiz/preview",
+        duration: "01h 42m",
+        genero: ["Drama", "Ficção Científica", "Netflix"]
+        }, 
+    {
     background: "",
     overlay: "",
     title: "",
@@ -11,8 +31,18 @@ export const cards: CardsProps[] = [
     src: "",
     duration: "",
     genero: ["", "", ""]
-    },    
+    },
     */
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.wccftech.com%2Fwp-content%2Fuploads%2F2024%2F02%2Fborderlands-movie-poster-HD-scaled.jpg&f=1&nofb=1&ipt=508b7b8d06aa51f4fe50c16a30d6b7f5004e9f27bc78a25f8b389fbc3f50e750&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic1.srcdn.com%2Fwordpress%2Fwp-content%2Fuploads%2F2023%2F07%2Fborderlands-movie-teaser-poster.jpg&f=1&nofb=1&ipt=a0aae79eb219174a721744416ab0bde1d527bdabbd43a2b479f83ce3c5ed93ff&ipo=images",
+        title: "BorderLands",
+        subtitle: "O Destino do Universo está em jogo",
+        description: "Uma infame fora da lei forma uma aliança inesperada com uma equipe de heróis. Juntos, eles lutam contra monstros alienígenas e bandidos perigosos para encontrar uma garota desaparecida que detém a chave para um poder inimaginável.",
+        src: "https://drive.google.com/file/d/12IJ-BqXoYlkUx_r3IFBhbgEQTBj7fsKJ/preview",
+        duration: "01h 41m",
+        genero: ["Ação", "Ficção Científica"]
+    },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fnv6F6tz7r61DUhE7zgHwLJFcTYp.jpg&f=1&nofb=1&ipt=18d44dc12a51c6b989fb138ec7fc8ba8e8678823f9d58c9532454db9a141c590&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.termometrooscar.com%2Fuploads%2F1%2F4%2F8%2F8%2F1488234%2Fs118581882355374300_p90_i10_w510.jpeg&f=1&nofb=1&ipt=304bdd0573b6922c656439c7893b156a8f1da4a5b79a1b2a72fde6c6174945a1&ipo=images",
