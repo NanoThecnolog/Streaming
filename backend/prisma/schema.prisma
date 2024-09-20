@@ -21,7 +21,11 @@ model user {
   password   String
   watchLater String[]
   donator    Boolean  @default(false)
-  avatar     String
+  avatar     String?
+  verified   Boolean  @default(false)
+
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
 }
 
 model movies {
@@ -34,4 +38,7 @@ model movies {
   description String
   duration    String
   genero      String[]
+
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
 }
