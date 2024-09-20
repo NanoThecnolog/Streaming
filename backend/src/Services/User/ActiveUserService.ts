@@ -13,6 +13,7 @@ class ActiveUserService {
             }
         })
         if (!userExiste) throw new Error("Email não encontrado")
+
         const user = await prismaClient.user.update({
             where: { email },
             data: {

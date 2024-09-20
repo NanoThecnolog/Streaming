@@ -41,8 +41,8 @@ class ActiveUserController {
                     justify-content: center;
                     align-items: center;
                     font-family: "Bebas Neue", cursive;
-                    font-weight: 700;
-                    letter-spacing: 3px;
+                    font-weight: 900;
+                    letter-spacing: 2px;
                 }
                 .contentContainer{
                     display: flex;
@@ -55,6 +55,9 @@ class ActiveUserController {
                     border-radius: 2rem;
                     padding: 15px 25px;
                     background-color: #d42c2c;
+                    font-weight: 900;
+                    font-family: "Bebas Neue", cursive;
+                    letter-spacing: 2px;
                     color: #fff;
                     cursor: pointer;
                     transition: all .5s;
