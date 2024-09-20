@@ -9,7 +9,7 @@ const router = Router()
 router.get('/pix', new GeneratePixController().handle);
 
 router.post('/user', new CreateUserController().handle);
-router.post('/login', new AuthUserController().handle)
+router.post('/login', new AuthUserController().handle);
 
 router.get('/ativar', new ActiveUserController().handle);
 
