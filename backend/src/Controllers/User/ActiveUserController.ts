@@ -120,8 +120,8 @@ class ActiveUserController {
                         <h2>Sua conta foi ativada com sucesso!</h2>
                             <p>Obrigado por ativar sua conta na FlixNext =D</p>
                             <div style="padding: 10px;">
-                                <a href="https://flixnext.vercel.app">
-                                    <button class="button">Fazer Login</button>
+                                <a href="https://flixnext.vercel.app/login">
+                                    <button type="button" class="button">Fazer Login</button>
                                 </a>
                             </div>                       
                         </div>
