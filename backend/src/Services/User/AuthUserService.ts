@@ -32,6 +32,7 @@ class AuthUserService {
             name: userExiste.name,
             email: userExiste.email,
             avatar: userExiste.avatar,
+            verified: userExiste.verified,
             token: token
         }
     }

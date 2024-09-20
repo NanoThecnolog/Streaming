@@ -7,13 +7,13 @@ class ActiveUserController {
         try {
             const activeUserService = new ActiveUserService();
             const { email } = req.query;
-            console.log(email)
             if (!email) {
                 throw new Error("Email não recebido.")
             }
-            //const user = await activeUserService.execute({
-            //  email: email as string
-            //})
+            const user = await activeUserService.execute({
+                email: email as string
+            })
+            if (!user.verified) throw new Error("Usuário não verificado")
             const page = `
             <style>
                 .container{
@@ -125,7 +125,6 @@ class ActiveUserController {
             `
 
             return res.send(page)
-
         } catch (err) {
             if (err instanceof Error) {
                 return res.status(400).json({ error: err.message })
