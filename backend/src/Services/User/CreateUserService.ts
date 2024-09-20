@@ -65,9 +65,11 @@ class CreateUserService {
                 <td style="padding: 20px;">
                     <p style="font-size: 16px; margin-bottom: 20px;">Olá, ${user.name}!</p>
                     <p style="font-size: 16px; margin-bottom: 20px;">Sua conta na FlixNext foi criada com sucesso! Obrigado</p>
-                    <p style="font-size: 16px; margin-bottom: 10px;">Para completar seu cadastro, <a style="text-decoration: none;color: #007bff" href="${ActiveLink}">clique aqui</a> e ative sua conta.</p>                    
+                    <p style="font-size: 16px; margin-bottom: 10px;">Para completar seu cadastro, <a style="text-decoration: none;color: #007bff" href="${ActiveLink}">clique aqui</a> e ative sua conta.</p>
+                    <p style="font-size: 16px; margin-bottom: 10px;">Caso não esteja conseguindo clicar no link, copie e cole esse endereço no navegador:</p>
+                    <p style="font-size: 16px; margin-bottom: 10px;"> ${ActiveLink}</p>
                     <p style="font-size: 16px; margin-bottom: 20px;">Torne-se um apoiador! Faça uma doação para o projeto. Utilize o QRCode abaixo.</p>
-                    <p style="font-size: 16px; margin-bottom: 20px;"><img src=${qrCode} style="width: 50px; height: 50px;padding: 10px;"/></p>
+                    <p style="font-size: 16px; margin-bottom: 20px;text-align: center;"><img src=${qrCode} alt="QrCode Pix" style="padding: 10px;"/></p>
                     <p style="font-size: 16px; margin-bottom: 20px;">Caso queira doar um valor diferente, faça um pix utilizando essa chave-pix: 69d28ddb-5447-44ec-997a-71be04038409</p>
                     <p style="font-size: 16px;">Atenciosamente,<br/>Equipe FlixNext</p>
                 </td>
