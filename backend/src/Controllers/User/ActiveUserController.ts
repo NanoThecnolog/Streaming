@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Request, Response, text } from "express";
 import { ActiveUserService } from "../../Services/User/ActiveUserService";
 
 
@@ -13,7 +13,8 @@ class ActiveUserController {
             const user = await activeUserService.execute({
                 email: email as string
             })
-            if (!user.verified) throw new Error("Usuário não verificado")
+            const userVerified: boolean = user.verified;
+
             const page = `
             <style>
                 .container{
@@ -23,14 +24,14 @@ class ActiveUserController {
                     align-items: center;
                     height: 100vh;
                     width: 100%;
-                    color: #242424;
+                    color: #fff;
                     padding: 20px;
                     box-sizing: border-box;
                     margin: 0;
                 }
                 .cardContainer{
-                    background-color: rgba(255,255,255,0.5);
-                    backdrop-filter: blur(5px);
+                    background-color: rgba(0,0,0,0.2);
+                    backdrop-filter: blur(10px);
                     overflow: hidden;
                     border-radius: 2rem;
                     box-shadow: 5px 5px 15px 1px black;
@@ -61,7 +62,7 @@ class ActiveUserController {
                 
                 @media (max-width: 768px) {
                     .cardContainer {
-                        width: 70%;
+                        width: 90%;
                         height: auto;
                         padding: 15px;
                     }
@@ -110,15 +111,13 @@ class ActiveUserController {
             ">
                     <div class="cardContainer">
                         <div class="contentContainer">
-                            <h2>Sua conta foi ativada com sucesso!</h2>
+                        <h2>Sua conta foi ativada com sucesso!</h2>
                             <p>Obrigado por ativar sua conta na FlixNext =D</p>
                             <div style="padding: 10px;">
                                 <a href="https://flixnext.vercel.app">
-                                    <button class="button">
-                                            Fazer Login
-                                    </button>
+                                    <button class="button">Fazer Login</button>
                                 </a>
-                            </div>
+                            </div>                       
                         </div>
                     </div>
             </div>
