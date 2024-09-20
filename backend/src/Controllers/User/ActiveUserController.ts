@@ -39,7 +39,10 @@ class ActiveUserController {
                     height: 50%;
                     display: flex;
                     justify-content: center;
-                    align-items: center;                    
+                    align-items: center;
+                    font-family: "Bebas Neue", cursive;
+                    font-weight: 700;
+                    letter-spacing: 3px;
                 }
                 .contentContainer{
                     display: flex;
