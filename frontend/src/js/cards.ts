@@ -34,6 +34,16 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.mos.cms.futurecdn.net%2F55fkDAVtd5VNmCLqzvTPca.jpeg&f=1&nofb=1&ipt=d75d5ff1b8501a7caf08e7eedcaf9407ec1e5ee36460b937d5e01fb3442d33ec&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic1.srcdn.com%2Fwordpress%2Fwp-content%2Fuploads%2F2023%2F08%2Fthe-batman-2-temp-poster.jpg&f=1&nofb=1&ipt=f6d64b158e4690f6074e9602ef26ade8bf7551324fa8d87e06161340a3f4b954&ipo=images",
+        title: "The Batman",
+        subtitle: "",
+        description: "Após dois anos espreitando as ruas como Batman, Bruce Wayne se encontra nas profundezas mais sombrias de Gotham City. Com poucos aliados confiáveis, o vigilante solitário se estabelece como a personificação da vingança para a população.",
+        src: "https://drive.google.com/file/d/1Cm9jnKnfriHbFzDDMld3TXTXkZ1PgMjg/preview",
+        duration: "02h 56m",
+        genero: ["Ação", "DC", "Crime"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.wccftech.com%2Fwp-content%2Fuploads%2F2024%2F02%2Fborderlands-movie-poster-HD-scaled.jpg&f=1&nofb=1&ipt=508b7b8d06aa51f4fe50c16a30d6b7f5004e9f27bc78a25f8b389fbc3f50e750&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic1.srcdn.com%2Fwordpress%2Fwp-content%2Fuploads%2F2023%2F07%2Fborderlands-movie-teaser-poster.jpg&f=1&nofb=1&ipt=a0aae79eb219174a721744416ab0bde1d527bdabbd43a2b479f83ce3c5ed93ff&ipo=images",
         title: "BorderLands",
