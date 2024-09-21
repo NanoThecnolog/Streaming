@@ -75,6 +75,20 @@
         align-items: center;
         margin-right: 25px;
 
+        .avatarImage {
+            overflow: hidden;
+            transition: all .2s;
+            cursor: pointer;
+
+            img {
+                border-radius: 2rem;
+            }
+
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+
         .button_container {
             display: flex;
             justify-content: center;
@@ -86,24 +100,21 @@
 
             transition: all .5s;
 
-            .avatarImage {
-                overflow: hidden;
-                transition: all .2s;
-
-                img {
-                    border-radius: 2rem;
-                }
-
-                &:hover {
-                    transform: scale(1.2);
-                }
-            }
-
             &:hover {
                 color: var(--red-selected);
             }
         }
 
+    }
+
+    .dropdown {
+        display: none;
+    }
+
+    &:hover {
+        background-color: rgba(51, 51, 51, 1);
+        box-shadow: 0px 2px 10px black;
+        transition: background-color 0.3s;
     }
 
 
@@ -151,6 +162,21 @@
                 width: 100%;
                 display: flex;
                 justify-content: center;
+
+                .dropdownAvatarImage {
+                    overflow: hidden;
+                    transition: all .2s;
+                    //border-radius: 2rem;                    
+                    cursor: pointer;
+
+                    img {
+                        border-radius: 2rem;
+                    }
+
+                    &:hover {
+                        transform: scale(1.2);
+                    }
+                }
 
                 .searchInputModal {
                     display: flex;
@@ -232,6 +258,22 @@
                 display: flex;
                 justify-content: center;
 
+                .dropdownAvatarImage {
+                    overflow: hidden;
+                    transition: all .2s;
+                    //border-radius: 2rem;
+
+                    cursor: pointer;
+
+                    img {
+                        border-radius: 2rem;
+                    }
+
+                    &:hover {
+                        transform: scale(1.2);
+                    }
+                }
+
                 .searchInputModal {
                     display: flex;
                     align-items: center;
@@ -308,6 +350,21 @@
                 width: 100%;
                 display: flex;
                 justify-content: center;
+
+                .dropdownAvatarImage {
+                    overflow: hidden;
+                    transition: all .2s;
+                    //border-radius: 2rem;
+                    cursor: pointer;
+
+                    img {
+                        border-radius: 2rem;
+                    }
+
+                    &:hover {
+                        transform: scale(1.2);
+                    }
+                }
 
                 .searchInputModal {
                     display: flex;

@@ -5,6 +5,7 @@ import Router from "next/router";
 import styles from './styles.module.scss'
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { CircleUserRound, House, Search } from "lucide-react";
 
 interface HeaderProps {
     userAvatar: string | undefined;
@@ -69,14 +70,48 @@ export default function Header({ userAvatar }: HeaderProps) {
                 </div>
             </div>
             <div className={styles.right_nav}>
-                <div className={styles.button_container} onClick={handleUserClick}>
+                {avatar !== '' ? (
+                    <div className={styles.avatarImage} title="Meu Perfil">
+                        <Image src={avatar} alt="avatar" width={45} height={45} />
+                    </div>
+                ) : <FaUserCircle size={35} className={styles.loginIcon} />}
+            </div>
+
+
+
+            <div className={styles.dropdown}>
+                <div className={styles.dropdownIcon} onClick={() => handleClickHome(1)}>
+                    <House />
+                </div>
+                <div className={styles.divider}></div>
+                <div className={styles.dropdownIcon}>
+                    <Search onClick={() => handleClickHome(2)} />
+                    {searchMobileVisible &&
+                        <div className={styles.searchInputModal}>
+                            <div>
+                                <input
+                                    value={searchInput}
+                                    onChange={(e) => setSearchInput(e.target.value)}
+                                    placeholder="Procure seu filme"
+                                    className={styles.searchInput}
+                                />
+                            </div>
+                            <div>
+                                <Search onClick={() => handleSearch(searchInput)} />
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div className={styles.divider}></div>
+                <div className={styles.dropdownIcon}>
                     {avatar !== '' ? (
-                        <div className={styles.avatarImage} title="Meu Perfil">
+                        <div className={styles.dropdownAvatarImage} title="Meu Perfil">
                             <Image src={avatar} alt="avatar" width={45} height={45} />
                         </div>
                     ) : <FaUserCircle size={35} className={styles.loginIcon} />}
                 </div>
             </div>
+
 
         </div>
     )

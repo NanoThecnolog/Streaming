@@ -26,13 +26,16 @@ export default function Login() {
             })
             if (!response.data.token) return;
             //console.log(response.data)
+            if (!response.data.verified) {
+                alert("Sua Conta ainda não está ativa! O link de ativação foi enviado por email no momento da criação da conta. Por favor, acesse sua caixa de entrada ou spam e ative sua conta, através do link enviado, para acessar nossos conteúdos.")
+                return;
+            }
             const expressTime = 15 * 24 * 60 * 60 * 1000;
             const userData = JSON.stringify(response.data)
             document.cookie = `flixnext=${userData}; path=/; max-age=${expressTime}`
             //salvar a resposta Data nos cookies
             toast.success("Bem vindo!")
             Router.push('/');
-
         } catch (err) {
             if (err instanceof ErrorEvent) {
                 return toast.error(err.message)
@@ -76,7 +79,6 @@ export default function Login() {
                     <Link href={newAccount}><h3>Criar conta</h3></Link>
                 </div>
             </div>
-
         </div>
     )
 }
