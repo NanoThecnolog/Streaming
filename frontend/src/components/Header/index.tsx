@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 interface HeaderProps {
-    userAvatar: string;
+    userAvatar: string | undefined;
 }
 
 export default function Header({ userAvatar }: HeaderProps) {

@@ -3,11 +3,15 @@ import styles from './styles.module.scss'
 import Footer from "@/components/Footer";
 import { useEffect, useState } from "react";
 import { donate } from "../api/donate";
+import { getCookieClient } from "@/services/cookieClient";
+import Router from "next/router";
+import { UserProps } from "@/@types/user";
 
 export default function Me() {
 
     const [qrCodeUrl, setQrCodeUrl] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
+    const [usuario, setUsuario] = useState<UserProps | null>(null)
     const avatares = [
         "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.woueb.net%2Fimages%2Fmanga%2Fromain-manga.jpg&f=1&nofb=1&ipt=44ff213852ef9a7bbcf72a0c9e624c3e2a880f7e2c5852e751ff6a047b5d561e&ipo=images",
         "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftecnologiaviral.com%2Fwp-content%2Fuploads%2F2023%2F01%2FCrea-tus-propios-avatares-y-dibujos-de-manga-para-chats.jpg&f=1&nofb=1&ipt=cdb72a8e87acc7648ecbafcd489aa3566fc63c202aa66c4727d15d2c8a07cc1a&ipo=images",
@@ -21,6 +25,15 @@ export default function Me() {
         "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.polymerclaydaily.com%2Fimages%2Ftinapple_manga.jpg&f=1&nofb=1&ipt=c269e6060e950e008a2c0e2631ed18779fc93f95efab9092debd744757ae8907&ipo=images",
 
     ]
+
+    useEffect(() => {
+        const user = getCookieClient();
+        if (!user) {
+            Router.push('/login')
+            return
+        }
+        setUsuario(user)
+    }, [])
 
 
     async function qrCode() {
@@ -41,7 +54,7 @@ export default function Me() {
     }, []);
     return (
         <>
-            <Header />
+            <Header userAvatar={usuario?.avatar} />
             <section className={styles.container}>
                 <h1>Editar perfil</h1>
                 <div className={styles.infoContainer}>
