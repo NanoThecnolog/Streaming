@@ -27,7 +27,12 @@ export default function Login() {
             if (!response.data.token) return;
             //console.log(response.data)
             if (!response.data.verified) {
-                alert("Sua Conta ainda não está ativa! O link de ativação foi enviado por email no momento da criação da conta. Por favor, acesse sua caixa de entrada ou spam e ative sua conta, através do link enviado, para acessar nossos conteúdos.")
+                alert(
+                    "Sua conta ainda não foi ativada.\n\n" +
+                    "Um link de ativação foi enviado para o seu e-mail durante o cadastro.\n\n" +
+                    "Por favor, verifique sua caixa de entrada ou a pasta de spam e clique no link de ativação " +
+                    "para liberar o acesso ao conteúdo."
+                );
                 return;
             }
             const expressTime = 15 * 24 * 60 * 60 * 1000;
