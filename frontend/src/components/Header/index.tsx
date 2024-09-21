@@ -3,15 +3,23 @@ import Link from "next/link";
 import { CiSearch } from "react-icons/ci";
 import Router from "next/router";
 import styles from './styles.module.scss'
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 
-import { CircleUserRound, House } from 'lucide-react';
-import { Search } from 'lucide-react';
+interface HeaderProps {
+    userAvatar: string;
+}
 
-export default function Header() {
+export default function Header({ userAvatar }: HeaderProps) {
     const [searchInput, setSearchInput] = useState<string>('')
     const [menuSelected, setMenuSelected] = useState<number>(1)
+    const [avatar, setAvatar] = useState<string>('')
     const [searchMobileVisible, setSearchMobileVisible] = useState<boolean>(false)
+
+    useEffect(() => {
+        if (!userAvatar) return;
+        setAvatar(userAvatar)
+    }, [userAvatar])
 
 
     function handleSearch(input: string) {
@@ -62,38 +70,14 @@ export default function Header() {
             </div>
             <div className={styles.right_nav}>
                 <div className={styles.button_container} onClick={handleUserClick}>
-                    <FaUserCircle size={35} className={styles.loginIcon} />
-                </div>
-            </div>
-            <div className={styles.dropdown}>
-                <div className={styles.dropdownIcon} onClick={() => handleClickHome(1)}>
-                    <House />
-                </div>
-                <div className={styles.divider}></div>
-                <div className={styles.dropdownIcon}>
-                    <Search onClick={() => handleClickHome(2)} />
-                    {searchMobileVisible &&
-                        <div className={styles.searchInputModal}>
-                            <div>
-                                <input
-                                    value={searchInput}
-                                    onChange={(e) => setSearchInput(e.target.value)}
-                                    placeholder="Procure seu filme"
-                                    className={styles.searchInput}
-                                />
-                            </div>
-                            <div>
-                                <Search onClick={() => handleSearch(searchInput)} />
-                            </div>
+                    {avatar !== '' ? (
+                        <div className={styles.avatarImage} title="Meu Perfil">
+                            <Image src={avatar} alt="avatar" width={45} height={45} />
                         </div>
-                    }
-
-                </div>
-                <div className={styles.divider}></div>
-                <div className={styles.dropdownIcon}>
-                    <CircleUserRound />
+                    ) : <FaUserCircle size={35} className={styles.loginIcon} />}
                 </div>
             </div>
+
         </div>
     )
 }

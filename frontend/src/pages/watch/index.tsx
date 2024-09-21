@@ -3,6 +3,7 @@ import styles from '@/styles/Watch.module.scss';
 import { useEffect, useState } from "react";
 import Router, { useRouter } from "next/router";
 import { ChevronLeft } from 'lucide-react';
+import { getCookieClient } from "@/services/cookieClient";
 //import ReactPlayer from "react-player";
 //import { Mouse } from "lucide-react";
 //import { clearTimeout } from "timers";
@@ -15,6 +16,13 @@ export default function Watch() {
     const [movieData, setMovieData] = useState({ title: '', subTitle: '', src: '' });
     //const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
     //const [visibleTitle, setVisibleTitle] = useState<boolean>(false)
+
+    useEffect(() => {
+        const user = getCookieClient();
+        if (!user) {
+            Router.push('/login')
+        }
+    }, [])
 
     useEffect(() => {
         if (title && src) {

@@ -6,11 +6,14 @@
   --blue-selected: #1e49d2cc;
   --grey: #686868;
   --grey-selected: #a29f9f;
-  --red: rgb(212, 44, 44);
-  --red-selected: #aa2323e6;
+  --red: #d42c2c;
+  --red-selected: #aa2323;
   --white: #ececec;
   --background-gray: #272727;
   --black: #242424;
+  --font-bebas: "Bebas Neue", cursive;
+  --font-Anton: "Anton", sans-serif;
+  --font-Roboto: "Roboto", sans-serif;
 }
 
 html,
@@ -21,6 +24,7 @@ body {
   background-color: #141414;
   box-sizing: border-box;
   scroll-behavior: smooth;
+
 
 }
 

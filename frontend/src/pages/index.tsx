@@ -9,6 +9,7 @@ import Top from "@/components/Top";
 
 import styles from "@/styles/Home.module.scss";
 import Search from "@/components/Searching";
+import { getCookieClient } from "@/services/cookieClient";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,9 @@ export default function Home() {
   const [movieSubTitle, setMovieSubTitle] = useState<string | null>(null)
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
   const [width, setWidth] = useState<number>()
+
+  const userData: { id: string, name: string, email: string, avatar: string, token: string, verified: boolean } = getCookieClient();
+  console.log(userData)
 
   const divisaoPorGenero = [
     "ação",
@@ -112,7 +116,7 @@ export default function Home() {
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
         <div className={styles.content}>
-          <Header />
+          <Header userAvatar={userData?.avatar} />
           <Top />
           <div className={styles.mid}>
             {divisaoPorGenero.map((sec, index) => (
