@@ -23,7 +23,7 @@ export default function Home() {
   const [width, setWidth] = useState<number>()
 
   const userData: UserProps = getCookieClient();
-  console.log(userData)
+  //console.log(userData)
 
   const divisaoPorGenero = [
     "ação",

@@ -25,7 +25,7 @@ export default function Login() {
                 password: password
             })
             if (!response.data.token) return;
-            console.log(response.data)
+            //console.log(response.data)
             const expressTime = 15 * 24 * 60 * 60 * 1000;
             const userData = JSON.stringify(response.data)
             document.cookie = `flixnext=${userData}; path=/; max-age=${expressTime}`
