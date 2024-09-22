@@ -30,9 +30,49 @@ export const cards: CardsProps[] = [
     description: "",
     src: "",
     duration: "",
-    genero: ["", "", ""]
+    genero: ["", ""]
     },
     */
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.papodecinema.com.br%2Fwp-content%2Fuploads%2F2017%2F05%2F20170703-bg_spiderman-copy.jpg&f=1&nofb=1&ipt=9d585d7989dfbfdfd0d7bc0019068affb5c4a3395cbb89558d531628644cfc54&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.sonypictures.com.br%2Fsites%2Fbrazil%2Ffiles%2F2022-03%2FDP_3409108_TC_1400x2100_DP_3409112_SpiderManHomecoming_INTL_2017_2000x3000_BR_thumbnail_xlarge.jpg&f=1&nofb=1&ipt=6c36ca916c76457759e25c03e284f02bcc6c2e300d1b4ddf3f19927ff9d1913d&ipo=images",
+        title: "Homem-Aranha",
+        subtitle: "De volta ao Lar",
+        description: "Depois de lutar ao lado dos Vingadores, chegou a hora do jovem Peter Parker voltar para casa em Nova York ao lado de sua tia May. Sob o olhar atento do mentor Tony Stark, Peter começa a abraçar sua nova identidade como Homem-Aranha e combate diariamente pequenos crimes nas redondezas. Ele acredita que encontrou a missão de sua vida quando o terrível vilão Abutre surge ameaçando a cidade. O problema é que a tarefa não será tão fácil como ele imaginava.",
+        src: "https://drive.google.com/file/d/1J8s4HTLSYd5cOTZjX6V0fVcmW9YwhiHj/preview",
+        duration: "02h 13m",
+        genero: ["Ação", "Ficção Científica", "Marvel", "Super Herói"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages4.alphacoders.com%2F102%2Fthumb-1920-1023915.jpg&f=1&nofb=1&ipt=a1580b32cd61af90e08c5ca619144c699aa722af2740e28ca530adcf1ac715ed&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FtX0o4AdHpidgniTWwfzK0dNTKrc.jpg&f=1&nofb=1&ipt=97bdd70814c09abd2e8952f3cb7c2cc59608c56126d6c98743a2df66e8c9b174&ipo=images",
+        title: "Homem-Aranha",
+        subtitle: "Longe de Casa",
+        description: "Peter Parker está em uma viagem de duas semanas pela Europa, ao lado de seus amigos de colégio, quando é surpreendido pela visita de Nick Fury. Convocado para mais uma missão heroica, ele precisa enfrentar vários vilões que surgem em cidades-símbolo do continente, como Londres, Paris e Veneza, e também a aparição do enigmático Mysterio.",
+        src: "https://drive.google.com/file/d/16oIbq26ccGfWxWMc7InaQq0J1AG8BXLc/preview",
+        duration: "02h 10m",
+        genero: ["Ação", "Ficção Científica", "Marvel", "Super Herói"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fveja.abril.com.br%2Fwp-content%2Fuploads%2F2022%2F12%2FFILME-AVATAR-2-O-CAMINHO-DA-AGUA-2022-008.jpg.jpg%3Fresize%3D1536&f=1&nofb=1&ipt=cea289cf0e396a03fe791e76ac6bf03be222329b35df6cc5a7d297f0e3eea5c9&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2Fxu8S1eYu9wujulG4VXXTXEKDKRl.jpg&f=1&nofb=1&ipt=1d6f5fb92b7d37fb46574a5e8cfb3591fb952a1c1043fbd0435179f28cbb6a35&ipo=images",
+        title: "Avatar",
+        subtitle: "O Caminho da Água",
+        description: "Após formar uma família, Jake Sully e Ney'tiri fazem de tudo para ficarem juntos. No entanto, eles devem sair de casa e explorar as regiões de Pandora quando uma antiga ameaça ressurge, e Jake deve travar uma guerra difícil contra os humanos.",
+        src: "https://drive.google.com/file/d/17QX-0Hi8LBfnqy--1AfK8aEjCUibHou-/preview",
+        duration: "03h 12m",
+        genero: ["Ficção Científica", "Ação"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.alphacoders.com%2F476%2Fthumb-1920-476970.jpg&f=1&nofb=1&ipt=5d779d347e13ff5272aa73ba1b4b6445745bd14ab8be67cedba46dc0576f49f9&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F8Y7WrRK1iQHEX7UIftBeBMjPjWD.jpg&f=1&nofb=1&ipt=63739780b38232ab9b12ba2ccdf9c9d5d082b13267aa247a0625e59df6d7976d&ipo=images",
+        title: "Avatar",
+        subtitle: "Versão Estendida",
+        description: "No exuberante mundo alienígena de Pandora vivem os Na'vi, seres que parecem ser primitivos, mas são altamente evoluídos. Como o ambiente do planeta é tóxico, foram criados os avatares, corpos biológicos controlados pela mente humana que se movimentam livremente em Pandora. Jake Sully, um ex-fuzileiro naval paralítico, volta a andar através de um avatar e se apaixona por uma Na'vi. Esta paixão leva Jake a lutar pela sobrevivência de Pandora.",
+        src: "https://drive.google.com/file/d/1-R8d15thm7Ne_ZZs4ibTmq8diEvDRvH0/preview",
+        duration: "02h 58m",
+        genero: ["Ficção Científica", "Ação"]
+    },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.mos.cms.futurecdn.net%2F55fkDAVtd5VNmCLqzvTPca.jpeg&f=1&nofb=1&ipt=d75d5ff1b8501a7caf08e7eedcaf9407ec1e5ee36460b937d5e01fb3442d33ec&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic1.srcdn.com%2Fwordpress%2Fwp-content%2Fuploads%2F2023%2F08%2Fthe-batman-2-temp-poster.jpg&f=1&nofb=1&ipt=f6d64b158e4690f6074e9602ef26ade8bf7551324fa8d87e06161340a3f4b954&ipo=images",
@@ -41,7 +81,7 @@ export const cards: CardsProps[] = [
         description: "Após dois anos espreitando as ruas como Batman, Bruce Wayne se encontra nas profundezas mais sombrias de Gotham City. Com poucos aliados confiáveis, o vigilante solitário se estabelece como a personificação da vingança para a população.",
         src: "https://drive.google.com/file/d/1Cm9jnKnfriHbFzDDMld3TXTXkZ1PgMjg/preview",
         duration: "02h 56m",
-        genero: ["Ação", "DC", "Crime"]
+        genero: ["Ação", "DC", "Crime", "Super Herói"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.wccftech.com%2Fwp-content%2Fuploads%2F2024%2F02%2Fborderlands-movie-poster-HD-scaled.jpg&f=1&nofb=1&ipt=508b7b8d06aa51f4fe50c16a30d6b7f5004e9f27bc78a25f8b389fbc3f50e750&ipo=images",
@@ -182,17 +222,17 @@ export const cards: CardsProps[] = [
         description: "Após ser mordido por uma aranha radioativa, Miles Morales, um jovem negro do Brooklyn, se torna o Homem-Aranha, inspirado no legado do já falecido Peter Parker. Entretanto, ao visitar o túmulo de seu ídolo em uma noite chuvosa, ele é surpreendido com a presença do próprio Peter, vestindo o traje do herói por baixo de um sobretudo. A surpresa fica ainda maior quando Miles descobre que ele veio de uma dimensão paralela, assim como outras versões do Homem-Aranha.",
         src: "https://drive.google.com/file/d/1cIn12Q4t3Xaiaqf54dVB2kxbUnSG6VOt/preview",
         duration: "01h 56m",
-        genero: ["Animação", "Marvel"]
+        genero: ["Animação", "Marvel", "Super Herói"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.uhdpaper.com%2Fwallpaper%2Fmiles-morales-spider-man-across-the-spider-verse-903%400%40h-pc-4k.jpg&f=1&nofb=1&ipt=ad512d959d8c6d21ebe247c2d0fb2caaa3b009136bfe18f996c2bfd0602f1ff0&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FxxPXsL8V95dTwL5vHWIIQALkJQS.jpg&f=1&nofb=1&ipt=8c97b2f3d674a19eb56682db59c990cf680e7936d7d9ab48dd0353cc58f455dc&ipo=images",
         title: "Homem Aranha",
         subtitle: "Através do Aranhaverso",
-        description: "Depois de se reunir com Gwen Stacy, Homem-Aranha é jogado no multiverso. Lá, o super-herói aracnídeo encontra uma numerosa equipe encarregada de proteger sua própria existência.",
+        description: "Depois de se reunir com Gwen Stacy, Homem-Aranha é jogado no multiverso. Lá, o Super Herói aracnídeo encontra uma numerosa equipe encarregada de proteger sua própria existência.",
         src: "https://drive.google.com/file/d/1SgxSsNXm_cq6wmQdQwuxQXjtbAX-FPrc/preview",
         duration: "02h 14m",
-        genero: ["Animação", "Marvel"]
+        genero: ["Animação", "Marvel", "Super Herói"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpalomaynacho.com%2Fwp-content%2Fuploads%2F2023%2F04%2Fbarbie-margot-robbie-kent-ryan-gosling-patines-coche-rosa.jpg&f=1&nofb=1&ipt=851d7219a14b960b187779a334c6cd986b1f76e287ac430a9ee09aed99861de7&ipo=images",
@@ -462,7 +502,7 @@ export const cards: CardsProps[] = [
         src: "https://drive.google.com/file/d/1Zi4GcLlnPwlnWiOmtL1HkDi2czK9uEhj/preview",
         duration: "2h 4m",
         genero: ["Ação",
-            "Super-Herói",
+            "Super Herói",
             "Marvel"
         ]
 
@@ -475,7 +515,7 @@ export const cards: CardsProps[] = [
         src: "https://drive.google.com/file/d/1NESARf5orL9bHF8j-fSMyAXhFsTmCsNG/preview",
         duration: "2h 5m",
         genero: ["Ação",
-            "Super-Herói",
+            "Super Herói",
             "Marvel"
         ]
 
@@ -488,7 +528,7 @@ export const cards: CardsProps[] = [
         src: "https://drive.google.com/file/d/1F6CTOYdqIjAM7KkVwxJpm7ljWLTU3H3m/preview",
         duration: "2h 10m",
         genero: ["Ação",
-            "Super-Herói",
+            "Super Herói",
             "Marvel"
         ]
 
@@ -676,7 +716,7 @@ export const cards: CardsProps[] = [
         duration: "2h 32m",
         genero: ["Ação",
             "Suspense",
-            "DC"
+            "DC", "Super Herói"
         ]
     }, {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcloud.filmfed.com%2Fmovies%2Fimages%2Fl_8d650682-811a-482e-8524-61af9d77328b.jpg&f=1&nofb=1&ipt=547967e92aad84e496adbad378971012a2cf97fd65a997c697b26ef265ee1048&ipo=images",

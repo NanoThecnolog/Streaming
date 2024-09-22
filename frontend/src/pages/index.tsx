@@ -32,6 +32,7 @@ export default function Home() {
     "comédia",
     "terror",
     "romance",
+    "super herói",
     "drama",
     "ficção científica",
     "fantasia",

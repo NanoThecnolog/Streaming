@@ -75,6 +75,15 @@
         align-items: center;
         margin-right: 25px;
 
+        .loginIcon {
+            cursor: pointer;
+            transition: all .2s;
+
+            &:hover {
+                transform: scale(1.05)
+            }
+        }
+
         .avatarImage {
             overflow: hidden;
             transition: all .2s;

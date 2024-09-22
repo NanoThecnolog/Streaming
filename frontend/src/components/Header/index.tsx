@@ -74,7 +74,7 @@ export default function Header({ userAvatar }: HeaderProps) {
                     <div className={styles.avatarImage} title="Meu Perfil">
                         <Image src={avatar} alt="avatar" width={45} height={45} />
                     </div>
-                ) : <FaUserCircle size={35} className={styles.loginIcon} />}
+                ) : <FaUserCircle size={35} color="#fff" className={styles.loginIcon} />}
             </div>
 
 
