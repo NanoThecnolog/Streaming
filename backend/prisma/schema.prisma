@@ -31,7 +31,7 @@ model user {
 model movies {
   id          String   @id @default(uuid())
   title       String
-  subTitle    String?
+  subtitle    String?
   src         String
   background  String
   overlay     String
