@@ -5,6 +5,7 @@ import { ActiveUserController } from "./Controllers/User/ActiveUserController";
 import { AuthUserController } from "./Controllers/User/AuthUserController";
 import { EditUserController } from "./Controllers/User/EditUserController";
 import { CreateManyMovieController } from "./Controllers/Movie/CreateManyMovieController";
+import { CreateMovieController } from "./Controllers/Movie/CreateMovieController";
 
 const router = Router()
 
@@ -17,5 +18,6 @@ router.put('/user', new EditUserController().handle)
 router.get('/ativar', new ActiveUserController().handle);
 
 router.post('/movie/adicionar/varios', new CreateManyMovieController().handle)
+router.post('/movie/adicionar', new CreateMovieController().handle)
 
 export { router }
