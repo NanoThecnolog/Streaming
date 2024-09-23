@@ -36,6 +36,16 @@ export const cards: CardsProps[] = [
     
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages5.alphacoders.com%2F330%2Fthumb-1920-330769.jpg&f=1&nofb=1&ipt=7c3ea041947cd8a8bc0cfbbb17c5fc0b7a6b5e2b091cd32924ad759e73d47edd&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.kSwFiORSXMmuk_Mk9Uh8XwHaLH%26pid%3DApi&f=1&ipt=d44e01f962fc1ed0b1145693166bb7680f6b6bc726dd745575dbbc2727e3ec14&ipo=images",
+        title: "Batman",
+        subtitle: "O Cavaleiro das Trevas Ressurge",
+        description: "Após ser culpado pela morte de Harvey Dent e passar de herói a vilão, Batman desaparece. As coisas mudam com a chegada de uma ladra misteriosa, a Mulher-Gato, e Bane, um terrorista mascarado, que fazem Batman abandonar seu exílio forçado.",
+        src: "https://drive.google.com/file/d/1MY4mGqqnxBrs_PYHTadekFQIp9iTEp9W/preview",
+        duration: "02h 44m",
+        genero: ["Ação", "Suspense", "DC", "Super Herói"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallup.net%2Fwp-content%2Fuploads%2F2016%2F01%2F228956-Batman_Begins.jpg&f=1&nofb=1&ipt=d619d6094b895a8bd4d78241248b69cf21be6985df6fad7155438cea5e36e7de&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjohnsneaker.com%2Fwp-content%2Fuploads%2F2021%2F06%2Fil_fullxfull.2372028995_nrmy-1519x2048.jpg&f=1&nofb=1&ipt=25b0b45da6b489e8429069d652c0cbc5908ecf8dca28436d105dd32d23295297&ipo=images",
         title: "Batman",

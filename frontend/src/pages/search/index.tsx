@@ -55,14 +55,14 @@ export default function Search() {
 
         return () => window.removeEventListener('resize', handleResize)
     }, [])
-    useEffect(() => {
+    /*useEffect(() => {
         const user = getCookieClient();
         if (!user) {
             Router.push('/login')
             return
         }
         setUsuario(user)
-    }, [])
+    }, [])*/
 
     function searchingMovie(movie: string) {
         const filteredCards = cards.filter((card) => card.title.toLowerCase().includes(movie.toLowerCase()));
