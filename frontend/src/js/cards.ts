@@ -36,6 +36,16 @@ export const cards: CardsProps[] = [
     
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallup.net%2Fwp-content%2Fuploads%2F2016%2F01%2F228956-Batman_Begins.jpg&f=1&nofb=1&ipt=d619d6094b895a8bd4d78241248b69cf21be6985df6fad7155438cea5e36e7de&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjohnsneaker.com%2Fwp-content%2Fuploads%2F2021%2F06%2Fil_fullxfull.2372028995_nrmy-1519x2048.jpg&f=1&nofb=1&ipt=25b0b45da6b489e8429069d652c0cbc5908ecf8dca28436d105dd32d23295297&ipo=images",
+        title: "Batman",
+        subtitle: "Begins",
+        description: "O jovem Bruce Wayne viaja para o Oriente e recebe treinamento em artes marciais do mestre Henri Ducard, um membro da misteriosa Liga das Sombras. Quando Ducard revela que a verdadeira proposta da Liga é a destruição completa de Gotham City, Wayne retorna à sua cidade natal com o intuito de livrá-la de criminosos e assassinos. Bruce assume a persona de Batman, o Cavaleiro das Trevas, e conta com a ajuda do mordomo Alfred e do expert Lucius Fox.",
+        src: "https://drive.google.com/file/d/1G4Pl6JZNIOEFXiDUczTsxAcI7ay-mS13/preview",
+        duration: "2h 20m",
+        genero: ["Ação", "Crime", "DC", "Super Herói"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.thedigitalfix.com%2Fwp-content%2Fuploads%2F2022%2F08%2Fbest-dc-animated-movies-superman-vs-the-elite.jpg&f=1&nofb=1&ipt=6e5644be3185e5f332d1549e978c41f758157171764f1f6e95b63a60a4d92d50&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.6eCfgr8Pr_Niv36CvBAVZQHaJ4%26pid%3DApi&f=1&ipt=3447c1d1c6156fef649dfd4be185558890b04dd51ea7760cdfeac7504eba0ce4&ipo=images",
         title: "Superman vs The Elite",
