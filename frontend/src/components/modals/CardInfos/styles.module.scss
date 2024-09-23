@@ -5,7 +5,7 @@
     width: 100%;
     height: calc(100% - 100px);
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 998;
+    z-index: 999;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -19,7 +19,7 @@
         max-width: 980px;
         position: relative;
         background-color: rgba(51, 51, 51, 1);
-        z-index: 999;
+        z-index: 9999;
         padding-bottom: 2rem;
 
 

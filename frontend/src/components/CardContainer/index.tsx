@@ -42,6 +42,9 @@ export default function CardContainer({ section, handleOpenModal, cardPerContain
                 <button className={styles.beforeButton} onClick={prevPage} disabled={currentIndex === 0}>
                     <MdNavigateBefore size={30} />
                 </button>
+                <button className={styles.nextButton} onClick={nextPage} disabled={currentIndex + cardsPerPage >= filteredCards.length}>
+                    <MdNavigateNext size={30} />
+                </button>
                 <div className={styles.cardContainer}>
                     {filteredCards.slice(currentIndex, currentIndex + cardsPerPage).map((card, index) => (
                         <div className={styles.card} key={index}>
@@ -51,22 +54,10 @@ export default function CardContainer({ section, handleOpenModal, cardPerContain
                                 modalWatchLater={handleOpenModal}
                                 section={section}
                             />
-
                         </div>
-
                     ))}
                 </div>
-
-                <button className={styles.nextButton} onClick={nextPage} disabled={currentIndex + cardsPerPage >= filteredCards.length}>
-                    <MdNavigateNext size={30} />
-                </button>
-
-            </div>
-            <div className={styles.controls}>
-
-
             </div>
         </div>
-
     )
 }
