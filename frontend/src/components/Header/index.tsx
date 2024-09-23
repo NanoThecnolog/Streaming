@@ -29,7 +29,6 @@ export default function Header({ userAvatar }: HeaderProps) {
     }
     function handleUserClick() {
         Router.push('/me');
-
     }
 
     function handleClickHome(id: number) {
@@ -74,7 +73,7 @@ export default function Header({ userAvatar }: HeaderProps) {
                     <div className={styles.avatarImage} title="Meu Perfil">
                         <Image src={avatar} alt="avatar" width={45} height={45} />
                     </div>
-                ) : <FaUserCircle size={35} color="#fff" className={styles.loginIcon} />}
+                ) : <FaUserCircle size={35} color="#fff" className={styles.loginIcon} onClick={() => handleUserClick()} />}
             </div>
 
 

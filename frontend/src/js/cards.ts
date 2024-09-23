@@ -21,7 +21,8 @@ export const cards: CardsProps[] = [
         src: "https://drive.google.com/file/d/1-Xo3DU8KR4zJ5rWTcdVPLbBpT8epXyiz/preview",
         duration: "01h 42m",
         genero: ["Drama", "Ficção Científica", "Netflix"]
-        }, 
+        },
+        
     {
     background: "",
     overlay: "",
@@ -34,6 +35,26 @@ export const cards: CardsProps[] = [
     },
     
     */
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.thedigitalfix.com%2Fwp-content%2Fuploads%2F2022%2F08%2Fbest-dc-animated-movies-superman-vs-the-elite.jpg&f=1&nofb=1&ipt=6e5644be3185e5f332d1549e978c41f758157171764f1f6e95b63a60a4d92d50&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.6eCfgr8Pr_Niv36CvBAVZQHaJ4%26pid%3DApi&f=1&ipt=3447c1d1c6156fef649dfd4be185558890b04dd51ea7760cdfeac7504eba0ce4&ipo=images",
+        title: "Superman vs The Elite",
+        subtitle: "",
+        description: "Novos heróis com superpoderes aparecem em cena, mas logo entram em conflito com o Homem de Aço quando mostram sua vontade de matar para acabar com o crime.",
+        src: "https://drive.google.com/file/d/1yrH4AQR3pY-0Y1hwdzpgGKyRxXJ1Zw8S/preview",
+        duration: "01h 14m",
+        genero: ["Animação", "DC", "Super Herói"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fhdqwalls.com%2Fwallpapers%2Fassassins-creed-4k-pic.jpg&f=1&nofb=1&ipt=e90e3b45d745b8b9e98759b33f01a6525a16a669c47ca8de4c1789c3645cb1bc&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Fw500%2Fctm9Daf0xHS3Fdy7WxvjjujQ0Tb.jpg&f=1&nofb=1&ipt=4ccb7dbcad14bc5db86b71cb07eb00b8de48216f1de0c603ddfd5a17e991fe50&ipo=images",
+        title: "Assassin's Creed",
+        subtitle: "",
+        description: "Cal Lynch revive as aventuras do guerreiro Aguilar, seu ancestral espanhol do século 15. Dotado de novos conhecimentos e incríveis habilidades, ele volta aos dias de hoje pronto para enfrentar a poderosa organização dos Templários.",
+        src: "https://drive.google.com/file/d/1LWi_wuKFd25M7Yw3yuwVHXGkYwyXOkLb/preview",
+        duration: "01h 55m",
+        genero: ["Ação", "Aventura"]
+    },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages3.alphacoders.com%2F676%2Fthumb-1920-676899.jpg&f=1&nofb=1&ipt=8bec20600241e7cf018f3fb2c12be2d07bdf66b835df6b24a64697d4227b0e80&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.wikia.nocookie.net%2Fdublagem%2Fimages%2F0%2F06%2FHarry_Potter_e_as_Rel%25C3%25ADquias_da_Morte_-_Parte_2_P%25C3%25B4ster.jpg%2Frevision%2Flatest%3Fcb%3D20220311022627%26path-prefix%3Dpt-br&f=1&nofb=1&ipt=15797fffd0066c14d062e42b68c5a700c27f0dbf7c5705cafb57624e1a52f1ad&ipo=images",
@@ -787,7 +808,18 @@ export const cards: CardsProps[] = [
         genero: ["Ação",
             "Ficção Científica"
         ]
-    }, {
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FqSP072apfe2EEcd5Qg9vGYy2OLw.jpg&f=1&nofb=1&ipt=df07852869f51313a74a0884fbaad4f7f947e18ebdabd8fa295528a985460513&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FS%2Fpv-target-images%2Fb029f0418a694d1525674b0b2454ff9ddbf0979301e0e74f65f0cd0f352b9766._RI_TTW_.jpg&f=1&nofb=1&ipt=bc0f0297a4b3a9c61d1e4a770582d1c2c087b6f5cf157901ab1f3695e58d839f&ipo=images",
+        title: "Convergente",
+        subtitle: "",
+        description: "Tris e Quatro embarcam em uma jornada além da cerca ao redor de Chicago em busca de uma solução pacífica para a sua cidade, e acabam descobrindo a existência de uma nova sociedade.",
+        src: "https://drive.google.com/file/d/1JATQcvLXsydWE6vX22PYIXzQULq_-beR/preview",
+        duration: "02h 00m",
+        genero: ["Ação", "Ficção Científica"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftrecobox.com.br%2Fwp-content%2Fuploads%2F2022%2F03%2Ffilme-the-batman.png&f=1&nofb=1&ipt=93cf34cdee07352aaa4995c381c63fb907a413a95ff49e2f38896145b24edeae&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2F4HkwsmXp3uzcrNIPlNEYo3hMbL8.jpg&f=1&nofb=1&ipt=e56fca0dc5fd67c5ee33ed44e9e2b49f457710132f7d1e18d7da1a24b42a029e&ipo=images",
         title: "Batman",
