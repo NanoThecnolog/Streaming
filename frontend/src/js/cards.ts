@@ -32,14 +32,85 @@ export const cards: CardsProps[] = [
     duration: "",
     genero: ["", ""]
     },
+    
     */
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages3.alphacoders.com%2F676%2Fthumb-1920-676899.jpg&f=1&nofb=1&ipt=8bec20600241e7cf018f3fb2c12be2d07bdf66b835df6b24a64697d4227b0e80&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.wikia.nocookie.net%2Fdublagem%2Fimages%2F0%2F06%2FHarry_Potter_e_as_Rel%25C3%25ADquias_da_Morte_-_Parte_2_P%25C3%25B4ster.jpg%2Frevision%2Flatest%3Fcb%3D20220311022627%26path-prefix%3Dpt-br&f=1&nofb=1&ipt=15797fffd0066c14d062e42b68c5a700c27f0dbf7c5705cafb57624e1a52f1ad&ipo=images",
+        title: "Harry Potter",
+        subtitle: "E as Relíquias da Morte - Parte 2",
+        description: "A batalha entre as forças do bem e do mal da magia alcançam o mundo dos trouxas. O risco nunca foi tão grande, e ninguém está seguro. Harry Potter precisa fazer um sacrifício final conforme o confronto com Lord Voldemort se aproxima.",
+        src: "https://drive.google.com/file/d/1NkMghEbIcOSfPKBPRY4hZkTC4RY5f2kP/preview",
+        duration: "02h 10m",
+        genero: ["Fantasia", "Infantil"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnosbastidores.com.br%2Fwp-content%2Fuploads%2F2020%2F05%2Fharry-potter-and-the-deathly-hallows-part-1-4fdb774a1f846-1536x864.jpg&f=1&nofb=1&ipt=b86758547d5c583e42c2f5e91499197d1503fc24046093da93531b884fd93cfd&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvizer.in%2Fcontent%2Fmovies%2FposterPt%2F342%2F17858.jpg&f=1&nofb=1&ipt=5699a41bece9f4a817d441cac6bf82e3d9782d387bbafb5a62a7f5f46033e110&ipo=images",
+        title: "Harry Potter",
+        subtitle: "E as Relíquias da Morte - Parte 1",
+        description: "Sem a proteção de seus professores, Harry, Rony e Hermione começam uma missão para destruir as horcruxes, que são fontes da imortalidade de Voldemort. Mais do que nunca, eles dependem uns dos outros, mas forças obscuras ameaçam separá-los.",
+        src: "https://drive.google.com/file/d/1bi_wX5B10SpP-oZ9Op8johPLD521Jvk8/preview",
+        duration: "02h 26m",
+        genero: ["Fantasia", "Infantil"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.alphacoders.com%2F923%2Fthumb-1920-923269.jpg&f=1&nofb=1&ipt=c95040da387c4f5be307431a3e1ed49633e4286cf8af5a6211cff18df5c10002&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2F05xqDDh1nvU8cA_iI5D-bzrGrBd5s7Mw1HRp2hdgTOXTLBjk3c9iZX1ED54SVs2n2neSXQ&f=1&nofb=1&ipt=11013b31bed4ad9b10a36e640601cd91158f368a3f396f48fb287f610f138437&ipo=images",
+        title: "Harry Potter",
+        subtitle: "E o Enigma do Príncipe",
+        description: "No sexto ano de Harry em Hogwarts, Lord Voldemort e seus Comensais da Morte estão criando o terror nos mundos bruxo e trouxa. Dumbledore convence seu velho amigo Horácio Slughorn para retornar a Hogwarts como professor de poções após Harry encontrar um estranho livro escolar. Draco Malfoy se esforça para realizar uma ação destinada por Voldemort, enquanto Dumbledore e Harry secretamente trabalham juntos a fim de descobrir o método para destruir o Lorde das Trevas uma vez por todas.",
+        src: "https://drive.google.com/file/d/14Cb40xmm2EXr7udbpsAv--jNipiuYrah/preview",
+        duration: "02h 33m",
+        genero: ["Fantasia", "Infantil"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages4.alphacoders.com%2F674%2Fthumb-1920-674451.jpg&f=1&nofb=1&ipt=9f86c772f7e90498dc856f0da8d0a095d9b02e734fb95ab2d2f1b45222541f99&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FtIf9aUyNljda9MG1pjlOLHCZ3b0.jpg&f=1&nofb=1&ipt=218323064da794fbf591c26ff362953bcf14e578b339c1d7ed745a34344f1acc&ipo=images",
+        title: "Harry Potter",
+        subtitle: "E a Ordem da Fênix",
+        description: "Após um verão desastroso, Harry volta para o seu quinto ano em Hogwarts, um dos mais difíceis que terá de encarar. Pouquíssimos alunos e pais acreditam nele ou em Dumbledore sobre a volta de Voldemort, e uma série interminável de artigos circula dizendo que eles estão completamente malucos. Ainda por cima, Dolores Umbridge, a nova professora de Defesa Contra as Artes das Trevas, prova ser a pessoa mais repugnante que Harry já conheceu.",
+        src: "https://drive.google.com/file/d/10mc8TJ-VK8XLeqI3R-q0q-zG7cg1VBRk/preview",
+        duration: "02h 18m",
+        genero: ["Fantasia", "Infantil"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fguarientoportal.com%2Fwp-content%2Fuploads%2F2021%2F07%2FHarry-Potter-e-o-Calice-de-Fogo-Critica-Filme.jpg&f=1&nofb=1&ipt=c4d24dd7da253158f9ba29d7be8f4e18624e98435ea5a583c1cfbc44e1ccf170&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.wikia.nocookie.net%2Fdublagem%2Fimages%2F9%2F96%2FHarry_Potter_e_o_C%25C3%25A1lice_de_Fogo_P%25C3%25B4ster.jpg%2Frevision%2Flatest%3Fcb%3D20220310122626%26path-prefix%3Dpt-br&f=1&nofb=1&ipt=d61078cc4f6acb3459827f33e66e3ea34de8f2a6346c1fe675207d0c7bf700fd&ipo=images",
+        title: "Harry Potter",
+        subtitle: "E o Cálice de Fogo",
+        description: "Harry retorna para seu quarto ano na Escola de Magia e Bruxaria de Hogwarts, junto com os seus amigos Ron e Hermione. Desta vez, acontece um torneio entre as três maiores escola de magia, com um participante selecionado de cada escola, pelo Cálice de Fogo. O nome de Harry aparece, mesmo não tendo se inscrito, e ele precisa competir.",
+        src: "https://drive.google.com/file/d/1b1ycw4qD2aReyXKCpEFc-7-RVj9BIkka/preview",
+        duration: "02h 37m",
+        genero: ["Fantasia", "Infantil"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd5d5yejrba9lo.cloudfront.net%2Fgallery-jpeg%2Fmovies%2Ffile%2Fajax%2Ffieldimage%2Fund%2Fform-xv-liporwlvawgzp-cvll3jupzq-m08csyrsvvqimoe%2Fhp3_10.jpg&f=1&nofb=1&ipt=aa96f46dc62a1b503b36150db3570b9b31d359d07938af3e1fdf226522c2a3e4&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpicfiles.alphacoders.com%2F427%2F427597.jpg&f=1&nofb=1&ipt=7f841178c9d60de403bc201b51cccdd35f0a4040b2ef41ea8bbbc7f90ba658d7&ipo=images",
+        title: "Harry Potter",
+        subtitle: "E o Prisioneiro de Askaban",
+        description: "É o início do terceiro ano na escola de bruxaria Hogwarts. Harry, Ron e Hermione têm muito o que aprender. Mas uma ameaça ronda a escola e ela se chama Sirius Black. Após doze anos encarcerado na prisão de Azkaban, ele consegue escapar e volta para vingar seu mestre, Lord Voldemort. Para piorar, os Dementores, guardas supostamente enviados para proteger Hogwarts e seguir os passos de Black, parecem ser ameaças ainda mais perigosas.",
+        src: "https://drive.google.com/file/d/12dTLG4_zY6sMm9lbj-k0UVzKTDGVIdcQ/preview",
+        duration: "02h 22m",
+        genero: ["Fantasia", "Infantil"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuploads.emaisgoias.com.br%2F2021%2F11%2Ff2544654-harry-potter.jpg&f=1&nofb=1&ipt=210bc84cafe023f7d44c60a9c7dce5a0b8b6b2c67bdcfc2fcba05061b5f732e3&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Fw1280%2F811j0Jf2D0mK1U6RxXJoZgOB29n.jpg&f=1&nofb=1&ipt=c67e9720016e6ba5d05be771c6c6a8d36ce14488e67d0b40f352fb0950a99d37&ipo=images",
+        title: "Harry Potter",
+        subtitle: "E a Câmara Secreta",
+        description: "Após as sofríveis férias na casa dos tios, Harry Potter se prepara para voltar a Hogwarts e começar seu segundo ano na escola de bruxos. Na véspera do início das aulas, a estranha criatura Dobby aparece em seu quarto e o avisa de que voltar é um erro e que algo muito ruim pode acontecer se Harry insistir em continuar os estudos de bruxaria. O garoto, no entanto, está disposto a correr o risco e se livrar do lar problemático.",
+        src: "https://drive.google.com/file/d/1LPSusfXklFMJy6ktbfyMbdvBOrvO2_sf/preview",
+        duration: "02h 41m",
+        genero: ["Fantasia", "Infantil"]
+    },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FwSMnl4TPv6PaJjZfC776264Bzxc.jpg&f=1&nofb=1&ipt=ca34a3db7708a9bce45b3f3b352de36f3c310012198767d2ac1a9d519e2fd48e&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.35hfT42r6fSYMfzGw2ubwAAAAA%26pid%3DApi&f=1&ipt=33e1d11c9584eb6bc610cf8bae7f1566744bfbf13e209d0cebd56a93f61593d1&ipo=images",
-        title: "harry Potter",
+        title: "Harry Potter",
         subtitle: "E a Pedra Filosofal",
         description: "Harry Potter é um garoto órfão que vive infeliz com seus tios, os Dursleys. Ele recebe uma carta contendo um convite para ingressar em Hogwarts, uma famosa escola especializada em formar jovens bruxos. Inicialmente, Harry é impedido de ler a carta por seu tio, mas logo recebe a visita de Hagrid, o guarda-caça de Hogwarts, que chega para levá-lo até a escola. Harry adentra um mundo mágico que jamais imaginara, vivendo diversas aventuras com seus novos amigos, Rony Weasley e Hermione Granger.",
-        src: "https://drive.google.com/file/d/1oyRRAuw2lI5l2XW4xwagewdgXJ2UeQ_Y/preview",
+        src: "https://drive.google.com/file/d/1N4hqt6tB7Kw30sx4Gly6Qcozc6x71i1N/preview",
         duration: "02h 32m",
         genero: ["Fantasia", "Infantil"]
     },
