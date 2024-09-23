@@ -8,7 +8,7 @@ import Image from "next/image";
 import { CircleUserRound, House, Search } from "lucide-react";
 
 interface HeaderProps {
-    userAvatar: string | undefined;
+    userAvatar?: string | undefined;
 }
 
 export default function Header({ userAvatar }: HeaderProps) {

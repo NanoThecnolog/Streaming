@@ -3,18 +3,23 @@ import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
 import styles from './styles.module.scss'
+import Router from "next/router";
 
 export default function Footer() {
+
+    function handleFAQ() {
+        Router.push('/faq');
+    }
     return (
         <div className={styles.bottom}>
             <div className={styles.links}>
                 <div className={styles.btn_row}>
-                    <h4>Suporte ao assinante</h4>
+                    <h4 onClick={handleFAQ}>Perguntas Frequêntes</h4>
                     <h4>Termos de uso</h4>
                 </div>
                 <div className={styles.btn_row}>
                     <h4>Política de Privacidade</h4>
-                    <h4>Faça parte do nosso time</h4>
+                    <h4>Contribua no desenvolvimento</h4>
                 </div>
                 <div className={styles.btn_row}>
                     <h4>Faça uma doação para o projeto</h4>

@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    //background-color: red;
+    gap: 15px;
+    position: relative;
+    color: var(--white);
+    font-family: var(--font-Roboto);
+
+
+    .icon {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        cursor: pointer;
+    }
+
+    .question {
+        display: flex;
+        padding: 0.5rem;
+        font-size: 1.3rem;
+
+    }
+
+
+
+    .answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s;
+
+        p {
+            padding: 1rem;
+            font-size: 1.1rem;
+        }
+
+    }
+
+    .ativo {
+        max-height: 200px;
+
+
+    }
+
+    .divider {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 2rem;
+    }
+
+}

@@ -17,12 +17,12 @@ export default function Watch() {
     //const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
     //const [visibleTitle, setVisibleTitle] = useState<boolean>(false)
 
-    useEffect(() => {
+    /*useEffect(() => {
         const user = getCookieClient();
         if (!user) {
             Router.push('/login')
         }
-    }, [])
+    }, [])*/
 
     useEffect(() => {
         if (title && src) {
