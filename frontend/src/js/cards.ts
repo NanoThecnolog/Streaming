@@ -1378,7 +1378,7 @@ export const cards: CardsProps[] = [
         title: "Venom",
         subtitle: "",
         description: "O jornalista investigativo Eddie Brock é possuído por uma forma alienígena simbionte, ganhando poderes-sobre humanos. Perverso, sombrio e alimentado pela raiva, Venom tenta controlar os novos e perigosos poderes inebriantes de Eddie.",
-        src: "https://drive.google.com/file/d/1PE_9Le9jjPrgeErtnL7MAK60Y8VmZ0G2/preview",
+        src: "https://drive.google.com/file/d/143wpGC0L8IF6M9NlK-qz9EnYb27Evng_/preview",
         duration: "1h 52m",
         genero: ["Marvel",
             "Ação",
