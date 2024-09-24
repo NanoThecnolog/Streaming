@@ -10,19 +10,22 @@ export default function Footer() {
     function handleFAQ() {
         Router.push('/faq');
     }
+    function handleSignUp() {
+        Router.push('/signup')
+    }
     return (
         <div className={styles.bottom}>
             <div className={styles.links}>
                 <div className={styles.btn_row}>
                     <h4 onClick={handleFAQ}>Perguntas Frequêntes</h4>
-                    <h4>Termos de uso</h4>
+                    <h4 onClick={handleSignUp}>Criar Conta</h4>
                 </div>
                 <div className={styles.btn_row}>
                     <h4>Política de Privacidade</h4>
-                    <h4>Contribua no desenvolvimento</h4>
+                    <h4>Suporte</h4>
                 </div>
                 <div className={styles.btn_row}>
-                    <h4>Faça uma doação para o projeto</h4>
+                    <h4>Faça uma doação</h4>
                     <h4>Entre em Contato</h4>
                 </div>
             </div>
