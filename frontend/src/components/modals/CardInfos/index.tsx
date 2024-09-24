@@ -5,6 +5,7 @@ import { FaCirclePlay } from "react-icons/fa6"
 import { IoIosAddCircleOutline } from "react-icons/io"
 import Router from "next/router"
 import { CircleX, CircleXIcon, X } from "lucide-react"
+import { toast } from "react-toastify"
 
 interface InfoModalProps {
     card: CardsProps;
@@ -14,6 +15,7 @@ interface InfoModalProps {
 export default function CardInfoModal({ card, handleModalClose }: InfoModalProps) {
 
     function modalWatchLater(title: string, subTitle?: string) {
+        toast.warning("A função de adicionar filme a assistir mais tarde está temporariamente desabilitada.")
 
     }
 

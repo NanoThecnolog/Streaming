@@ -1,0 +1,32 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    font-family: var(--font-Roboto);
+
+    .suporteContainer {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+
+        h1 {
+            text-align: center;
+
+            .brand {
+                font-family: var(--font-Anton);
+
+                .red {
+                    color: var(--red);
+                }
+            }
+
+        }
+
+        h3 {
+            padding-bottom: 10px;
+        }
+    }
+}

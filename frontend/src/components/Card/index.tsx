@@ -11,6 +11,7 @@ import { IoCloseCircle } from "react-icons/io5";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import Image from "next/image";
 import CardInfoModal from "../modals/CardInfos";
+import { toast } from "react-toastify";
 
 
 interface CardProps {
@@ -38,6 +39,12 @@ export default function Card({ card, section, modalWatchLater }: CardProps) {
         subTitle: `${card.subtitle}` || "",
         src: `${card.src}`
     });
+    function handleWatchLater() {
+        toast.warning("A função de adicionar filme a assistir mais tarde está temporariamente desabilitada.")
+    }
+    function handleFavorite() {
+        toast.warning("A função de adicionar filme aos favoritos está temporariamente desabilitada.")
+    }
 
     const play: string = `/watch?${movie}`
     return (
@@ -73,10 +80,10 @@ export default function Card({ card, section, modalWatchLater }: CardProps) {
                             </Link>
 
                         </div>
-                        <div className={styles.queue}>
+                        <div className={styles.queue} onClick={handleWatchLater}>
                             <FaRegClock size={20} />
                         </div>
-                        <div className={`${styles.star} ${styles.queue}`}>
+                        <div className={`${styles.star} ${styles.queue}`} onClick={handleFavorite}>
                             <FaStar size={20} />
                         </div>
                         <div className={`${styles.star} ${styles.queue}`} onClick={() => setModalVisible(true)}>

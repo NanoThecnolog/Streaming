@@ -13,6 +13,9 @@ export default function Footer() {
     function handleSignUp() {
         Router.push('/signup')
     }
+    function handlePrivacy() {
+        Router.push('/privacidade')
+    }
     return (
         <div className={styles.bottom}>
             <div className={styles.links}>
@@ -21,7 +24,7 @@ export default function Footer() {
                     <h4 onClick={handleSignUp}>Criar Conta</h4>
                 </div>
                 <div className={styles.btn_row}>
-                    <h4>Política de Privacidade</h4>
+                    <h4 onClick={handlePrivacy}>Política de Privacidade</h4>
                     <h4>Suporte</h4>
                 </div>
                 <div className={styles.btn_row}>

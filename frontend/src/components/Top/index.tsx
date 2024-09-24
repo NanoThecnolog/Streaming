@@ -4,6 +4,7 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 import styles from './styles.module.scss'
 import { useEffect, useState } from 'react';
 import Router from 'next/router';
+import { toast } from 'react-toastify';
 
 
 export default function Top() {
@@ -26,7 +27,7 @@ export default function Top() {
 
 
     function toggleWatchLater(title: string, subTitle?: string) {
-        console.log(title, subTitle);
+        toast.warning("A função de adicionar filme a assistir mais tarde está temporariamente desabilitada.")
     }
     function handleWatch() {
         const movie = new URLSearchParams({
