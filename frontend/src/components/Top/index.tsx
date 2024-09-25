@@ -14,8 +14,6 @@ export default function Top() {
     useEffect(() => {
         const interval = setInterval(() => {
             setFade('fadeOut')
-
-
             setTimeout(() => {
                 setCardOn(prevCardOn => (prevCardOn + 1) % cards.length);
                 setFade('fadeIn')
@@ -24,28 +22,22 @@ export default function Top() {
         return () => clearInterval(interval)
     }, [])
 
-
-
     function toggleWatchLater(title: string, subTitle?: string) {
         toast.warning("A função de adicionar filme a assistir mais tarde está temporariamente desabilitada.")
     }
+
     function handleWatch() {
         const movie = new URLSearchParams({
             title: `${cards[cardOn].title}`,
             subTitle: `${cards[cardOn].subtitle}` || "",
             src: `${cards[cardOn].src}`
         });
-
-
         const play: string = `/watch?${movie}`
         Router.push(play)
     }
 
-
     return (
-
         <div className={`${styles.top_container} ${styles[fade]}`} style={{ backgroundImage: `url(${cards[cardOn].background})` }}>
-
             <div className={styles.image_container} id="inicio">
                 <div className={styles.left_side}>
                     <h1 id="titulo-principal">{cards[cardOn].title.toUpperCase()}</h1>

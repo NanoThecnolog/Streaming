@@ -5,7 +5,7 @@ import Router from "next/router";
 import styles from './styles.module.scss'
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { CircleUserRound, House, Search } from "lucide-react";
+import { AlignJustify, CircleUserRound, House, Search } from "lucide-react";
 
 interface HeaderProps {
     userAvatar?: string | undefined;
@@ -13,9 +13,10 @@ interface HeaderProps {
 
 export default function Header({ userAvatar }: HeaderProps) {
     const [searchInput, setSearchInput] = useState<string>('')
-    const [menuSelected, setMenuSelected] = useState<number>(1)
+    const [menuvisible, setMenuVisible] = useState<boolean>(false)
     const [avatar, setAvatar] = useState<string>('')
     const [searchMobileVisible, setSearchMobileVisible] = useState<boolean>(false)
+
 
     useEffect(() => {
         if (!userAvatar) return;
@@ -35,7 +36,7 @@ export default function Header({ userAvatar }: HeaderProps) {
         console.log("clicando home")
 
         if (id === 1) {
-            Router.push('/')
+            setMenuVisible(!menuvisible)
         }
         if (id === 2) {
             setSearchMobileVisible(!searchMobileVisible)
@@ -53,20 +54,24 @@ export default function Header({ userAvatar }: HeaderProps) {
                 <Link href="/" className={styles.button_container}>
                     <h2>INÍCIO</h2>
                 </Link>
-                <Link href="#ação" className={styles.button_container}>
+                <Link href="/#ação" className={styles.button_container}>
                     <h2>FILMES</h2>
                 </Link>
+                <Link href="/series" className={styles.button_container}>
+                    <h2>SERIES</h2>
+                </Link>
+                <form className={styles.formContainer} onSubmit={(e) => { e.preventDefault(); handleSearch(searchInput); }}>
+                    <input
+                        value={searchInput}
+                        onChange={(e) => setSearchInput(e.target.value)}
+                        placeholder="Procure aqui seu filme"
+                        className={styles.searchInput}
+                    />
 
-                <input
-                    value={searchInput}
-                    onChange={(e) => setSearchInput(e.target.value)}
-                    placeholder="Procure aqui seu filme"
-                    className={styles.searchInput}
-                />
-
-                <div className={styles.button_container} onClick={() => handleSearch(searchInput)}>
-                    <h2><CiSearch size={35} color="#fff" /></h2>
-                </div>
+                    <div className={styles.button_container} onClick={() => handleSearch(searchInput)}>
+                        <h2><CiSearch size={35} color="#fff" /></h2>
+                    </div>
+                </form>
             </div>
             <div className={styles.right_nav}>
                 {avatar !== '' ? (
@@ -75,18 +80,22 @@ export default function Header({ userAvatar }: HeaderProps) {
                     </div>
                 ) : <FaUserCircle size={35} color="#fff" className={styles.loginIcon} onClick={() => handleUserClick()} />}
             </div>
-
-
-
             <div className={styles.dropdown}>
                 <div className={styles.dropdownIcon} onClick={() => handleClickHome(1)}>
-                    <House />
+                    <AlignJustify />
+                    {menuvisible &&
+                        <div className={styles.dropdownMenu}>
+                            <button type="button" onClick={() => Router.push('/#ação')}>filmes</button>
+                            <div className={styles.divider}></div>
+                            <button type="button" onClick={() => Router.push('/series')}>series</button>
+                        </div>
+                    }
                 </div>
                 <div className={styles.divider}></div>
                 <div className={styles.dropdownIcon}>
                     <Search onClick={() => handleClickHome(2)} />
                     {searchMobileVisible &&
-                        <div className={styles.searchInputModal}>
+                        <form onSubmit={(e) => { e.preventDefault(); handleSearch(searchInput) }} className={styles.searchInputModal}>
                             <div>
                                 <input
                                     value={searchInput}
@@ -98,7 +107,7 @@ export default function Header({ userAvatar }: HeaderProps) {
                             <div>
                                 <Search onClick={() => handleSearch(searchInput)} />
                             </div>
-                        </div>
+                        </form>
                     }
                 </div>
                 <div className={styles.divider}></div>

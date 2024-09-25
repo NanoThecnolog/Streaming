@@ -1,0 +1,106 @@
+import Header from "@/components/Header";
+import TopSerie from "@/components/seriesComponents/Top serie";
+import styles from './styles.module.scss'
+import CardSerieContainer from "@/components/seriesComponents/CardSerieContainer";
+import { useEffect, useState } from "react";
+import Search from "@/components/Searching";
+import Footer from "@/components/Footer";
+
+export default function Series() {
+    const [cardPerContainer, setCardPerContainer] = useState<number>(5)
+
+    const divisaoPorGenero = [
+        "suspense",
+        "drama",
+        "fantasia",
+        "dc",
+
+    ]
+
+    useEffect(() => {
+        function handleResize() {
+            const width = window.innerWidth;
+            //console.log(width)
+            //setWidth(width)
+
+            // Ajustar os breakpoints depois
+            if (width < 780) {
+                setCardPerContainer(1)
+            } else if (width < 1100) {
+                setCardPerContainer(2)
+            } else if (width < 1480) {
+                setCardPerContainer(3)
+            } else if (width < 1650) {
+                setCardPerContainer(4)
+            } else {
+                setCardPerContainer(5)
+            }
+
+        }
+        window.addEventListener('resize', handleResize)
+
+        handleResize()
+
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
+    useEffect(() => {
+
+        const rightClickBlock = (event: MouseEvent) => {
+            event.preventDefault();
+        };
+
+        // Impede atalhos de ferramentas de desenvolvedor
+        const openConsoleBlock = (event: KeyboardEvent) => {
+
+            if (
+                event.key === 'F12' ||
+                (event.ctrlKey && event.shiftKey && event.key === 'I') ||
+                (event.ctrlKey && event.shiftKey && event.key === 'C') ||
+                (event.ctrlKey && event.shiftKey && event.key === 'J') ||
+                (event.ctrlKey && event.key === 'U')
+            ) {
+                event.preventDefault();
+            }
+        };
+
+        document.addEventListener('contextmenu', rightClickBlock);
+        document.addEventListener('keydown', openConsoleBlock);
+
+        return () => {
+            document.removeEventListener('contextmenu', rightClickBlock);
+            document.removeEventListener('keydown', openConsoleBlock);
+        };
+    }, []);
+
+    function handleOpenModalWatchLater(title: string, subTitle?: string) {
+        //setMovieTitle(title)
+        if (subTitle && subTitle !== "") {
+            //setMovieSubTitle(subTitle)
+        }
+        //setVisible(true)
+    }
+    return (
+        <>
+            <main className={styles.main}>
+                <div className={styles.content}>
+                    <Header />
+                    <TopSerie />
+                    <div className={styles.mid}>
+                        {divisaoPorGenero.map((sec, index) => (
+                            <div key={index}>
+                                <CardSerieContainer
+                                    handleOpenModal={handleOpenModalWatchLater}
+                                    section={sec}
+                                    cardPerContainer={cardPerContainer}
+                                />
+                                {index === 1 && cardPerContainer >= 2 && <Search />}
+                            </div>
+                        )
+                        )}
+                    </div>
+                    <Footer />
+                </div>
+            </main>
+        </>
+    )
+}

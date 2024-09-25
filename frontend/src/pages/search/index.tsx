@@ -4,16 +4,23 @@ import { useEffect, useState } from "react";
 import styles from './styles.module.scss'
 import { CardsProps } from "@/@types/Cards";
 import { cards } from "@/js/cards";
+import { series } from "@/js/series";
 import Link from "next/link";
 import { FaInfoCircle, FaPlay, FaRegClock, FaStar } from "react-icons/fa";
 import Card from "@/components/Card";
+import CardSerie from "@/components/seriesComponents/Card";
 import { getCookieClient } from "@/services/cookieClient";
 import { UserProps } from "@/@types/user";
+import Footer from "@/components/Footer";
+import { Seasons, SeriesProps } from "@/@types/series";
+
+
 
 export default function Search() {
     const router = useRouter();
     const [movie, setMovie] = useState<string>();
     const [searchCards, setSearchCards] = useState<CardsProps[]>()
+    const [searchSeries, setSearchSeries] = useState<SeriesProps[]>()
     const [cardPerContainer, setCardPerContainer] = useState<number>(5)
     const [width, setWidth] = useState<number>()
     const [usuario, setUsuario] = useState<UserProps | null>(null)
@@ -65,27 +72,58 @@ export default function Search() {
     }, [])*/
 
     function searchingMovie(movie: string) {
-        const filteredCards = cards.filter((card) => card.title.toLowerCase().includes(movie.toLowerCase()));
-        setSearchCards(filteredCards)
-        console.log(filteredCards)
+        if (movie === "") {
+            setSearchCards([])
+            setSearchSeries([])
+        }
+        const filteredCards = cards
+            .filter((card) => card.title.toLowerCase().includes(movie.toLowerCase()))
+            .map((card) => ({
+                ...card,
+                type: 'movie' as const
+            }))
+            ;
+
+        const filteredSeries = series
+            .filter((serie) => serie.title.toLowerCase().includes(movie.toLowerCase()))
+            .map((serie) => ({
+                ...serie,
+                type: 'series' as const
+            }))
+        if (filteredCards.length >= 1) {
+            setSearchCards(filteredCards);
+        }
+        if (filteredSeries.length >= 1) {
+            setSearchSeries(filteredSeries)
+        }
     }
 
     return (
         <>
             <Header userAvatar={usuario?.avatar} />
-            <div className={styles.title}>
-                <h2>Resultados da busca:</h2>
-            </div>
-            <div className={styles.container}>
+            <section className={styles.container}>
+                <div className={styles.title}>
+                    <h2>Resultados da busca:</h2>
+                </div>
+                <div className={styles.cardsContainer}>
+                    {!searchCards && !searchSeries && <div style={{ display: "flex", justifyContent: 'center', alignItems: 'center', width: '80vw', height: '50vh' }}>Nenhum filme ou série encontrado.</div>}
+                    {searchCards && searchCards?.map((card, index) => {
+                        return <Card
+                            key={index}
+                            card={card}
+                        />
+                    }
 
-                {searchCards ? searchCards?.map((card, index) =>
-                    <Card
-                        key={index}
-                        card={card}
-                    />
-                ) : "Carregando..."}
+                    )} {searchSeries && searchSeries?.map((serie, index) => {
+                        return <CardSerie
+                            key={index}
+                            card={serie}
+                        />
+                    })}
 
-            </div>
+                </div>
+            </section>
+            <Footer />
         </>
     )
 }

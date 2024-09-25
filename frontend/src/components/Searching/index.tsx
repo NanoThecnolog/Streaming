@@ -35,7 +35,7 @@ export default function Search({ handleOpenModal }: SearchProps) {
             <div className={styles.search_area_content}>
                 <h2>Não achou o que procura?</h2>
                 <p>Busque entre centenas de filmes a partir do nosso catálogo!</p>
-                <div className={styles.input_area}>
+                <form onSubmit={(e) => { e.preventDefault(); handleSearch(inputSearch) }} className={styles.input_area}>
                     <input
                         type="text"
                         placeholder="buscar Filme..."
@@ -43,7 +43,7 @@ export default function Search({ handleOpenModal }: SearchProps) {
                         onChange={(e) => setInputSearch(e.target.value)}
                     />
                     <CiSearch size={35} color="#242424" onClick={() => handleSearch(inputSearch)} />
-                </div>
+                </form>
             </div>
         </div>
     )

@@ -1,20 +1,44 @@
 .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 14px;
-    padding: 50px;
-    color: var(--white);
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    .title {
+        color: var(--white);
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: flex-end;
+        //background-color: red;
+        padding-top: 200px;
+        font-family: var(--font-Roboto);
+    }
+
+    .cardsContainer {
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 14px;
+        padding: 50px;
+        color: var(--white);
+        justify-content: center;
+        align-items: center;
+
+    }
+
 
 
 }
 
-.title {
-    color: var(--white);
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    //background-color: red;
-    height: 10vh;
+@media (max-width: 768px) {
+    .container {
+        .title {
+            padding-top: 50px;
+        }
+    }
+
 }

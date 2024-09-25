@@ -1,0 +1,207 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    min-height: 100vh;
+    //height: 100%;
+    color: var(--white);
+    font-family: var(--font-Roboto);
+    //padding-bottom: 200px;
+    background-color: #141414;
+    background-repeat: no-repeat;
+
+    background-size: cover;
+    //background-position: center;
+
+
+    .serieContainer {
+        width: 100%;
+        //height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+
+        .imageBackground {
+            width: 100%;
+            //height: 100%;
+            background: rgb(20, 20, 20);
+            background: linear-gradient(0deg,
+                    rgba(20, 20, 20, 1) 35%,
+                    rgba(255, 255, 255, 0) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+
+
+            .desc_top {
+                padding: 20rem 4rem 2rem 4rem;
+
+                .title {
+                    //padding-top: 20rem;
+                }
+
+                .seasons {
+                    padding: 0.4rem 0;
+                }
+
+                .watchButton {
+                    margin: 0.5rem 0;
+
+                    button {
+                        background-color: var(--grey);
+                        border: none;
+                        border-radius: 8px;
+                        color: var(--white);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 10px;
+                        cursor: pointer;
+                        transition: all .2s;
+
+                        &:hover {
+                            transform: scale(1.05);
+                        }
+                    }
+                }
+
+                .watchLater {
+                    button {
+                        background-color: transparent;
+                        color: var(--white);
+                        border: none;
+                        border-radius: 8px;
+                        padding: 10px;
+                        transition: all .2s;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: #1e1e1e;
+                        }
+                    }
+                }
+
+
+                .selectSeasonContainer {
+                    padding-top: 20px;
+
+                    select {
+                        color: var(--white);
+                        background: none;
+                        border: none;
+                        border-radius: 8px;
+                        min-width: 150px;
+                        padding: 15px;
+                        cursor: pointer;
+                        transition: all .2s;
+
+                        &:hover {
+                            background-color: #1e1e1e;
+                        }
+
+                        &:focus {
+                            outline: none;
+                        }
+
+                        option {
+                            background-color: var(--black);
+
+                        }
+                    }
+
+                }
+
+                .cardContainer {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                    justify-content: center;
+                    //flex-direction: column;
+                    margin-top: 2rem;
+                    gap: 12px;
+
+                    .episodeButton {
+                        width: 350px;
+                        height: 150px;
+
+                        button {
+                            background-color: #1e1e1e;
+                            color: var(--white);
+                            border: none;
+                            padding: .4rem;
+                            width: 100%;
+                            height: 100%;
+                            cursor: pointer;
+                            transition: all .2s;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 12px;
+
+                            &:hover {
+                                transform: scale(1.05);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .container {
+        .serieContainer {
+            .imageBackground {
+                background: linear-gradient(0deg,
+                        rgba(20, 20, 20, 1) 65%,
+                        rgba(255, 255, 255, 0) 100%);
+            }
+        }
+    }
+}
+
+@media (min-width: 375.1px) and (max-width: 560px) {
+    .container {
+        .serieContainer {
+            .imageBackground {
+                background: linear-gradient(0deg,
+                        rgba(20, 20, 20, 1) 65%,
+                        rgba(255, 255, 255, 0) 100%);
+            }
+        }
+    }
+}
+
+@media (min-width: 560.1px) and (max-width: 768px) {
+    .container {
+        .serieContainer {
+            .imageBackground {
+                background: linear-gradient(0deg,
+                        rgba(20, 20, 20, 1) 65%,
+                        rgba(255, 255, 255, 0) 100%);
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        .serieContainer {
+            .imageBackground {
+                background: linear-gradient(0deg,
+                        rgba(20, 20, 20, 1) 55%,
+                        rgba(255, 255, 255, 0) 100%);
+            }
+        }
+    }
+}
+
+@media (max-width: 1280px) {}
+
+@media (max-width: 1440px) {}
+
+@media (max-width: 1920px) {}
