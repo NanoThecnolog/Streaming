@@ -36,6 +36,26 @@ export const cards: CardsProps[] = [
     
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblog.videoperola.com.br%2Fwp-content%2Fuploads%2F2020%2F04%2Fparasita.jpg&f=1&nofb=1&ipt=01e1b591fb8fb0f50a5bdfaea3553f7335af64c6fa27b33932d87050532d27bd&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FS%2Fpv-target-images%2Fe64deabace60f9e45c2eb2f52212c82d54cd7f370687076229fea69baf71cdc3._RI_TTW_.jpg&f=1&nofb=1&ipt=48e3d705b3fce6344fd3f9ce412c83cee0974c1585cabc9509c1c21290e4d602&ipo=images",
+        title: "Parasita",
+        subtitle: "",
+        description: "Toda a família de Ki-taek está desempregada, vivendo em um porão sujo e apertado. Por obra do acaso, ele começa a dar aulas de inglês para uma garota de família rica. Fascinados com a vida luxuosa destas pessoas, pai, mãe e filhos bolam um plano para se infiltrar também na abastada família, um a um. No entanto, os segredos e mentiras necessários à ascensão social cobram o seu preço.",
+        src: "https://drive.google.com/file/d/1sLGOcMJ583vLoJI1tN7v_YO07m0-6Rlq/preview",
+        duration: "02h 12m",
+        genero: ["Suspense", "Comédia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.slantmagazine.com%2Fwp-content%2Fuploads%2F2010%2F09%2Fsocialnetwork.jpg&f=1&nofb=1&ipt=59c520a7d1d3ef11042e7a5a527cf3a93d84188d4ed34b500a5f3338859805ff&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fo8Y4YbPiV7TCNCEPJKv8AKTe2Gl.jpg&f=1&nofb=1&ipt=aa54d35c373a218b2505967d751695d3764a0b0f50d544fbe752d5c1d864e460&ipo=images",
+        title: "A Rede Social",
+        subtitle: "",
+        description: "Em uma noite de outono em 2003, Mark Zuckerberg, estudante de Harvard e gênio da computação, começa a trabalhar em um novo conceito que acaba se transformando em uma rede social global conhecida como Facebook. Seis anos e 500 milhões de amigos mais tarde, Zuckerberg se torna o mais jovem bilionário da história com o sucesso de sua rede social. No entanto, a sua ascensão sem precedentes traz complicações legais e pessoais.",
+        src: "https://drive.google.com/file/d/0B6YDeOkBf2TUU3l1YzAtZ1ltdm8/preview?resourcekey=0-99IlX_REL2prE0W3RIqByg",
+        duration: "02h",
+        genero: ["Drama"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages5.alphacoders.com%2F330%2Fthumb-1920-330769.jpg&f=1&nofb=1&ipt=7c3ea041947cd8a8bc0cfbbb17c5fc0b7a6b5e2b091cd32924ad759e73d47edd&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.kSwFiORSXMmuk_Mk9Uh8XwHaLH%26pid%3DApi&f=1&ipt=d44e01f962fc1ed0b1145693166bb7680f6b6bc726dd745575dbbc2727e3ec14&ipo=images",
         title: "Batman",
