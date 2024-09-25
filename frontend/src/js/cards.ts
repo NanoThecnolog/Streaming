@@ -36,6 +36,36 @@ export const cards: CardsProps[] = [
     
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpoltronanerd.com.br%2Fwp-content%2Fuploads%2F2023%2F03%2FBelo-Desastre_Diamond-FIlms-1.jpg&f=1&nofb=1&ipt=8272ac95c2381910917d095a4bd61a6a256ecd8d1842fa7effa865a3a2697a76&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.PELSDcScIsD_oLP87nN36wHaLH%26pid%3DApi&f=1&ipt=879b1de038415d25e5722b2d9a08749049823a5b4482f07132fe789ec3a4311a&ipo=images",
+        title: "Belo Desastre",
+        subtitle: "",
+        description: "Abby é uma caloura certinha que vai a uma luta clandestina com seus amigos da faculdade. Lá, ela conhece Travis, um lutador que está decidido a conquistar a moça. Apesar de se sentir atraída por ele, Abby fica cansada das suas investidas. Durante uma luta, os dois fazem uma aposta: se Travis ganhar, os dois vão morar juntos por um mês.",
+        src: "https://drive.google.com/file/d/1fSdVMaqnauVF_YofqJyPN0s2lkiUcv49/preview",
+        duration: "01h 36m",
+        genero: ["Comédia", "Romance"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fentretetizei.com.br%2Fwp-content%2Fuploads%2F2024%2F04%2FBelo-Desastre-O-Casamento_Diamond-Films-6k-scaled.jpg&f=1&nofb=1&ipt=2b5ab96e5404e3a22496093670ef2c5150b998a847d13a816e276a252d32677c&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.justwatch.com%2Fposter%2F319908621%2Fs718%2Fbeautiful-wedding.jpg&f=1&nofb=1&ipt=9fd33566b9a6f43a9a2d40480d2c829f0cbaba9ec2131315de2a0cb028ac6fb6&ipo=images",
+        title: "Belo Desastre",
+        subtitle: "O Casamento",
+        description: "Depois de uma noite louca em Las Vegas, Abby e Travis acordam como recém-casados por acidente e viajam para o México para uma lua de mel ainda mais selvagem. À medida que o caos se instala, eles devem decidir se pertencem um ao outro ou se esse casamento é um desastre.",
+        src: "https://drive.google.com/file/d/1LEIvQoSm0VynY35QT1bg_iaGnbfclP6a/preview",
+        duration: "01h 36m",
+        genero: ["Comédia", "Romance"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2F7RbINGEODD8u73Z7CfDJ3HRrWOv.jpg&f=1&nofb=1&ipt=10b3a63a998bd60b4dc7762d9a7b4a87666ef04e3920d9d2af532b98068d0416&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Fw1280%2FvWMXRFvpxxs5p0IKZdqWph10jIn.jpg&f=1&nofb=1&ipt=1b13975e251813852e34149c770f3fd4c07dc29ace6319214e6b94253d9bbded&ipo=images",
+        title: "Casamento Sangrento",
+        subtitle: "",
+        description: "Horas após o casamento dos seus sonhos, Grace retorna à casa de campo do novo marido para passar a noite com seus novos sogros. Mas isso não é lua de mel, e Grace logo se vê em uma luta sangrenta pela sobrevivência.",
+        src: "https://drive.google.com/file/d/1eLYuT52iDrRAwM7dr2Vjuziw8A9zI0uv/preview",
+        duration: "01h 35m",
+        genero: ["Terror", "Comédia"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblog.videoperola.com.br%2Fwp-content%2Fuploads%2F2020%2F04%2Fparasita.jpg&f=1&nofb=1&ipt=01e1b591fb8fb0f50a5bdfaea3553f7335af64c6fa27b33932d87050532d27bd&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FS%2Fpv-target-images%2Fe64deabace60f9e45c2eb2f52212c82d54cd7f370687076229fea69baf71cdc3._RI_TTW_.jpg&f=1&nofb=1&ipt=48e3d705b3fce6344fd3f9ce412c83cee0974c1585cabc9509c1c21290e4d602&ipo=images",
         title: "Parasita",
