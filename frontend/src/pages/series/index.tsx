@@ -10,6 +10,8 @@ export default function Series() {
     const [cardPerContainer, setCardPerContainer] = useState<number>(5)
 
     const divisaoPorGenero = [
+        "ação",
+        "comédia",
         "suspense",
         "drama",
         "fantasia",

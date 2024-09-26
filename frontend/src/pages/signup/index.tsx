@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { api } from '@/services/api'
 import { toast } from 'react-toastify'
 import Router from 'next/router'
+import { FaSpinner } from 'react-icons/fa'
+
 
 export default function Signup() {
     const [name, setName] = useState<string>('')
@@ -129,7 +131,7 @@ export default function Signup() {
                         />
                     </div>
                     <div className={styles.buttonContainer}>
-                        <button type='submit' disabled={loading}>{loading ? "carregando..." : "Registrar"}</button>
+                        <button type='submit' disabled={loading}>{loading ? <FaSpinner size={20} /> : "Registrar"}</button>
                     </div>
                 </form>
                 <div className={styles.linksContainer}>

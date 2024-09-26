@@ -36,6 +36,26 @@ export const cards: CardsProps[] = [
     
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi-viaplay-com.akamaized.net%2Fviaplay-prod%2F888%2F812%2F1539090669-2f46f258e6e3bd874325f07fabcccbbc82b4c98b.jpg%3Fwidth%3D1600%26height%3D900&f=1&nofb=1&ipt=794f77235a4e9f9ef997e98aa1dd844a1d1ded895770aa9ad408cacd46bbabd4&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.RthAyR6Vs3P16nrPjKusoAHaLH%26pid%3DApi&f=1&ipt=6d799af89aeafaf2f1034b18295328d5f20ac4d2c043d2d5f8b93cee26531dbd&ipo=images",
+        title: "Ted 2",
+        subtitle: "",
+        description: "O urso de pelúcia Ted se casa com Tami-Lynn. O casal pretende ter um bebê, mas para ter direito à inseminação artificial, Ted precisa provar na justiça que é um ser humano. Para alcançar o seu sonho, ele conta com a ajuda da advogada Samantha e do seu grande amigo John.",
+        src: "https://drive.google.com/file/d/16nr7kLnln8zOo46nzcOGoSih0xj4MjeV/preview",
+        duration: "01h 56m",
+        genero: ["Comédia", "Fantasia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FM%2FMV5BMjE1MjUyODY2Nl5BMl5BanBnXkFtZTcwMTE5NTI2Nw%40%40._V1_.jpg&f=1&nofb=1&ipt=196e091d1cc5b36833561249704b55b0851db2623269d91ebd6a5b773d8197f3&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpelicula.vip%2Fwp-content%2Fuploads%2F2021%2F11%2F2ZetTSYM8ATcrxh4Otge99GJRTz.jpg&f=1&nofb=1&ipt=23854de22e09c147160f6cd2c8290c5277fd2fb06dc8183514b626d5481dcccf&ipo=images",
+        title: "Ted",
+        subtitle: "",
+        description: "Quando criança, John desejou que seu ursinho Ted ganhasse vida e, surpreendentemente, foi atendido. Porém, agora que é adulto, ele precisa lidar com as consequências de seu pedido, já que Ted não vai parar de atormentar a sua vida.",
+        src: "https://drive.google.com/file/d/15FkG8zb21FuZim31g458nusoD5As9muN/preview",
+        duration: "01h 46m",
+        genero: ["Comédia", "Fantasia"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpoltronanerd.com.br%2Fwp-content%2Fuploads%2F2023%2F03%2FBelo-Desastre_Diamond-FIlms-1.jpg&f=1&nofb=1&ipt=8272ac95c2381910917d095a4bd61a6a256ecd8d1842fa7effa865a3a2697a76&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.PELSDcScIsD_oLP87nN36wHaLH%26pid%3DApi&f=1&ipt=879b1de038415d25e5722b2d9a08749049823a5b4482f07132fe789ec3a4311a&ipo=images",
         title: "Belo Desastre",

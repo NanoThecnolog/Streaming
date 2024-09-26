@@ -83,6 +83,14 @@
                     font-family: var(--font-bebas);
                     transition: all .5s;
 
+                    &[disabled] {
+                        cursor: not-allowed;
+
+                        svg {
+                            animation: animate 2s infinite;
+                        }
+                    }
+
                 }
             }
         }
@@ -110,6 +118,17 @@
         }
 
 
+    }
+}
+
+@keyframes animate {
+    from {
+        transform: rotate(0deg);
+
+    }
+
+    to {
+        transform: rotate(360deg);
     }
 }
 
