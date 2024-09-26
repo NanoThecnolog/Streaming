@@ -4,6 +4,7 @@ import { FormEvent, FormEventHandler, useState } from 'react';
 import { api } from '@/services/api';
 import { toast } from 'react-toastify';
 import Router from 'next/router';
+import { FaSpinner } from 'react-icons/fa';
 //import { cookies } from 'next/headers';
 
 
@@ -76,7 +77,9 @@ export default function Login() {
                         />
                     </div>
                     <div className={styles.buttonContainer}>
-                        <button type='submit' disabled={loading}>{loading ? "carregando..." : "Acessar"}</button>
+                        <button type='submit' disabled={loading}>{loading ? (
+                            <span>carregando... <FaSpinner /></span>
+                        ) : "Acessar"}</button>
                     </div>
                 </form>
                 <div className={styles.linksContainer}>
