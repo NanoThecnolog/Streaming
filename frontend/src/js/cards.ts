@@ -36,6 +36,16 @@ export const cards: CardsProps[] = [
     
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.hgmsites.net%2Fhug%2Fscene-from-ford-v-ferrari-movie_100702737_h.jpg&f=1&nofb=1&ipt=05ac929a19563e92830f0112eeb54f9c518f257739cfb6932300d00385ed3d61&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.NcdrPtrEGfiTtLrfhf-0GwHaLH%26pid%3DApi&f=1&ipt=57663ec78dfc73665c37083caa500b27cdd5c6317cc1dbc0b91c4c986aea22ca&ipo=images",
+        title: "Ford vs Ferrari",
+        subtitle: "",
+        description: "O projetista Carroll Shelby e o piloto Ken Miles enfrentam a interferência empresarial, as leis da física e os próprios demônios para construir um carro de corrida para a Ford derrotar a hegemonia de Enzo Ferrari nas 24 horas de Le Mans.",
+        src: "https://drive.google.com/file/d/1roFG4JGXnHhfot3Bd3hMEmnoZyno_l36/preview",
+        duration: "02h 32m",
+        genero: ["Ação", "Drama"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fcw7HFI2szsPJLXZ3NexgCYR4sJW.jpg&f=1&nofb=1&ipt=c3dbc1271cf6a57db861fa99ba9a171521bd18abcf022e6a874cc0eeecfc96ea&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.VH21rlRq7CXWxaMRVrWz7QHaLH%26pid%3DApi&f=1&ipt=1e78d25f27ff2d8c4c9995d44665d9c5148980a35d0c5ca726a9b05cb9f2481d&ipo=images",
         title: "Fragmentado",
