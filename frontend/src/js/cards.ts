@@ -36,6 +36,66 @@ export const cards: CardsProps[] = [
     
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flumiere-a.akamaihd.net%2Fv1%2Fimages%2Feu_sws-8_last-jedi_hero_v9_r_ddc759e5.jpeg%3Fregion%3D0%2C0%2C2400%2C1002&f=1&nofb=1&ipt=f3fe7c5174d1fde0872d74b28632cabbc8638b659c9d9e7bae05a4e488efc4fb&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FfeYMSXyirAqsNHUGzA9AkpA6m3X.jpg&f=1&nofb=1&ipt=9705806a73f66abb0e349aa096e7013169a6c838e958a4106af5bccc30855479&ipo=images",
+        title: "Star Wars 8",
+        subtitle: "Os Últimos Jedi",
+        description: "A tranquila e solitária vida de Luke Skywalker sofre uma reviravolta quando ele conhece Rey, uma jovem que mostra fortes sinais da Força. O desejo dela de aprender o estilo dos Jedi força Luke a tomar uma decisão que mudará sua vida para sempre. Enquanto isso, Kylo Ren e o General Hux lideram a Primeira Ordem para um ataque total contra Leia e a Resistência pela supremacia da galáxia.",
+        src: "https://drive.google.com/file/d/1P6M8SRN7pHXSxdxaeNYgFJY369A9NA3c/preview",
+        duration: "02h 32m",
+        genero: ["Ficção Científica", "Ação"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F3.bp.blogspot.com%2F-S2Ucw7cU-t8%2FVrvfvmMN1bI%2FAAAAAAAAPSk%2F-0hKhRiwrPI%2Fs1600%2Fstar-warsjj_abrams_star_wars_the_force_awakens-wide.jpg&f=1&nofb=1&ipt=f9eae4ace12124ede396807bda8b4c3629af6394d4225f556adec9dd0bb0f136&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FhMNOcq7VFbwynvkjFq9aYd6tjX3.jpg&f=1&nofb=1&ipt=00ac2720a96043e159dde009393f23b40898959a8cb0f62e06b6a983927f2637&ipo=images",
+        title: "Star Wars 7",
+        subtitle: "O Despertar da Força",
+        description: "A queda de Darth Vader e do Império levou ao surgimento de uma nova força sombria: a Primeira Ordem. Eles procuram o jedi Luke Skywalker, desaparecido. A resistência tenta desesperadamente encontrá-lo antes para salvar a galáxia.",
+        src: "https://drive.google.com/file/d/1KulsQ-llsGijNAWe5Cj_0slfmYh7Qt9j/preview",
+        duration: "02h 16m",
+        genero: ["Ficção Científica", "Ação"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F757982.jpg&f=1&nofb=1&ipt=f9fb14b8b960f93003f58e85c7f76e79c7c3f086cea9a9dc872e358414a925b0&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Ft0amAZ8KJFxBQZOxOnWlKVT4STi.jpg&f=1&nofb=1&ipt=0afd3f595ed0dc00ed11b761ad088238c603b39ad410e74645050c0849ba8ee2&ipo=images",
+        title: "Doutor Estranho",
+        subtitle: "",
+        description: "Após sua carreira ser destruída, um brilhante, porém arrogante, cirurgião ganha uma nova chance em sua vida quando um feiticeiro o treina para se tornar o Mago Supremo.",
+        src: "https://drive.google.com/file/d/1-aR8Srm6dZbsQw1wb1GNkB8sdBG--P7u/preview",
+        duration: "01h 55m",
+        genero: ["Ação", "Fantasia", "Super Herói"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsm.ign.com%2Fign_br%2Fscreenshot%2Fdefault%2Fdoutor-estranho-multiverso-loucura_jmqu.jpg&f=1&nofb=1&ipt=656ef70f1e1bb28d4a34647e82536a6dbe03b764e2ec9ebf24319f3baeca5962&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftopflix.re%2Fwp-content%2Fuploads%2F2022%2F05%2FboIgXXUhw5O3oVkhXsE6SJZkmYo-scaled.jpg&f=1&nofb=1&ipt=0c04de59f6070711183d3cd1f263e965c74c0c04bee89e89c8f68bde70e2c105&ipo=images",
+        title: "Doutor Estranho",
+        subtitle: "No Multiverso da Loucura",
+        description: "O aguardado filme trata da jornada do Doutor Estranho rumo ao desconhecido. Além de receber ajuda de novos aliados místicos e outros já conhecidos do público, o personagem atravessa as realidades alternativas incompreensíveis e perigosas do Multiverso para enfrentar um novo e misterioso adversário.",
+        src: "https://drive.google.com/file/d/10v7cR7KaDuKNnQEBzvJo2MW3oCXFDHzK/preview",
+        duration: "02h 06m",
+        genero: ["Ação", "Terror", "Fantasia", "Super Herói"]
+    },
+    {
+        background: "",
+        overlay: "",
+        title: "Os Incríveis 2",
+        subtitle: "",
+        description: "A Mulher Elástica entra em ação para salvar o dia, enquanto o Sr. Incrível enfrenta seu maior desafio até agora: cuidar dos problemas de seus três filhos.",
+        src: "https://drive.google.com/file/d/1W3AhIu67xyeif_O2GYNR2OcPRGof-n_2/preview",
+        duration: "02h 06m",
+        genero: ["Infantil", "Ação", "Disney"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F1706654.jpg&f=1&nofb=1&ipt=9609a375922ce4a3e785fccbb4360d117b5ae72f0e101946c2022a21950e6508&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.u4A2KtZP8mULZb-DJuswLwHaLH%26pid%3DApi&f=1&ipt=eeefea1113623790fb65c7e597c83320e4d35e2d140a05964294c123b8ce143d&ipo=images",
+        title: "Os Incríveis",
+        subtitle: "",
+        description: "Depois do governo banir o uso de superpoderes, o maior herói do planeta, o Sr. Incrível, vive de forma pacata com sua família. Apesar de estar feliz com a vida doméstica, o Sr. Incrível ainda sente falta dos tempos em que viveu como super-herói, e sua grande chance de entrar em ação novamente surge quando um velho inimigo volta a atacar. Só que agora ele precisa contar com a ajuda de toda a família para vencer o vilão.",
+        src: "https://drive.google.com/file/d/13NKsZNAE_IECSMpYK_fU8X9D2wwaP36X/preview",
+        duration: "01h 55m",
+        genero: ["Infantil", "Ação", "Disney"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi-viaplay-com.akamaized.net%2Fviaplay-prod%2F888%2F812%2F1539090669-2f46f258e6e3bd874325f07fabcccbbc82b4c98b.jpg%3Fwidth%3D1600%26height%3D900&f=1&nofb=1&ipt=794f77235a4e9f9ef997e98aa1dd844a1d1ded895770aa9ad408cacd46bbabd4&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.RthAyR6Vs3P16nrPjKusoAHaLH%26pid%3DApi&f=1&ipt=6d799af89aeafaf2f1034b18295328d5f20ac4d2c043d2d5f8b93cee26531dbd&ipo=images",
         title: "Ted 2",
