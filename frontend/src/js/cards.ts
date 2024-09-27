@@ -76,8 +76,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Terror", "Fantasia", "Super Herói"]
     },
     {
-        background: "",
-        overlay: "",
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fone-cinema.s3.sa-east-1.amazonaws.com%2Ffilmes%2Fincredibles-2%2F10062020%2F3840%2Fbackground-incredibles-2.jpg&f=1&nofb=1&ipt=c49acb47a18668133d3735842303dd21d4faa86cd7a0af9a84172737e4e857f3&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.erOCCvgjEnmapFc4oLMx2AHaLH%26pid%3DApi&f=1&ipt=2584e3c8402373a649bdd8ef57d870ae2529a33c9b52822c2ffbffa0ac06c406&ipo=images",
         title: "Os Incríveis 2",
         subtitle: "",
         description: "A Mulher Elástica entra em ação para salvar o dia, enquanto o Sr. Incrível enfrenta seu maior desafio até agora: cuidar dos problemas de seus três filhos.",
