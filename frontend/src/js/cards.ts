@@ -36,6 +36,26 @@ export const cards: CardsProps[] = [
     
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.indiependent.co.uk%2Fwp-content%2Fuploads%2F2015%2F08%2FStar-Wars-Episode-III-Revenge-of-the-Sith.jpg&f=1&nofb=1&ipt=330193fcf4f1f73a520cbecb28aa2cfe13bd39f5d32fc5b0cc4254b69232c9a2&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.a-z2GR-Ss-7PN5a3dR_jawHaLH%26pid%3DApi&f=1&ipt=a9932d155ff8bbae900bc68bacf7836a040d4b1101e7d73f496c41dfd9607e80&ipo=images",
+        title: "Star wars 3",
+        subtitle: "A Vingança dos Sith",
+        description: "As Guerras Clônicas estão em pleno andamento e Anakin Skywalker mantém um elo de lealdade com Palpatine, ao mesmo tempo em que luta para que seu casamento com Padmé Amidala não seja afetado por esta situação. Seduzido por promessas de poder, Anakin se aproxima cada vez mais de Darth Sidious até se tornar o temível Darth Vader. Juntos eles tramam um plano para aniquilar de uma vez por todas com os cavaleiros jedi.",
+        src: "https://drive.google.com/file/d/1hkS7jNa0pb0brLyopsP22qlgJvECyIka/preview",
+        duration: "02h 20m",
+        genero: ["Ficção Científica", "Ação"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fj1l9zqe5ZQPEHGsz91FyZxMldq4.jpg&f=1&nofb=1&ipt=00830ffc93a43e972b798b137fc23f4c2b649cfa62ab9836340e9fdc4d8a58a0&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.NYxhSAnUIoeWaKJau3NpagHaLG%26pid%3DApi&f=1&ipt=20785704be3c395a8efc03ca9f92ee53c18914f21b8e1e9cc09715331366a94f&ipo=images",
+        title: "Han Solo",
+        subtitle: "Uma História Star Wars",
+        description: "Em dificuldade financeira, o piloto Han Solo e sua namorada Qi'ra buscam trabalho. Eles colocam as mãos em uma substância valiosa, mas perigosa, e que acaba levando à perseguição do Império e à separação entre os dois. Preocupado, Han usa toda a sua esperteza para se infiltrar em um plano arriscado, mas que pode render a oportunidade de voltar à terra natal e reencontrar a sua amada. No caminho, o piloto encontra parceiros importantes, como Chewbacca e Lando Calrissian.",
+        src: "https://drive.google.com/file/d/14Vix8ndHmrM5YGcPBp2dP-BBFq78khlP/preview",
+        duration: "02h 15m",
+        genero: ["Ficção Científica", "Ação"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flumiere-a.akamaihd.net%2Fv1%2Fimages%2Feu_sws-8_last-jedi_hero_v9_r_ddc759e5.jpeg%3Fregion%3D0%2C0%2C2400%2C1002&f=1&nofb=1&ipt=f3fe7c5174d1fde0872d74b28632cabbc8638b659c9d9e7bae05a4e488efc4fb&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FfeYMSXyirAqsNHUGzA9AkpA6m3X.jpg&f=1&nofb=1&ipt=9705806a73f66abb0e349aa096e7013169a6c838e958a4106af5bccc30855479&ipo=images",
         title: "Star Wars 8",
