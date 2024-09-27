@@ -1,0 +1,88 @@
+.container {
+    display: flex;
+    //padding: 120px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    font-family: var(--font-Roboto);
+
+
+    .donateContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        padding: 0 50px;
+
+        .title {
+            text-align: center;
+        }
+
+        .donate {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+
+            .qrcodeContainer {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                align-items: center;
+            }
+
+            .keyContainer {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                justify-content: center;
+                align-items: center;
+
+                .key {
+                    font-weight: 900;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .container {
+        .donateContainer {
+            .donate {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+    }
+}
+
+@media (min-width: 375.1px) and (max-width: 560px) {
+    .container {
+        .donateContainer {
+            .donate {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+    }
+}
+
+@media (min-width: 560.1px) and (max-width: 768px) {
+    .container {
+        .donateContainer {
+            .donate {
+                grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {}
+
+@media (max-width: 1280px) {}
+
+@media (max-width: 1440px) {}
+
+@media (max-width: 1920px) {}
