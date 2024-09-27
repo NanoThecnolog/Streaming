@@ -36,6 +36,16 @@ export const cards: CardsProps[] = [
     
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fcw7HFI2szsPJLXZ3NexgCYR4sJW.jpg&f=1&nofb=1&ipt=c3dbc1271cf6a57db861fa99ba9a171521bd18abcf022e6a874cc0eeecfc96ea&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.VH21rlRq7CXWxaMRVrWz7QHaLH%26pid%3DApi&f=1&ipt=1e78d25f27ff2d8c4c9995d44665d9c5148980a35d0c5ca726a9b05cb9f2481d&ipo=images",
+        title: "Fragmentado",
+        subtitle: "",
+        description: "Kevin possui 23 personalidades distintas e consegue alterná-las quimicamente em seu organismo apenas com a força do pensamento. Um dia, ele sequestra três adolescentes que encontra em um estacionamento. Vivendo em cativeiro, elas passam a conhecer as diferentes facetas de Kevin e precisam encontrar algum meio de escapar.",
+        src: "https://drive.google.com/file/d/1xicRGBnEcTh0ucw3Yla6k465PBaDq2NN/preview",
+        duration: "1h 57m",
+        genero: ["Terror", "Mistério"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.indiependent.co.uk%2Fwp-content%2Fuploads%2F2015%2F08%2FStar-Wars-Episode-III-Revenge-of-the-Sith.jpg&f=1&nofb=1&ipt=330193fcf4f1f73a520cbecb28aa2cfe13bd39f5d32fc5b0cc4254b69232c9a2&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.a-z2GR-Ss-7PN5a3dR_jawHaLH%26pid%3DApi&f=1&ipt=a9932d155ff8bbae900bc68bacf7836a040d4b1101e7d73f496c41dfd9607e80&ipo=images",
         title: "Star wars 3",
