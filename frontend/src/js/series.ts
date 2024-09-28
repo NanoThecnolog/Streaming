@@ -25,6 +25,52 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F8zLyVhEsH6SM9diX7CUUWcaRlk0.jpg&f=1&nofb=1&ipt=81b9b6aed35c66bcf2fa0a333faac41cc152013bfe27c44ae9871a330bc5f574&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.fzjrykEbnQfXDgzAUVAXuQHaK9%26pid%3DApi&f=1&ipt=6cc2259eda233ab809b068b9b5a1ceb2abf961f244052dd7c4b8e96cdf58509b&ipo=images",
+        title: "Manual de Assassinato para Boas Garotas",
+        subtitle: "",
+        description: "Cinco anos após o assassinato de uma adolescente de 17 anos em uma cidadezinha inglesa pacata, uma estudante decide investigar o caso.",
+        genero: ["Suspense", "Drama", "Mistério", "Netflix"],
+        season: [
+            {
+                s: 1,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1YTJf17cGZvNq93m_Y_uZMT0oOaO6FQ45/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1vdUhlYFl0IOXJwB1BOEZIN4geJSwJeM0/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1WQEEER-Bef8WrfKhJojcRtBUQkgnSMzC/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1XxPPuvf687SC6wyW1Bh9JJDliXqctRr8/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1jNXdceeiI28RS9sM6m2a1diCKr79UEdx/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1QEbSNvpOgRWxxsyDQkk39pi7VvRilKzM/preview",
+                        duration: "51m"
+                    },
+                ]
+            }
+        ]
+
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdiscussingfilm.net%2Fwp-content%2Fuploads%2F2020%2F07%2FUA-3-859176066-1595879190645.jpg&f=1&nofb=1&ipt=1850193f57df1c16b63b1fdd359c7eb57055596f5ea8c1c6df2e404358236178&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpics.filmaffinity.com%2Fthe_umbrella_academy-794888543-large.jpg&f=1&nofb=1&ipt=41acad8c0545834d5522507a076e3a28d994c8806dfdd6b6022c9d119975a7db&ipo=images",
         title: "The Humbrella Academy",

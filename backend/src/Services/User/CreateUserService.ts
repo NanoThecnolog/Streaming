@@ -64,7 +64,7 @@ class CreateUserService {
             <tr>
                 <td style="padding: 20px;">
                     <p style="font-size: 16px; margin-bottom: 20px;">Olá, ${user.name}!</p>
-                    <p style="font-size: 16px; margin-bottom: 20px;">Sua conta na FlixNext foi criada com sucesso! Obrigado</p>
+                    <p style="font-size: 16px; margin-bottom: 20px;">Sua conta na FlixNext foi criada com sucesso!</p>
                     <p style="font-size: 16px; margin-bottom: 10px;">Para completar seu cadastro, <a style="text-decoration: none;color: #007bff" href="${ActiveLink}">clique aqui</a> e ative sua conta.</p>
                     <p style="font-size: 16px; margin-bottom: 10px;">Caso não esteja conseguindo clicar no link, copie e cole esse endereço no navegador:</p>
                     <p style="font-size: 16px; margin-bottom: 10px;"> ${ActiveLink}</p>

@@ -36,6 +36,36 @@ export const cards: CardsProps[] = [
     
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FjiGoKuVsKzF3isEY1MEDR90Eh1l.jpg&f=1&nofb=1&ipt=75f911beaa592297980e7e15fdbb46027f5d70ed478b63b4f2e6aa01dc5a0826&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.6zS03SQrWTB-ycSvMYJYQwHaLH%26pid%3DApi&f=1&ipt=d6f1d2119db958ce822bd13ecac9290d051a2806a3ba1a98d483fb9a096b5bd7&ipo=images",
+        title: "Uma Astronauta Quase Perfeita",
+        subtitle: "",
+        description: "Tiffany sempre nutriu o sonho de explorar o espaço, mas a vida não seguiu o roteiro que era esperado por ela. Determinada a mudar sua trajetória, ela faz de tudo para conquistar uma vaga na NASA.",
+        src: "https://drive.google.com/file/d/1JQ1onYJ6mCg0gJR7j0RTw9aLEtb27D1m/preview",
+        duration: "01h 50m",
+        genero: ["Comédia", "Romance"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FhUpTMTrn1jTBUfC2JFWSfb2Uww9.jpg&f=1&nofb=1&ipt=bf9f61f4e048e9a68896990ff16d0af820de98d6d42683e66282e5b6720377b0&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.EhxokNWaEbbEGh6plui_2gHaLH%26pid%3DApi&f=1&ipt=0efd098532abffab2be263f538e71a4b84ba9f9bf9a3d915c4c9be5b73cebe81&ipo=images",
+        title: "O Show de Truman",
+        subtitle: "",
+        description: "Truman Burbank é um pacato vendedor de seguros que leva uma vida simples com sua esposa Meryl Burbank. Porém, algumas coisas ao seu redor fazem com que ele passe a estranhar sua cidade, seus supostos amigos e até sua mulher. Após conhecer a misteriosa Lauren, ele fica intrigado e acaba descobrindo que toda sua vida foi monitorada por câmeras e transmitida em rede nacional.",
+        src: "https://drive.google.com/file/d/1p0XrNZh9qmkzwb5cTUvY7pQwGUAocoIz/preview",
+        duration: "01h 43m",
+        genero: ["Comédia", "Ficção Científica"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Faodisseia.b-cdn.net%2Fwp-content%2Fuploads%2F2020%2F03%2Fo-po%25C3%25A7o.jpg&f=1&nofb=1&ipt=2fd3ce0f6d49f22e752381c830116727cbb8954f43a4edc5f71d8470f116fc40&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.f914LDH1vSOwomP_MRSAYQHaLG%26pid%3DApi&f=1&ipt=c78144b15fa8b7ad1273d9637654b8603bb007955a316bda926b2462d92b873c&ipo=images",
+        title: "O Poço",
+        subtitle: "",
+        description: "Em uma prisão onde os detentos são alimentados por uma plataforma descendente, os que estão nos níveis mais altos comem mais do que precisam enquanto os dos andares mais baixos ficam com as migalhas. Até que um homem decide mudar o sistema.",
+        src: "https://drive.google.com/file/d/1J0WH36RSu42jwcF8UQ5FZUmVnfM0PH8L/preview",
+        duration: "01h 34m",
+        genero: ["Suspense", "Ficção Científica", "Netflix"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.hgmsites.net%2Fhug%2Fscene-from-ford-v-ferrari-movie_100702737_h.jpg&f=1&nofb=1&ipt=05ac929a19563e92830f0112eeb54f9c518f257739cfb6932300d00385ed3d61&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.NcdrPtrEGfiTtLrfhf-0GwHaLH%26pid%3DApi&f=1&ipt=57663ec78dfc73665c37083caa500b27cdd5c6317cc1dbc0b91c4c986aea22ca&ipo=images",
         title: "Ford vs Ferrari",
