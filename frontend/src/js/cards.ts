@@ -36,6 +36,16 @@ export const cards: CardsProps[] = [
     
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2024%2F05%2Fdivertida-mente-2-1.jpg&f=1&nofb=1&ipt=7b132037478ae46360ee53a409815c211bb78712df3eaf44d621905d230aed33&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.aHhmKiT1KtwEVdJLMBiKugHaKm%26pid%3DApi&f=1&ipt=d289b6ea9ed6128109e16b9411a6bb98a14fb30711d855f91280e7f8f773d9ae&ipo=images",
+        title: "Divertida mente 2",
+        subtitle: "",
+        description: "Com um salto temporal, Riley se encontra mais velha, passando pela tão temida adolescência. Junto com o amadurecimento, a sala de controle também está passando por uma adaptação para dar lugar a algo totalmente inesperado: novas emoções. As já conhecidas, Alegria, Raiva, Medo, Nojinho e Tristeza não têm certeza de como se sentir quando novos inquilinos chegam ao local.",
+        src: "https://drive.google.com/file/d/12lkec1U0W3zYPdNmGr6MbX5QWMIX-lGt/preview",
+        duration: "01h 36m",
+        genero: ["Infantil", "Comédia"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FjiGoKuVsKzF3isEY1MEDR90Eh1l.jpg&f=1&nofb=1&ipt=75f911beaa592297980e7e15fdbb46027f5d70ed478b63b4f2e6aa01dc5a0826&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.6zS03SQrWTB-ycSvMYJYQwHaLH%26pid%3DApi&f=1&ipt=d6f1d2119db958ce822bd13ecac9290d051a2806a3ba1a98d483fb9a096b5bd7&ipo=images",
         title: "Uma Astronauta Quase Perfeita",
