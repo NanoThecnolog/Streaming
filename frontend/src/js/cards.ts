@@ -36,6 +36,86 @@ export const cards: CardsProps[] = [
     
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fyg02drCtyfG9SrvHH6cY1sBz6Z1.jpg&f=1&nofb=1&ipt=a0f56af847161016d99e837328c4f521e3e9d0cdf2167eb7b8a513d7f73a0451&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP._c6_XHof07D_SQoJHI7nTwHaLH%26pid%3DApi&f=1&ipt=5fc88df3575d152fad5549f612dd232c496976b7c512e190f94e8635403f9bf6&ipo=images",
+        title: "Premonição 5",
+        subtitle: "",
+        description: "Um jovem tem uma premonição e salva um grupo de pessoas da morte quando uma ponte suspensa começa a desabar. Contudo, eles logo aprendem que não têm como fugir da morte.",
+        src: "https://drive.google.com/file/d/1QOs-MkAhceUuTr-TqOKqsbzkd_JEzDk2/preview",
+        duration: "01h 32m",
+        genero: ["Terror", "Ação"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FlOI8OhF58GkwOwDcUY9dcueEcBN.jpg&f=1&nofb=1&ipt=b072b8b38653a2105b6ab2d48da63b000d780e7eeaad206d20863e864de63f1e&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.ZKTNz6UXv3AImUm2is7KXgHaJ4%26pid%3DApi&f=1&ipt=286a9cf5be549155c4faf0a1a4a53e88a1a0dc97de7bec2d4a5a039ffba8195b&ipo=images",
+        title: "Premonição 4",
+        subtitle: "",
+        description: "Uma premonição salva quatro amigos que estavam assistindo a uma corrida de carros quando um trágico acidente acontece, matando dezenas de pessoas no local. Eles pensam que escaparam da morte, mas logo percebem que ela está em seu encalço.",
+        src: "https://drive.google.com/file/d/1OpC6ItJzhNcGuvTaegZ0H9qWwDghPcgp/preview",
+        duration: "01h 22m",
+        genero: ["Terror", "Ação"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2020%2F03%2Fpremoni%25C3%25A7%25C3%25A3o-3.jpg&f=1&nofb=1&ipt=9d3fd9e5283cf4c04f56e42d31ca2df747412b1f0fda91908867b437fb45f3d7&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.2J7iP-838jc8rRaAQZQqVwHaKk%26pid%3DApi&f=1&ipt=a70452f871a6bedb20c7f62492d1b1fac6dd7f3ad20edcae5af1abc2756afd98&ipo=images",
+        title: "Premonição 3",
+        subtitle: "",
+        description: "Seis anos depois que um grupo de estudantes enganam pela primeira vez a morte, uma adolescente tem o pressentimento de que ela e seus amigos vão ter um acidente em uma montanha-russa. Quando a visão prova ser verdadeira, a estudante e os sobreviventes precisarão lidar com as repercussões de enganar a morte.",
+        src: "https://drive.google.com/file/d/1RUnXFxdUtheV8xLrEaYtzoxjA0Y7I-Lp/preview",
+        duration: "01h 33m",
+        genero: ["Terror", "Ação"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FtSCozfXKeALzwcCilWcCXM14edJ.jpg&f=1&nofb=1&ipt=cd755b13b84c4e0861b5a3d160ea7860c92e589f4f80276422e0a865e0924865&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.SBHuM37WoZu_vz1djKc7PwHaJ4%26pid%3DApi&f=1&ipt=c3f3afad2d8ad7726392683f71f9bcca03a8ceaf430b965e91dfc36472b154de&ipo=images",
+        title: "Premonição 2",
+        subtitle: "",
+        description: "Kimberly tem a premonição de que um horrível acidente na estrada matará muitas pessoas, inclusive ela e seus amigos. Assustada com a visão, ela para o carro e impede os que estão atrás de passar. Logo, um policial rodoviário chega e o acidente realmente acontece. Agora, a morte está perseguindo esse grupo de sobreviventes e, um a um, eles estão morrendo como deveriam: na estrada.",
+        src: "https://drive.google.com/file/d/1jyEdo6odqjw_NdbiUsX22P5LWWYy3lnG/preview",
+        duration: "01h 30m",
+        genero: ["Terror", "Ação"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2020%2F03%2Fpremoni%25C3%25A7%25C3%25A3o-1.jpg&f=1&nofb=1&ipt=b37a7c1782411e76ad15ce67dc15187b6ca948e23b2167707acafbc336b40bf5&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.kL76eB__vH0OfYl7XYqrNgHaLH%26pid%3DApi&f=1&ipt=aa9d6339ad30e9a4ca7c13ddf2c17b85ccf9d5070836f72dd1bc6f974abfe533&ipo=images",
+        title: "Premonição",
+        subtitle: "",
+        description: "Alex Browning está embarcando em uma viagem para Paris. Alex sofre uma premonição, pela qual vê o avião explodir momentos depois de sair do chão. Alex insiste que todo mundo saia do avião e sete pessoas, incluindo Alex, são obrigados a desembarcar. Todos veem quando o avião realmente explode como uma bola de fogo. Ele e os outros sobreviventes brevemente enganam a morte, mas não serão capazes de evitar o seu destino por muito tempo. Um a um, esses fugitivos de destino viram vítimas da morte.",
+        src: "https://drive.google.com/file/d/11OwfI3aNMUnKnk1P59ZcksMbGqj7ZdyU/preview",
+        duration: "01h 38m",
+        genero: ["Terror", "Ação"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FfRnhnR2JfkGBT19z7EXEmIUcDSo.jpg&f=1&nofb=1&ipt=b1c9d1ccc61016cc7ed4817f380ba241cf4ee1c1e8384e0921a927fe0142d2ee&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.6JYyrbykH_Das4_Wc2jQ4AHaJ4%26pid%3DApi&f=1&ipt=229676cd1174589201dd59c1b2e983860e51de2d349d0e606c8d7e74456a37f1&ipo=images",
+        title: "O Retorno da Múmia",
+        subtitle: "",
+        description: "Rick e Evelyn O'Connell estão morando na Londres de 1935, onde criam o filho. Quando uma série de eventos revela o corpo de Imhotep ressuscitado, os O'Connell iniciam uma corrida desesperada para salvar o mundo do mal e resgatar o filho antes que seja tarde demais.",
+        src: "https://drive.google.com/file/d/1YHYbrTiEYn7pVkSYGi_LlYkf9Jmey_YG/preview",
+        duration: "02h 10m",
+        genero: ["Aventura", "Ação"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-gXpX18pWnfQ%2FYQ901XBZBCI%2FAAAAAAAAAD0%2FF97r9XjMqlsMgLd_nizIrp-PIf1aTmSugCLcBGAsYHQ%2Fs1920%2F10-curiosidades-sobre-o-filme-a-mumia.jpg&f=1&nofb=1&ipt=09c3570065227ef30c5d90c4aeb4a4f667260daf2db062efd9b024da4fa73a8f&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.IkYbD1p7-9Qe_kW9dB8XFgHaLG%26pid%3DApi&f=1&ipt=1b59f36480cd25f4d196261ed3d3c8588761856a9a86370e26928ec725b0f13a&ipo=images",
+        title: "A Múmia",
+        subtitle: "",
+        description: "Na década de 1920, uma arqueóloga e seu irmão se unem a um aventureiro para encontrar um tesouro, mas acabam ressuscitando Imhotep, uma múmia diabólica e vingativa.",
+        src: "https://drive.google.com/file/d/16D6ZZQZHwU9mMTVCLUw2nSbjaM8__Yqx/preview",
+        duration: "02h 04m",
+        genero: ["Aventura", "Ação"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FvtuGtevnaJutCqWAmGfvb1wLByh.jpg&f=1&nofb=1&ipt=bf11d6dccb2a15f69f3ed46907a9894391802cf458ad1b28011297a97dfdf8ef&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.r8hGsGSAlVqo0_DeXkRDwwHaKj%26pid%3DApi&f=1&ipt=988a19cf83894df24e0a042d041439f3f14100486381d7e4b4e5b6b604781d6a&ipo=images",
+        title: "Os Novatos",
+        subtitle: "",
+        description: "A maior festa do ano vai acontecer bem na primeira semana do ensino médio. Quatro adolescentes encaram uma noite de caos e excessos.",
+        src: "https://drive.google.com/file/d/1FqqcErgr4DWqX58aZimYkKE7i85Ar-oy/preview",
+        duration: "01h 31m",
+        genero: ["Comédia", "Netflix"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FjOh79POQu4hyVIseUxdQxTW7vOf.jpg&f=1&nofb=1&ipt=ba3558348b2763a9b8efb97a72f5fcff4143f9a704e136ec600e5c470c389afc&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.RPbjIWwiT-EbDL9QkcitwQHaLH%26pid%3DApi&f=1&ipt=5760b8a5b1c5b89d2a0ca55eab78b061bb25145dc7bbe3eb0128b4b32e65c68a&ipo=images",
         title: "Piratas do Caribe",
