@@ -34,7 +34,28 @@ export const cards: CardsProps[] = [
     genero: ["", ""]
     },
     
+    
     */
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.rogerebert.com%2Fuploads%2Freview%2Fprimary_image%2Freviews%2Fi-am-number-four-2011%2FEB20110216REVIEWS110219991AR.jpg&f=1&nofb=1&ipt=3a2d5bf8b462488d992aba2ee5c851b2c268935ef3af66e4af704662c63667a0&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Bs2GHxeROE2lzC0Nls8QiQHaLH%26pid%3DApi&f=1&ipt=45e969aaffb5935b394cf04736007d67445999ca8dce569f050746b45aa04587&ipo=images",
+        title: "Eu Sou o Número Quatro",
+        subtitle: "",
+        description: "John Smith parece ser um adolescente comum, mas é, na verdade, um alienígena do planeta Lorien entre nove que estão vivendo como humanos na Terra.",
+        src: "https://drive.google.com/file/d/1cEt2SPaF31P_CKuKTys5PLwwYQI6gZq9/preview",
+        duration: "02h 00m",
+        genero: ["Ficção Científica", "Ação"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FM%2FMV5BMTM5MTM5OTgyMV5BMl5BanBnXkFtZTcwMzI2NzExNw%40%40._V1_.jpg&f=1&nofb=1&ipt=a962ff98e16eac6df41ae0f4a5a8389ce11a8482acb88ed51c6340030ee5c552&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.JuK6WaO8XvkR98R5SVJLcwAAAA%26pid%3DApi&f=1&ipt=a8b4f83cc3808e3f9953b34c1e683343c6d283f5c2fd3b0c1fe2c9687c7e14eb&ipo=images",
+        title: "Hancock",
+        subtitle: "",
+        description: "Hancock é um super-herói desajeitado que protege os cidadãos de Los Angeles, mas causa danos colaterais a cada ato heroico que realiza. Ele não se importa com o que as pessoas pensam a seu respeito. Depois de salvar a vida de um executivo, ele conhece a bela esposa do homem e descobre que, apesar de tudo, é um sujeito sensível.",
+        src: "https://drive.google.com/file/d/1uZYXQHQYAAzN7ZljYmoCAtTRtY35esEP/preview",
+        duration: "01h 42m",
+        genero: ["Ação", "Comédia"]
+    },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimagenes.montevideo.com.uy%2Fimgnoticias%2F201601%2F544960.jpg&f=1&nofb=1&ipt=e8edbcdc8d4d0321ac98018276475afbd7d182c1e5e122684049bfd6b9a32660&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.JvHzhT9kShyDGOgPvttk2wHaLH%26pid%3DApi&f=1&ipt=e879cab9b9337cb4193c5ef26ecd33bbf5e07edc84a2249992c9ddb118f85bb5&ipo=images",
