@@ -36,6 +36,26 @@ export const cards: CardsProps[] = [
     
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimagenes.montevideo.com.uy%2Fimgnoticias%2F201601%2F544960.jpg&f=1&nofb=1&ipt=e8edbcdc8d4d0321ac98018276475afbd7d182c1e5e122684049bfd6b9a32660&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.JvHzhT9kShyDGOgPvttk2wHaLH%26pid%3DApi&f=1&ipt=e879cab9b9337cb4193c5ef26ecd33bbf5e07edc84a2249992c9ddb118f85bb5&ipo=images",
+        title: "A 5ª Onda",
+        subtitle: "",
+        description: "Uma série de ataques alienígenas cada vez mais letais deixa a maior parte da Terra dizimada. Separada da família, a adolescente Cassie tenta desesperadamente encontrar seu irmão mais novo antes que a quinta onda de ataque extermine a humanidade.",
+        src: "https://drive.google.com/file/d/127dY1RSHczO1YvXYPMUoOnp3QbQjlTT8/preview",
+        duration: "01h 52m",
+        genero: ["Fição Científica", "Ação"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpop.proddigital.com.br%2Fwp-content%2Fuploads%2Fsites%2F8%2F2024%2F01%2F01-6.jpg&f=1&nofb=1&ipt=b623356dd53e12298e267e0c2cca8f489900d0c1016e962f6faef4756fd5049e&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.FifvKTYCBoIQ4p2V1mCIjQAAAA%26pid%3DApi&f=1&ipt=ffa43b81f95d13316db8eefb6cc6d90c2ce15b604abbfcadb34b4c9143f85a60&ipo=images",
+        title: "Rivais",
+        subtitle: "",
+        description: "Um campeão de tênis do Grand Slam se vê do outro lado da rede do outrora promissor e agora esgotado Patrick, seu ex-melhor amigo e ex-namorado de sua esposa.",
+        src: "https://drive.google.com/file/d/1m1Xf0iozOYTroWaJq-KyxCMqXfwEBBNz/preview",
+        duration: "02h 11m",
+        genero: ["Romance", "Drama"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fyg02drCtyfG9SrvHH6cY1sBz6Z1.jpg&f=1&nofb=1&ipt=a0f56af847161016d99e837328c4f521e3e9d0cdf2167eb7b8a513d7f73a0451&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP._c6_XHof07D_SQoJHI7nTwHaLH%26pid%3DApi&f=1&ipt=5fc88df3575d152fad5549f612dd232c496976b7c512e190f94e8635403f9bf6&ipo=images",
         title: "Premonição 5",
