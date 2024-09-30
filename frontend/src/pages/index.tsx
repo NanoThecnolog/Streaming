@@ -22,6 +22,7 @@ export default function Home() {
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
   const [width, setWidth] = useState<number>()
 
+
   const userData: UserProps = getCookieClient();
   //console.log(userData)
 

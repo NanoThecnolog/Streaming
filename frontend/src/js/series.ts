@@ -359,9 +359,15 @@ export const series: SeriesProps[] = [
                         ep: 1,
                         src: "https://drive.google.com/file/d/1aO_KxlteQQSn5hAKgltEEpdlFNSVze-k/preview",
                         duration: "01h 06m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1--C4tA_jXmWi0fUgy2VAX5ZE7jba1OCC/preview",
+                        duration: "55m"
                     }
                 ]
-            }
+            },
+
         ]
     },
     {
