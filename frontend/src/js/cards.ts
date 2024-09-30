@@ -36,6 +36,57 @@ export const cards: CardsProps[] = [
     
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FjOh79POQu4hyVIseUxdQxTW7vOf.jpg&f=1&nofb=1&ipt=ba3558348b2763a9b8efb97a72f5fcff4143f9a704e136ec600e5c470c389afc&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.RPbjIWwiT-EbDL9QkcitwQHaLH%26pid%3DApi&f=1&ipt=5760b8a5b1c5b89d2a0ca55eab78b061bb25145dc7bbe3eb0128b4b32e65c68a&ipo=images",
+        title: "Piratas do Caribe",
+        subtitle: "A Maldição do Pérola Negra",
+        description: "O pirata Jack Sparrow tem seu navio saqueado e roubado pelo capitão Barbossa e sua tripulação. Com o navio de Sparrow, Barbossa invade a cidade de Port Royal, levando consigo Elizabeth Swann, filha do governador. Para recuperar sua embarcação, Sparrow recebe a ajuda de Will Turner, um grande amigo de Elizabeth. Eles desbravam os mares em direção à misteriosa Ilha da Morte, tentando impedir que os piratas-esqueleto derramem o sangue de Elizabeth para desfazer a maldição que os assola.",
+        src: "https://drive.google.com/file/d/1nt7dvQwtVXjiK9DW1g9H3ay4aUuztFs4/preview",
+        duration: "02h 23m",
+        genero: ["Ação", "Aventura"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fumfilmeumdia.files.wordpress.com%2F2013%2F08%2Fpirates-of-the-caribbean-dead-mans-chest.png&f=1&nofb=1&ipt=65172f234ed92205e81bf66d7e99a4f912718da3edebb357c87ea758764959e4&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP._Hi9-Dq4abDAjy65fl_HkgHaKx%26pid%3DApi&f=1&ipt=ce1863b68725ed61b49ec5c51473f45e4b3e439f1a705008c29d7bdc99f0782a&ipo=images",
+        title: "Piratas do Caribe",
+        subtitle: "O Baú da Morte",
+        description: "Will e Elizabeth estão prestes a se casar quando o lendário pirata Davy Jones, comandante de um invencível navio assombrado, aparece para cobrar uma dívida do capitão Jack Sparrow, amigo do casal. Agora, a única chance de Sparrow se livrar de uma maldição de Jones é encontrando o baú da morte.",
+        src: "https://drive.google.com/file/d/1vmpscwysseSKXbVG2mKsYCSIx8_dm7Yd/preview",
+        duration: "02h 31m",
+        genero: ["Ação", "Aventura"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FuuBaUdTJlrjHc2gyC5XYAmQ0KUM.jpg&f=1&nofb=1&ipt=237ce745515377fa8e4ffd41eddca0657d12bb307a57ef178aa2c02ebaddee06&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.C9fMxvogB3CXXpXCDfjomgHaLH%26pid%3DApi&f=1&ipt=8f0aec49252a065bd37759c9bdcc7e0182a047cf5f83b6c5f9df21264c68e823&ipo=images",
+        title: "Piratas do Caribe",
+        subtitle: "No Fim do Mundo",
+        description: "Will Turner e Elizabeth Swann unem forças com o Capitão Barbossa para libertarem Jack Sparrow da prisão de Davy Jones. Enquanto isso, a tripulação do barco fantasma O Holandês Voador causa estragos nos Sete Mares. Os amigos devem navegar através de águas perigosas para enfrentarem o pirata chinês São Feng e, finalmente, eles devem escolher em que lado ficar na batalha, pois a vida do pirata está em jogo.",
+        src: "https://drive.google.com/file/d/1Kd5sRRXe1EFQPYfHMBHgPW0W0pl1-uIL/preview",
+        duration: "02h 48m",
+        genero: ["Ação", "Aventura"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages7.alphacoders.com%2F357%2Fthumb-1920-357414.jpg&f=1&nofb=1&ipt=c9e7df8efba2a0299ec40a9a0ae21e1d8c1531482b3cd69c33f9f85fbd114165&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.3VXuhlNVi0X_fIyF98MVJgHaLH%26pid%3DApi&f=1&ipt=79cd9ffb6bf65504566677e5803adce48bf44be55d2e50b6772f3fda71a978e7&ipo=images",
+        title: "Piratas do Caribe",
+        subtitle: "Navegando em Águas Misteriosas",
+        description: "O passado do capitão Jack Sparrow volta a alcançá-lo quando ele cruza com Angelica, uma bonita pirata que Jack, um dia, amou e depois abandonou. Ela, então, o força a acompanhá-la ao navio Vingança da Rainha Ana, do famoso Barba Negra. Junto com uma tripulação de zumbis, o trio parte em busca da lendária Fonte da Juventude. Mas o rival de Jack, Barbossa, também cobiça a fonte, assim como um navio espanhol.",
+        src: "https://drive.google.com/file/d/1xM4mp0Bib3ryZxDAhVatfgcJsvj4WOhB/preview",
+        duration: "02h 21m",
+        genero: ["Ação", "Aventura"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.collider.com%2Fwp-content%2Fuploads%2F2017%2F03%2Fpirates-of-the-caribbean-5-johnny-depp.jpg&f=1&nofb=1&ipt=ccf55d3c1fc2da80a67397e443fafa545234a88f76459a58671126d4c9e8e052&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Hjtzm9PBYCmc4fan8pR0tgHaK3%26pid%3DApi&f=1&ipt=7c68ae2108c33909411cc900cc500c3c717ce058d9b9737450c75e1842adf977&ipo=images",
+        title: "Piratas do Caribe",
+        subtitle: "A Vingança de Salazar",
+        description: "Salazar é a nova pedra no sapato do capitão Jack Sparrow. Ele lidera um exército de piratas fantasmas assassinos e está disposto a matar todos os piratas existentes na face da Terra. Para escapar, Sparrow precisa encontrar o Tridente de Poseidon, que dá ao seu dono o poder de controlar o mar.",
+        src: "https://drive.google.com/file/d/1HgPKDWQsj_8W9p5rbKwkHZFhLLE1jl8r/preview",
+        duration: "02h 09m",
+        genero: ["Ação", "Aventura"]
+    },
+
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2024%2F05%2Fdivertida-mente-2-1.jpg&f=1&nofb=1&ipt=7b132037478ae46360ee53a409815c211bb78712df3eaf44d621905d230aed33&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.aHhmKiT1KtwEVdJLMBiKugHaKm%26pid%3DApi&f=1&ipt=d289b6ea9ed6128109e16b9411a6bb98a14fb30711d855f91280e7f8f773d9ae&ipo=images",
         title: "Divertida mente 2",
