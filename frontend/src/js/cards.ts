@@ -3,8 +3,8 @@ import { CardsProps } from "@/@types/Cards";
 export const cards: CardsProps[] = [
     /*
     {
-        background: "",
-        overlay: "",
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FwSZbtiFIK1fkKZdSRtn2kz2Ttfd.jpg&f=1&nofb=1&ipt=a354e5784f23b13c3f50ac79f43b6c9124bec0a72cc8ba7658556eff51a1fb77&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FjcSKH5NU8p7PtBiEXGEepLDFKdU.jpg&f=1&nofb=1&ipt=0f5be18ce52b61269ab63d67c5476cad11f61cce3e38820d639d3141d6135a5e&ipo=images",
         title: "O Agente Faixa Preta",
         subtitle: "",
         description: "",
@@ -12,16 +12,7 @@ export const cards: CardsProps[] = [
         duration: "01h 49m",
         genero: ["Ação", "Netflix", "Coreano"]
         },
-        {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fentretenimento.oportaln10.com.br%2Fwp-content%2Fuploads%2F2024%2F09%2Ffilme-feios-na-netflix.jpg&f=1&nofb=1&ipt=67021188a1af61ee6de8f2b28575fa00b588dfc90bec21aadbeb934c9d0b4ac4&ipo=images",
-        overlay: "",
-        title: "Feios",
-        subtitle: "",
-        description: "",
-        src: "https://drive.google.com/file/d/1-Xo3DU8KR4zJ5rWTcdVPLbBpT8epXyiz/preview",
-        duration: "01h 42m",
-        genero: ["Drama", "Ficção Científica", "Netflix"]
-        },
+        
         
     {
     background: "",
@@ -36,6 +27,26 @@ export const cards: CardsProps[] = [
     
     
     */
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FwSZbtiFIK1fkKZdSRtn2kz2Ttfd.jpg&f=1&nofb=1&ipt=a354e5784f23b13c3f50ac79f43b6c9124bec0a72cc8ba7658556eff51a1fb77&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FjcSKH5NU8p7PtBiEXGEepLDFKdU.jpg&f=1&nofb=1&ipt=0f5be18ce52b61269ab63d67c5476cad11f61cce3e38820d639d3141d6135a5e&ipo=images",
+        title: "O Agente Faixa Preta",
+        subtitle: "",
+        description: "Um talentoso lutador de artes marciais que não resiste a ajudar pessoas em perigo se une a um oficial de condicional para enfrentar e prevenir o crime.",
+        src: "https://drive.google.com/file/d/1-LUFQgeYsuBA-4aFr8eJOR9W2lh0Uwke/preview",
+        duration: "01h 49m",
+        genero: ["Ação", "Netflix", "Coreano"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fentretenimento.oportaln10.com.br%2Fwp-content%2Fuploads%2F2024%2F09%2Ffilme-feios-na-netflix.jpg&f=1&nofb=1&ipt=67021188a1af61ee6de8f2b28575fa00b588dfc90bec21aadbeb934c9d0b4ac4&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.PxyMB12Q6FuagFmtu078sQHaLH%26pid%3DApi&f=1&ipt=23073b03b48ea1cba25cff9f0ecfa9e3ebaf507eea4a6ad2f90281fd610784c6&ipo=images",
+        title: "Feios",
+        subtitle: "",
+        description: "Em um mundo distópico que impõe rígidos padrões de beleza, uma adolescente aguardando sua cirurgia plástica obrigatória sai em busca da amiga desaparecida.",
+        src: "https://drive.google.com/file/d/1-Xo3DU8KR4zJ5rWTcdVPLbBpT8epXyiz/preview",
+        duration: "01h 42m",
+        genero: ["Drama", "Ficção Científica", "Netflix"]
+    },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.rogerebert.com%2Fuploads%2Freview%2Fprimary_image%2Freviews%2Fi-am-number-four-2011%2FEB20110216REVIEWS110219991AR.jpg&f=1&nofb=1&ipt=3a2d5bf8b462488d992aba2ee5c851b2c268935ef3af66e4af704662c63667a0&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Bs2GHxeROE2lzC0Nls8QiQHaLH%26pid%3DApi&f=1&ipt=45e969aaffb5935b394cf04736007d67445999ca8dce569f050746b45aa04587&ipo=images",
