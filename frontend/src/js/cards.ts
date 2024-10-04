@@ -1,19 +1,7 @@
 import { CardsProps } from "@/@types/Cards";
 
 export const cards: CardsProps[] = [
-    /*
-    {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FwSZbtiFIK1fkKZdSRtn2kz2Ttfd.jpg&f=1&nofb=1&ipt=a354e5784f23b13c3f50ac79f43b6c9124bec0a72cc8ba7658556eff51a1fb77&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FjcSKH5NU8p7PtBiEXGEepLDFKdU.jpg&f=1&nofb=1&ipt=0f5be18ce52b61269ab63d67c5476cad11f61cce3e38820d639d3141d6135a5e&ipo=images",
-        title: "O Agente Faixa Preta",
-        subtitle: "",
-        description: "",
-        src: "https://drive.google.com/file/d/1-LUFQgeYsuBA-4aFr8eJOR9W2lh0Uwke/preview    ",
-        duration: "01h 49m",
-        genero: ["Ação", "Netflix", "Coreano"]
-        },
-        
-        
+    /*   
     {
     background: "",
     overlay: "",
@@ -24,9 +12,67 @@ export const cards: CardsProps[] = [
     duration: "",
     genero: ["", ""]
     },
-    
-    
     */
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F3q01ACG0MWm0DekhvkPFCXyPZSu.jpg&f=1&nofb=1&ipt=fcc528e44477108082541414647985a34ae978d067a7ffe8ed0deaafc787ea63&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.A6a-voZg_10oWAR7GgmXNgHaLH%26pid%3DApi&f=1&ipt=dcc7ed1f3f2b155c39501eeb0ceaa712d26dd4c074e6e5a13ba8b8d421b853c0&ipo=images",
+        title: "BadBoys 4",
+        subtitle: "Até o Fim",
+        description: "Os brincalhões polícias de Miami, Mike Lowrey e Marcus Burnett, embarcam em uma perigosa missão para limpar o nome do falecido capitão da polícia.",
+        src: "https://drive.google.com/file/d/1EsiyP8gQYyfmxyrqac7Ymd0vVVfAqjG8/preview",
+        duration: "01h 55m",
+        genero: ["Comédia", "Ação"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F8xMR5w9qfpwhTJzjjvfj2ywvIF3.jpg&f=1&nofb=1&ipt=2c009b5206c07c08f3e4a5b68749f08c3e513193a8b38d670acc025fdc85b54a&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.nrk2UwELBrOn-M8vlU7hwgHaLH%26pid%3DApi&f=1&ipt=9102c413a1456609a1d5605a6fde11fa40e27a1d10620a14e06a72e67acd8fab&ipo=images",
+        title: "Como vender a Lua",
+        subtitle: "",
+        description: "A especialista em marketing Kelly Jones é contratada para consertar a imagem pública da NASA. Quando a Casa Branca considera a missão importante demais para falhar, Jones é instruída a encenar um falso pouso na Lua como um plano B.",
+        src: "https://drive.google.com/file/d/1lx5BlScuTpTNFV4uZxLR-8hWZQdDm40B/preview",
+        duration: "02h 12m",
+        genero: ["Comédia", "Romance"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fentretetizei.com.br%2Fwp-content%2Fuploads%2F2021%2F08%2Fcurtindo-a-vida-adoidado-1.jpg&f=1&nofb=1&ipt=ddd06331658f9f0796e44fd461d25582f6c9481f379c1cbdd0c5af6de41f1ebb&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.toDVXRffGWPKeibS5SGF5gHaLG%26pid%3DApi&f=1&ipt=968263745be0c35b1f17e5e0dcb8bfdf54d17c9ea43076212138012609888878&ipo=images",
+        title: "Curtindo a Vida Adoidado",
+        subtitle: "",
+        description: "O adolescente Ferris Bueller decide sair da rotina e engana seus pais fingindo estar doente para poder matar aula. Ele convence sua namorada, Sloane, e seu melhor amigo, Cameron, a se juntar a ele no passeio até Chicago, usando a Ferrari do pai de Cameron. No entanto, o diretor da escola sabe que Ferris está mentindo e vai atrás dele.",
+        src: "https://drive.google.com/file/d/16-IXZMzfdZfxV8yQWYNB4xOgz6JDkABn/preview",
+        duration: "1h 43m",
+        genero: ["Comédia", "Legendado"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmovieplayer.net-cdn.it%2Fimages%2F2016%2F03%2F15%2Fmemento02.png&f=1&nofb=1&ipt=753aab97a01ac176982954e78e27c19b7072fb7ac706bdc9d7745efd89b41867&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.0nSIvojIh_zpuwdno-mi5QHaLH%26pid%3DApi&f=1&ipt=d4ee5d14988f1a0e66cae6ba64fb5659e6af72134f7f3424034745feef21634c&ipo=images",
+        title: "Memento",
+        subtitle: "",
+        description: "Leonard está caçando o homem que estuprou e matou sua esposa. Ele tem dificuldades em encontrar o assassino pois sofre de uma forma intratável de perda de memória. Mesmo que ele possa lembrar detalhes da vida antes do acidente, Leonard não consegue lembrar o que aconteceu quinze minutos atrás, onde está indo ou a razão.",
+        src: "https://drive.google.com/file/d/1L2PNGMm3Z98falfv9S00rdLP3sZ4Cbqr/view",
+        duration: "1h 53m",
+        genero: ["Suspense", "Crime", "Legendado"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.alphacoders.com%2F794%2Fthumb-1920-794777.jpg&f=1&nofb=1&ipt=e248266ce3a4645d4eaea18b5142b6a160b661fea9f4ce181064b5d43e5a6033&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.explicit.bing.net%2Fth%3Fid%3DOIP.1RtaIrnoq9TKBB2wHjqCdwHaLH%26pid%3DApi&f=1&ipt=d055ed9274566e0698eb906c7c3f53344bb36a44556d42272df66c2e2e8359fe&ipo=images",
+        title: "O Máscara",
+        subtitle: "",
+        description: "A vida do tímido e socialmente desajeitado bancário Stanley Ipkiss muda completamente quando ele encontra no mar uma máscara que possui o espírito do deus escandinavo Loki. Sempre que usa a máscara, Stanley ganha superpoderes e se transforma em um cara cheio de charme e confiança, chamando a atenção da linda cantora Tina. No entanto, ele acaba atraindo também o perigoso namorado dela, o gângster Dorian, que tenta se apoderar da máscara para usar seus poderes para o mal.",
+        src: "https://drive.google.com/file/d/1t59UOjaDniPboqDj0i5N4jc-cgM9TuZi/preview",
+        duration: "1h 41m",
+        genero: ["Comédia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthefutureoftheforce.com%2Fwp-content%2Fuploads%2F2024%2F06%2FMaxxxine-3.jpg&f=1&nofb=1&ipt=6853ccfe9051a50b8cc0bf60098ecd29fe268ff739797bad4bd69f49e72567c2&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.KVlKgn9njUIDgqBGsCotugHaJ0%26pid%3DApi&f=1&ipt=8146a8c2a12460bf4305c8392f2715b8c533d359d87d33d6c324964ab71e7926&ipo=images",
+        title: "Maxxxine",
+        subtitle: "",
+        description: "Na década de 1980, em Hollywood, a estrela do cinema pornográfico Maxine Minx tem sua grande chance de atingir o estrelato. No entanto, um misterioso assassino em série persegue as celebridades de Los Angeles e um rastro de sangue ameaça revelar o passado sinistro de Maxine.",
+        src: "https://drive.google.com/file/d/1CGXPvs418c-aNRyf05U551YZ8na4yKim/preview",
+        duration: "1h 44m",
+        genero: ["Terror", "Mistério"]
+    },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FwSZbtiFIK1fkKZdSRtn2kz2Ttfd.jpg&f=1&nofb=1&ipt=a354e5784f23b13c3f50ac79f43b6c9124bec0a72cc8ba7658556eff51a1fb77&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FjcSKH5NU8p7PtBiEXGEepLDFKdU.jpg&f=1&nofb=1&ipt=0f5be18ce52b61269ab63d67c5476cad11f61cce3e38820d639d3141d6135a5e&ipo=images",
