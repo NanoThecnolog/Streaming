@@ -14,6 +14,56 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages5.alphacoders.com%2F674%2F674523.jpg&f=1&nofb=1&ipt=9f57920dc0417130a5149e48a2fe0a61006312afefcc82333ad9d3b62b6b871b&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.explicit.bing.net%2Fth%3Fid%3DOIP.nOeeZ1NIfG_2Os_Iv8GTqAHaLG%26pid%3DApi&f=1&ipt=5145191fa43a679b06baac0f4cd97f56c26db2847dbe7ece3ec406c6ffdf8e4f&ipo=images",
+        title: "O Hobbit",
+        subtitle: "A Desolação de Smaug",
+        description: "Ao lado de um grupo de anões e de Gandalf, Bilbo segue em direção à Montanha Solitária, onde deverá ajudar seus companheiros a retomar a Pedra de Arken. O problema é que o artefato está perdido em meio a um tesouro protegido pelo temido dragão Smaug.",
+        src: "https://drive.google.com/file/d/1uGNKxhPzjT7FoCaadrFZqhsBeFOkXYIW/preview",
+        duration: "02h 41m",
+        genero: ["Aventura", "Fantasia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.alphacoders.com%2F674%2Fthumb-1920-674254.jpg&f=1&nofb=1&ipt=264c6c2d19fd07af2ad70cae216ce76dc373ee40ef01cee62f50114c59ec5c5c&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.gp7aCqLdZYwVHs8MueC61QHaLH%26pid%3DApi&f=1&ipt=2b34daa54c6906ceb50461ab4f5016752246ee562f44825508455ff41b07e27b&ipo=images",
+        title: "O Hobbit",
+        subtitle: "Uma Jornada Inesperada",
+        description: "Como a maioria dos hobbits, Bilbo Bolseiro leva uma vida tranquila até o dia em que recebe uma missão do mago Gandalf. Acompanhado por um grupo de anões, ele parte numa jornada até a Montanha Solitária para libertar o Reino de Erebor do dragão Smaug.",
+        src: "https://drive.google.com/file/d/1ImjejDm9l9F1yWNPRkyJIOSgK9TCDRGa/preview",
+        duration: "02h 49m",
+        genero: ["Aventura", "Fantasia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FsGtXDnT08Nkb5NQq2oGD3os1zg9.jpg&f=1&nofb=1&ipt=451da7fd44c82e439c3575b09c8de2163b1f1ad1220fb6876317db97d54e6525&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.PdGXeMXGhKXd56q3jPn_VQHaJ6%26pid%3DApi&f=1&ipt=e756e87c1b0efb10c462da634f900c463cdf43d2e685bfe9bc1757040ef0a6f0&ipo=images",
+        title: "DeadPool 2",
+        subtitle: "",
+        description: "O supersoldado Cable vem do futuro com a missão de assassinar o jovem mutante Russel e o mercenário Deadpool precisa aprender o que é ser herói de verdade para salvá-lo. Para isso, ele recruta seu velho amigo Colossus e forma o novo grupo X-Force, sempre com o apoio do fiel escudeiro Dopinder.",
+        src: "https://drive.google.com/file/d/18z2ON2BghIBQUGcjg76ULe1E7im0NFsI/preview",
+        duration: "02h 00m",
+        genero: ["Ação", "Comédia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.film-rezensionen.de%2Fwp-content%2Fuploads%2F2016%2F02%2FDeadpool-Frontpage.jpg&f=1&nofb=1&ipt=1281ef0d6e02bb407c22462d0c5ee44d949d29d7fc4a7e34fbcdb669b1632342&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.h3oLy2iV8omU8nIlIXGcRwHaJ4%26pid%3DApi&f=1&ipt=5ad783e96de01ea4d3bdc5ee7e23d03287a143f23dde2c530a296b355604fba1&ipo=images",
+        title: "DeadPool",
+        subtitle: "",
+        description: "Wade Wilson é um ex-agente especial que passou a trabalhar como mercenário. Seu mundo é destruído quando um cientista maligno o tortura e o desfigura completamente. O experimento brutal transforma Wade em Deadpool, que ganha poderes especiais de cura e uma força aprimorada. Com a ajuda de aliados poderosos e um senso de humor mais desbocado e cínico do que nunca, o irreverente anti-herói usa habilidades e métodos violentos para se vingar do homem que quase acabou com a sua vida.",
+        src: "https://drive.google.com/file/d/1M1cgddnHlxlcCVLCldFhNMilxT6WhnRa/preview",
+        duration: "01h 48m",
+        genero: ["Ação", "Comédia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.hdqwalls.com%2Fdownload%2Fjohn-wick-3-parabellum-poster-qf-2560x1440.jpg&f=1&nofb=1&ipt=d65868565d232763db681c6aaef05850590faed001dd1736fa25faaca5063124&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.KcrfAVd2RvGikO0VpkytTQHaLH%26pid%3DApi&f=1&ipt=9863dff9a2533b5b779ad1c3c282ae559be61ecabf756e36fa232a79aadfdd2f&ipo=images",
+        title: "John Wick",
+        subtitle: "Parabellum",
+        description: "O lendário John Wick luta para sair de Nova York quando um contrato de 14 milhões de dólares faz dele o alvo dos maiores assassinos do mundo.",
+        src: "https://drive.google.com/file/d/1LZ0L3eH6xG7Nj5wd4bJFbx9krpmQxQd3/preview",
+        duration: "02h 11m",
+        genero: ["Ação", "Suspense"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FfRLftkwv8jm3DLxXOf2NbngHjPB.jpg&f=1&nofb=1&ipt=3d03a554c13ee6c448fb13f1ef29d5f6a051438341d93e6ab9dcfcb41ea70759&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.5q2eSp3YrIUKlFdDec20lQHaLG%26pid%3DApi&f=1&ipt=93dfb23eb0c78f27088f0e088b89260666eee279ab3ee96250e3dc9e863ae0a7&ipo=images",
         title: "John Wick",
