@@ -14,6 +14,26 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FfRLftkwv8jm3DLxXOf2NbngHjPB.jpg&f=1&nofb=1&ipt=3d03a554c13ee6c448fb13f1ef29d5f6a051438341d93e6ab9dcfcb41ea70759&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.5q2eSp3YrIUKlFdDec20lQHaLG%26pid%3DApi&f=1&ipt=93dfb23eb0c78f27088f0e088b89260666eee279ab3ee96250e3dc9e863ae0a7&ipo=images",
+        title: "John Wick",
+        subtitle: "Um Novo Dia Para Matar",
+        description: "John Wick é forçado a deixar a aposentadoria mais uma vez por causa de uma promessa antiga e viaja para Roma, com o objetivo de ajudar um velho amigo a derrubar uma organização secreta, perigosa e mortal de assassinos procurados em todo o mundo.",
+        src: "https://drive.google.com/file/d/1LAqvPxsbvB4RKcK1HjDc6n4FqvCBhVO6/preview",
+        duration: "02h 02m",
+        genero: ["Ação", "Suspense"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FxPPizf0YCCYB82AmjubPbqUhZKW.jpg&f=1&nofb=1&ipt=ec3ffe249295a1f63be2bbc8e7046b7e2d84dcb4e405261f1ec169c41ed8d6cc&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.MQnAvB-EVSle8fwVRxPQcQHaJ4%26pid%3DApi&f=1&ipt=980e02bc9ab01a0571b1d9f266c4b64ef2cdfd30fbcef3e8bdc5231092bb7d88&ipo=images",
+        title: "John Wick",
+        subtitle: "De Volta ao Jogo",
+        description: "John Wick é um lendário assassino de aluguel aposentado, lidando com o luto após perder o grande amor de sua vida. Quando um gângster invade sua casa, mata seu cachorro e rouba seu carro, ele é forçado a voltar à ativa e inicia sua vingança.",
+        src: "https://drive.google.com/file/d/10MQmGB0gAT74vnXQwWNoPBGIeFEbYBgu/preview",
+        duration: "01h 41m",
+        genero: ["Ação", "Suspense"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F3q01ACG0MWm0DekhvkPFCXyPZSu.jpg&f=1&nofb=1&ipt=fcc528e44477108082541414647985a34ae978d067a7ffe8ed0deaafc787ea63&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.A6a-voZg_10oWAR7GgmXNgHaLH%26pid%3DApi&f=1&ipt=dcc7ed1f3f2b155c39501eeb0ceaa712d26dd4c074e6e5a13ba8b8d421b853c0&ipo=images",
         title: "BadBoys 4",
