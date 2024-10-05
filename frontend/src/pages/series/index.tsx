@@ -5,6 +5,7 @@ import CardSerieContainer from "@/components/seriesComponents/CardSerieContainer
 import { useEffect, useState } from "react";
 import Search from "@/components/Searching";
 import Footer from "@/components/Footer";
+import Head from "next/head";
 
 export default function Series() {
     const [cardPerContainer, setCardPerContainer] = useState<number>(5)
@@ -83,6 +84,12 @@ export default function Series() {
     }
     return (
         <>
+            <Head>
+                <title>FlixNext - Series</title>
+                <meta name="description" content="Series para maratonar" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             <main className={styles.main}>
                 <div className={styles.content}>
                     <Header />

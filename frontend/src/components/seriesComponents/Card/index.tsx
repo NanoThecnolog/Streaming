@@ -68,16 +68,17 @@ export default function Card({ card, section, modalWatchLater }: CardProps) {
                     priority
                     sizes="100%"
                     onClick={() => handleClick()}
-
-
                 />
                 <div className={styles.overlay}>
                     <h3>{card.title.toUpperCase()}</h3>
                     {card.subtitle && (
                         <h4>{card.subtitle}</h4>
                     )}
-                    <p>{card.season.length > 1 ? `${card.season.length} temporadas` : card.season.length === 1 && `${card.season.length} temporada`}
-                        - {card.genero.join(', ')}
+                    <p>
+                        {card.season.length > 1
+                            ? `${card.season.length} temporadas`
+                            : card.season.length === 1
+                            && `${card.season.length} temporada`} - {card.genero.join(', ')}
                     </p>
 
                     <div className={styles.button_container}>
@@ -87,7 +88,6 @@ export default function Card({ card, section, modalWatchLater }: CardProps) {
                                     <FaPlay size={15} />
                                 </button>
                             </Link>
-
                         </div>
                         <div className={styles.queue} onClick={handleWatchLater}>
                             <FaRegClock size={20} />

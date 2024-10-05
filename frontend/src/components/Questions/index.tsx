@@ -17,7 +17,7 @@ export default function Questions({ question, answer }: FAQ) {
             </div>
             <div className={styles.icon} onClick={handleButtonClick}><ChevronDown size={30} /></div>
             <div className={`${styles.answer} ${ativo && styles.ativo}`}>
-                <p>{answer}</p>
+                <p dangerouslySetInnerHTML={{ __html: answer }}></p>
             </div>
             <div className={styles.divider}></div>
         </div>

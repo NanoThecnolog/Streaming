@@ -5,6 +5,7 @@ import { api } from '@/services/api';
 import { toast } from 'react-toastify';
 import Router from 'next/router';
 import { FaSpinner } from 'react-icons/fa';
+import Head from 'next/head';
 //import { cookies } from 'next/headers';
 
 
@@ -54,39 +55,45 @@ export default function Login() {
 
     }
     return (
-        <div className={styles.container}>
-            <div className={styles.loginContainer}>
-                <h1><span className={styles.white}>FLIX</span><span className={styles.red}>NEXT</span></h1>
-                <form onSubmit={handleLogin} className={styles.formulario}>
-                    <div className={styles.emailContainer}>
-                        <h2>Email:</h2>
-                        <input
-                            type='email'
-                            required
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
+        <>
+            <Head>
+                <title>Página de Login | FlixNext</title>
+                <meta name="description" content="Página de login da plataforma" />
+            </Head>
+            <div className={styles.container}>
+                <div className={styles.loginContainer}>
+                    <h1><span className={styles.white}>FLIX</span><span className={styles.red}>NEXT</span></h1>
+                    <form onSubmit={handleLogin} className={styles.formulario}>
+                        <div className={styles.emailContainer}>
+                            <h2>Email:</h2>
+                            <input
+                                type='email'
+                                required
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </div>
+                        <div className={styles.passwordContainer}>
+                            <h2>Senha:</h2>
+                            <input
+                                type="password"
+                                required
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </div>
+                        <div className={styles.buttonContainer}>
+                            <button type='submit' disabled={loading}>{loading ? (
+                                <span>carregando... <FaSpinner /></span>
+                            ) : "Acessar"}</button>
+                        </div>
+                    </form>
+                    <div className={styles.linksContainer}>
+                        <Link href={forgetLink}><h3>Esqueceu sua senha?</h3></Link>
+                        <Link href={newAccount}><h3>Criar conta</h3></Link>
                     </div>
-                    <div className={styles.passwordContainer}>
-                        <h2>Senha:</h2>
-                        <input
-                            type="password"
-                            required
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </div>
-                    <div className={styles.buttonContainer}>
-                        <button type='submit' disabled={loading}>{loading ? (
-                            <span>carregando... <FaSpinner /></span>
-                        ) : "Acessar"}</button>
-                    </div>
-                </form>
-                <div className={styles.linksContainer}>
-                    <Link href={forgetLink}><h3>Esqueceu sua senha?</h3></Link>
-                    <Link href={newAccount}><h3>Criar conta</h3></Link>
                 </div>
             </div>
-        </div>
+        </>
     )
 }

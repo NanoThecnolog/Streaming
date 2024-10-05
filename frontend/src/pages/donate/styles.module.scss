@@ -37,12 +37,17 @@
             .keyContainer {
                 display: flex;
                 flex-direction: column;
-                gap: 20px;
+                gap: 3rem;
                 justify-content: center;
                 align-items: center;
 
+                p {
+                    text-align: center;
+                }
+
                 .key {
                     font-weight: 900;
+                    font-size: 1.4rem;
                 }
             }
         }
@@ -81,7 +86,11 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {}
 
-@media (max-width: 1280px) {}
+@media (max-width: 1280px) {
+    .keyContainer {
+        padding-top: 3rem;
+    }
+}
 
 @media (max-width: 1440px) {}
 

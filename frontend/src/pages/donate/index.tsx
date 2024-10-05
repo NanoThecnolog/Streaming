@@ -2,10 +2,12 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import styles from './styles.module.scss'
 import { useEffect, useState } from "react";
-import { donate } from "../api/donate";
+import { donate } from "../../services/donate";
+import Head from "next/head";
 
 export default function Donate() {
     const [qrCodeUrl, setQrCodeUrl] = useState<string | null>(null);
+
     async function qrCode() {
         try {
             const response = await donate.get('/pix');
@@ -20,6 +22,10 @@ export default function Donate() {
     }, []);
     return (
         <>
+            <Head>
+                <title>Doações | FlixNext</title>
+                <meta name="description" content="Página de Doações. Ajude a manter a plataforma! Doe qualquer valor e ganhe o emblema de doador na sua conta!" />
+            </Head>
             <Header />
             <section className={styles.container}>
                 <div className={styles.donateContainer}>

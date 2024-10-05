@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import styles from './styles.module.scss'
 import { Play } from "lucide-react";
 import Head from "next/head";
+import { toast } from "react-toastify";
 
 export default function Serie() {
     const router = useRouter()
@@ -49,13 +50,16 @@ export default function Serie() {
         })
         Router.push(`/watch/serie?${episode}`)
     }
+    function handleAddUserList() {
+        toast.warning("A função de adicionar a lista está temporariamente desativada.")
+    }
 
     return (
         <>
             <Head>
-                <title>{serie?.title} {serie?.subtitle != '' && `- ${serie?.subtitle}`} | FlixNext</title>
+                <title>{serie?.title} {serie?.subtitle && serie.subtitle != '' && `- ${serie.subtitle}`} | FlixNext</title>
+                <meta name="description" content={serie?.description} />
             </Head>
-
             <section className={styles.container}>
                 <Header />
                 {serie ?
@@ -73,7 +77,7 @@ export default function Serie() {
                                         <button className={styles.buttonPlay}><Play /><h4>Começar a Assistir</h4></button>
                                     </div>
                                     <div className={styles.watchLater}>
-                                        <button>
+                                        <button type="button" onClick={() => handleAddUserList()}>
                                             <p>+</p>
                                             <p>Minha Lista</p>
                                         </button>

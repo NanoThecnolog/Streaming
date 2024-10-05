@@ -1,9 +1,14 @@
 import Header from '@/components/Header'
 import styles from './styles.module.scss'
 import Footer from '@/components/Footer'
+import Head from 'next/head'
 export default function Privacy() {
     return (
         <>
+            <Head>
+                <title>Política de Privacidade | FlixNext</title>
+                <meta name="description" content="Políticas de Privacidade da plataforma" />
+            </Head>
             <Header />
             <section className={styles.container}>
                 <div className={styles.privacyContainer}>

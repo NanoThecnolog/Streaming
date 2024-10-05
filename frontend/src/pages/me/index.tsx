@@ -2,10 +2,11 @@ import Header from "@/components/Header";
 import styles from './styles.module.scss'
 import Footer from "@/components/Footer";
 import { useEffect, useState } from "react";
-import { donate } from "../api/donate";
+import { donate } from "../../services/donate";
 import { getCookieClient } from "@/services/cookieClient";
 import Router from "next/router";
 import { UserProps } from "@/@types/user";
+import Head from "next/head";
 
 export default function Me() {
 
@@ -54,6 +55,10 @@ export default function Me() {
     }, []);
     return (
         <>
+            <Head>
+                <title>Minha Conta | FlixNext</title>
+                <meta name="description" content="Página da conta do usuário" />
+            </Head>
             <Header userAvatar={usuario?.avatar} />
             <section className={styles.container}>
                 <h1>Editar perfil</h1>

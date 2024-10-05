@@ -7,28 +7,23 @@ import Router from "next/router";
 
 export default function Footer() {
 
-    function handleFAQ() {
-        Router.push('/faq');
+    function redirectToPage(page: string) {
+        Router.push(`/${page}`);
     }
-    function handleSignUp() {
-        Router.push('/signup')
-    }
-    function handlePrivacy() {
-        Router.push('/privacidade')
-    }
+
     return (
         <div className={styles.bottom}>
             <div className={styles.links}>
                 <div className={styles.btn_row}>
-                    <h4 onClick={handleFAQ}>Perguntas Frequêntes</h4>
-                    <h4 onClick={handleSignUp}>Criar Conta</h4>
+                    <h4 onClick={() => redirectToPage("faq")}>Perguntas Frequêntes</h4>
+                    <h4 onClick={() => redirectToPage("signup")}>Criar Conta</h4>
                 </div>
                 <div className={styles.btn_row}>
-                    <h4 onClick={handlePrivacy}>Política de Privacidade</h4>
+                    <h4 onClick={() => redirectToPage("privacidade")}>Política de Privacidade</h4>
                     <h4>Suporte</h4>
                 </div>
                 <div className={styles.btn_row}>
-                    <h4>Faça uma doação</h4>
+                    <h4 onClick={() => redirectToPage("donate")}>Faça uma doação</h4>
                     <h4>Entre em Contato</h4>
                 </div>
             </div>

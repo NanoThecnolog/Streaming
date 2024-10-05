@@ -101,13 +101,7 @@ export default function Home() {
   function handleCloseModalWatchLater() {
     setVisible(false);
   }
-  function handleOpenModalWatchLater(title: string, subTitle?: string) {
-    setMovieTitle(title)
-    if (subTitle && subTitle !== "") {
-      setMovieSubTitle(subTitle)
-    }
-    setVisible(true)
-  }
+
 
   return (
     <>
@@ -125,7 +119,6 @@ export default function Home() {
             {divisaoPorGenero.map((sec, index) => (
               <div key={index}>
                 <CardContainer
-                  handleOpenModal={handleOpenModalWatchLater}
                   section={sec}
                   cardPerContainer={cardPerContainer}
                 />

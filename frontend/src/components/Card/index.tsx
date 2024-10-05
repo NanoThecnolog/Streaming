@@ -12,18 +12,20 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 import Image from "next/image";
 import CardInfoModal from "../modals/CardInfos";
 import { toast } from "react-toastify";
+import Overlay from "../Overlay";
+import { Play } from "lucide-react";
 
 
 interface CardProps {
     card: CardsProps;
-    section?: string;
-    modalWatchLater?: (title: string, subTitle?: string) => void;
+
+
 }
 
 
 
-export default function Card({ card, section, modalWatchLater }: CardProps) {
-
+export default function Card({ card }: CardProps) {
+    const [modalVisible, setModalVisible] = useState<boolean>(false)
     function handleClick() {
         setModalVisible(!modalVisible)
     }
@@ -31,22 +33,10 @@ export default function Card({ card, section, modalWatchLater }: CardProps) {
         console.log("Click")
         setModalVisible(false)
     }
-
-    const [modalVisible, setModalVisible] = useState<boolean>(false)
-    //const [sessão, setSessão] = useState<string | undefined>(section)
-    const movie = new URLSearchParams({
-        title: `${card.title}`,
-        subTitle: `${card.subtitle}` || "",
-        src: `${card.src}`
-    });
-    function handleWatchLater() {
-        toast.warning("A função de adicionar filme a assistir mais tarde está temporariamente desabilitada.")
-    }
-    function handleFavorite() {
-        toast.warning("A função de adicionar filme aos favoritos está temporariamente desabilitada.")
+    function modalVisibility() {
+        setModalVisible(true)
     }
 
-    const play: string = `/watch?${movie}`
     return (
         <>
             <div className={styles.card} id={card.genero[0].toLowerCase()}>
@@ -61,39 +51,18 @@ export default function Card({ card, section, modalWatchLater }: CardProps) {
                     priority
                     sizes="100%"
                     onClick={() => handleClick()}
-
-
                 />
                 <div className={styles.overlay}>
-                    <h3>{card.title.toUpperCase()}</h3>
-                    {card.subtitle && (
-                        <h4>{card.subtitle}</h4>
-                    )}
-                    <p>{card.duration} - {card.genero.join(', ')}</p>
-
-                    <div className={styles.button_container}>
-                        <div className={styles.watch}>
-                            <Link href={`${play}`}>
-                                <button>
-                                    <FaPlay size={15} />
-                                </button>
-                            </Link>
-
-                        </div>
-                        <div className={styles.queue} onClick={handleWatchLater}>
-                            <FaRegClock size={20} />
-                        </div>
-                        <div className={`${styles.star} ${styles.queue}`} onClick={handleFavorite}>
-                            <FaStar size={20} />
-                        </div>
-                        <div className={`${styles.star} ${styles.queue}`} onClick={() => setModalVisible(true)}>
-                            <FaInfoCircle size={20} />
-                        </div>
-                    </div>
+                    <Overlay
+                        title={card.title}
+                        subtitle={card.subtitle}
+                        src={card.src}
+                        duration={card.duration}
+                        genero={card.genero}
+                        modalVisible={modalVisibility}
+                    />
                 </div>
-
             </div>
-
             {modalVisible &&
                 <div className={styles.modalInfo}>
                     <CardInfoModal
