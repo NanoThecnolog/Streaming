@@ -11,19 +11,424 @@ export const series: SeriesProps[] = [
         genero: ["",""],
         season: [
             {
-                s: 0,
+                s: 1,
                 episodes: [
                     {
-                        ep: 0,
+                        ep: 1,
                         src: "",
                         duration: ""
                     }
                 ]
             }
         ]
-
     },
     */
+    {
+        background: "https://images6.fanpop.com/image/photos/32400000/Death-Note-death-note-32414092-3917-3000.jpg",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.8rdzpvnK9AnAp1QpqPQWnQHaLF%26pid%3DApi&f=1&ipt=1f3034527c5ed282405f5510d1f8f8bacfef751ccec46f0c16d68ba3b5a3e0ad&ipo=images",
+        title: "Death Note",
+        subtitle: "",
+        description: "Um inteligente estudante do ensino médio embarca em uma cruzada secreta para eliminar os criminosos do mundo depois de descobrir um caderno capaz de matar qualquer pessoa cujo nome está escrito nele.",
+        genero: ["Animação", "Japonês"],
+        season: [
+            {
+                s: 1,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1dddc5tLX0s5mtvnKrbGn157DmvwGjygD/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1-JPXFqyA5DIdAZ1GC0eI4QcUbQ2F7_r6/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1VR3mIGor8VUBG2vBZpoLwqhUC8jYV9WT/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1No_CaqG8xrJpkfQY87wDMNG-ECtzzydf/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1vdnzEPE0rv8c6FWnWmqQQRif6slWlSC1/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1lpa_BDi0JdnvP3XtbukPdv5AJpGbkNJY/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1gfYMKayZsIoNrbgC_5P9nQQOzFQBTa6_/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1ZI9SXuV4NE2Nh7PsPArEhFGsFkKKrguu/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1wwfG1fuiSRZ3fR6CK4M1UlLsuqfhYCIM/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1-9lrHXPSFmLWIBIL03TYNREdrV9Abzt6/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 11,
+                        src: "https://drive.google.com/file/d/1XfajWVkIDAf-14a1wRITwJgUEak8RSlh/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 12,
+                        src: "https://drive.google.com/file/d/1G9cWOufuD-fvbfkss8V-J8fr7UYeucbp/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 13,
+                        src: "https://drive.google.com/file/d/1-YmqGq24j8wC127UxjCPOWtNlYcGPd7M/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 14,
+                        src: "https://drive.google.com/file/d/1QSfXzQ77g3i-hYmfNWjLS6wSj58sz4eH/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 15,
+                        src: "https://drive.google.com/file/d/1PaaCb2YZBL9VJWn9Be2NUuClDai57awv/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 16,
+                        src: "https://drive.google.com/file/d/1H6nrh2JTSFRPvWvoimZZzcUiSYEhJst0/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 17,
+                        src: "https://drive.google.com/file/d/1vd59I4quhxtDWVDKPaq-P-TQ46-E264d/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 18,
+                        src: "https://drive.google.com/file/d/1bwSmwM_e4o6AFAUYYyjF8NJa3fyQJK3l/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 19,
+                        src: "https://drive.google.com/file/d/15e1ao8HxPYzg-sGujSm0LcMBHBJWE4P3/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 20,
+                        src: "https://drive.google.com/file/d/1NJ5poMOJvCPoWJ7tDSYioYkGQ8Qrp6Tu/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 21,
+                        src: "https://drive.google.com/file/d/1yscVm-cBUk5v5YrNsFj0dyO208EvweWi/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 22,
+                        src: "https://drive.google.com/file/d/12Qdup_JiZx1VM9Ud1cQ2V2aVb0RZ4V1J/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 23,
+                        src: "https://drive.google.com/file/d/1DImsgxJfPRxx8LsQ8JqEBp_ukO49Fy7m/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 24,
+                        src: "https://drive.google.com/file/d/1QBpmrQ07VwUbdYh6JrOSGnbj2Pv6Lrfv/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 25,
+                        src: "https://drive.google.com/file/d/1pckLnagOUGNPtubeKg-awlTNREJ9ENA1/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 26,
+                        src: "https://drive.google.com/file/d/1SNXXy4mOjyacQaOwp8DaT3xzY2dSZToK/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 27,
+                        src: "https://drive.google.com/file/d/1WFm0JARmtRTX9miSFE3VeV4VTugCGNA-/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 28,
+                        src: "https://drive.google.com/file/d/1avdWS65bjTuHYybF27W_B-sFCcYMClT3/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 29,
+                        src: "https://drive.google.com/file/d/17-z_oZ5aTtxD88jfhJOJsPS_EOdpRGEr/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 30,
+                        src: "https://drive.google.com/file/d/1V8Nlmd73GLowylckVMATZgybzEbxAAQ_/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 31,
+                        src: "https://drive.google.com/file/d/15LLLYda89GPGFO6QgNGliA4Lmlbw6zO_/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 32,
+                        src: "https://drive.google.com/file/d/1MiWWF5LkXDDkHyrsY7ofTCoLgbOkzUIz/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 33,
+                        src: "https://drive.google.com/file/d/1z73QxmSbd34wweq_X84OxFh-avy0Tge-/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 34,
+                        src: "https://drive.google.com/file/d/1G0f1GlINXO8oquVt5Nr8lfXVy_vIEzZC/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 35,
+                        src: "https://drive.google.com/file/d/1TYU0QaxpYHCdheuTPgT2qyytoePB8rJP/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 36,
+                        src: "https://drive.google.com/file/d/1BSGcBjX_9dKvxq0kbUK797Eor-pRU5v2/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 37,
+                        src: "https://drive.google.com/file/d/16edz5J_mmiNSylnnhJxSdGgh9bsvcawY/preview",
+                        duration: "22m"
+                    },
+                ]
+            }
+        ]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.odcdn.com.br%2Fwp-content%2Fuploads%2F2024%2F06%2Fcasa-do-dragao-1.jpg&f=1&nofb=1&ipt=298418c2df6dbdee61eb3ef193308bed69b0f7aa58f1f644e1fc22ee4158232d&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.1V8BhJ36qNQ-9gmpsWpinAHaLH%26pid%3DApi&f=1&ipt=bd6e7329ad20dba58cb6a0ab264507c55731dcaea58880ba5a1d7189f72d0ec3&ipo=images",
+        title: "Casa do Dragão",
+        subtitle: "",
+        description: "A Casa do Dragão é uma série de TV norte-americana que conta a história de uma guerra civil entre a Casa Targaryen, que se passa 200 anos antes dos eventos de Game of Thrones",
+        genero: ["Fantasia", "Ficção Científica", "HBO"],
+        season: [
+            {
+                s: 1,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/17PHQzRwhRBC1ArGBH6SG25snjC64rUmc/preview",
+                        duration: "01h 05m"
+                    }, {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1-QX2RYW7Mhv48VfQavybXWbL5knMi5PJ/preview",
+                        duration: "53m"
+                    }, {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1-T2aL0IJy0WGjBePIux8nndRAHqXloHL/preview",
+                        duration: "01h 03m"
+                    }, {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1-u4igpi6tb0-vuma0sDNgt0Khugd-_k1/preview",
+                        duration: "01h 02m"
+                    }, {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1-vqE8HecEbvwZSw956H4tknnUQE-14Ap/preview",
+                        duration: "59m"
+                    }, {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/10-a8FiVPCOdA3LYrssSVsNpsgIS0m7-9/preview",
+                        duration: "01h 07m"
+                    }, {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/17QX6wvv9-jvUJkxEcX36XYZVEkal74Xu/preview",
+                        duration: "58m"
+                    }, {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/101bDbeWurUbEwuBItJRorBCZXgfg0Tvb/preview",
+                        duration: "01h 07m"
+                    }, {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/101hW3o3NYRFSJ-CRwELfNlT_WQtSCE8O/preview",
+                        duration: "57m"
+                    }, {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1054pbakcI7y9r8Ryz7Qedej6volhdCfM/preview",
+                        duration: "59m"
+                    }
+                ]
+            },
+            {
+                s: 2,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1f6O_CLZhdFLeE3iyx2f03njrBAVauI3i/preview",
+                        duration: "58m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/10fQXVnR3TojES-OuR2eXJli0NmWXD35S/preview",
+                        duration: "01h 08m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1o7YuuFSjYstIHeAHXUPh_YwhAmLu7IJs/preview",
+                        duration: "01h 06m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1-lzrMcBVxXM0DCjqBXKgDVDjDnm-x9vD/preview",
+                        duration: "55m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1J9BV71vfeyE7egUw0oxAnnOMsILEWJVO/preview",
+                        duration: "01h 02m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/10fatlAfOzsfNA0OOJkbZsUUcLxtEvWkH/preview",
+                        duration: "01h 07m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1N88wnahrd3Z05n23PUp1Pkj9LQyEa7Ms/preview",
+                        duration: "01h 03m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/10jhM_L-Kcic1zFcAYN6zdNNXmbeIJpFo/preview",
+                        duration: "01h 09m"
+                    },
+                ]
+            }
+        ]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsomosg.com%2Fwp-content%2Fuploads%2F2022%2F09%2FDAHMER.jpg&f=1&nofb=1&ipt=42840217ae44c2220f914ed5b35afb0a88d8dd1fc8af8588f09bd08300bb1d65&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.CXD1L5BA0X9WPYgPpwww2gHaLH%26pid%3DApi&f=1&ipt=8e4629014973f4c732dbb9ad7bcec5be56c9aedb0d9bfe91b13384b2be73d9f7&ipo=images",
+        title: "Dahmer",
+        subtitle: "Um Canibal Americano",
+        description: "Por mais de uma década, Jeffrey Dahmer conseguiu matar 17 jovens rapazes sem levantar suspeitas da polícia. Como ele conseguiu evitar a prisão por tanto tempo? Assista o quanto quiser. Evan Peters, Richard Jenkins e Niecy Nash estrelam esta série policial com produção executiva de Peters e Ryan Murphy.",
+        genero: ["Drama", "Terror", "Netflix"],
+        season: [
+            {
+                s: 1,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1vFGL3qEF4cysnRqSS6rBtoYFjczBEQXC/preview",
+                        duration: "49m"
+                    }, {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1ngXgwD7M3lCcrPcZ5wxwVU1OnDozLrxo/preview",
+                        duration: "52m"
+                    }, {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1OLcHEHKO5TeyajAyqu24soecAhZY71Kg/preview",
+                        duration: "53m"
+                    }, {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/178ja5fXaSHGYlrPg6RS7hhWFHNfv-fEB/preview",
+                        duration: "01h 03m"
+                    }, {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1o8e95iFH4eWwibQNNsuAJ0f6ms4rP2KN/preview",
+                        duration: "59m"
+                    }, {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1QMFeySyAhMKoNjouETqYawRLo3qCUVzi/preview",
+                        duration: "55m"
+                    }, {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1RMydVQQjrl9255IzWDIrK2HnTh7zaWad/preview",
+                        duration: "45m"
+                    }, {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1yv1bKh9DPO60betBHGvZgbj8Ujvua6gB/preview",
+                        duration: "47m"
+                    }, {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1OUwl2ufhwJsD1KfcBrAE1Nn9UCY60NOn/preview",
+                        duration: "49m"
+                    }, {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1pRRHJdqSrTljBZ--TZeW39gsyC0kLgAJ/preview",
+                        duration: "54m"
+                    },
+                ]
+            }
+        ]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuploads-observatoriodocinema.seox.com.br%2F2024%2F08%2FO-Exterminador-do-Futuro-Zero.webp&f=1&nofb=1&ipt=398577cc036df99aa53e31eb848801e541250590d42377f1ad6241cc463a7aea&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.zsGzypsSZNX-G9GjoHGgnAAAAA%26pid%3DApi&f=1&ipt=b2fef44f40f40a9e899700d4b468392a8c51095e2b9676c0f254f621d1c07c21&ipo=images",
+        title: "O Exterminador do Futuro",
+        subtitle: "Zero",
+        description: "Em 1997, um cientista atormentado deixa a família de lado por um projeto. Em 2022, uma guerreira rebelde luta contra um poderoso robô por conta de dados vitais.",
+        genero: ["Violento", "Animação", "Ficção Científica", "Ação", "Japonês", "Netflix"],
+        season: [
+            {
+                s: 1,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/10ykHnshR1UvQqemVSj66dac9Q7z2KPaa/preview",
+                        duration: "28m"
+                    }, {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/10zVOdWMF8wVov4qW3V4nnSmTkwKagkQP/preview",
+                        duration: "28m"
+                    }, {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/11-AhSzxG37F-EQc3evz75ZDpc1tbNZMA/preview",
+                        duration: "29m"
+                    }, {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1138vvZpD5Eo_VTEvzUvZttNKtpZr3d8H/preview",
+                        duration: "27m"
+                    }, {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/113bQWWc4ttrXD4EacOmfxNLZLN2hVSkC/preview",
+                        duration: "29m"
+                    }, {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/11D4cUJUrvEzsosZ0IzvypS8RGGfBld0Y/preview",
+                        duration: "25m"
+                    }, {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/11DU-X2RE5ovjpWRw13rsgJ6NIwdWrBve/preview",
+                        duration: "28m"
+                    }, {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/11JeknnP-0uL6XUm09Y4kIB5SezOmfA_S/preview",
+                        duration: "28m"
+                    }
+                ]
+            }
+        ]
+
+    },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F8zLyVhEsH6SM9diX7CUUWcaRlk0.jpg&f=1&nofb=1&ipt=81b9b6aed35c66bcf2fa0a333faac41cc152013bfe27c44ae9871a330bc5f574&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.fzjrykEbnQfXDgzAUVAXuQHaK9%26pid%3DApi&f=1&ipt=6cc2259eda233ab809b068b9b5a1ceb2abf961f244052dd7c4b8e96cdf58509b&ipo=images",
@@ -456,6 +861,16 @@ export const series: SeriesProps[] = [
                         ep: 6,
                         src: "https://drive.google.com/file/d/1MqI7q6fvahPSMQsc7fFJjEEn0_Tj0vUN/preview",
                         duration: "01h 06m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1-iZfqvvbkwNqZh8jF4j0NSaNBxa93eL8/preview",
+                        duration: "01h 12m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1oXwtGm4FaxgIEqhDLSlGMPC7IK7dJBCV/preview",
+                        duration: "01h 17m"
                     }
                 ]
             }

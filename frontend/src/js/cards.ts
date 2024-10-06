@@ -14,6 +14,46 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fapostiladecinema.com.br%2Fwp-content%2Fuploads%2F2021%2F07%2Fum-lugar-silencioso-2018-critica-filme-imagem-2048x1150.jpg&f=1&nofb=1&ipt=d53afdebea02bdf288c1c4b176ff63e1ae63354e2648cb5f8391db867d165c7a&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.okMCXyJeXr_NmeKZraUFPQHaLH%26pid%3DApi&f=1&ipt=bf9b33333f58788295d9cec11df7bb2f40cab1f95b604f6c527710d580352996&ipo=images",
+        title: "Um Lugar Silencioso",
+        subtitle: "",
+        description: "Em uma fazenda nos Estados Unidos, uma família do Meio-Oeste é perseguida por uma entidade fantasmagórica assustadora. Para se protegerem, eles devem permanecer em silêncio absoluto, a qualquer custo, pois o perigo é ativado pela percepção do som.",
+        src: "https://drive.google.com/file/d/1DZZ4XcPivPBR1n1A17TKRvPqJphTJzW9/preview",
+        duration: "01h 30m",
+        genero: ["Terror", "Ficção Científica"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fveja.abril.com.br%2Fwp-content%2Fuploads%2F2021%2F07%2FABRE-1-FILME-A-QUIET-PLACE-PART-II-37.jpg.jpg&f=1&nofb=1&ipt=2d428f3e7d1f0e22dbf6ab63b707cc8063b9f295af73c38e0f429723ef8ddd35&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.ha6tFFUOR46G1VCRywhCfgHaLH%26pid%3DApi&f=1&ipt=bcb9172aab150e7c9de7a49a31c5978206fd6690174e636a5b02df81c7fcf67f&ipo=images",
+        title: "Um Lugar Silencioso",
+        subtitle: "Parte 2",
+        description: "A família Abbott precisa enfrentar os terrores do mundo exterior enquanto luta pela sobrevivência em silêncio. Forçados a se aventurar no desconhecido, eles percebem que as criaturas que caçam pelo som não são as únicas ameaças no caminho da areia.",
+        src: "https://drive.google.com/file/d/17DKJDbEUCRDBwoJOll1ZcVM_KuDrkyIq/preview",
+        duration: "01h 37m",
+        genero: ["Terror", "Ficção Científica"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.hobbyconsolas.com%2Fsites%2Fnavi.axelspringer.es%2Fpublic%2Fmedia%2Fimage%2F2023%2F09%2Fsangrientos-dieciseis-2023-3134676.jpg%3Ftf%3D3840x&f=1&nofb=1&ipt=f62a57055e7f590ad3305705cb77c66d7b27b8a5016ea0a27cd3aa79495beff1&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Xerf-HWuzST2JcTtexkmyAHaLH%26pid%3DApi&f=1&ipt=b0763723370c9c03b747dc2234afb8518ca21d2c17a1a0d1ef17291e0c3dcea3&ipo=images",
+        title: "Dezesseis Facadas",
+        subtitle: "",
+        description: "O temido Assassino das Dezesseis Facadas retorna 35 anos após sua primeira onda de assassinatos para fazer outra vítima. Jamie, de 17 anos, acidentalmente viaja de volta no tempo até 1987, determinada a deter o assassino antes que ele comece a agir.",
+        src: "https://drive.google.com/file/d/1hGmcy3UrDxPZfFGjz6Lm7jl99rQYSXXs/preview",
+        duration: "01h 45m",
+        genero: ["Terror", "Comédia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.martincid.com%2Fwp-content%2Fuploads%2F2024%2F06%2FAAAABe-dDv5fGX0h9ztJWUbNJ2DhR4msGhBuo1E7eETK8FyWAHr57GFfqGKKhtL4N5z8PVnRcFRVIlvdZqND38-eUlXOAANrwuANi_WX-copia.jpg%3Fstrip%3Dall%26lossy%3D1%26ssl%3D1&f=1&nofb=1&ipt=d859f5d330b374b22999afba2cca957c316bf331979ada741e48d6d6e1ac429c&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.vAAAlcVEIu6pxhDyaT4QQQAAAA%26pid%3DApi&f=1&ipt=e51c4bfe1cbcbc7e825919e32ff637eed40b7c5392df57c9f9f242bfeee47c4a&ipo=images",
+        title: "Tudo em Família",
+        subtitle: "",
+        description: "Zara trabalha para Chris, um ator narcisista e prepotente que ela detesta. A moça fica furiosa quando descobre que ele está saindo com com sua mãe. O que a moça mais quer é separar os dois, mas os novos namorados estão perdidamente apaixonados.",
+        src: "https://drive.google.com/file/d/10ngjgH6kyW1C6dvdTTM7WRSTyjKN3TBx/preview",
+        duration: "01h 54m",
+        genero: ["Comédia", "Romance", "Netflix"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages5.alphacoders.com%2F674%2F674523.jpg&f=1&nofb=1&ipt=9f57920dc0417130a5149e48a2fe0a61006312afefcc82333ad9d3b62b6b871b&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.explicit.bing.net%2Fth%3Fid%3DOIP.nOeeZ1NIfG_2Os_Iv8GTqAHaLG%26pid%3DApi&f=1&ipt=5145191fa43a679b06baac0f4cd97f56c26db2847dbe7ece3ec406c6ffdf8e4f&ipo=images",
         title: "O Hobbit",
