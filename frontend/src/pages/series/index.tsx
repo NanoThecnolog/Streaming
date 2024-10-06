@@ -14,19 +14,17 @@ export default function Series() {
         "ação",
         "comédia",
         "suspense",
+        "ficção científica",
         "drama",
         "fantasia",
+        "animação",
         "dc",
-
     ]
 
     useEffect(() => {
         function handleResize() {
             const width = window.innerWidth;
-            //console.log(width)
-            //setWidth(width)
 
-            // Ajustar os breakpoints depois
             if (width < 780) {
                 setCardPerContainer(1)
             } else if (width < 1100) {
@@ -38,23 +36,17 @@ export default function Series() {
             } else {
                 setCardPerContainer(5)
             }
-
         }
         window.addEventListener('resize', handleResize)
-
         handleResize()
-
         return () => window.removeEventListener('resize', handleResize)
     }, [])
     useEffect(() => {
-
         const rightClickBlock = (event: MouseEvent) => {
             event.preventDefault();
         };
-
         // Impede atalhos de ferramentas de desenvolvedor
         const openConsoleBlock = (event: KeyboardEvent) => {
-
             if (
                 event.key === 'F12' ||
                 (event.ctrlKey && event.shiftKey && event.key === 'I') ||
@@ -65,16 +57,13 @@ export default function Series() {
                 event.preventDefault();
             }
         };
-
         document.addEventListener('contextmenu', rightClickBlock);
         document.addEventListener('keydown', openConsoleBlock);
-
         return () => {
             document.removeEventListener('contextmenu', rightClickBlock);
             document.removeEventListener('keydown', openConsoleBlock);
         };
     }, []);
-
     function handleOpenModalWatchLater(title: string, subTitle?: string) {
         //setMovieTitle(title)
         if (subTitle && subTitle !== "") {
@@ -104,8 +93,7 @@ export default function Series() {
                                 />
                                 {index === 1 && cardPerContainer >= 2 && <Search />}
                             </div>
-                        )
-                        )}
+                        ))}
                     </div>
                     <Footer />
                 </div>
