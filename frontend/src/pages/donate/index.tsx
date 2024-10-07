@@ -2,7 +2,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import styles from './styles.module.scss'
 import { useEffect, useState } from "react";
-import { donate } from "../../services/donate";
+import { api } from "../../services/api";
 import Head from "next/head";
 
 export default function Donate() {
@@ -10,7 +10,7 @@ export default function Donate() {
 
     async function qrCode() {
         try {
-            const response = await donate.get('/pix');
+            const response = await api.get('/pix');
             const data = response.data;
             setQrCodeUrl(data);
         } catch (err) {

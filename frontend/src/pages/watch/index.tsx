@@ -1,35 +1,23 @@
 import Head from "next/head";
 import styles from '@/styles/Watch.module.scss';
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Router, { useRouter } from "next/router";
 import { ChevronLeft } from 'lucide-react';
-import { getCookieClient } from "@/services/cookieClient";
-//import ReactPlayer from "react-player";
-//import { Mouse } from "lucide-react";
-//import { clearTimeout } from "timers";
-
-
 
 export default function Watch() {
     const router = useRouter()
     const { title, subTitle, src } = router.query;
     const [movieData, setMovieData] = useState({ title: '', subTitle: '', src: '' });
-    //const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-    //const [visibleTitle, setVisibleTitle] = useState<boolean>(false)
 
-    /*useEffect(() => {
-        const user = getCookieClient();
-        if (!user) {
-            Router.push('/login')
-        }
-    }, [])*/
+
 
     useEffect(() => {
         if (title && src) {
+
             setMovieData({
                 title: title as string,
                 subTitle: subTitle as string || '',
-                src: src as string
+                src: src as string,
             })
         }
     }, [title, subTitle, src])
@@ -49,13 +37,15 @@ export default function Watch() {
                         <ChevronLeft size={30} />
                     </button>
                     <h3>{title} {subTitle != "" && `- ${subTitle}`}</h3>
-                    <iframe
-                        title={movieData.title}
-                        allowFullScreen
-                        width="100%"
-                        height="100%"
-                        src={movieData.src}
-                    />
+                    <div className={styles.iframe} id="iframe">
+                        <iframe
+                            title={movieData.title}
+                            allowFullScreen
+                            width="100%"
+                            height="100%"
+                            src={movieData.src}
+                        />
+                    </div>
                 </div>
             </div>
         </>
