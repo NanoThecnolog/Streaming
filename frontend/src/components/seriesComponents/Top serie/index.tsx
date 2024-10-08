@@ -49,11 +49,12 @@ export default function TopSerie() {
                     {series[cardOn].subtitle && (
                         <h3 className={styles.subtitulo_principal}>{series[cardOn].subtitle}</h3>
                     )}
-                    <div className={styles.season}>
-                        <p>{series[cardOn].season.length === 1 ? `${series[cardOn].season.length} Temporada` : series[cardOn].season.length >= 2 && `${series[cardOn].season.length} Temporadas`}</p>
-                    </div>
+
                     <div className={styles.description}>
                         <p>{series[cardOn].description}</p>
+                    </div>
+                    <div className={styles.season}>
+                        <p>{series[cardOn].season.length === 1 ? `${series[cardOn].season.length} Temporada` : series[cardOn].season.length >= 2 && `${series[cardOn].season.length} Temporadas`}</p>
                     </div>
 
                     <div className={styles.button_section}>

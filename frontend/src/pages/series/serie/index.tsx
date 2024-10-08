@@ -8,6 +8,12 @@ import styles from './styles.module.scss'
 import { Play } from "lucide-react";
 import Head from "next/head";
 import { toast } from "react-toastify";
+import { addWatchLater } from "@/services/addWatchLater";
+import { UserProps } from "@/@types/user";
+import { getCookieClient } from "@/services/cookieClient";
+import { api } from "@/services/api";
+import { FaCheck } from "react-icons/fa";
+import { FiPlus } from "react-icons/fi";
 
 export default function Serie() {
     const router = useRouter()
@@ -15,7 +21,39 @@ export default function Serie() {
     const [serie, setSerie] = useState<SeriesProps>()
     const [seasonToShow, setSeasonToShow] = useState<number>(1)
     const [episodesToShow, setEpisodesToShow] = useState<Episodes[]>([])
+    const [user, setUser] = useState<UserProps>()
+    const [onWatchLater, setOnWatchLater] = useState<boolean>(false)
 
+    useEffect(() => {
+        const user = getCookieClient();
+        if (!user) {
+            Router.push('/login')
+            return
+        }
+        setUser(user)
+        //console.log(user)
+        //isOnTheList();
+    }, [])
+    useEffect(() => {
+        isOnTheList();
+    }, [user])
+    async function isOnTheList() {
+        if (!user) {
+            //console.log("User ainda não reconhecido", user)
+            return
+        }
+        //console.log("user reconhecido", user)
+        const watchLaterList = await api.get(`/watchLater?id=${user.id}`)
+        const onTheList = watchLaterList.data.some((titulo: { id: string, title: string, subtitle?: string }) => {
+            return titulo.title.trim().toLowerCase() === serie?.title.trim().toLowerCase()
+        })
+        //console.log(onTheList)
+
+        if (!onTheList) {
+            return setOnWatchLater(false)
+        }
+        setOnWatchLater(true)
+    }
 
 
     useEffect(() => {
@@ -50,9 +88,23 @@ export default function Serie() {
         })
         Router.push(`/watch/serie?${episode}`)
     }
-    function handleAddUserList() {
-        toast.warning("A função de adicionar a lista está temporariamente desativada.")
+
+    async function handleAddUserList(title: string, subtitle?: string) {
+        try {
+            if (!user) {
+                Router.push('/login')
+                return
+            }
+            await addWatchLater(user.id, title, subtitle);
+
+            return isOnTheList();
+
+        } catch (err: any) {
+            if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
+            return toast.error("Erro inesperado ao adicionar filme à lista!")
+        }
     }
+
 
     return (
         <>
@@ -77,9 +129,20 @@ export default function Serie() {
                                         <button className={styles.buttonPlay}><Play /><h4>Começar a Assistir</h4></button>
                                     </div>
                                     <div className={styles.watchLater}>
-                                        <button type="button" onClick={() => handleAddUserList()}>
-                                            <p>+</p>
-                                            <p>Minha Lista</p>
+                                        <button type="button" onClick={() => handleAddUserList(serie.title, serie.subtitle)}>
+                                            {onWatchLater ? (
+                                                <>
+                                                    <p><FaCheck /></p>
+                                                    <p>Adicionado à Lista</p>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <p><FiPlus /></p>
+                                                    <p>Minha Lista</p>
+                                                </>
+                                            )
+                                            }
+
                                         </button>
                                     </div>
                                     <div>

@@ -27,12 +27,19 @@ class AuthUserService {
 
             }
         )
+        const watchLaterList = await prismaClient.watchLater.findMany({
+            where: {
+                userId: userExiste.id
+            }
+        })
         return {
             id: userExiste.id,
             name: userExiste.name,
             email: userExiste.email,
             avatar: userExiste.avatar,
             verified: userExiste.verified,
+            birthday: userExiste.birthday,
+            myList: watchLaterList,
             token: token
         }
     }

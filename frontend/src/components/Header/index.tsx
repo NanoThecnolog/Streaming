@@ -33,8 +33,6 @@ export default function Header({ userAvatar }: HeaderProps) {
     }
 
     function handleClickHome(id: number) {
-        console.log("clicando home")
-
         if (id === 1) {
             setMenuVisible(!menuvisible)
         }
@@ -42,7 +40,6 @@ export default function Header({ userAvatar }: HeaderProps) {
             setSearchMobileVisible(!searchMobileVisible)
         }
     }
-
 
     return (
         <div className={styles.header}>
@@ -64,7 +61,7 @@ export default function Header({ userAvatar }: HeaderProps) {
                     <input
                         value={searchInput}
                         onChange={(e) => setSearchInput(e.target.value)}
-                        placeholder="Procure aqui seu filme"
+                        placeholder="buscar filme ou série"
                         className={styles.searchInput}
                     />
 

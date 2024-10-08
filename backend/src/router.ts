@@ -9,6 +9,9 @@ import { CreateMovieController } from "./Controllers/Movie/CreateMovieController
 import { ListMoviesController } from "./Controllers/Movie/ListMoviesController";
 import { ListUserController } from "./Controllers/User/ListUserController";
 import { DeleteUserController } from "./Controllers/User/DeleteUserController";
+import { WatchLaterController } from "./Controllers/User/WatchLaterController";
+import { ListWatchLaterController } from "./Controllers/User/ListWatchLaterController";
+import { RemoveWatchLaterController } from "./Controllers/User/RemoveWatchLaterController";
 
 const router = Router()
 
@@ -25,5 +28,9 @@ router.get('/ativar', new ActiveUserController().handle);
 router.post('/movie/adicionar/varios', new CreateManyMovieController().handle)
 router.post('/movie/adicionar', new CreateMovieController().handle)
 router.get('/movies', new ListMoviesController().handle)
+
+router.post('/watchLater', new WatchLaterController().handle)
+router.get('/watchLater', new ListWatchLaterController().handle)
+router.delete('/watchLater/:id', new RemoveWatchLaterController().handle)
 
 export { router }

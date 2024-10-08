@@ -11,16 +11,33 @@
     .donateContainer {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
         gap: 3rem;
         padding: 0 50px;
+        height: 70%;
 
         .title {
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
 
             h1 {
                 padding-bottom: 20px;
+            }
+
+            .brand {
+                font-family: var(--font-Anton);
+                font-size: 1.2rem;
+            }
+
+            .red {
+                color: var(--red)
+            }
+
+            .white {
+                color: var(--white)
             }
         }
 
@@ -30,6 +47,8 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
+            margin-bottom: 20px;
+
 
             .qrcodeContainer {
                 display: flex;
@@ -60,6 +79,8 @@
 
 @media (max-width: 375px) {
     .container {
+        height: 100%;
+
         .donateContainer {
             .donate {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -70,6 +91,8 @@
 
 @media (min-width: 375.1px) and (max-width: 560px) {
     .container {
+        height: 100%;
+
         .donateContainer {
             .donate {
                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

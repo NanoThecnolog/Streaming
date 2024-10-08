@@ -4,5 +4,7 @@ export interface UserProps {
     email: string,
     avatar: string,
     token: string,
-    verified: boolean
+    verified: boolean,
+    birthday: Date,
+    myList: string[]
 }

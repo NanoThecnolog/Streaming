@@ -5,11 +5,17 @@ import styles from './styles.module.scss'
 import { useEffect, useState } from 'react';
 import Router from 'next/router';
 import { toast } from 'react-toastify';
+import { api } from '@/services/api';
+import { UserProps } from '@/@types/user';
+import { getCookieClient } from '@/services/cookieClient';
+import { addWatchLater } from '@/services/addWatchLater';
 
 
 export default function Top() {
     const [cardOn, setCardOn] = useState(0)
     const [fade, setFade] = useState('fadeIn')
+    const [user, setUser] = useState<UserProps | null>(null)
+    const [onWatchLater, setOnWatchLater] = useState<boolean>()
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -21,9 +27,31 @@ export default function Top() {
         }, 10000)
         return () => clearInterval(interval)
     }, [])
+    useEffect(() => {
+        const user = getCookieClient();
+        if (!user) {
+            Router.push('/login')
+            return
+        }
+        setUser(user)
+    }, [])
+    useEffect(() => {
+        if (!user) return
+        //console.log(user)
+    }, [user])
 
-    function toggleWatchLater(title: string, subTitle?: string) {
-        toast.warning("A função de adicionar filme a assistir mais tarde está temporariamente desabilitada.")
+    async function toggleWatchLater(title: string, subtitle?: string) {
+        try {
+            if (!user) {
+                Router.push('/login')
+                return
+            }
+            const addFilme = await addWatchLater(user.id, title, subtitle);
+
+        } catch (err: any) {
+            if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
+            return toast.error("Erro inesperado ao adicionar filme à lista!")
+        }
     }
 
     function handleWatch() {
