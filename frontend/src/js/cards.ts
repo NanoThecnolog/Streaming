@@ -14,6 +14,66 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp1833164.jpg&f=1&nofb=1&ipt=851ed4df43af5852fdd32738d2bec828bd626be8bc42d2d061430c83f3204708&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.q8EzpmTiFNtboBe7PANyYwHaLH%26pid%3DApi&f=1&ipt=e59eb592b098d74609c582539ffcfd928a1d0aba3eef8d0ea7851bd5e775b4b0&ipo=images",
+        title: "Vingadores",
+        subtitle: "Era de Ultron",
+        description: "Ao tentar proteger o planeta de ameaças, Tony Stark constrói um sistema de inteligência artificial que cuidaria da paz mundial. O projeto acaba dando errado e gera o nascimento do Ultron. Com o destino da Terra em jogo, Capitão América, Homem de Ferro, Thor, Hulk, Viúva Negra e Gavião Arqueiro terão que se unir para mais uma vez salvar a raça humana da extinção.",
+        src: "https://drive.google.com/file/d/15Qlug1QCcNTIVVeCWNQt307h7r55DqaA/preview",
+        duration: "02h 21m",
+        genero: ["Ação", "Ficção Científica", "Marvel", "Super Herói"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.hdqwalls.com%2Fwallpapers%2Fcaptain-america-civil-war-fight-scene.jpg&f=1&nofb=1&ipt=9cb6b98cded41c050e40b878fc9c0e3bc48c515a97b44f02eddf110733a8e3db&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.yyM0NlrMcR41Anb7JPOgYwHaLH%26pid%3DApi&f=1&ipt=0636b467717c28d3acfd72cd4ff2811d1f307a7b53d1ad8fb77af65212747eb6&ipo=images",
+        title: "Capitão América",
+        subtitle: "Guerra Civil",
+        description: "Depois do ataque de Ultron, os políticos decidem controlar os Vingadores, já que suas ações afetam toda a humanidade. A decisão coloca o Capitão América em rota de colisão com o Homem de Ferro.",
+        src: "https://drive.google.com/file/d/1qcY6kW-GOUtATg03Xv4BpFhRg-xoQsvr/preview",
+        duration: "02h 27m",
+        genero: ["Ação", "Aventura", "Marvel", "Super Herói"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fget.wallhere.com%2Fphoto%2Fsuperhero-Captain-America-Scarlett-Johansson-Black-Widow-Captain-America-The-Winter-Soldier-Nick-Fury-Chris-Evans-Jackson-screenshot-1920x1080-px-computer-wallpaper-fictional-character-samuel-l-526365.jpg&f=1&nofb=1&ipt=8bb0c88eaf64ee593ce11823776da49c24326b70cb146a83835d84453e5bc391&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.DxNnGTJknxp4D0P3cN6zMwHaLH%26pid%3DApi&f=1&ipt=6f8cd38806cd92784ea323b9c1aa9965c652e946f560647bec8fa73afade6f44&ipo=images",
+        title: "Capitão América",
+        subtitle: "O Soldado Invernal",
+        description: "Após os eventos catastróficos em Nova York com Os Vingadores, Steve Rogers, também conhecido como Capitão América, segue tentando se ajustar ao mundo moderno. Porém, quando um colega da agência S.H.I.E.L.D. é atacado, Steve se vê preso em uma rede de intrigas que ameaça colocar o mundo em risco. Em parceria com a Viúva Negra e Falcão, seu novo aliado, o Capitão América tem que enfrentar um misterioso e inesperado inimigo, o Soldado Invernal.",
+        src: "https://drive.google.com/file/d/17CYGqHXnGhl6f2qFleWdYVR9v-9TUwMO/preview",
+        duration: "02h 16m",
+        genero: ["Ação", "Aventura", "Ficção Científica", "Marvel", "Super Herói"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.hdqwalls.com%2Fwallpapers%2Fhulk-hela-thor-in-thor-ragnarok-5w.jpg&f=1&nofb=1&ipt=fee97a34d5205a6f770562c2271e7401c80a4f16e177e7bb18b62989ab962d76&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.explicit.bing.net%2Fth%3Fid%3DOIP.diyIpAS27WphTMGXlDAgEAHaLH%26pid%3DApi&f=1&ipt=b1a94d6d96a64222193ed764c390f6abc331ba383c3053275921a20b34fe4e67&ipo=images",
+        title: "Thor",
+        subtitle: "Ragnarok",
+        description: "Após anos afastado, Thor retorna para casa e descobre que seu pai, Odin, rei de Asgard, está desaparecido. Após encontrá-lo, ele toma conhecimento de sua irmã mais velha, Hela, a poderosa e implacável deusa da morte. Com o auxílio de Loki, ele enfrenta Hela, mas durante a batalha, Thor acaba preso em Sakaar, um planeta do outro lado do universo. Agora, ele precisa correr contra o tempo para voltar a Asgard e impedir o Ragnarok, a destruição de seu mundo.",
+        src: "https://drive.google.com/file/d/1uMSu3oOJB6bmGVLQk8ZDeTf7uhgL1vtA/preview",
+        duration: "02h 10m",
+        genero: ["Ação", "Ficção Científica", "Fantasia", "Marvel", "Super Herói"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.hdqwalls.com%2Fwallpapers%2Fthor-2-the-dark-world.jpg&f=1&nofb=1&ipt=3f866e4d878e15e7661630b715f55104b3c941a05bc7dabe1749029afc4aee8d&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.AT5LE9G245WEFZbQl0FgBQHaLH%26pid%3DApi&f=1&ipt=52c3fe2d588127865d937747c755158ab19c9368a96489ad188d5ebcf0be3809&ipo=images",
+        title: "Thor",
+        subtitle: "O Mundo Sombrio",
+        description: "Thor precisa contar com a ajuda de seus companheiros e até de seu traiçoeiro irmão Loki em um plano audacioso para salvar o universo. Entretanto, os caminhos de Thor se cruzam com Jane Foster e, dessa vez, a vida dela está realmente em perigo.",
+        src: "https://drive.google.com/file/d/1lezsWVyBagXi2lNlqNuRMrIpUu0ZiA-e/preview",
+        duration: "01h 52m",
+        genero: ["Ação", "Fantasia", "Marvel", "Super Herói"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FM%2FMV5BMTA3MDQ2OTExNzZeQTJeQWpwZ15BbWU3MDI3ODIyMDU%40._V1_.jpg&f=1&nofb=1&ipt=56d061d9385524f4e04175242bbec9f5cde7a6e8b685d6687e4867b1a14bf459&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.rjgRuEHeC0N5Qm__nstbBwHaLH%26pid%3DApi&f=1&ipt=b37c5fea19c110da3cc1f15cf87e3920dca7c598a0c7c461459d3e172a28af90&ipo=images",
+        title: "Thor",
+        subtitle: "",
+        description: "Thor, filho de Odin, o rei dos deuses nórdicos, logo herdará o trono de Asgard de seu idoso pai. No entanto, no dia de sua coroação, Thor reage com brutalidade quando os inimigos dos deuses entram no palácio violando o tratado. Como punição, Odin manda Thor para a Terra. Enquanto seu irmão Loki conspira em Asgard, Thor, agora sem seus poderes, enfrenta sua maior ameaça.",
+        src: "https://drive.google.com/file/d/1OON3LmVgkfSeVA71aoK5jjSiaHBQ0-FY/preview",
+        duration: "01h 54m",
+        genero: ["Ação", "Fantasia", "Marvel", "Super Herói"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmidia.gruposinos.com.br%2F_midias%2Fjpg%2F2021%2F07%2F09%2Fviuva_negra-19726451.jpg&f=1&nofb=1&ipt=22e565988ade356c67692ca22c597928ba6392aa78b41c1cecc879d5ed52a76c&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.lAo4Y3Kfz6KRw7HgmJhf3QHaLH%26pid%3DApi&f=1&ipt=477552a77ef830d4265e218bcb96559e16f9508191d52288f9bb1fc60df480e2&ipo=images",
         title: "Viúva Negra",
