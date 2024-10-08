@@ -14,6 +14,46 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmidia.gruposinos.com.br%2F_midias%2Fjpg%2F2021%2F07%2F09%2Fviuva_negra-19726451.jpg&f=1&nofb=1&ipt=22e565988ade356c67692ca22c597928ba6392aa78b41c1cecc879d5ed52a76c&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.lAo4Y3Kfz6KRw7HgmJhf3QHaLH%26pid%3DApi&f=1&ipt=477552a77ef830d4265e218bcb96559e16f9508191d52288f9bb1fc60df480e2&ipo=images",
+        title: "Viúva Negra",
+        subtitle: "",
+        description: "Ao nascer, a Viúva Negra, então conhecida como Natasha Romanova, é entregue à KGB, que a prepara para se tornar sua agente suprema. Porém, o seu próprio governo tenta matá-la quando a União Soviética se desfaz.",
+        src: "https://drive.google.com/file/d/1oldqmxAHWOwfQl9EcGZLWebWLWf19JP5/preview",
+        duration: "02h 13m",
+        genero: ["Ação", "Ficção Científica", "Marvel", "Super Herói"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FyjSVhK0HuCcbK7jfoH2HLKyeANc.jpg&f=1&nofb=1&ipt=a1a35f407a8cc269a90a8acad8459e0f9bf92eb9de2cbd833945b7c15ed189f2&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.AOfH2UVlZX-J_TCVedcvqQHaLH%26pid%3DApi&f=1&ipt=3e4cbfba387df3acd055efbfd757e5eefed44a447f0a08ebb90c1a9170fee20d&ipo=images",
+        title: "Homem de Ferro",
+        subtitle: "",
+        description: "Tony Stark é um industrial bilionário e inventor brilhante que realiza testes bélicos no exterior, mas é sequestrado por terroristas que o forçam a construir uma arma devastadora. Em vez disso, ele constrói uma armadura blindada e enfrenta seus sequestradores. Quando volta aos Estados Unidos, Stark aprimora a armadura e a utiliza para combater o crime.",
+        src: "https://drive.google.com/file/d/1FEsFOIZ1dVugdYIiSOXjloR5s7YzY_-7/preview",
+        duration: "02h 06m",
+        genero: ["Ação", "Ficção Científica", "Marvel", "Super Herói"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.justwatch.com%2Fimages%2Fbackdrop%2F198981995%2Fs1440%2Fcaptain-america-the-first-avenger&f=1&nofb=1&ipt=f770ca649faf84e3366d31c0ccc7f090d1f359ab43f98bd6ce1762cc2367948e&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.PUJmTloMN3NhigeFS6RzhgHaLH%26pid%3DApi&f=1&ipt=86c5f40e6223601d24c561accbb969be9503d1c49f3998a6ef2b217ea3530e71&ipo=images",
+        title: "Capitão América",
+        subtitle: "O Primeiro Vingador",
+        description: "Steve Rogers é um jovem que participa de experiências visando a criação do supersoldado americano. Quando os oficiais militares conseguem transformá-lo em uma arma humana, eles percebem que não podem arriscar a vida do jovem nas batalhas de guerra.",
+        src: "https://drive.google.com/file/d/1jpdZy3b-lHbDVfokFYSUdjD-NBwMv4vy/preview",
+        duration: "02h 04m",
+        genero: ["Ação", "Ficção Científica", "Marvel", "Super Herói"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages7.alphacoders.com%2F605%2F605868.jpg&f=1&nofb=1&ipt=8a4181797f172b2fb8856a9b7ab058a7dd5ee78e1d501844ce0be3ab2a208c59&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Dvw1iY5R-84e_P_dUhFYJQHaLH%26pid%3DApi&f=1&ipt=5feaaee3d77e34082dc61a95330de63d3ee4d099b4c8d873dd11840b84e3c446&ipo=images",
+        title: "O Hobbit",
+        subtitle: "A Batalha dos Cinco Exércitos",
+        description: "O dragão Smaug lança sua fúria ardente contra a Cidade do Lago que fica próxima da montanha de Erebor. Bard consegue derrotá-lo, mas, rapidamente, sem a ameaça do dragão, inicia-se uma batalha pelo controle de Erebor e sua riqueza. Os anões, liderados por Thorin, adentram a montanha e estão dispostos a impedir a entrada de elfos, anões e orcs. Bilbo Bolseiro e Gandalf tentam impedir a guerra.",
+        src: "https://drive.google.com/file/d/1rvqS0MeJG6ds0sPg7rNec6BZpUusez8l/preview",
+        duration: "02h 44m",
+        genero: ["Aventura", "Fantasia"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fapostiladecinema.com.br%2Fwp-content%2Fuploads%2F2021%2F07%2Fum-lugar-silencioso-2018-critica-filme-imagem-2048x1150.jpg&f=1&nofb=1&ipt=d53afdebea02bdf288c1c4b176ff63e1ae63354e2648cb5f8391db867d165c7a&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.okMCXyJeXr_NmeKZraUFPQHaLH%26pid%3DApi&f=1&ipt=bf9b33333f58788295d9cec11df7bb2f40cab1f95b604f6c527710d580352996&ipo=images",
         title: "Um Lugar Silencioso",
