@@ -1219,7 +1219,7 @@ export const cards: CardsProps[] = [
 
     }, {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fs99xiwbOo9uVwD4kn1x6sPrWA3k.jpg&f=1&nofb=1&ipt=00071e5d95cb17767378e99cb44f1559387078fd7910922776942c6998b3f9fc&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FbMYuDvz2Zl0pNWIbt9GQqZt1CH.jpg&f=1&nofb=1&ipt=e873a4946e3f3f3a837aa675b00a5f8ccffd6d888cec4d8d52c45135463bf8e4&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.B3NveDKCUemcKsIYi3OKnQHaKe%26pid%3DApi&f=1&ipt=5592f5dc35982c429ae66093443efbd9e8949b9a4e826798c0c1832387230d9d&ipo=images",
         title: "Homem de Ferro 2",
         subtitle: "",
         description: 'Em um mundo ciente da existência do Homem de Ferro, o inventor bilionário Tony Stark sofre pressão de todos os lados para compartilhar sua tecnologia com as forças armadas. Ele resiste para divulgar os segredos de sua inigualável armadura, com medo de que estas informações caiam nas mãos erradas. Com a bela Pepper Potts e o amigo "Rhodey" Rhodes ao seu lado, Tony precisa forjar novas alianças e confrontar um inimigo poderoso.',

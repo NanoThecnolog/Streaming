@@ -2,17 +2,17 @@ import Header from "@/components/Header";
 import styles from './styles.module.scss'
 import Footer from "@/components/Footer";
 import { useEffect, useState } from "react";
-import { donate } from "../../services/donate";
+import { api } from "@/services/api";
 import { getCookieClient } from "@/services/cookieClient";
 import Router from "next/router";
 import { UserProps } from "@/@types/user";
 import Head from "next/head";
 
 export default function Me() {
-
     const [qrCodeUrl, setQrCodeUrl] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [usuario, setUsuario] = useState<UserProps | null>(null)
+
     const avatares = [
         "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.woueb.net%2Fimages%2Fmanga%2Fromain-manga.jpg&f=1&nofb=1&ipt=44ff213852ef9a7bbcf72a0c9e624c3e2a880f7e2c5852e751ff6a047b5d561e&ipo=images",
         "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftecnologiaviral.com%2Fwp-content%2Fuploads%2F2023%2F01%2FCrea-tus-propios-avatares-y-dibujos-de-manga-para-chats.jpg&f=1&nofb=1&ipt=cdb72a8e87acc7648ecbafcd489aa3566fc63c202aa66c4727d15d2c8a07cc1a&ipo=images",
@@ -39,7 +39,7 @@ export default function Me() {
 
     async function qrCode() {
         try {
-            const response = await donate.get('/pix');
+            const response = await api.get('/pix');
             const data = response.data;
             setQrCodeUrl(data);
         } catch (err) {
@@ -67,6 +67,7 @@ export default function Me() {
                         <div className={styles.avatarContainer}>
                             <h2>Avatar</h2>
                             <div className={styles.avatars}>
+
                                 {avatares.map((img, index) => (
                                     <img src={img} key={index} width={100} height={100} />
                                 ))}
@@ -78,19 +79,20 @@ export default function Me() {
                             <h2>Informações</h2>
                         </div>
                         <div>
-                            <h3>Nome do usuario</h3>
+                            <h3>{usuario?.name}</h3>
                         </div>
                         <div>
-                            <h3>email@email.com</h3>
+                            <h3>{usuario?.email}</h3>
                         </div>
                         <div>
-                            <h3>data de nascimento</h3>
+                            <h3>{usuario?.birthday && new Date(usuario.birthday).toLocaleDateString('pt-br', {
+                                timeZone: 'UTC'
+                            })}</h3>
                         </div>
                         <div>
-                            <h3>cpf</h3>
+                            {usuario?.myList}
                         </div>
                     </div>
-
                 </div>
                 <div>
 
