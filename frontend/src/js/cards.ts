@@ -14,6 +14,16 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.wallpapersafari.com%2F27%2F41%2FtE9Cp5.jpg&f=1&nofb=1&ipt=ed9c69705ece80663fa64edefe9e0cd7ffb5a943eabea447a0f2fcdea60708df&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.ALqeOHaWNBDkLd79-Wl8pAHaLH%26pid%3DApi&f=1&ipt=3ccf9f063de8316709202a5bc9026779502179c013c69b6ddac2c24b7b3fafc6&ipo=images",
+        title: "Vingadores",
+        subtitle: "",
+        description: "Loki, o irmão de Thor, ganha acesso ao poder ilimitado do cubo cósmico ao roubá-lo de dentro das instalações da S.H.I.E.L.D. Nick Fury, o diretor desta agência internacional que mantém a paz, logo reúne os únicos super-heróis que serão capazes de defender a Terra de ameaças sem precedentes. Homem de Ferro, Capitão América, Hulk, Thor, Viúva Negra e Gavião Arqueiro formam o time dos sonhos de Fury, mas eles precisam aprender a colocar os egos de lado e agir como um grupo em prol da humanidade.",
+        src: "https://drive.google.com/file/d/19Q7i42OS3osU7zN8MV7rKlZSWRfE3bzW/preview",
+        duration: "02h 22m",
+        genero: ["Ação", "Aventura", "Ficção Científica", "Marvel", "Super Herói"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp1833164.jpg&f=1&nofb=1&ipt=851ed4df43af5852fdd32738d2bec828bd626be8bc42d2d061430c83f3204708&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.q8EzpmTiFNtboBe7PANyYwHaLH%26pid%3DApi&f=1&ipt=e59eb592b098d74609c582539ffcfd928a1d0aba3eef8d0ea7851bd5e775b4b0&ipo=images",
         title: "Vingadores",
