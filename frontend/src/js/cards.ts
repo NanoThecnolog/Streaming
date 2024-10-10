@@ -1,7 +1,17 @@
 import { CardsProps } from "@/@types/Cards";
 
 export const cards: CardsProps[] = [
-    /*   
+    /*
+    {
+        background: "",
+        overlay: "",
+        title: "Prisioneiros do Caos",
+        subtitle: "",
+        description: "",
+        src: "https://drive.google.com/file/d/1ljWSfpekibV4TA9NvbJvtPGxEGPn4Hmm/preview",
+        duration: "",
+        genero: ["", ""]
+        },
     {
     background: "",
     overlay: "",
@@ -13,6 +23,36 @@ export const cards: CardsProps[] = [
     genero: ["", ""]
     },
     */
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wallpapersden.com%2Fimage%2Fdownload%2Fabigail-2024-movie_bmdsaGeUmZqaraWkpJRobWllrWdma2U.jpg&f=1&nofb=1&ipt=b49d47f8655b3d1920473afaf502d5a84069920013dd0079e084913cba121413&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.y5mERPvXz7lICJ43pk6L7QHaLH%26pid%3DApi&f=1&ipt=9e761a611c1f89285acfa965703913d300d3ddd866b903ae50521eedcd795e41&ipo=images",
+        title: "Abigail",
+        subtitle: "",
+        description: "Um grupo de criminosos sequestra a filha de 12 anos de uma figura poderosa. Mantendo-a em uma mansão isolada, o plano deles começa a desmoronar quando descobrem que a jovem prisioneira é na verdade uma vampira.",
+        src: "https://drive.google.com/file/d/1vviFXYhmA7aYO9WMVmZkwHbMYhmNCgeV/preview",
+        duration: "01h 53m",
+        genero: ["Terror", "Suspense"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F2.bp.blogspot.com%2F-AVujoVp58gc%2FWJP8JJKJEgI%2FAAAAAAAACMM%2FCRnoZ88XmmUW5phFKt76eOVFZgWoq5CigCLcB%2Fs1600%2Fcabana2.jpg&f=1&nofb=1&ipt=51aa5c0f40b7ce3791ff35f6e62cfa63073300eff5db2160418866dbb30fa5e8&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.xTg0APJC-gb-x_vcS6rqHQHaJ4%26pid%3DApi&f=1&ipt=cd133d78de9e2c65d754061f14cc04c02f139c61cd190e436682a42ec8e6690c&ipo=images",
+        title: "A Cabana",
+        subtitle: "",
+        description: "Um homem vive atormentado após perder a sua filha mais nova, cujo corpo nunca foi encontrado, mas sinais de que ela teria sido violentada e assassinada são encontrados em uma cabana nas montanhas. Anos depois da tragédia, ele recebe um chamado misterioso para retornar a esse local, onde ele vai receber uma lição de vida.",
+        src: "https://drive.google.com/file/d/1ceY14I9bymYsrVg6GzvboBX4JKWRZae_/preview",
+        duration: "02h 12m",
+        genero: ["Suspense", "Fantasia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2024%2F08%2FIdentidades-Em-Jogo-1.jpg&f=1&nofb=1&ipt=96d6465a8bc372a753b89b9474a613c261255be7fdea8ff64caaab99c27ade2d&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Ie9dWS1MXYmUjj9XaI22HwHaKk%26pid%3DApi&f=1&ipt=4280d313b49765eae70b22d2e70cfcbd551d09d564929059ffe920b118e7654a&ipo=images",
+        title: "Identidades em Jogo",
+        subtitle: "",
+        description: "Uma reencontro se transforma em um pesadelo para um grupo de amigos. Um deles traz um aparelho estranho capaz de trocar as consciências de todos. De corpos trocados e apavorados, eles mergulham em uma trama de ciúmes, segredos e desejos ocultos.",
+        src: "https://drive.google.com/file/d/1T4GtgKxnX9NVSh0hRoAafIL1sSYlymTV/preview",
+        duration: "01h 44m",
+        genero: ["Terror", "Ficção Científica", "Netflix"]
+    },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.wallpapersafari.com%2F27%2F41%2FtE9Cp5.jpg&f=1&nofb=1&ipt=ed9c69705ece80663fa64edefe9e0cd7ffb5a943eabea447a0f2fcdea60708df&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.ALqeOHaWNBDkLd79-Wl8pAHaLH%26pid%3DApi&f=1&ipt=3ccf9f063de8316709202a5bc9026779502179c013c69b6ddac2c24b7b3fafc6&ipo=images",

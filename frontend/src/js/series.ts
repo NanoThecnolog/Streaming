@@ -24,6 +24,388 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages7.alphacoders.com%2F129%2F1293054.jpg&f=1&nofb=1&ipt=a2884a2b57046f4939a940cc93556f8ddcd12cc046783ecefb54e5b09a241109&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.TUoBpSRnSy0Eq_hkC7zh9gHaJ4%26pid%3DApi&f=1&ipt=e2b38356a75ec352f1bcc111c6afd2fcfffcb6bfc7a18e0f6a166862033f5eea&ipo=images",
+        title: "Warrior Nun",
+        subtitle: "",
+        description: "Warrior Nun é uma série de ação e aventura da Netflix que conta a história de Ava Silva (Alba Baptista), uma jovem que acorda em um necrotério e descobre que tem superpoderes e faz parte de uma seita secreta de freiras guerreiras",
+        genero: ["Ação", "Netflix", "Legendado"],
+        season: [
+            {
+                s: 1,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/15Wc0uxmKReExnYWG2qSk5cXjxPQV1tzK/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/15elQzMcLum00EIeIN3Wd-ShJn-DQ3dqe/preview",
+                        duration: "40m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1GPLGDvZLKEBI6b5wTljqzW9v_F4klzsm/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1u-05BVIgs_IN-wAKr58oi6IomCaDOdjq/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1As0c_WH1nmP5ZKojvv3KVtqbFBY9lcp3/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1Nn2M4KzlJqIvXSV4jXokLqyc2ood7qIq/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1rZUjgQeuUNw1kLvfs_oLWcQ0smHxMJ94/preview",
+                        duration: "39m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1qaRgCUf4E7LHZsXDLELNQ2tW0pBoj07G/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1MGsMiTdC4o3RnvYrt4Tt4ltnl1jh0W5b/preview",
+                        duration: "37m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/15gk7i-Oe27TuhjvdmHpMV0tUZaDTvWXk/preview",
+                        duration: "42m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/10IoLX1yzy8b6AcUiONAcFdGcff-EWWV4/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/18PmX0wK0xjoMtyW-BDuummjvsER39_Pl/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1R4LQrlAHnC-OYuEoGHI1J9QIt2NdZ6Fp/preview",
+                        duration: "39m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1P-dJNrkDvzAEem8o3Gi2OyzkUhdnoOW7/preview",
+                        duration: "39m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1odncw_rsH0ZQ6eaRiFJ3XG2oVcBiarHA/preview",
+                        duration: "47m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1h9FcBHZzkT99j8HVoo5QsagTdSAq6gp_/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/13HmE-nQuVIU5cOIEE9XD9p20poeRKH9L/preview",
+                        duration: "36m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1iDsGXVnFEOerTQh39vHpo4ILtznlcEJJ/preview",
+                        duration: "52m"
+                    },
+                ]
+            }
+        ]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnerdizmo.ig.com.br%2Fwp-content%2Fuploads%2F2024%2F07%2FBatman-Cruzado-Encapuzado-Previa-Img1.jpg&f=1&nofb=1&ipt=88f64a2c73a1efd3c0f488d56ede331338b48499b567e258a6dd43a9be788109&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.dDG148-Sc3x5BPuiQb35wgHaK9%26pid%3DApi&f=1&ipt=420e4a375d4e16ea071f828fffbc44ddd78d72f69f5791112246915c9f1408a2&ipo=images",
+        title: "Batman",
+        subtitle: "Cruzado Encapuzado",
+        description: "A série se passa em Gotham City, uma cidade onde os criminosos dominam e os cidadãos vivem em medo. O socialite Bruce Wayne se torna o Batman após uma tragédia pessoal. O Batman luta contra o crime sozinho, mas atrai aliados do Departamento de Polícia e da Prefeitura.",
+        genero: ["Animação", "DC", "Super Herói", "Prime Vídeo"],
+        season: [
+            {
+                s: 1,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1Lzbk_rdO6LOwpBv6euOzWMW0oMYS5As0/preview",
+                        duration: "25m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1QJinLDOki75_7dOdMSU0F8_iLoF-PfLc/preview",
+                        duration: "25m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1ELJY9Jul2J5EMmTEP4rULfY2uN1x83PS/preview",
+                        duration: "26m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1jdyT1X9knxZamJ6BPrEEEuXEAzlKpiRO/preview",
+                        duration: "26m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1MdQ9GQDSbel4zFx6NkO-CO1W8vzCqb3M/preview",
+                        duration: "26m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1g7-6kipnZbYidaBzkJB6-EbHWT9DBhhI/preview",
+                        duration: "25m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1K4Mapb5pRQk1_ztEZrizrKG99vCs-40l/preview",
+                        duration: "24m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/11XlDm0t6xXkW0FZRW29Nn1vIj9XGtZji/preview",
+                        duration: "26m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1qI0rb3B_BgbCYEmSp2Q3S7K6W-ZwyFL3/preview",
+                        duration: "24m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1bAwyC01FprudJvD-87DQu5yyy9YsGnsr/preview",
+                        duration: "25m"
+                    },
+                ]
+            }
+        ]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblogger.googleusercontent.com%2Fimg%2Fb%2FR29vZ2xl%2FAVvXsEhVfGAOE9QAS3RvqT3DMd5vvBHjQH-otHpvrCSNet1lqe3n_bEN-stZMJywZCvseDHhzNKa9W1C0nKK3TluCdb3R_AH-bSPZNX9BDP08SHNpPYf4aRMEoKHdeY-rEkpwnVxVOP1C6bark6Q_-snymqAmt0wkLpL1o_GcTZPPkQio9EM63p46WnoQF06TA%2Fs2048%2FOuter%2520Banks.jpg&f=1&nofb=1&ipt=2a07a087033854a7648816e0dacebb83503a5ebd6249dcba2c9acec68ecf720f&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.WK59lkKTeiGlqXbg2nykOwHaPo%26pid%3DApi&f=1&ipt=4ea2e22216728397bb99e732260c17d022d36a810dd4f4ae531a79330fd1581b&ipo=images",
+        title: "Outer Banks",
+        subtitle: "",
+        description: "O jovem John convoca seus melhores amigos para procurarem por um tesouro ligado ao desaparecimento de seu pai. Aos poucos, o grupo vai entrando em uma perigosa trama de segredos e perigos.",
+        genero: ["Drama", "Netflix"],
+        season: [
+            {
+                s: 1,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1sku_6g5qzSeu5L0R4A3AYyH6IEjzuLBx/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1ezh_Ww3Np8Ui_RQpkpfKk06WhR1Xw8xq/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1lmPfMRh48NdFTGCzq8WpqwD5FMsG_IhA/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1m5C1UqS_il-wN0844WHH6CYNcHJvxqp1/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1Sj_KfS9wQX66NQgKL7iYby3zZKJGb5AS/preview",
+                        duration: "47m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1QfG9Mnvx58ELxo4BjYr3p5gCFlHimUsv/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1WBNJkPjnlZ_aALJ2bscMl5ivbPriSvo2/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1rtpHBOdlsv73UMG66fGkcM0I6r64hud5/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1_UMMBqReQk9hE9WWuflRMSgNJKUM1CPC/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1JRTOAqrL3V6Ff8QL0F8zQUedEDlT6Khu/preview",
+                        duration: "56m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/10cRDgiQS0Y0YYsZwU_QxGPUOK8lb2Lrr/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1YMXOgWLIyw9dC6PJlipSzOAsIb1FMMOi/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/17R9ObuO0gvaWmyIhhUZ9k5vfvHD3HbMg/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/14jLet2Zh7yBAPlOU8rh1SloXeNOva1KR/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/105B5beiHduEoPo2G4yu9h9mid2t1CpEi/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/19OPS5b6wzHUdJc6zni0FdBU5qQvVHXCW/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1rd0U8PpXsLH6pd7K02mlOmoNNhCAIuGu/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1p0JfObU3ym87_seFeF446VdfdMdeUscT/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1eePoA1d20jzeavfVF_6y7kmC4x79esUP/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1QzVVGhhQC1z0NpZYe6KWZK8SgTU1uJxx/preview",
+                        duration: "01h 01m"
+                    },
+
+                ]
+            },
+            {
+                s: 3,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1SkChMiR3ZCEh25UAWcTx_ID6Mln1y-8s/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1pP0otEwgtqdsyoWzYqg5PRqtUbzCW9_8/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1HYjK7Wz9YoCOvWyuMEpkOuCutsDE-Vi7/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1iMbw7SJ4VY7wGyy-T0SrYjALKAC58_I7/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1pUsI0QD72dCIJ25pR8UczXPxflgdDJxg/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1I8Mn-uwlM6w2Zg0rVoPdHU_mzn-qR_j8/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1Rzf5Ru76Cjgy5ad7i5nC4vGPF6phoReI/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1-fXKnwXPPTtlpY9MH62GSr7cAw0cCVog/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1Qs3g-PEmmsazhkMMvkj2vXmU1HJNKZOA/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/17jm0GMa3ZhbyB3Ch-88rOyHoRllmSRXk/preview",
+                        duration: "01h 19m"
+                    },
+                ]
+            },
+
+            {
+                s: 4,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1SiATOhp_UtMu1pZY_XYglmeIG5ipu5uP/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1zHl38qFpHCZKLKv1PNObwAG_Gs707rSX/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1szI6UvOfreNgWrPrFzS51Nk3-V_sKkFV/preview",
+                        duration: "40m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1pgNWU9dOfb6yJj1URBwfCr6NvilaMD8D/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/16Dewbaugf8akkaEqg-wGwC1lPgbd8dxT/preview",
+                        duration: "01h 02m"
+                    },
+                ]
+            }
+        ]
+    },
+    {
         background: "https://images6.fanpop.com/image/photos/32400000/Death-Note-death-note-32414092-3917-3000.jpg",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.8rdzpvnK9AnAp1QpqPQWnQHaLF%26pid%3DApi&f=1&ipt=1f3034527c5ed282405f5510d1f8f8bacfef751ccec46f0c16d68ba3b5a3e0ad&ipo=images",
         title: "Death Note",
@@ -755,7 +1137,7 @@ export const series: SeriesProps[] = [
         title: "Pinguim",
         subtitle: "",
         description: "Colin Farrell retorna como Oswald 'Oz' Cobb, O Pinguim, para conquistar Gotham neste novo capítulo da saga Batman de Matt Reeves.",
-        genero: ["Suspense", "DC", "Crime", "Vilão", "HBO Max"],
+        genero: ["Suspense", "DC", "Crime", "Vilão", "HBO"],
         season: [
             {
                 s: 1,
@@ -769,6 +1151,11 @@ export const series: SeriesProps[] = [
                         ep: 2,
                         src: "https://drive.google.com/file/d/1--C4tA_jXmWi0fUgy2VAX5ZE7jba1OCC/preview",
                         duration: "55m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1-8c96v9SMMnHTh5zvgHiTK4j-E7gariv/preview",
+                        duration: "59m"
                     }
                 ]
             },

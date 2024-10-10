@@ -18,6 +18,9 @@ export default function Series() {
         "drama",
         "fantasia",
         "animação",
+        "netflix",
+        "hbo",
+        "prime video",
         "dc",
     ]
 
