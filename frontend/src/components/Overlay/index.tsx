@@ -31,7 +31,7 @@ export default function Overlay({ title, subtitle, src, duration, genero, modalV
     useEffect(() => {
         const user = getCookieClient();
         if (!user) {
-            Router.push('/login')
+            //Router.push('/login')
             return
         }
         setUser(user)

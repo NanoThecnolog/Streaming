@@ -26,7 +26,7 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
     useEffect(() => {
         const user = getCookieClient();
         if (!user) {
-            Router.push('/login')
+            //Router.push('/login')
             return
         }
         setUser(user)

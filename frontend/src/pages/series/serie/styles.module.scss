@@ -5,15 +5,13 @@
     align-items: flex-start;
     width: 100%;
     min-height: 100vh;
-    //height: 100%;
+    height: 100%;
     color: var(--white);
     font-family: var(--font-Roboto);
-    //padding-bottom: 200px;
     background-color: #141414;
     background-repeat: no-repeat;
-
     background-size: cover;
-    //background-position: center;
+
 
 
     .serieContainer {
@@ -22,6 +20,9 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+        background-position: top;
+
+
 
 
         .imageBackground {
@@ -39,9 +40,6 @@
             .desc_top {
                 padding: 20rem 4rem 2rem 4rem;
 
-                .title {
-                    //padding-top: 20rem;
-                }
 
                 .seasons {
                     padding: 0.4rem 0;
@@ -69,6 +67,12 @@
                 }
 
                 .watchLater {
+                    display: flex;
+                    justify-content: center;
+                    width: 150px;
+
+
+
                     button {
                         background-color: transparent;
                         color: var(--white);

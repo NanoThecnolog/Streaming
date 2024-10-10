@@ -28,7 +28,7 @@ export default function Serie() {
     useEffect(() => {
         const user = getCookieClient();
         if (!user) {
-            Router.push('/login')
+            //Router.push('/login')
             return
         }
         setUser(user)

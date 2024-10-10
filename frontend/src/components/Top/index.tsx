@@ -12,8 +12,11 @@ import { addWatchLater } from '@/services/addWatchLater';
 import { isOnTheList } from '@/services/isOnTheList';
 import { FaCheck } from 'react-icons/fa';
 
+interface TopProps {
+    width?: number;
+}
 
-export default function Top() {
+export default function Top({ width }: TopProps) {
     const [cardOn, setCardOn] = useState(0)
     const [fade, setFade] = useState('fadeIn')
     const [user, setUser] = useState<UserProps | null>(null)
@@ -34,7 +37,7 @@ export default function Top() {
     useEffect(() => {
         const user = getCookieClient();
         if (!user) {
-            Router.push('/login')
+            //Router.push('/login')
             return
         }
         setUser(user)
@@ -79,7 +82,7 @@ export default function Top() {
     }
 
     return (
-        <div className={`${styles.top_container} ${styles[fade]}`} style={{ backgroundImage: `url(${cards[cardOn].background})` }}>
+        <div className={`${styles.top_container} ${styles[fade]}`} style={{ backgroundImage: width && width <= 780 ? `url(${cards[cardOn].overlay})` : `url(${cards[cardOn].background})` }}>
             <div className={styles.image_container} id="inicio">
                 <div className={styles.left_side}>
                     <h1 className={styles.titulo_principal}>
@@ -90,6 +93,7 @@ export default function Top() {
                     )}
                     <div className={styles.description}>
                         <p>{cards[cardOn].description}</p>
+
                     </div>
                     <div className={styles.button_section}>
                         <div className={styles.watch} onClick={(e) => handleWatch()}>

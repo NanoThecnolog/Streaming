@@ -103,7 +103,7 @@ export default function Home() {
       <Header userAvatar={userData?.avatar} />
       <main className={`${styles.main} ${inter.className}`}>
         <div className={styles.content}>
-          <Top />
+          <Top width={width} />
           <div className={styles.mid}>
             {divisaoPorGenero.map((sec, index) => (
               <div key={index}>
