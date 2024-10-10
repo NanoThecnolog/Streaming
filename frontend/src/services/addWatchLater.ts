@@ -2,14 +2,14 @@ import { toast } from "react-toastify"
 import { getCookieClient } from "./cookieClient"
 import Router from "next/router";
 import { api } from "./api";
+import { useState } from "react";
 
 export async function addWatchLater(id: string, title: string, subtitle?: string) {
+    let isLoading;
     try {
-        const user = getCookieClient();
-        if (!user) {
-            return Router.push('/login')
-        }
-        const watchLaterList = await api.get(`/watchLater?id=${user.id}`)
+        if (isLoading) return;
+        isLoading = true;
+        const watchLaterList = await api.get(`/watchLater?id=${id}`)
         const filmes = watchLaterList.data;
 
         const filmeExiste = filmes.find((filme: { id: string, title: string, subtitle?: string }) => {
@@ -33,7 +33,10 @@ export async function addWatchLater(id: string, title: string, subtitle?: string
         if (err.response && err.response.data) {
             return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
         } else {
-            return toast.error("Erro inesperado ao adicionar filme à lista!")
+            console.log(err)
+            return toast.error("Erro inesperado na função addWatchLater ao adicionar filme à lista!")
         }
+    } finally {
+        isLoading = false
     }
 }

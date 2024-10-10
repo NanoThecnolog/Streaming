@@ -14,6 +14,7 @@ import { getCookieClient } from "@/services/cookieClient";
 import { api } from "@/services/api";
 import { FaCheck } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
+import { isOnTheList } from "@/services/isOnTheList";
 
 export default function Serie() {
     const router = useRouter()
@@ -34,9 +35,8 @@ export default function Serie() {
         //console.log(user)
         //isOnTheList();
     }, [])
-    useEffect(() => {
-        isOnTheList();
-    }, [user])
+
+    /*
     async function isOnTheList() {
         if (!user) {
             //console.log("User ainda não reconhecido", user)
@@ -54,6 +54,7 @@ export default function Serie() {
         }
         setOnWatchLater(true)
     }
+    */
 
 
     useEffect(() => {
@@ -68,7 +69,17 @@ export default function Serie() {
             const episodes = serie.season[seasonToShow - 1]?.episodes
             setEpisodesToShow(episodes)
         }
+
+        const onList: Promise<boolean> = isOnTheList(serie.title, serie.subtitle)
+        if (!onList) {
+            setOnWatchLater(false)
+        } else {
+            setOnWatchLater(true)
+        }
+
     }, [serie, seasonToShow])
+
+
 
     function handleChangeSeason(value: string) {
         const season = parseInt(value)
@@ -96,15 +107,20 @@ export default function Serie() {
                 return
             }
             await addWatchLater(user.id, title, subtitle);
-
-            return isOnTheList();
-
+            const onList: Promise<boolean> = isOnTheList(title, subtitle)
+            onList.then(result => {
+                if (!result) {
+                    setOnWatchLater(false)
+                } else {
+                    setOnWatchLater(true)
+                }
+            })
         } catch (err: any) {
             if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
+            console.log(err)
             return toast.error("Erro inesperado ao adicionar filme à lista!")
         }
     }
-
 
     return (
         <>

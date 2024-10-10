@@ -30,7 +30,6 @@ export default function Card({ card }: CardProps) {
         setModalVisible(!modalVisible)
     }
     function handleModalClose() {
-        console.log("Click")
         setModalVisible(false)
     }
     function modalVisibility() {
