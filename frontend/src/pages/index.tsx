@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import Header from "@/components/Header";
 import CardContainer from "@/components/CardContainer";
 import Footer from "@/components/Footer";
-import WatchLater from "@/components/modals/WatchLater";
+//import WatchLater from "@/components/modals/WatchLater";
 import { useEffect, useState } from "react";
 import Top from "@/components/Top";
 
@@ -16,15 +16,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 
 export default function Home() {
-  const [visible, setVisible] = useState(false)
-  const [movieTitle, setMovieTitle] = useState<string | null>(null)
-  const [movieSubTitle, setMovieSubTitle] = useState<string | null>(null)
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
   const [width, setWidth] = useState<number>()
 
-
   const userData: UserProps = getCookieClient();
-  //console.log(userData)
+
 
   const divisaoPorGenero = [
     "ação",
@@ -45,10 +41,9 @@ export default function Home() {
   useEffect(() => {
     function handleResize() {
       const width = window.innerWidth;
-      //console.log(width)
       setWidth(width)
 
-      // Ajustar os breakpoints depois
+      // Ajustar os breakpoints
       if (width < 780) {
         setCardPerContainer(1)
       } else if (width < 1100) {
@@ -97,12 +92,6 @@ export default function Home() {
     };
   }, []);
 
-
-  function handleCloseModalWatchLater() {
-    setVisible(false);
-  }
-
-
   return (
     <>
       <Head>
@@ -111,9 +100,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header userAvatar={userData?.avatar} />
       <main className={`${styles.main} ${inter.className}`}>
         <div className={styles.content}>
-          <Header userAvatar={userData?.avatar} />
           <Top />
           <div className={styles.mid}>
             {divisaoPorGenero.map((sec, index) => (
@@ -127,16 +116,9 @@ export default function Home() {
             )
             )}
           </div>
-          <Footer />
         </div>
-        {visible && (
-          <><WatchLater
-            visible={handleCloseModalWatchLater}
-            title={movieTitle}
-            subTitle={movieSubTitle}
-          /></>
-        )}
       </main>
+      <Footer />
     </>
   );
 }

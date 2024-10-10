@@ -71,11 +71,14 @@ export default function Serie() {
         }
 
         const onList: Promise<boolean> = isOnTheList(serie.title, serie.subtitle)
-        if (!onList) {
-            setOnWatchLater(false)
-        } else {
-            setOnWatchLater(true)
-        }
+        onList.then(result => {
+            if (!result) {
+                setOnWatchLater(false)
+            } else {
+                setOnWatchLater(true)
+            }
+        })
+
 
     }, [serie, seasonToShow])
 

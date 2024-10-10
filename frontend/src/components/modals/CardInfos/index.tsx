@@ -6,6 +6,12 @@ import { IoIosAddCircleOutline } from "react-icons/io"
 import Router from "next/router"
 import { CircleX, CircleXIcon, X } from "lucide-react"
 import { toast } from "react-toastify"
+import { useEffect, useState } from "react"
+import { isOnTheList } from "@/services/isOnTheList"
+import { UserProps } from "@/@types/user"
+import { getCookieClient } from "@/services/cookieClient"
+import { addWatchLater } from "@/services/addWatchLater"
+import { FaCheck } from "react-icons/fa"
 
 interface InfoModalProps {
     card: CardsProps;
@@ -13,10 +19,49 @@ interface InfoModalProps {
 }
 
 export default function CardInfoModal({ card, handleModalClose }: InfoModalProps) {
+    const [onWatchLater, setOnWatchLater] = useState(false)
+    const [isLoading, setIsLoading] = useState<boolean>(false)
+    const [user, setUser] = useState<UserProps>()
 
-    function modalWatchLater(title: string, subTitle?: string) {
-        toast.warning("A função de adicionar filme a assistir mais tarde está temporariamente desabilitada.")
+    useEffect(() => {
+        const user = getCookieClient();
+        if (!user) {
+            Router.push('/login')
+            return
+        }
+        setUser(user)
+    }, [])
 
+    useEffect(() => {
+        onList(card.title, card.subtitle)
+    }, [card])
+
+    async function onList(title: string, subtitle?: string) {
+        const onList: Promise<boolean> = isOnTheList(title, subtitle)
+        onList.then(result => {
+            if (!result) {
+                setOnWatchLater(false)
+            } else {
+                setOnWatchLater(true)
+            }
+        })
+    }
+
+
+
+    async function modalWatchLater() {
+        try {
+            if (isLoading) return
+            setIsLoading(true)
+            if (!user) return Router.push('/login')
+            const addFilme = await addWatchLater(user.id, card.title, card.subtitle);
+            await onList(card.title, card.subtitle)
+        } catch (err: any) {
+            if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
+            return toast.error("Erro inesperado ao adicionar filme à lista!")
+        } finally {
+            setIsLoading(false)
+        }
     }
 
 
@@ -29,7 +74,6 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
     const play: string = `/watch?${movie}`
 
     function handlePlay() {
-
         Router.push(play)
     }
 
@@ -55,9 +99,16 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
                             <FaCirclePlay size={35} color="#fff" />
 
                         </div>
-                        <div className={styles.queue} onClick={() => modalWatchLater(card.title, card.subtitle)}>
-                            <h3>Assistir mais tarde</h3>
-                            <IoIosAddCircleOutline size={35} color="#fff" />
+                        <div className={styles.queue} onClick={() => modalWatchLater()}>
+                            {onWatchLater ?
+                                <>
+                                    <h3>Adicionado à Lista</h3>
+                                    <FaCheck size={20} color="#fff" />
+                                </> : <>
+                                    <h3>ASSISTIR MAIS TARDE</h3>
+                                    <IoIosAddCircleOutline size={35} color="#fff" />
+                                </>
+                            }
                         </div>
 
                     </div>
