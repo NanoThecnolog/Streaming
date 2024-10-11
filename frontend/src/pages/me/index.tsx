@@ -69,8 +69,6 @@ export default function Me(status: { status: string }) {
                         Avatar (ao clicar abre o modal pra escolher outro avatar)
                         minha conta (informações e dados)
                         Assistir mais tarde (lista de filmes e séries watchLater)
-
-
                     </aside>
                     <section></section>
                 </div>
@@ -103,7 +101,7 @@ export default function Me(status: { status: string }) {
                         </div>
                         <div>
                             {
-                                usuario?.myList.map(titulo => <p>{titulo.title}</p>)
+                                usuario?.myList.map((titulo, index) => <p key={index}>{titulo.title}</p>)
                             }
                         </div>
                     </div>
