@@ -81,7 +81,7 @@ export default function Me(status: { status: string }) {
                             <div className={styles.avatars}>
 
                                 {avatares.map((img, index) => (
-                                    <img src={img} key={index} width={100} height={100} />
+                                    <img src={img} alt="avatar" key={index} width={100} height={100} />
                                 ))}
                             </div>
                         </div>
