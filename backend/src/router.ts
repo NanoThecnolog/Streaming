@@ -15,6 +15,12 @@ import { RemoveWatchLaterController } from "./Controllers/User/RemoveWatchLaterC
 
 const router = Router()
 
+const serverStatus = 'online'
+router.get('/acordar', (req, res) => {
+    res.json({ status: 'acordado' })
+
+})
+
 router.get('/pix', new GeneratePixController().handle);
 
 router.post('/user', new CreateUserController().handle);
