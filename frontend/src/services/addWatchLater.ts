@@ -1,8 +1,5 @@
 import { toast } from "react-toastify"
-import { getCookieClient } from "./cookieClient"
-import Router from "next/router";
 import { api } from "./api";
-import { useState } from "react";
 
 export async function addWatchLater(id: string, title: string, subtitle?: string) {
     let isLoading;

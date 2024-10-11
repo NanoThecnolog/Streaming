@@ -36,27 +36,6 @@ export default function Serie() {
         //isOnTheList();
     }, [])
 
-    /*
-    async function isOnTheList() {
-        if (!user) {
-            //console.log("User ainda não reconhecido", user)
-            return
-        }
-        //console.log("user reconhecido", user)
-        const watchLaterList = await api.get(`/watchLater?id=${user.id}`)
-        const onTheList = watchLaterList.data.some((titulo: { id: string, title: string, subtitle?: string }) => {
-            return titulo.title.trim().toLowerCase() === serie?.title.trim().toLowerCase()
-        })
-        //console.log(onTheList)
-
-        if (!onTheList) {
-            return setOnWatchLater(false)
-        }
-        setOnWatchLater(true)
-    }
-    */
-
-
     useEffect(() => {
         if (title) {
             const serie = series.find((serie) => serie.title === title)
@@ -81,8 +60,6 @@ export default function Serie() {
 
 
     }, [serie, seasonToShow])
-
-
 
     function handleChangeSeason(value: string) {
         const season = parseInt(value)

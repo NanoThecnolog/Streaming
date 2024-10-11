@@ -24,6 +24,16 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F2b%2Fc7%2F44%2F2bc744c3ce2e1fa4d72718d92c435a88.jpg&f=1&nofb=1&ipt=e57c7abeec72cf74b66d7bc2ba324321dbdbf860834f5b6440e1dbee9ebf8d05&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.ogZxi3eNdBwmvAmiTSY2YgHaLH%26pid%3DApi&f=1&ipt=59649add520289e638f015807fa980782a9a27c56efc49aa6c5c3bd17425313e&ipo=images",
+        title: "Mulher Maravilha",
+        subtitle: "",
+        description: "Treinada desde cedo para ser uma guerreira imbatível, Diana Prince nunca saiu da paradisíaca ilha em que é reconhecida como princesa das Amazonas. Quando o piloto Steve Trevor sofre um acidente e cai em uma praia do local, ela descobre que uma guerra sem precedentes está se espalhando pelo mundo e decide deixar seu lar certa de que pode parar o conflito. Lutando para acabar com a guerra, Diana percebe o alcance de seus poderes e sua verdadeira missão na Terra.",
+        src: "https://drive.google.com/file/d/1y3S46xyxHjmStGH0sgY77g1IRQM0P3uD/preview",
+        duration: "02h 21m",
+        genero: ["Ação", "Aventura", "DC", "Super Herói"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wallpapersden.com%2Fimage%2Fdownload%2Fabigail-2024-movie_bmdsaGeUmZqaraWkpJRobWllrWdma2U.jpg&f=1&nofb=1&ipt=b49d47f8655b3d1920473afaf502d5a84069920013dd0079e084913cba121413&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.y5mERPvXz7lICJ43pk6L7QHaLH%26pid%3DApi&f=1&ipt=9e761a611c1f89285acfa965703913d300d3ddd866b903ae50521eedcd795e41&ipo=images",
         title: "Abigail",

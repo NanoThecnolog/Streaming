@@ -18,10 +18,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
   const [width, setWidth] = useState<number>()
-
   const userData: UserProps = getCookieClient();
-
-
   const divisaoPorGenero = [
     "ação",
     "aventura",
