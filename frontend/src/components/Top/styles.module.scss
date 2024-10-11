@@ -29,6 +29,11 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
+            gap: 10px;
+
+            .gen {
+                text-shadow: 5px 5px 10px black;
+            }
 
 
             .titulo_principal {
@@ -48,6 +53,7 @@
                 color: white;
                 text-shadow: 5px 5px 10px black;
             }
+
 
             .description {
                 display: -webkit-box;
@@ -218,19 +224,16 @@
             background: rgb(24, 24, 24);
             background: linear-gradient(0deg,
                     rgba(20, 20, 20, 1) 30%,
-                    rgba(255, 255, 255, 0) 44%);
+                    rgba(255, 255, 255, 0) 46%);
 
             .left_side {
                 justify-content: center;
                 width: 100%;
                 height: 100%;
 
-                //padding: 120px 25px 0 25px;
-
                 .titulo_principal {
                     font-size: 1.5rem;
-                    padding-top: 140%;
-
+                    padding-top: 160%;
                 }
 
                 .subtitulo_principal {
@@ -253,7 +256,6 @@
                     padding-top: 40px;
 
                     .watch {
-
                         display: flex;
                         justify-content: center;
                     }
@@ -444,11 +446,63 @@
 @media (min-width: 1281px) and (max-width: 1440px) {
     .top_container {
         background-position: center;
+
+        .image_container {
+            .left_side {
+                .titulo_principal {
+
+                    font-size: 3rem;
+
+                }
+
+                .subtitulo_principal {
+                    font-size: 2rem;
+                }
+
+                .gen {
+                    font-size: 1.4rem;
+                    font-weight: 700;
+                }
+
+                .description {
+                    p {
+                        font-size: 1rem;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
     }
 }
 
 @media (min-width: 1441px) {
     .top_container {
         background-position: center;
+
+        .image_container {
+            .left_side {
+                .titulo_principal {
+
+                    font-size: 5rem;
+
+                }
+
+                .subtitulo_principal {
+                    font-size: 2.3rem;
+                }
+
+                .gen {
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                }
+
+                .description {
+                    p {
+                        font-size: 2rem;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
     }
 }

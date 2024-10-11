@@ -11,11 +11,13 @@ import styles from "@/styles/Home.module.scss";
 import Search from "@/components/Searching";
 import { getCookieClient } from "@/services/cookieClient";
 import { UserProps } from "@/@types/user";
+import { GetServerSideProps } from "next";
+import { serverStatus } from "@/services/verifyStatusServer";
 
 const inter = Inter({ subsets: ["latin"] });
 
 
-export default function Home() {
+export default function Home(status: { status: string }) {
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
   const [width, setWidth] = useState<number>()
   const userData: UserProps = getCookieClient();
@@ -97,7 +99,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header userAvatar={userData?.avatar} />
+      <Header userAvatar={userData?.avatar} status={status} />
       <main className={`${styles.main} ${inter.className}`}>
         <div className={styles.content}>
           <Top width={width} />
@@ -118,4 +120,16 @@ export default function Home() {
       <Footer />
     </>
   );
+}
+export const getServerSideProps: GetServerSideProps = async () => {
+  async function fetchServerStatus() {
+    const status = await serverStatus();
+    return status
+  }
+  const status = await fetchServerStatus()
+  return {
+    props: {
+      status
+    }
+  }
 }

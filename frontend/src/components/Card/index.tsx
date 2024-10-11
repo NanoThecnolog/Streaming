@@ -1,28 +1,13 @@
-import { cards } from "@/js/cards";
 import { CardsProps } from "@/@types/Cards";
 import styles from './styles.module.scss'
 import { useState } from "react";
-import Link from "next/link";
-import { FaPlay } from "react-icons/fa";
-import { FaRegClock } from "react-icons/fa6";
-import { FaStar } from "react-icons/fa";
-import { FaInfoCircle } from "react-icons/fa";
-import { IoCloseCircle } from "react-icons/io5";
-import { IoIosAddCircleOutline } from "react-icons/io";
 import Image from "next/image";
 import CardInfoModal from "../modals/CardInfos";
-import { toast } from "react-toastify";
 import Overlay from "../Overlay";
-import { Play } from "lucide-react";
-
 
 interface CardProps {
     card: CardsProps;
-
-
 }
-
-
 
 export default function Card({ card }: CardProps) {
     const [modalVisible, setModalVisible] = useState<boolean>(false)

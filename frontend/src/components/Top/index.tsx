@@ -5,7 +5,6 @@ import styles from './styles.module.scss'
 import { useEffect, useState } from 'react';
 import Router from 'next/router';
 import { toast } from 'react-toastify';
-import { api } from '@/services/api';
 import { UserProps } from '@/@types/user';
 import { getCookieClient } from '@/services/cookieClient';
 import { addWatchLater } from '@/services/addWatchLater';
@@ -91,9 +90,11 @@ export default function Top({ width }: TopProps) {
                     {cards[cardOn].subtitle && (
                         <h3 className={styles.subtitulo_principal}>{cards[cardOn].subtitle}</h3>
                     )}
+                    <div className={styles.gen}>
+                        <p>{cards[cardOn].genero.join(', ')}</p>
+                    </div>
                     <div className={styles.description}>
                         <p>{cards[cardOn].description}</p>
-
                     </div>
                     <div className={styles.button_section}>
                         <div className={styles.watch} onClick={(e) => handleWatch()}>

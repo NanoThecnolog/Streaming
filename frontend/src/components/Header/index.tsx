@@ -5,17 +5,23 @@ import Router from "next/router";
 import styles from './styles.module.scss'
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { AlignJustify, CircleUserRound, House, Search } from "lucide-react";
+import { AlignJustify, Search } from "lucide-react";
+import { serverStatus } from "@/services/verifyStatusServer";
+import { GetServerSideProps } from "next";
+import { api } from "@/services/api";
+import { Trykker } from "next/font/google";
 
 interface HeaderProps {
     userAvatar?: string | undefined;
+    status: { status: string }
 }
 
-export default function Header({ userAvatar }: HeaderProps) {
+export default function Header({ userAvatar, status }: HeaderProps) {
     const [searchInput, setSearchInput] = useState<string>('')
     const [menuvisible, setMenuVisible] = useState<boolean>(false)
     const [avatar, setAvatar] = useState<string>('')
     const [searchMobileVisible, setSearchMobileVisible] = useState<boolean>(false)
+    const [serverWake, setServerWake] = useState<boolean>(false)
 
 
     useEffect(() => {
@@ -23,6 +29,25 @@ export default function Header({ userAvatar }: HeaderProps) {
         setAvatar(userAvatar)
     }, [userAvatar])
 
+    useEffect(() => {
+        async function wakeUpServer() {
+            try {
+                const acordar = await api.get('/acordar');
+                //console.log(acordar.data.status)
+                setServerWake(true)
+                return acordar
+            } catch (err) {
+                //console.log(err)
+                setServerWake(false)
+                return err
+            }
+        }
+        wakeUpServer()
+        const manterAcordado = setInterval(() => {
+            wakeUpServer()
+        }, 40000)
+        return () => clearInterval(manterAcordado)
+    }, [])
 
     function handleSearch(input: string) {
         const search = new URLSearchParams({ input: input });
@@ -31,7 +56,6 @@ export default function Header({ userAvatar }: HeaderProps) {
     function handleUserClick() {
         Router.push('/me');
     }
-
     function handleClickHome(id: number) {
         if (id === 1) {
             setMenuVisible(!menuvisible)
@@ -71,6 +95,13 @@ export default function Header({ userAvatar }: HeaderProps) {
                 </form>
             </div>
             <div className={styles.right_nav}>
+                <div className={styles.status}>
+                    <div
+                        className={styles.bolinha}
+                        style={{ backgroundColor: serverWake ? '#007714' : '#d42c2c' }}
+                    ></div>
+                    <p>status</p>
+                </div>
                 {avatar !== '' ? (
                     <div className={styles.avatarImage} title="Meu Perfil">
                         <Image src={avatar} alt="avatar" width={45} height={45} />
@@ -116,8 +147,8 @@ export default function Header({ userAvatar }: HeaderProps) {
                     ) : <FaUserCircle size={35} className={styles.loginIcon} />}
                 </div>
             </div>
-
-
         </div>
     )
 }
+
+

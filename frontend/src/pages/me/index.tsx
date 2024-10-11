@@ -7,8 +7,10 @@ import { getCookieClient } from "@/services/cookieClient";
 import Router from "next/router";
 import { UserProps } from "@/@types/user";
 import Head from "next/head";
+import { serverStatus } from "@/services/verifyStatusServer";
+import { GetServerSideProps } from "next";
 
-export default function Me() {
+export default function Me(status: { status: string }) {
     const [qrCodeUrl, setQrCodeUrl] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [usuario, setUsuario] = useState<UserProps | null>(null)
@@ -59,9 +61,19 @@ export default function Me() {
                 <title>Minha Conta | FlixNext</title>
                 <meta name="description" content="Página da conta do usuário" />
             </Head>
-            <Header userAvatar={usuario?.avatar} />
-            <section className={styles.container}>
+            <Header userAvatar={usuario?.avatar} status={status} />
+            <article className={styles.container}>
                 <h1>Editar perfil</h1>
+                <div>
+                    <aside>
+                        Avatar (ao clicar abre o modal pra escolher outro avatar)
+                        minha conta (informações e dados)
+                        Assistir mais tarde (lista de filmes e séries watchLater)
+
+
+                    </aside>
+                    <section></section>
+                </div>
                 <div className={styles.infoContainer}>
                     <div>
                         <div className={styles.avatarContainer}>
@@ -90,7 +102,9 @@ export default function Me() {
                             })}</h3>
                         </div>
                         <div>
-                            {usuario?.myList}
+                            {
+                                usuario?.myList.map(titulo => <p>{titulo.title}</p>)
+                            }
                         </div>
                     </div>
                 </div>
@@ -110,9 +124,21 @@ export default function Me() {
                         )
                     }
                 </div>
-            </section>
+            </article>
             <Footer />
         </>
 
     )
+}
+export const getServerSideProps: GetServerSideProps = async () => {
+    async function fetchServerStatus() {
+        const status = await serverStatus();
+        return status
+    }
+    const status = await fetchServerStatus()
+    return {
+        props: {
+            status
+        }
+    }
 }

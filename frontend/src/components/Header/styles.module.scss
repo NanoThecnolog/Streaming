@@ -84,6 +84,25 @@
         align-items: center;
         margin-right: 25px;
 
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 20px;
+
+            .bolinha {
+                width: 10px;
+                height: 10px;
+                //background-color: red;
+                border-radius: 50%;
+            }
+
+            p {
+                font-family: var(--font-Anton);
+            }
+        }
+
+
         .loginIcon {
             cursor: pointer;
             transition: all .2s;

@@ -6,5 +6,14 @@ export interface UserProps {
     token: string,
     verified: boolean,
     birthday: Date,
-    myList: string[]
+    myList: MyListPorps[]
+}
+
+interface MyListPorps {
+    id: string,
+    title: string,
+    subtitle: string,
+    userId: string,
+    created_at: string,
+    updated_at: string
 }
