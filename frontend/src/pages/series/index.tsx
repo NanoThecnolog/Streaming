@@ -6,8 +6,10 @@ import { useEffect, useState } from "react";
 import Search from "@/components/Searching";
 import Footer from "@/components/Footer";
 import Head from "next/head";
+import { GetServerSideProps } from "next";
+import { serverStatus } from "@/services/verifyStatusServer";
 
-export default function Series() {
+export default function Series(status: { status: string }) {
     const [cardPerContainer, setCardPerContainer] = useState<number>(5)
 
     const divisaoPorGenero = [
@@ -84,7 +86,7 @@ export default function Series() {
             </Head>
             <main className={styles.main}>
                 <div className={styles.content}>
-                    <Header />
+                    <Header status={status} />
                     <TopSerie />
                     <div className={styles.mid}>
                         {divisaoPorGenero.map((sec, index) => (
@@ -103,4 +105,17 @@ export default function Series() {
             </main>
         </>
     )
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+    async function fetchServerStatus() {
+        const status = await serverStatus();
+        return status
+    }
+    const status = await fetchServerStatus()
+    return {
+        props: {
+            status
+        }
+    }
 }

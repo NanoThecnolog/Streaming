@@ -4,8 +4,10 @@ import styles from './styles.module.scss'
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import Head from "next/head";
+import { GetServerSideProps } from "next";
+import { serverStatus } from "@/services/verifyStatusServer";
 
-export default function Donate() {
+export default function Donate(status: { status: string }) {
     const [qrCodeUrl, setQrCodeUrl] = useState<string | null>(null);
 
     async function qrCode() {
@@ -26,7 +28,7 @@ export default function Donate() {
                 <title>Doações | FlixNext</title>
                 <meta name="description" content="Página de Doações. Ajude a manter a plataforma! Doe qualquer valor e ganhe o emblema de doador na sua conta!" />
             </Head>
-            <Header />
+            <Header status={status} />
             <section className={styles.container}>
                 <div className={styles.donateContainer}>
                     <div className={styles.title}>
@@ -61,4 +63,16 @@ export default function Donate() {
             <Footer />
         </>
     )
+}
+export const getServerSideProps: GetServerSideProps = async () => {
+    async function fetchServerStatus() {
+        const status = await serverStatus();
+        return status
+    }
+    const status = await fetchServerStatus()
+    return {
+        props: {
+            status
+        }
+    }
 }

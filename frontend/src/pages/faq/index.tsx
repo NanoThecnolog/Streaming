@@ -3,13 +3,16 @@ import styles from './styles.module.scss'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Head from 'next/head'
+import { GetServerSideProps } from 'next'
+import { serverStatus } from '@/services/verifyStatusServer'
 
 export interface FAQ {
     question: string,
     answer: string
 }
 
-export default function FAQ() {
+export default function FAQ(status: { status: string }) {
+
     const faq: FAQ[] = [
         {
             question: "O que é o Projeto FlixNext?",
@@ -50,7 +53,7 @@ export default function FAQ() {
                 <title>FAQ | FlixNext</title>
                 <meta name="description" content="Perguntas frequêntes dos nossos usuários" />
             </Head>
-            <Header />
+            <Header status={status} />
             <section className={styles.container}>
                 <div className={styles.faqContainer}>
                     <div className={styles.title}>
@@ -75,4 +78,17 @@ export default function FAQ() {
         </>
     )
 }
+export const getServerSideProps: GetServerSideProps = async () => {
+    async function fetchServerStatus() {
+        const status = await serverStatus();
+        return status
+    }
+    const status = await fetchServerStatus()
+    return {
+        props: {
+            status
+        }
+    }
+}
+
 

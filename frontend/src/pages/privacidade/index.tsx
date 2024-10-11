@@ -2,14 +2,16 @@ import Header from '@/components/Header'
 import styles from './styles.module.scss'
 import Footer from '@/components/Footer'
 import Head from 'next/head'
-export default function Privacy() {
+import { GetServerSideProps } from 'next'
+import { serverStatus } from '@/services/verifyStatusServer'
+export default function Privacy(status: { status: string }) {
     return (
         <>
             <Head>
                 <title>Política de Privacidade | FlixNext</title>
                 <meta name="description" content="Políticas de Privacidade da plataforma" />
             </Head>
-            <Header />
+            <Header status={status} />
             <section className={styles.container}>
                 <div className={styles.privacyContainer}>
                     <div>
@@ -100,4 +102,16 @@ export default function Privacy() {
             <Footer />
         </>
     )
+}
+export const getServerSideProps: GetServerSideProps = async () => {
+    async function fetchServerStatus() {
+        const status = await serverStatus();
+        return status
+    }
+    const status = await fetchServerStatus()
+    return {
+        props: {
+            status
+        }
+    }
 }

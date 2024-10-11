@@ -13,10 +13,12 @@ import { getCookieClient } from "@/services/cookieClient";
 import { UserProps } from "@/@types/user";
 import Footer from "@/components/Footer";
 import { Seasons, SeriesProps } from "@/@types/series";
+import { GetServerSideProps } from "next";
+import { serverStatus } from "@/services/verifyStatusServer";
 
 
 
-export default function Search() {
+export default function Search(status: { status: string }) {
     const router = useRouter();
     const [movie, setMovie] = useState<string>();
     const [searchCards, setSearchCards] = useState<CardsProps[]>()
@@ -100,7 +102,7 @@ export default function Search() {
 
     return (
         <>
-            <Header userAvatar={usuario?.avatar} />
+            <Header userAvatar={usuario?.avatar} status={status} />
             <section className={styles.container}>
                 <div className={styles.title}>
                     <h2>Resultados da busca:</h2>
@@ -126,4 +128,16 @@ export default function Search() {
             <Footer />
         </>
     )
+}
+export const getServerSideProps: GetServerSideProps = async () => {
+    async function fetchServerStatus() {
+        const status = await serverStatus();
+        return status
+    }
+    const status = await fetchServerStatus()
+    return {
+        props: {
+            status
+        }
+    }
 }

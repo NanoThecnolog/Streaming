@@ -15,8 +15,10 @@ import { api } from "@/services/api";
 import { FaCheck } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
 import { isOnTheList } from "@/services/isOnTheList";
+import { GetServerSideProps } from "next";
+import { serverStatus } from "@/services/verifyStatusServer";
 
-export default function Serie() {
+export default function Serie(status: { status: string }) {
     const router = useRouter()
     const { title } = router.query;
     const [serie, setSerie] = useState<SeriesProps>()
@@ -109,7 +111,7 @@ export default function Serie() {
                 <meta name="description" content={serie?.description} />
             </Head>
             <section className={styles.container}>
-                <Header />
+                <Header status={status} />
                 {serie ?
                     (
                         <div className={styles.serieContainer} style={{ backgroundImage: `url(${serie?.background})`, backgroundRepeat: 'no-repeat' }}>
@@ -174,4 +176,16 @@ export default function Serie() {
             <Footer />
         </>
     )
+}
+export const getServerSideProps: GetServerSideProps = async () => {
+    async function fetchServerStatus() {
+        const status = await serverStatus();
+        return status
+    }
+    const status = await fetchServerStatus()
+    return {
+        props: {
+            status
+        }
+    }
 }
