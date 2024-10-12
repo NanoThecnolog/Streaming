@@ -76,6 +76,9 @@
             }
 
             .button {
+                display: flex;
+                gap: 20px;
+
                 button {
                     background-color: var(--red-selected);
                     border: none;
@@ -85,11 +88,19 @@
                     padding: 10px;
                     cursor: pointer;
                     transition: all .4s;
+                    width: 150px;
 
                     &:hover {
                         transform: scale(1.05);
                     }
                 }
+            }
+
+            .donate {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding-top: 20px;
             }
         }
 

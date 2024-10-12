@@ -17,6 +17,7 @@ import { series } from "@/js/series";
 import { SeriesProps } from "@/@types/series";
 import { CardsProps } from "@/@types/Cards";
 import EditarDados from "@/components/modals/EditarDados";
+import { deleteCookies } from "@/services/deleteCookies";
 
 export default function Me(status: { status: string }) {
     const [usuario, setUsuario] = useState<UserProps | null>(null)
@@ -70,6 +71,11 @@ export default function Me(status: { status: string }) {
         setEditarDados(false)
     }
 
+    function handleLogout() {
+        deleteCookies('flixnext');
+        Router.push('/login');
+    }
+
 
     return (
         <>
@@ -101,8 +107,12 @@ export default function Me(status: { status: string }) {
                             </div>
                             <div className={styles.button}>
                                 <button type="button" onClick={openEditarDados}>Editar dados</button>
+                                <button type="button" onClick={handleLogout}>Sair</button>
                             </div>
-                            <Qrcode />
+                            <div className={styles.donate}>
+                                <h3>Torne-se um doador!!</h3>
+                                <Qrcode />
+                            </div>
                         </aside>
                         <section className={styles.sectionContainer}>
                             <div className={styles.infoContainer}>
