@@ -80,8 +80,27 @@
                     font-weight: 700;
                     padding: 10px;
                     width: 200px;
+                    transition: all .4s;
+
+                    &[disabled] {
+                        cursor: not-allowed;
+
+                        svg {
+                            animation: spinning 2s infinite;
+                        }
+                    }
                 }
             }
         }
+    }
+}
+
+@keyframes spinning {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
     }
 }
