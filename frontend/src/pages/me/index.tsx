@@ -22,22 +22,19 @@ export default function Me(status: { status: string }) {
     const [modalVisible, setModalVisible] = useState<boolean>(false)
 
     useEffect(() => {
-        definindoUsuario()
-    }, [])
-    function definindoUsuario() {
         const user = getCookieClient();
         if (!user) {
             Router.push('/login')
             return
         }
         setUsuario(user)
-    }
+    }, [modalVisible])
+
 
     function handleOpenModal() {
         setModalVisible(true)
     }
     function handleCloseModal() {
-        definindoUsuario()
         setModalVisible(false)
     }
     function handleWatch(watch: SeriesProps | CardsProps) {
@@ -49,7 +46,7 @@ export default function Me(status: { status: string }) {
             });
             const play: string = `/watch?${movie}`
             Router.push(play);
-        } else {
+        } else if (watch.season?.[0]?.episodes?.[0]) {
             const ep = watch.season[0].episodes[0]
             const episode = new URLSearchParams({
                 title: `${watch?.title}`,
@@ -60,6 +57,8 @@ export default function Me(status: { status: string }) {
             })
             const play: string = `/watch/serie?${episode}`
             Router.push(play)
+        } else {
+            console.log("Filme, Episódio ou temporada não encontrados")
         }
     }
 
@@ -105,7 +104,7 @@ export default function Me(status: { status: string }) {
                                         <h4>Filmes</h4>
                                         <div className={styles.watchContainer}>
                                             {cards.filter(filme =>
-                                                usuario?.myList.some(titulo => titulo.title === filme.title &&
+                                                usuario?.myList?.length > 0 && usuario.myList.some(titulo => titulo.title === filme.title &&
                                                     (titulo.subtitle === filme.subtitle || titulo.subtitle === '' || filme.subtitle === '')
                                                 )
                                             ).map((filme, index) => (
@@ -118,7 +117,7 @@ export default function Me(status: { status: string }) {
                                         <h4>Series</h4>
                                         <div className={styles.watchContainer}>
                                             {series.filter(serie =>
-                                                usuario?.myList.some(titulo => titulo.title === serie.title &&
+                                                usuario?.myList?.length && usuario.myList.some(titulo => titulo.title === serie.title &&
                                                     (titulo.subtitle === serie.subtitle || titulo.subtitle === '' || serie.subtitle === '')
                                                 )
                                             ).map((serie, index) => (
