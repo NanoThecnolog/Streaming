@@ -2,28 +2,25 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    //background-color: red;
     gap: 15px;
     position: relative;
     color: var(--white);
     font-family: var(--font-Roboto);
+    cursor: pointer;
 
 
     .icon {
         position: absolute;
         top: 5px;
         right: 5px;
-        cursor: pointer;
+
     }
 
     .question {
         display: flex;
         padding: 0.5rem;
-        font-size: 1.3rem;
-
+        font-size: 1rem;
     }
-
-
 
     .answer {
         max-height: 0;

@@ -64,7 +64,6 @@ export default function Header({ userAvatar, status }: HeaderProps) {
             setSearchMobileVisible(!searchMobileVisible)
         }
     }
-
     return (
         <div className={styles.header}>
             <div className={styles.brand} onClick={() => Router.push('/')}>

@@ -1,0 +1,50 @@
+.container {
+    background-color: rgba(255, 255, 255, 0.425);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatarContainer {
+    width: 50%;
+    height: 60%;
+    background-color: var(--black);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 1rem;
+
+    .closeButton {
+        position: absolute;
+        top: 5%;
+        left: 3%;
+        border: 1px solid white;
+        border-radius: 50%;
+        cursor: pointer;
+
+    }
+
+    .avatars {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 15px;
+        width: 70%;
+
+        img {
+            transition: all .3s;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+    }
+}

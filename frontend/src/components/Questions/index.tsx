@@ -11,11 +11,11 @@ export default function Questions({ question, answer }: FAQ) {
 
     }
     return (
-        <div className={styles.container}>
+        <div className={styles.container} onClick={handleButtonClick}>
             <div className={styles.question}>
                 <h3>{question}</h3>
             </div>
-            <div className={styles.icon} onClick={handleButtonClick}><ChevronDown size={30} /></div>
+            <div className={styles.icon}><ChevronDown size={30} /></div>
             <div className={`${styles.answer} ${ativo && styles.ativo}`}>
                 <p dangerouslySetInnerHTML={{ __html: answer }}></p>
             </div>

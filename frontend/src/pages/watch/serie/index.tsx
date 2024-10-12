@@ -4,11 +4,28 @@ import Router, { useRouter } from "next/router"
 import styles from '@/styles/Watch.module.scss'
 import { ChevronLeft } from "lucide-react"
 import { useEffect, useState } from "react"
+import { api } from "@/services/api"
 
 export default function WatchSerie() {
     const router = useRouter()
     const { title, subtitle, episode, src, season } = router.query
     const [episodio, setEpisodio] = useState({ title: "", subtitle: "", episode: 0, src: "", season: 0 })
+
+    useEffect(() => {
+        async function acordarServidor() {
+            try {
+                const wakeup = await api.get('/acordar');
+                return wakeup
+            } catch (err) {
+                return err
+            }
+        }
+        acordarServidor();
+        const manterAcordado = setInterval(() => {
+            acordarServidor()
+        }, 40000);
+        return () => clearInterval(manterAcordado)
+    }, [])
 
     useEffect(() => {
         if (title && src && episode && season) {

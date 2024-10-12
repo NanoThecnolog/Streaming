@@ -20,7 +20,7 @@ export default function FAQ(status: { status: string }) {
         },
         {
             question: "Como faço para assistir um filme ou série?",
-            answer: "Para assistir é preciso estar logado na sua conta. Ao escolher seu filme e clicar no botão de play, você será redirecionado para tela de login, basta fazer o login ou, se não tiver uma conta, se cadastrar na plataforma. É rápido e fácil, só precisa colocar seu nome, sua data de nascimento, um email válido e criar uma senha para sua conta. Após criar sua conta no nosso site, você receberá um email com um link para ativação da conta, ative e pronto, é só fazer o login na plataforma e clicar em play novamente!"
+            answer: "Para assistir é preciso estar logado na sua conta. Ao escolher seu filme e clicar no botão de play, você será redirecionado para tela de login, basta fazer o login ou, se não tiver uma conta, se cadastrar na plataforma. </br></br> É rápido e fácil, só precisa colocar seu nome, sua data de nascimento, um email válido e criar uma senha para sua conta. Após criar sua conta no nosso site, você receberá um email com um link para ativação da conta, ative e pronto, é só fazer o login na plataforma e clicar em play novamente!"
         },
         {
             question: "Por que preciso ativar minha conta?",
@@ -28,7 +28,7 @@ export default function FAQ(status: { status: string }) {
         },
         {
             question: "Não consigo assistir ao filme/série, o que faço?",
-            answer: "Caso não consiga assistir um filme ou série por alguma razão, peço que entre em contato conosco através do email: dev@ericssongomes.com com o nome do filme ou episódio da série em questão e tentaremos te ajudar."
+            answer: "Caso não consiga assistir um filme ou série por alguma razão, peço que entre em contato conosco através do email: contato@ericssongomes.com com o nome do filme ou episódio da série em questão e tentaremos te ajudar."
         },
         {
             question: "De onde vêm os filmes e séries que assisto?",
@@ -36,11 +36,11 @@ export default function FAQ(status: { status: string }) {
         },
         {
             question: "Posso pedir ou indicar que acrescentem algum filme específico ao catálogo?",
-            answer: "Sim, você pode! Envie um email para dev@ericssongomes.com com as informações do filme/série (nome e ano de lançamento) e tentaremos adicioná-lo ao catálogo."
+            answer: "Sim, você pode! Envie um email para contato@ericssongomes.com com as informações do filme/série (nome e ano de lançamento) e tentaremos adicioná-lo ao catálogo."
         },
         {
             question: "A plataforma é paga?",
-            answer: "Não! Não realizamos cobranças, nem exigimos pagamentos para criar sua conta. Como os filmes e séries são disponibilizados por terceiros, não possuímos responsabilidade pelos mesmos e não temos direitos ou liçensas comerciais para tal. O propósito é justamente facilitar o acesso a conteúdos para aqueles que não possuem condições financeiras para pagar streamings ou alugar filmes e séries por aí. Ao invés de se expor a ataques na internet entrando em sites maliciosos procurando o arquivo para baixar, a plataforma entrega de forma gratuita, segura e livre os conteúdos para que todos possam assistir."
+            answer: "Não! Não realizamos cobranças, nem exigimos pagamentos para criar sua conta. Como os filmes e séries são disponibilizados por terceiros, não possuímos responsabilidade pelos mesmos e não temos direitos ou liçensas comerciais para tal. </br> </br> O propósito é justamente facilitar o acesso a conteúdos para aqueles que não possuem condições financeiras para pagar streamings ou alugar filmes e séries por aí. Ao invés de se expor a ataques na internet entrando em sites maliciosos procurando o arquivo para baixar, a plataforma entrega de forma gratuita, segura e livre os conteúdos para que todos possam assistir."
         },
         {
             question: "Como posso ajudar o projeto?",
@@ -68,10 +68,6 @@ export default function FAQ(status: { status: string }) {
                             />
                         ))}
                     </div>
-
-
-
-
                 </div>
             </section>
             <Footer />

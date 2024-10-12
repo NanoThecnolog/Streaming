@@ -4,27 +4,141 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    //background-color: #858585;
     color: var(--white);
+    font-family: var(--font-Roboto);
+    padding-top: 100px;
 
-    .infoContainer {
-        background-color: #a7a7a7;
-        color: var(--black);
-        padding: 2rem;
-        border-radius: 1rem;
+    .articleContainer {
         display: flex;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        //background-color: green;
 
-        .avatarContainer {
-            width: 500px;
-            height: 500px;
+        .asideContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding-right: 20px;
+            //background-color: red;
+            width: 20%;
 
-            .avatars {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-                gap: 12px;
+            .avatar {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-bottom: 50px;
 
+                .imgContainer {
+                    position: relative;
+
+                    img {
+                        border-radius: 50%;
+                    }
+
+                    .editAvatar {
+                        position: absolute;
+                        bottom: 5%;
+                        right: 5%;
+                        background-color: var(--black);
+                        width: 35px;
+                        height: 35px;
+                        box-shadow: 5px 5px 5px black;
+                        border-radius: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        transition: all .3s;
+
+                        button {
+                            background-color: transparent;
+                            border: 0;
+                            color: var(--white);
+                            cursor: pointer;
+                            transition: all .3s;
+
+                            &:hover {
+                                transform: scale(1.1);
+                            }
+                        }
+
+                        &:hover {
+                            filter: brightness(1.5);
+                        }
+                    }
+                }
+            }
+
+            .asideInfo {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .button {
+                button {
+                    background-color: var(--red-selected);
+                    border: none;
+                    border-radius: .4rem;
+                    color: var(--white);
+                    font-weight: 900;
+                    padding: 10px;
+                    cursor: pointer;
+                    transition: all .4s;
+
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+                }
             }
         }
 
+        .sectionContainer {
+            width: 50%;
+            height: 100%;
+
+
+            .infoContainer {
+                height: 100%;
+                padding: 2rem;
+                border-radius: 1rem;
+                display: flex;
+                flex-direction: column;
+
+                .watchLater {
+                    display: flex;
+                    justify-content: center;
+                    padding-top: 50px;
+                    gap: 50px;
+
+                    h4 {
+                        font-size: 1.4rem;
+                        padding-bottom: 20px;
+                    }
+
+                    .watchContainer {
+                        height: 500px;
+                        overflow-y: auto;
+                        scrollbar-width: thin;
+                        scrollbar-color: var(--white) var(--black);
+                    }
+
+                    .watch {
+                        margin: 15px;
+                        padding: 20px;
+                        background-color: var(--red-selected);
+                        border-radius: .4rem;
+                        transition: all .4s;
+                        cursor: pointer;
+
+
+                        &:hover {
+                            transform: scale(1.1);
+                        }
+
+                    }
+                }
+            }
+        }
     }
 }

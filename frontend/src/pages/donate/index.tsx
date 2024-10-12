@@ -6,6 +6,8 @@ import { api } from "../../services/api";
 import Head from "next/head";
 import { GetServerSideProps } from "next";
 import { serverStatus } from "@/services/verifyStatusServer";
+import { QrCode } from "lucide-react";
+import Qrcode from "@/components/Qrcode";
 
 export default function Donate(status: { status: string }) {
     const [qrCodeUrl, setQrCodeUrl] = useState<string | null>(null);
@@ -39,9 +41,7 @@ export default function Donate(status: { status: string }) {
                     </div>
                     <div className={styles.donate}>
                         <div className={styles.qrcodeContainer}>
-                            <div>
-                                {qrCodeUrl ? <img src={qrCodeUrl} alt="qrcodePix" /> : <p>Carregando qrCode...</p>}
-                            </div>
+                            <Qrcode />
                             <div>
                                 <p>Pix qrcode no valor de R$10,00</p>
                             </div>

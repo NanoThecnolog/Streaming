@@ -3,11 +3,28 @@ import styles from '@/styles/Watch.module.scss';
 import { useEffect, useRef, useState } from "react";
 import Router, { useRouter } from "next/router";
 import { ChevronLeft } from 'lucide-react';
+import { api } from "@/services/api";
 
 export default function Watch() {
     const router = useRouter()
     const { title, subTitle, src } = router.query;
     const [movieData, setMovieData] = useState({ title: '', subTitle: '', src: '' });
+
+    useEffect(() => {
+        async function acordarServidor() {
+            try {
+                const wakeup = await api.get('/acordar');
+                return wakeup
+            } catch (err) {
+                return err
+            }
+        }
+        acordarServidor();
+        const manterAcordado = setInterval(() => {
+            acordarServidor()
+        }, 40000);
+        return () => clearInterval(manterAcordado)
+    }, [])
 
 
 
@@ -23,13 +40,13 @@ export default function Watch() {
     }, [title, subTitle, src])
 
     function handleBack() {
-        Router.push('/')
+        Router.back()
     }
 
     return (
         <>
             <Head>
-                <title>Filme {title} - FlixNext</title>
+                <title>{title} - FlixNext</title>
             </Head>
             <div className={styles.container}>
                 <div className={styles.movie}>
