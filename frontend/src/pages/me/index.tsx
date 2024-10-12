@@ -16,10 +16,12 @@ import { cards } from "@/js/cards";
 import { series } from "@/js/series";
 import { SeriesProps } from "@/@types/series";
 import { CardsProps } from "@/@types/Cards";
+import EditarDados from "@/components/modals/EditarDados";
 
 export default function Me(status: { status: string }) {
     const [usuario, setUsuario] = useState<UserProps | null>(null)
-    const [modalVisible, setModalVisible] = useState<boolean>(false)
+    const [modalVisible, setModalVisible] = useState(false)
+    const [editarDados, setEditarDados] = useState(false)
 
     useEffect(() => {
         const user = getCookieClient();
@@ -28,7 +30,7 @@ export default function Me(status: { status: string }) {
             return
         }
         setUsuario(user)
-    }, [modalVisible])
+    }, [modalVisible, editarDados])
 
 
     function handleOpenModal() {
@@ -61,6 +63,12 @@ export default function Me(status: { status: string }) {
             console.log("Filme, Episódio ou temporada não encontrados")
         }
     }
+    function openEditarDados() {
+        setEditarDados(true)
+    }
+    function closeEditarDados() {
+        setEditarDados(false)
+    }
 
 
     return (
@@ -92,7 +100,7 @@ export default function Me(status: { status: string }) {
                                 </h3>
                             </div>
                             <div className={styles.button}>
-                                <button type="button">Editar dados</button>
+                                <button type="button" onClick={openEditarDados}>Editar dados</button>
                             </div>
                             <Qrcode />
                         </aside>
@@ -139,6 +147,7 @@ export default function Me(status: { status: string }) {
 
             </article>
             {modalVisible && <Avatar handleCloseModal={handleCloseModal} />}
+            {editarDados && <EditarDados handleClose={closeEditarDados} />}
             <Footer />
         </>
 
