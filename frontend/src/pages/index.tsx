@@ -3,19 +3,17 @@ import { Inter } from "next/font/google";
 import Header from "@/components/Header";
 import CardContainer from "@/components/CardContainer";
 import Footer from "@/components/Footer";
-//import WatchLater from "@/components/modals/WatchLater";
 import { useEffect, useState } from "react";
 import Top from "@/components/Top";
-
 import styles from "@/styles/Home.module.scss";
 import Search from "@/components/Searching";
 import { getCookieClient } from "@/services/cookieClient";
 import { UserProps } from "@/@types/user";
 import { GetServerSideProps } from "next";
 import { serverStatus } from "@/services/verifyStatusServer";
+import { api } from "@/services/api";
 
 const inter = Inter({ subsets: ["latin"] });
-
 
 export default function Home(status: { status: string }) {
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
@@ -36,6 +34,29 @@ export default function Home(status: { status: string }) {
     "dc",
     "animação"
   ]
+  useEffect(() => {
+    getUserData()
+  }, [status])
+  async function getUserData() {
+    const user = getCookieClient();
+    if (!user) {
+      return
+    }
+    try {
+      const atualizarUsuario = await api.get('/user', {
+        params: {
+          id: user.id
+        }
+      })
+      const expressTime = 15 * 24 * 60 * 60 * 1000;
+      const userJson = JSON.stringify(atualizarUsuario.data)
+      document.cookie = `flixnext=${userJson}; path=/; max-age=${expressTime}`
+      console.log(userData)
+    } catch (err) {
+      console.log("Erro ao buscar dados do usuário na API", err)
+    }
+
+  }
 
   useEffect(() => {
     function handleResize() {

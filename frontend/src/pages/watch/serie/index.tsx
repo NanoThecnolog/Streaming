@@ -5,6 +5,7 @@ import styles from '@/styles/Watch.module.scss'
 import { ChevronLeft } from "lucide-react"
 import { useEffect, useState } from "react"
 import { api } from "@/services/api"
+import { getCookieClient } from "@/services/cookieClient"
 
 export default function WatchSerie() {
     const router = useRouter()
@@ -41,7 +42,15 @@ export default function WatchSerie() {
         }
 
     }, [router, title, subtitle, src, episode])
-    console.log(episodio)
+
+    useEffect(() => {
+        const user = getCookieClient();
+        if (!user) {
+            Router.push('/login')
+            return
+        }
+    }, [])
+
     function handleBack() {
         Router.back()
     }

@@ -1,19 +1,24 @@
 import { cards } from "@/js/cards";
 import { CardsProps } from "@/@types/Cards";
 import styles from './styles.module.scss'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { FaPlay } from "react-icons/fa";
 import { FaRegClock } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
 import { FaInfoCircle } from "react-icons/fa";
-import { IoCloseCircle } from "react-icons/io5";
+import { IoCheckmarkCircle, IoCloseCircle } from "react-icons/io5";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import Image from "next/image";
 import CardInfoSerieModal from "../CardInfos";
 
 import { toast } from "react-toastify";
 import { SeriesProps } from "@/@types/series";
+import { UserProps } from "@/@types/user";
+import { getCookieClient } from "@/services/cookieClient";
+import { isOnTheList } from "@/services/isOnTheList";
+import Router from "next/router";
+import { addWatchLater } from "@/services/addWatchLater";
 
 
 interface CardProps {
@@ -25,6 +30,32 @@ interface CardProps {
 
 
 export default function Card({ card, section, modalWatchLater }: CardProps) {
+    const [onWatchLater, setOnWatchLater] = useState(false)
+    const [user, setUser] = useState<UserProps>()
+    const [isLoading, setIsLoading] = useState<boolean>(false)
+    const [modalVisible, setModalVisible] = useState<boolean>(false)
+
+    useEffect(() => {
+        const user = getCookieClient();
+        if (!user) {
+            //Router.push('/login')
+            return
+        }
+        setUser(user)
+    }, [])
+    useEffect(() => {
+        onList(card.title, card.subtitle)
+    }, [card])
+    async function onList(title: string, subtitle?: string) {
+        const onList: Promise<boolean> = isOnTheList(title, subtitle)
+        onList.then(result => {
+            if (!result) {
+                setOnWatchLater(false)
+            } else {
+                setOnWatchLater(true)
+            }
+        })
+    }
 
     function handleClick() {
         setModalVisible(!modalVisible)
@@ -33,12 +64,6 @@ export default function Card({ card, section, modalWatchLater }: CardProps) {
         console.log("Click")
         setModalVisible(false)
     }
-
-    const [modalVisible, setModalVisible] = useState<boolean>(false)
-    //const [sessão, setSessão] = useState<string | undefined>(section)
-
-    //ajustar os parametros passados pra pagina watch
-    //criar uma pagina watch para series
     const movie = new URLSearchParams({
         title: `${card.title}`,
         subTitle: `${card.subtitle}` || "",
@@ -46,8 +71,19 @@ export default function Card({ card, section, modalWatchLater }: CardProps) {
         episode: `${card.season[0].episodes[0].ep}`,
         season: `${card.season[0].s}`
     });
-    function handleWatchLater() {
-        toast.warning("A função de adicionar filme a assistir mais tarde está temporariamente desabilitada.")
+    async function handleWatchLater() {
+        try {
+            if (isLoading) return
+            setIsLoading(true)
+            if (!user) return Router.push('/login')
+            await addWatchLater(user.id, card.title, card.subtitle);
+            await onList(card.title, card.subtitle)
+        } catch (err: any) {
+            if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
+            return toast.error("Erro inesperado ao adicionar filme à lista!")
+        } finally {
+            setIsLoading(false)
+        }
     }
     function handleFavorite() {
         toast.warning("A função de adicionar filme aos favoritos está temporariamente desabilitada.")
@@ -90,7 +126,11 @@ export default function Card({ card, section, modalWatchLater }: CardProps) {
                             </Link>
                         </div>
                         <div className={styles.queue} onClick={handleWatchLater}>
-                            <FaRegClock size={20} />
+                            {
+                                onWatchLater ?
+                                    <IoCheckmarkCircle title='Remover' size={25} className={styles.watchLater} />
+                                    : <FaRegClock title='Adicionar' size={20} />
+                            }
                         </div>
                         <div className={`${styles.star} ${styles.queue}`} onClick={handleFavorite}>
                             <FaStar size={20} />

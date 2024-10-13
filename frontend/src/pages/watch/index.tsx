@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Router, { useRouter } from "next/router";
 import { ChevronLeft } from 'lucide-react';
 import { api } from "@/services/api";
+import { getCookieClient } from "@/services/cookieClient";
 
 export default function Watch() {
     const router = useRouter()
@@ -30,7 +31,6 @@ export default function Watch() {
 
     useEffect(() => {
         if (title && src) {
-
             setMovieData({
                 title: title as string,
                 subTitle: subTitle as string || '',
@@ -38,6 +38,13 @@ export default function Watch() {
             })
         }
     }, [title, subTitle, src])
+    useEffect(() => {
+        const user = getCookieClient();
+        if (!user) {
+            Router.push('/login')
+            return
+        }
+    }, [])
 
     function handleBack() {
         Router.back()

@@ -66,7 +66,7 @@ export default function Overlay({ title, subtitle, src, duration, genero, modalV
             if (isLoading) return
             setIsLoading(true)
             if (!user) return Router.push('/login')
-            const addFilme = await addWatchLater(user.id, title, subtitle);
+            await addWatchLater(user.id, title, subtitle);
             await onList(title, subtitle)
         } catch (err: any) {
             if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
