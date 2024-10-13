@@ -12,6 +12,11 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'blogger.googleusercontent.com',
         port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'image.tmdb.org',
+        port: '',
       }
     ]
   }

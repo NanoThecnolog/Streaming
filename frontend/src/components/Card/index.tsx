@@ -1,9 +1,10 @@
-import { CardsProps } from "@/@types/Cards";
+import { CardsProps, MovieTMDB } from "@/@types/Cards";
 import styles from './styles.module.scss'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import CardInfoModal from "../modals/CardInfos";
 import Overlay from "../Overlay";
+import { fetchTMDBPoster } from "@/services/fetchTMDBPoster";
 
 interface CardProps {
     card: CardsProps;
@@ -11,6 +12,23 @@ interface CardProps {
 
 export default function Card({ card }: CardProps) {
     const [modalVisible, setModalVisible] = useState<boolean>(false)
+    const [movieData, setMovieData] = useState<MovieTMDB>()
+    const [TMDBImage, setTMDBImage] = useState<string | null>(null)
+
+    useEffect(() => {
+        handlePosterImage();
+    }, [])
+
+    async function handlePosterImage() {
+        if (card.tmdbId === 0) return
+        const imageURL = await fetchTMDBPoster(card.tmdbId)
+        if (!imageURL) {
+            console.log("Erro em movieData")
+        } else {
+            setTMDBImage(imageURL)
+            console.log(imageURL)
+        }
+    }
     function handleClick() {
         setModalVisible(!modalVisible)
     }
@@ -25,7 +43,7 @@ export default function Card({ card }: CardProps) {
         <>
             <div className={styles.card} id={card.genero[0].toLowerCase()}>
                 <Image
-                    src={card.overlay}
+                    src={movieData ? movieData.poster_path : card.overlay}
                     alt={card.title}
                     fill
                     placeholder="blur"

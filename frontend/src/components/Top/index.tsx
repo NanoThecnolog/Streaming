@@ -10,6 +10,8 @@ import { getCookieClient } from '@/services/cookieClient';
 import { addWatchLater } from '@/services/addWatchLater';
 import { isOnTheList } from '@/services/isOnTheList';
 import { FaCheck } from 'react-icons/fa';
+import { fetchTMDBBackDrop } from '@/services/fetchTMDBBackDrop';
+import { fetchTMDBPoster } from '@/services/fetchTMDBPoster';
 
 interface TopProps {
     width?: number;
@@ -21,6 +23,8 @@ export default function Top({ width }: TopProps) {
     const [user, setUser] = useState<UserProps | null>(null)
     const [onWatchLater, setOnWatchLater] = useState<boolean>(false)
     const [isLoading, setIsLoading] = useState<boolean>(false)
+    const [TMDBBackDrop, setTMDBBackDrop] = useState<string | null>(null)
+    const [TMDBPoster, setTMDBPoster] = useState<string | null>(null)
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -33,6 +37,7 @@ export default function Top({ width }: TopProps) {
         }, 10000)
         return () => clearInterval(interval)
     }, [cardOn])
+
     useEffect(() => {
         const user = getCookieClient();
         if (!user) {
@@ -45,6 +50,35 @@ export default function Top({ width }: TopProps) {
         if (!user) return
         onList(cards[cardOn].title, cards[cardOn].subtitle)
     }, [user, cardOn])
+
+    useEffect(() => {
+        if (cards[cardOn].tmdbId === 0) {
+            setTMDBBackDrop(null)
+            setTMDBPoster(null)
+            return
+        }
+        handleBackDropImage()
+        handlePosterImage()
+    }, [cardOn])
+
+    async function handleBackDropImage() {
+        const imageURL = await fetchTMDBBackDrop(cards[cardOn].tmdbId)
+        if (!imageURL) {
+            console.log("Erro ao buscar backdrop")
+        } else {
+            setTMDBBackDrop(imageURL)
+            console.log(imageURL)
+        }
+    }
+    async function handlePosterImage() {
+        const imageURL = await fetchTMDBPoster(cards[cardOn].tmdbId)
+        if (!imageURL) {
+            console.log("Erro ao buscar poster")
+        } else {
+            setTMDBPoster(imageURL)
+            console.log(imageURL)
+        }
+    }
 
     async function onList(title: string, subtitle?: string) {
         const onList: Promise<boolean> = isOnTheList(title, subtitle)
@@ -81,7 +115,13 @@ export default function Top({ width }: TopProps) {
     }
 
     return (
-        <div className={`${styles.top_container} ${styles[fade]}`} style={{ backgroundImage: width && width <= 780 ? `url(${cards[cardOn].overlay})` : `url(${cards[cardOn].background})` }}>
+        <div className={`${styles.top_container} ${styles[fade]}`}
+            style={{
+                backgroundImage:
+                    width && width <= 780 ?
+                        TMDBPoster ? `url(${TMDBPoster})` : `url(${cards[cardOn].overlay})` :
+                        TMDBBackDrop ? `url(${TMDBBackDrop})` : `url(${cards[cardOn].background})`
+            }}>
             <div className={styles.image_container} id="inicio">
                 <div className={styles.left_side}>
                     <h1 className={styles.titulo_principal}>
