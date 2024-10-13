@@ -1,3 +1,4 @@
+import { sign } from "jsonwebtoken";
 import prismaClient from "../../prisma";
 
 interface DetailUserProps {
@@ -14,7 +15,8 @@ interface DetailUserProps {
         userId: string,
         created_at: Date;
         updated_at: Date;
-    }[]
+    }[],
+    token: string
 }
 interface RequestProps {
     id: string
@@ -32,7 +34,20 @@ export class DetailUserService {
                 where: { userId: id }
             })
         ])
-        //if (!user) throw new Error("Usuário Não encontrado")
+        const secret = process.env.SECRET_JWT;
+        if (!secret) throw new Error("Variável de ambiente não definida corretamente.")
+
+        const token = sign(
+            {
+                name: user.name,
+                email: user.email,
+            },
+            secret,
+            {
+                subject: user.id,
+                expiresIn: '30d'
+            }
+        )
         return {
             id: user.id,
             name: user.name,
@@ -41,6 +56,7 @@ export class DetailUserService {
             verified: user.verified,
             birthday: user.birthday,
             myList: watchLaterList,
+            token: token
         }
     }
 }
