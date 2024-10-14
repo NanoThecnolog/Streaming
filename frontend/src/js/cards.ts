@@ -386,7 +386,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FwSZbtiFIK1fkKZdSRtn2kz2Ttfd.jpg&f=1&nofb=1&ipt=a354e5784f23b13c3f50ac79f43b6c9124bec0a72cc8ba7658556eff51a1fb77&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FjcSKH5NU8p7PtBiEXGEepLDFKdU.jpg&f=1&nofb=1&ipt=0f5be18ce52b61269ab63d67c5476cad11f61cce3e38820d639d3141d6135a5e&ipo=images",
-        tmdbId: 0,
+        tmdbId: 1139817,
         title: "O Agente Faixa Preta",
         subtitle: "",
         description: "Um talentoso lutador de artes marciais que não resiste a ajudar pessoas em perigo se une a um oficial de condicional para enfrentar e prevenir o crime.",
