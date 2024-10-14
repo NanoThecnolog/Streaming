@@ -12,6 +12,8 @@ import { UserProps } from "@/@types/user"
 import { getCookieClient } from "@/services/cookieClient"
 import { addWatchLater } from "@/services/addWatchLater"
 import { FaCheck } from "react-icons/fa"
+import { fetchTMDBPoster } from "@/services/fetchTMDBPoster"
+import { fetchTMDBBackDrop } from "@/services/fetchTMDBBackDrop"
 
 interface InfoModalProps {
     card: CardsProps;
@@ -22,6 +24,7 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
     const [onWatchLater, setOnWatchLater] = useState(false)
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [user, setUser] = useState<UserProps>()
+    const [TMDBImage, setTMDBImage] = useState<string | null>(null)
 
     useEffect(() => {
         const user = getCookieClient();
@@ -33,8 +36,21 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
     }, [])
 
     useEffect(() => {
+        setTMDBImage(null);
+        handlePosterImage();
         onList(card.title, card.subtitle)
     }, [card])
+
+    async function handlePosterImage() {
+        if (card.tmdbId === 0) return
+        const imageURL = await fetchTMDBBackDrop(card.tmdbId)
+        if (!imageURL) {
+            console.log("Erro em movieData")
+        } else {
+            setTMDBImage(imageURL)
+            console.log(imageURL)
+        }
+    }
 
     async function onList(title: string, subtitle?: string) {
         const onList: Promise<boolean> = isOnTheList(title, subtitle)
@@ -81,7 +97,10 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
 
         <div className={styles.movie_desc}>
             <div className={styles.modal_content}>
-                <div className={styles.desc_image} style={{ backgroundImage: `url(${card.background})`, backgroundPosition: 'center' }}>
+                <div className={styles.desc_image} style={{
+                    backgroundImage:
+                        TMDBImage ? `url(${TMDBImage})` : `url(${card.background})`, backgroundPosition: 'center'
+                }}>
                     <div className={styles.imageBackground}>
                         <div className={styles.close_btn} onClick={handleModalClose}>
                             <X size={30} />

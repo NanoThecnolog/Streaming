@@ -12,12 +12,12 @@ interface CardProps {
 
 export default function Card({ card }: CardProps) {
     const [modalVisible, setModalVisible] = useState<boolean>(false)
-    const [movieData, setMovieData] = useState<MovieTMDB>()
     const [TMDBImage, setTMDBImage] = useState<string | null>(null)
 
     useEffect(() => {
+        setTMDBImage(null);
         handlePosterImage();
-    }, [])
+    }, [card])
 
     async function handlePosterImage() {
         if (card.tmdbId === 0) return
@@ -43,7 +43,7 @@ export default function Card({ card }: CardProps) {
         <>
             <div className={styles.card} id={card.genero[0].toLowerCase()}>
                 <Image
-                    src={movieData ? movieData.poster_path : card.overlay}
+                    src={TMDBImage ? TMDBImage : card.overlay}
                     alt={card.title}
                     fill
                     placeholder="blur"

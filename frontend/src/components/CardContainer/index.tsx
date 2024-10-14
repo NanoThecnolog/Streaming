@@ -46,10 +46,9 @@ export default function CardContainer({ section, cardPerContainer }: ContainerPr
                     <MdNavigateNext size={30} />
                 </button>
                 <div className={styles.cardContainer}>
-                    {filteredCards.slice(currentIndex, currentIndex + cardsPerPage).map((card, index) => (
-                        <div className={styles.card} key={index}>
+                    {filteredCards.slice(currentIndex, currentIndex + cardsPerPage).map((card) => (
+                        <div className={styles.card} key={card.src}>
                             <Card
-                                key={index}
                                 card={card}
                             />
                         </div>

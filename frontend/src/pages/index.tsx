@@ -51,7 +51,7 @@ export default function Home(status: { status: string }) {
       const expressTime = 15 * 24 * 60 * 60 * 1000;
       const userJson = JSON.stringify(atualizarUsuario.data)
       document.cookie = `flixnext=${userJson}; path=/; max-age=${expressTime}`
-      console.log(userData)
+      //console.log(userData)
     } catch (err) {
       console.log("Erro ao buscar dados do usuário na API", err)
     }

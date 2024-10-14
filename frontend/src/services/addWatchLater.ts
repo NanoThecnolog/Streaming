@@ -15,7 +15,7 @@ export async function addWatchLater(id: string, title: string, subtitle?: string
         })
         if (filmeExiste) {
             const remove = await api.delete(`/watchLater/${filmeExiste.id}`)
-            toast.success("Filme removido da lista para assistir mais tarde!")
+            toast.warning("Filme removido da lista para assistir mais tarde!")
             return remove;
         }
         const addFilm = await api.post(`/watchLater/`, {
