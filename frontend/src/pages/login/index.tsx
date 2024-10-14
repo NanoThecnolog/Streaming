@@ -1,11 +1,14 @@
 import Link from 'next/link'
 import styles from './styles.module.scss'
-import { FormEvent, FormEventHandler, useState } from 'react';
+import { FormEvent, FormEventHandler, useEffect, useState } from 'react';
 import { api } from '@/services/api';
 import { toast } from 'react-toastify';
 import Router from 'next/router';
 import { FaSpinner } from 'react-icons/fa';
 import Head from 'next/head';
+import { GetServerSideProps } from 'next';
+import { serverStatus } from '@/services/verifyStatusServer';
+import ForgetPass from '@/components/modals/ForgetPassword';
 //import { cookies } from 'next/headers';
 
 
@@ -14,8 +17,28 @@ export default function Login() {
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
+    const [modalVisible, setModalVisible] = useState<boolean>(false)
     const forgetLink = "/";
     const newAccount = "/signup";
+
+    useEffect(() => {
+        async function wakeUpServer() {
+            try {
+                const acordar = await api.get('/acordar');
+                //console.log(acordar.data.status)
+
+                return acordar
+            } catch (err) {
+                //console.log(err)             
+                return err
+            }
+        }
+        wakeUpServer()
+        const manterAcordado = setInterval(() => {
+            wakeUpServer()
+        }, 40000)
+        return () => clearInterval(manterAcordado)
+    }, [])
 
     async function handleLogin(event: FormEvent) {
         event.preventDefault();
@@ -54,6 +77,12 @@ export default function Login() {
         }
 
     }
+    function handleOpen() {
+        setModalVisible(true)
+    }
+    function handleClose() {
+        setModalVisible(false)
+    }
     return (
         <>
             <Head>
@@ -89,10 +118,15 @@ export default function Login() {
                         </div>
                     </form>
                     <div className={styles.linksContainer}>
-                        <Link href={forgetLink}><h3>Esqueceu sua senha?</h3></Link>
+                        <button type='button' onClick={handleOpen}><h3>Esqueceu sua senha?</h3></button>
                         <Link href={newAccount}><h3>Criar conta</h3></Link>
                     </div>
                 </div>
+                {modalVisible && <ForgetPass
+                    handleClose={handleClose}
+                />
+                }
+
             </div>
         </>
     )

@@ -1,0 +1,82 @@
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-bebas);
+
+    .recoverContainer {
+        display: flex;
+        flex-direction: column;
+        padding: 100px;
+        background-color: #3f3f3f;
+        border-radius: 1rem;
+        position: relative;
+        gap: 10px;
+
+        .closeButton {
+            position: absolute;
+            top: 3%;
+            left: 2%;
+            background-color: #242424;
+            border-radius: 50%;
+            padding: 5px;
+            cursor: pointer;
+            transition: .4s;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+
+        input {
+            padding: 10px;
+            border-radius: .4rem;
+            border: none;
+            font-size: 1.2rem;
+
+            &:focus {
+                outline: 0;
+            }
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            border-radius: .4rem;
+            background-color: var(--red-selected);
+            color: var(--white);
+            padding: 10px;
+            font-size: 1.5rem;
+            transition: .4s;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+
+            &[disabled] {
+                cursor: not-allowed;
+
+                svg {
+                    animation: animate 2s infinite;
+                }
+            }
+        }
+    }
+
+}
+
+@keyframes animate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

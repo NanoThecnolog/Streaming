@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import Link from 'next/link'
 import { api } from '@/services/api'
@@ -14,8 +14,26 @@ export default function Signup() {
     const [password, setPassword] = useState<string>('')
     const [confirmPassword, setConfirmPassword] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
-
     const login = "/login";
+
+    useEffect(() => {
+        async function wakeUpServer() {
+            try {
+                const acordar = await api.get('/acordar');
+                //console.log(acordar.data.status)
+
+                return acordar
+            } catch (err) {
+                //console.log(err)             
+                return err
+            }
+        }
+        wakeUpServer()
+        const manterAcordado = setInterval(() => {
+            wakeUpServer()
+        }, 40000)
+        return () => clearInterval(manterAcordado)
+    }, [])
 
     async function handleRegister(event: FormEvent) {
         event.preventDefault();

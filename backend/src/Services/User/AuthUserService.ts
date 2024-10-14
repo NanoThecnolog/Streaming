@@ -24,7 +24,6 @@ class AuthUserService {
             {
                 subject: userExiste.id,
                 expiresIn: '30d'
-
             }
         )
         const watchLaterList = await prismaClient.watchLater.findMany({

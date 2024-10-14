@@ -14,15 +14,17 @@ datasource db {
 }
 
 model user {
-  id         String       @id @default(uuid())
-  name       String
-  email      String       @unique
-  birthday   DateTime
-  password   String
-  watchLater watchLater[]
-  donator    Boolean      @default(false)
-  avatar     String?
-  verified   Boolean      @default(false)
+  id               String       @id @default(uuid())
+  name             String
+  email            String       @unique
+  birthday         DateTime
+  password         String
+  watchLater       watchLater[]
+  donator          Boolean      @default(false)
+  avatar           String?
+  verified         Boolean      @default(false)
+  resetToken       String?
+  resetTokenExpire DateTime?
 
   created_at DateTime @default(now())
   updated_at DateTime @default(now()) @updatedAt

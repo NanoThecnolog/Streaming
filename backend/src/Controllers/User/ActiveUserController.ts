@@ -13,7 +13,6 @@ class ActiveUserController {
             const user = await activeUserService.execute({
                 email: email as string
             })
-            const userVerified: boolean = user.verified;
 
             const page = `
             <style>
@@ -117,7 +116,7 @@ class ActiveUserController {
             ">
                     <div class="cardContainer">
                         <div class="contentContainer">
-                        <h2>Sua conta foi ativada com sucesso!</h2>
+                        <h2>Olá, ${user.name}! Sua conta foi ativada com sucesso!</h2>
                             <p>Obrigado por ativar sua conta na FlixNext =D</p>
                             <div style="padding: 10px;">
                                 <a href="https://flixnext.vercel.app/login">

@@ -13,6 +13,8 @@ import { WatchLaterController } from "./Controllers/User/WatchLaterController";
 import { ListWatchLaterController } from "./Controllers/User/ListWatchLaterController";
 import { RemoveWatchLaterController } from "./Controllers/User/RemoveWatchLaterController";
 import { DetailUserController } from "./Controllers/User/DetailUserController";
+import { GenerateRecoverTokenController } from "./Controllers/User/GenerateRecoverTokenController";
+import { RecoverController } from "./Controllers/User/RecoverController";
 
 const router = Router()
 
@@ -30,6 +32,8 @@ router.put('/user', new EditUserController().handle)
 router.get('/users', new ListUserController().handle)
 router.delete('/user', new DeleteUserController().handle)
 router.get('/user', new DetailUserController().handle);
+router.post('/recovertoken', new GenerateRecoverTokenController().handle);
+router.put('/recover', new RecoverController().handle);
 
 router.get('/ativar', new ActiveUserController().handle);
 

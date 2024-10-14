@@ -7,6 +7,7 @@
     background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F4321344.jpg&f=1&nofb=1&ipt=e561bcf964fd269c74214638aaa624daf5819fa9a9458a1033209e52c3d2ab80&ipo=images);
 
 
+
     .loginContainer {
         display: flex;
         flex-direction: column;
@@ -49,16 +50,16 @@
                 &:hover {
                     transform: scale(1.05)
                 }
+
+                &:focus {
+                    transform: scale(1.05);
+                }
             }
 
             h2 {
                 color: var(--white);
                 font-family: var(--font-bebas);
             }
-
-            .emailContainer {}
-
-            .passwordContainer {}
 
             .buttonContainer {
                 width: 100%;
@@ -101,6 +102,21 @@
             align-items: center;
             gap: 12px;
             padding-top: 2rem;
+
+            button {
+                border: none;
+                background-color: transparent;
+                color: var(--white);
+                font-family: var(--font-bebas);
+                font-size: 1.2rem;
+                letter-spacing: 2px;
+                transition: all .5s;
+                cursor: pointer;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
 
             a {
                 text-decoration: none;
