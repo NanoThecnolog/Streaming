@@ -55,7 +55,7 @@ export default function Donate(status: { status: string }) {
 
                     </div>
                     <div>
-                        <h4>*Após fazer sua doação, envie o comprovante e o e-mail utilizado para criar sua conta em nossa plataforma para dev@ericssongomes.com, e assim receber seu emblema.</h4>
+                        <h4>*Após fazer sua doação, envie o comprovante e o e-mail utilizado para criar sua conta em nossa plataforma para contato@ericssongomes.com, e assim receber seu emblema.</h4>
                     </div>
 
                 </div>

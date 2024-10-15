@@ -82,6 +82,10 @@
         height: 100%;
 
         .donateContainer {
+            .title {
+                padding-top: 100px;
+            }
+
             .donate {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
@@ -94,6 +98,10 @@
         height: 100%;
 
         .donateContainer {
+            .title {
+                padding-top: 100px;
+            }
+
             .donate {
                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
