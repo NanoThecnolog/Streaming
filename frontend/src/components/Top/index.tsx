@@ -12,6 +12,7 @@ import { isOnTheList } from '@/services/isOnTheList';
 import { FaCheck } from 'react-icons/fa';
 import { fetchTMDBBackDrop } from '@/services/fetchTMDBBackDrop';
 import { fetchTMDBPoster } from '@/services/fetchTMDBPoster';
+import Image from 'next/image';
 
 interface TopProps {
     width?: number;
@@ -67,7 +68,6 @@ export default function Top({ width }: TopProps) {
             console.log("Erro ao buscar backdrop")
         } else {
             setTMDBBackDrop(imageURL)
-            console.log(imageURL)
         }
     }
     async function handlePosterImage() {
@@ -76,7 +76,6 @@ export default function Top({ width }: TopProps) {
             console.log("Erro ao buscar poster")
         } else {
             setTMDBPoster(imageURL)
-            console.log(imageURL)
         }
     }
 
@@ -122,6 +121,7 @@ export default function Top({ width }: TopProps) {
                         TMDBPoster ? `url(${TMDBPoster})` : `url(${cards[cardOn].overlay})` :
                         TMDBBackDrop ? `url(${TMDBBackDrop})` : `url(${cards[cardOn].background})`
             }}>
+
             <div className={styles.image_container} id="inicio">
                 <div className={styles.left_side}>
                     <h1 className={styles.titulo_principal}>

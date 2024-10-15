@@ -34,7 +34,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F2b%2Fc7%2F44%2F2bc744c3ce2e1fa4d72718d92c435a88.jpg&f=1&nofb=1&ipt=e57c7abeec72cf74b66d7bc2ba324321dbdbf860834f5b6440e1dbee9ebf8d05&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.ogZxi3eNdBwmvAmiTSY2YgHaLH%26pid%3DApi&f=1&ipt=59649add520289e638f015807fa980782a9a27c56efc49aa6c5c3bd17425313e&ipo=images",
-        tmdbId: 0,
+        tmdbId: 297762,
         title: "Mulher Maravilha",
         subtitle: "",
         description: "Treinada desde cedo para ser uma guerreira imbatível, Diana Prince nunca saiu da paradisíaca ilha em que é reconhecida como princesa das Amazonas. Quando o piloto Steve Trevor sofre um acidente e cai em uma praia do local, ela descobre que uma guerra sem precedentes está se espalhando pelo mundo e decide deixar seu lar certa de que pode parar o conflito. Lutando para acabar com a guerra, Diana percebe o alcance de seus poderes e sua verdadeira missão na Terra.",
@@ -56,7 +56,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F2.bp.blogspot.com%2F-AVujoVp58gc%2FWJP8JJKJEgI%2FAAAAAAAACMM%2FCRnoZ88XmmUW5phFKt76eOVFZgWoq5CigCLcB%2Fs1600%2Fcabana2.jpg&f=1&nofb=1&ipt=51aa5c0f40b7ce3791ff35f6e62cfa63073300eff5db2160418866dbb30fa5e8&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.xTg0APJC-gb-x_vcS6rqHQHaJ4%26pid%3DApi&f=1&ipt=cd133d78de9e2c65d754061f14cc04c02f139c61cd190e436682a42ec8e6690c&ipo=images",
-        tmdbId: 0,
+        tmdbId: 345938,
         title: "A Cabana",
         subtitle: "",
         description: "Um homem vive atormentado após perder a sua filha mais nova, cujo corpo nunca foi encontrado, mas sinais de que ela teria sido violentada e assassinada são encontrados em uma cabana nas montanhas. Anos depois da tragédia, ele recebe um chamado misterioso para retornar a esse local, onde ele vai receber uma lição de vida.",
@@ -67,7 +67,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2024%2F08%2FIdentidades-Em-Jogo-1.jpg&f=1&nofb=1&ipt=96d6465a8bc372a753b89b9474a613c261255be7fdea8ff64caaab99c27ade2d&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Ie9dWS1MXYmUjj9XaI22HwHaKk%26pid%3DApi&f=1&ipt=4280d313b49765eae70b22d2e70cfcbd551d09d564929059ffe920b118e7654a&ipo=images",
-        tmdbId: 0,
+        tmdbId: 1052280,
         title: "Identidades em Jogo",
         subtitle: "",
         description: "Uma reencontro se transforma em um pesadelo para um grupo de amigos. Um deles traz um aparelho estranho capaz de trocar as consciências de todos. De corpos trocados e apavorados, eles mergulham em uma trama de ciúmes, segredos e desejos ocultos.",
@@ -78,7 +78,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.wallpapersafari.com%2F27%2F41%2FtE9Cp5.jpg&f=1&nofb=1&ipt=ed9c69705ece80663fa64edefe9e0cd7ffb5a943eabea447a0f2fcdea60708df&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.ALqeOHaWNBDkLd79-Wl8pAHaLH%26pid%3DApi&f=1&ipt=3ccf9f063de8316709202a5bc9026779502179c013c69b6ddac2c24b7b3fafc6&ipo=images",
-        tmdbId: 0,
+        tmdbId: 24428,
         title: "Vingadores",
         subtitle: "",
         description: "Loki, o irmão de Thor, ganha acesso ao poder ilimitado do cubo cósmico ao roubá-lo de dentro das instalações da S.H.I.E.L.D. Nick Fury, o diretor desta agência internacional que mantém a paz, logo reúne os únicos super-heróis que serão capazes de defender a Terra de ameaças sem precedentes. Homem de Ferro, Capitão América, Hulk, Thor, Viúva Negra e Gavião Arqueiro formam o time dos sonhos de Fury, mas eles precisam aprender a colocar os egos de lado e agir como um grupo em prol da humanidade.",
@@ -89,7 +89,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp1833164.jpg&f=1&nofb=1&ipt=851ed4df43af5852fdd32738d2bec828bd626be8bc42d2d061430c83f3204708&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.q8EzpmTiFNtboBe7PANyYwHaLH%26pid%3DApi&f=1&ipt=e59eb592b098d74609c582539ffcfd928a1d0aba3eef8d0ea7851bd5e775b4b0&ipo=images",
-        tmdbId: 0,
+        tmdbId: 99861,
         title: "Vingadores",
         subtitle: "Era de Ultron",
         description: "Ao tentar proteger o planeta de ameaças, Tony Stark constrói um sistema de inteligência artificial que cuidaria da paz mundial. O projeto acaba dando errado e gera o nascimento do Ultron. Com o destino da Terra em jogo, Capitão América, Homem de Ferro, Thor, Hulk, Viúva Negra e Gavião Arqueiro terão que se unir para mais uma vez salvar a raça humana da extinção.",
@@ -100,7 +100,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.hdqwalls.com%2Fwallpapers%2Fcaptain-america-civil-war-fight-scene.jpg&f=1&nofb=1&ipt=9cb6b98cded41c050e40b878fc9c0e3bc48c515a97b44f02eddf110733a8e3db&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.yyM0NlrMcR41Anb7JPOgYwHaLH%26pid%3DApi&f=1&ipt=0636b467717c28d3acfd72cd4ff2811d1f307a7b53d1ad8fb77af65212747eb6&ipo=images",
-        tmdbId: 0,
+        tmdbId: 271110,
         title: "Capitão América",
         subtitle: "Guerra Civil",
         description: "Depois do ataque de Ultron, os políticos decidem controlar os Vingadores, já que suas ações afetam toda a humanidade. A decisão coloca o Capitão América em rota de colisão com o Homem de Ferro.",
@@ -111,7 +111,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fget.wallhere.com%2Fphoto%2Fsuperhero-Captain-America-Scarlett-Johansson-Black-Widow-Captain-America-The-Winter-Soldier-Nick-Fury-Chris-Evans-Jackson-screenshot-1920x1080-px-computer-wallpaper-fictional-character-samuel-l-526365.jpg&f=1&nofb=1&ipt=8bb0c88eaf64ee593ce11823776da49c24326b70cb146a83835d84453e5bc391&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.DxNnGTJknxp4D0P3cN6zMwHaLH%26pid%3DApi&f=1&ipt=6f8cd38806cd92784ea323b9c1aa9965c652e946f560647bec8fa73afade6f44&ipo=images",
-        tmdbId: 0,
+        tmdbId: 100402,
         title: "Capitão América",
         subtitle: "O Soldado Invernal",
         description: "Após os eventos catastróficos em Nova York com Os Vingadores, Steve Rogers, também conhecido como Capitão América, segue tentando se ajustar ao mundo moderno. Porém, quando um colega da agência S.H.I.E.L.D. é atacado, Steve se vê preso em uma rede de intrigas que ameaça colocar o mundo em risco. Em parceria com a Viúva Negra e Falcão, seu novo aliado, o Capitão América tem que enfrentar um misterioso e inesperado inimigo, o Soldado Invernal.",
@@ -122,7 +122,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.hdqwalls.com%2Fwallpapers%2Fhulk-hela-thor-in-thor-ragnarok-5w.jpg&f=1&nofb=1&ipt=fee97a34d5205a6f770562c2271e7401c80a4f16e177e7bb18b62989ab962d76&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.explicit.bing.net%2Fth%3Fid%3DOIP.diyIpAS27WphTMGXlDAgEAHaLH%26pid%3DApi&f=1&ipt=b1a94d6d96a64222193ed764c390f6abc331ba383c3053275921a20b34fe4e67&ipo=images",
-        tmdbId: 0,
+        tmdbId: 284053,
         title: "Thor",
         subtitle: "Ragnarok",
         description: "Após anos afastado, Thor retorna para casa e descobre que seu pai, Odin, rei de Asgard, está desaparecido. Após encontrá-lo, ele toma conhecimento de sua irmã mais velha, Hela, a poderosa e implacável deusa da morte. Com o auxílio de Loki, ele enfrenta Hela, mas durante a batalha, Thor acaba preso em Sakaar, um planeta do outro lado do universo. Agora, ele precisa correr contra o tempo para voltar a Asgard e impedir o Ragnarok, a destruição de seu mundo.",
@@ -133,7 +133,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.hdqwalls.com%2Fwallpapers%2Fthor-2-the-dark-world.jpg&f=1&nofb=1&ipt=3f866e4d878e15e7661630b715f55104b3c941a05bc7dabe1749029afc4aee8d&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.AT5LE9G245WEFZbQl0FgBQHaLH%26pid%3DApi&f=1&ipt=52c3fe2d588127865d937747c755158ab19c9368a96489ad188d5ebcf0be3809&ipo=images",
-        tmdbId: 0,
+        tmdbId: 76338,
         title: "Thor",
         subtitle: "O Mundo Sombrio",
         description: "Thor precisa contar com a ajuda de seus companheiros e até de seu traiçoeiro irmão Loki em um plano audacioso para salvar o universo. Entretanto, os caminhos de Thor se cruzam com Jane Foster e, dessa vez, a vida dela está realmente em perigo.",
@@ -144,7 +144,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FM%2FMV5BMTA3MDQ2OTExNzZeQTJeQWpwZ15BbWU3MDI3ODIyMDU%40._V1_.jpg&f=1&nofb=1&ipt=56d061d9385524f4e04175242bbec9f5cde7a6e8b685d6687e4867b1a14bf459&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.rjgRuEHeC0N5Qm__nstbBwHaLH%26pid%3DApi&f=1&ipt=b37c5fea19c110da3cc1f15cf87e3920dca7c598a0c7c461459d3e172a28af90&ipo=images",
-        tmdbId: 0,
+        tmdbId: 10195,
         title: "Thor",
         subtitle: "",
         description: "Thor, filho de Odin, o rei dos deuses nórdicos, logo herdará o trono de Asgard de seu idoso pai. No entanto, no dia de sua coroação, Thor reage com brutalidade quando os inimigos dos deuses entram no palácio violando o tratado. Como punição, Odin manda Thor para a Terra. Enquanto seu irmão Loki conspira em Asgard, Thor, agora sem seus poderes, enfrenta sua maior ameaça.",
@@ -155,7 +155,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmidia.gruposinos.com.br%2F_midias%2Fjpg%2F2021%2F07%2F09%2Fviuva_negra-19726451.jpg&f=1&nofb=1&ipt=22e565988ade356c67692ca22c597928ba6392aa78b41c1cecc879d5ed52a76c&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.lAo4Y3Kfz6KRw7HgmJhf3QHaLH%26pid%3DApi&f=1&ipt=477552a77ef830d4265e218bcb96559e16f9508191d52288f9bb1fc60df480e2&ipo=images",
-        tmdbId: 0,
+        tmdbId: 497698,
         title: "Viúva Negra",
         subtitle: "",
         description: "Ao nascer, a Viúva Negra, então conhecida como Natasha Romanova, é entregue à KGB, que a prepara para se tornar sua agente suprema. Porém, o seu próprio governo tenta matá-la quando a União Soviética se desfaz.",
@@ -166,7 +166,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FyjSVhK0HuCcbK7jfoH2HLKyeANc.jpg&f=1&nofb=1&ipt=a1a35f407a8cc269a90a8acad8459e0f9bf92eb9de2cbd833945b7c15ed189f2&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.AOfH2UVlZX-J_TCVedcvqQHaLH%26pid%3DApi&f=1&ipt=3e4cbfba387df3acd055efbfd757e5eefed44a447f0a08ebb90c1a9170fee20d&ipo=images",
-        tmdbId: 0,
+        tmdbId: 1726,
         title: "Homem de Ferro",
         subtitle: "",
         description: "Tony Stark é um industrial bilionário e inventor brilhante que realiza testes bélicos no exterior, mas é sequestrado por terroristas que o forçam a construir uma arma devastadora. Em vez disso, ele constrói uma armadura blindada e enfrenta seus sequestradores. Quando volta aos Estados Unidos, Stark aprimora a armadura e a utiliza para combater o crime.",
@@ -177,7 +177,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.justwatch.com%2Fimages%2Fbackdrop%2F198981995%2Fs1440%2Fcaptain-america-the-first-avenger&f=1&nofb=1&ipt=f770ca649faf84e3366d31c0ccc7f090d1f359ab43f98bd6ce1762cc2367948e&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.PUJmTloMN3NhigeFS6RzhgHaLH%26pid%3DApi&f=1&ipt=86c5f40e6223601d24c561accbb969be9503d1c49f3998a6ef2b217ea3530e71&ipo=images",
-        tmdbId: 0,
+        tmdbId: 1771,
         title: "Capitão América",
         subtitle: "O Primeiro Vingador",
         description: "Steve Rogers é um jovem que participa de experiências visando a criação do supersoldado americano. Quando os oficiais militares conseguem transformá-lo em uma arma humana, eles percebem que não podem arriscar a vida do jovem nas batalhas de guerra.",
@@ -188,7 +188,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages7.alphacoders.com%2F605%2F605868.jpg&f=1&nofb=1&ipt=8a4181797f172b2fb8856a9b7ab058a7dd5ee78e1d501844ce0be3ab2a208c59&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Dvw1iY5R-84e_P_dUhFYJQHaLH%26pid%3DApi&f=1&ipt=5feaaee3d77e34082dc61a95330de63d3ee4d099b4c8d873dd11840b84e3c446&ipo=images",
-        tmdbId: 0,
+        tmdbId: 122917,
         title: "O Hobbit",
         subtitle: "A Batalha dos Cinco Exércitos",
         description: "O dragão Smaug lança sua fúria ardente contra a Cidade do Lago que fica próxima da montanha de Erebor. Bard consegue derrotá-lo, mas, rapidamente, sem a ameaça do dragão, inicia-se uma batalha pelo controle de Erebor e sua riqueza. Os anões, liderados por Thorin, adentram a montanha e estão dispostos a impedir a entrada de elfos, anões e orcs. Bilbo Bolseiro e Gandalf tentam impedir a guerra.",
@@ -199,9 +199,9 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fapostiladecinema.com.br%2Fwp-content%2Fuploads%2F2021%2F07%2Fum-lugar-silencioso-2018-critica-filme-imagem-2048x1150.jpg&f=1&nofb=1&ipt=d53afdebea02bdf288c1c4b176ff63e1ae63354e2648cb5f8391db867d165c7a&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.okMCXyJeXr_NmeKZraUFPQHaLH%26pid%3DApi&f=1&ipt=bf9b33333f58788295d9cec11df7bb2f40cab1f95b604f6c527710d580352996&ipo=images",
-        tmdbId: 0,
+        tmdbId: 447332,
         title: "Um Lugar Silencioso",
-        subtitle: "",
+        subtitle: "Parte 1",
         description: "Em uma fazenda nos Estados Unidos, uma família do Meio-Oeste é perseguida por uma entidade fantasmagórica assustadora. Para se protegerem, eles devem permanecer em silêncio absoluto, a qualquer custo, pois o perigo é ativado pela percepção do som.",
         src: "https://drive.google.com/file/d/1DZZ4XcPivPBR1n1A17TKRvPqJphTJzW9/preview",
         duration: "01h 30m",
@@ -210,7 +210,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fveja.abril.com.br%2Fwp-content%2Fuploads%2F2021%2F07%2FABRE-1-FILME-A-QUIET-PLACE-PART-II-37.jpg.jpg&f=1&nofb=1&ipt=2d428f3e7d1f0e22dbf6ab63b707cc8063b9f295af73c38e0f429723ef8ddd35&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.ha6tFFUOR46G1VCRywhCfgHaLH%26pid%3DApi&f=1&ipt=bcb9172aab150e7c9de7a49a31c5978206fd6690174e636a5b02df81c7fcf67f&ipo=images",
-        tmdbId: 0,
+        tmdbId: 520763,
         title: "Um Lugar Silencioso",
         subtitle: "Parte 2",
         description: "A família Abbott precisa enfrentar os terrores do mundo exterior enquanto luta pela sobrevivência em silêncio. Forçados a se aventurar no desconhecido, eles percebem que as criaturas que caçam pelo som não são as únicas ameaças no caminho da areia.",
@@ -221,7 +221,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.hobbyconsolas.com%2Fsites%2Fnavi.axelspringer.es%2Fpublic%2Fmedia%2Fimage%2F2023%2F09%2Fsangrientos-dieciseis-2023-3134676.jpg%3Ftf%3D3840x&f=1&nofb=1&ipt=f62a57055e7f590ad3305705cb77c66d7b27b8a5016ea0a27cd3aa79495beff1&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Xerf-HWuzST2JcTtexkmyAHaLH%26pid%3DApi&f=1&ipt=b0763723370c9c03b747dc2234afb8518ca21d2c17a1a0d1ef17291e0c3dcea3&ipo=images",
-        tmdbId: 0,
+        tmdbId: 974931,
         title: "Dezesseis Facadas",
         subtitle: "",
         description: "O temido Assassino das Dezesseis Facadas retorna 35 anos após sua primeira onda de assassinatos para fazer outra vítima. Jamie, de 17 anos, acidentalmente viaja de volta no tempo até 1987, determinada a deter o assassino antes que ele comece a agir.",
@@ -232,7 +232,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.martincid.com%2Fwp-content%2Fuploads%2F2024%2F06%2FAAAABe-dDv5fGX0h9ztJWUbNJ2DhR4msGhBuo1E7eETK8FyWAHr57GFfqGKKhtL4N5z8PVnRcFRVIlvdZqND38-eUlXOAANrwuANi_WX-copia.jpg%3Fstrip%3Dall%26lossy%3D1%26ssl%3D1&f=1&nofb=1&ipt=d859f5d330b374b22999afba2cca957c316bf331979ada741e48d6d6e1ac429c&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.vAAAlcVEIu6pxhDyaT4QQQAAAA%26pid%3DApi&f=1&ipt=e51c4bfe1cbcbc7e825919e32ff637eed40b7c5392df57c9f9f242bfeee47c4a&ipo=images",
-        tmdbId: 0,
+        tmdbId: 987686,
         title: "Tudo em Família",
         subtitle: "",
         description: "Zara trabalha para Chris, um ator narcisista e prepotente que ela detesta. A moça fica furiosa quando descobre que ele está saindo com com sua mãe. O que a moça mais quer é separar os dois, mas os novos namorados estão perdidamente apaixonados.",
@@ -243,7 +243,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages5.alphacoders.com%2F674%2F674523.jpg&f=1&nofb=1&ipt=9f57920dc0417130a5149e48a2fe0a61006312afefcc82333ad9d3b62b6b871b&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.explicit.bing.net%2Fth%3Fid%3DOIP.nOeeZ1NIfG_2Os_Iv8GTqAHaLG%26pid%3DApi&f=1&ipt=5145191fa43a679b06baac0f4cd97f56c26db2847dbe7ece3ec406c6ffdf8e4f&ipo=images",
-        tmdbId: 0,
+        tmdbId: 57158,
         title: "O Hobbit",
         subtitle: "A Desolação de Smaug",
         description: "Ao lado de um grupo de anões e de Gandalf, Bilbo segue em direção à Montanha Solitária, onde deverá ajudar seus companheiros a retomar a Pedra de Arken. O problema é que o artefato está perdido em meio a um tesouro protegido pelo temido dragão Smaug.",
@@ -254,7 +254,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.alphacoders.com%2F674%2Fthumb-1920-674254.jpg&f=1&nofb=1&ipt=264c6c2d19fd07af2ad70cae216ce76dc373ee40ef01cee62f50114c59ec5c5c&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.gp7aCqLdZYwVHs8MueC61QHaLH%26pid%3DApi&f=1&ipt=2b34daa54c6906ceb50461ab4f5016752246ee562f44825508455ff41b07e27b&ipo=images",
-        tmdbId: 0,
+        tmdbId: 49051,
         title: "O Hobbit",
         subtitle: "Uma Jornada Inesperada",
         description: "Como a maioria dos hobbits, Bilbo Bolseiro leva uma vida tranquila até o dia em que recebe uma missão do mago Gandalf. Acompanhado por um grupo de anões, ele parte numa jornada até a Montanha Solitária para libertar o Reino de Erebor do dragão Smaug.",
@@ -265,7 +265,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FsGtXDnT08Nkb5NQq2oGD3os1zg9.jpg&f=1&nofb=1&ipt=451da7fd44c82e439c3575b09c8de2163b1f1ad1220fb6876317db97d54e6525&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.PdGXeMXGhKXd56q3jPn_VQHaJ6%26pid%3DApi&f=1&ipt=e756e87c1b0efb10c462da634f900c463cdf43d2e685bfe9bc1757040ef0a6f0&ipo=images",
-        tmdbId: 0,
+        tmdbId: 383498,
         title: "DeadPool 2",
         subtitle: "",
         description: "O supersoldado Cable vem do futuro com a missão de assassinar o jovem mutante Russel e o mercenário Deadpool precisa aprender o que é ser herói de verdade para salvá-lo. Para isso, ele recruta seu velho amigo Colossus e forma o novo grupo X-Force, sempre com o apoio do fiel escudeiro Dopinder.",
@@ -276,7 +276,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.film-rezensionen.de%2Fwp-content%2Fuploads%2F2016%2F02%2FDeadpool-Frontpage.jpg&f=1&nofb=1&ipt=1281ef0d6e02bb407c22462d0c5ee44d949d29d7fc4a7e34fbcdb669b1632342&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.h3oLy2iV8omU8nIlIXGcRwHaJ4%26pid%3DApi&f=1&ipt=5ad783e96de01ea4d3bdc5ee7e23d03287a143f23dde2c530a296b355604fba1&ipo=images",
-        tmdbId: 0,
+        tmdbId: 293660,
         title: "DeadPool",
         subtitle: "",
         description: "Wade Wilson é um ex-agente especial que passou a trabalhar como mercenário. Seu mundo é destruído quando um cientista maligno o tortura e o desfigura completamente. O experimento brutal transforma Wade em Deadpool, que ganha poderes especiais de cura e uma força aprimorada. Com a ajuda de aliados poderosos e um senso de humor mais desbocado e cínico do que nunca, o irreverente anti-herói usa habilidades e métodos violentos para se vingar do homem que quase acabou com a sua vida.",
@@ -287,7 +287,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.hdqwalls.com%2Fdownload%2Fjohn-wick-3-parabellum-poster-qf-2560x1440.jpg&f=1&nofb=1&ipt=d65868565d232763db681c6aaef05850590faed001dd1736fa25faaca5063124&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.KcrfAVd2RvGikO0VpkytTQHaLH%26pid%3DApi&f=1&ipt=9863dff9a2533b5b779ad1c3c282ae559be61ecabf756e36fa232a79aadfdd2f&ipo=images",
-        tmdbId: 0,
+        tmdbId: 458156,
         title: "John Wick",
         subtitle: "Parabellum",
         description: "O lendário John Wick luta para sair de Nova York quando um contrato de 14 milhões de dólares faz dele o alvo dos maiores assassinos do mundo.",
@@ -298,7 +298,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FfRLftkwv8jm3DLxXOf2NbngHjPB.jpg&f=1&nofb=1&ipt=3d03a554c13ee6c448fb13f1ef29d5f6a051438341d93e6ab9dcfcb41ea70759&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.5q2eSp3YrIUKlFdDec20lQHaLG%26pid%3DApi&f=1&ipt=93dfb23eb0c78f27088f0e088b89260666eee279ab3ee96250e3dc9e863ae0a7&ipo=images",
-        tmdbId: 0,
+        tmdbId: 324552,
         title: "John Wick",
         subtitle: "Um Novo Dia Para Matar",
         description: "John Wick é forçado a deixar a aposentadoria mais uma vez por causa de uma promessa antiga e viaja para Roma, com o objetivo de ajudar um velho amigo a derrubar uma organização secreta, perigosa e mortal de assassinos procurados em todo o mundo.",
@@ -309,7 +309,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FxPPizf0YCCYB82AmjubPbqUhZKW.jpg&f=1&nofb=1&ipt=ec3ffe249295a1f63be2bbc8e7046b7e2d84dcb4e405261f1ec169c41ed8d6cc&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.MQnAvB-EVSle8fwVRxPQcQHaJ4%26pid%3DApi&f=1&ipt=980e02bc9ab01a0571b1d9f266c4b64ef2cdfd30fbcef3e8bdc5231092bb7d88&ipo=images",
-        tmdbId: 0,
+        tmdbId: 245891,
         title: "John Wick",
         subtitle: "De Volta ao Jogo",
         description: "John Wick é um lendário assassino de aluguel aposentado, lidando com o luto após perder o grande amor de sua vida. Quando um gângster invade sua casa, mata seu cachorro e rouba seu carro, ele é forçado a voltar à ativa e inicia sua vingança.",
@@ -320,7 +320,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F3q01ACG0MWm0DekhvkPFCXyPZSu.jpg&f=1&nofb=1&ipt=fcc528e44477108082541414647985a34ae978d067a7ffe8ed0deaafc787ea63&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.A6a-voZg_10oWAR7GgmXNgHaLH%26pid%3DApi&f=1&ipt=dcc7ed1f3f2b155c39501eeb0ceaa712d26dd4c074e6e5a13ba8b8d421b853c0&ipo=images",
-        tmdbId: 0,
+        tmdbId: 573435,
         title: "BadBoys 4",
         subtitle: "Até o Fim",
         description: "Os brincalhões polícias de Miami, Mike Lowrey e Marcus Burnett, embarcam em uma perigosa missão para limpar o nome do falecido capitão da polícia.",
@@ -331,7 +331,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F8xMR5w9qfpwhTJzjjvfj2ywvIF3.jpg&f=1&nofb=1&ipt=2c009b5206c07c08f3e4a5b68749f08c3e513193a8b38d670acc025fdc85b54a&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.nrk2UwELBrOn-M8vlU7hwgHaLH%26pid%3DApi&f=1&ipt=9102c413a1456609a1d5605a6fde11fa40e27a1d10620a14e06a72e67acd8fab&ipo=images",
-        tmdbId: 0,
+        tmdbId: 956842,
         title: "Como vender a Lua",
         subtitle: "",
         description: "A especialista em marketing Kelly Jones é contratada para consertar a imagem pública da NASA. Quando a Casa Branca considera a missão importante demais para falhar, Jones é instruída a encenar um falso pouso na Lua como um plano B.",
@@ -342,7 +342,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fentretetizei.com.br%2Fwp-content%2Fuploads%2F2021%2F08%2Fcurtindo-a-vida-adoidado-1.jpg&f=1&nofb=1&ipt=ddd06331658f9f0796e44fd461d25582f6c9481f379c1cbdd0c5af6de41f1ebb&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.toDVXRffGWPKeibS5SGF5gHaLG%26pid%3DApi&f=1&ipt=968263745be0c35b1f17e5e0dcb8bfdf54d17c9ea43076212138012609888878&ipo=images",
-        tmdbId: 0,
+        tmdbId: 9377,
         title: "Curtindo a Vida Adoidado",
         subtitle: "",
         description: "O adolescente Ferris Bueller decide sair da rotina e engana seus pais fingindo estar doente para poder matar aula. Ele convence sua namorada, Sloane, e seu melhor amigo, Cameron, a se juntar a ele no passeio até Chicago, usando a Ferrari do pai de Cameron. No entanto, o diretor da escola sabe que Ferris está mentindo e vai atrás dele.",
@@ -353,7 +353,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmovieplayer.net-cdn.it%2Fimages%2F2016%2F03%2F15%2Fmemento02.png&f=1&nofb=1&ipt=753aab97a01ac176982954e78e27c19b7072fb7ac706bdc9d7745efd89b41867&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.0nSIvojIh_zpuwdno-mi5QHaLH%26pid%3DApi&f=1&ipt=d4ee5d14988f1a0e66cae6ba64fb5659e6af72134f7f3424034745feef21634c&ipo=images",
-        tmdbId: 0,
+        tmdbId: 77,
         title: "Memento",
         subtitle: "",
         description: "Leonard está caçando o homem que estuprou e matou sua esposa. Ele tem dificuldades em encontrar o assassino pois sofre de uma forma intratável de perda de memória. Mesmo que ele possa lembrar detalhes da vida antes do acidente, Leonard não consegue lembrar o que aconteceu quinze minutos atrás, onde está indo ou a razão.",
@@ -364,8 +364,8 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.alphacoders.com%2F794%2Fthumb-1920-794777.jpg&f=1&nofb=1&ipt=e248266ce3a4645d4eaea18b5142b6a160b661fea9f4ce181064b5d43e5a6033&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.explicit.bing.net%2Fth%3Fid%3DOIP.1RtaIrnoq9TKBB2wHjqCdwHaLH%26pid%3DApi&f=1&ipt=d055ed9274566e0698eb906c7c3f53344bb36a44556d42272df66c2e2e8359fe&ipo=images",
-        tmdbId: 0,
-        title: "O Máscara",
+        tmdbId: 854,
+        title: "O Máskara",
         subtitle: "",
         description: "A vida do tímido e socialmente desajeitado bancário Stanley Ipkiss muda completamente quando ele encontra no mar uma máscara que possui o espírito do deus escandinavo Loki. Sempre que usa a máscara, Stanley ganha superpoderes e se transforma em um cara cheio de charme e confiança, chamando a atenção da linda cantora Tina. No entanto, ele acaba atraindo também o perigoso namorado dela, o gângster Dorian, que tenta se apoderar da máscara para usar seus poderes para o mal.",
         src: "https://drive.google.com/file/d/1t59UOjaDniPboqDj0i5N4jc-cgM9TuZi/preview",
@@ -375,7 +375,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthefutureoftheforce.com%2Fwp-content%2Fuploads%2F2024%2F06%2FMaxxxine-3.jpg&f=1&nofb=1&ipt=6853ccfe9051a50b8cc0bf60098ecd29fe268ff739797bad4bd69f49e72567c2&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.KVlKgn9njUIDgqBGsCotugHaJ0%26pid%3DApi&f=1&ipt=8146a8c2a12460bf4305c8392f2715b8c533d359d87d33d6c324964ab71e7926&ipo=images",
-        tmdbId: 0,
+        tmdbId: 1023922,
         title: "Maxxxine",
         subtitle: "",
         description: "Na década de 1980, em Hollywood, a estrela do cinema pornográfico Maxine Minx tem sua grande chance de atingir o estrelato. No entanto, um misterioso assassino em série persegue as celebridades de Los Angeles e um rastro de sangue ameaça revelar o passado sinistro de Maxine.",
@@ -397,7 +397,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fentretenimento.oportaln10.com.br%2Fwp-content%2Fuploads%2F2024%2F09%2Ffilme-feios-na-netflix.jpg&f=1&nofb=1&ipt=67021188a1af61ee6de8f2b28575fa00b588dfc90bec21aadbeb934c9d0b4ac4&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.PxyMB12Q6FuagFmtu078sQHaLH%26pid%3DApi&f=1&ipt=23073b03b48ea1cba25cff9f0ecfa9e3ebaf507eea4a6ad2f90281fd610784c6&ipo=images",
-        tmdbId: 0,
+        tmdbId: 748167,
         title: "Feios",
         subtitle: "",
         description: "Em um mundo distópico que impõe rígidos padrões de beleza, uma adolescente aguardando sua cirurgia plástica obrigatória sai em busca da amiga desaparecida.",
@@ -408,7 +408,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.rogerebert.com%2Fuploads%2Freview%2Fprimary_image%2Freviews%2Fi-am-number-four-2011%2FEB20110216REVIEWS110219991AR.jpg&f=1&nofb=1&ipt=3a2d5bf8b462488d992aba2ee5c851b2c268935ef3af66e4af704662c63667a0&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Bs2GHxeROE2lzC0Nls8QiQHaLH%26pid%3DApi&f=1&ipt=45e969aaffb5935b394cf04736007d67445999ca8dce569f050746b45aa04587&ipo=images",
-        tmdbId: 0,
+        tmdbId: 46529,
         title: "Eu Sou o Número Quatro",
         subtitle: "",
         description: "John Smith parece ser um adolescente comum, mas é, na verdade, um alienígena do planeta Lorien entre nove que estão vivendo como humanos na Terra.",
@@ -419,7 +419,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FM%2FMV5BMTM5MTM5OTgyMV5BMl5BanBnXkFtZTcwMzI2NzExNw%40%40._V1_.jpg&f=1&nofb=1&ipt=a962ff98e16eac6df41ae0f4a5a8389ce11a8482acb88ed51c6340030ee5c552&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.JuK6WaO8XvkR98R5SVJLcwAAAA%26pid%3DApi&f=1&ipt=a8b4f83cc3808e3f9953b34c1e683343c6d283f5c2fd3b0c1fe2c9687c7e14eb&ipo=images",
-        tmdbId: 0,
+        tmdbId: 8960,
         title: "Hancock",
         subtitle: "",
         description: "Hancock é um super-herói desajeitado que protege os cidadãos de Los Angeles, mas causa danos colaterais a cada ato heroico que realiza. Ele não se importa com o que as pessoas pensam a seu respeito. Depois de salvar a vida de um executivo, ele conhece a bela esposa do homem e descobre que, apesar de tudo, é um sujeito sensível.",
@@ -430,7 +430,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimagenes.montevideo.com.uy%2Fimgnoticias%2F201601%2F544960.jpg&f=1&nofb=1&ipt=e8edbcdc8d4d0321ac98018276475afbd7d182c1e5e122684049bfd6b9a32660&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.JvHzhT9kShyDGOgPvttk2wHaLH%26pid%3DApi&f=1&ipt=e879cab9b9337cb4193c5ef26ecd33bbf5e07edc84a2249992c9ddb118f85bb5&ipo=images",
-        tmdbId: 0,
+        tmdbId: 299687,
         title: "A 5ª Onda",
         subtitle: "",
         description: "Uma série de ataques alienígenas cada vez mais letais deixa a maior parte da Terra dizimada. Separada da família, a adolescente Cassie tenta desesperadamente encontrar seu irmão mais novo antes que a quinta onda de ataque extermine a humanidade.",
@@ -441,7 +441,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpop.proddigital.com.br%2Fwp-content%2Fuploads%2Fsites%2F8%2F2024%2F01%2F01-6.jpg&f=1&nofb=1&ipt=b623356dd53e12298e267e0c2cca8f489900d0c1016e962f6faef4756fd5049e&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.FifvKTYCBoIQ4p2V1mCIjQAAAA%26pid%3DApi&f=1&ipt=ffa43b81f95d13316db8eefb6cc6d90c2ce15b604abbfcadb34b4c9143f85a60&ipo=images",
-        tmdbId: 0,
+        tmdbId: 937287,
         title: "Rivais",
         subtitle: "",
         description: "Um campeão de tênis do Grand Slam se vê do outro lado da rede do outrora promissor e agora esgotado Patrick, seu ex-melhor amigo e ex-namorado de sua esposa.",
@@ -452,7 +452,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fyg02drCtyfG9SrvHH6cY1sBz6Z1.jpg&f=1&nofb=1&ipt=a0f56af847161016d99e837328c4f521e3e9d0cdf2167eb7b8a513d7f73a0451&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP._c6_XHof07D_SQoJHI7nTwHaLH%26pid%3DApi&f=1&ipt=5fc88df3575d152fad5549f612dd232c496976b7c512e190f94e8635403f9bf6&ipo=images",
-        tmdbId: 0,
+        tmdbId: 55779,
         title: "Premonição 5",
         subtitle: "",
         description: "Um jovem tem uma premonição e salva um grupo de pessoas da morte quando uma ponte suspensa começa a desabar. Contudo, eles logo aprendem que não têm como fugir da morte.",
@@ -463,7 +463,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FlOI8OhF58GkwOwDcUY9dcueEcBN.jpg&f=1&nofb=1&ipt=b072b8b38653a2105b6ab2d48da63b000d780e7eeaad206d20863e864de63f1e&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.ZKTNz6UXv3AImUm2is7KXgHaJ4%26pid%3DApi&f=1&ipt=286a9cf5be549155c4faf0a1a4a53e88a1a0dc97de7bec2d4a5a039ffba8195b&ipo=images",
-        tmdbId: 0,
+        tmdbId: 19912,
         title: "Premonição 4",
         subtitle: "",
         description: "Uma premonição salva quatro amigos que estavam assistindo a uma corrida de carros quando um trágico acidente acontece, matando dezenas de pessoas no local. Eles pensam que escaparam da morte, mas logo percebem que ela está em seu encalço.",
@@ -474,7 +474,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2020%2F03%2Fpremoni%25C3%25A7%25C3%25A3o-3.jpg&f=1&nofb=1&ipt=9d3fd9e5283cf4c04f56e42d31ca2df747412b1f0fda91908867b437fb45f3d7&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.2J7iP-838jc8rRaAQZQqVwHaKk%26pid%3DApi&f=1&ipt=a70452f871a6bedb20c7f62492d1b1fac6dd7f3ad20edcae5af1abc2756afd98&ipo=images",
-        tmdbId: 0,
+        tmdbId: 9286,
         title: "Premonição 3",
         subtitle: "",
         description: "Seis anos depois que um grupo de estudantes enganam pela primeira vez a morte, uma adolescente tem o pressentimento de que ela e seus amigos vão ter um acidente em uma montanha-russa. Quando a visão prova ser verdadeira, a estudante e os sobreviventes precisarão lidar com as repercussões de enganar a morte.",
@@ -485,7 +485,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FtSCozfXKeALzwcCilWcCXM14edJ.jpg&f=1&nofb=1&ipt=cd755b13b84c4e0861b5a3d160ea7860c92e589f4f80276422e0a865e0924865&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.SBHuM37WoZu_vz1djKc7PwHaJ4%26pid%3DApi&f=1&ipt=c3f3afad2d8ad7726392683f71f9bcca03a8ceaf430b965e91dfc36472b154de&ipo=images",
-        tmdbId: 0,
+        tmdbId: 9358,
         title: "Premonição 2",
         subtitle: "",
         description: "Kimberly tem a premonição de que um horrível acidente na estrada matará muitas pessoas, inclusive ela e seus amigos. Assustada com a visão, ela para o carro e impede os que estão atrás de passar. Logo, um policial rodoviário chega e o acidente realmente acontece. Agora, a morte está perseguindo esse grupo de sobreviventes e, um a um, eles estão morrendo como deveriam: na estrada.",
@@ -496,7 +496,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2020%2F03%2Fpremoni%25C3%25A7%25C3%25A3o-1.jpg&f=1&nofb=1&ipt=b37a7c1782411e76ad15ce67dc15187b6ca948e23b2167707acafbc336b40bf5&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.kL76eB__vH0OfYl7XYqrNgHaLH%26pid%3DApi&f=1&ipt=aa9d6339ad30e9a4ca7c13ddf2c17b85ccf9d5070836f72dd1bc6f974abfe533&ipo=images",
-        tmdbId: 0,
+        tmdbId: 9532,
         title: "Premonição",
         subtitle: "",
         description: "Alex Browning está embarcando em uma viagem para Paris. Alex sofre uma premonição, pela qual vê o avião explodir momentos depois de sair do chão. Alex insiste que todo mundo saia do avião e sete pessoas, incluindo Alex, são obrigados a desembarcar. Todos veem quando o avião realmente explode como uma bola de fogo. Ele e os outros sobreviventes brevemente enganam a morte, mas não serão capazes de evitar o seu destino por muito tempo. Um a um, esses fugitivos de destino viram vítimas da morte.",
@@ -507,7 +507,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FfRnhnR2JfkGBT19z7EXEmIUcDSo.jpg&f=1&nofb=1&ipt=b1c9d1ccc61016cc7ed4817f380ba241cf4ee1c1e8384e0921a927fe0142d2ee&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.6JYyrbykH_Das4_Wc2jQ4AHaJ4%26pid%3DApi&f=1&ipt=229676cd1174589201dd59c1b2e983860e51de2d349d0e606c8d7e74456a37f1&ipo=images",
-        tmdbId: 0,
+        tmdbId: 1734,
         title: "O Retorno da Múmia",
         subtitle: "",
         description: "Rick e Evelyn O'Connell estão morando na Londres de 1935, onde criam o filho. Quando uma série de eventos revela o corpo de Imhotep ressuscitado, os O'Connell iniciam uma corrida desesperada para salvar o mundo do mal e resgatar o filho antes que seja tarde demais.",
@@ -518,7 +518,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-gXpX18pWnfQ%2FYQ901XBZBCI%2FAAAAAAAAAD0%2FF97r9XjMqlsMgLd_nizIrp-PIf1aTmSugCLcBGAsYHQ%2Fs1920%2F10-curiosidades-sobre-o-filme-a-mumia.jpg&f=1&nofb=1&ipt=09c3570065227ef30c5d90c4aeb4a4f667260daf2db062efd9b024da4fa73a8f&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.IkYbD1p7-9Qe_kW9dB8XFgHaLG%26pid%3DApi&f=1&ipt=1b59f36480cd25f4d196261ed3d3c8588761856a9a86370e26928ec725b0f13a&ipo=images",
-        tmdbId: 0,
+        tmdbId: 564,
         title: "A Múmia",
         subtitle: "",
         description: "Na década de 1920, uma arqueóloga e seu irmão se unem a um aventureiro para encontrar um tesouro, mas acabam ressuscitando Imhotep, uma múmia diabólica e vingativa.",
@@ -529,7 +529,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FvtuGtevnaJutCqWAmGfvb1wLByh.jpg&f=1&nofb=1&ipt=bf11d6dccb2a15f69f3ed46907a9894391802cf458ad1b28011297a97dfdf8ef&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.r8hGsGSAlVqo0_DeXkRDwwHaKj%26pid%3DApi&f=1&ipt=988a19cf83894df24e0a042d041439f3f14100486381d7e4b4e5b6b604781d6a&ipo=images",
-        tmdbId: 0,
+        tmdbId: 1008953,
         title: "Os Novatos",
         subtitle: "",
         description: "A maior festa do ano vai acontecer bem na primeira semana do ensino médio. Quatro adolescentes encaram uma noite de caos e excessos.",
@@ -540,7 +540,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FjOh79POQu4hyVIseUxdQxTW7vOf.jpg&f=1&nofb=1&ipt=ba3558348b2763a9b8efb97a72f5fcff4143f9a704e136ec600e5c470c389afc&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.RPbjIWwiT-EbDL9QkcitwQHaLH%26pid%3DApi&f=1&ipt=5760b8a5b1c5b89d2a0ca55eab78b061bb25145dc7bbe3eb0128b4b32e65c68a&ipo=images",
-        tmdbId: 0,
+        tmdbId: 22,
         title: "Piratas do Caribe",
         subtitle: "A Maldição do Pérola Negra",
         description: "O pirata Jack Sparrow tem seu navio saqueado e roubado pelo capitão Barbossa e sua tripulação. Com o navio de Sparrow, Barbossa invade a cidade de Port Royal, levando consigo Elizabeth Swann, filha do governador. Para recuperar sua embarcação, Sparrow recebe a ajuda de Will Turner, um grande amigo de Elizabeth. Eles desbravam os mares em direção à misteriosa Ilha da Morte, tentando impedir que os piratas-esqueleto derramem o sangue de Elizabeth para desfazer a maldição que os assola.",
@@ -551,7 +551,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fumfilmeumdia.files.wordpress.com%2F2013%2F08%2Fpirates-of-the-caribbean-dead-mans-chest.png&f=1&nofb=1&ipt=65172f234ed92205e81bf66d7e99a4f912718da3edebb357c87ea758764959e4&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP._Hi9-Dq4abDAjy65fl_HkgHaKx%26pid%3DApi&f=1&ipt=ce1863b68725ed61b49ec5c51473f45e4b3e439f1a705008c29d7bdc99f0782a&ipo=images",
-        tmdbId: 0,
+        tmdbId: 58,
         title: "Piratas do Caribe",
         subtitle: "O Baú da Morte",
         description: "Will e Elizabeth estão prestes a se casar quando o lendário pirata Davy Jones, comandante de um invencível navio assombrado, aparece para cobrar uma dívida do capitão Jack Sparrow, amigo do casal. Agora, a única chance de Sparrow se livrar de uma maldição de Jones é encontrando o baú da morte.",
@@ -562,7 +562,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FuuBaUdTJlrjHc2gyC5XYAmQ0KUM.jpg&f=1&nofb=1&ipt=237ce745515377fa8e4ffd41eddca0657d12bb307a57ef178aa2c02ebaddee06&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.C9fMxvogB3CXXpXCDfjomgHaLH%26pid%3DApi&f=1&ipt=8f0aec49252a065bd37759c9bdcc7e0182a047cf5f83b6c5f9df21264c68e823&ipo=images",
-        tmdbId: 0,
+        tmdbId: 285,
         title: "Piratas do Caribe",
         subtitle: "No Fim do Mundo",
         description: "Will Turner e Elizabeth Swann unem forças com o Capitão Barbossa para libertarem Jack Sparrow da prisão de Davy Jones. Enquanto isso, a tripulação do barco fantasma O Holandês Voador causa estragos nos Sete Mares. Os amigos devem navegar através de águas perigosas para enfrentarem o pirata chinês São Feng e, finalmente, eles devem escolher em que lado ficar na batalha, pois a vida do pirata está em jogo.",
@@ -573,7 +573,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages7.alphacoders.com%2F357%2Fthumb-1920-357414.jpg&f=1&nofb=1&ipt=c9e7df8efba2a0299ec40a9a0ae21e1d8c1531482b3cd69c33f9f85fbd114165&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.3VXuhlNVi0X_fIyF98MVJgHaLH%26pid%3DApi&f=1&ipt=79cd9ffb6bf65504566677e5803adce48bf44be55d2e50b6772f3fda71a978e7&ipo=images",
-        tmdbId: 0,
+        tmdbId: 1865,
         title: "Piratas do Caribe",
         subtitle: "Navegando em Águas Misteriosas",
         description: "O passado do capitão Jack Sparrow volta a alcançá-lo quando ele cruza com Angelica, uma bonita pirata que Jack, um dia, amou e depois abandonou. Ela, então, o força a acompanhá-la ao navio Vingança da Rainha Ana, do famoso Barba Negra. Junto com uma tripulação de zumbis, o trio parte em busca da lendária Fonte da Juventude. Mas o rival de Jack, Barbossa, também cobiça a fonte, assim como um navio espanhol.",
@@ -584,7 +584,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.collider.com%2Fwp-content%2Fuploads%2F2017%2F03%2Fpirates-of-the-caribbean-5-johnny-depp.jpg&f=1&nofb=1&ipt=ccf55d3c1fc2da80a67397e443fafa545234a88f76459a58671126d4c9e8e052&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Hjtzm9PBYCmc4fan8pR0tgHaK3%26pid%3DApi&f=1&ipt=7c68ae2108c33909411cc900cc500c3c717ce058d9b9737450c75e1842adf977&ipo=images",
-        tmdbId: 0,
+        tmdbId: 166426,
         title: "Piratas do Caribe",
         subtitle: "A Vingança de Salazar",
         description: "Salazar é a nova pedra no sapato do capitão Jack Sparrow. Ele lidera um exército de piratas fantasmas assassinos e está disposto a matar todos os piratas existentes na face da Terra. Para escapar, Sparrow precisa encontrar o Tridente de Poseidon, que dá ao seu dono o poder de controlar o mar.",
@@ -871,7 +871,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages3.alphacoders.com%2F676%2Fthumb-1920-676899.jpg&f=1&nofb=1&ipt=8bec20600241e7cf018f3fb2c12be2d07bdf66b835df6b24a64697d4227b0e80&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.wikia.nocookie.net%2Fdublagem%2Fimages%2F0%2F06%2FHarry_Potter_e_as_Rel%25C3%25ADquias_da_Morte_-_Parte_2_P%25C3%25B4ster.jpg%2Frevision%2Flatest%3Fcb%3D20220311022627%26path-prefix%3Dpt-br&f=1&nofb=1&ipt=15797fffd0066c14d062e42b68c5a700c27f0dbf7c5705cafb57624e1a52f1ad&ipo=images",
-        tmdbId: 0,
+        tmdbId: 12445,
         title: "Harry Potter",
         subtitle: "E as Relíquias da Morte - Parte 2",
         description: "A batalha entre as forças do bem e do mal da magia alcançam o mundo dos trouxas. O risco nunca foi tão grande, e ninguém está seguro. Harry Potter precisa fazer um sacrifício final conforme o confronto com Lord Voldemort se aproxima.",
@@ -882,7 +882,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnosbastidores.com.br%2Fwp-content%2Fuploads%2F2020%2F05%2Fharry-potter-and-the-deathly-hallows-part-1-4fdb774a1f846-1536x864.jpg&f=1&nofb=1&ipt=b86758547d5c583e42c2f5e91499197d1503fc24046093da93531b884fd93cfd&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvizer.in%2Fcontent%2Fmovies%2FposterPt%2F342%2F17858.jpg&f=1&nofb=1&ipt=5699a41bece9f4a817d441cac6bf82e3d9782d387bbafb5a62a7f5f46033e110&ipo=images",
-        tmdbId: 0,
+        tmdbId: 12444,
         title: "Harry Potter",
         subtitle: "E as Relíquias da Morte - Parte 1",
         description: "Sem a proteção de seus professores, Harry, Rony e Hermione começam uma missão para destruir as horcruxes, que são fontes da imortalidade de Voldemort. Mais do que nunca, eles dependem uns dos outros, mas forças obscuras ameaçam separá-los.",
@@ -893,7 +893,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.alphacoders.com%2F923%2Fthumb-1920-923269.jpg&f=1&nofb=1&ipt=c95040da387c4f5be307431a3e1ed49633e4286cf8af5a6211cff18df5c10002&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2F05xqDDh1nvU8cA_iI5D-bzrGrBd5s7Mw1HRp2hdgTOXTLBjk3c9iZX1ED54SVs2n2neSXQ&f=1&nofb=1&ipt=11013b31bed4ad9b10a36e640601cd91158f368a3f396f48fb287f610f138437&ipo=images",
-        tmdbId: 0,
+        tmdbId: 767,
         title: "Harry Potter",
         subtitle: "E o Enigma do Príncipe",
         description: "No sexto ano de Harry em Hogwarts, Lord Voldemort e seus Comensais da Morte estão criando o terror nos mundos bruxo e trouxa. Dumbledore convence seu velho amigo Horácio Slughorn para retornar a Hogwarts como professor de poções após Harry encontrar um estranho livro escolar. Draco Malfoy se esforça para realizar uma ação destinada por Voldemort, enquanto Dumbledore e Harry secretamente trabalham juntos a fim de descobrir o método para destruir o Lorde das Trevas uma vez por todas.",
@@ -904,7 +904,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages4.alphacoders.com%2F674%2Fthumb-1920-674451.jpg&f=1&nofb=1&ipt=9f86c772f7e90498dc856f0da8d0a095d9b02e734fb95ab2d2f1b45222541f99&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FtIf9aUyNljda9MG1pjlOLHCZ3b0.jpg&f=1&nofb=1&ipt=218323064da794fbf591c26ff362953bcf14e578b339c1d7ed745a34344f1acc&ipo=images",
-        tmdbId: 0,
+        tmdbId: 675,
         title: "Harry Potter",
         subtitle: "E a Ordem da Fênix",
         description: "Após um verão desastroso, Harry volta para o seu quinto ano em Hogwarts, um dos mais difíceis que terá de encarar. Pouquíssimos alunos e pais acreditam nele ou em Dumbledore sobre a volta de Voldemort, e uma série interminável de artigos circula dizendo que eles estão completamente malucos. Ainda por cima, Dolores Umbridge, a nova professora de Defesa Contra as Artes das Trevas, prova ser a pessoa mais repugnante que Harry já conheceu.",
@@ -915,7 +915,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fguarientoportal.com%2Fwp-content%2Fuploads%2F2021%2F07%2FHarry-Potter-e-o-Calice-de-Fogo-Critica-Filme.jpg&f=1&nofb=1&ipt=c4d24dd7da253158f9ba29d7be8f4e18624e98435ea5a583c1cfbc44e1ccf170&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.wikia.nocookie.net%2Fdublagem%2Fimages%2F9%2F96%2FHarry_Potter_e_o_C%25C3%25A1lice_de_Fogo_P%25C3%25B4ster.jpg%2Frevision%2Flatest%3Fcb%3D20220310122626%26path-prefix%3Dpt-br&f=1&nofb=1&ipt=d61078cc4f6acb3459827f33e66e3ea34de8f2a6346c1fe675207d0c7bf700fd&ipo=images",
-        tmdbId: 0,
+        tmdbId: 674,
         title: "Harry Potter",
         subtitle: "E o Cálice de Fogo",
         description: "Harry retorna para seu quarto ano na Escola de Magia e Bruxaria de Hogwarts, junto com os seus amigos Ron e Hermione. Desta vez, acontece um torneio entre as três maiores escola de magia, com um participante selecionado de cada escola, pelo Cálice de Fogo. O nome de Harry aparece, mesmo não tendo se inscrito, e ele precisa competir.",
@@ -926,7 +926,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd5d5yejrba9lo.cloudfront.net%2Fgallery-jpeg%2Fmovies%2Ffile%2Fajax%2Ffieldimage%2Fund%2Fform-xv-liporwlvawgzp-cvll3jupzq-m08csyrsvvqimoe%2Fhp3_10.jpg&f=1&nofb=1&ipt=aa96f46dc62a1b503b36150db3570b9b31d359d07938af3e1fdf226522c2a3e4&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpicfiles.alphacoders.com%2F427%2F427597.jpg&f=1&nofb=1&ipt=7f841178c9d60de403bc201b51cccdd35f0a4040b2ef41ea8bbbc7f90ba658d7&ipo=images",
-        tmdbId: 0,
+        tmdbId: 673,
         title: "Harry Potter",
         subtitle: "E o Prisioneiro de Askaban",
         description: "É o início do terceiro ano na escola de bruxaria Hogwarts. Harry, Ron e Hermione têm muito o que aprender. Mas uma ameaça ronda a escola e ela se chama Sirius Black. Após doze anos encarcerado na prisão de Azkaban, ele consegue escapar e volta para vingar seu mestre, Lord Voldemort. Para piorar, os Dementores, guardas supostamente enviados para proteger Hogwarts e seguir os passos de Black, parecem ser ameaças ainda mais perigosas.",
@@ -937,7 +937,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuploads.emaisgoias.com.br%2F2021%2F11%2Ff2544654-harry-potter.jpg&f=1&nofb=1&ipt=210bc84cafe023f7d44c60a9c7dce5a0b8b6b2c67bdcfc2fcba05061b5f732e3&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Fw1280%2F811j0Jf2D0mK1U6RxXJoZgOB29n.jpg&f=1&nofb=1&ipt=c67e9720016e6ba5d05be771c6c6a8d36ce14488e67d0b40f352fb0950a99d37&ipo=images",
-        tmdbId: 0,
+        tmdbId: 672,
         title: "Harry Potter",
         subtitle: "E a Câmara Secreta",
         description: "Após as sofríveis férias na casa dos tios, Harry Potter se prepara para voltar a Hogwarts e começar seu segundo ano na escola de bruxos. Na véspera do início das aulas, a estranha criatura Dobby aparece em seu quarto e o avisa de que voltar é um erro e que algo muito ruim pode acontecer se Harry insistir em continuar os estudos de bruxaria. O garoto, no entanto, está disposto a correr o risco e se livrar do lar problemático.",
@@ -948,7 +948,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FwSMnl4TPv6PaJjZfC776264Bzxc.jpg&f=1&nofb=1&ipt=ca34a3db7708a9bce45b3f3b352de36f3c310012198767d2ac1a9d519e2fd48e&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.35hfT42r6fSYMfzGw2ubwAAAAA%26pid%3DApi&f=1&ipt=33e1d11c9584eb6bc610cf8bae7f1566744bfbf13e209d0cebd56a93f61593d1&ipo=images",
-        tmdbId: 0,
+        tmdbId: 671,
         title: "Harry Potter",
         subtitle: "E a Pedra Filosofal",
         description: "Harry Potter é um garoto órfão que vive infeliz com seus tios, os Dursleys. Ele recebe uma carta contendo um convite para ingressar em Hogwarts, uma famosa escola especializada em formar jovens bruxos. Inicialmente, Harry é impedido de ler a carta por seu tio, mas logo recebe a visita de Hagrid, o guarda-caça de Hogwarts, que chega para levá-lo até a escola. Harry adentra um mundo mágico que jamais imaginara, vivendo diversas aventuras com seus novos amigos, Rony Weasley e Hermione Granger.",
@@ -1323,7 +1323,7 @@ export const cards: CardsProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fovicio.com.br%2Fwp-content%2Fuploads%2F2024%2F06%2F20240627-um-lugar-silencioso-dia-um-com-lupita-nyongo.webp&f=1&nofb=1&ipt=a4f6c0e8afe0bac8c34f8690644a9a4884cd1b3085fb03abe37e73cb4c171248&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FgyEnhITeHLky85XJxuTPqniPrzE.jpg&f=1&nofb=1&ipt=bd8af7bc9f3fd9b08c63e246312ce72e82ff530d15f1f137b320fdc73e93fe40&ipo=images",
-        tmdbId: 0,
+        tmdbId: 762441,
         title: "Um Lugar Silencioso",
         subtitle: "Dia Um",
         description: "Uma mulher luta pela sobrevivência durante uma invasão alienígena na cidade de Nova York.",

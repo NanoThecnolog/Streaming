@@ -23,10 +23,9 @@ export default function Card({ card }: CardProps) {
         if (card.tmdbId === 0) return
         const imageURL = await fetchTMDBPoster(card.tmdbId)
         if (!imageURL) {
-            console.log("Erro em movieData")
+            console.log("Erro ao buscar TMDBPoster")
         } else {
             setTMDBImage(imageURL)
-            console.log(imageURL)
         }
     }
     function handleClick() {
