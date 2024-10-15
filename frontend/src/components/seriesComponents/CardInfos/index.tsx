@@ -7,6 +7,8 @@ import Router from "next/router"
 import { CircleX, CircleXIcon, X } from "lucide-react"
 import { toast } from "react-toastify"
 import { SeriesProps } from "@/@types/series"
+import { useEffect, useState } from "react"
+import { serieData } from "@/services/fetchSeries"
 
 interface InfoModalProps {
     card: SeriesProps;
@@ -14,6 +16,33 @@ interface InfoModalProps {
 }
 
 export default function CardInfoSerieModal({ card, handleModalClose }: InfoModalProps) {
+    const [TMDBBackDrop, setTMDBBackDrop] = useState<string | null>(null)
+    const [overview, setOverview] = useState<string | null>(null)
+
+    useEffect(() => {
+        setTMDBBackDrop(null)
+        setOverview(null)
+
+        if (card.tmdbID === 0) {
+            setTMDBBackDrop(null)
+            setOverview(null)
+            return
+        }
+        fetchSerieData()
+    }, [card])
+    async function fetchSerieData() {
+        const serie = await serieData(card.tmdbID)
+        if (!serie || !serie.backdrop_path || !serie.overview) {
+            setTMDBBackDrop(null)
+            setOverview(null)
+            return
+        }
+        const backdropURL = `https://image.tmdb.org/t/p/original${serie.backdrop_path}`
+        setTMDBBackDrop(backdropURL)
+        setOverview(serie.overview)
+    }
+
+
 
     function modalWatchLater(title: string, subTitle?: string) {
         toast.warning("A função de adicionar filme a assistir mais tarde está temporariamente desabilitada.")
@@ -31,7 +60,7 @@ export default function CardInfoSerieModal({ card, handleModalClose }: InfoModal
 
         <div className={styles.movie_desc}>
             <div className={styles.modal_content}>
-                <div className={styles.desc_image} style={{ backgroundImage: `url(${card.background})`, backgroundPosition: 'center' }}>
+                <div className={styles.desc_image} style={{ backgroundImage: `url(${TMDBBackDrop ? TMDBBackDrop : card.background})`, backgroundPosition: 'center' }}>
                     <div className={styles.imageBackground}>
                         <div className={styles.close_btn} onClick={handleModalClose}>
                             <X size={30} />
@@ -66,7 +95,7 @@ export default function CardInfoSerieModal({ card, handleModalClose }: InfoModal
                     </p>
                 </div>
                 <div className={styles.desc_mid}>
-                    <p>{card.description}</p>
+                    <p>{overview ? overview : card.description}</p>
                 </div>
             </div>
 

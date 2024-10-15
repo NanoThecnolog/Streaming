@@ -31,16 +31,14 @@
             justify-content: flex-end;
             gap: 10px;
 
-            .gen {
-                text-shadow: 5px 5px 10px black;
-            }
+
 
 
             .titulo_principal {
                 margin: 0;
                 font-family: "Montserrat", sans-serif;
                 font-weight: 600;
-                font-size: 65px;
+                font-size: 1rem;
                 color: white;
                 text-shadow: 5px 5px 10px black;
             }
@@ -54,12 +52,16 @@
                 text-shadow: 5px 5px 10px black;
             }
 
+            .gen {
+                text-shadow: 5px 5px 10px black;
+            }
+
 
             .description {
                 display: -webkit-box;
                 -webkit-box-orient: vertical;
                 -webkit-line-clamp: 3;
-                height: 55px;
+                height: 58.5px;
                 line-clamp: 3;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -73,7 +75,7 @@
                     font-weight: 400;
                     font-size: 20px;
                     color: white;
-                    text-shadow: 2px 2px 1px black;
+                    text-shadow: 3px 3px 5px black;
                 }
             }
 
@@ -122,33 +124,15 @@
                         transform: translateY(5px) scale(1.1);
                     }
                 }
-
             }
-
-
         }
-
     }
-
-
-
-
-
-
-
-
 
     h3 {
         display: flex;
         align-items: center;
     }
-
-
-
-
 }
-
-
 
 @-webkit-keyframes fadeIn {
     0% {
@@ -439,6 +423,32 @@
 @media (min-width: 1025px) and (max-width: 1280px) {
     .top_container {
         background-position: center;
+
+        .image_container {
+            .left_side {
+                .titulo_principal {
+
+                    font-size: 3rem;
+
+                }
+
+                .subtitulo_principal {
+                    font-size: 2rem;
+                }
+
+                .gen {
+                    font-size: 1rem;
+                    font-weight: 700;
+                }
+
+                .description {
+                    p {
+                        font-size: 1rem;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -460,7 +470,7 @@
                 }
 
                 .gen {
-                    font-size: 1.4rem;
+                    font-size: 1rem;
                     font-weight: 700;
                 }
 
@@ -483,7 +493,7 @@
             .left_side {
                 .titulo_principal {
 
-                    font-size: 5rem;
+                    font-size: 4rem;
 
                 }
 
@@ -498,7 +508,7 @@
 
                 .description {
                     p {
-                        font-size: 2rem;
+                        font-size: 1.3rem;
                         font-weight: 700;
                     }
                 }

@@ -1,13 +1,14 @@
-import { MovieTMDB } from "@/@types/Cards"
+import { TMDBSeries } from "@/@types/series"
 import axios from "axios"
 
-export async function fetchTMDBMovie(tmdbID: number): Promise<MovieTMDB | null> {
+export async function serieData(tmdbID: number): Promise<TMDBSeries | null> {
     const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN
     if (!tmdbToken) {
         console.warn("Variável de ambiente TMDB não definida.")
         return null
     }
-    const tmdbUrl = 'https://api.themoviedb.org/3/movie/'
+    if (tmdbID === 0) return null
+    const tmdbUrl = 'https://api.themoviedb.org/3/tv/'
     const language = 'pt-BR'
     const endPoint = `${tmdbUrl}${tmdbID}?language=${language}`
 
@@ -18,8 +19,8 @@ export async function fetchTMDBMovie(tmdbID: number): Promise<MovieTMDB | null> 
             }
         })
         return response.data
-    } catch (err: any) {
-        console.error("Erro ao buscar imagens do filme", err)
+    } catch (err) {
+        console.error("Erro ao buscar imagens dos episódios", err)
         return null
     }
 }

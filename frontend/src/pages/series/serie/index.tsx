@@ -1,7 +1,7 @@
 import Router, { useRouter } from "next/router"
 import { useEffect, useState } from "react";
 import { series } from "@/js/series";
-import { Episodes, SeriesProps } from "@/@types/series";
+import { Episodes, SeriesProps, TMDBEpisodes } from "@/@types/series";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import styles from './styles.module.scss'
@@ -17,6 +17,8 @@ import { FiPlus } from "react-icons/fi";
 import { isOnTheList } from "@/services/isOnTheList";
 import { GetServerSideProps } from "next";
 import { serverStatus } from "@/services/verifyStatusServer";
+import { episodeImage } from "@/services/fetchEpisodeImage";
+import Image from "next/image";
 
 export default function Serie(status: { status: string }) {
     const router = useRouter()
@@ -24,18 +26,17 @@ export default function Serie(status: { status: string }) {
     const [serie, setSerie] = useState<SeriesProps>()
     const [seasonToShow, setSeasonToShow] = useState<number>(1)
     const [episodesToShow, setEpisodesToShow] = useState<Episodes[]>([])
+    const [episodesData, setEpisodesData] = useState<(TMDBEpisodes[] | null)[]>([])
     const [user, setUser] = useState<UserProps>()
     const [onWatchLater, setOnWatchLater] = useState<boolean>(false)
+    const [headTitle, setHeadTitle] = useState<string>(' ')
 
     useEffect(() => {
         const user = getCookieClient();
         if (!user) {
-            //Router.push('/login')
             return
         }
         setUser(user)
-        //console.log(user)
-        //isOnTheList();
     }, [])
 
     useEffect(() => {
@@ -50,6 +51,7 @@ export default function Serie(status: { status: string }) {
             const episodes = serie.season[seasonToShow - 1]?.episodes
             setEpisodesToShow(episodes)
         }
+        fetchEpisodes()
 
         const onList: Promise<boolean> = isOnTheList(serie.title, serie.subtitle)
         onList.then(result => {
@@ -59,9 +61,20 @@ export default function Serie(status: { status: string }) {
                 setOnWatchLater(true)
             }
         })
-
-
+        const titulo = `${serie.title} ${serie.subtitle ? `- ${serie.subtitle}` : ''}`
+        setHeadTitle(titulo)
     }, [serie, seasonToShow])
+
+    async function fetchEpisodes() {
+        if (!serie) return
+        const episodesArray = await Promise.all(
+            serie.season.map(async temp => {
+                const episodes = await episodeImage(serie.tmdbID, temp.s)
+                return episodes
+            })
+        )
+        setEpisodesData(episodesArray)
+    }
 
     function handleChangeSeason(value: string) {
         const season = parseInt(value)
@@ -107,14 +120,15 @@ export default function Serie(status: { status: string }) {
     return (
         <>
             <Head>
-                <title>{serie?.title} {serie?.subtitle && serie.subtitle != '' && `- ${serie.subtitle}`} | FlixNext</title>
-                <meta name="description" content={serie?.description} />
+                <title>{headTitle} | FlixNext</title>
+                <meta name="description" content={serie?.description || "Descrição indisponível"} />
             </Head>
             <section className={styles.container}>
-                <Header status={status} />
+                <Header userAvatar={user?.avatar} status={status} />
                 {serie ?
                     (
                         <div className={styles.serieContainer} style={{ backgroundImage: `url(${serie?.background})`, backgroundRepeat: 'no-repeat' }}>
+
                             <div className={styles.imageBackground}>
                                 <div className={styles.desc_top}>
                                     <div className={styles.title}>
@@ -158,14 +172,27 @@ export default function Serie(status: { status: string }) {
                                         </select>
                                     </div>
                                     <div className={styles.cardContainer}>
-                                        {episodesToShow.map((ep, index) => (
-                                            <div key={index} className={styles.episodeButton}>
-                                                <button type="button" onClick={() => handlePlayEpisode(ep, seasonToShow)}>
-                                                    <h3>Episódio {ep.ep}</h3>
-                                                    <p>{ep.duration}</p>
-                                                </button>
-                                            </div>
-                                        ))}
+                                        {
+                                            episodesToShow.map((ep) => {
+                                                const season = episodesData[seasonToShow - 1];
+                                                const episode = season?.find(e => e.episode_number === ep.ep)
+                                                const image = `https://image.tmdb.org/t/p/original${episode?.still_path}`
+                                                return (
+                                                    <div className={styles.episodeContainer} onClick={() => handlePlayEpisode(ep, seasonToShow)}>
+                                                        <div
+                                                            key={ep.src}
+                                                            className={styles.episodeImage}
+                                                            style={{ backgroundImage: `url(${image})` }}
+                                                        ></div>
+                                                        <div className={styles.epiInfo}>
+                                                            <h3>Ep.{ep.ep}: {episode?.name}</h3>
+                                                            <p>Duração: {ep.duration}</p>
+                                                            <p className={styles.description} title={episode?.overview}>{episode?.overview}</p>
+                                                        </div>
+                                                    </div>
+                                                )
+                                            })
+                                        }
                                     </div>
                                 </div>
                             </div>

@@ -5,6 +5,7 @@ export const series: SeriesProps[] = [
     {
         background: "",
         overlay: "",
+        tmdbID: 0,        
         title: "",
         subtitle: "",
         description: "",
@@ -26,6 +27,7 @@ export const series: SeriesProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages7.alphacoders.com%2F129%2F1293054.jpg&f=1&nofb=1&ipt=a2884a2b57046f4939a940cc93556f8ddcd12cc046783ecefb54e5b09a241109&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.TUoBpSRnSy0Eq_hkC7zh9gHaJ4%26pid%3DApi&f=1&ipt=e2b38356a75ec352f1bcc111c6afd2fcfffcb6bfc7a18e0f6a166862033f5eea&ipo=images",
+        tmdbID: 87689,
         title: "Warrior Nun",
         subtitle: "",
         description: "Warrior Nun é uma série de ação e aventura da Netflix que conta a história de Ava Silva (Alba Baptista), uma jovem que acorda em um necrotério e descobre que tem superpoderes e faz parte de uma seita secreta de freiras guerreiras",
@@ -136,6 +138,7 @@ export const series: SeriesProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnerdizmo.ig.com.br%2Fwp-content%2Fuploads%2F2024%2F07%2FBatman-Cruzado-Encapuzado-Previa-Img1.jpg&f=1&nofb=1&ipt=88f64a2c73a1efd3c0f488d56ede331338b48499b567e258a6dd43a9be788109&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.dDG148-Sc3x5BPuiQb35wgHaK9%26pid%3DApi&f=1&ipt=420e4a375d4e16ea071f828fffbc44ddd78d72f69f5791112246915c9f1408a2&ipo=images",
+        tmdbID: 125909,
         title: "Batman",
         subtitle: "Cruzado Encapuzado",
         description: "A série se passa em Gotham City, uma cidade onde os criminosos dominam e os cidadãos vivem em medo. O socialite Bruce Wayne se torna o Batman após uma tragédia pessoal. O Batman luta contra o crime sozinho, mas atrai aliados do Departamento de Polícia e da Prefeitura.",
@@ -201,6 +204,7 @@ export const series: SeriesProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblogger.googleusercontent.com%2Fimg%2Fb%2FR29vZ2xl%2FAVvXsEhVfGAOE9QAS3RvqT3DMd5vvBHjQH-otHpvrCSNet1lqe3n_bEN-stZMJywZCvseDHhzNKa9W1C0nKK3TluCdb3R_AH-bSPZNX9BDP08SHNpPYf4aRMEoKHdeY-rEkpwnVxVOP1C6bark6Q_-snymqAmt0wkLpL1o_GcTZPPkQio9EM63p46WnoQF06TA%2Fs2048%2FOuter%2520Banks.jpg&f=1&nofb=1&ipt=2a07a087033854a7648816e0dacebb83503a5ebd6249dcba2c9acec68ecf720f&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.WK59lkKTeiGlqXbg2nykOwHaPo%26pid%3DApi&f=1&ipt=4ea2e22216728397bb99e732260c17d022d36a810dd4f4ae531a79330fd1581b&ipo=images",
+        tmdbID: 100757,
         title: "Outer Banks",
         subtitle: "",
         description: "O jovem John convoca seus melhores amigos para procurarem por um tesouro ligado ao desaparecimento de seu pai. Aos poucos, o grupo vai entrando em uma perigosa trama de segredos e perigos.",
@@ -408,6 +412,7 @@ export const series: SeriesProps[] = [
     {
         background: "https://images6.fanpop.com/image/photos/32400000/Death-Note-death-note-32414092-3917-3000.jpg",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.8rdzpvnK9AnAp1QpqPQWnQHaLF%26pid%3DApi&f=1&ipt=1f3034527c5ed282405f5510d1f8f8bacfef751ccec46f0c16d68ba3b5a3e0ad&ipo=images",
+        tmdbID: 13916,
         title: "Death Note",
         subtitle: "",
         description: "Um inteligente estudante do ensino médio embarca em uma cruzada secreta para eliminar os criminosos do mundo depois de descobrir um caderno capaz de matar qualquer pessoa cujo nome está escrito nele.",
@@ -608,7 +613,8 @@ export const series: SeriesProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.odcdn.com.br%2Fwp-content%2Fuploads%2F2024%2F06%2Fcasa-do-dragao-1.jpg&f=1&nofb=1&ipt=298418c2df6dbdee61eb3ef193308bed69b0f7aa58f1f644e1fc22ee4158232d&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.1V8BhJ36qNQ-9gmpsWpinAHaLH%26pid%3DApi&f=1&ipt=bd6e7329ad20dba58cb6a0ab264507c55731dcaea58880ba5a1d7189f72d0ec3&ipo=images",
-        title: "Casa do Dragão",
+        tmdbID: 94997,
+        title: "A Casa do Dragão",
         subtitle: "",
         description: "A Casa do Dragão é uma série de TV norte-americana que conta a história de uma guerra civil entre a Casa Targaryen, que se passa 200 anos antes dos eventos de Game of Thrones",
         genero: ["Fantasia", "Ficção Científica", "HBO"],
@@ -709,6 +715,7 @@ export const series: SeriesProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsomosg.com%2Fwp-content%2Fuploads%2F2022%2F09%2FDAHMER.jpg&f=1&nofb=1&ipt=42840217ae44c2220f914ed5b35afb0a88d8dd1fc8af8588f09bd08300bb1d65&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.CXD1L5BA0X9WPYgPpwww2gHaLH%26pid%3DApi&f=1&ipt=8e4629014973f4c732dbb9ad7bcec5be56c9aedb0d9bfe91b13384b2be73d9f7&ipo=images",
+        tmdbID: 113988,
         title: "Dahmer",
         subtitle: "Um Canibal Americano",
         description: "Por mais de uma década, Jeffrey Dahmer conseguiu matar 17 jovens rapazes sem levantar suspeitas da polícia. Como ele conseguiu evitar a prisão por tanto tempo? Assista o quanto quiser. Evan Peters, Richard Jenkins e Niecy Nash estrelam esta série policial com produção executiva de Peters e Ryan Murphy.",
@@ -765,6 +772,7 @@ export const series: SeriesProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuploads-observatoriodocinema.seox.com.br%2F2024%2F08%2FO-Exterminador-do-Futuro-Zero.webp&f=1&nofb=1&ipt=398577cc036df99aa53e31eb848801e541250590d42377f1ad6241cc463a7aea&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.zsGzypsSZNX-G9GjoHGgnAAAAA%26pid%3DApi&f=1&ipt=b2fef44f40f40a9e899700d4b468392a8c51095e2b9676c0f254f621d1c07c21&ipo=images",
+        tmdbID: 239287,
         title: "O Exterminador do Futuro",
         subtitle: "Zero",
         description: "Em 1997, um cientista atormentado deixa a família de lado por um projeto. Em 2022, uma guerreira rebelde luta contra um poderoso robô por conta de dados vitais.",
@@ -814,6 +822,7 @@ export const series: SeriesProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F8zLyVhEsH6SM9diX7CUUWcaRlk0.jpg&f=1&nofb=1&ipt=81b9b6aed35c66bcf2fa0a333faac41cc152013bfe27c44ae9871a330bc5f574&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.fzjrykEbnQfXDgzAUVAXuQHaK9%26pid%3DApi&f=1&ipt=6cc2259eda233ab809b068b9b5a1ceb2abf961f244052dd7c4b8e96cdf58509b&ipo=images",
+        tmdbID: 218342,
         title: "Manual de Assassinato para Boas Garotas",
         subtitle: "",
         description: "Cinco anos após o assassinato de uma adolescente de 17 anos em uma cidadezinha inglesa pacata, uma estudante decide investigar o caso.",
@@ -860,6 +869,7 @@ export const series: SeriesProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdiscussingfilm.net%2Fwp-content%2Fuploads%2F2020%2F07%2FUA-3-859176066-1595879190645.jpg&f=1&nofb=1&ipt=1850193f57df1c16b63b1fdd359c7eb57055596f5ea8c1c6df2e404358236178&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpics.filmaffinity.com%2Fthe_umbrella_academy-794888543-large.jpg&f=1&nofb=1&ipt=41acad8c0545834d5522507a076e3a28d994c8806dfdd6b6022c9d119975a7db&ipo=images",
+        tmdbID: 75006,
         title: "The Humbrella Academy",
         subtitle: "",
         description: "Irmãos com poderes extraordinários se reúnem depois de passar muito tempo afastados e descobrem surpreendentes segredos de família. A família enfrenta viagens no tempo, assassinos e o fim do mundo.",
@@ -1073,6 +1083,7 @@ export const series: SeriesProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fq8eejQcg1bAqImEV8jh8RtBD4uH.jpg&f=1&nofb=1&ipt=881cd6df8563c736501ee55991218003a2a09940d251ddd3cf20f6b694d43384&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd32qys9a6wm9no.cloudfront.net%2Fimages%2Ftvs%2Fposter%2F4d%2Fd0b05584a1cfaee4f72007a11e347968_original.jpg%3Ft%3D1620276565&f=1&nofb=1&ipt=04060103f7e907ed5c6a235eceb8ad927387ce2a1a17205fa6b5648b096e41b8&ipo=images",
+        tmdbID: 94605,
         title: "Arcane",
         subtitle: "League of Legends",
         description: "Em meio ao conflito entre as cidades-gêmeas de Piltover e Zaun, duas irmãs lutam em lados opostos de uma guerra entre tecnologias mágicas e convicções incompatíveis.",
@@ -1134,6 +1145,7 @@ export const series: SeriesProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.gamearena.gg%2Fwp-content%2Fuploads%2F2024%2F07%2F24165646%2Fcolin-farrell.jpeg&f=1&nofb=1&ipt=5ccfe6e7afd9eedcbbb1ee3f0297f4d835a4dbd2dd5f8b8ec31859e4ee792430&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP._GH6JH9JunA0_k7Huv4JcQHaLH%26pid%3DApi&f=1&ipt=d2a27d958bf8f3c0feb40e0b4c57edb4ee638500cf4197d32630f45b3db592c0&ipo=images",
+        tmdbID: 194764,
         title: "Pinguim",
         subtitle: "",
         description: "Colin Farrell retorna como Oswald 'Oz' Cobb, O Pinguim, para conquistar Gotham neste novo capítulo da saga Batman de Matt Reeves.",
@@ -1165,6 +1177,7 @@ export const series: SeriesProps[] = [
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.portalimparcial.com.br%2Fwp-content%2Fuploads%2F2022%2F08%2Fcropped-trilha-sonora-aneis-do-poder-scaled-e1660920771134.jpg&f=1&nofb=1&ipt=944726d2d698f80a08f812d923ee94941f8f8b26eb57a3ea522a517efa83f7a1&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Fw1280%2FutAMIYnHweINM2jiMJYII9ILCw2.jpg&f=1&nofb=1&ipt=6d0b7a70fdba3360cd7bc12c6ded4df4e7c9cda2dd9ffb5d9225e15ba575d54f&ipo=images",
+        tmdbID: 84773,
         title: "O Senhor dos Aneis",
         subtitle: "Os Aneis de Poder",
         description: "Antes da jornada de Frodo pela Terra-Média, a Segunda Era foi palco de diversas lendas heróicas. O drama épico que se passa milhares de anos antes de A Sociedade do Anel, tem foco em um momento da história em que grandes poderes foram forjados, reinos ascenderam e também ruíram, ao mesmo tempo em que heróis foram testados e tiveram a esperança quase aniquilada pelo grande vilão do universo de Senhor dos Anéis. A série começa em um momento de paz, quando o elenco de novos e antigos personagens precisam enfrentar o ressurgimento do mal, vindo das profundezas mais escuras das Montanhas Sombrias. Os reinos e personagens irão esculpir legados que viverão por muito tempo depois que eles se forem.",

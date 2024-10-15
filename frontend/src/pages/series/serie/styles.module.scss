@@ -14,32 +14,30 @@
 
 
 
+
     .serieContainer {
         width: 100%;
-        //height: 100%;
+        height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         background-position: top;
 
-
-
-
         .imageBackground {
             width: 100%;
-            //height: 100%;
+            height: 100%;
             background: rgb(20, 20, 20);
             background: linear-gradient(0deg,
-                    rgba(20, 20, 20, 1) 35%,
+                    rgba(20, 20, 20, 1) 55%,
                     rgba(255, 255, 255, 0) 100%);
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
+            z-index: 2;
 
 
             .desc_top {
                 padding: 20rem 4rem 2rem 4rem;
-
 
                 .seasons {
                     padding: 0.4rem 0;
@@ -126,27 +124,39 @@
                     margin-top: 2rem;
                     gap: 12px;
 
-                    .episodeButton {
+                    .episodeContainer {
+                        height: 300px;
                         width: 350px;
-                        height: 150px;
+                        background-color: rgba(0, 0, 0, .9);
+                        transition: .2s;
+                        cursor: pointer;
 
-                        button {
-                            background-color: #1e1e1e;
-                            color: var(--white);
-                            border: none;
-                            padding: .4rem;
-                            width: 100%;
-                            height: 100%;
-                            cursor: pointer;
-                            transition: all .2s;
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: center;
-                            align-items: center;
-                            gap: 12px;
+                        &:hover {
+                            transform: scale(1.05);
+                        }
 
-                            &:hover {
-                                transform: scale(1.05);
+
+                        .episodeImage {
+                            width: 350px;
+                            height: 180px;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            background-size: cover;
+                            background-color: #141414;
+                        }
+
+                        .epiInfo {
+                            padding: 15px 10px;
+
+                            .description {
+                                font-style: italic;
+                                line-clamp: 3;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                height: 55px;
+                                display: -webkit-box;
+                                -webkit-box-orient: vertical;
+                                -webkit-line-clamp: 3;
                             }
                         }
                     }

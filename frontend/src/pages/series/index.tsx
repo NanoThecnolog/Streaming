@@ -8,9 +8,12 @@ import Footer from "@/components/Footer";
 import Head from "next/head";
 import { GetServerSideProps } from "next";
 import { serverStatus } from "@/services/verifyStatusServer";
+import { getCookieClient } from "@/services/cookieClient";
+import { UserProps } from "@/@types/user";
 
 export default function Series(status: { status: string }) {
     const [cardPerContainer, setCardPerContainer] = useState<number>(5)
+    const [user, setUser] = useState<UserProps>()
 
     const divisaoPorGenero = [
         "ação",
@@ -25,6 +28,14 @@ export default function Series(status: { status: string }) {
         "prime video",
         "dc",
     ]
+
+    useEffect(() => {
+        const user = getCookieClient();
+        if (!user) {
+            return
+        }
+        setUser(user)
+    }, [])
 
     useEffect(() => {
         function handleResize() {
@@ -86,7 +97,7 @@ export default function Series(status: { status: string }) {
             </Head>
             <main className={styles.main}>
                 <div className={styles.content}>
-                    <Header status={status} />
+                    <Header userAvatar={user?.avatar} status={status} />
                     <TopSerie />
                     <div className={styles.mid}>
                         {divisaoPorGenero.map((sec, index) => (

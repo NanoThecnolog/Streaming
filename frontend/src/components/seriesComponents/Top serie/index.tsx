@@ -5,11 +5,14 @@ import styles from './styles.module.scss'
 import { useEffect, useState } from 'react';
 import Router from 'next/router';
 import { toast } from 'react-toastify';
+import { serieData } from '@/services/fetchSeries';
 
 
 export default function TopSerie() {
     const [cardOn, setCardOn] = useState(0)
     const [fade, setFade] = useState('fadeIn')
+    const [TMDBBackDrop, setTMDBBackDrop] = useState<string | null>(null)
+    const [TMDBPoster, setTMDBPoster] = useState<string | null>(null)
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -21,6 +24,28 @@ export default function TopSerie() {
         }, 10000)
         return () => clearInterval(interval)
     }, [])
+    useEffect(() => {
+        setTMDBBackDrop(null)
+        setTMDBPoster(null)
+        if (series[cardOn].tmdbID === 0) {
+            setTMDBBackDrop(null)
+            setTMDBPoster(null)
+            return
+        }
+        fetchSerieData()
+    }, [cardOn])
+    async function fetchSerieData() {
+        const serie = await serieData(series[cardOn].tmdbID)
+        if (!serie || !serie.backdrop_path || !serie.poster_path) {
+            setTMDBBackDrop(null)
+            setTMDBPoster(null)
+            return
+        }
+        const backdropURL = `https://image.tmdb.org/t/p/original${serie.backdrop_path}`
+        const posterURL = `https://image.tmdb.org/t/p/original${serie.poster_path}`
+        setTMDBBackDrop(backdropURL)
+        setTMDBPoster(posterURL)
+    }
 
     function handleEpisodes(title: string) {
         const serie = new URLSearchParams({
@@ -42,7 +67,7 @@ export default function TopSerie() {
     }
 
     return (
-        <div className={`${styles.top_container} ${styles[fade]}`} style={{ backgroundImage: `url(${series[cardOn].background})` }}>
+        <div className={`${styles.top_container} ${styles[fade]}`} style={{ backgroundImage: `url(${TMDBBackDrop ? TMDBBackDrop : series[cardOn].background})` }}>
             <div className={styles.image_container} id="inicio">
                 <div className={styles.left_side}>
                     <h1 id="titulo-principal">{series[cardOn].title.toUpperCase()}</h1>

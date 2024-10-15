@@ -19,6 +19,7 @@ import { getCookieClient } from "@/services/cookieClient";
 import { isOnTheList } from "@/services/isOnTheList";
 import Router from "next/router";
 import { addWatchLater } from "@/services/addWatchLater";
+import { serieData } from "@/services/fetchSeries";
 
 
 interface CardProps {
@@ -34,6 +35,7 @@ export default function Card({ card, section, modalWatchLater }: CardProps) {
     const [user, setUser] = useState<UserProps>()
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [modalVisible, setModalVisible] = useState<boolean>(false)
+    const [TMDBPoster, setTMDBPoster] = useState<string | null>(null)
 
     useEffect(() => {
         const user = getCookieClient();
@@ -46,6 +48,23 @@ export default function Card({ card, section, modalWatchLater }: CardProps) {
     useEffect(() => {
         onList(card.title, card.subtitle)
     }, [card])
+    useEffect(() => {
+        setTMDBPoster(null)
+        if (card.tmdbID === 0) {
+            setTMDBPoster(null)
+            return
+        }
+        fetchSerieData()
+    }, [card])
+    async function fetchSerieData() {
+        const serie = await serieData(card.tmdbID)
+        if (!serie || !serie.poster_path) {
+            setTMDBPoster(null)
+            return
+        }
+        const posterURL = `https://image.tmdb.org/t/p/original${serie.poster_path}`
+        setTMDBPoster(posterURL)
+    }
     async function onList(title: string, subtitle?: string) {
         const onList: Promise<boolean> = isOnTheList(title, subtitle)
         onList.then(result => {
@@ -94,7 +113,7 @@ export default function Card({ card, section, modalWatchLater }: CardProps) {
         <>
             <div className={styles.card} id={card.genero[0].toLowerCase()}>
                 <Image
-                    src={card.overlay}
+                    src={TMDBPoster ? TMDBPoster : card.overlay}
                     alt={card.title}
                     fill
                     placeholder="blur"

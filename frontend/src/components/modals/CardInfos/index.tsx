@@ -1,4 +1,4 @@
-import { CardsProps } from "@/@types/Cards"
+import { CardsProps, MovieTMDB } from "@/@types/Cards"
 import styles from './styles.module.scss'
 import { IoCloseCircle } from "react-icons/io5"
 import { FaCirclePlay } from "react-icons/fa6"
@@ -14,6 +14,7 @@ import { addWatchLater } from "@/services/addWatchLater"
 import { FaCheck } from "react-icons/fa"
 import { fetchTMDBPoster } from "@/services/fetchTMDBPoster"
 import { fetchTMDBBackDrop } from "@/services/fetchTMDBBackDrop"
+import { fetchTMDBMovie } from "@/services/fetchTMDBMovie"
 
 interface InfoModalProps {
     card: CardsProps;
@@ -25,6 +26,7 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [user, setUser] = useState<UserProps>()
     const [TMDBImage, setTMDBImage] = useState<string | null>(null)
+    const [TMDBMovie, setTMDBMovie] = useState<MovieTMDB | null>(null)
 
     useEffect(() => {
         const user = getCookieClient();
@@ -51,6 +53,22 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
             console.log(imageURL)
         }
     }
+    useEffect(() => {
+        setTMDBMovie(null)
+        if (card.tmdbId === 0) {
+            setTMDBMovie(null)
+            return
+        }
+        fetchMovieData()
+    }, [card])
+    async function fetchMovieData() {
+        const movie = await fetchTMDBMovie(card.tmdbId)
+        if (!movie) {
+            setTMDBMovie(null)
+            return
+        }
+        setTMDBMovie(movie)
+    }
 
     async function onList(title: string, subtitle?: string) {
         const onList: Promise<boolean> = isOnTheList(title, subtitle)
@@ -70,7 +88,7 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
             if (isLoading) return
             setIsLoading(true)
             if (!user) return Router.push('/login')
-            const addFilme = await addWatchLater(user.id, card.title, card.subtitle);
+            await addWatchLater(user.id, card.title, card.subtitle);
             await onList(card.title, card.subtitle)
         } catch (err: any) {
             if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
@@ -141,7 +159,7 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
                     </p>
                 </div>
                 <div className={styles.desc_mid}>
-                    <p>{card.description}</p>
+                    <p>{TMDBMovie ? TMDBMovie.overview : card.description}</p>
                 </div>
             </div>
 
