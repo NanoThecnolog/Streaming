@@ -31,7 +31,6 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
     useEffect(() => {
         const user = getCookieClient();
         if (!user) {
-            //Router.push('/login')
             return
         }
         setUser(user)
@@ -50,7 +49,6 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
             console.log("Erro em movieData")
         } else {
             setTMDBImage(imageURL)
-            console.log(imageURL)
         }
     }
     useEffect(() => {
@@ -80,9 +78,6 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
             }
         })
     }
-
-
-
     async function modalWatchLater() {
         try {
             if (isLoading) return
@@ -112,7 +107,6 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
     }
 
     return (
-
         <div className={styles.movie_desc}>
             <div className={styles.modal_content}>
                 <div className={styles.desc_image} style={{
@@ -134,7 +128,6 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
                         <div className={styles.watch} onClick={handlePlay}>
                             <h3>Play</h3>
                             <FaCirclePlay size={35} color="#fff" />
-
                         </div>
                         <div className={styles.queue} onClick={() => modalWatchLater()}>
                             {onWatchLater ?

@@ -2,13 +2,17 @@ import { series } from '@/js/series'
 import { FaCirclePlay } from "react-icons/fa6";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import styles from './styles.module.scss'
-import { useEffect, useState } from 'react';
+import { DO_NOT_USE_OR_YOU_WILL_BE_FIRED_EXPERIMENTAL_REACT_NODES, useEffect, useState } from 'react';
 import Router from 'next/router';
 import { toast } from 'react-toastify';
 import { serieData } from '@/services/fetchSeries';
 
+interface TopSerieProps {
+    width?: number
+}
 
-export default function TopSerie() {
+
+export default function TopSerie({ width }: TopSerieProps) {
     const [cardOn, setCardOn] = useState(0)
     const [fade, setFade] = useState('fadeIn')
     const [TMDBBackDrop, setTMDBBackDrop] = useState<string | null>(null)
@@ -67,10 +71,15 @@ export default function TopSerie() {
     }
 
     return (
-        <div className={`${styles.top_container} ${styles[fade]}`} style={{ backgroundImage: `url(${TMDBBackDrop ? TMDBBackDrop : series[cardOn].background})` }}>
+        <div className={`${styles.top_container} ${styles[fade]}`} style={{
+            backgroundImage:
+                width && width <= 780 ?
+                    `url(${TMDBPoster ? TMDBPoster : series[cardOn].overlay})` :
+                    `url(${TMDBBackDrop ? TMDBBackDrop : series[cardOn].background})`
+        }}>
             <div className={styles.image_container} id="inicio">
                 <div className={styles.left_side}>
-                    <h1 id="titulo-principal">{series[cardOn].title.toUpperCase()}</h1>
+                    <h1 className={styles.titulo_principal}>{series[cardOn].title.toUpperCase()}</h1>
                     {series[cardOn].subtitle && (
                         <h3 className={styles.subtitulo_principal}>{series[cardOn].subtitle}</h3>
                     )}

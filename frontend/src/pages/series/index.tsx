@@ -14,6 +14,7 @@ import { UserProps } from "@/@types/user";
 export default function Series(status: { status: string }) {
     const [cardPerContainer, setCardPerContainer] = useState<number>(5)
     const [user, setUser] = useState<UserProps>()
+    const [width, setWidth] = useState<number>()
 
     const divisaoPorGenero = [
         "ação",
@@ -40,6 +41,7 @@ export default function Series(status: { status: string }) {
     useEffect(() => {
         function handleResize() {
             const width = window.innerWidth;
+            setWidth(width)
 
             if (width < 780) {
                 setCardPerContainer(1)
@@ -98,7 +100,7 @@ export default function Series(status: { status: string }) {
             <main className={styles.main}>
                 <div className={styles.content}>
                     <Header userAvatar={user?.avatar} status={status} />
-                    <TopSerie />
+                    <TopSerie width={width} />
                     <div className={styles.mid}>
                         {divisaoPorGenero.map((sec, index) => (
                             <div key={index}>

@@ -112,7 +112,7 @@ export default function Header({ userAvatar, status }: HeaderProps) {
                     <AlignJustify />
                     {menuvisible &&
                         <div className={styles.dropdownMenu}>
-                            <button type="button" onClick={() => Router.push('/#ação')}>filmes</button>
+                            <button type="button" onClick={() => Router.push('/')}>filmes</button>
                             <div className={styles.divider}></div>
                             <button type="button" onClick={() => Router.push('/series')}>series</button>
                         </div>

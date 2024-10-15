@@ -214,27 +214,23 @@
 @media (max-width: 375px) {
     .top_container {
         height: 10%;
-        //background-color: red;
         background-size: contain;
-
         justify-content: flex-end;
-
 
         .image_container {
             background: rgb(24, 24, 24);
             background: linear-gradient(0deg,
-                    rgba(20, 20, 20, 1) 72%,
-                    rgba(255, 255, 255, 0) 84%);
+                    rgba(20, 20, 20, 1) 40%,
+                    rgba(255, 255, 255, 0) 55%);
 
             .left_side {
                 justify-content: center;
                 width: 100%;
-                //padding-left: 0;
-                padding: 120px 25px 0 25px;
+                height: 100%;
 
-                h1 {
+                .titulo_principal {
                     font-size: 2rem;
-
+                    padding-top: 140%;
                 }
 
                 .subtitulo_principal {
@@ -255,7 +251,6 @@
                     //background-color: red;
 
                     .watch {
-
                         display: flex;
                         justify-content: center;
                     }
@@ -277,26 +272,23 @@
 @media (min-width: 375.1px) and (max-width: 560px) {
     .top_container {
         height: 10%;
-        //background-color: red;
         background-size: contain;
-
         justify-content: flex-end;
-
 
         .image_container {
             background: rgb(24, 24, 24);
             background: linear-gradient(0deg,
-                    rgba(20, 20, 20, 1) 67%,
-                    rgba(255, 255, 255, 0) 83%);
+                    rgba(20, 20, 20, 1) 40%,
+                    rgba(255, 255, 255, 0) 53%);
 
             .left_side {
                 justify-content: center;
                 width: 100%;
-                //padding-left: 0;
-                padding: 120px 25px 0 25px;
+                height: 100%;
 
-                h1 {
+                .titulo_principal {
                     font-size: 2rem;
+                    padding-top: 120%;
 
                 }
 
@@ -337,30 +329,28 @@
 }
 
 //telas Tablets (disp. medios)
-@media (min-width: 560.1px) and (max-width: 768px) {
+@media (min-width: 560.1px) and (max-width: 767.9px) {
     .top_container {
         height: 10%;
-        //background-color: red;
         background-size: contain;
-
         justify-content: flex-end;
-
 
         .image_container {
             background: rgb(24, 24, 24);
             background: linear-gradient(0deg,
-                    rgba(20, 20, 20, 1) 40%,
-                    rgba(255, 255, 255, 0) 80%);
+                    rgba(20, 20, 20, 1) 52%,
+                    rgba(255, 255, 255, 0) 65%);
+            height: 130vh;
 
             .left_side {
                 justify-content: center;
                 width: 100%;
-                //padding-left: 0;
-                padding: 120px 25px 0 25px;
+                height: 100%;
 
-                h1 {
+
+                .titulo_principal {
                     font-size: 2rem;
-
+                    padding-top: 40%;
                 }
 
                 .subtitulo_principal {
@@ -400,7 +390,7 @@
 }
 
 //telas notebooks e monitores pequenos
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
     .top_container {
         background-position: center;
     }
