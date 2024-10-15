@@ -178,9 +178,8 @@ export default function Serie(status: { status: string }) {
                                                 const episode = season?.find(e => e.episode_number === ep.ep)
                                                 const image = `https://image.tmdb.org/t/p/original${episode?.still_path}`
                                                 return (
-                                                    <div className={styles.episodeContainer} onClick={() => handlePlayEpisode(ep, seasonToShow)}>
+                                                    <div key={ep.src} className={styles.episodeContainer} onClick={() => handlePlayEpisode(ep, seasonToShow)}>
                                                         <div
-                                                            key={ep.src}
                                                             className={styles.episodeImage}
                                                             style={{ backgroundImage: `url(${image})` }}
                                                         ></div>
