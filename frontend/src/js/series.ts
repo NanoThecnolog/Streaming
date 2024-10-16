@@ -18,12 +18,68 @@ export const series: SeriesProps[] = [
                         ep: 1,
                         src: "",
                         duration: ""
-                    }
+                    },
+                ]
+            },
+        ]
+    },
+    */
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cnnbrasil.com.br%2Fwp-content%2Fuploads%2Fsites%2F12%2F2024%2F05%2Fjake-gyllenhaal-serie.jpg&f=1&nofb=1&ipt=360db108238b16d6c908e5a69a559e2896ada6380bbccce693517def17506590&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.GJnNq6GwmVdPt7AQUnjBAQHaLG%26pid%3DApi&f=1&ipt=81f8fa456d860816ac3af4936d636be6aa3dc8e6433b9d338c203dec3c47d428&ipo=images",
+        tmdbID: 156933,
+        title: "Acima de Qualquer Suspeita",
+        subtitle: "",
+        description: "Um assassinato hediondo deixa o escritório da Promotoria de Justiça de Chicago de cabeça para baixo quando um dos funcionários é suspeito do crime, o que deixa o acusado lutando para manter sua família unida.",
+        genero: ["Drama", "Mistério", "Apple TV"],
+        season: [
+            {
+                s: 1,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1c7J-tWjJ8qUfZoTA5HDamhscjfSDpERr/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1yCkG9TTZgDsf3y9rZYgeJYrad2BtAqMw/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1nnXv2vol-M8O7bej8N8ryJbDL0zyeYur/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1uOSNXsRGlfUvCXENGAwjIx6EMmLAIpzs/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1EAwnOl-RoDXFYg9WVLp85-FErI72IYN3/preview",
+                        duration: "40m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1zIPdENmuVGRGAH-_EGzy6318REzJ-3FX/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1A2CzhP5AOGKAFnxZGcrQbj9bdU6n31xx/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1XS9hubpTfBslG-0m9-kFaS1TfdJ_LiNq/preview",
+                        duration: "50m"
+                    },
                 ]
             }
         ]
     },
-    */
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FseddLBvNOW9QK3j8uaJT0CSkVhI.jpg&f=1&nofb=1&ipt=4df5b00a7feb56e3f518d079df39bffc97547ad604b3161bde2a8a5b79814dbc&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.ATkbreHb8kx4wLcfyGJLkwHaLH%26pid%3DApi&f=1&ipt=6296bad3d90349e7907e6bfb76771651a11634bbd9dd8662654bfa52e2858347&ipo=images",

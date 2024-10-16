@@ -21,6 +21,39 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fe86BQFrxPtDZwv4CfzfJJFufUAm.jpg&f=1&nofb=1&ipt=9e1c3c12718695edbc8a0ffa1108e5767557f55db7a31065417cc162207e0018&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.eExGvVyOCxBvFlnjDfS6BAHaLH%26pid%3DApi&f=1&ipt=553ef68e3e1a8654fb8313ba174ba4d8705df5d8151d9ef35c11e12c069de1a4&ipo=images",
+        tmdbId: 840705,
+        title: "Pisque Duas Vezes",
+        subtitle: "",
+        description: "Quando o bilionário de tecnologia Slater King conhece a garçonete Frida em sua gala de arrecadação de fundos, faíscas voam. Ele a convida para se juntar a ele e seus amigos nas férias dos sonhos em sua ilha particular. Noites selvagens se misturam com dias ensolarados e todos estão se divertindo. Ninguém quer que esta viagem acabe, mas à medida que coisas estranhas começam a acontecer, Frida começa a questionar a sua realidade. Há algo errado com este lugar. Ela terá que descobrir a verdade se quiser sair viva desta festa.",
+        src: "https://drive.google.com/file/d/1-NRs0n39k6JqyIZqhOF3BrhSYz9SEbXL/preview",
+        duration: "1h 42m",
+        genero: ["Mistério", "Suspense", "Terror"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fodia.ig.com.br%2F_midias%2Fjpg%2F2024%2F07%2F19%2Fcaptura_de_tela_2024_07_19_153518-33470209.jpg&f=1&nofb=1&ipt=ff1621178615f38b4e00f508d6f84c382efa14c89fd58165d78284a81eeeb13c&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.aUjKMKgIbYDs8rCA3Yj_nwHaK-%26pid%3DApi&f=1&ipt=08315022eec88a6faae3bc870a77b4f6fdf387a1a4b9b4a43e2ef21bed8e4cfa&ipo=images",
+        tmdbId: 917496,
+        title: "Os Fantasmas Ainda se Divertem",
+        subtitle: "",
+        description: "Depois de uma tragédia familiar inesperada, três gerações da família Deetz voltam para casa em Winter River. Ainda assombrada por Beetlejuice, a vida de Lydia vira de cabeça para baixo quando sua filha adolescente rebelde, Astrid, descobre a misteriosa maquete da cidade no sótão, e o portal para a vida após a morte é acidentalmente aberto. Com problemas em ambos os reinos, é apenas uma questão de tempo até que alguém diga o nome de Beetlejuice três vezes, e o demônio travesso volte para levar ao mundo seu próprio estilo de caos.",
+        src: "https://drive.google.com/file/d/1x_ZzPvpBcX8tfl5DWsXA7wC-8RZNXo4P/preview",
+        duration: "01h 45m",
+        genero: ["Comédia", "Terror", "Fantasia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fbr.web.img2.acsta.net%2Fnewsv7%2F20%2F06%2F11%2F02%2F24%2F2254375.jpg&f=1&nofb=1&ipt=c2346408af1f65abf0daff7f37210e6f28b07305db39003ab68aca84de8bcda4&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.explicit.bing.net%2Fth%3Fid%3DOIP.fv4slZwWRifjIy1GtUmyFQHaLH%26pid%3DApi&f=1&ipt=ab85cf383c8394f9172a55287194dc11d3a316b7cd5857fc8212956207e44f9a&ipo=images",
+        tmdbId: 419430,
+        title: "Corra!",
+        subtitle: "",
+        description: "Agora que Chris e sua namorada, Rose, chegaram à fase de conhecer os pais no namoro, ela o convida para um fim de semana no interior com Missy e Dean. A princípio, Chris acha que o comportamento excessivamente agradável dos dois como tentativas nervosas de lidar com o relacionamento inter-racial da filha, mas, conforme o fim de semana avança, uma série de descobertas cada vez mais perturbadoras o levam a uma verdade que ele jamais poderia ter imaginado.",
+        src: "https://drive.google.com/file/d/1SN9O_qNaOOPUe2X-4-tTq-bE1wvpUZ7h/preview",
+        duration: "01h 44m",
+        genero: ["Suspense", "Mistério", "Terror"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia-cldnry.s-nbcnews.com%2Fimage%2Fupload%2Frockcms%2F2022-10%2Ftwister-movie-1996-mc-221018-744a6a.jpg&f=1&nofb=1&ipt=506ea6e721e41be73f6951a437529eaa27815319e3939d45ec870455f920cd50&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.2PeUgne-em98rXGlIgvkagHaLH%26pid%3DApi&f=1&ipt=100ab0a73398352d4c760f5c1350fb43284573caeb27d8c3ac1b790f082ee027&ipo=images",
         tmdbId: 664,
