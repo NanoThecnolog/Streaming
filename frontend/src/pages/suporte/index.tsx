@@ -19,7 +19,7 @@ export default function Suport(status: { status: string }) {
                             Os filmes são incorporados de hospedagens de terceiros. Como não possuímos os filmes incorporados na plataforma, pode ocorrer algum erro no momento da reprodução do filme.
                         </p>
                         <p>
-                            Caso esteja enfrentando problemas para ver seu filme, envie um email com o assunto: PROBLEMAS COM REPRODUÇÃO DE FILME, explicando com suas palavras o ocorrido e informando o nome do filme para nossa equipe no email: dev@ericssongomes.com
+                            Caso esteja enfrentando problemas para ver seu filme, envie um email com o assunto: PROBLEMAS COM REPRODUÇÃO DE FILME, explicando com suas palavras o ocorrido e informando o nome do filme para nossa equipe no email: contato@ericssongomes.com
                         </p>
                     </div>
 

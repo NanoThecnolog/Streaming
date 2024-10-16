@@ -25,6 +25,127 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FseddLBvNOW9QK3j8uaJT0CSkVhI.jpg&f=1&nofb=1&ipt=4df5b00a7feb56e3f518d079df39bffc97547ad604b3161bde2a8a5b79814dbc&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.ATkbreHb8kx4wLcfyGJLkwHaLH%26pid%3DApi&f=1&ipt=6296bad3d90349e7907e6bfb76771651a11634bbd9dd8662654bfa52e2858347&ipo=images",
+        tmdbID: 124364,
+        title: "Origem",
+        subtitle: "",
+        description: "Desvende o mistério de uma cidade no centro dos EUA. Enquanto os moradores lutam para manter um senso de normalidade, eles também devem sobreviver às ameaças da floresta ao redor, incluindo as criaturas aterrorizantes que surgem quando o sol se põe.",
+        genero: ["Terror", "Globo Play"],
+        season: [
+            {
+                s: 1,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1vcjXTtYugpKZQtNdRIsnCW53NQ2gyLdp/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1pOtH8fbPfcz1isWFKCc16Pph4vSbZxIq/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/19ntKla8K_tjoydaOX-dFSVjn4CvoSEpP/preview",
+                        duration: "55m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1p8rCGyfMLClGmJ0AoPUYq_z56-7c8nA4/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1MRbZ2SFmS3Yw8jIt_ZiVpvadUKrsH-9O/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1F1CmnvUurGP_0HZpYEhFtmb2YPbzUPOa/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1QSqv4PwbVgpKwlJkabxZhv2eZr5eakxJ/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1mgH17GoLmM62PlSqLzLleXptgPz1gRBT/preview",
+                        duration: "55m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/10FHUZp6unKwkNSUZIfrccQihWP2582vr/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1YPbwrb_iz8ElEctcP-GpbXNUPOkoejrg/preview",
+                        duration: "47m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1-2E9X1npjp0X6N80LMDbnvllr3S8R6jI/preview",
+                        duration: "47m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1-64cvJ0SldQAB7iXRqjy3MvmJq_06KWG/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1-7eHJ4A63z56P1d8FlHDFrXDzCgQClfP/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1-9OjmOCTSk30DgC_SliRmw64dZ4v06nm/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1-BfbPcL12_x8ql37ZWSJHGVdUmbZzLi0/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1-CtZZM1KGG_yz7SO_3mkLUyE_i0w2Gkz/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1-Diwa9ZvBznNEuW64ECE66BW4RmZl-cc/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1-E1rl9brpMvS4SPCX3_YlZ3_HzlCxcxd/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1-GZml6VfnzraakBWPrSTw6BTtE4fJsy_/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1-M8gJ9RelY4Yxp4rJcmeIaGXVrv32lDi/preview",
+                        duration: "59m"
+                    },
+                ]
+            }
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages7.alphacoders.com%2F129%2F1293054.jpg&f=1&nofb=1&ipt=a2884a2b57046f4939a940cc93556f8ddcd12cc046783ecefb54e5b09a241109&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.TUoBpSRnSy0Eq_hkC7zh9gHaJ4%26pid%3DApi&f=1&ipt=e2b38356a75ec352f1bcc111c6afd2fcfffcb6bfc7a18e0f6a166862033f5eea&ipo=images",
         tmdbID: 87689,
@@ -1166,6 +1287,11 @@ export const series: SeriesProps[] = [
                     },
                     {
                         ep: 3,
+                        src: "https://drive.google.com/file/d/1-8c96v9SMMnHTh5zvgHiTK4j-E7gariv/preview",
+                        duration: "59m"
+                    },
+                    {
+                        ep: 4,
                         src: "https://drive.google.com/file/d/1-8c96v9SMMnHTh5zvgHiTK4j-E7gariv/preview",
                         duration: "59m"
                     }

@@ -21,6 +21,39 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia-cldnry.s-nbcnews.com%2Fimage%2Fupload%2Frockcms%2F2022-10%2Ftwister-movie-1996-mc-221018-744a6a.jpg&f=1&nofb=1&ipt=506ea6e721e41be73f6951a437529eaa27815319e3939d45ec870455f920cd50&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.2PeUgne-em98rXGlIgvkagHaLH%26pid%3DApi&f=1&ipt=100ab0a73398352d4c760f5c1350fb43284573caeb27d8c3ac1b790f082ee027&ipo=images",
+        tmdbId: 664,
+        title: "Twister",
+        subtitle: "1996",
+        description: "Em Oklahoma está se anunciando uma tempestade que não acontece há décadas e dois grupos de cientistas rivais planejam entrar para a história colocando sensores no tornado, para que estas informações possam ir até um computador e, assim, seja possível prever sua chegada com maior antecedência. Mas para colocar os sensores, é necessário ficar o mais próximo possível do tornado e torcer para que os sensores sejam sugados pela tempestade. Em uma das equipes está uma jovem (Helen Hunt) obcecada por tal idéia, pois em 1969 ela viu o pai ser sugado por uma tempestade e atualmente ela planeja conseguir seu intento ou morrer tentando.",
+        src: "https://drive.google.com/file/d/1Vaet3DZ5FEvZilLBH2A842csdpTNSEs6/preview",
+        duration: "01h 53m",
+        genero: ["Ação", "Aventura", "Drama"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FNULAOtIS%2Fposter.jpg%3Fwidth%3D1920&f=1&nofb=1&ipt=15dc223d08e29984e0e2f88699e376b6aca3a624355f75dacb36b31c564b97cc&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.hVSUs4vtQXxIVwaLr4xPQAHaK3%26pid%3DApi&f=1&ipt=775007588ee0248eb113527a027652f7817c52d62689cc27947dd78025118770&ipo=images",
+        tmdbId: 869291,
+        title: "Cuckoo",
+        subtitle: "",
+        description: "Relutantemente, aos 17 anos, Gretchen deixa sua casa nos Estados Unidos para morar na Alemanha com seu pai Luis, que se casou com Beth, uma mulher mais nova. Juntos, eles se mudam para um resort nos Alpes. Ao chegarem à sua nova casa, eles são recebidos pelo Sr. König, o chefe do pai de Gretchen, que demonstra um interesse inexplicável por Alma, a meia-irmã muda da garota. Com o passar do tempo, Gretchen começa a ser assombrada por estranhos barulhos e visões sangrentas, até que descobre um segredo chocante que também envolve sua própria família, revelando algo de errado no local aparentemente tranquilo.",
+        src: "https://drive.google.com/file/d/1y88FoPiKsR6TjX95H1XW-RlkdB3CToSL/preview",
+        duration: "01h 43m",
+        genero: ["Terror", "Mistério", "Ficção Científica", "Legendado"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic1.colliderimages.com%2Fwordpress%2Fwp-content%2Fuploads%2F2024%2F08%2Falien_-romulus-2024-poster.jpg&f=1&nofb=1&ipt=e1f21af7226873ebed3bc0068f5e804f62eb6a0fab40c81d64ede51ae0236100&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.N0haNgmxs6piDsxnNyw9DQHaJQ%26pid%3DApi&f=1&ipt=5417bad576ed1dc3ea3d8ba44e15c77a043130c7b2a9ff24df39d15ff10f5959&ipo=images",
+        tmdbId: 945961,
+        title: "Alien",
+        subtitle: "Romulus",
+        description: "Enquanto vasculham as profundezas de uma estação espacial abandonada, um grupo de jovens colonizadores espaciais se depara com a forma de vida mais aterrorizante do universo.",
+        src: "https://drive.google.com/file/d/1-A3FL_qpOmjbQqrJg4XhuQS_zjuIhDJC/preview",
+        duration: "01h 59m",
+        genero: ["Ficção Científica", "Terror", "Ação", "Legendado"]
+    },
+    {
         background: "https://image.tmdb.org/t/p/original/kRvlwfN6aa5kbMKkimVTg3jQtrC.jpg",
         overlay: "https://image.tmdb.org/t/p/original/vC0EzU8vri31UtGWMqAoHIylc1R.jpg",
         tmdbId: 1210794,
