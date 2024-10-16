@@ -1,4 +1,5 @@
 import { getCookie } from "cookies-next";
+import { api } from "./api";
 
 export function getCookieClient() {
     const cookieData = getCookie("flixnext");
@@ -13,4 +14,17 @@ export function getCookieClient() {
         }
     }
     return null;
+}
+export async function setCookieClient() {
+    const cookieData = getCookie("flixnext");
+    if (!cookieData) return "cookie não definido"
+    const userCookie = JSON.parse(cookieData)
+    const userID = userCookie.id
+    const response = await api.get(`/user?id=${userID}`)
+    //console.log(response.data)
+
+    const expressTime = 15 * 24 * 60 * 60 * 1000;
+    const userData = JSON.stringify(response.data)
+    document.cookie = `flixnext=${userData}; path=/; max-age=${expressTime}`
+    return "Cookie atualizado"
 }

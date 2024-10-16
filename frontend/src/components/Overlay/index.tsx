@@ -6,7 +6,7 @@ import { FaRegClock } from 'react-icons/fa';
 import { FaStar } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import { isOnTheList } from '@/services/isOnTheList';
-import { getCookieClient } from '@/services/cookieClient';
+import { getCookieClient, setCookieClient } from '@/services/cookieClient';
 import Router from 'next/router';
 import { UserProps } from '@/@types/user';
 import { addWatchLater } from '@/services/addWatchLater';
@@ -19,11 +19,12 @@ interface OverlayProps {
     src: string,
     duration: string,
     genero: string[]
+    isVisible: boolean
 
     modalVisible: () => void;
 }
 
-export default function Overlay({ title, subtitle, src, duration, genero, modalVisible }: OverlayProps) {
+export default function Overlay({ title, subtitle, src, duration, genero, isVisible, modalVisible }: OverlayProps) {
     const [onWatchLater, setOnWatchLater] = useState(false)
     const [user, setUser] = useState<UserProps>()
     const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -35,7 +36,15 @@ export default function Overlay({ title, subtitle, src, duration, genero, modalV
             return
         }
         setUser(user)
+        setCookieClient()
     }, [])
+    useEffect(() => {
+        setCookie()
+        onList(title, subtitle)
+    }, [isVisible])
+    async function setCookie() {
+        await setCookieClient()
+    }
 
     useEffect(() => {
         onList(title, subtitle)
@@ -68,12 +77,17 @@ export default function Overlay({ title, subtitle, src, duration, genero, modalV
             if (!user) return Router.push('/login')
             await addWatchLater(user.id, title, subtitle);
             await onList(title, subtitle)
+            await setCookieClient()
         } catch (err: any) {
             if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
             return toast.error("Erro inesperado ao adicionar filme à lista!")
         } finally {
             setIsLoading(false)
         }
+    }
+    async function openModalVisible() {
+        modalVisible()
+        await setCookieClient();
     }
 
     return (
@@ -101,7 +115,7 @@ export default function Overlay({ title, subtitle, src, duration, genero, modalV
                 <div className={`${styles.star} ${styles.queue}`} onClick={handleFavorite}>
                     <FaStar size={20} />
                 </div>
-                <div className={`${styles.star} ${styles.queue}`} onClick={() => modalVisible()}>
+                <div className={`${styles.star} ${styles.queue}`} onClick={openModalVisible}>
                     <FaInfoCircle size={20} />
                 </div>
             </div>

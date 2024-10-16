@@ -5,6 +5,7 @@ import Image from "next/image";
 import CardInfoModal from "../modals/CardInfos";
 import Overlay from "../Overlay";
 import { fetchTMDBPoster } from "@/services/fetchTMDBPoster";
+import { setCookieClient } from "@/services/cookieClient";
 
 interface CardProps {
     card: CardsProps;
@@ -13,6 +14,11 @@ interface CardProps {
 export default function Card({ card }: CardProps) {
     const [modalVisible, setModalVisible] = useState<boolean>(false)
     const [TMDBImage, setTMDBImage] = useState<string | null>(null)
+
+    useEffect(() => {
+        setCookieClient();
+    }, [modalVisible])
+
 
     useEffect(() => {
         setTMDBImage(null);
@@ -31,7 +37,7 @@ export default function Card({ card }: CardProps) {
     function handleClick() {
         setModalVisible(!modalVisible)
     }
-    function handleModalClose() {
+    async function handleModalClose() {
         setModalVisible(false)
     }
     function modalVisibility() {
@@ -61,6 +67,7 @@ export default function Card({ card }: CardProps) {
                         duration={card.duration}
                         genero={card.genero}
                         modalVisible={modalVisibility}
+                        isVisible={modalVisible}
                     />
                 </div>
             </div>

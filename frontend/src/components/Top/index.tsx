@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import Router from 'next/router';
 import { toast } from 'react-toastify';
 import { UserProps } from '@/@types/user';
-import { getCookieClient } from '@/services/cookieClient';
+import { getCookieClient, setCookieClient } from '@/services/cookieClient';
 import { addWatchLater } from '@/services/addWatchLater';
 import { isOnTheList } from '@/services/isOnTheList';
 import { FaCheck } from 'react-icons/fa';
@@ -94,7 +94,8 @@ export default function Top({ width }: TopProps) {
             if (isLoading) return
             setIsLoading(true)
             if (!user) return Router.push('/login')
-            const addFilme = await addWatchLater(user.id, title, subtitle);
+            await addWatchLater(user.id, title, subtitle);
+            await setCookieClient();
             await onList(cards[cardOn].title, cards[cardOn].subtitle)
         } catch (err: any) {
             if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")

@@ -9,7 +9,7 @@ import { toast } from "react-toastify"
 import { useEffect, useState } from "react"
 import { isOnTheList } from "@/services/isOnTheList"
 import { UserProps } from "@/@types/user"
-import { getCookieClient } from "@/services/cookieClient"
+import { getCookieClient, setCookieClient } from "@/services/cookieClient"
 import { addWatchLater } from "@/services/addWatchLater"
 import { FaCheck } from "react-icons/fa"
 import { fetchTMDBPoster } from "@/services/fetchTMDBPoster"
@@ -34,6 +34,7 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
             return
         }
         setUser(user)
+        setCookieClient()
     }, [])
 
     useEffect(() => {
@@ -85,6 +86,7 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
             if (!user) return Router.push('/login')
             await addWatchLater(user.id, card.title, card.subtitle);
             await onList(card.title, card.subtitle)
+            await setCookieClient()
         } catch (err: any) {
             if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
             return toast.error("Erro inesperado ao adicionar filme à lista!")

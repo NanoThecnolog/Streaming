@@ -15,7 +15,7 @@ import CardInfoSerieModal from "../CardInfos";
 import { toast } from "react-toastify";
 import { SeriesProps } from "@/@types/series";
 import { UserProps } from "@/@types/user";
-import { getCookieClient } from "@/services/cookieClient";
+import { getCookieClient, setCookieClient } from "@/services/cookieClient";
 import { isOnTheList } from "@/services/isOnTheList";
 import Router from "next/router";
 import { addWatchLater } from "@/services/addWatchLater";
@@ -40,10 +40,10 @@ export default function Card({ card, section, modalWatchLater }: CardProps) {
     useEffect(() => {
         const user = getCookieClient();
         if (!user) {
-            //Router.push('/login')
             return
         }
         setUser(user)
+        setCookieClient();
     }, [])
     useEffect(() => {
         onList(card.title, card.subtitle)
@@ -56,6 +56,9 @@ export default function Card({ card, section, modalWatchLater }: CardProps) {
         }
         fetchSerieData()
     }, [card])
+    useEffect(() => {
+        onList(card.title, card.subtitle)
+    }, [modalVisible])
     async function fetchSerieData() {
         const serie = await serieData(card.tmdbID)
         if (!serie || !serie.poster_path) {
@@ -80,7 +83,6 @@ export default function Card({ card, section, modalWatchLater }: CardProps) {
         setModalVisible(!modalVisible)
     }
     function handleModalClose() {
-        console.log("Click")
         setModalVisible(false)
     }
     const movie = new URLSearchParams({

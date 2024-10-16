@@ -60,10 +60,10 @@ export default function Login() {
                 );
                 return;
             }
+            //salvar a resposta Data nos cookies
             const expressTime = 15 * 24 * 60 * 60 * 1000;
             const userData = JSON.stringify(response.data)
             document.cookie = `flixnext=${userData}; path=/; max-age=${expressTime}`
-            //salvar a resposta Data nos cookies
             toast.success("Bem vindo!")
             Router.push('/');
         } catch (err) {
@@ -71,7 +71,7 @@ export default function Login() {
                 return toast.error(err.message)
             }
             console.log(err)
-            return toast.error("Erro ao tentar realizar login")
+            return toast.error("Erro ao tentar realizar login. Verifique seu email e sua senha e tente novamente")
         } finally {
             setLoading(false)
         }
