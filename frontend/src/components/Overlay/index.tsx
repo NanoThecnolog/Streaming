@@ -125,7 +125,7 @@ export default function Overlay({ tmdbId, title, subtitle, src, duration, genero
                             : <FaRegClock title='Adicionar' size={20} />
                     }
                 </div>
-                <div className={`${styles.queue} ${favoriteList
+                <div className={`${styles.queue} ${favoriteList && favoriteList
                     .some((filme) =>
                         filme.title === title
                         && filme.subtitle === subtitle)
