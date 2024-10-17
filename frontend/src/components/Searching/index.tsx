@@ -1,6 +1,6 @@
 import { cards } from '@/js/cards'
+import { series } from '@/js/series';
 import { CardsProps } from '@/@types/Cards';
-import Card from '../Card';
 import { useState } from 'react'
 import { CiSearch } from "react-icons/ci";
 import styles from './styles.module.scss'
@@ -44,6 +44,7 @@ export default function Search({ handleOpenModal }: SearchProps) {
                     />
                     <CiSearch size={35} color="#242424" onClick={() => handleSearch(inputSearch)} />
                 </form>
+                <p className={styles.quantidades}>Atualmente temos {cards.length} filmes e {series.length} séries</p>
             </div>
         </div>
     )

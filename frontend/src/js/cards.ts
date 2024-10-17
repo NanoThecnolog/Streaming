@@ -2380,11 +2380,7 @@ export const cards: CardsProps[] = [
         description: "As reservas naturais da Terra estão chegando ao fim e um grupo de astronautas recebe a missão de verificar possíveis planetas para receberem a população mundial, possibilitando a continuação da espécie. Cooper é chamado para liderar o grupo e aceita a missão sabendo que pode nunca mais ver os filhos. Ao lado de Brand, Jenkins e Doyle, ele seguirá em busca de um novo lar.",
         src: "https://drive.google.com/file/d/1AENYKs3RgjwsMi0Y5-tv57DFNfnnAOJ_/preview",
         duration: "2h 50m",
-        genero: ["Ação",
-            "Drama",
-            "Ficção científica",
-            "Espaço"
-        ]
+        genero: ["Ação", "Drama", "Ficção científica", "Espaço"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.jornadageek.com.br%2Fwp-content%2Fuploads%2F2020%2F05%2FLiga-da-Justi%25C3%25A7a-Sombria-Guerra-de-Apokolips-imagem-2-scaled.jpg&f=1&nofb=1&ipt=dae4613fc976bb88c3488fa21dd23a2a6429e3bf11a0947c5c9864f30ffea4a2&ipo=images",
@@ -2395,11 +2391,7 @@ export const cards: CardsProps[] = [
         description: "A Liga da Justiça sempre foi a primeira e última defesa da Terra, mas, com a chegada iminente de Darkseid, tudo está para mudar. Após a destruição da Terra, o grupo se reune para derrubar o tirano e salvar os membros remanescentes da equipe.",
         src: "https://drive.google.com/file/d/14e0ij22Ekbj44qMQFh0-7NEtBH-zqVAG/preview",
         duration: "1h 30m",
-        genero: ["DC",
-            "Animação",
-            "Ação",
-            "Super Heroi"
-        ]
+        genero: ["DC", "Animação", "Ação", "Super Heroi"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.wallpapersafari.com%2F41%2F1%2Fhj197K.jpg&f=1&nofb=1",
@@ -2410,10 +2402,7 @@ export const cards: CardsProps[] = [
         description: "Após Thanos eliminar metade das criaturas vivas, os sobreviventes têm de lidar com a perda de amigos e entes queridos. Com Tony Stark vagando perdido no espaço sem água e comida, Steve Rogers e Natasha Romanov lideram a resistência contra o Titã louco.",
         src: "https://drive.google.com/file/d/1kOzLxs0czJH75RUqMlTRzMdJ9ia6o1jh/preview",
         duration: "3h 00m",
-        genero: ["Marvel",
-            "Ação",
-            "Super Heroi"
-        ]
+        genero: ["Marvel", "Ação", "Super Heroi"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FrPpxrz8o0svAPCLucjsEdMXoDfX.jpg&f=1&nofb=1",
@@ -2424,10 +2413,18 @@ export const cards: CardsProps[] = [
         description: "O jornalista investigativo Eddie Brock é possuído por uma forma alienígena simbionte, ganhando poderes-sobre humanos. Perverso, sombrio e alimentado pela raiva, Venom tenta controlar os novos e perigosos poderes inebriantes de Eddie.",
         src: "https://drive.google.com/file/d/143wpGC0L8IF6M9NlK-qz9EnYb27Evng_/preview",
         duration: "1h 52m",
-        genero: ["Marvel",
-            "Ação",
-            "Vilão"
-        ]
+        genero: ["Marvel", "Ação", "Vilão"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblogger.googleusercontent.com%2Fimg%2Fb%2FR29vZ2xl%2FAVvXsEinLD-vq9ZFgAo_-cNKPOwRUkawPZXlwRQhc0mgnhDX4a6j5B1qF32YPYPpwQZFrRAnu2jgsJXbKR998Qt0IjfzCSzVSFZDk8dhs9wOs_BQDGAxDmeJQ4JDl-bJqHoRm3k8j0F2Bo4Jd4lx9wuRze9uzD52c6R-JaTfbzVWtsuFbLfn2OlI38piOMpA%2Fs2806%2F00%2520-%2520O%2520Senhor%2520dos%2520An%25C3%25A9is%2520A%2520Sociedade%2520do%2520Anel%2520(2001).jpg&f=1&nofb=1&ipt=9ee1e7dadb6803b53fee423c133aad4bb96e0056e0360ad6bd6d56aadcc7f1e0&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.8l6bqzp2GGVaupVOlZ1htAHaJ4%26pid%3DApi&f=1&ipt=844d7f23b4fc9371a39d618ef2b1cf8cbbcdc4ea44ea75f6b5fb43067d7db7b6&ipo=images",
+        tmdbId: 120,
+        title: "O Senhor dos Aneis",
+        subtitle: "A Sociedade do Anel - Versão Extendida",
+        description: "Em uma terra fantástica e única, um hobbit recebe de presente de seu tio um anel mágico e maligno que precisa ser destruído antes que caia nas mãos do mal. Para isso, o hobbit Frodo tem um caminho árduo pela frente, onde encontra perigo, medo e seres bizarros. Ao seu lado para o cumprimento desta jornada, ele aos poucos pode contar com outros hobbits, um elfo, um anão, dois humanos e um mago, totalizando nove pessoas que formam a Sociedade do Anel.",
+        src: "https://drive.google.com/file/d/1yaDcuysNUZUWa5mVnhsgVLMvF0vGdugp/preview",
+        duration: "02h 59m",
+        genero: ["Fantasia", "Aventura"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fis3-ssl.mzstatic.com%2Fimage%2Fthumb%2Fn-SDGISRHduIj8VQVFjnHQ%2F2000x1125.jpg&f=1&nofb=1&ipt=6d7144229f000f25827a6c2ba596a75ab2a78ece24899efe93a51917fd2ab087&ipo=images",
@@ -2438,9 +2435,18 @@ export const cards: CardsProps[] = [
         description: "Após a captura de Merry e Pippy pelos orcs, a Sociedade do Anel é dissolvida. Frodo e Sam seguem sua jornada rumo à Montanha da Perdição para destruir o anel e descobrem que estão sendo perseguidos pelo misterioso Gollum. Enquanto isso, Aragorn, o elfo e arqueiro Legolas e o anão Gimli partem para resgatar os hobbits sequestrados e chegam ao reino de Rohan, onde o rei Theoden foi vítima de uma maldição mortal de Saruman.",
         src: "https://drive.google.com/file/d/1I3HOyzouUFnJkdX1jAnchCoMZEM7YBlKVQ/preview",
         duration: "3h 55m",
-        genero: ["Fantasia",
-            "Aventura"
-        ]
+        genero: ["Fantasia", "Aventura"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblogger.googleusercontent.com%2Fimg%2Fb%2FR29vZ2xl%2FAVvXsEj02M_uSZ551w7jxyYTXbgLSA0tstcoPo0wWomyF_ACoHghABHwfzJ7a3eS22ZN0LMutEa0xhre2KSzrLFiVqvUE9voIo4b1RDo5kqCa9uqIVccZqP-aYK1eHzkT3HrMuoSJmAd68bKhfmpr8ej8djpDM9QUR9db1_91cE6-ymXNJCVPsVUWGqvv5kc%2Fs2552%2F00%2520-%2520O%2520Senhor%2520dos%2520An%25C3%25A9is%2520O%2520Retorno%2520do%2520Rei%2520(2003).jpg&f=1&nofb=1&ipt=572bee99b5910f1a9ff6f43326d0d2501dcb15ebbc10e75289a26763823cfb92&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.iEZGT9qW_vVzaapPHYA2TwHaJ4%26pid%3DApi&f=1&ipt=bec77e4bebdc1340711920905edd0ebd2210342a5defec5cd46bf8ae0aea4393&ipo=images",
+        tmdbId: 122,
+        title: "O Senhor dos Aneis",
+        subtitle: "O Retorno do Rei",
+        description: "O confronto final entre as forças do bem e do mal que lutam pelo controle do futuro da Terra Média se aproxima. Sauron planeja um grande ataque a Minas Tirith, capital de Gondor, o que faz com que Gandalf e Pippin partam para o local na intenção de ajudar a resistência. Um exército é reunido por Theoden em Rohan, em mais uma tentativa de deter as forças de Sauron. Enquanto isso, Frodo, Sam e Gollum seguem sua viagem rumo à Montanha da Perdição para destruir o anel.",
+        src: "https://drive.google.com/file/d/1rPmACNblk0C1nuTJu9cGX6zmNxrL0VYA/preview",
+        duration: "03h 22m",
+        genero: ["Fantasia", "Aventura"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fprod-ripcut-delivery.disney-plus.net%2Fv1%2Fvariant%2Fdisney%2F78808440059F7561ECAC91F356492B3A575A836A3A7641F359D98E946C8B4F0F%2Fscale%3Fwidth%3D1200%26aspectRatio%3D1.78%26format%3Djpeg&f=1&nofb=1&ipt=535c8d489f455af6bf13db2c15be400d9e0b731ae4c3ca8015d0f88c5244d35e&ipo=images",
@@ -2451,10 +2457,7 @@ export const cards: CardsProps[] = [
         description: "Homem de Ferro, Capitão América, Thor, Hulk e os Vingadores se unem para combater o maligno Thanos. Em uma missão para coletar todas as seis joias do infinito, Thanos planeja usá-las para equilibrar a balança cósmica e fazer o que ele acredita ser o melhor para o universo.",
         src: "https://drive.google.com/file/d/1cTsvQoeIvZhYxDgaewOdDJV2J4HciCQP/preview",
         duration: "2h 30m",
-        genero: ["Marvel",
-            "Ação",
-            "Super Heroi"
-        ]
+        genero: ["Marvel", "Ação", "Super Heroi"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fis2-ssl.mzstatic.com%2Fimage%2Fthumb%2FZ2Vypr5b9sc2w51Mjn0b1A%2F2000x1125.jpg&f=1&nofb=1&ipt=cb8de5688f4727bfffea37e78bd07dc0130c4e414cc77eaf115f141852e61206&ipo=images",
@@ -2465,9 +2468,7 @@ export const cards: CardsProps[] = [
         description: "Os habitantes da Transilvânia sempre travaram batalhas épicas contra o Império Otomano até que foi feito um acordo no qual o rei local aceitou entregar centenas de crianças, dentre elas o filho de Vlad. Após dez anos, o rei turco exige mais crianças, só que, dessa vez, Vlad, agora nomeado príncipe, recusa-se a entregá-las, dando início a uma nova guerra. Mesmo sendo famoso por sua ferocidade nas batalhas, Vlad vai atrás de um ser das trevas para ganhar poderes sobre-humanos.",
         src: "https://drive.google.com/file/d/0B_h5c5Md422hYnRsMDB3bXBsN3M/preview?resourcekey=0-AsTC4uGN7s6WUOaqTL_BTQ",
         duration: "1h 32m",
-        genero: ["Ação",
-            "Terror"
-        ]
+        genero: ["Ação", "Terror"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Finmagi.sfo2.digitaloceanspaces.com%2Fmedia%2F457644%2Fyir5430WblZSZuIMd9C6pIZerfA.jpg&f=1&nofb=1&ipt=898606c5bf792c880f1287dc8e82819261cc086be6e1006f0c9f07932e4b7773&ipo=images",
@@ -2489,9 +2490,7 @@ export const cards: CardsProps[] = [
         description: "Uma família passa as férias em uma praia isolada, mas descobre que o local acelera o processo de envelhecimento, reduzindo o tempo de vida de todos a poucos dias.",
         src: "https://drive.google.com/file/d/1ve34N2EvgvffaDei7JkWcIAWPmSjtzWc/preview",
         duration: "1h 48m",
-        genero: ["Suspense",
-            "Terror"
-        ]
+        genero: ["Suspense", "Terror"]
     },
     {
         background: "https://occ-0-2794-2219.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABeTXUuPKirfRvhmqhLKluwgnzOI8xqn1IF3GGUtKQhVWS4r8zJ_R-ifeDF1dQu2NYfzi47M-hweOknNjrxMitxO1Rx_0odYEHPkV.jpg?r=615",
@@ -2502,10 +2501,7 @@ export const cards: CardsProps[] = [
         description: "Jess sente-se um estranho na escola e até mesmo em sua família. Durante todo o verão ele treinou para ser o garoto mais rápido da escola, mas seus planos são ameaçados por Leslie, que vence uma corrida que deveria ser apenas para garotos.",
         src: "https://drive.google.com/file/d/1lGNHpX5XUBGWArq0eP-kMAwUTZdM0fSy/preview",
         duration: "1h 36m",
-        genero: ["Fantasia",
-            "Infântil",
-            "Drama"
-        ]
+        genero: ["Fantasia", "Infântil", "Drama"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcms.dmpcdn.com%2Fmovie%2F2019%2F04%2F29%2F8eab6b5f-a16a-4ffc-9f0e-dbf580f02229_original.jpg&f=1&nofb=1&ipt=2c662ba7fe99e3ee41f1924cecefe92156880a3ef83e916beceed6961a02fa23&ipo=images",

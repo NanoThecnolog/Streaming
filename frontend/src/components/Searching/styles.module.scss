@@ -37,6 +37,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        //gap: 50px;
 
 
         .input_area {
@@ -47,7 +48,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 50px;
+            margin: 50px 0;
             color: #242424;
 
             input {
@@ -67,6 +68,11 @@
             svg {
                 cursor: pointer;
             }
+        }
+
+        .quantidades {
+            font-size: 1.1rem;
+            font-weight: 900;
         }
     }
 }
