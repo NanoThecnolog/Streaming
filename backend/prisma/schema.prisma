@@ -20,6 +20,7 @@ model user {
   birthday         DateTime
   password         String
   watchLater       watchLater[]
+  favoritos        favorito[]
   donator          Boolean      @default(false)
   avatar           String?
   verified         Boolean      @default(false)
@@ -52,6 +53,18 @@ model movies {
   description String
   duration    String
   genero      String[]
+
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+}
+
+model favorito {
+  id       String  @id @default(uuid())
+  tmdbid   Int
+  title    String
+  subtitle String?
+  userId   String
+  user     user    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   created_at DateTime @default(now())
   updated_at DateTime @default(now()) @updatedAt

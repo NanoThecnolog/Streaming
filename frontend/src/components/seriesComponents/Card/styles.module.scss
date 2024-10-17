@@ -40,63 +40,6 @@
         }
     }
 
-    .button_container {
-        display: flex;
-        gap: 12px;
-        width: 100%;
-        padding-bottom: 1rem;
-        padding-top: .5rem;
-
-
-        .watch {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            object-position: center;
-            width: 45px;
-            height: 45px;
-            background-color: var(--red-selected);
-            cursor: pointer;
-            border-radius: 2rem;
-            border: 3px solid var(--red);
-            transition: all 0.5s;
-            z-index: 99;
-
-            &:hover {
-                background-color: var(--red);
-            }
-
-            button {
-                color: var(--white);
-                border: none;
-                background-color: transparent;
-                cursor: pointer;
-            }
-        }
-
-        .queue {
-            background-color: #303030;
-            width: 45px;
-            height: 45px;
-            padding: 0;
-            border: 3px solid var(--grey);
-            border-radius: 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-
-            svg {
-
-                transition: all 0.5s;
-
-                &:hover {
-                    color: var(--grey-selected);
-                }
-            }
-        }
-    }
-
     .infoModal {
         position: relative;
         z-index: 999;

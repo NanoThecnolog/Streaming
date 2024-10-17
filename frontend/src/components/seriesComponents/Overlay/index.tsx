@@ -11,9 +11,11 @@ import Router from 'next/router';
 import { UserProps } from '@/@types/user';
 import { addWatchLater } from '@/services/addWatchLater';
 import { IoCheckmarkCircle } from 'react-icons/io5';
+import Card from '../Card';
 import { addFavorite } from '@/services/addFavorite';
 import { getFavoriteList } from '@/services/getFavoriteList';
 import { ListaFavoritos } from '@/@types/favoritos';
+import { Seasons } from '@/@types/series';
 
 
 interface OverlayProps {
@@ -21,14 +23,14 @@ interface OverlayProps {
     title: string,
     subtitle?: string,
     src: string,
-    duration: string,
+    season: Seasons[];
     genero: string[]
     isVisible: boolean
 
     modalVisible: () => void;
 }
 
-export default function Overlay({ tmdbId, title, subtitle, src, duration, genero, isVisible, modalVisible }: OverlayProps) {
+export default function OverlaySerie({ tmdbId, title, subtitle, src, season, genero, isVisible, modalVisible }: OverlayProps) {
     const [onWatchLater, setOnWatchLater] = useState(false)
     const [user, setUser] = useState<UserProps>()
     const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -69,9 +71,11 @@ export default function Overlay({ tmdbId, title, subtitle, src, duration, genero
     const movie = new URLSearchParams({
         title: `${title}`,
         subTitle: `${subtitle}` || "",
-        src: `${src}`
+        src: `${season[0].episodes[0].src}`,
+        episode: `${season[0].episodes[0].ep}`,
+        season: `${season[0].s}`
     });
-    const playLink: string = `/watch?${movie}`
+    const playLink: string = `/watch/serie?${movie}`
 
     function listarFavoritos() {
         const favoritos: ListaFavoritos[] = getFavoriteList();
@@ -105,11 +109,19 @@ export default function Overlay({ tmdbId, title, subtitle, src, duration, genero
 
     return (
         <>
-            <h3>{title.toUpperCase()}</h3>
-            {subtitle && (
-                <h4>{subtitle}</h4>
-            )}
-            <p>{duration} - {genero.join(', ')}</p>
+            <div className={styles.title}>
+                <h3>{title.toUpperCase()}</h3>
+                {subtitle && (
+                    <h4>{subtitle}</h4>
+                )}
+                <p>
+                    {season.length > 1
+                        ? `${season.length} temporadas`
+                        : season.length === 1
+                        && `${season.length} temporada`} - {genero.join(', ')}
+                </p>
+            </div>
+
             <div className={styles.button_container}>
                 <div className={styles.watch}>
                     <Link href={`${playLink}`}>

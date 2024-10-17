@@ -20,6 +20,7 @@ import { isOnTheList } from "@/services/isOnTheList";
 import Router from "next/router";
 import { addWatchLater } from "@/services/addWatchLater";
 import { serieData } from "@/services/fetchSeries";
+import OverlaySerie from "../Overlay";
 
 
 interface CardProps {
@@ -85,32 +86,9 @@ export default function Card({ card, section, modalWatchLater }: CardProps) {
     function handleModalClose() {
         setModalVisible(false)
     }
-    const movie = new URLSearchParams({
-        title: `${card.title}`,
-        subTitle: `${card.subtitle}` || "",
-        src: `${card.season[0].episodes[0].src}`,
-        episode: `${card.season[0].episodes[0].ep}`,
-        season: `${card.season[0].s}`
-    });
-    async function handleWatchLater() {
-        try {
-            if (isLoading) return
-            setIsLoading(true)
-            if (!user) return Router.push('/login')
-            await addWatchLater(user.id, card.title, card.subtitle);
-            await onList(card.title, card.subtitle)
-        } catch (err: any) {
-            if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
-            return toast.error("Erro inesperado ao adicionar filme à lista!")
-        } finally {
-            setIsLoading(false)
-        }
+    function modalVisibility() {
+        setModalVisible(true)
     }
-    function handleFavorite() {
-        toast.warning("A função de adicionar filme aos favoritos está temporariamente desabilitada.")
-    }
-
-    const play: string = `/watch/serie?${movie}`
     return (
         <>
             <div className={styles.card} id={card.genero[0].toLowerCase()}>
@@ -127,7 +105,17 @@ export default function Card({ card, section, modalWatchLater }: CardProps) {
                     onClick={() => handleClick()}
                 />
                 <div className={styles.overlay}>
-                    <h3>{card.title.toUpperCase()}</h3>
+                    <OverlaySerie
+                        tmdbId={card.tmdbID}
+                        title={card.title}
+                        subtitle={card.subtitle}
+                        src={card.season[0].episodes[0].src}
+                        season={card.season}
+                        genero={card.genero}
+                        isVisible={modalVisible}
+                        modalVisible={modalVisibility}
+                    />
+                    {/*<h3>{card.title.toUpperCase()}</h3>
                     {card.subtitle && (
                         <h4>{card.subtitle}</h4>
                     )}
@@ -159,7 +147,7 @@ export default function Card({ card, section, modalWatchLater }: CardProps) {
                         <div className={`${styles.star} ${styles.queue}`} onClick={() => setModalVisible(true)}>
                             <FaInfoCircle size={20} />
                         </div>
-                    </div>
+                    </div>*/}
                 </div>
 
             </div>

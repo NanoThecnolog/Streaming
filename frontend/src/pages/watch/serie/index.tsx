@@ -62,10 +62,12 @@ export default function WatchSerie() {
             {src ? (
                 <div className={styles.container}>
                     <div className={styles.movie}>
-                        <button onClick={handleBack} title="Voltar ao início" className={styles.buttonPreview}>
-                            <ChevronLeft size={30} />
-                        </button>
-                        <h3>{episodio.title} {episodio.subtitle != "" && `- ${episodio.subtitle}`} - Temporada {episodio.season} Episódio {episodio.episode}</h3>
+                        <div className={styles.movieName}>
+                            <button onClick={handleBack} title="Voltar ao início" className={styles.buttonPreview}>
+                                <ChevronLeft size={30} />
+                            </button>
+                            <h3>{episodio.title} {episodio.subtitle != "" && `- ${episodio.subtitle}`} - Temporada {episodio.season} Episódio {episodio.episode}</h3>
+                        </div>
                         <iframe
                             title={episodio.title}
                             allowFullScreen

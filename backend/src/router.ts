@@ -15,6 +15,9 @@ import { RemoveWatchLaterController } from "./Controllers/User/RemoveWatchLaterC
 import { DetailUserController } from "./Controllers/User/DetailUserController";
 import { GenerateRecoverTokenController } from "./Controllers/User/GenerateRecoverTokenController";
 import { RecoverController } from "./Controllers/User/RecoverController";
+import { FavoriteController } from "./Controllers/User/FavoriteControlle";
+import { ListFavoriteController } from "./Controllers/User/ListFavoriteController";
+import { RemoveFavoriteController } from "./Controllers/User/RemoveFavoriteController";
 
 const router = Router()
 
@@ -44,5 +47,9 @@ router.get('/movies', new ListMoviesController().handle)
 router.post('/watchLater', new WatchLaterController().handle)
 router.get('/watchLater', new ListWatchLaterController().handle)
 router.delete('/watchLater/:id', new RemoveWatchLaterController().handle)
+
+router.post('/favorite', new FavoriteController().handle)
+router.get('/favorites', new ListFavoriteController().handle)
+router.delete('/favorite/:favoriteid', new RemoveFavoriteController().handle)
 
 export { router }

@@ -34,17 +34,17 @@ export default function Footer() {
                 </div>
                 <div className={styles.socials}>
 
-                    <Link href="https://github.com/NanoThecnolog">
+                    <Link href="https://github.com/NanoThecnolog" target="_blank" rel="noopener noreferrer">
                         <button title="github" type="button">
                             <FaGithub size={35} />
                         </button>
                     </Link>
-                    <Link href="https://www.instagram.com/ericsson.costagomes/">
+                    <Link href="https://www.instagram.com/ericsson.costagomes/" target="_blank" rel="noopener noreferrer">
                         <button title="instagram" type="button">
                             <FaInstagram size={35} />
                         </button>
                     </Link>
-                    <Link href="https://www.linkedin.com/in/ericssongomes/">
+                    <Link href="https://www.linkedin.com/in/ericssongomes/" target="_blank" rel="noopener noreferrer">
                         <button title="linkedin" type="button">
                             <FaLinkedin size={35} />
                         </button>

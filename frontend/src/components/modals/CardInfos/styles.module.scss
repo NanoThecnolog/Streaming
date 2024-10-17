@@ -13,6 +13,7 @@
     padding: 50px 0;
     backdrop-filter: blur(4px);
 
+
     .modal_content {
         border-radius: 8px;
         width: 100%;
@@ -68,7 +69,7 @@
 
             .titulo {
                 font-size: 2.5rem;
-                font-family: "Bebas Neue", cursive;
+                font-family: var(--font-bebas);
                 color: var(--white);
                 margin-bottom: 0;
                 border-bottom: 5px solid var(--red);
@@ -78,7 +79,7 @@
                 .subtitulo {
                     font-size: 1.7rem;
                     font-weight: 300;
-                    font-family: "Bebas Neue", cursive;
+                    font-family: var(--font-bebas);
 
                     color: var(--white);
                     padding-left: 0.4rem;
@@ -98,6 +99,7 @@
                     align-items: center;
                     gap: 10px;
                     transition: all 0.2s;
+                    font-family: var(--font-Roboto);
                     cursor: pointer;
                     color: var(--white);
 
@@ -114,6 +116,7 @@
                     align-items: center;
                     gap: 10px;
                     color: var(--white);
+                    font-family: var(--font-Roboto);
                     background-color: var(--grey);
                     cursor: pointer;
                     transition: all 0.2s;
@@ -130,7 +133,7 @@
             padding: 0 0 0.5rem 1rem;
 
             p {
-                font-family: "Roboto", sans-serif;
+                font-family: var(--font-Roboto);
                 color: var(--white);
                 font-style: italic;
             }
@@ -141,7 +144,7 @@
 
             p {
                 color: var(--white);
-                font-family: "Roboto", sans-serif;
+                font-family: var(--font-Roboto);
                 font-size: 1.2rem;
 
             }

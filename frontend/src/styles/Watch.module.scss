@@ -12,33 +12,43 @@
     padding: 0;
     position: relative;
 
-    .buttonPreview {
-        background-color: transparent;
-        border: none;
+    .movieName {
         position: absolute;
         top: 3%;
         left: 2%;
-        width: 50px;
-        height: 40px;
         display: flex;
-        justify-content: center;
         align-items: center;
-        cursor: pointer;
+        gap: 20px;
+        width: 700px;
 
-        svg {
-            color: var(--white);
+
+        .buttonPreview {
+            background-color: transparent;
+            border: none;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: .4s;
+
+            svg {
+                color: var(--white);
+            }
+
+            &:hover {
+                transform: scale(1.2);
+            }
         }
+
+        h3 {
+            z-index: 99;
+            color: var(--white);
+            font-size: 2rem;
+            font-family: var(--font-bebas);
+        }
+
     }
 
-    h3 {
-        z-index: 99;
-        position: absolute;
-        top: 3%;
-        left: 5%;
-        color: var(--white);
-        font-size: 2rem;
-        font-family: var(--font-bebas);
-    }
+
 
 
     .iframe {

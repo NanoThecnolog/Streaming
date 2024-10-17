@@ -57,10 +57,12 @@ export default function Watch() {
             </Head>
             <div className={styles.container}>
                 <div className={styles.movie}>
-                    <button onClick={handleBack} title="Voltar ao início" className={styles.buttonPreview}>
-                        <ChevronLeft size={30} />
-                    </button>
-                    <h3>{title} {subTitle != "" && `- ${subTitle}`}</h3>
+                    <div className={styles.movieName}>
+                        <button onClick={handleBack} title="Voltar ao início" className={styles.buttonPreview}>
+                            <ChevronLeft size={30} />
+                        </button>
+                        <h3>{title} {subTitle != "" && `- ${subTitle}`}</h3>
+                    </div>
                     <div className={styles.iframe} id="iframe">
                         <iframe
                             title={movieData.title}

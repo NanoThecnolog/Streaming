@@ -61,6 +61,7 @@ export default function Card({ card }: CardProps) {
                 />
                 <div className={styles.overlay}>
                     <Overlay
+                        tmdbId={card.tmdbId}
                         title={card.title}
                         subtitle={card.subtitle}
                         src={card.src}
