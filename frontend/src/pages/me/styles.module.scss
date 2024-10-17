@@ -13,14 +13,12 @@
         justify-content: center;
         width: 100%;
         position: relative;
-        //background-color: green;
 
         .asideContainer {
             display: flex;
             flex-direction: column;
             gap: 12px;
             padding-right: 20px;
-            //background-color: red;
             width: 20%;
 
             .avatar {
@@ -151,5 +149,13 @@
                 }
             }
         }
+    }
+}
+
+@media (max-width: 375px) {
+    .container {
+
+
+        .articleContainer {}
     }
 }

@@ -18,13 +18,13 @@
 
     .question {
         display: flex;
-        padding: 0.5rem;
+        padding: 0.5rem 2rem 0.5rem 0.5rem;
         font-size: 1rem;
     }
 
     .answer {
         max-height: 0;
-        overflow: hidden;
+        overflow-y: auto;
         transition: max-height 0.5s;
 
         p {

@@ -80,8 +80,8 @@ export default function Series(status: { status: string }) {
         return () => {
             document.removeEventListener('contextmenu', rightClickBlock);
             document.removeEventListener('keydown', openConsoleBlock);
-        };
-    }, []);
+        }
+    }, [])
     function handleOpenModalWatchLater(title: string, subTitle?: string) {
         //setMovieTitle(title)
         if (subTitle && subTitle !== "") {

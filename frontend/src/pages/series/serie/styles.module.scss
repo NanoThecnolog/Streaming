@@ -120,7 +120,6 @@
                     display: grid;
                     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
                     justify-content: center;
-                    //flex-direction: column;
                     margin-top: 2rem;
                     gap: 12px;
 
@@ -143,6 +142,24 @@
                             background-position: center;
                             background-size: cover;
                             background-color: #141414;
+                            position: relative;
+
+                            svg {
+                                position: absolute;
+                                top: 70px;
+                                left: 155px;
+                                visibility: hidden;
+                                opacity: 0;
+                                transition: all .4s;
+
+                            }
+
+                            &:hover {
+                                svg {
+                                    visibility: visible;
+                                    opacity: 1;
+                                }
+                            }
                         }
 
                         .epiInfo {

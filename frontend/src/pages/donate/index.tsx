@@ -8,9 +8,22 @@ import { GetServerSideProps } from "next";
 import { serverStatus } from "@/services/verifyStatusServer";
 import { QrCode } from "lucide-react";
 import Qrcode from "@/components/Qrcode";
+import { getCookieClient } from "@/services/cookieClient";
+import Router from "next/router";
+import { UserProps } from "@/@types/user";
 
 export default function Donate(status: { status: string }) {
     const [qrCodeUrl, setQrCodeUrl] = useState<string | null>(null);
+    const [user, setUser] = useState<UserProps | null>()
+
+    useEffect(() => {
+        const user = getCookieClient();
+        if (!user) {
+            Router.push('/login')
+            return
+        }
+        setUser(user)
+    }, [])
 
     async function qrCode() {
         try {
@@ -30,7 +43,7 @@ export default function Donate(status: { status: string }) {
                 <title>Doações | FlixNext</title>
                 <meta name="description" content="Página de Doações. Ajude a manter a plataforma! Doe qualquer valor e ganhe o emblema de doador na sua conta!" />
             </Head>
-            <Header status={status} />
+            <Header userAvatar={user?.avatar} status={status} />
             <section className={styles.container}>
                 <div className={styles.donateContainer}>
                     <div className={styles.title}>

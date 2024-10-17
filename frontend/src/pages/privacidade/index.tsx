@@ -4,14 +4,28 @@ import Footer from '@/components/Footer'
 import Head from 'next/head'
 import { GetServerSideProps } from 'next'
 import { serverStatus } from '@/services/verifyStatusServer'
+import { useEffect, useState } from 'react'
+import { UserProps } from '@/@types/user'
+import { getCookieClient } from '@/services/cookieClient'
+import Router from 'next/router'
 export default function Privacy(status: { status: string }) {
+    const [user, setUser] = useState<UserProps | null>()
+
+    useEffect(() => {
+        const user = getCookieClient();
+        if (!user) {
+            Router.push('/login')
+            return
+        }
+        setUser(user)
+    }, [])
     return (
         <>
             <Head>
                 <title>Política de Privacidade | FlixNext</title>
                 <meta name="description" content="Políticas de Privacidade da plataforma" />
             </Head>
-            <Header status={status} />
+            <Header userAvatar={user?.avatar} status={status} />
             <section className={styles.container}>
                 <div className={styles.privacyContainer}>
                     <div>

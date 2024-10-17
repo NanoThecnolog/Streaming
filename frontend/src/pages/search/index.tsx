@@ -64,27 +64,24 @@ export default function Search(status: { status: string }) {
 
         return () => window.removeEventListener('resize', handleResize)
     }, [])
-    /*useEffect(() => {
+    useEffect(() => {
         const user = getCookieClient();
         if (!user) {
             Router.push('/login')
             return
         }
         setUsuario(user)
-    }, [])*/
+    }, [])
 
     function searchingMovie(movie: string) {
-        if (movie === "") {
-            setSearchCards([])
-            setSearchSeries([])
-        }
+        setSearchCards([])
+        setSearchSeries([])
         const filteredCards = cards
             .filter((card) => card.title.toLowerCase().includes(movie.toLowerCase()))
             .map((card) => ({
                 ...card,
                 type: 'movie' as const
             }))
-            ;
 
         const filteredSeries = series
             .filter((serie) => serie.title.toLowerCase().includes(movie.toLowerCase()))

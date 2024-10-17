@@ -5,7 +5,7 @@ import { Episodes, SeriesProps, TMDBEpisodes } from "@/@types/series";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import styles from './styles.module.scss'
-import { Play } from "lucide-react";
+import { Play, PlayIcon } from "lucide-react";
 import Head from "next/head";
 import { toast } from "react-toastify";
 import { addWatchLater } from "@/services/addWatchLater";
@@ -19,6 +19,7 @@ import { GetServerSideProps } from "next";
 import { serverStatus } from "@/services/verifyStatusServer";
 import { episodeImage } from "@/services/fetchEpisodeImage";
 import Image from "next/image";
+import { serieData } from "@/services/fetchSeries";
 
 export default function Serie(status: { status: string }) {
     const router = useRouter()
@@ -30,6 +31,8 @@ export default function Serie(status: { status: string }) {
     const [user, setUser] = useState<UserProps>()
     const [onWatchLater, setOnWatchLater] = useState<boolean>(false)
     const [headTitle, setHeadTitle] = useState<string>(' ')
+    const [TMDBBackDrop, setTMDBBackDrop] = useState<string | null>(null)
+    const [TMDBPoster, setTMDBPoster] = useState<string | null>(null)
 
     useEffect(() => {
         const user = getCookieClient();
@@ -64,6 +67,29 @@ export default function Serie(status: { status: string }) {
         const titulo = `${serie.title} ${serie.subtitle ? `- ${serie.subtitle}` : ''}`
         setHeadTitle(titulo)
     }, [serie, seasonToShow])
+    useEffect(() => {
+        setTMDBBackDrop(null)
+        setTMDBPoster(null)
+        if (serie?.tmdbID === 0) {
+            setTMDBBackDrop(null)
+            setTMDBPoster(null)
+            return
+        }
+        fetchSerieData()
+    }, [serie])
+    async function fetchSerieData() {
+        if (!serie) return
+        const serieInfo = await serieData(serie.tmdbID)
+        if (!serieInfo || !serieInfo.backdrop_path || !serieInfo.poster_path) {
+            setTMDBBackDrop(null)
+            setTMDBPoster(null)
+            return
+        }
+        const backdropURL = `https://image.tmdb.org/t/p/original${serieInfo.backdrop_path}`
+        const posterURL = `https://image.tmdb.org/t/p/original${serieInfo.poster_path}`
+        setTMDBBackDrop(backdropURL)
+        setTMDBPoster(posterURL)
+    }
 
     async function fetchEpisodes() {
         if (!serie) return
@@ -127,7 +153,7 @@ export default function Serie(status: { status: string }) {
                 <Header userAvatar={user?.avatar} status={status} />
                 {serie ?
                     (
-                        <div className={styles.serieContainer} style={{ backgroundImage: `url(${serie?.background})`, backgroundRepeat: 'no-repeat' }}>
+                        <div className={styles.serieContainer} style={{ backgroundImage: `url(${TMDBBackDrop ? TMDBBackDrop : serie?.background})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
 
                             <div className={styles.imageBackground}>
                                 <div className={styles.desc_top}>
@@ -182,7 +208,7 @@ export default function Serie(status: { status: string }) {
                                                         <div
                                                             className={styles.episodeImage}
                                                             style={{ backgroundImage: `url(${image})` }}
-                                                        ></div>
+                                                        ><PlayIcon size={35} /></div>
                                                         <div className={styles.epiInfo}>
                                                             <h3>Ep.{ep.ep}: {episode?.name}</h3>
                                                             <p>Duração: {ep.duration}</p>

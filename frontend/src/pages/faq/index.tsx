@@ -5,6 +5,10 @@ import Footer from '@/components/Footer'
 import Head from 'next/head'
 import { GetServerSideProps } from 'next'
 import { serverStatus } from '@/services/verifyStatusServer'
+import { useEffect, useState } from 'react'
+import { UserProps } from '@/@types/user'
+import { getCookieClient } from '@/services/cookieClient'
+import Router from 'next/router'
 
 export interface FAQ {
     question: string,
@@ -12,6 +16,16 @@ export interface FAQ {
 }
 
 export default function FAQ(status: { status: string }) {
+    const [user, setUser] = useState<UserProps | null>()
+
+    useEffect(() => {
+        const user = getCookieClient();
+        if (!user) {
+            Router.push('/login')
+            return
+        }
+        setUser(user)
+    }, [])
 
     const faq: FAQ[] = [
         {
@@ -53,7 +67,7 @@ export default function FAQ(status: { status: string }) {
                 <title>FAQ | FlixNext</title>
                 <meta name="description" content="Perguntas frequêntes dos nossos usuários" />
             </Head>
-            <Header status={status} />
+            <Header userAvatar={user?.avatar} status={status} />
             <section className={styles.container}>
                 <div className={styles.faqContainer}>
                     <div className={styles.title}>

@@ -65,7 +65,7 @@ export default function Login() {
             const userData = JSON.stringify(response.data)
             document.cookie = `flixnext=${userData}; path=/; max-age=${expressTime}`
             toast.success("Bem vindo!")
-            Router.push('/');
+            Router.back();
         } catch (err) {
             if (err instanceof ErrorEvent) {
                 return toast.error(err.message)

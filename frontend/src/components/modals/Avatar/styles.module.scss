@@ -8,6 +8,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+
 }
 
 .avatarContainer {
@@ -37,6 +39,7 @@
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
         gap: 15px;
         width: 70%;
+        overflow-y: auto;
 
         img {
             transition: all .3s;
@@ -45,6 +48,16 @@
 
             &:hover {
                 transform: scale(1.2);
+            }
+        }
+    }
+}
+
+@media (max-width: 780px) {
+    .container {
+        .avatarContainer {
+            h1 {
+                padding-top: 20px;
             }
         }
     }

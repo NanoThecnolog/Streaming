@@ -8,7 +8,6 @@
 
     .faqContainer {
         width: 60%;
-
         background-color: #242424;
         display: flex;
         flex-direction: column;
@@ -17,6 +16,8 @@
         border-radius: 2rem;
         gap: 15px;
         margin-top: 300px;
+        scrollbar-width: thin;
+        scrollbar-color: var(--background-gray-light) var(--black);
 
         .title {
             background-color: var(--white);
@@ -56,7 +57,7 @@
     }
 }
 
-@media (min-width: 375.1px) and (max-width: 760px) {
+@media (min-width: 375.1px) and (max-width: 1250px) {
     .container {
         .faqContainer {
             width: 90%;
