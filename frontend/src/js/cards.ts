@@ -21,6 +21,83 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Flt3.com.ar%2Fwp-content%2Fuploads%2F2022%2F05%2FMision-Imposble-1-1996-2.jpg&f=1&nofb=1&ipt=172a30e83deb092e46e91a7c978d37c2282661d9a95fe273c39ae16939363b5b&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Eplt4lXOM69R9o89YYfDYQHaKe%26pid%3DApi&f=1&ipt=89b4164d2c3db00a0013abf7e19ac1cfa25a889c60703a17182fd5493af89c59&ipo=images",
+        tmdbId: 954,
+        title: "Missão Impossível",
+        subtitle: "",
+        description: "Durante uma missão em Praga, um grupo especial de agentes cai em uma cilada. O americano Ethan Hunt descobre que apenas ele e outra agente sobreviveram. Tomado como informante, ele foge e começa a agir por conta própria. Com a ajuda de um novo grupo, ele vai tentar limpar seu nome, descobrindo quem foi o espião que armou para o seu time.",
+        src: "https://drive.google.com/file/d/1cQV5girPp5eRR7PvbFBjSGjUNRjJKla5/preview",
+        duration: "01h 45m",
+        genero: ["Ação", "Suspense"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages4.alphacoders.com%2F118%2F1185383.jpg&f=1&nofb=1&ipt=c564b331723f6c8b8c75cc5c7f5da03670ab70b388641a1ea07d9315e275c4f9&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.fBg_Jt08ZgGpJ1chOt_scwHaLH%26pid%3DApi&f=1&ipt=dfed35a3c59c973ddb9cd8524a063a50b5080c880a8fa97be054bc4dbc305c64&ipo=images",
+        tmdbId: 955,
+        title: "Missão Impossível 2",
+        subtitle: "",
+        description: "Ethan Hunt retorna para liderar sua equipe em uma missão que pretende capturar um vírus mortal alemão antes que ele seja liberado por terroristas. Sua missão é fazer o impossível, até porque ele não é a única pessoa procurando as amostras da doença. Ele também compete com uma gangue de terroristas internacionais, liderados por um ex-agente que já roubou a cura para o vírus.",
+        src: "https://drive.google.com/file/d/1ZekuxgvqrRadOnbOXmiFBoampxnbjooO/preview",
+        duration: "02h 3m",
+        genero: ["Ação", "Suspense"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FlUPlOVvj72u13gn632j9wf3WA4I.jpg&f=1&nofb=1&ipt=8b2a2d7e16a5733768d21e13eb1ff9d411b9a3a1a54406f0a36c4500c721a63b&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.xtB9HhqPN4k44GtSuhSPWAHaLH%26pid%3DApi&f=1&ipt=75b52265033064be80a98a4dee531cc79cf8270ccf1d94fa048290aead2ef2e2&ipo=images",
+        tmdbId: 956,
+        title: "Missão Impossível 3",
+        subtitle: "",
+        description: "O agente Ethan Hunt (Tom Cruise) está afastado do trabalho de campo para a IMF, trabalhando apenas como treinador de novos agentes. Ele agora leva uma vida tranquila com Julia, com quem pretende se casar e que nada sabe sobre seu verdadeiro trabalho. Entretanto Ethan é chamado de volta à ativa quando uma de suas pupilas, Lindsey (Keri Russell), é capturada por Owen Davian (Philip Seymour Hoffman), um negociante de armas sem escrúpulos. Para resgatá-la é reunida uma nova equipe, formada por seu velho amigo Luther Stickell (Ving Rhames), o especialista em transportes Declan (Jonathan Rhys Meyers) e Zhen (Maggie Q).",
+        src: "https://drive.google.com/file/d/1cmfXwbL5fT8rqcghPXD_J5-6cdHMN6XS/preview",
+        duration: "02h 06m",
+        genero: ["Ação", "Suspense"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FhqyjzDRCs1N5gEsh2gklzPdsEFD.jpg&f=1&nofb=1&ipt=1843f2d36ff36db56b84c35d29315c364eabd4195b7636085b5075e7ba4df6eb&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.2OufZLI6uQHvvNnVJsKLoQHaJ4%26pid%3DApi&f=1&ipt=63ed327109c5e8f3bd3c703a89b2eb111007ab6ab5d837f12d58f863c7688b8f&ipo=images",
+        tmdbId: 56292,
+        title: "Missão Impossível",
+        subtitle: "Protocolo Fantasma",
+        description: "O agente secreto Ethan Hunt (Tom Cruise) é desautorizado pelo presidente dos Estados Unidos após o país ser acusado por um bombardeio no Kremlin. Tem início o Protocolo Fantasma, que visa acabar com os agentes da IMF. Sem qualquer recurso ou apoio, Ethan precisa encontrar um meio de limpar seu nome e o da agência em que trabalha. Para tanto passa a trabalhar com Benji (Simon Pegg) e Jane (Paula Patton), agentes renegados como ele, e ainda Brandt (Jeremy Renner), um ex-agente que agora trabalha como analista.",
+        src: "https://drive.google.com/file/d/1uEd1JeneB0OEasvObTiwSQb-Q2lxmTKl/preview",
+        duration: "02h 13m",
+        genero: ["Ação", "Suspense"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdeveserisso.com.br%2Fblog%2Fwp-content%2Fuploads%2F2020%2F05%2Fmissao-impossivel-nacao-secreta.jpg&f=1&nofb=1&ipt=a3a72c48ec577bca5115b7a3e824e1ad5dfaf3856879a7c0b89ef6ee1cbedb03&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.9g4C1P8-JR5fnguoy6KcmQHaLH%26pid%3DApi&f=1&ipt=fc118209abd54751310b1ef6b1c01e3d75756193b95a5959b3995db2a872d9af&ipo=images",
+        tmdbId: 177677,
+        title: "Missão Impossível",
+        subtitle: "Nação Secreta",
+        description: "O agente do IMF Ethan Hunt e sua equipe enfrentam uma das missões mais difíceis: erradicar o Sindicato, uma organização secreta internacional de assassinos profissionais que está determinada a destruir o IMF.",
+        src: "https://drive.google.com/file/d/1bpZL-uyqCa0JbP9_S4gRycsMokegIdc_/preview",
+        duration: "02h 11m",
+        genero: ["Ação", "Suspense"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FxYjJCd5PaY0wmbqL2gsVah8jZin.jpg&f=1&nofb=1&ipt=02a04b36e698ade36f9d6c9533123bfccfcc5258789036da624c9f5eb6127c0c&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.gXDfcsG7q_vcwVy5W017zQHaJ4%26pid%3DApi&f=1&ipt=3d7bb1d8357ba504646cf1c8ca7a6838698bfbe28f70e53a1a9490bd65fbb242&ipo=images",
+        tmdbId: 353081,
+        title: "Missão Impossível",
+        subtitle: "Efeito Fallout",
+        description: "Em uma perigosa tarefa para recuperar plutônio roubado, Ethan Hunt opta por salvar sua equipe em vez de completar a missão. Com isso, armas nucleares caem nas mãos de agentes altamente qualificados e que pertencem a uma rede mortal que deseja destruir a civilização. Agora, com o mundo em risco, Ethan e sua equipe da IMF são forçados a aliar-se a um obstinado agente da CIA.",
+        src: "https://drive.google.com/file/d/1CkwxZBw1afdvc9mAPY4wcYdPFM5vMDwl/preview",
+        duration: "02h 27m",
+        genero: ["Ação", "Suspense"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FTFTfzrkX8L7bAKUcch6qLmjpLu.jpg&f=1&nofb=1&ipt=cac02230e84e6b57e041e7b2cadbd7bbf4b4fcf6be359274cc38afc11da7b28c&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2F5h0j6ixjGTrh0PuQU98SIQLJmWt.jpg&f=1&nofb=1&ipt=e0592f5f0f6fade311707c1db636779d628582ed4f9df3340b1cd63ea18583e2&ipo=images",
+        tmdbId: 575264,
+        title: "Missão Impossível",
+        subtitle: "Acerto de Contas - Parte 1",
+        description: "Ethan Hunt e sua equipe devem rastrear uma nova arma que pode ameaçar toda a humanidade se cair em mãos erradas. Com o destino do mundo em jogo, se inicia uma corrida mortal ao redor do globo. Confrontado por um inimigo misterioso e poderoso, Ethan é forçado a considerar que talvez nada importe mais do que a missão, nem mesmo as vidas daqueles com quem ele mais se importa.",
+        src: "https://drive.google.com/file/d/1hzxcRpOMzKccYTgjkrFPXUVURxrZ6uw-/preview",
+        duration: "2h 43m",
+        genero: ["Ação", "Suspense"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fe86BQFrxPtDZwv4CfzfJJFufUAm.jpg&f=1&nofb=1&ipt=9e1c3c12718695edbc8a0ffa1108e5767557f55db7a31065417cc162207e0018&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.eExGvVyOCxBvFlnjDfS6BAHaLH%26pid%3DApi&f=1&ipt=553ef68e3e1a8654fb8313ba174ba4d8705df5d8151d9ef35c11e12c069de1a4&ipo=images",
         tmdbId: 840705,
@@ -2226,17 +2303,6 @@ export const cards: CardsProps[] = [
         genero: ["Fantasia",
             "Musical"
         ]
-    },
-    {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FTFTfzrkX8L7bAKUcch6qLmjpLu.jpg&f=1&nofb=1&ipt=cac02230e84e6b57e041e7b2cadbd7bbf4b4fcf6be359274cc38afc11da7b28c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2F5h0j6ixjGTrh0PuQU98SIQLJmWt.jpg&f=1&nofb=1&ipt=e0592f5f0f6fade311707c1db636779d628582ed4f9df3340b1cd63ea18583e2&ipo=images",
-        tmdbId: 575264,
-        title: "Missão Impossível",
-        subtitle: "Acerto de Contas - Parte 1",
-        description: "Ethan Hunt e sua equipe devem rastrear uma nova arma que pode ameaçar toda a humanidade se cair em mãos erradas. Com o destino do mundo em jogo, se inicia uma corrida mortal ao redor do globo. Confrontado por um inimigo misterioso e poderoso, Ethan é forçado a considerar que talvez nada importe mais do que a missão, nem mesmo as vidas daqueles com quem ele mais se importa.",
-        src: "https://drive.google.com/file/d/1hzxcRpOMzKccYTgjkrFPXUVURxrZ6uw-/preview",
-        duration: "2h 43m",
-        genero: ["Ação", "Suspense"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi0.wp.com%2Fthedisinsider.com%2Fwp-content%2Fuploads%2F2022%2F06%2Fimage0-2022-06-14T092638.174.jpeg%3Ffit%3D3264%252C1836%26ssl%3D1&f=1&nofb=1&ipt=8ae7d225eab372370b3c41a610c1879cf9ea482901003dc023ae2105a794c1ab&ipo=images",
