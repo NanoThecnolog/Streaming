@@ -145,16 +145,10 @@ export default function Me(status: { status: string }) {
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </section>
-
                     </div>
-
                 }
-
-
-
             </article>
             {modalVisible && <Avatar handleCloseModal={handleCloseModal} />}
             {editarDados && <EditarDados handleClose={closeEditarDados} />}

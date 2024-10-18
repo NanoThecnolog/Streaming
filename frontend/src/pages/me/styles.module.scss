@@ -3,15 +3,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     color: var(--white);
     font-family: var(--font-Roboto);
-    padding-top: 100px;
+    padding: 250px 0;
+    overflow-x: hidden;
 
     .articleContainer {
-        display: flex;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(500px, max-content));
         width: 100%;
+        max-width: 1200px;
         position: relative;
 
         .asideContainer {
@@ -19,7 +21,8 @@
             flex-direction: column;
             gap: 12px;
             padding-right: 20px;
-            width: 20%;
+            justify-content: center;
+            align-items: flex-start;
 
             .avatar {
                 display: flex;
@@ -103,9 +106,7 @@
         }
 
         .sectionContainer {
-            width: 50%;
             height: 100%;
-
 
             .infoContainer {
                 height: 100%;
@@ -119,10 +120,24 @@
                     justify-content: center;
                     padding-top: 50px;
                     gap: 50px;
+                    min-width: 300px;
 
-                    h4 {
-                        font-size: 1.4rem;
-                        padding-bottom: 20px;
+                    .filmes {
+                        width: 100%;
+
+                        h4 {
+                            font-size: 1.4rem;
+                            padding-bottom: 20px;
+                        }
+                    }
+
+                    .series {
+                        width: 100%;
+
+                        h4 {
+                            font-size: 1.4rem;
+                            padding-bottom: 20px;
+                        }
                     }
 
                     .watchContainer {
@@ -152,10 +167,56 @@
     }
 }
 
-@media (max-width: 375px) {
+
+
+@media (max-width: 700px) {
     .container {
+        .articleContainer {
+            grid-template-columns: repeat(auto-fill, minmax(400px, max-content));
+            justify-content: center;
 
+            .asideContainer {
+                align-items: center;
+            }
 
-        .articleContainer {}
+            .sectionContainer {
+                width: 100%;
+
+                .infoContainer {
+
+                    .watchLater {
+                        flex-direction: column;
+                        min-width: 100px;
+
+                        h4 {
+                            text-align: center;
+                        }
+                    }
+
+                }
+
+            }
+        }
+    }
+}
+
+@media (min-width: 701px) and (max-width: 999px) {
+    .container {
+        .articleContainer {
+
+            .asideContainer {
+                align-items: center;
+            }
+        }
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1280px) {
+    .container {
+        .articleContainer {
+            .asideContainer {
+                padding-left: 30px;
+            }
+        }
     }
 }
