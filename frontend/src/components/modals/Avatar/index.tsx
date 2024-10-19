@@ -22,6 +22,15 @@ export default function Avatar({ handleCloseModal }: AvatarProps) {
         "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F4.bp.blogspot.com%2F-3sSGU0Zkaqs%2FTenH0sC3YZI%2FAAAAAAAAAFg%2FK-NBKWorVXE%2Fs1600%2FAVATAR%2BSILVIA.jpg&f=1&nofb=1&ipt=0c92d97c1a82b264fbd78ef56dc567541e95c5d8e3e6b089c82cd6ebe8830b7e&ipo=images",
         "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthypix.com%2Fwp-content%2Fuploads%2F2021%2F10%2Fmanga-profile-picture-92-150x150.jpg&f=1&nofb=1&ipt=f23e792a0b68556d2a391bb33d9e80fa7dc8297aa087d42c89e7ce139f7acd8e&ipo=images",
         "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.polymerclaydaily.com%2Fimages%2Ftinapple_manga.jpg&f=1&nofb=1&ipt=c269e6060e950e008a2c0e2631ed18779fc93f95efab9092debd744757ae8907&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F002%2F275%2F847%2Foriginal%2Fmale-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg&f=1&nofb=1&ipt=6e0ae00a4e223ccdf20fd5deae051af89d4a4e9b1002e1ff36d6e1345a4674ea&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fdf%2F5f%2F5b%2Fdf5f5b1b174a2b4b6026cc6c8f9395c1.jpg&f=1&nofb=1&ipt=005ecb7710f06341543ada561e1d3b0ddec5f32f967be43547ed3f735127f5d4&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F8a%2F55%2F99%2F8a5599792c0d7b0a02377b97fafe76a9.jpg&f=1&nofb=1&ipt=2c8805c79cab54dbdcf4399dc01a9b9841c8741e9f0b40ee273373949daf6cfb&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fe3%2F63%2F16%2Fe36316cfd05ca21e44d8fabcf1a192be.jpg&f=1&nofb=1&ipt=09ccaab8cadd62e6e5b1045246049efcd0dd87b55744e33453b3e27cddf8f1a9&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fopenclipart.org%2Fimage%2F800px%2F313668&f=1&nofb=1&ipt=5669ff93e5d8b8aa18a3f36cad75a2110fc0875775e36df75800a3734514b377&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F12%2Fc9%2Fd8%2F12c9d84f6be4493161938ce036f54fcc.jpg&f=1&nofb=1&ipt=44a514170a249169bfc036fe63d0a6808447ce5b7776507423367b83db6f006a&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn2.iconfinder.com%2Fdata%2Ficons%2Fteen-people-face-avatar-1%2F500%2Fhigh_99-1024.png&f=1&nofb=1&ipt=de39bc34c9a6dd311f9de6063c677b0e54b5b35f1cc771658380e0164832045b&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F019%2F494%2F963%2Fnon_2x%2Fman-boy-avatar-user-person-people-curly-hair-black-colored-outline-style-vector.jpg&f=1&nofb=1&ipt=7bba4bf362237dae90fe104070b7789adf4f51a16313b84c53e6ee94c2269c06&ipo=images",
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fd0%2F6b%2F43%2Fd06b43ef4fc9ed6d78ac7a925923b303.jpg&f=1&nofb=1&ipt=0d226e44feaa2d58f84ed2d37d01244f226b56cf4d9ee5d1953961db640fbe3d&ipo=images",
     ]
 
     async function handleChangeAvatar(url: string) {
