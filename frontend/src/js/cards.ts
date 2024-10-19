@@ -29,7 +29,7 @@ export const cards: CardsProps[] = [
         description: "Zoey Miller, uma estudante com especialização em computação, superinteligente e desinteressada no amor romântico, tem sua vida virada de cabeça para baixo quando Zach, um popular jogador de futebol universitário, fica com amnésia e confunde Zoey com a sua namorada.",
         src: "https://drive.google.com/file/d/1ERuwNyxxJvJkuvfaoM2FkB13EYvBRzkM/preview",
         duration: "01h 31m",
-        genero: ["Romance", "Drama", "Comédia"]
+        genero: ["Romance", "Comédia"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F0c%2Fd4%2Ffe%2F0cd4fee4bbfb0a07f7c5f63adb0d1a89.jpg&f=1&nofb=1&ipt=e2958151209227359bb026e160da6aa689f3d3bcaa8df8f5c045486dde072cf1&ipo=images",
@@ -656,7 +656,7 @@ export const cards: CardsProps[] = [
         description: "Um jovem tem uma premonição e salva um grupo de pessoas da morte quando uma ponte suspensa começa a desabar. Contudo, eles logo aprendem que não têm como fugir da morte.",
         src: "https://drive.google.com/file/d/1QOs-MkAhceUuTr-TqOKqsbzkd_JEzDk2/preview",
         duration: "01h 32m",
-        genero: ["Terror", "Ação"]
+        genero: ["Terror"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FlOI8OhF58GkwOwDcUY9dcueEcBN.jpg&f=1&nofb=1&ipt=b072b8b38653a2105b6ab2d48da63b000d780e7eeaad206d20863e864de63f1e&ipo=images",
@@ -667,7 +667,7 @@ export const cards: CardsProps[] = [
         description: "Uma premonição salva quatro amigos que estavam assistindo a uma corrida de carros quando um trágico acidente acontece, matando dezenas de pessoas no local. Eles pensam que escaparam da morte, mas logo percebem que ela está em seu encalço.",
         src: "https://drive.google.com/file/d/1OpC6ItJzhNcGuvTaegZ0H9qWwDghPcgp/preview",
         duration: "01h 22m",
-        genero: ["Terror", "Ação"]
+        genero: ["Terror"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2020%2F03%2Fpremoni%25C3%25A7%25C3%25A3o-3.jpg&f=1&nofb=1&ipt=9d3fd9e5283cf4c04f56e42d31ca2df747412b1f0fda91908867b437fb45f3d7&ipo=images",
@@ -678,7 +678,7 @@ export const cards: CardsProps[] = [
         description: "Seis anos depois que um grupo de estudantes enganam pela primeira vez a morte, uma adolescente tem o pressentimento de que ela e seus amigos vão ter um acidente em uma montanha-russa. Quando a visão prova ser verdadeira, a estudante e os sobreviventes precisarão lidar com as repercussões de enganar a morte.",
         src: "https://drive.google.com/file/d/1RUnXFxdUtheV8xLrEaYtzoxjA0Y7I-Lp/preview",
         duration: "01h 33m",
-        genero: ["Terror", "Ação"]
+        genero: ["Terror"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FtSCozfXKeALzwcCilWcCXM14edJ.jpg&f=1&nofb=1&ipt=cd755b13b84c4e0861b5a3d160ea7860c92e589f4f80276422e0a865e0924865&ipo=images",
@@ -689,7 +689,7 @@ export const cards: CardsProps[] = [
         description: "Kimberly tem a premonição de que um horrível acidente na estrada matará muitas pessoas, inclusive ela e seus amigos. Assustada com a visão, ela para o carro e impede os que estão atrás de passar. Logo, um policial rodoviário chega e o acidente realmente acontece. Agora, a morte está perseguindo esse grupo de sobreviventes e, um a um, eles estão morrendo como deveriam: na estrada.",
         src: "https://drive.google.com/file/d/1jyEdo6odqjw_NdbiUsX22P5LWWYy3lnG/preview",
         duration: "01h 30m",
-        genero: ["Terror", "Ação"]
+        genero: ["Terror"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2020%2F03%2Fpremoni%25C3%25A7%25C3%25A3o-1.jpg&f=1&nofb=1&ipt=b37a7c1782411e76ad15ce67dc15187b6ca948e23b2167707acafbc336b40bf5&ipo=images",
@@ -700,7 +700,7 @@ export const cards: CardsProps[] = [
         description: "Alex Browning está embarcando em uma viagem para Paris. Alex sofre uma premonição, pela qual vê o avião explodir momentos depois de sair do chão. Alex insiste que todo mundo saia do avião e sete pessoas, incluindo Alex, são obrigados a desembarcar. Todos veem quando o avião realmente explode como uma bola de fogo. Ele e os outros sobreviventes brevemente enganam a morte, mas não serão capazes de evitar o seu destino por muito tempo. Um a um, esses fugitivos de destino viram vítimas da morte.",
         src: "https://drive.google.com/file/d/11OwfI3aNMUnKnk1P59ZcksMbGqj7ZdyU/preview",
         duration: "01h 38m",
-        genero: ["Terror", "Ação"]
+        genero: ["Terror"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FfRnhnR2JfkGBT19z7EXEmIUcDSo.jpg&f=1&nofb=1&ipt=b1c9d1ccc61016cc7ed4817f380ba241cf4ee1c1e8384e0921a927fe0142d2ee&ipo=images",
