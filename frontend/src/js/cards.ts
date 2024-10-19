@@ -21,6 +21,17 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.uhdpaper.com%2Fwallpaper%2Fblue-beetle-movie-character-poster-815%401%40k-pc-4k.jpg&f=1&nofb=1&ipt=cb5dc37177c9d3cbb0a5a3076aaa6b04232f7113613f70cafa946e1d930fdd8c&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.nTpStLM-YGh7lnH4fyT2_AHaJQ%26pid%3DApi&f=1&ipt=6250960ddf58607c937fc3852907392f1297e3403fa1a71ed4152e2e8cad8ec9&ipo=images",
+        tmdbId: 565770,
+        title: "Besouro Azul",
+        subtitle: "",
+        description: "Jaime Reyes, um adolescente de origem mexicana que encontra um artefato alienígena que lhe dá um exoesqueleto mecanizado e poderes, tornando-o no Besouro Azul.",
+        src: "https://drive.google.com/file/d/10B3bgA-7mLoPV_ZxrXNl5ZOnPfkyzciC/preview",
+        duration: "02h 07m",
+        genero: ["Ação", "Ficção Científica", "Aventura", "DC", "Super Herói"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FM%2FMV5BYzE3ZDMxY2UtMzliNi00M2I0LWFmMjAtYTU3ZDQ2OTg2Y2ZhXkEyXkFqcGdeQWFybm8%40._V1_FMjpg_UX1000_.jpg&f=1&nofb=1&ipt=29bf10652fa83c83e81c34d6f590d71360ab8144023ff61952a5a4da1bb0cb20&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.NH4nHrEbTomQwqh5FA6krwHaKk%26pid%3DApi&f=1&ipt=d1cf78ae12d672e3aa1cef62b9eacf8d9a17111b71ac3992589e149d98027ef5&ipo=images",
         tmdbId: 912916,

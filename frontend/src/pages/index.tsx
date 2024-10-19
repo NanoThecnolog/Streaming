@@ -12,6 +12,8 @@ import { UserProps } from "@/@types/user";
 import { GetServerSideProps } from "next";
 import { serverStatus } from "@/services/verifyStatusServer";
 import { api } from "@/services/api";
+import { clearTimeout } from "timers";
+import { setTimeout } from "timers/promises";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,83 +21,61 @@ export default function Home(status: { status: string }) {
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
   const [width, setWidth] = useState<number>()
   const userData: UserProps = getCookieClient();
+  const expressTime = 15 * 24 * 60 * 60 * 1000;
   const divisaoPorGenero = [
-    "ação",
-    "aventura",
-    "suspense",
-    "comédia",
-    "terror",
-    "romance",
-    "super herói",
-    "drama",
-    "ficção científica",
-    "fantasia",
-    "marvel",
-    "dc",
-    "animação"
+    "ação", "aventura", "suspense", "comédia", "terror",
+    "romance", "super herói", "drama", "ficção científica",
+    "fantasia", "marvel", "dc", "animação"
   ]
   useEffect(() => {
     getUserData()
   }, [status])
   async function getUserData() {
     const user = getCookieClient();
-    if (!user) {
-      return
-    }
+    if (!user) return;
+
     try {
       const atualizarUsuario = await api.get('/user', {
         params: {
           id: user.id
         }
       })
-      const expressTime = 15 * 24 * 60 * 60 * 1000;
       const userJson = JSON.stringify(atualizarUsuario.data)
       document.cookie = `flixnext=${userJson}; path=/; max-age=${expressTime}`
-      //console.log(userData)
     } catch (err) {
       console.log("Erro ao buscar dados do usuário na API", err)
     }
   }
 
   useEffect(() => {
+    // Breakpoints ajustados
+    const breakpoints = [
+      { width: 780, cards: 1 },
+      { width: 1100, cards: 2 },
+      { width: 1500, cards: 3 },
+      { width: 1650, cards: 4 },
+      { width: Infinity, cards: 5 },
+    ]
+    //definindo quantidade de cards por container
     function handleResize() {
-      const width = window.innerWidth;
-      setWidth(width)
-
-      // Ajustar os breakpoints
-      if (width < 780) {
-        setCardPerContainer(1)
-      } else if (width < 1100) {
-        setCardPerContainer(2)
-      } else if (width < 1480) {
-        setCardPerContainer(3)
-      } else if (width < 1650) {
-        setCardPerContainer(4)
-      } else {
-        setCardPerContainer(5)
-      }
-
+      const windowWidth = window.innerWidth;
+      setWidth(windowWidth)
+      const { cards } = breakpoints.find(b => windowWidth < b.width) || { cards: 5 }
+      setCardPerContainer(cards)
     }
     window.addEventListener('resize', handleResize)
-
     handleResize()
-
     return () => window.removeEventListener('resize', handleResize)
   }, [])
   useEffect(() => {
-
-    const rightClickBlock = (event: MouseEvent) => {
-      event.preventDefault();
-    };
+    function rightClickBlock(event: MouseEvent) { event.preventDefault(); }
 
     // Impede atalhos de ferramentas de desenvolvedor
-    const openConsoleBlock = (event: KeyboardEvent) => {
-
+    function openConsoleBlock(event: KeyboardEvent) {
+      const blockedKeys = ['F12', 'I', 'C', 'J', 'U']
       if (
-        event.key === 'F12' ||
-        (event.ctrlKey && event.shiftKey && event.key === 'I') ||
-        (event.ctrlKey && event.shiftKey && event.key === 'C') ||
-        (event.ctrlKey && event.shiftKey && event.key === 'J') ||
+        blockedKeys.includes(event.key) ||
+        (event.ctrlKey && event.shiftKey && blockedKeys.includes(event.key)) ||
         (event.ctrlKey && event.key === 'U')
       ) {
         event.preventDefault();

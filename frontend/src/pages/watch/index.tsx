@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from '@/styles/Watch.module.scss';
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Router, { useRouter } from "next/router";
 import { ChevronLeft } from 'lucide-react';
 import { api } from "@/services/api";
@@ -11,23 +11,25 @@ export default function Watch() {
     const { title, subTitle, src } = router.query;
     const [movieData, setMovieData] = useState({ title: '', subTitle: '', src: '' });
 
-    useEffect(() => {
-        async function acordarServidor() {
-            try {
-                const wakeup = await api.get('/acordar');
-                return wakeup
-            } catch (err) {
-                return err
-            }
+    const acordarServidor = useCallback(async () => {
+        try {
+            await api.get('/acordar')
+        } catch (err) {
+            console.error("Erro ao acordar o servidor", err)
         }
-        acordarServidor();
-        const manterAcordado = setInterval(() => {
-            acordarServidor()
-        }, 40000);
-        return () => clearInterval(manterAcordado)
     }, [])
+    const verificarUsuario = useCallback(() => {
+        const user = getCookieClient();
+        if (!user) {
+            router.push('/login')
+        }
+    }, [router])
 
-
+    useEffect(() => {
+        acordarServidor();
+        const manterAcordado = setInterval(acordarServidor, 40000);
+        return () => clearInterval(manterAcordado)
+    }, [acordarServidor])
 
     useEffect(() => {
         if (title && src) {
@@ -39,16 +41,12 @@ export default function Watch() {
         }
     }, [title, subTitle, src])
     useEffect(() => {
-        const user = getCookieClient();
-        if (!user) {
-            Router.push('/login')
-            return
-        }
-    }, [])
+        verificarUsuario();
+    }, [verificarUsuario])
 
-    function handleBack() {
-        Router.back()
-    }
+    const handleBack = useCallback(() => {
+        router.back()
+    }, [router])
 
     return (
         <>
