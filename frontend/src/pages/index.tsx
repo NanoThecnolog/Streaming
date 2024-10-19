@@ -55,7 +55,6 @@ export default function Home(status: { status: string }) {
     } catch (err) {
       console.log("Erro ao buscar dados do usuário na API", err)
     }
-
   }
 
   useEffect(() => {

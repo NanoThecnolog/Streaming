@@ -25,6 +25,275 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.betaseries.com%2Fblog%2Fwp-content%2Fuploads%2F2018%2F04%2FBlackMirror.jpg&f=1&nofb=1&ipt=8f4e3f5b2db9b1d01708f8188b37705d63abaf533c364c270184d688dba459f6&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.RBD42SPDqqaJJCM0INRpWQHaLH%26pid%3DApi&f=1&ipt=f7930aae5b834cfbb86e3f3dbe5242b45fbbb22c2cb3366988c1842eec6760d1&ipo=images",
+        tmdbID: 42009,
+        title: "Black Mirror",
+        subtitle: "",
+        description: "Esta série antológica de ficção científica explora um futuro próximo onde a natureza humana e a tecnologia de ponta entram em um perigoso conflito.",
+        genero: ["Fantasia", "Ficção Científica", "Drama", "Mistério", "Netflix"],
+        season: [
+            {
+                s: 1,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1-U8hrfQuMOBxgzawoE5Z-VQmaV0S2BcW/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/101AweJJgsRWwQ5MBoes7eMq0XJCnLmnQ/preview",
+                        duration: "01h 02m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/10NajCcwpRhUSLcP1-RIWtUGwkvA_204P/preview",
+                        duration: "49m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/136JlxXUDzMXTI8M6xoC4c-xwC3vhv5vV/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/101DbQdHEplfdvKYFz1exkLJM09-9R6Pb/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/10uZBIuOPjCwOLS2kyg6XWBQN0-5hOI_Y/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/13CrDxvBEUCrRP4evBuZtZpo_MwcSLvpn/preview",
+                        duration: "01h 14m"
+                    },
+                ]
+            },
+            {
+                s: 3,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "ttps://drive.google.com/file/d/11kRMhyb9Vl1OFMeiA-0w6h5q8Wlw3xTM/preview",
+                        duration: "01h 02m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/11szV_nSdpMoah8zhwBl2JoWRPM3DHgE_/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/11lbzx9BuHLwayuGucST2agoRVPaBvqNS/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/12A7GY6dBn7oMaurxhezk7h07MQXkJNYp/preview",
+                        duration: "01h"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/12187Cc_2t32-TkQi2kLpj0ZGpIsLctFj/preview",
+                        duration: "59m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/127GHpoyxYyhzDtBURJMTY0cyS2ZsP666/preview",
+                        duration: "01h 29m"
+                    },
+                ]
+            },
+            {
+                s: 4,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/12HhzRECuVgxd_u8IpwPPaQgfZ4u0Uz8D/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/12YkVWOpdwawM2vmI52vLXG03MtiNyts5/preview",
+                        duration: "01h 16m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/12NyThWHdtW9e2PtXFaOzHlaF42g1Xgk5/preview",
+                        duration: "59m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/12Pmbjnga_t8hge7ADvnm0G_v-aeEJOeC/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/12RUnO74BUdbQZJC8oHSCeTGksv3VIBAd/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/12XRs_NWpBW3kUGbh5z08HYgFIQHOKAIZ/preview",
+                        duration: "01h 09m"
+                    },
+                ]
+            },
+            {
+                s: 5,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/12_beWyoCtJRfCWuEP_gGXxM744v_o7Jh/preview",
+                        duration: "01h 01m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/12cAj_FpPON9hIBb9gmvKuEBYyDOmZnAm/preview",
+                        duration: "01h 10m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/12ieDgtj17khrrV2bI30xXzqzLzVN3tmk/preview",
+                        duration: "01h 07m"
+                    },
+                ]
+            },
+            {
+                s: 6,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/12ymJVL5WR5dXp56mEiJU2E_EKZt5r4BF/preview",
+                        duration: "58m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/12tcA5JlJMtZmhF2y1MOE1TfhLAFv8mvm/preview",
+                        duration: "56m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/13B61GgmFOFfYJ-DFSfAUSNKdwNrzjUUK/preview",
+                        duration: "01h 20m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/133cwKkc7BQ7soe2QwF1PlXOFKGrPTKFM/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/13747weP0VzAypMjwZ3EllPTTOu8A-UXZ/preview",
+                        duration: "01h 14m"
+                    },
+
+                ]
+            },
+        ]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pogdesign.co.uk%2Fcat%2Fimgs%2Fepisodes%2FTulsa-King%2FTulsa-King-S01E01-942002a303bd881ea11130b1f52b55d3-full.jpg&f=1&nofb=1&ipt=555799ddc1cbaf40884acface48516d8ef3fcf16351ee96aa4d3ceddd164084b&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.ZIBQ1azE1izd8DWq9RyJEwAAAA%26pid%3DApi&f=1&ipt=3319a2247e2b5d011808dfaba3abf2793815c8f55102c83aeaf093efa31f6391&ipo=images",
+        tmdbID: 153312,
+        title: "Tulsa King",
+        subtitle: "",
+        description: "Depois de cumprir 25 anos de prisão, Dwight Manfredi é exilado sem cerimônia por seu chefe da máfia para se estabelecer em Oklahoma. Dwight lentamente constrói um novo império criminoso em Tulsa.",
+        genero: ["Ação", "Drama", "Crime"],
+        season: [
+            {
+                s: 1,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1-tS-HhxK-E4fe0m_l8B99WfHAYBIcPzs/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1-w4_Ev87wZkqbq-t3UJTZgYrDG2wJ03i/preview",
+                        duration: "36m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/102ITT91wxSt5i0xkWvuo0TO0SHXg4ZUG/preview",
+                        duration: "38m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/10DArADlwU8QGUQp1UhHOkQBTyFMAcAkB/preview",
+                        duration: "39m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/10EFzCx29gSDYiI7hQLJrBhVyE99ivcg9/preview",
+                        duration: "36m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/10O8aQ6FUnuTQsCvHC7uubqF2-al_TNAH/preview",
+                        duration: "39m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/10Q6RoUC7x_T3wnG5ce09piVmy4q7cC6p/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/10UPGxyGla41xAiAU0hNV4QoW2owBZshb/preview",
+                        duration: ""
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/10WcakW6MChZFFHts0P-WT-87SVs7wiH0/preview",
+                        duration: "36m"
+                    },
+
+                ]
+            },
+            {
+                s: 2,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/10ZHmSzH-mbBeqAm5JMYDmdzeJMO1fZEi/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/10auSvbnHRSK9elGbKFkJCZVXp9jRi3wD/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/10b6sc7CQXel9EN3evzxHMTNekd9Vh1yp/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/10cZ4YFR4wGSs6s-Nqps7z8eAULEmz685/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/10d9H7BkNMsl0cvPc7ONljnjNJAAKZsMI/preview",
+                        duration: "40m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cnnbrasil.com.br%2Fwp-content%2Fuploads%2Fsites%2F12%2F2024%2F05%2Fjake-gyllenhaal-serie.jpg&f=1&nofb=1&ipt=360db108238b16d6c908e5a69a559e2896ada6380bbccce693517def17506590&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.GJnNq6GwmVdPt7AQUnjBAQHaLG%26pid%3DApi&f=1&ipt=81f8fa456d860816ac3af4936d636be6aa3dc8e6433b9d338c203dec3c47d428&ipo=images",
         tmdbID: 156933,

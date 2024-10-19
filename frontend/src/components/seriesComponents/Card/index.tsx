@@ -1,24 +1,8 @@
-import { cards } from "@/js/cards";
-import { CardsProps } from "@/@types/Cards";
 import styles from './styles.module.scss'
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import { FaPlay } from "react-icons/fa";
-import { FaRegClock } from "react-icons/fa6";
-import { FaStar } from "react-icons/fa";
-import { FaInfoCircle } from "react-icons/fa";
-import { IoCheckmarkCircle, IoCloseCircle } from "react-icons/io5";
-import { IoIosAddCircleOutline } from "react-icons/io";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import CardInfoSerieModal from "../CardInfos";
-
-import { toast } from "react-toastify";
 import { SeriesProps } from "@/@types/series";
-import { UserProps } from "@/@types/user";
-import { getCookieClient, setCookieClient } from "@/services/cookieClient";
-import { isOnTheList } from "@/services/isOnTheList";
-import Router from "next/router";
-import { addWatchLater } from "@/services/addWatchLater";
 import { serieData } from "@/services/fetchSeries";
 import OverlaySerie from "../Overlay";
 
@@ -28,72 +12,39 @@ interface CardProps {
     section?: string;
     modalWatchLater?: (title: string, subTitle?: string) => void;
 }
+type StateProps = {
+    modalVisible: boolean,
+    TMDBPoster: string | null,
+}
 
-
-
-export default function Card({ card, section, modalWatchLater }: CardProps) {
-    const [onWatchLater, setOnWatchLater] = useState(false)
-    const [user, setUser] = useState<UserProps>()
-    const [isLoading, setIsLoading] = useState<boolean>(false)
-    const [modalVisible, setModalVisible] = useState<boolean>(false)
-    const [TMDBPoster, setTMDBPoster] = useState<string | null>(null)
-
+export default function Card({ card, modalWatchLater }: CardProps) {
+    const [state, setState] = useState<StateProps>({
+        modalVisible: false,
+        TMDBPoster: null,
+    })
+    const { modalVisible, TMDBPoster } = state;
     useEffect(() => {
-        const user = getCookieClient();
-        if (!user) {
-            return
+        if (card.tmdbID !== 0) {
+            fetchSerieData();
+        } else {
+            setState(prev => ({ ...prev, TMDBPoster: null }))
         }
-        setUser(user)
-        setCookieClient();
-    }, [])
-    useEffect(() => {
-        onList(card.title, card.subtitle)
-    }, [card])
-    useEffect(() => {
-        setTMDBPoster(null)
-        if (card.tmdbID === 0) {
-            setTMDBPoster(null)
-            return
-        }
-        fetchSerieData()
-    }, [card])
-    useEffect(() => {
-        onList(card.title, card.subtitle)
-    }, [modalVisible])
+    }, [card, modalVisible])
+
     async function fetchSerieData() {
         const serie = await serieData(card.tmdbID)
-        if (!serie || !serie.poster_path) {
-            setTMDBPoster(null)
-            return
-        }
-        const posterURL = `https://image.tmdb.org/t/p/original${serie.poster_path}`
-        setTMDBPoster(posterURL)
-    }
-    async function onList(title: string, subtitle?: string) {
-        const onList: Promise<boolean> = isOnTheList(title, subtitle)
-        onList.then(result => {
-            if (!result) {
-                setOnWatchLater(false)
-            } else {
-                setOnWatchLater(true)
-            }
-        })
+        setState(prev => ({ ...prev, TMDBPoster: serie?.poster_path ? `https://image.tmdb.org/t/p/original${serie.poster_path}` : null }))
     }
 
-    function handleClick() {
-        setModalVisible(!modalVisible)
-    }
-    function handleModalClose() {
-        setModalVisible(false)
-    }
-    function modalVisibility() {
-        setModalVisible(true)
-    }
+    const handleClick = useCallback(() => setState(prev => ({ ...prev, modalVisible: !prev.modalVisible })), [])
+    const handleModalClose = useCallback(() => setState(prev => ({ ...prev, modalVisible: false })), [])
+    const modalVisibility = useCallback(() => setState(prev => ({ ...prev, modalVisible: true })), [])
+    const posterSRC = useMemo(() => TMDBPoster ? TMDBPoster : card.overlay, [TMDBPoster, card.overlay])
     return (
         <>
             <div className={styles.card} id={card.genero[0].toLowerCase()}>
                 <Image
-                    src={TMDBPoster ? TMDBPoster : card.overlay}
+                    src={posterSRC}
                     alt={card.title}
                     fill
                     placeholder="blur"
@@ -109,45 +60,11 @@ export default function Card({ card, section, modalWatchLater }: CardProps) {
                         tmdbId={card.tmdbID}
                         title={card.title}
                         subtitle={card.subtitle}
-                        src={card.season[0].episodes[0].src}
                         season={card.season}
                         genero={card.genero}
                         isVisible={modalVisible}
                         modalVisible={modalVisibility}
                     />
-                    {/*<h3>{card.title.toUpperCase()}</h3>
-                    {card.subtitle && (
-                        <h4>{card.subtitle}</h4>
-                    )}
-                    <p>
-                        {card.season.length > 1
-                            ? `${card.season.length} temporadas`
-                            : card.season.length === 1
-                            && `${card.season.length} temporada`} - {card.genero.join(', ')}
-                    </p>
-
-                    <div className={styles.button_container}>
-                        <div className={styles.watch}>
-                            <Link href={`${play}`}>
-                                <button>
-                                    <FaPlay size={15} />
-                                </button>
-                            </Link>
-                        </div>
-                        <div className={styles.queue} onClick={handleWatchLater}>
-                            {
-                                onWatchLater ?
-                                    <IoCheckmarkCircle title='Remover' size={25} className={styles.watchLater} />
-                                    : <FaRegClock title='Adicionar' size={20} />
-                            }
-                        </div>
-                        <div className={`${styles.star} ${styles.queue}`} onClick={handleFavorite}>
-                            <FaStar size={20} />
-                        </div>
-                        <div className={`${styles.star} ${styles.queue}`} onClick={() => setModalVisible(true)}>
-                            <FaInfoCircle size={20} />
-                        </div>
-                    </div>*/}
                 </div>
 
             </div>
@@ -155,12 +72,10 @@ export default function Card({ card, section, modalWatchLater }: CardProps) {
             {modalVisible &&
                 <div className={styles.modalInfo}>
                     {
-
                         <CardInfoSerieModal
                             card={card}
                             handleModalClose={handleModalClose}
                         />
-
                     }
                 </div>
             }

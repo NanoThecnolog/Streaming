@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 import { api } from "./api"
-import { listFavorite } from "./listFavorite";
+import { getListFavorite } from "./getListFavorite";
 import { RemoveFavorite } from "./removeFavorite";
 import { favoriteCookie } from "./setFavoriteCookie";
 
@@ -22,7 +22,7 @@ export async function addFavorite({ tmdbid, title, subtitle, userId }: FavoriteP
     try {
         if (isLoading) return null;
         isLoading = true;
-        const favoriteList = await listFavorite(userId)
+        const favoriteList = await getListFavorite(userId)
         //console.log(favoriteList)
         if (favoriteList && favoriteList.length >= 1) {
             const favoritoExiste = favoriteList.find((filme: { id: string, title: string, subtitle?: string }) => {

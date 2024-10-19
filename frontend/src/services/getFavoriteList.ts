@@ -1,6 +1,6 @@
 import { getCookie } from "cookies-next";
 
-export function getFavoriteList() {
+export function getCookieFavoriteList() {
     const favoriteList = getCookie('favoriteList')
     if (favoriteList) {
         try {

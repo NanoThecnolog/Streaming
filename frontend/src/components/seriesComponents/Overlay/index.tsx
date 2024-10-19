@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import styles from './styles.module.scss';
 import Link from 'next/link';
 import { FaInfoCircle, FaPlay } from 'react-icons/fa';
@@ -11,9 +11,8 @@ import Router from 'next/router';
 import { UserProps } from '@/@types/user';
 import { addWatchLater } from '@/services/addWatchLater';
 import { IoCheckmarkCircle } from 'react-icons/io5';
-import Card from '../Card';
 import { addFavorite } from '@/services/addFavorite';
-import { getFavoriteList } from '@/services/getFavoriteList';
+import { getCookieFavoriteList } from '@/services/getFavoriteList';
 import { ListaFavoritos } from '@/@types/favoritos';
 import { Seasons } from '@/@types/series';
 
@@ -22,86 +21,79 @@ interface OverlayProps {
     tmdbId: number
     title: string,
     subtitle?: string,
-    src: string,
     season: Seasons[];
     genero: string[]
     isVisible: boolean
 
     modalVisible: () => void;
 }
+type StateProps = {
+    user: UserProps | undefined,
+    favoriteList: ListaFavoritos[],
+    onWatchLater: boolean,
+    isLoading: boolean
+}
 
-export default function OverlaySerie({ tmdbId, title, subtitle, src, season, genero, isVisible, modalVisible }: OverlayProps) {
-    const [onWatchLater, setOnWatchLater] = useState(false)
-    const [user, setUser] = useState<UserProps>()
-    const [isLoading, setIsLoading] = useState<boolean>(false)
-    const [favoriteList, setFavoriteList] = useState<ListaFavoritos[]>([])
+export default function OverlaySerie({ tmdbId, title, subtitle, season, genero, isVisible, modalVisible }: OverlayProps) {
+    const [state, setState] = useState<StateProps>({
+        user: undefined,
+        favoriteList: [],
+        onWatchLater: false,
+        isLoading: false
+    })
+    const { user, favoriteList, onWatchLater, isLoading } = state
 
     useEffect(() => {
-        const user = getCookieClient();
-        if (!user) {
-            //Router.push('/login')
-            return
-        }
-        setUser(user)
         setCookieClient()
-        listarFavoritos()
     }, [])
     useEffect(() => {
-        setCookie()
+        const user = getCookieClient();
+        if (!user) return;
+        setState(prev => ({ ...prev, user: user }))
+        setCookieClient()
+        listarFavoritos()
         onList(title, subtitle)
-    }, [isVisible])
-    async function setCookie() {
-        await setCookieClient()
+    }, [title, subtitle, isVisible])
+    function listarFavoritos() {
+        const favoritos: ListaFavoritos[] = getCookieFavoriteList();
+        setState(prev => ({ ...prev, favoriteList: favoritos }))
     }
-
-    useEffect(() => {
-        onList(title, subtitle)
-    }, [title, subtitle])
-
     async function onList(title: string, subtitle?: string) {
-        const onList: Promise<boolean> = isOnTheList(title, subtitle)
-        onList.then(result => {
-            if (!result) {
-                setOnWatchLater(false)
-            } else {
-                setOnWatchLater(true)
-            }
-        })
+        const result: boolean = await isOnTheList(title, subtitle)
+        setState(prev => ({ ...prev, onWatchLater: result }))
     }
-    const movie = new URLSearchParams({
+    const movie = useMemo(() => new URLSearchParams({
         title: `${title}`,
         subTitle: `${subtitle}` || "",
         src: `${season[0].episodes[0].src}`,
         episode: `${season[0].episodes[0].ep}`,
         season: `${season[0].s}`
-    });
+    }), [title, subtitle, season])
+
     const playLink: string = `/watch/serie?${movie}`
 
-    function listarFavoritos() {
-        const favoritos: ListaFavoritos[] = getFavoriteList();
-        setFavoriteList(favoritos)
-    }
-
-    async function handleFavorite() {
+    const handleFavorite = useCallback(async () => {
         if (!user) return
         await addFavorite({ tmdbid: tmdbId, title, subtitle, userId: user.id })
         listarFavoritos()
-    }
+    }, [tmdbId, title, subtitle, user])
+
     async function handleWatchLater() {
+        if (isLoading) return;
+        if (!user) return Router.push('/login')
+        setState(prev => ({ ...prev, isLoading: true }))
         try {
-            if (isLoading) return
-            setIsLoading(true)
-            if (!user) return Router.push('/login')
             await addWatchLater(user.id, title, subtitle);
             await onList(title, subtitle)
             await setCookieClient()
         } catch (err: any) {
-            if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
-            return toast.error("Erro inesperado ao adicionar filme à lista!")
+            const errorMessage = err.response?.data?.message || "Erro ao adicionar série à lista"
+            return toast.error(errorMessage)
         } finally {
-            setIsLoading(false)
+            setState(prev => ({ ...prev, isLoading: false }))
         }
     }
+
     async function openModalVisible() {
         modalVisible()
         await setCookieClient();

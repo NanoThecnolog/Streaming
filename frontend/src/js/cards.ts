@@ -21,6 +21,61 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FM%2FMV5BYzE3ZDMxY2UtMzliNi00M2I0LWFmMjAtYTU3ZDQ2OTg2Y2ZhXkEyXkFqcGdeQWFybm8%40._V1_FMjpg_UX1000_.jpg&f=1&nofb=1&ipt=29bf10652fa83c83e81c34d6f590d71360ab8144023ff61952a5a4da1bb0cb20&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.NH4nHrEbTomQwqh5FA6krwHaKk%26pid%3DApi&f=1&ipt=d1cf78ae12d672e3aa1cef62b9eacf8d9a17111b71ac3992589e149d98027ef5&ipo=images",
+        tmdbId: 912916,
+        title: "A Outra Zoey",
+        subtitle: "",
+        description: "Zoey Miller, uma estudante com especialização em computação, superinteligente e desinteressada no amor romântico, tem sua vida virada de cabeça para baixo quando Zach, um popular jogador de futebol universitário, fica com amnésia e confunde Zoey com a sua namorada.",
+        src: "https://drive.google.com/file/d/1ERuwNyxxJvJkuvfaoM2FkB13EYvBRzkM/preview",
+        duration: "01h 31m",
+        genero: ["Romance", "Drama", "Comédia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F0c%2Fd4%2Ffe%2F0cd4fee4bbfb0a07f7c5f63adb0d1a89.jpg&f=1&nofb=1&ipt=e2958151209227359bb026e160da6aa689f3d3bcaa8df8f5c045486dde072cf1&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.nqYfFVq37Nd3PC9jaMEb1wHaJQ%26pid%3DApi&f=1&ipt=72005f7f920b095a70e9429bea44f4bb5b4152b78bfa2eaaeeb726c63bcfe141&ipo=images",
+        tmdbId: 762975,
+        title: "Continência ao Amor",
+        subtitle: "",
+        description: "Uma música e um militar prestes a ir para a guerra se casam por conveniência. Mas uma tragédia transforma esse relacionamento de fachada em realidade.",
+        src: "https://drive.google.com/file/d/1-OUqhNOcup2R_RAa6a1CFPkSZoN9oap2/preview",
+        duration: "02h 02m",
+        genero: ["Romance", "Drama"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.mundoconectado.com.br%2Fwp-content%2Fuploads%2F2024%2F09%2FA-Forja-O-Poder-da-Transformacao-estreia-no-topo-das-bilheterias-brasileiras.jpg&f=1&nofb=1&ipt=1561768257881fe8273cba6971c09e7441d59f7ebfec94c3806be914131b55c3&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.xpNcOKzJL2FKZ0kOQT6UIAHaLH%26pid%3DApi&f=1&ipt=1595c2bf5953e759f73fa023e553988af7da42b8c71f3a6e7599e06a62b49c43&ipo=images",
+        tmdbId: 1186532,
+        title: "A Forja",
+        subtitle: "O Poder da Transformação",
+        description: "Um ano depois de encerrar o ensino médio, o jovem Isaías Wright não tem planos para o futuro e é desafiado por sua mãe solo e um empresário de sucesso a começar a traçar um rumo melhor para sua vida. Ele passa a ser discipulado pelo seu novo mentor, conta com orações de sua mãe e de uma guerreira de orações, Dona Clara, e começa a descobrir o propósito de Deus para sua vida.",
+        src: "https://drive.google.com/file/d/1HLe1OarpmfR0y845F-Zk_hMHpCSQiEpb/preview",
+        duration: "02h 03m",
+        genero: ["Drama"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.thedirect.com%2Fmedia%2Farticle_full%2Fcoraline.jpg&f=1&nofb=1&ipt=37792f4f6cbfe27baea50b5bf398ef152740efba6ff15b3d14377d652902eb55&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.FzN8eoLDqJmYNjn5IyT5wAHaJ4%26pid%3DApi&f=1&ipt=0d8d6982f226b67858e0e8fd34661737a2b9bf1cdab42678cae831b92c1ea017&ipo=images",
+        tmdbId: 14836,
+        title: "Coraline",
+        subtitle: "E o Mundo Secreto",
+        description: "Entediada em sua nova casa, a pequena Coraline descobre uma porta secreta que contém um mundo parecido com o dela, porém melhor em muitas maneiras. Coraline se encanta com a descoberta, mas logo descobre que há algo de errado quando seus pais alternativos tentam mantê-la eternamente nesse mundo paralelo.",
+        src: "https://drive.google.com/file/d/1-2EJiiDPM3Rd2FgJhG_o7PLiTfOaQ-K5/preview",
+        duration: "01h 03m",
+        genero: ["Animação", "Fantasia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Fw780%2FolPXihyFeeNvnaD6IOBltgIV1FU.jpg&f=1&nofb=1&ipt=57f3f1be08953dc4254fb0b8565ef64143b875684ee90e78ce25eea5fe9aad7e&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.DuFgZLxzT2iL_3l_qEzVhwHaJQ%26pid%3DApi&f=1&ipt=3282ae00b1e9862cf202e99fcc6bc1e9c813f7dc8c6d990a30a309efb6a4bcdd&ipo=images",
+        tmdbId: 882598,
+        title: "Sorria",
+        subtitle: "",
+        description: "Após testemunhar um acidente traumático e bizarro envolvendo um paciente, a Dra. Rose Cotter começa a vivenciar eventos assustadores que ela não consegue explicar.",
+        src: "https://drive.google.com/file/d/1-CwuYkNt3wqr8DJbGCyHJtgsHr4_DkYS/preview",
+        duration: "01h 55m",
+        genero: ["Terror", "Mistério"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Flt3.com.ar%2Fwp-content%2Fuploads%2F2022%2F05%2FMision-Imposble-1-1996-2.jpg&f=1&nofb=1&ipt=172a30e83deb092e46e91a7c978d37c2282661d9a95fe273c39ae16939363b5b&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Eplt4lXOM69R9o89YYfDYQHaKe%26pid%3DApi&f=1&ipt=89b4164d2c3db00a0013abf7e19ac1cfa25a889c60703a17182fd5493af89c59&ipo=images",
         tmdbId: 954,

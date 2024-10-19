@@ -10,10 +10,17 @@ import { setCookieClient } from "@/services/cookieClient";
 interface CardProps {
     card: CardsProps;
 }
+type StateProps = {
+    modalVisible: boolean,
+    TMDBImage: string | null,
+}
 
 export default function Card({ card }: CardProps) {
-    const [modalVisible, setModalVisible] = useState<boolean>(false)
-    const [TMDBImage, setTMDBImage] = useState<string | null>(null)
+    const [state, setState] = useState<StateProps>({
+        modalVisible: false,
+        TMDBImage: null
+    })
+    const { modalVisible, TMDBImage } = state
 
     useEffect(() => {
         setCookieClient();
@@ -21,9 +28,9 @@ export default function Card({ card }: CardProps) {
 
 
     useEffect(() => {
-        setTMDBImage(null);
+        setState(prev => ({ ...prev, TMDBImage: null }))
         handlePosterImage();
-    }, [card])
+    }, [card, modalVisible])
 
     async function handlePosterImage() {
         if (card.tmdbId === 0) return
@@ -31,17 +38,17 @@ export default function Card({ card }: CardProps) {
         if (!imageURL) {
             console.log("Erro ao buscar TMDBPoster")
         } else {
-            setTMDBImage(imageURL)
+            setState(prev => ({ ...prev, TMDBImage: imageURL }))
         }
     }
     function handleClick() {
-        setModalVisible(!modalVisible)
+        setState(prev => ({ ...prev, modalVisible: !prev.modalVisible }))
     }
     async function handleModalClose() {
-        setModalVisible(false)
+        setState(prev => ({ ...prev, modalVisible: false }))
     }
     function modalVisibility() {
-        setModalVisible(true)
+        setState(prev => ({ ...prev, modalVisible: true }))
     }
 
     return (

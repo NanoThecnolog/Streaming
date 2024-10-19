@@ -21,7 +21,6 @@ export async function setCookieClient() {
     const userCookie = JSON.parse(cookieData)
     const userID = userCookie.id
     const response = await api.get(`/user?id=${userID}`)
-    //console.log(response.data)
 
     const expressTime = 15 * 24 * 60 * 60 * 1000;
     const userData = JSON.stringify(response.data)
