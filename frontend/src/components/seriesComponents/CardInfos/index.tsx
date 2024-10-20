@@ -74,6 +74,8 @@ export default function CardInfoSerieModal({ card, handleModalClose }: InfoModal
     }
 
     async function modalWatchLater(title: string, subTitle?: string) {
+        toast.warning("A função assistir mais tarde está temporariamente desativada.")
+        /*
         try {
             if (isLoading) return
             setIsLoading(true)
@@ -86,7 +88,7 @@ export default function CardInfoSerieModal({ card, handleModalClose }: InfoModal
             return toast.error("Erro inesperado ao adicionar filme à lista!")
         } finally {
             setIsLoading(false)
-        }
+        }*/
 
     }
 

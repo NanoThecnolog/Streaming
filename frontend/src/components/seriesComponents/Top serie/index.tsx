@@ -13,6 +13,7 @@ interface TopSerieProps {
 
 
 export default function TopSerie({ width }: TopSerieProps) {
+    //refatorar
     const [cardOn, setCardOn] = useState(0)
     const [fade, setFade] = useState('fadeIn')
     const [TMDBBackDrop, setTMDBBackDrop] = useState<string | null>(null)

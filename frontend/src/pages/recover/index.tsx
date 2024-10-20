@@ -6,8 +6,7 @@ import { toast } from 'react-toastify';
 import { FaSpinner } from 'react-icons/fa6';
 
 export default function RecoverPage() {
-    //aqui eu solicito que o usuário escolha uma nova senha, repita para ter certeza da senha e envie a senha para o banco de dados, na
-    //rota /recover, enviando o token recebido na url junto com a senha nova.
+    //refatorar esse componente
     const router = useRouter()
     const { token } = router.query;
     //const [token, setToken] = useState<string>()

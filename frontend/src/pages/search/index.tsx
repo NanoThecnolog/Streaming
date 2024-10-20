@@ -64,14 +64,14 @@ export default function Search(status: { status: string }) {
 
         return () => window.removeEventListener('resize', handleResize)
     }, [])
-    useEffect(() => {
+    /*useEffect(() => {
         const user = getCookieClient();
         if (!user) {
             Router.push('/login')
             return
         }
         setUsuario(user)
-    }, [])
+    }, [])*/
 
     function searchingMovie(movie: string) {
         setSearchCards([])

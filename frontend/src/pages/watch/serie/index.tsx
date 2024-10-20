@@ -43,13 +43,13 @@ export default function WatchSerie() {
 
     }, [router, title, subtitle, src, episode])
 
-    useEffect(() => {
+    /*useEffect(() => {
         const user = getCookieClient();
         if (!user) {
             Router.push('/login')
             return
         }
-    }, [])
+    }, [])*/
 
     function handleBack() {
         Router.back()

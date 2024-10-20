@@ -17,6 +17,7 @@ interface HeaderProps {
 }
 
 export default function Header({ userAvatar, status }: HeaderProps) {
+    //refatorar esse componente
     const [searchInput, setSearchInput] = useState<string>('')
     const [menuvisible, setMenuVisible] = useState<boolean>(false)
     const [avatar, setAvatar] = useState<string>('')
@@ -101,11 +102,15 @@ export default function Header({ userAvatar, status }: HeaderProps) {
                     ></div>
                     <p>status</p>
                 </div>
-                {avatar !== '' ? (
+
+                {/*
+                avatar !== '' ? (
                     <div className={styles.avatarImage} title="Meu Perfil">
                         <Image src={avatar} alt="avatar" width={45} height={45} onClick={handleUserClick} />
                     </div>
-                ) : <FaUserCircle size={35} color="#fff" className={styles.loginIcon} onClick={handleUserClick} />}
+                ) : <FaUserCircle size={35} color="#fff" className={styles.loginIcon} onClick={handleUserClick} />
+                */}
+
             </div>
             <div className={styles.dropdown}>
                 <div className={styles.dropdownIcon} onClick={() => handleClickHome(1)}>
@@ -139,11 +144,13 @@ export default function Header({ userAvatar, status }: HeaderProps) {
                 </div>
                 <div className={styles.divider}></div>
                 <div className={styles.dropdownIcon}>
-                    {avatar !== '' ? (
+                    {/*
+                        avatar !== '' ? (
                         <div className={styles.dropdownAvatarImage} title="Meu Perfil">
                             <Image src={avatar} alt="avatar" width={35} height={35} onClick={handleUserClick} />
                         </div>
-                    ) : <FaUserCircle size={35} className={styles.loginIcon} onClick={handleUserClick} />}
+                    ) : <FaUserCircle size={35} className={styles.loginIcon} onClick={handleUserClick} />
+                     */}
                 </div>
             </div>
         </div>

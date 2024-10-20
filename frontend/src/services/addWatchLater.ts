@@ -2,7 +2,7 @@ import { toast } from "react-toastify"
 import { api } from "./api";
 
 export async function addWatchLater(id: string, title: string, subtitle?: string) {
-    let isLoading;
+    /*let isLoading;
     try {
         if (isLoading) return;
         isLoading = true;
@@ -35,5 +35,5 @@ export async function addWatchLater(id: string, title: string, subtitle?: string
         }
     } finally {
         isLoading = false
-    }
+    }*/
 }

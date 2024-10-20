@@ -16,16 +16,16 @@ export interface FAQ {
 }
 
 export default function FAQ(status: { status: string }) {
-    const [user, setUser] = useState<UserProps | null>()
 
-    useEffect(() => {
+    const [user, setUser] = useState<UserProps | null>()
+    /*useEffect(() => {
         const user = getCookieClient();
         if (!user) {
             Router.push('/login')
             return
         }
         setUser(user)
-    }, [])
+    }, [])*/
 
     const faq: FAQ[] = [
         {

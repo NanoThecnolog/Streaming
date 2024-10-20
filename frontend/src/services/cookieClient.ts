@@ -16,9 +16,13 @@ export function getCookieClient() {
     return null;
 }
 export async function setCookieClient() {
+
     const cookieData = getCookie("flixnext");
+
     if (!cookieData) return "cookie não definido"
+
     const userCookie = JSON.parse(cookieData)
+    return
     const userID = userCookie.id
     const response = await api.get(`/user?id=${userID}`)
 

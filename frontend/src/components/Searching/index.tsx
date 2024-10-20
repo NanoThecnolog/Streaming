@@ -13,9 +13,6 @@ interface SearchProps {
 
 export default function Search({ handleOpenModal }: SearchProps) {
     const [inputSearch, setInputSearch] = useState<string>("")
-    const [resultado, setResultado] = useState<CardsProps[] | null>(null)
-    const [resultsVisible, setResultsVisible] = useState(false)
-    const [loading, setLoading] = useState(false)
 
     function handleSearch(input: string) {
         const search = new URLSearchParams({ input: input });

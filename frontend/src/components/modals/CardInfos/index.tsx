@@ -22,8 +22,9 @@ interface InfoModalProps {
 }
 
 export default function CardInfoModal({ card, handleModalClose }: InfoModalProps) {
+    //refatorar esse componente
     const [onWatchLater, setOnWatchLater] = useState(false)
-    const [isLoading, setIsLoading] = useState<boolean>(false)
+    //const [isLoading, setIsLoading] = useState<boolean>(false)
     const [user, setUser] = useState<UserProps>()
     const [TMDBImage, setTMDBImage] = useState<string | null>(null)
     const [TMDBMovie, setTMDBMovie] = useState<MovieTMDB | null>(null)
@@ -80,7 +81,8 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
         })
     }
     async function modalWatchLater() {
-        try {
+        toast.warning("A função assistir mais tarde está temporariamente desativada.")
+        /*try {
             if (isLoading) return
             setIsLoading(true)
             if (!user) return Router.push('/login')
@@ -92,7 +94,7 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
             return toast.error("Erro inesperado ao adicionar filme à lista!")
         } finally {
             setIsLoading(false)
-        }
+        }*/
     }
 
 

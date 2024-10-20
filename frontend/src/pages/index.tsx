@@ -18,15 +18,17 @@ import { setTimeout } from "timers/promises";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home(status: { status: string }) {
+  //refatorar esse componente
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
   const [width, setWidth] = useState<number>()
   const userData: UserProps = getCookieClient();
-  const expressTime = 15 * 24 * 60 * 60 * 1000;
+  //const expressTime = 15 * 24 * 60 * 60 * 1000;
   const divisaoPorGenero = [
     "ação", "aventura", "suspense", "comédia", "terror",
     "romance", "super herói", "drama", "ficção científica",
     "fantasia", "marvel", "dc", "animação"
   ]
+  /*
   useEffect(() => {
     getUserData()
   }, [status])
@@ -45,7 +47,7 @@ export default function Home(status: { status: string }) {
     } catch (err) {
       console.log("Erro ao buscar dados do usuário na API", err)
     }
-  }
+  }*/
 
   useEffect(() => {
     // Breakpoints ajustados

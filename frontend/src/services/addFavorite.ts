@@ -18,6 +18,7 @@ interface ReturnProps {
 }
 
 export async function addFavorite({ tmdbid, title, subtitle, userId }: FavoriteProps): Promise<ReturnProps | null> {
+    /*
     let isLoading;
     try {
         if (isLoading) return null;
@@ -53,5 +54,6 @@ export async function addFavorite({ tmdbid, title, subtitle, userId }: FavoriteP
         return null
     } finally {
         isLoading = false;
-    }
+    }*/
+    return null
 }

@@ -22,6 +22,7 @@ import Image from "next/image";
 import { serieData } from "@/services/fetchSeries";
 
 export default function Serie(status: { status: string }) {
+    //refatorar
     const router = useRouter()
     const { title } = router.query;
     const [serie, setSerie] = useState<SeriesProps>()
@@ -122,7 +123,8 @@ export default function Serie(status: { status: string }) {
     }
 
     async function handleAddUserList(title: string, subtitle?: string) {
-        try {
+        toast.warning("A função Assistir mais tarde está temporariamente desativada")
+        /*try {
             if (!user) {
                 Router.push('/login')
                 return
@@ -140,7 +142,7 @@ export default function Serie(status: { status: string }) {
             if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
             console.log(err)
             return toast.error("Erro inesperado ao adicionar filme à lista!")
-        }
+        }*/
     }
 
     return (

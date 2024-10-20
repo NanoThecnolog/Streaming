@@ -8,6 +8,7 @@ import { FaSpinner } from 'react-icons/fa'
 
 
 export default function Signup() {
+    //refatorar esse componente
     const [name, setName] = useState<string>('')
     const [birthday, setBirthday] = useState<Date>()
     const [email, setEmail] = useState<string>('')
@@ -37,7 +38,6 @@ export default function Signup() {
 
     async function handleRegister(event: FormEvent) {
         event.preventDefault();
-
 
         function emailValido(email: string): boolean {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

@@ -12,6 +12,7 @@ import { getCookieClient } from "@/services/cookieClient";
 import { UserProps } from "@/@types/user";
 
 export default function Series(status: { status: string }) {
+    //refatorar
     const [cardPerContainer, setCardPerContainer] = useState<number>(5)
     const [user, setUser] = useState<UserProps>()
     const [width, setWidth] = useState<number>()

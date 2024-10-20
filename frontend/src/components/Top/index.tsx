@@ -19,6 +19,7 @@ interface TopProps {
 }
 
 export default function Top({ width }: TopProps) {
+    //refatorar esse componente
     const [cardOn, setCardOn] = useState(0)
     const [fade, setFade] = useState('fadeIn')
     const [user, setUser] = useState<UserProps | null>(null)
@@ -90,7 +91,8 @@ export default function Top({ width }: TopProps) {
         })
     }
     async function toggleWatchLater(title: string, subtitle?: string) {
-        try {
+        toast.warning("A função Assistir Mais Tarde está temporariamente desativada.")
+        /*
             if (isLoading) return
             setIsLoading(true)
             if (!user) return Router.push('/login')
@@ -102,7 +104,7 @@ export default function Top({ width }: TopProps) {
             return toast.error("Erro inesperado ao adicionar filme à lista!")
         } finally {
             setIsLoading(false)
-        }
+        }*/
     }
     function handleWatch() {
         const movie = new URLSearchParams({

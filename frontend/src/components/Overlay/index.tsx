@@ -35,6 +35,8 @@ type StateProps = {
 }
 
 export default function Overlay({ tmdbId, title, subtitle, src, duration, genero, isVisible, modalVisible }: OverlayProps) {
+
+    //Refatorar Esse componente
     const [state, setState] = useState<StateProps>({
         user: undefined,
         favoriteList: [],
@@ -51,14 +53,14 @@ export default function Overlay({ tmdbId, title, subtitle, src, duration, genero
         const user = getCookieClient();
         if (!user) return;
         setState(prev => ({ ...prev, user: user }))
-        listarFavoritos()
+        //listarFavoritos()
         setCookieClient()
         onList(title, subtitle)
     }, [title, subtitle, isVisible])
-    function listarFavoritos() {
+    /*function listarFavoritos() {
         const favoritos: ListaFavoritos[] = getCookieFavoriteList();
         setState(prev => ({ ...prev, favoriteList: favoritos }))
-    }
+    }*/
     async function onList(title: string, subtitle?: string) {
         const result: boolean = await isOnTheList(title, subtitle)
         setState(prev => ({ ...prev, onWatchLater: result }))
@@ -72,12 +74,16 @@ export default function Overlay({ tmdbId, title, subtitle, src, duration, genero
     const playLink = `/watch?${movie}`
 
     const handleFavorite = useCallback(async () => {
+        toast.warning("A função Favoritos está temporariamente desativada.")
+        /*
         if (!user) return
         await addFavorite({ tmdbid: tmdbId, title, subtitle, userId: user.id })
-        listarFavoritos()
+        //listarFavoritos()*/
     }, [user, title, subtitle, tmdbId])
 
     async function handleWatchLater() {
+        toast.warning("A função assistir mais tarde está temporariamente desativada.")
+        /*
         if (isLoading) return;
         if (!user) return Router.push('/login')
         setState(prev => ({ ...prev, isLoading: true }))
@@ -90,7 +96,7 @@ export default function Overlay({ tmdbId, title, subtitle, src, duration, genero
             return toast.error(errorMessage)
         } finally {
             setState(prev => ({ ...prev, isLoading: false }))
-        }
+        }*/
     }
     async function openModalVisible() {
         modalVisible()
