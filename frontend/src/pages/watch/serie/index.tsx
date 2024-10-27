@@ -68,13 +68,15 @@ export default function WatchSerie() {
                             </button>
                             <h3>{episodio.title} {episodio.subtitle != "" && `- ${episodio.subtitle}`} - Temporada {episodio.season} Episódio {episodio.episode}</h3>
                         </div>
-                        <iframe
-                            title={episodio.title}
-                            allowFullScreen
-                            width="100%"
-                            height="100%"
-                            src={episodio.src}
-                        />
+                        <div className={styles.iframe}>
+                            <iframe
+                                title={episodio.title}
+                                allowFullScreen
+                                width="100%"
+                                height="100%"
+                                src={episodio.src}
+                            />
+                        </div>
                     </div>
                 </div>
             )
