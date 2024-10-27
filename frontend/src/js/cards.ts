@@ -21,6 +21,61 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.justwatch.com%2Fimages%2Fbackdrop%2F176643115%2Fs1440%2Fmarley-e-eu&f=1&nofb=1&ipt=dd47becf2a8369ec7720c9b35c489308f6c77c03461b139ab438aab445d997f6&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.2RlMI_qQV_BL4tzVF_TG0AHaKk%26pid%3DApi&f=1&ipt=0ab112eae5d451bcb142711bab00b4e2d457b429769bbc4c17a4401aa643d3df&ipo=images",
+        tmdbId: 14306,
+        title: "Marley e Eu",
+        subtitle: "",
+        description: "John e Jennifer Grogan casaram-se recentemente e decidiram começar nova vida em West Palm Beach, na Flórida. Lá, eles trabalham em jornais concorrentes, compram um imóvel e enfrentam os desafios de uma vida de casal. Indeciso sobre sua capacidade em ser pai, John busca o conselho de seu colega Sebastian, que sugere que compre um cachorro para a esposa. John aceita a sugestão e adota Marley, um labrador de 5 kg que logo se transforma em um grande cachorro de 45 kg, o que torna a casa deles um caos.",
+        src: "https://drive.google.com/file/d/1lkjfXsyWRcl3gErihHBLUUC2nrUSR3a-/preview",
+        duration: "1h 55m",
+        genero: ["Comédia", "Família"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.papodecinema.com.br%2Fwp-content%2Fuploads%2F2012%2F02%2F20190204-banner.jpg&f=1&nofb=1&ipt=68fbb456d0692b0fe97f26acc31c65b36f390ecedd4e75cc0d8f6c497ea8916f&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.zoEx4jwbv0akgVriwBzzYgAAAA%26pid%3DApi&f=1&ipt=39d4e82c3acd086e35eec6b863313f4209c1271e08c4b0b92c059c8a28f1ca34&ipo=images",
+        tmdbId: 18240,
+        title: "A Proposta",
+        subtitle: "",
+        description: "Margaret Tate é uma poderosa editora de livros, que se vê em apuros ao ser comunicada de sua deportação para o país-natal, o Canadá. Para evitar que isto ocorra ela declara estar noiva de Andrew Paxton, seu assistente. Perseguido por Margaret há anos, ele aceita participar da farsa mas impõe algumas condições.",
+        src: "https://drive.google.com/file/d/1pU6uUNM8L8NhZDOPE9yhWCyyEuSwHQE4/preview",
+        duration: "1h 48m",
+        genero: ["Comédia", "Romance", "Drama"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinemaeafins.com.br%2Fwp-content%2Fuploads%2F2021%2F05%2Fvenom-tempo-de-carnificina-poster.jpg&f=1&nofb=1&ipt=459cde8e4b6924cdde2d691d1a56eabe513f811263d6e4de34016aad5eb86daf&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.JRWC4oKchLLUKJqwCMgxFgHaLH%26pid%3DApi&f=1&ipt=5607f57cc8e98b9f4ed24bece8db45069eaac27d702fed0db0ddcca4b3b0b648&ipo=images",
+        tmdbId: 580489,
+        title: "Venom",
+        subtitle: "Tempo de Carnificina",
+        description: "Em busca de seu próximo furo de reportagem, o jornalista Eddie Brock consegue uma entrevista exclusiva com Cletus Kasady, um assassino no corredor da morte, que descobre o segredo de Eddie e se torna o hospedeiro de Carnificina, um simbionte aterrorizante e ameaçador. Eddie e Venom precisam superar sua relação atribulada e trabalhar em conjunto para derrotar Carnificina.",
+        src: "https://drive.google.com/file/d/1-ZFgzI5kUOCFLa0WE_wu0MdWnxO6M7UB/preview",
+        duration: "1h 37m",
+        genero: ["Ficção Científica", "Ação", "Marvel", "Vilão"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmasterdica.com%2Fwp-content%2Fuploads%2F2023%2F12%2Fencontro-de-amor-md-1024x576.jpg&f=1&nofb=1&ipt=5230fba2c9e94aa6cfa572bd018652379ce398c579c3a789c929af4a20ba8b22&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.C_yWmOOtvT6EohwEP0_IIwAAAA%26pid%3DApi&f=1&ipt=800b13d1fdb4ebc4b4ef9ce968edb5e266db7e7adb862fcf95aa1a4181c74d91&ipo=images",
+        tmdbId: 7303,
+        title: "Encontro de Amor",
+        subtitle: "",
+        description: "Marisa Ventura é uma batalhadora mãe solteira que trabalha em um chiquérrimo hotel em Manhattan e sonha com uma vida melhor para ela e seu filho. Num inesperado dia, o cliente do hotel e candidato a senador Christopher Marshall conhece Marisa e a confunde com uma socialite rica. Depois de passarem uma agradável tarde juntos, os dois se apaixonam. Mas quando a verdadeira identidade de Marisa é revelada, a diferença de classes acaba separando o casal. Será possível duas pessoas de classes diferentes vencerem as dificuldades e viverem felizes para sempre?",
+        src: "https://drive.google.com/file/d/1FsRW_yB9-5nMenvqh0xuvNgkq6Qxw8Ku/preview",
+        duration: "1h 45m",
+        genero: ["Comédia", "Romance", "Drama"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fofolhetimcultural.com.br%2Fwp-content%2Fuploads%2F2024%2F10%2Fa-garota-da-vez-filme-e1726592755685.webp&f=1&nofb=1&ipt=77423db1d35bd2354f0a40e1fb6bb7a008880b7a59899d839bfa800d85fd39ec&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.30PMYHPEmhoZ7dCCxBDTtQHaK4%26pid%3DApi&f=1&ipt=d7cbd3abf73afdcde223eee1cd5ba9eba58a12dda8bb626b9a13264de72def5a&ipo=images",
+        tmdbId: 835113,
+        title: "A Garota da Vez",
+        subtitle: "",
+        description: "Cheryl Bradshaw é uma participante solteira do programa de namoro que fez sucesso na TV nos anos 70, The Dating Game. Influenciada pelas aparências, ela escolhe o solteiro número um, Rodney Alcala, sem saber que por trás da fachada encantadora de Alcala se esconde um assassino em série psicopata.",
+        src: "https://drive.google.com/file/d/1-a1KEcZ-A-OyYfphOOZerZMdjzu3szF2/preview",
+        duration: "1h 29m",
+        genero: ["Drama", "Suspense", "Crime"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.uhdpaper.com%2Fwallpaper%2Fblue-beetle-movie-character-poster-815%401%40k-pc-4k.jpg&f=1&nofb=1&ipt=cb5dc37177c9d3cbb0a5a3076aaa6b04232f7113613f70cafa946e1d930fdd8c&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.nTpStLM-YGh7lnH4fyT2_AHaJQ%26pid%3DApi&f=1&ipt=6250960ddf58607c937fc3852907392f1297e3403fa1a71ed4152e2e8cad8ec9&ipo=images",
         tmdbId: 565770,

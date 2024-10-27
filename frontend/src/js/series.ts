@@ -25,6 +25,103 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcriticalhits.com.br%2Fwp-content%2Fuploads%2F2024%2F10%2Fagatha5.jpg&f=1&nofb=1&ipt=38d08807d8c86fb1ad239e956f9ceb04cfffd4c7dc4c8b5d6fbdb10ac3937641&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.cfz7LGgjHtou9KdduxLCHAEsGQ%26pid%3DApi&f=1&ipt=994b9cf7acc9cc0d6d119fdfe0256f3d5deee81b82cb7c4dad4eba425bc6ed52&ipo=images",
+        tmdbID: 138501,
+        title: "Agatha Desde Sempre",
+        subtitle: "",
+        description: "A infame Agatha Harkness encontra-se sem poderes depois de um jovem gótico suspeito ajudá-la a se libertar de um feitiço distorcido. Ela se mostra interessada quando ele pede que seja levado ao lendário Caminho das Bruxas, um caminho mágico de provações que recompensará a bruxa sobrevivente com o que lhe falta. Juntos, Agatha e esse misterioso Jovem reúnem um coven desesperado e partem para o Caminho...",
+        genero: ["Fantasia", "Mistério", "Marvel", "Disney"],
+        season: [
+            {
+                s: 1,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1NVDdt15DtAfV1yahXKmkiiUgvvtgyIbl/preview",
+                        duration: "39m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1NgKBzBR52GdwIZacHE97bLAsEm18aZzn/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1VE2Pprm69rUvhAGGKV6LTuYXmc-nnQHL/preview",
+                        duration: "37m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1dS_4HT-V3FnPAYr7fs3ImlmvP0scafp7/preview",
+                        duration: "40m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1pCkynynz1wT6y09qRLqYBhefYQASrMcT/preview",
+                        duration: "29m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1-e1y_tQ7N_0otBqRkQvul7qEy-niXNge/preview",
+                        duration: "47m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/198Dor4dyZH-5xDN5ktPs_5oMbfzafnB5/preview",
+                        duration: "34m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpoltronanerd.com.br%2Fwp-content%2Fuploads%2F2023%2F05%2Fcritica-citadel-serie.webp&f=1&nofb=1&ipt=dbbd5bc1b08858f07d1c62b1f4fb1f4210756e8295353a0045a8739994486615&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fflxt.tmsimg.com%2Fassets%2Fp24179080_b_v13_ab.jpg&f=1&nofb=1&ipt=46d8baf8083b85e67f1076b1de26514ff6f4da2a84e28af47cfec18ef4c13107&ipo=images",
+        tmdbID: 114922,
+        title: "Citadel",
+        subtitle: "",
+        description: "Há oito anos, a Citadel, uma agência de espionagem global independente, foi destruída por um novo grupo, a Mantícora. Com as memórias apagadas, os agentes de elite Mason Kane e Nadia Singh escaparam com vida. Oito anos depois, o ex-colega de Mason, Bernard Orlick, pede ajuda para impedir que a Mantícora estabeleça uma nova ordem mundial.",
+        genero: ["Ação", "Suspense", "Prime Video"],
+        season: [
+            {
+                s: 1,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/10MXNW5SlHVD-lGEYUq4o08f1LhnvGzL4/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/10QN5ytT-rCK17xUHcdEPaYa9g-jK4251/preview",
+                        duration: "40m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/10TXRAam5tS1gL14aONu6vMT3u2eFSOlc/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/10V6duFJTQmuda484ydPFa0ZRzTmaZZ_Q/preview",
+                        duration: "39m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/10WryTKJyV5hQo38uAlt9pg7WrWiyLKFx/preview",
+                        duration: "38m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/10c4xY69IbovJxKtgNkNejbimmk5RRmFD/preview",
+                        duration: "49m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.betaseries.com%2Fblog%2Fwp-content%2Fuploads%2F2018%2F04%2FBlackMirror.jpg&f=1&nofb=1&ipt=8f4e3f5b2db9b1d01708f8188b37705d63abaf533c364c270184d688dba459f6&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.RBD42SPDqqaJJCM0INRpWQHaLH%26pid%3DApi&f=1&ipt=f7930aae5b834cfbb86e3f3dbe5242b45fbbb22c2cb3366988c1842eec6760d1&ipo=images",
         tmdbID: 42009,
