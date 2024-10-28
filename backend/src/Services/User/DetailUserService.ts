@@ -8,6 +8,13 @@ interface DetailUserProps {
     avatar: string | null,
     verified: boolean,
     birthday: Date,
+    favoritos: {
+        id: string,
+        title: string,
+        subtitle: string | null,
+        tmdbid: number,
+        userId: string
+    }[],
     myList: {
         id: string,
         title: string,
@@ -48,6 +55,16 @@ export class DetailUserService {
                 expiresIn: '30d'
             }
         )
+        const favoritos = await prismaClient.favorito.findMany({
+            where: { userId: user.id },
+            select: {
+                id: true,
+                title: true,
+                subtitle: true,
+                tmdbid: true,
+                userId: true
+            }
+        })
         return {
             id: user.id,
             name: user.name,
@@ -55,6 +72,7 @@ export class DetailUserService {
             avatar: user.avatar,
             verified: user.verified,
             birthday: user.birthday,
+            favoritos: favoritos ?? favoritos,
             myList: watchLaterList,
             token: token
         }

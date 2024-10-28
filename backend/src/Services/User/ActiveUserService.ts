@@ -39,7 +39,7 @@ class ActiveUserService {
             const info = await transporter.sendMail({
                 from: `"FlixNext" <${process.env.EMAIL_USER}>`,
                 to: user.email,
-                subject: "Sua conta no FlixNext Foi Criada!",
+                subject: "Sua conta no FlixNext Foi Ativada com sucesso!",
                 text: `Olá, ${user.name}! Esse é um email automático. Por favor, não responda. Obrigado por ativar conta no FlixNext! Clique aqui para fazer o login e começar a assistir: <a href="${loginLink}">login</a>`,
                 html: `
     <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4; color: #333;">
