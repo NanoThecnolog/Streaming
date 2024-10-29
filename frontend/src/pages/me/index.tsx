@@ -101,7 +101,7 @@ export default function Me(status: { status: string }) {
 
             <article className={styles.container}>
                 {/*
-                    user &&
+                    user ?
                     <div className={styles.articleContainer}>
                         <aside className={styles.asideContainer}>
                             <div className={styles.avatar}>
@@ -175,7 +175,7 @@ export default function Me(status: { status: string }) {
                             </div>
                         </section>
                     </div>
-                */}
+                : "Carregando..."*/}
             </article>
             {//modalVisible && <Avatar handleCloseModal={handleCloseModal} />
             }
