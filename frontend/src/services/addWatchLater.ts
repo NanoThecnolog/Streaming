@@ -3,12 +3,13 @@ import { api } from "./api";
 import { UserProps } from "@/@types/user";
 import { WatchLaterProps } from "@/@types/watchLater";
 
-export async function addWatchLater(id: string, title: string, subtitle?: string) {
+
+export async function addWatchLater(userid: string, title: string, tmdbid: number, subtitle?: string) {
     let isLoading;
     try {
         if (isLoading) return;
         isLoading = true;
-        const watchLaterList = await api.get(`/watchLater?id=${id}`)
+        const watchLaterList = await api.get(`/watchLater?id=${userid}`)
         const filmes = watchLaterList.data;
 
         const filmeExiste = filmes.find((filme: { id: string, title: string, subtitle?: string }) => {
@@ -20,9 +21,10 @@ export async function addWatchLater(id: string, title: string, subtitle?: string
             return
         }
         const addFilm = await api.post(`/watchLater/`, {
-            id,
+            userid,
             title,
-            subtitle: subtitle || ''
+            subtitle: subtitle || '',
+            tmdbid
         })
         toast.success("Filme adicionado à lista de assistir mais tarde!")
         return addFilm;

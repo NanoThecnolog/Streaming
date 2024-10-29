@@ -106,7 +106,7 @@ export default function Overlay({ tmdbId, title, subtitle = "", src, duration, g
         if (!user) return Router.push('/login')
         setState(prev => ({ ...prev, isLoading: true }))
         try {
-            await addWatchLater(user.id, title, subtitle);
+            await addWatchLater(user.id, title, tmdbId, subtitle);
             await onList(title, subtitle)
             await setCookieClient(user.id)
         } catch (err: any) {

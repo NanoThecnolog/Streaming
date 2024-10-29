@@ -46,7 +46,7 @@ export async function addFavorite({ tmdbid, title, subtitle, userId }: FavoriteP
             userId
         })
         toast.success(`${title} ${subtitle && `- ${subtitle}`} salvo nos favoritos.`)
-        console.log(`${title} ${subtitle && `- ${subtitle}`} salvo nos favoritos.`)
+        //console.log(`${title} ${subtitle && `- ${subtitle}`} salvo nos favoritos.`)
         await favoriteCookie(userId)
         return salvarFavorito.data
     } catch (err) {

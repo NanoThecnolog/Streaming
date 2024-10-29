@@ -90,14 +90,14 @@ export default function Top({ width }: TopProps) {
             }
         })
     }
-    async function toggleWatchLater(title: string, subtitle?: string) {
+    async function toggleWatchLater(title: string, tmdbid: number, subtitle?: string) {
         //toast.warning("A função Assistir Mais Tarde está temporariamente desativada.")
 
         try {
             if (isLoading) return
             setIsLoading(true)
             if (!user) return Router.push('/login')
-            await addWatchLater(user.id, title, subtitle);
+            await addWatchLater(user.id, title, tmdbid, subtitle);
             await setCookieClient(user.id);
             await onList(cards[cardOn].title, cards[cardOn].subtitle)
         } catch (err: any) {
@@ -145,7 +145,7 @@ export default function Top({ width }: TopProps) {
                             <h3>Play</h3>
                             <FaCirclePlay color='#fff' />
                         </div>
-                        <div className={styles.queue} onClick={() => toggleWatchLater(cards[cardOn].title, cards[cardOn].subtitle)}>
+                        <div className={styles.queue} onClick={() => toggleWatchLater(cards[cardOn].title, cards[cardOn].tmdbId, cards[cardOn].subtitle)}>
                             {onWatchLater ?
                                 <>
                                     <h3>ADICIONADO À LISTA!</h3>

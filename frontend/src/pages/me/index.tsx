@@ -21,21 +21,35 @@ import { deleteCookies } from "@/services/cookieClient";
 import { X } from "lucide-react";
 import { removeWatchLater } from "@/services/addWatchLater";
 import { FaUserCircle } from "react-icons/fa";
+import { favoriteCookie } from "@/services/setFavoriteCookie";
+import { ListaFavoritos } from "@/@types/favoritos";
+import fetchWatchLater from "@/services/fetchWatchLater";
+import { WatchLaterProps } from "@/@types/watchLater";
 
 export default function Me(status: { status: string }) {
     const [user, setUser] = useState<UserProps | null>(null)
     const [modalVisible, setModalVisible] = useState(false)
     const [editarDados, setEditarDados] = useState(false)
+    //const [favoriteList, setFavoriteList] = useState<ListaFavoritos[]>([])
+    const [watchLaterList, setWatchLaterList] = useState<WatchLaterProps[]>([])
 
     useEffect(() => {
         const user = getCookieClient();
-        console.log("user vindo da função getCookieClient.", user)
+        //console.log("user vindo da função getCookieClient.", user)
         if (!user) {
             Router.push('/login')
             return
         }
+        //favoriteCookie(user.id);
         setUser(user)
+        handleWatchLater(user.id)
+        //handleLocalFavoriteList()
     }, [modalVisible, editarDados])
+
+    async function handleWatchLater(id: string) {
+        const lista = await fetchWatchLater(id)
+        setWatchLaterList(lista)
+    }
 
     function handleOpenModal() {
         setModalVisible(true)
@@ -44,6 +58,14 @@ export default function Me(status: { status: string }) {
         setModalVisible(false)
 
     }
+    /*function handleLocalFavoriteList() {
+        const favoriteStorage = localStorage.getItem('favoriteList')
+        if (favoriteStorage) {
+            const favoritos = JSON.parse(favoriteStorage)
+            console.log(favoritos)
+            setFavoriteList(favoritos)
+        }
+    }*/
     function handleWatch(watch: SeriesProps | CardsProps) {
         if ('src' in watch) {
             const movie = new URLSearchParams({
@@ -86,6 +108,7 @@ export default function Me(status: { status: string }) {
         await removeWatchLater(title, subtitle)
         if (!user) return Router.push('/login')
         await setCookieClient(user.id)
+        await handleWatchLater(user.id)
         const updateData = await getCookieClient()
         setUser(updateData)
     }
@@ -139,12 +162,9 @@ export default function Me(status: { status: string }) {
                                             <h4>Filmes</h4>
                                             <div className={styles.watchContainer}>
                                                 {
-                                                    cards.filter(filme => user &&
-                                                        user.myList.length > 0 && user.myList.some(titulo => titulo.title === filme.title &&
-                                                            (titulo.subtitle === filme.subtitle || titulo.subtitle === '' || filme.subtitle === '')
-                                                        )
+                                                    cards.filter(filme => watchLaterList &&
+                                                        watchLaterList.length > 0 && watchLaterList.some(titulo => titulo.tmdbid === filme.tmdbId)
                                                     ).map((filme, index) => (
-
                                                         <div title={`Assistir ${filme.title}`} key={index} className={styles.watch}>
                                                             <span onClick={() => handleWatch(filme)}>
                                                                 {filme.title}{filme.subtitle && <span> - {filme.subtitle}</span>}
@@ -158,10 +178,8 @@ export default function Me(status: { status: string }) {
                                             <h4>Series</h4>
                                             <div className={styles.watchContainer}>
                                                 {
-                                                    series.filter(serie => user &&
-                                                        user.myList.length && user.myList.some(titulo => titulo.title === serie.title &&
-                                                            (titulo.subtitle === serie.subtitle || titulo.subtitle === '' || serie.subtitle === '')
-                                                        )
+                                                    series.filter(serie => watchLaterList &&
+                                                        watchLaterList.length && watchLaterList.some(titulo => titulo.tmdbid === serie.tmdbID)
                                                     ).map((serie, index) => (
                                                         <div title={`Assistir ${serie.title}`} key={index} className={styles.watch}>
                                                             <span onClick={() => handleWatch(serie)}>

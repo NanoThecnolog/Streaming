@@ -86,7 +86,7 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
             if (isLoading) return
             setIsLoading(true)
             if (!user) return Router.push('/login')
-            await addWatchLater(user.id, card.title, card.subtitle);
+            await addWatchLater(user.id, card.title, card.tmdbId, card.subtitle);
             await onList(card.title, card.subtitle)
             await setCookieClient(user.id)
         } catch (err: any) {

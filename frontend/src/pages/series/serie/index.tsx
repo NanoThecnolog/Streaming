@@ -121,14 +121,14 @@ export default function Serie(status: { status: string }) {
         Router.push(`/watch/serie?${episode}`)
     }
 
-    async function handleAddUserList(title: string, subtitle?: string) {
+    async function handleAddUserList(title: string, tmdbid: number, subtitle?: string) {
         //toast.warning("A função Assistir mais tarde está temporariamente desativada")
         if (!user) {
             Router.push('/login')
             return
         }
         try {
-            await addWatchLater(user.id, title, subtitle);
+            await addWatchLater(user.id, title, tmdbid, subtitle);
             const onList: Promise<boolean> = isOnTheList(title, subtitle)
             onList.then(result => {
                 if (!result) {
@@ -168,7 +168,7 @@ export default function Serie(status: { status: string }) {
                                         <button className={styles.buttonPlay}><Play /><h4>Começar a Assistir</h4></button>
                                     </div>
                                     <div className={styles.watchLater}>
-                                        <button type="button" onClick={() => handleAddUserList(serie.title, serie.subtitle)}>
+                                        <button type="button" onClick={() => handleAddUserList(serie.title, serie.tmdbID, serie.subtitle)}>
                                             {onWatchLater ? (
                                                 <>
                                                     <p><FaCheck /></p>

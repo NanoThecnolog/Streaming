@@ -88,7 +88,7 @@ export default function OverlaySerie({ tmdbId, title, subtitle, season, genero, 
         if (!user) return Router.push('/login')
         setState(prev => ({ ...prev, isLoading: true }))
         try {
-            await addWatchLater(user.id, title, subtitle);
+            await addWatchLater(user.id, title, tmdbId, subtitle);
             await onList(title, subtitle)
             await setCookieClient(user.id)
         } catch (err: any) {
