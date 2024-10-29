@@ -19,8 +19,11 @@ export function getCookieClient() {
                 return null;
             }
         }
+    } else {
+        console.log("window é undefined")
+        return null;
     }
-    return null;
+
 }
 export async function setCookieClient(userId: string) {
     try {

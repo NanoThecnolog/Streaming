@@ -30,6 +30,7 @@ export default function Me(status: { status: string }) {
 
     useEffect(() => {
         const user = getCookieClient();
+        console.log("user vindo da função getCookieClient.", user)
         if (!user) {
             Router.push('/login')
             return
