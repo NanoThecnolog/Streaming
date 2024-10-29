@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { useEffect, useState } from "react";
 import { getCookieClient, setCookieClient } from "@/services/cookieClient";
 import Router from "next/router";
-import { MyListPorps, UserProps } from "@/@types/user";
+import { UserProps } from "@/@types/user";
 import Head from "next/head";
 import { serverStatus } from "@/services/verifyStatusServer";
 import { GetServerSideProps } from "next";
@@ -20,13 +20,11 @@ import EditarDados from "@/components/modals/EditarDados";
 import { deleteCookies } from "@/services/cookieClient";
 import { X } from "lucide-react";
 import { removeWatchLater } from "@/services/addWatchLater";
-import { api } from "@/services/api";
 
 export default function Me(status: { status: string }) {
     const [user, setUser] = useState<UserProps | null>(null)
     const [modalVisible, setModalVisible] = useState(false)
     const [editarDados, setEditarDados] = useState(false)
-    //const [watchLaterList, setWatchLaterList] = useState<MyListPorps[]>([])
 
     useEffect(() => {
         const user = getCookieClient();
@@ -36,21 +34,7 @@ export default function Me(status: { status: string }) {
             return
         }
         setUser(user)
-        //UserDetails()
     }, [modalVisible, editarDados])
-
-    /*async function UserDetails() {
-        try {
-            const response = await api.get(`/user?id=24f79a75-2e49-49fe-a0b2-e6ca41114302`)
-            const data = response.data
-            setWatchLaterList(data.myList)
-            console.log(data)
-        } catch (err) {
-            console.log(err)
-        }
-    }*/
-
-
 
     function handleOpenModal() {
         setModalVisible(true)
@@ -151,7 +135,8 @@ export default function Me(status: { status: string }) {
                                     <div className={styles.filmes}>
                                         <h4>Filmes</h4>
                                         <div className={styles.watchContainer}>
-                                            {cards.filter(filme => user &&
+                                            {/*
+                                                cards.filter(filme => user &&
                                                 user.myList.length > 0 && user.myList.some(titulo => titulo.title === filme.title &&
                                                     (titulo.subtitle === filme.subtitle || titulo.subtitle === '' || filme.subtitle === '')
                                                 )
@@ -163,13 +148,14 @@ export default function Me(status: { status: string }) {
                                                     </span>
                                                     <X onClick={() => handleRemove(filme.title, filme.subtitle)} /></div>
                                             ))
-                                            }
+                                            */}
                                         </div>
                                     </div>
                                     <div className={styles.series}>
                                         <h4>Series</h4>
                                         <div className={styles.watchContainer}>
-                                            {series.filter(serie => user &&
+                                            {/*
+                                                series.filter(serie => user &&
                                                 user.myList.length && user.myList.some(titulo => titulo.title === serie.title &&
                                                     (titulo.subtitle === serie.subtitle || titulo.subtitle === '' || serie.subtitle === '')
                                                 )
@@ -180,7 +166,7 @@ export default function Me(status: { status: string }) {
                                                     </span>
                                                     <X onClick={() => handleRemove(serie.title, serie.subtitle)} /></div>
                                             ))
-                                            }
+                                            */}
                                         </div>
                                     </div>
                                 </div>
@@ -189,8 +175,10 @@ export default function Me(status: { status: string }) {
                     </div>
                 }
             </article>
-            {modalVisible && <Avatar handleCloseModal={handleCloseModal} />}
-            {editarDados && <EditarDados handleClose={closeEditarDados} />}
+            {//modalVisible && <Avatar handleCloseModal={handleCloseModal} />
+            }
+            {//editarDados && <EditarDados handleClose={closeEditarDados} />
+            }
             <Footer />
         </>
 

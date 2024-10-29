@@ -1,7 +1,6 @@
 import { toast } from "react-toastify"
 import { api } from "./api";
 import { UserProps } from "@/@types/user";
-import { CardsProps } from "@/@types/Cards";
 import { WatchLaterProps } from "@/@types/watchLater";
 
 export async function addWatchLater(id: string, title: string, subtitle?: string) {
