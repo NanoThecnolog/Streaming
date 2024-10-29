@@ -20,6 +20,7 @@ import EditarDados from "@/components/modals/EditarDados";
 import { deleteCookies } from "@/services/cookieClient";
 import { X } from "lucide-react";
 import { removeWatchLater } from "@/services/addWatchLater";
+import { FaUserCircle } from "react-icons/fa";
 
 export default function Me(status: { status: string }) {
     const [user, setUser] = useState<UserProps | null>(null)
@@ -106,9 +107,7 @@ export default function Me(status: { status: string }) {
                             <aside className={styles.asideContainer}>
                                 <div className={styles.avatar}>
                                     <div className={styles.imgContainer}>
-                                        {/*
-                                            <Image src={user?.avatar} alt="Avatar" width={150} height={150} />
-                                        */}
+                                        {user.avatar ? <Image src={user?.avatar} alt="Avatar" width={150} height={150} /> : <FaUserCircle size={150} />}
                                         <div className={styles.editAvatar}>
                                             <button type="button" title="Mudar Avatar" onClick={handleOpenModal}><BiSolidEditAlt size={20} /></button>
                                         </div>
@@ -129,9 +128,9 @@ export default function Me(status: { status: string }) {
                                 </div>
                                 <div className={styles.donate}>
                                     <h3>Torne-se um doador!!</h3>
-                                    {/*
-                                        <Qrcode />
-                                    */}
+
+                                    <Qrcode />
+
 
                                 </div>
                             </aside>
