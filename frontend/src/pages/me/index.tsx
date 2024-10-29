@@ -128,38 +128,9 @@ export default function Me(status: { status: string }) {
                                 </div>
                                 <div className={styles.donate}>
                                     <h3>Torne-se um doador!!</h3>
-
                                     <Qrcode />
-
-
                                 </div>
                             </aside>
-
-                        </div>)
-                        : "Carregando..."}
-            </article>
-            {modalVisible && <Avatar handleCloseModal={handleCloseModal} />
-            }
-            {editarDados && <EditarDados handleClose={closeEditarDados} />
-            }
-            <Footer />
-        </>
-    )
-}
-export const getServerSideProps: GetServerSideProps = async () => {
-    async function fetchServerStatus() {
-        const status = await serverStatus();
-        return status
-    }
-    const status = await fetchServerStatus()
-    return {
-        props: {
-            status
-        }
-    }
-}
-
-/*
                             <section className={styles.sectionContainer}>
                                 <div className={styles.infoContainer}>
                                     <h2 style={{ textAlign: 'center' }}>Sua Lista para assistir mais tarde</h2>
@@ -203,4 +174,27 @@ export const getServerSideProps: GetServerSideProps = async () => {
                                         </div>
                                     </div>
                                 </div>
-                            </section>*/
+                            </section>
+                        </div>)
+                        : "Carregando..."}
+            </article>
+            {modalVisible && <Avatar handleCloseModal={handleCloseModal} />
+            }
+            {editarDados && <EditarDados handleClose={closeEditarDados} />
+            }
+            <Footer />
+        </>
+    )
+}
+export const getServerSideProps: GetServerSideProps = async () => {
+    async function fetchServerStatus() {
+        const status = await serverStatus();
+        return status
+    }
+    const status = await fetchServerStatus()
+    return {
+        props: {
+            status
+        }
+    }
+}
