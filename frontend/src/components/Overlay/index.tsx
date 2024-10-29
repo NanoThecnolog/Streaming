@@ -61,7 +61,6 @@ export default function Overlay({ tmdbId, title, subtitle = "", src, duration, g
     }, [title, subtitle, isVisible])
 
     useEffect(() => {
-        console.log(favoriteList)
         isMovieFavorite()
     }, [favoriteList])
 

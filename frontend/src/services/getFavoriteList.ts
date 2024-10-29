@@ -1,6 +1,4 @@
 import { ListaFavoritos } from "@/@types/favoritos";
-import { UserProps } from "@/@types/user";
-import { getCookie } from "cookies-next";
 import { toast } from "react-toastify";
 
 /**

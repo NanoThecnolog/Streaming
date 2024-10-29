@@ -12,8 +12,6 @@ import { UserProps } from "@/@types/user";
 import { GetServerSideProps } from "next";
 import { serverStatus } from "@/services/verifyStatusServer";
 import { api } from "@/services/api";
-import { clearTimeout } from "timers";
-import { setTimeout } from "timers/promises";
 import { fetchListFavorite } from "@/services/fetchFavoriteList";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -49,7 +47,7 @@ export default function Home(status: { status: string }) {
       const userJson = JSON.stringify(atualizarUsuario.data)
       //document.cookie = `flixnext=${userJson}; path=/; max-age=${expressTime}`
       localStorage.setItem('favoriteList', favoritosJson)
-      localStorage.setItem('flixnex', userJson)
+      localStorage.setItem('flixnext', userJson)
     } catch (err) {
       console.log("Erro ao buscar dados do usuário na API", err)
     }
