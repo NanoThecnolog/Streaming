@@ -150,10 +150,8 @@ export default function Me(status: { status: string }) {
                                     <div className={styles.filmes}>
                                         <h4>Filmes</h4>
                                         <div className={styles.watchContainer}>
-                                            {//watchLaterList.map(item => <p>{item.title}</p>)
-                                            }
-                                            {cards.filter(filme =>
-                                                user?.myList?.length > 0 && user.myList.some(titulo => titulo.title === filme.title &&
+                                            {cards.filter(filme => user &&
+                                                user.myList.length > 0 && user.myList.some(titulo => titulo.title === filme.title &&
                                                     (titulo.subtitle === filme.subtitle || titulo.subtitle === '' || filme.subtitle === '')
                                                 )
                                             ).map((filme, index) => (
@@ -170,8 +168,8 @@ export default function Me(status: { status: string }) {
                                     <div className={styles.series}>
                                         <h4>Series</h4>
                                         <div className={styles.watchContainer}>
-                                            {series.filter(serie =>
-                                                user?.myList?.length && user.myList.some(titulo => titulo.title === serie.title &&
+                                            {series.filter(serie => user &&
+                                                user.myList.length && user.myList.some(titulo => titulo.title === serie.title &&
                                                     (titulo.subtitle === serie.subtitle || titulo.subtitle === '' || serie.subtitle === '')
                                                 )
                                             ).map((serie, index) => (

@@ -65,7 +65,7 @@ export default function Overlay({ tmdbId, title, subtitle = "", src, duration, g
     }, [favoriteList])
 
     function isMovieFavorite() {
-        const favorite = favoriteList.some((titulo) => titulo.title === title && titulo.subtitle === subtitle)
+        const favorite = favoriteList ? favoriteList.some((titulo) => titulo.title === title && titulo.subtitle === subtitle) : false
         setState(prev => ({ ...prev, isFavorite: favorite }))
     }
 
