@@ -1,4 +1,7 @@
 {
+  "name": "flixnext-backend",
+  "version": "1.0.0",
+  "license": "CC-BY-NC-1.0",
   "scripts": {
     "dev": "ts-node-dev src/server.ts",
     "build": "npx prisma migrate deploy && tsc",

@@ -13,6 +13,14 @@ class WatchLaterService {
         })
         if (!userExiste) throw new Error("Usuário não encontrado")
 
+        const watchLaterList = await prismaClient.watchLater.findMany({
+            where: { userId: userExiste.id }
+        })
+        const tituloExisteNaLista = watchLaterList.some(titulo => title === titulo.title && subtitle === titulo.subtitle)
+        if (tituloExisteNaLista) {
+            throw new Error("Título já adicionado.")
+        }
+
         const movieList = await prismaClient.watchLater.create({
             data: {
                 title,
