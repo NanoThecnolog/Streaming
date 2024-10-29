@@ -100,84 +100,41 @@ export default function Me(status: { status: string }) {
             <Header userAvatar={user?.avatar} status={status} />
 
             <article className={styles.container}>
-                {/*
+                {
                     user ?
-                    <div className={styles.articleContainer}>
-                        <aside className={styles.asideContainer}>
-                            <div className={styles.avatar}>
-                                <div className={styles.imgContainer}>
-                                    <Image src={user?.avatar} alt="Avatar" width={150} height={150} />
-                                    <div className={styles.editAvatar}>
-                                        <button type="button" title="Mudar Avatar" onClick={handleOpenModal}><BiSolidEditAlt size={20} /></button>
+                        (<div className={styles.articleContainer}>
+                            <aside className={styles.asideContainer}>
+                                <div className={styles.avatar}>
+                                    <div className={styles.imgContainer}>
+                                        <Image src={user?.avatar} alt="Avatar" width={150} height={150} />
+                                        <div className={styles.editAvatar}>
+                                            <button type="button" title="Mudar Avatar" onClick={handleOpenModal}><BiSolidEditAlt size={20} /></button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className={styles.asideInfo}>
-                                <h2>{user.name}</h2>
-                                <h3>{user.email}</h3>
-                                <h3>Data de Aniversário
-                                    <p>{user?.birthday && new Date(user.birthday).toLocaleDateString('pt-br', {
-                                        timeZone: 'UTC'
-                                    })}</p>
-                                </h3>
-                            </div>
-                            <div className={styles.button}>
-                                <button type="button" onClick={openEditarDados}>Editar dados</button>
-                                <button type="button" onClick={handleLogout}>Sair</button>
-                            </div>
-                            <div className={styles.donate}>
-                                <h3>Torne-se um doador!!</h3>
-                                <Qrcode />
-                            </div>
-                        </aside>
-                        <section className={styles.sectionContainer}>
-                            <div className={styles.infoContainer}>
-                                <h2 style={{ textAlign: 'center' }}>Sua Lista para assistir mais tarde</h2>
-                                <div className={styles.watchLater}>
-                                    <div className={styles.filmes}>
-                                        <h4>Filmes</h4>
-                                        <div className={styles.watchContainer}>
-                                            {
-                                                cards.filter(filme => user &&
-                                                user.myList.length > 0 && user.myList.some(titulo => titulo.title === filme.title &&
-                                                    (titulo.subtitle === filme.subtitle || titulo.subtitle === '' || filme.subtitle === '')
-                                                )
-                                            ).map((filme, index) => (
+                                <div className={styles.asideInfo}>
+                                    <h2>{user.name}</h2>
+                                    <h3>{user.email}</h3>
+                                    <h3>Data de Aniversário
+                                        <p>{user?.birthday && new Date(user.birthday).toLocaleDateString('pt-br', {
+                                            timeZone: 'UTC'
+                                        })}</p>
+                                    </h3>
+                                </div>
+                                <div className={styles.button}>
+                                    <button type="button" onClick={openEditarDados}>Editar dados</button>
+                                    <button type="button" onClick={handleLogout}>Sair</button>
+                                </div>
+                                <div className={styles.donate}>
+                                    <h3>Torne-se um doador!!</h3>
+                                    <Qrcode />
+                                </div>
+                            </aside>
 
-                                                <div title={`Assistir ${filme.title}`} key={index} className={styles.watch}>
-                                                    <span onClick={() => handleWatch(filme)}>
-                                                        {filme.title}{filme.subtitle && <span> - {filme.subtitle}</span>}
-                                                    </span>
-                                                    <X onClick={() => handleRemove(filme.title, filme.subtitle)} /></div>
-                                            ))
-                                            }
-                                        </div>
-                                    </div>
-                                    <div className={styles.series}>
-                                        <h4>Series</h4>
-                                        <div className={styles.watchContainer}>
-                                            {
-                                                series.filter(serie => user &&
-                                                user.myList.length && user.myList.some(titulo => titulo.title === serie.title &&
-                                                    (titulo.subtitle === serie.subtitle || titulo.subtitle === '' || serie.subtitle === '')
-                                                )
-                                            ).map((serie, index) => (
-                                                <div title={`Assistir ${serie.title}`} key={index} className={styles.watch}>
-                                                    <span onClick={() => handleWatch(serie)}>
-                                                        {serie.title} {serie.subtitle && <span>- {serie.subtitle}</span>}
-                                                    </span>
-                                                    <X onClick={() => handleRemove(serie.title, serie.subtitle)} /></div>
-                                            ))
-                                            }
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                : "Carregando..."*/}
+                        </div>)
+                        : "Carregando..."}
             </article>
-            {//modalVisible && <Avatar handleCloseModal={handleCloseModal} />
+            {modalVisible && <Avatar handleCloseModal={handleCloseModal} />
             }
             {editarDados && <EditarDados handleClose={closeEditarDados} />
             }
