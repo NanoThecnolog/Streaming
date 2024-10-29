@@ -97,9 +97,11 @@ export default function Me(status: { status: string }) {
                 <title>Minha Conta | FlixNext</title>
                 <meta name="description" content="Página da conta do usuário" />
             </Head>
-            <Header userAvatar={user?.avatar} status={status} />
+            {//<Header userAvatar={user?.avatar} status={status} />
+            }
             <article className={styles.container}>
-                {user &&
+                {/*
+                    user &&
                     <div className={styles.articleContainer}>
                         <aside className={styles.asideContainer}>
                             <div className={styles.avatar}>
@@ -135,7 +137,7 @@ export default function Me(status: { status: string }) {
                                     <div className={styles.filmes}>
                                         <h4>Filmes</h4>
                                         <div className={styles.watchContainer}>
-                                            {/*
+                                            {
                                                 cards.filter(filme => user &&
                                                 user.myList.length > 0 && user.myList.some(titulo => titulo.title === filme.title &&
                                                     (titulo.subtitle === filme.subtitle || titulo.subtitle === '' || filme.subtitle === '')
@@ -148,13 +150,13 @@ export default function Me(status: { status: string }) {
                                                     </span>
                                                     <X onClick={() => handleRemove(filme.title, filme.subtitle)} /></div>
                                             ))
-                                            */}
+                                            }
                                         </div>
                                     </div>
                                     <div className={styles.series}>
                                         <h4>Series</h4>
                                         <div className={styles.watchContainer}>
-                                            {/*
+                                            {
                                                 series.filter(serie => user &&
                                                 user.myList.length && user.myList.some(titulo => titulo.title === serie.title &&
                                                     (titulo.subtitle === serie.subtitle || titulo.subtitle === '' || serie.subtitle === '')
@@ -166,20 +168,21 @@ export default function Me(status: { status: string }) {
                                                     </span>
                                                     <X onClick={() => handleRemove(serie.title, serie.subtitle)} /></div>
                                             ))
-                                            */}
+                                            }
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </section>
                     </div>
-                }
+                */}
             </article>
             {//modalVisible && <Avatar handleCloseModal={handleCloseModal} />
             }
             {//editarDados && <EditarDados handleClose={closeEditarDados} />
             }
-            <Footer />
+            {//<Footer />
+            }
         </>
 
     )
