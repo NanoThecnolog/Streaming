@@ -50,15 +50,17 @@ export default function Avatar({ handleCloseModal }: AvatarProps) {
                     id: user.id
                 }
             })
-            const expressTime = 15 * 24 * 60 * 60 * 1000;
+            //const expressTime = 15 * 24 * 60 * 60 * 1000;
             const userData = JSON.stringify(atualizarUsuario.data)
-            document.cookie = `flixnext=${userData}; path=/; max-age=${expressTime}`
+            localStorage.setItem('flixnext', userData)
+            //document.cookie = `flixnext=${userData}; path=/; max-age=${expressTime}`
             toast.success("Avatar alterado!")
         } catch (err) {
             console.log(err)
             toast.error("Erro ao alterar o avatar")
         }
     }
+
     return (
         <div className={styles.container}>
             <div className={styles.avatarContainer}>
