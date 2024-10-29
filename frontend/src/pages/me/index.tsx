@@ -97,8 +97,8 @@ export default function Me(status: { status: string }) {
                 <title>Minha Conta | FlixNext</title>
                 <meta name="description" content="Página da conta do usuário" />
             </Head>
-            {//<Header userAvatar={user?.avatar} status={status} />
-            }
+            <Header userAvatar={user?.avatar} status={status} />
+
             <article className={styles.container}>
                 {/*
                     user &&
