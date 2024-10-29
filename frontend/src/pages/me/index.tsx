@@ -181,10 +181,8 @@ export default function Me(status: { status: string }) {
             }
             {//editarDados && <EditarDados handleClose={closeEditarDados} />
             }
-            {//<Footer />
-            }
+            <Footer />
         </>
-
     )
 }
 export const getServerSideProps: GetServerSideProps = async () => {
