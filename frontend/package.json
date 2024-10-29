@@ -1,7 +1,8 @@
 {
-  "name": "flixnext",
+  "name": "flixnext - Frontend",
   "version": "0.1.0",
   "private": true,
+  "license": "CC-BY-NC-1.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

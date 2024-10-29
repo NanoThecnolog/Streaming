@@ -179,7 +179,7 @@ export default function Me(status: { status: string }) {
             </article>
             {//modalVisible && <Avatar handleCloseModal={handleCloseModal} />
             }
-            {//editarDados && <EditarDados handleClose={closeEditarDados} />
+            {editarDados && <EditarDados handleClose={closeEditarDados} />
             }
             <Footer />
         </>
