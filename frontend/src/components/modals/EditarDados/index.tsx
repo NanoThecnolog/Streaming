@@ -5,7 +5,7 @@ import { toast } from 'react-toastify'
 import { api } from '@/services/api'
 import Router from 'next/router'
 import { X } from 'lucide-react'
-import { getCookieClient } from '@/services/cookieClient'
+import { getCookieClient, setCookieClient } from '@/services/cookieClient'
 import { UserProps } from '@/@types/user'
 
 interface EditarDadosProps {
@@ -43,6 +43,7 @@ export default function EditarDados({ handleClose }: EditarDadosProps) {
 
             const response = await api.put('/user', userData)
             const data = response.data;
+            await setCookieClient(user.id)
             toast.success("Dados alterados com sucesso.")
             console.log("Dados alterados com sucesso", data)
             const atualizarUsuario = await api.get('/user', {

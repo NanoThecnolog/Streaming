@@ -18,15 +18,16 @@ export default function Watch() {
             console.error("Erro ao acordar o servidor", err)
         }
     }, [])
-    /*useEffect(() => {
-        verificarUsuario();
-    }, [verificarUsuario])/*
-    /*const verificarUsuario = useCallback(() => {
+    const verificarUsuario = useCallback(() => {
         const user = getCookieClient();
         if (!user) {
             router.push('/login')
         }
-    }, [router])*/
+    }, [router])
+    useEffect(() => {
+        verificarUsuario();
+    }, [verificarUsuario])
+
 
     useEffect(() => {
         acordarServidor();

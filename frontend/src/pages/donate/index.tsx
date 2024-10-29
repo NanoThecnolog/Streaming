@@ -13,10 +13,10 @@ import Router from "next/router";
 import { UserProps } from "@/@types/user";
 
 export default function Donate(status: { status: string }) {
-    //const [qrCodeUrl, setQrCodeUrl] = useState<string | null>(null);
+    const [qrCodeUrl, setQrCodeUrl] = useState<string | null>(null);
     const [user, setUser] = useState<UserProps | null>()
 
-    /*useEffect(() => {
+    useEffect(() => {
         const user = getCookieClient();
         if (!user) {
             Router.push('/login')
@@ -36,7 +36,7 @@ export default function Donate(status: { status: string }) {
     }
     useEffect(() => {
         qrCode();
-    }, []);*/
+    }, []);
     return (
         <>
             <Head>

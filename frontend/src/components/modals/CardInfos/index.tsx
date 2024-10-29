@@ -24,7 +24,7 @@ interface InfoModalProps {
 export default function CardInfoModal({ card, handleModalClose }: InfoModalProps) {
     //refatorar esse componente
     const [onWatchLater, setOnWatchLater] = useState(false)
-    //const [isLoading, setIsLoading] = useState<boolean>(false)
+    const [isLoading, setIsLoading] = useState<boolean>(false)
     const [user, setUser] = useState<UserProps>()
     const [TMDBImage, setTMDBImage] = useState<string | null>(null)
     const [TMDBMovie, setTMDBMovie] = useState<MovieTMDB | null>(null)
@@ -35,7 +35,7 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
             return
         }
         setUser(user)
-        setCookieClient()
+        setCookieClient(user.id)
     }, [])
 
     useEffect(() => {
@@ -81,20 +81,20 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
         })
     }
     async function modalWatchLater() {
-        toast.warning("A função assistir mais tarde está temporariamente desativada.")
-        /*try {
+        //toast.warning("A função assistir mais tarde está temporariamente desativada.")
+        try {
             if (isLoading) return
             setIsLoading(true)
             if (!user) return Router.push('/login')
             await addWatchLater(user.id, card.title, card.subtitle);
             await onList(card.title, card.subtitle)
-            await setCookieClient()
+            await setCookieClient(user.id)
         } catch (err: any) {
             if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
             return toast.error("Erro inesperado ao adicionar filme à lista!")
         } finally {
             setIsLoading(false)
-        }*/
+        }
     }
 
 
@@ -136,8 +136,8 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
                         <div className={styles.queue} onClick={() => modalWatchLater()}>
                             {onWatchLater ?
                                 <>
-                                    <h3>Adicionado à Lista</h3>
-                                    <FaCheck size={20} color="#fff" />
+                                    <h3>ADICIONADO À LISTA!</h3>
+                                    <FaCheck size={35} color="#fff" />
                                 </> : <>
                                     <h3>ASSISTIR MAIS TARDE</h3>
                                     <IoIosAddCircleOutline size={35} color="#fff" />

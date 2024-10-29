@@ -1,8 +1,9 @@
 import { toast } from "react-toastify";
 import { api } from "./api"
-import { getListFavorite } from "./getListFavorite";
+import { fetchListFavorite } from "./fetchFavoriteList";
 import { RemoveFavorite } from "./removeFavorite";
 import { favoriteCookie } from "./setFavoriteCookie";
+import { ListaFavoritos } from "@/@types/favoritos";
 
 interface FavoriteProps {
     tmdbid: number,
@@ -18,12 +19,12 @@ interface ReturnProps {
 }
 
 export async function addFavorite({ tmdbid, title, subtitle, userId }: FavoriteProps): Promise<ReturnProps | null> {
-    /*
+
     let isLoading;
     try {
         if (isLoading) return null;
         isLoading = true;
-        const favoriteList = await getListFavorite(userId)
+        const favoriteList: ListaFavoritos[] | undefined = await fetchListFavorite(userId)
         //console.log(favoriteList)
         if (favoriteList && favoriteList.length >= 1) {
             const favoritoExiste = favoriteList.find((filme: { id: string, title: string, subtitle?: string }) => {
@@ -54,6 +55,5 @@ export async function addFavorite({ tmdbid, title, subtitle, userId }: FavoriteP
         return null
     } finally {
         isLoading = false;
-    }*/
-    return null
+    }
 }

@@ -1,3 +1,5 @@
+import { ListaFavoritos } from "./favoritos"
+
 export interface UserProps {
     id: string,
     name: string,
@@ -7,9 +9,10 @@ export interface UserProps {
     verified: boolean,
     birthday: Date,
     myList: MyListPorps[]
+    favoritos: ListaFavoritos[]
 }
 
-interface MyListPorps {
+export interface MyListPorps {
     id: string,
     title: string,
     subtitle: string,

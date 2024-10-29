@@ -91,20 +91,21 @@ export default function Top({ width }: TopProps) {
         })
     }
     async function toggleWatchLater(title: string, subtitle?: string) {
-        toast.warning("A função Assistir Mais Tarde está temporariamente desativada.")
-        /*
+        //toast.warning("A função Assistir Mais Tarde está temporariamente desativada.")
+
+        try {
             if (isLoading) return
             setIsLoading(true)
             if (!user) return Router.push('/login')
             await addWatchLater(user.id, title, subtitle);
-            await setCookieClient();
+            await setCookieClient(user.id);
             await onList(cards[cardOn].title, cards[cardOn].subtitle)
         } catch (err: any) {
             if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
             return toast.error("Erro inesperado ao adicionar filme à lista!")
         } finally {
             setIsLoading(false)
-        }*/
+        }
     }
     function handleWatch() {
         const movie = new URLSearchParams({
@@ -147,8 +148,8 @@ export default function Top({ width }: TopProps) {
                         <div className={styles.queue} onClick={() => toggleWatchLater(cards[cardOn].title, cards[cardOn].subtitle)}>
                             {onWatchLater ?
                                 <>
+                                    <h3>ADICIONADO À LISTA!</h3>
                                     <FaCheck />
-                                    <h3>Adicionado à Lista</h3>
                                 </> : <>
                                     <h3>ASSISTIR MAIS TARDE</h3>
                                     <IoIosAddCircleOutline />

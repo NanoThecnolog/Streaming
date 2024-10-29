@@ -9,11 +9,10 @@ import { MdNavigateBefore } from "react-icons/md";
 
 interface ContainerProps {
     section: string
-    handleOpenModal?: (title: string, subTitle?: string) => void;
     cardPerContainer: number
 }
 
-export default function CardContainerSerie({ section, handleOpenModal, cardPerContainer }: ContainerProps) {
+export default function CardContainerSerie({ section, cardPerContainer }: ContainerProps) {
     const [currentIndex, setCurrentIndex] = useState(0)
     const [cardsPerPage, setCardsPerPage] = useState(cardPerContainer);
     const filteredCards = series.filter(serie => serie.genero.some(gen => gen.toLowerCase() === section?.toLowerCase()))
@@ -53,8 +52,6 @@ export default function CardContainerSerie({ section, handleOpenModal, cardPerCo
                             <Card
                                 key={index}
                                 card={serie}
-                                modalWatchLater={handleOpenModal}
-                                section={section}
                             />
 
                         </div>

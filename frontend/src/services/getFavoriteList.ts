@@ -1,18 +1,29 @@
+import { ListaFavoritos } from "@/@types/favoritos";
+import { UserProps } from "@/@types/user";
 import { getCookie } from "cookies-next";
 import { toast } from "react-toastify";
 
+/**
+ * 
+ * @returns Retorna uma lista dos favoritos do usuário salvo no localStorage com id, title, subtitle, tmdbId e userId
+ */
+
 export function getCookieFavoriteList() {
-    toast.warning("A Função favoriteCookie está temporariamente desativada")
-    /*
-    const favoriteList = getCookie('favoriteList')
+    //toast.warning("A Função favoriteCookie está temporariamente desativada")
+
+    const favoriteList = localStorage.getItem('favoriteList')
+
     if (favoriteList) {
+        const userData = JSON.parse(favoriteList)
         try {
-            const favoritos = JSON.parse(favoriteList);
+            const favoritos: ListaFavoritos[] = userData
             return favoritos;
         } catch (err) {
             console.log("Erro ao pegar os dados no cookie", err);
             return null;
         }
-    }*/
-    return null;
+    } else {
+        return null;
+    }
+
 }

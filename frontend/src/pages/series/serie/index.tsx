@@ -18,7 +18,6 @@ import { isOnTheList } from "@/services/isOnTheList";
 import { GetServerSideProps } from "next";
 import { serverStatus } from "@/services/verifyStatusServer";
 import { episodeImage } from "@/services/fetchEpisodeImage";
-import Image from "next/image";
 import { serieData } from "@/services/fetchSeries";
 
 export default function Serie(status: { status: string }) {
@@ -123,12 +122,12 @@ export default function Serie(status: { status: string }) {
     }
 
     async function handleAddUserList(title: string, subtitle?: string) {
-        toast.warning("A função Assistir mais tarde está temporariamente desativada")
-        /*try {
-            if (!user) {
-                Router.push('/login')
-                return
-            }
+        //toast.warning("A função Assistir mais tarde está temporariamente desativada")
+        if (!user) {
+            Router.push('/login')
+            return
+        }
+        try {
             await addWatchLater(user.id, title, subtitle);
             const onList: Promise<boolean> = isOnTheList(title, subtitle)
             onList.then(result => {
@@ -142,7 +141,7 @@ export default function Serie(status: { status: string }) {
             if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
             console.log(err)
             return toast.error("Erro inesperado ao adicionar filme à lista!")
-        }*/
+        }
     }
 
     return (

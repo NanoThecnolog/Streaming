@@ -3,4 +3,5 @@ export interface ListaFavoritos {
     tmdbid: number,
     title: string,
     subtitle: string,
+    userId: string
 }

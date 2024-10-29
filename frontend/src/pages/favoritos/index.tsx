@@ -10,7 +10,7 @@ import { UserProps } from '@/@types/user';
 
 export default function Favorite(status: { status: string }) {
     //const [user, setUser] = useState<UserProps>()
-    /*useEffect(() => {
+    useEffect(() => {
         getUserData()
     }, [status])
     async function getUserData() {
@@ -31,7 +31,7 @@ export default function Favorite(status: { status: string }) {
         } catch (err) {
             console.log("Erro ao buscar dados do usuário na API", err)
         }
-    }*/
+    }
     return (
         <>
             <Head>

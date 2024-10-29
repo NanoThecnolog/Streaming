@@ -11,14 +11,14 @@ import Router from 'next/router'
 export default function Privacy(status: { status: string }) {
     const [user, setUser] = useState<UserProps | null>()
 
-    /*useEffect(() => {
+    useEffect(() => {
         const user = getCookieClient();
         if (!user) {
             Router.push('/login')
             return
         }
         setUser(user)
-    }, [])*/
+    }, [])
     return (
         <>
             <Head>

@@ -138,19 +138,22 @@
                             font-size: 1.4rem;
                             padding-bottom: 20px;
                         }
-                    }
 
-                    .watchContainer {
-                        height: 500px;
-                        overflow-y: auto;
-                        scrollbar-width: thin;
-                        scrollbar-color: var(--white) var(--black);
+                        .watchContainer {
+                            height: 500px;
+                            overflow-y: auto;
+                            scrollbar-width: thin;
+                            scrollbar-color: var(--white) var(--black);
+                        }
                     }
 
                     .watch {
                         margin: 15px;
                         padding: 20px;
                         background-color: var(--red-selected);
+                        width: 250px;
+                        display: flex;
+                        justify-content: space-between;
                         border-radius: .4rem;
                         transition: all .4s;
                         cursor: pointer;
@@ -158,6 +161,15 @@
 
                         &:hover {
                             transform: scale(1.05);
+                        }
+
+                        svg {
+                            transition: all .4s;
+
+                            &:hover {
+                                filter: brightness(5);
+                                filter: drop-shadow(1px 1px 3px rgba(255, 255, 255, 1));
+                            }
                         }
 
                     }

@@ -9,15 +9,13 @@ import OverlaySerie from "../Overlay";
 
 interface CardProps {
     card: SeriesProps;
-    section?: string;
-    modalWatchLater?: (title: string, subTitle?: string) => void;
 }
 type StateProps = {
     modalVisible: boolean,
     TMDBPoster: string | null,
 }
 
-export default function Card({ card, modalWatchLater }: CardProps) {
+export default function Card({ card }: CardProps) {
     const [state, setState] = useState<StateProps>({
         modalVisible: false,
         TMDBPoster: null,

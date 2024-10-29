@@ -14,6 +14,7 @@ import { serverStatus } from "@/services/verifyStatusServer";
 import { api } from "@/services/api";
 import { clearTimeout } from "timers";
 import { setTimeout } from "timers/promises";
+import { fetchListFavorite } from "@/services/fetchFavoriteList";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,10 +29,10 @@ export default function Home(status: { status: string }) {
     "romance", "super herói", "drama", "ficção científica",
     "fantasia", "marvel", "dc", "animação"
   ]
-  /*
+
   useEffect(() => {
     getUserData()
-  }, [status])
+  }, [])
   async function getUserData() {
     const user = getCookieClient();
     if (!user) return;
@@ -42,12 +43,17 @@ export default function Home(status: { status: string }) {
           id: user.id
         }
       })
+      const listaFavoritos = await fetchListFavorite(user.id)
+
+      const favoritosJson = JSON.stringify(listaFavoritos)
       const userJson = JSON.stringify(atualizarUsuario.data)
-      document.cookie = `flixnext=${userJson}; path=/; max-age=${expressTime}`
+      //document.cookie = `flixnext=${userJson}; path=/; max-age=${expressTime}`
+      localStorage.setItem('favoriteList', favoritosJson)
+      localStorage.setItem('flixnex', userJson)
     } catch (err) {
       console.log("Erro ao buscar dados do usuário na API", err)
     }
-  }*/
+  }
 
   useEffect(() => {
     // Breakpoints ajustados

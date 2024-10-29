@@ -31,40 +31,45 @@ type StateProps = {
     user: UserProps | undefined,
     favoriteList: ListaFavoritos[],
     onWatchLater: boolean,
-    isLoading: boolean
+    isLoading: boolean,
+    isFavorite: boolean
 }
 
-export default function Overlay({ tmdbId, title, subtitle, src, duration, genero, isVisible, modalVisible }: OverlayProps) {
+export default function Overlay({ tmdbId, title, subtitle = "", src, duration, genero, isVisible, modalVisible }: OverlayProps) {
 
     //Refatorar Esse componente
     const [state, setState] = useState<StateProps>({
         user: undefined,
         favoriteList: [],
         onWatchLater: false,
-        isLoading: false
+        isLoading: false,
+        isFavorite: false
     })
-    const { user, favoriteList, onWatchLater, isLoading } = state
+    const { user, favoriteList, onWatchLater, isLoading, isFavorite } = state
+
+
 
     useEffect(() => {
-        setCookieClient()
-    }, [])
 
-    useEffect(() => {
         const user = getCookieClient();
         if (!user) return;
+        setCookieClient(user.id)
         setState(prev => ({ ...prev, user: user }))
-        //listarFavoritos()
-        setCookieClient()
+        setState(prev => ({ ...prev, favoriteList: user.favoritos }))
+        listarFavoritos()
         onList(title, subtitle)
     }, [title, subtitle, isVisible])
-    /*function listarFavoritos() {
-        const favoritos: ListaFavoritos[] = getCookieFavoriteList();
-        setState(prev => ({ ...prev, favoriteList: favoritos }))
-    }*/
-    async function onList(title: string, subtitle?: string) {
-        const result: boolean = await isOnTheList(title, subtitle)
-        setState(prev => ({ ...prev, onWatchLater: result }))
+
+    useEffect(() => {
+        console.log(favoriteList)
+        isMovieFavorite()
+    }, [favoriteList])
+
+    function isMovieFavorite() {
+        const favorite = favoriteList.some((titulo) => titulo.title === title && titulo.subtitle === subtitle)
+        setState(prev => ({ ...prev, isFavorite: favorite }))
     }
+
     const movie = useMemo(() => new URLSearchParams({
         title: `${title}`,
         subTitle: `${subtitle}` || "",
@@ -74,33 +79,49 @@ export default function Overlay({ tmdbId, title, subtitle, src, duration, genero
     const playLink = `/watch?${movie}`
 
     const handleFavorite = useCallback(async () => {
-        toast.warning("A função Favoritos está temporariamente desativada.")
-        /*
+        //toast.warning("A função Favoritos está temporariamente desativada.")
+
         if (!user) return
         await addFavorite({ tmdbid: tmdbId, title, subtitle, userId: user.id })
-        //listarFavoritos()*/
+        listarFavoritos()
     }, [user, title, subtitle, tmdbId])
 
+    function listarFavoritos() {
+        const favoritos: ListaFavoritos[] | null = getCookieFavoriteList();
+        if (!favoritos) return
+        setState(prev => ({ ...prev, favoriteList: favoritos }))
+
+    }
+
+
+    const onList = useCallback(async (title: string, subtitle?: string) => {
+        const result: boolean = await isOnTheList(title, subtitle);
+        //console.log("result na função onList", result)
+        setState(prev => ({ ...prev, onWatchLater: result }));
+    }, []);
+
     async function handleWatchLater() {
-        toast.warning("A função assistir mais tarde está temporariamente desativada.")
-        /*
+        //toast.warning("A função assistir mais tarde está temporariamente desativada.")
+
         if (isLoading) return;
         if (!user) return Router.push('/login')
         setState(prev => ({ ...prev, isLoading: true }))
         try {
             await addWatchLater(user.id, title, subtitle);
             await onList(title, subtitle)
-            await setCookieClient()
+            await setCookieClient(user.id)
         } catch (err: any) {
             const errorMessage = err.response?.data?.message || "Erro ao adicionar filme à lista.";
+            console.log("Erro na função handleWatchLater do overlay filme", err)
             return toast.error(errorMessage)
         } finally {
             setState(prev => ({ ...prev, isLoading: false }))
-        }*/
+        }
     }
     async function openModalVisible() {
         modalVisible()
-        await setCookieClient();
+        if (!user) return
+        await setCookieClient(user.id);
     }
 
     return (
@@ -108,6 +129,7 @@ export default function Overlay({ tmdbId, title, subtitle, src, duration, genero
             <h3>{title.toUpperCase()}</h3>
             {subtitle && (
                 <h4>{subtitle}</h4>
+
             )}
             <p>{duration} - {genero.join(', ')}</p>
             <div className={styles.button_container}>
@@ -126,8 +148,7 @@ export default function Overlay({ tmdbId, title, subtitle, src, duration, genero
                     }
                 </div>
                 <div className={`${styles.queue} ${favoriteList && favoriteList
-                    .some((filme) =>
-                        filme.title === title
+                    .some((filme) => filme.title === title
                         && filme.subtitle === subtitle)
                     ? styles.star : ''}`}
                     onClick={handleFavorite}

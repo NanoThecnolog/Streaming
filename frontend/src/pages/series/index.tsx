@@ -19,7 +19,6 @@ export default function Series(status: { status: string }) {
 
     const divisaoPorGenero = [
         "ação",
-        "comédia",
         "suspense",
         "ficção científica",
         "drama",
@@ -83,13 +82,7 @@ export default function Series(status: { status: string }) {
             document.removeEventListener('keydown', openConsoleBlock);
         }
     }, [])
-    function handleOpenModalWatchLater(title: string, subTitle?: string) {
-        //setMovieTitle(title)
-        if (subTitle && subTitle !== "") {
-            //setMovieSubTitle(subTitle)
-        }
-        //setVisible(true)
-    }
+
     return (
         <>
             <Head>
@@ -106,7 +99,6 @@ export default function Series(status: { status: string }) {
                         {divisaoPorGenero.map((sec, index) => (
                             <div key={index}>
                                 <CardSerieContainer
-                                    handleOpenModal={handleOpenModalWatchLater}
                                     section={sec}
                                     cardPerContainer={cardPerContainer}
                                 />

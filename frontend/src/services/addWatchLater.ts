@@ -1,8 +1,11 @@
 import { toast } from "react-toastify"
 import { api } from "./api";
+import { UserProps } from "@/@types/user";
+import { CardsProps } from "@/@types/Cards";
+import { WatchLaterProps } from "@/@types/watchLater";
 
 export async function addWatchLater(id: string, title: string, subtitle?: string) {
-    /*let isLoading;
+    let isLoading;
     try {
         if (isLoading) return;
         isLoading = true;
@@ -14,9 +17,8 @@ export async function addWatchLater(id: string, title: string, subtitle?: string
                 filme.subtitle?.trim().toLowerCase() === (subtitle?.trim().toLowerCase() || '');
         })
         if (filmeExiste) {
-            const remove = await api.delete(`/watchLater/${filmeExiste.id}`)
-            toast.warning("Filme removido da lista para assistir mais tarde!")
-            return remove;
+            await removeWatchLater(filmeExiste.title, filmeExiste.subtitle)
+            return
         }
         const addFilm = await api.post(`/watchLater/`, {
             id,
@@ -35,5 +37,27 @@ export async function addWatchLater(id: string, title: string, subtitle?: string
         }
     } finally {
         isLoading = false
-    }*/
+    }
+}
+
+export async function removeWatchLater(title: string, subtitle?: string) {
+    try {
+        const localstorage: string | null = localStorage.getItem('flixnext')
+        if (!localstorage) return "usuario não definido"
+        const user: UserProps = JSON.parse(localstorage)
+
+        const filmesUser = await api.get(`/watchLater?id=${user.id}`)
+        const listData: WatchLaterProps[] = filmesUser.data
+        const filme = listData.find(filme => title === filme.title && subtitle === filme.subtitle)
+        if (!filme) return toast.error("Filme não encontrado na lista para assistir mais tarde.")
+        const remove = await api.delete(`/watchLater/${filme?.id}`)
+        if (remove.status === 200 || remove.status === 204) {
+            return toast.warning("Filme removido da lista para assistir mais tarde!")
+        }
+    } catch (err) {
+        console.log("Erro ao remover Título", err)
+        if (err instanceof Error) return err.message
+        const errorMessage = `Erro ao remover Título, ${err}`;
+        return errorMessage
+    }
 }

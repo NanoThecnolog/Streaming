@@ -64,9 +64,10 @@ export default function Login() {
             //salvar a resposta Data nos cookies
             const expressTime = 15 * 24 * 60 * 60 * 1000;
             const userData = JSON.stringify(response.data)
+            localStorage.setItem('flixnext', userData)
             document.cookie = `flixnext=${userData}; path=/; max-age=${expressTime}`
             toast.success("Bem vindo!")
-            Router.back();
+            Router.push('/');
         } catch (err) {
             if (err instanceof ErrorEvent) {
                 return toast.error(err.message)
