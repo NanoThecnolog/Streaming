@@ -19,9 +19,9 @@ interface DetailUserProps {
         id: string,
         title: string,
         subtitle: string,
+        tmdbid: number,
         userId: string,
         created_at: Date;
-        updated_at: Date;
     }[],
     token: string
 }
@@ -39,6 +39,14 @@ export class DetailUserService {
 
             prismaClient.watchLater.findMany({
                 where: { userId: id }
+                , select: {
+                    id: true,
+                    title: true,
+                    subtitle: true,
+                    tmdbid: true,
+                    userId: true,
+                    created_at: true
+                }
             })
         ])
         const secret = process.env.SECRET_JWT;

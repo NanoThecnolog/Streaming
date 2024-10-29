@@ -3,13 +3,14 @@ import prismaClient from "../../prisma";
 interface WatchLaterProps {
     title: string,
     subtitle: string,
-    id: string
+    userid: string,
+    tmdbid: number
 }
 
 class WatchLaterService {
-    async execute({ id, title, subtitle }: WatchLaterProps) {
+    async execute({ userid, title, subtitle, tmdbid }: WatchLaterProps) {
         const userExiste = await prismaClient.user.findUnique({
-            where: { id }
+            where: { id: userid }
         })
         if (!userExiste) throw new Error("Usuário não encontrado")
 
@@ -26,8 +27,9 @@ class WatchLaterService {
                 title,
                 subtitle,
                 user: {
-                    connect: { id }
-                }
+                    connect: { id: userid }
+                },
+                tmdbid
             }
         })
         return movieList

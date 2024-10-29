@@ -5,11 +5,12 @@ class WatchLaterController {
     async handle(req: Request, res: Response) {
         try {
             const watchLaterService = new WatchLaterService();
-            const { id, title, subtitle } = req.body;
+            const { userid, title, subtitle, tmdbid } = req.body;
             const addMovie = await watchLaterService.execute({
-                id,
+                userid,
                 title,
-                subtitle
+                subtitle,
+                tmdbid
             });
             return res.json(addMovie)
         } catch (err) {

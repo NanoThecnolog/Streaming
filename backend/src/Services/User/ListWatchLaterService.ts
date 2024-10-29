@@ -12,6 +12,7 @@ class ListWatchLaterService {
                 id: true,
                 title: true,
                 subtitle: true,
+                tmdbid: true,
                 created_at: true
             }
         })

@@ -35,6 +35,7 @@ model watchLater {
   id       String @id @default(uuid())
   title    String
   subtitle String
+  tmdbid   Int
 
   userId String
   user   user   @relation(fields: [userId], references: [id], onDelete: Cascade)
