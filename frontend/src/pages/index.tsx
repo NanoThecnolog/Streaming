@@ -20,8 +20,6 @@ export default function Home(status: string) {
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
   const [width, setWidth] = useState<number>()
   const [userData, setUserData] = useState<UserProps>()
-  //const userData: UserProps = getCookieClient();
-  //const expressTime = 15 * 24 * 60 * 60 * 1000;
   const divisaoPorGenero = [
     "ação", "aventura", "suspense", "comédia", "terror",
     "romance", "super herói", "drama", "ficção científica",

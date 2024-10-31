@@ -124,6 +124,7 @@ export default function Serie(status: string) {
         Router.push(`/watch/serie?${episode}`)
     }
 
+
     async function handleAddUserList(title: string, tmdbid: number, subtitle?: string) {
         //toast.warning("A função Assistir mais tarde está temporariamente desativada")
         if (!user) {
@@ -146,6 +147,30 @@ export default function Serie(status: string) {
             return toast.error("Erro inesperado ao adicionar filme à lista!")
         }
     }
+
+    useEffect(() => {
+        function rightClickBlock(event: MouseEvent) { event.preventDefault(); }
+
+        // Impede atalhos de ferramentas de desenvolvedor
+        function openConsoleBlock(event: KeyboardEvent) {
+            const blockedKeys = ['F12', 'I', 'C', 'J', 'U']
+            if (
+                blockedKeys.includes(event.key) ||
+                (event.ctrlKey && event.shiftKey && blockedKeys.includes(event.key)) ||
+                (event.ctrlKey && event.key === 'U')
+            ) {
+                event.preventDefault();
+            }
+        };
+
+        document.addEventListener('contextmenu', rightClickBlock);
+        document.addEventListener('keydown', openConsoleBlock);
+
+        return () => {
+            document.removeEventListener('contextmenu', rightClickBlock);
+            document.removeEventListener('keydown', openConsoleBlock);
+        };
+    }, []);
 
     return (
         <>
