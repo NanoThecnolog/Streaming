@@ -6,18 +6,18 @@ import { GetServerSideProps } from 'next'
 import { serverStatus } from '@/services/verifyStatusServer'
 import { useEffect, useState } from 'react'
 import { UserProps } from '@/@types/user'
-import { getCookieClient } from '@/services/cookieClient'
 import Router from 'next/router'
-export default function Privacy(status: { status: string }) {
+import { getUserCookieData } from '@/services/cookieClient'
+export default function Privacy(status: string) {
     const [user, setUser] = useState<UserProps | null>()
 
     useEffect(() => {
-        const user = getCookieClient();
-        if (!user) {
-            Router.push('/login')
-            return
+        const userData = async () => {
+            const user = await getUserCookieData();
+            if (!user) return Router.push('/login');
+            setUser(user)
         }
-        setUser(user)
+        userData()
     }, [])
     return (
         <>

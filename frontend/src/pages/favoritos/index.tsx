@@ -4,34 +4,21 @@ import { GetServerSideProps } from 'next';
 import { serverStatus } from '@/services/verifyStatusServer';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import { getCookieClient } from '@/services/cookieClient';
 import { api } from '@/services/api';
 import { UserProps } from '@/@types/user';
+import { getUserCookieData } from '@/services/cookieClient';
+import Router from 'next/router';
 
-export default function Favorite(status: { status: string }) {
-    //const [user, setUser] = useState<UserProps>()
+export default function Favorite(status: string) {
+    const [user, setUser] = useState<UserProps>()
     useEffect(() => {
-        getUserData()
-    }, [status])
-    async function getUserData() {
-        const user = getCookieClient();
-        if (!user) {
-            return
+        const userData = async () => {
+            const user = await getUserCookieData();
+            if (!user) return Router.push('/login');
+            setUser(user)
         }
-        try {
-            const atualizarUsuario = await api.get('/user', {
-                params: {
-                    id: user.id
-                }
-            })
-            const expressTime = 15 * 24 * 60 * 60 * 1000;
-            const userJson = JSON.stringify(atualizarUsuario.data)
-            document.cookie = `flixnext=${userJson}; path=/; max-age=${expressTime}`
-            //console.log(userData)
-        } catch (err) {
-            console.log("Erro ao buscar dados do usuário na API", err)
-        }
-    }
+        userData()
+    }, [])
     return (
         <>
             <Head>

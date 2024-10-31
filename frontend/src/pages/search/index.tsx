@@ -14,8 +14,6 @@ import { GetServerSideProps } from "next";
 import { serverStatus } from "@/services/verifyStatusServer";
 import { getUserCookieData } from "@/services/cookieClient";
 
-
-
 export default function Search(status: string) {
     const router = useRouter();
     const [movie, setMovie] = useState<string>();
