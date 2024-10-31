@@ -3,8 +3,8 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import CardInfoSerieModal from "../CardInfos";
 import { SeriesProps } from "@/@types/series";
-import { serieData } from "@/services/fetchSeries";
 import OverlaySerie from "../Overlay";
+import { fetchTMDBSeries } from '@/services/fetchTMDBData';
 
 
 interface CardProps {
@@ -30,7 +30,7 @@ export default function Card({ card }: CardProps) {
     }, [card, modalVisible])
 
     async function fetchSerieData() {
-        const serie = await serieData(card.tmdbID)
+        const serie = await fetchTMDBSeries(card.tmdbID)
         setState(prev => ({ ...prev, TMDBPoster: serie?.poster_path ? `https://image.tmdb.org/t/p/original${serie.poster_path}` : null }))
     }
 

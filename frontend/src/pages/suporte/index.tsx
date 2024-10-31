@@ -4,7 +4,7 @@ import Footer from '@/components/Footer'
 import { serverStatus } from '@/services/verifyStatusServer'
 import { GetServerSideProps } from 'next'
 
-export default function Suport(status: { status: string }) {
+export default function Suport(status: string) {
     return (
         <>
             <Header status={status} />

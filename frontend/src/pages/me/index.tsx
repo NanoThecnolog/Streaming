@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import styles from './styles.module.scss'
 import Footer from "@/components/Footer";
 import { useEffect, useState } from "react";
-import { getCookieClient, setCookieClient } from "@/services/cookieClient";
+import { getUserCookieData, updateUserCookie } from "@/services/cookieClient";
 import Router from "next/router";
 import { UserProps } from "@/@types/user";
 import Head from "next/head";
@@ -19,36 +19,35 @@ import { CardsProps } from "@/@types/Cards";
 import EditarDados from "@/components/modals/EditarDados";
 import { deleteCookies } from "@/services/cookieClient";
 import { X } from "lucide-react";
-import { removeWatchLater } from "@/services/addWatchLater";
+import { removeWatchLater } from "@/services/handleWatchLater";
 import { FaUserCircle } from "react-icons/fa";
-import { favoriteCookie } from "@/services/setFavoriteCookie";
-import { ListaFavoritos } from "@/@types/favoritos";
-import fetchWatchLater from "@/services/fetchWatchLater";
+import { fetchWatchLater } from "@/services/setDataOnStorage";
 import { WatchLaterProps } from "@/@types/watchLater";
 
-export default function Me(status: { status: string }) {
+export default function Me(status: string) {
     const [user, setUser] = useState<UserProps | null>(null)
     const [modalVisible, setModalVisible] = useState(false)
     const [editarDados, setEditarDados] = useState(false)
-    //const [favoriteList, setFavoriteList] = useState<ListaFavoritos[]>([])
     const [watchLaterList, setWatchLaterList] = useState<WatchLaterProps[]>([])
 
     useEffect(() => {
-        const user = getCookieClient();
-        //console.log("user vindo da função getCookieClient.", user)
+        getUserData()
+
+    }, [modalVisible, editarDados])
+    async function getUserData() {
+        const user = await getUserCookieData()
         if (!user) {
             Router.push('/login')
             return
         }
-        //favoriteCookie(user.id);
         setUser(user)
-        handleWatchLater(user.id)
-        //handleLocalFavoriteList()
-    }, [modalVisible, editarDados])
+        handleWatchLater(user)
+    }
 
-    async function handleWatchLater(id: string) {
-        const lista = await fetchWatchLater(id)
-        setWatchLaterList(lista)
+    function handleWatchLater(user: UserProps) {
+        //const lista = await fetchWatchLater(user)
+        const watchLaterOnStorage = localStorage.getItem('watchLaterList')
+        setWatchLaterList(JSON.parse(watchLaterOnStorage as string))
     }
 
     function handleOpenModal() {
@@ -56,16 +55,8 @@ export default function Me(status: { status: string }) {
     }
     function handleCloseModal() {
         setModalVisible(false)
-
     }
-    /*function handleLocalFavoriteList() {
-        const favoriteStorage = localStorage.getItem('favoriteList')
-        if (favoriteStorage) {
-            const favoritos = JSON.parse(favoriteStorage)
-            console.log(favoritos)
-            setFavoriteList(favoritos)
-        }
-    }*/
+
     function handleWatch(watch: SeriesProps | CardsProps) {
         if ('src' in watch) {
             const movie = new URLSearchParams({
@@ -93,28 +84,29 @@ export default function Me(status: { status: string }) {
     function openEditarDados() {
         setEditarDados(true)
     }
-    function closeEditarDados() {
+    async function closeEditarDados() {
         setEditarDados(false)
         if (!user) return Router.push('/login')
-        setCookieClient(user.id);
+        //setCookieClient(user.id);
+        await updateUserCookie();
     }
 
     function handleLogout() {
         deleteCookies('flixnext');
+        deleteCookies('userData');
         Router.push('/login');
     }
 
     async function handleRemove(title: string, subtitle?: string) {
-        await removeWatchLater(title, subtitle)
+
         if (!user) return Router.push('/login')
-        await setCookieClient(user.id)
-        await handleWatchLater(user.id)
-        const updateData = await getCookieClient()
-        setUser(updateData)
+
+        await removeWatchLater(user.id, title, subtitle)
+        await updateUserCookie()
+        handleWatchLater(user)
+        await getUserData()
+
     }
-
-
-
     return (
         <>
             <Head>

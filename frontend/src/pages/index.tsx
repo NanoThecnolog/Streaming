@@ -7,20 +7,20 @@ import { useEffect, useState } from "react";
 import Top from "@/components/Top";
 import styles from "@/styles/Home.module.scss";
 import Search from "@/components/Searching";
-import { getCookieClient } from "@/services/cookieClient";
 import { UserProps } from "@/@types/user";
 import { GetServerSideProps } from "next";
 import { serverStatus } from "@/services/verifyStatusServer";
-import { api } from "@/services/api";
-import { fetchListFavorite } from "@/services/fetchFavoriteList";
+import setData from "@/services/setDataOnStorage";
+import { getUserCookieData } from "@/services/cookieClient";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home(status: { status: string }) {
+export default function Home(status: string) {
   //refatorar esse componente
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
   const [width, setWidth] = useState<number>()
-  const userData: UserProps = getCookieClient();
+  const [userData, setUserData] = useState<UserProps>()
+  //const userData: UserProps = getCookieClient();
   //const expressTime = 15 * 24 * 60 * 60 * 1000;
   const divisaoPorGenero = [
     "ação", "aventura", "suspense", "comédia", "terror",
@@ -29,29 +29,20 @@ export default function Home(status: { status: string }) {
   ]
 
   useEffect(() => {
-    getUserData()
-  }, [])
-  async function getUserData() {
-    const user = getCookieClient();
-    if (!user) return;
-
-    try {
-      const atualizarUsuario = await api.get('/user', {
-        params: {
-          id: user.id
+    setData()
+    const settingUserData = async () => {
+      try {
+        const user = await getUserCookieData();
+        if (!user) {
+          return
         }
-      })
-      const listaFavoritos = await fetchListFavorite(user.id)
-
-      const favoritosJson = JSON.stringify(listaFavoritos)
-      const userJson = JSON.stringify(atualizarUsuario.data)
-      //document.cookie = `flixnext=${userJson}; path=/; max-age=${expressTime}`
-      localStorage.setItem('favoriteList', favoritosJson)
-      localStorage.setItem('flixnext', userJson)
-    } catch (err) {
-      console.log("Erro ao buscar dados do usuário na API", err)
+        setUserData(user)
+      } catch (err) {
+        console.log("Erro ao buscar dados do usuário no cookie", err)
+      }
     }
-  }
+    settingUserData()
+  }, [])
 
   useEffect(() => {
     // Breakpoints ajustados
@@ -132,10 +123,12 @@ export const getServerSideProps: GetServerSideProps = async () => {
     const status = await serverStatus();
     return status
   }
+
+
   const status = await fetchServerStatus()
   return {
     props: {
-      status
+      status,
     }
   }
 }

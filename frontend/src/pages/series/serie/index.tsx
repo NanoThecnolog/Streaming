@@ -8,19 +8,15 @@ import styles from './styles.module.scss'
 import { Play, PlayIcon } from "lucide-react";
 import Head from "next/head";
 import { toast } from "react-toastify";
-import { addWatchLater } from "@/services/addWatchLater";
 import { UserProps } from "@/@types/user";
-import { getCookieClient } from "@/services/cookieClient";
-import { api } from "@/services/api";
 import { FaCheck } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
-import { isOnTheList } from "@/services/isOnTheList";
 import { GetServerSideProps } from "next";
 import { serverStatus } from "@/services/verifyStatusServer";
-import { episodeImage } from "@/services/fetchEpisodeImage";
-import { serieData } from "@/services/fetchSeries";
-
-export default function Serie(status: { status: string }) {
+import { fetchEpisodeData, fetchTMDBSeries } from "@/services/fetchTMDBData";
+import { getUserCookieData } from "@/services/cookieClient";
+import { addWatchLater, isOnTheList } from "@/services/handleWatchLater";
+export default function Serie(status: string) {
     //refatorar
     const router = useRouter()
     const { title } = router.query;
@@ -35,11 +31,18 @@ export default function Serie(status: { status: string }) {
     const [TMDBPoster, setTMDBPoster] = useState<string | null>(null)
 
     useEffect(() => {
-        const user = getCookieClient();
-        if (!user) {
-            return
+        const getUserData = async () => {
+            try {
+                const user = await getUserCookieData();
+                if (!user) {
+                    return
+                }
+                setUser(user)
+            } catch (err) {
+                console.log("Erro ao buscar dados do usuário no cookie", err)
+            }
         }
-        setUser(user)
+        getUserData()
     }, [])
 
     useEffect(() => {
@@ -56,7 +59,7 @@ export default function Serie(status: { status: string }) {
         }
         fetchEpisodes()
 
-        const onList: Promise<boolean> = isOnTheList(serie.title, serie.subtitle)
+        const onList: Promise<boolean> = isOnTheList(serie.title, serie.subtitle, serie.tmdbID)
         onList.then(result => {
             if (!result) {
                 setOnWatchLater(false)
@@ -79,7 +82,7 @@ export default function Serie(status: { status: string }) {
     }, [serie])
     async function fetchSerieData() {
         if (!serie) return
-        const serieInfo = await serieData(serie.tmdbID)
+        const serieInfo = await fetchTMDBSeries(serie.tmdbID)
         if (!serieInfo || !serieInfo.backdrop_path || !serieInfo.poster_path) {
             setTMDBBackDrop(null)
             setTMDBPoster(null)
@@ -95,7 +98,7 @@ export default function Serie(status: { status: string }) {
         if (!serie) return
         const episodesArray = await Promise.all(
             serie.season.map(async temp => {
-                const episodes = await episodeImage(serie.tmdbID, temp.s)
+                const episodes = await fetchEpisodeData(serie.tmdbID, temp.s)
                 return episodes
             })
         )

@@ -6,14 +6,11 @@ import styles from './styles.module.scss'
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { AlignJustify, Search } from "lucide-react";
-import { serverStatus } from "@/services/verifyStatusServer";
-import { GetServerSideProps } from "next";
 import { api } from "@/services/api";
-import { Trykker } from "next/font/google";
 
 interface HeaderProps {
     userAvatar?: string | undefined;
-    status: { status: string }
+    status: string
 }
 
 export default function Header({ userAvatar, status }: HeaderProps) {

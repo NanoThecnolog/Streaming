@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Router, { useRouter } from "next/router";
 import { ChevronLeft } from 'lucide-react';
 import { api } from "@/services/api";
-import { getCookieClient } from "@/services/cookieClient";
+import { getUserCookieData } from "@/services/cookieClient";
 
 export default function Watch() {
     const router = useRouter()
@@ -18,15 +18,14 @@ export default function Watch() {
             console.error("Erro ao acordar o servidor", err)
         }
     }, [])
-    const verificarUsuario = useCallback(() => {
-        const user = getCookieClient();
-        if (!user) {
-            router.push('/login')
-        }
+    const userData = useCallback(async () => {
+        const user = await getUserCookieData();
+        if (!user) return router.push('/login');
     }, [router])
+
     useEffect(() => {
-        verificarUsuario();
-    }, [verificarUsuario])
+        userData()
+    }, [userData])
 
 
     useEffect(() => {

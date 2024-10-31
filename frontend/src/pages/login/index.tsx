@@ -9,6 +9,8 @@ import Head from 'next/head';
 import { GetServerSideProps } from 'next';
 import { serverStatus } from '@/services/verifyStatusServer';
 import ForgetPass from '@/components/modals/ForgetPassword';
+import { Verified } from 'lucide-react';
+import setData from '@/services/setDataOnStorage';
 //import { cookies } from 'next/headers';
 
 
@@ -19,7 +21,6 @@ export default function Login() {
     const [password, setPassword] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
     const [modalVisible, setModalVisible] = useState<boolean>(false)
-    const forgetLink = "/";
     const newAccount = "/signup";
 
     useEffect(() => {
@@ -61,11 +62,23 @@ export default function Login() {
                 );
                 return;
             }
-            //salvar a resposta Data nos cookies
+            //salvar a resposta Data nos cookies e localStorage
             const expressTime = 15 * 24 * 60 * 60 * 1000;
             const userData = JSON.stringify(response.data)
+            const user = JSON.stringify({
+                id: response.data.id,
+                name: response.data.name,
+                avatar: response.data.avatar,
+                Verified: response.data.verified,
+                birthday: response.data.verified,
+                token: response.data.verified
+            })
+            //console.log(user)
+
             localStorage.setItem('flixnext', userData)
+            await setData();
             document.cookie = `flixnext=${userData}; path=/; max-age=${expressTime}`
+            document.cookie = `userData=${user}; path=/; max-age=${expressTime}`
             toast.success("Bem vindo!")
             Router.push('/');
         } catch (err) {

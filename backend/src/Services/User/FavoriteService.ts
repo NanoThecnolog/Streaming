@@ -12,6 +12,11 @@ export class FavoriteService {
             where: { id: userId }
         })
         if (!userExiste) throw new Error("Usuário não encontrado")
+        const favoritoExiste = await prismaClient.favorito.findFirst({
+            where: { tmdbid }
+        })
+        if (favoritoExiste) throw new Error("Favorito já existe na lista")
+
         const favoritar = await prismaClient.favorito.create({
             data: {
                 tmdbid,

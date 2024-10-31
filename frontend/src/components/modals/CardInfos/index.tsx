@@ -1,20 +1,16 @@
 import { CardsProps, MovieTMDB } from "@/@types/Cards"
 import styles from './styles.module.scss'
-import { IoCloseCircle } from "react-icons/io5"
 import { FaCirclePlay } from "react-icons/fa6"
 import { IoIosAddCircleOutline } from "react-icons/io"
 import Router from "next/router"
-import { CircleX, CircleXIcon, X } from "lucide-react"
+import { X } from "lucide-react"
 import { toast } from "react-toastify"
-import { useEffect, useState } from "react"
-import { isOnTheList } from "@/services/isOnTheList"
+import { useCallback, useEffect, useMemo, useState } from "react"
 import { UserProps } from "@/@types/user"
-import { getCookieClient, setCookieClient } from "@/services/cookieClient"
-import { addWatchLater } from "@/services/addWatchLater"
 import { FaCheck } from "react-icons/fa"
-import { fetchTMDBPoster } from "@/services/fetchTMDBPoster"
-import { fetchTMDBBackDrop } from "@/services/fetchTMDBBackDrop"
-import { fetchTMDBMovie } from "@/services/fetchTMDBMovie"
+import { getUserCookieData } from "@/services/cookieClient"
+import { fetchTMDBBackDrop, fetchTMDBMovie } from "@/services/fetchTMDBData"
+import { addWatchLater, isOnTheList } from "@/services/handleWatchLater"
 
 interface InfoModalProps {
     card: CardsProps;
@@ -26,22 +22,70 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
     const [onWatchLater, setOnWatchLater] = useState(false)
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [user, setUser] = useState<UserProps>()
-    const [TMDBImage, setTMDBImage] = useState<string | null>(null)
-    const [TMDBMovie, setTMDBMovie] = useState<MovieTMDB | null>(null)
+    //const [TMDBImage, setTMDBImage] = useState<string | null>(null)
+    //const [TMDBMovie, setTMDBMovie] = useState<MovieTMDB | null>(null)
+    const [TMDBData, setTMDBData] = useState<{ image: string | null, movie: MovieTMDB | null }>({ image: null, movie: null });
 
     useEffect(() => {
-        const user = getCookieClient();
-        if (!user) {
-            return
+        const fetchUserData = async () => {
+            const user = await getUserCookieData();
+            if (user) setUser(user)
         }
-        setUser(user)
-        setCookieClient(user.id)
+        const fetchTMDBData = async () => {
+            if (card.tmdbId === 0) {
+                setTMDBData({ image: null, movie: null })
+                return;
+            }
+            const [image, movie] = await Promise.all([
+                fetchTMDBBackDrop(card.tmdbId),
+                fetchTMDBMovie(card.tmdbId)
+            ])
+            setTMDBData({ image: image || null, movie: movie || null })
+        }
+        fetchUserData()
+        fetchTMDBData()
     }, [])
-
+    const checkWatchLaterList = useCallback(async () => {
+        if (!user) return
+        const isAdded = await isOnTheList(card.title, card.subtitle, card.tmdbId)
+        setOnWatchLater(isAdded)
+    }, [user, card])
     useEffect(() => {
+        checkWatchLaterList()
+    }, [checkWatchLaterList])
+
+    const handleWatchLater = useCallback(async () => {
+        if (isLoading || !user) return Router.push('/login')
+        setIsLoading(true)
+
+        try {
+            await addWatchLater(user.id, card.title, card.tmdbId, card.subtitle)
+            await checkWatchLaterList()
+
+        } catch (err: any) {
+            const errorMessage = err.response?.data?.message || "Erro ao adicionar filme à lista!";
+            toast.error(errorMessage);
+
+        } finally {
+            setIsLoading(false)
+        }
+    }, [isLoading, user, card, checkWatchLaterList])
+
+    const movieURL = useMemo(() => {
+        const params = new URLSearchParams({
+            title: `${card.title}`,
+            subTitle: `${card.subtitle}` || "",
+            src: `${card.src}`
+        })
+        return `/watch?${params}`
+    }, [card]);
+
+    const handlePlay = () => Router.push(movieURL)
+
+    /*useEffect(() => {
         setTMDBImage(null);
         handlePosterImage();
-        onList(card.title, card.subtitle)
+        checkWatchLaterList();
     }, [card])
 
     async function handlePosterImage() {
@@ -70,52 +114,34 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
         setTMDBMovie(movie)
     }
 
-    async function onList(title: string, subtitle?: string) {
-        const onList: Promise<boolean> = isOnTheList(title, subtitle)
-        onList.then(result => {
-            if (!result) {
-                setOnWatchLater(false)
-            } else {
-                setOnWatchLater(true)
-            }
-        })
-    }
-    async function modalWatchLater() {
+
+    async function handleWatchLater() {
         //toast.warning("A função assistir mais tarde está temporariamente desativada.")
         try {
             if (isLoading) return
             setIsLoading(true)
             if (!user) return Router.push('/login')
-            await addWatchLater(user.id, card.title, card.tmdbId, card.subtitle);
-            await onList(card.title, card.subtitle)
-            await setCookieClient(user.id)
+            await Promise.all([
+                addWatchLater(user.id, card.title, card.tmdbId, card.subtitle),
+                checkWatchLaterList()
+            ])
         } catch (err: any) {
             if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
             return toast.error("Erro inesperado ao adicionar filme à lista!")
         } finally {
             setIsLoading(false)
         }
-    }
+    }*/
 
 
-    const movie = new URLSearchParams({
-        title: `${card.title}`,
-        subTitle: `${card.subtitle}` || "",
-        src: `${card.src}`
-    });
 
-    const play: string = `/watch?${movie}`
-
-    function handlePlay() {
-        Router.push(play)
-    }
 
     return (
         <div className={styles.movie_desc}>
             <div className={styles.modal_content}>
                 <div className={styles.desc_image} style={{
-                    backgroundImage:
-                        TMDBImage ? `url(${TMDBImage})` : `url(${card.background})`, backgroundPosition: 'center'
+                    backgroundImage: `url(${TMDBData.image || card.background})`,
+                    backgroundPosition: 'center'
                 }}>
                     <div className={styles.imageBackground}>
                         <div className={styles.close_btn} onClick={handleModalClose}>
@@ -133,7 +159,7 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
                             <h3>Play</h3>
                             <FaCirclePlay size={35} color="#fff" />
                         </div>
-                        <div className={styles.queue} onClick={() => modalWatchLater()}>
+                        <div className={styles.queue} onClick={() => handleWatchLater()}>
                             {onWatchLater ?
                                 <>
                                     <h3>ADICIONADO À LISTA!</h3>
@@ -156,7 +182,7 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
                     </p>
                 </div>
                 <div className={styles.desc_mid}>
-                    <p>{TMDBMovie ? TMDBMovie.overview : card.description}</p>
+                    <p>{TMDBData.movie?.overview || card.description}</p>
                 </div>
             </div>
 

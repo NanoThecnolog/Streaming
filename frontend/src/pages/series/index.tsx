@@ -8,10 +8,10 @@ import Footer from "@/components/Footer";
 import Head from "next/head";
 import { GetServerSideProps } from "next";
 import { serverStatus } from "@/services/verifyStatusServer";
-import { getCookieClient } from "@/services/cookieClient";
 import { UserProps } from "@/@types/user";
+import { getUserCookieData } from "@/services/cookieClient";
 
-export default function Series(status: { status: string }) {
+export default function Series(status: string) {
     //refatorar
     const [cardPerContainer, setCardPerContainer] = useState<number>(5)
     const [user, setUser] = useState<UserProps>()
@@ -31,11 +31,18 @@ export default function Series(status: { status: string }) {
     ]
 
     useEffect(() => {
-        const user = getCookieClient();
-        if (!user) {
-            return
+        const getUserData = async () => {
+            try {
+                const user = await getUserCookieData();
+                if (!user) {
+                    return
+                }
+                setUser(user)
+            } catch (err) {
+                console.log("Erro ao buscar dados do usuário no cookie", err)
+            }
         }
-        setUser(user)
+        getUserData()
     }, [])
 
     useEffect(() => {

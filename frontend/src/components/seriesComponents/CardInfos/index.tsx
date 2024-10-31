@@ -1,18 +1,15 @@
-import { CardsProps } from "@/@types/Cards"
 import styles from './styles.module.scss'
-import { IoCloseCircle } from "react-icons/io5"
-import { FaCheck, FaCirclePlay } from "react-icons/fa6"
+import { FaCheck } from "react-icons/fa6"
 import { IoIosAddCircleOutline } from "react-icons/io"
 import Router from "next/router"
-import { CircleX, CircleXIcon, X } from "lucide-react"
+import { X } from "lucide-react"
 import { toast } from "react-toastify"
 import { SeriesProps } from "@/@types/series"
-import { useEffect, useState } from "react"
-import { serieData } from "@/services/fetchSeries"
-import { addWatchLater } from "@/services/addWatchLater"
-import { isOnTheList } from "@/services/isOnTheList"
+import { useCallback, useEffect, useState } from "react"
 import { UserProps } from "@/@types/user"
-import { getCookieClient, setCookieClient } from "@/services/cookieClient"
+import { getUserCookieData } from '@/services/cookieClient'
+import { fetchTMDBSeries } from '@/services/fetchTMDBData'
+import { addWatchLater, isOnTheList } from '@/services/handleWatchLater'
 
 interface InfoModalProps {
     card: SeriesProps;
@@ -27,19 +24,13 @@ export default function CardInfoSerieModal({ card, handleModalClose }: InfoModal
     const [user, setUser] = useState<UserProps>()
 
     useEffect(() => {
-        const user = getCookieClient();
-        if (!user) {
-            return
+        const fetchUserData = async () => {
+            const user = await getUserCookieData();
+            if (user) setUser(user)
         }
-        setUser(user)
-        cookie();
-        onList(card.title, card.subtitle)
-
+        fetchUserData()
+        checkWatchLaterList()
     }, [])
-    async function cookie() {
-        if (!user) return
-        setCookieClient(user.id)
-    }
 
     useEffect(() => {
         setTMDBBackDrop(null)
@@ -53,7 +44,7 @@ export default function CardInfoSerieModal({ card, handleModalClose }: InfoModal
         fetchSerieData()
     }, [card])
     async function fetchSerieData() {
-        const serie = await serieData(card.tmdbID)
+        const serie = await fetchTMDBSeries(card.tmdbID)
         if (!serie || !serie.backdrop_path || !serie.overview) {
             setTMDBBackDrop(null)
             setOverview(null)
@@ -63,35 +54,34 @@ export default function CardInfoSerieModal({ card, handleModalClose }: InfoModal
         setTMDBBackDrop(backdropURL)
         setOverview(serie.overview)
     }
-    async function onList(title: string, subtitle?: string) {
-        const onList: Promise<boolean> = isOnTheList(title, subtitle)
-        onList.then(result => {
-            if (!result) {
-                setOnWatchLater(false)
-            } else {
-                setOnWatchLater(true)
-            }
-        })
-    }
+    const checkWatchLaterList = useCallback(async () => {
+        if (!user) return
+        const isAdded = await isOnTheList(card.title, card.subtitle, card.tmdbID)
+        setOnWatchLater(isAdded)
+    }, [user, card])
+    useEffect(() => {
+        checkWatchLaterList()
+    }, [checkWatchLaterList])
 
-    async function modalWatchLater(title: string, subTitle?: string) {
-        //toast.warning("A função assistir mais tarde está temporariamente desativada.")
+    const handleWatchLater = useCallback(async () => {
+        if (isLoading || !user) return Router.push('/login')
+        setIsLoading(true)
 
         try {
-            if (isLoading) return
-            setIsLoading(true)
-            if (!user) return Router.push('/login')
-            await addWatchLater(user.id, card.title, card.tmdbID, card.subtitle);
-            await onList(card.title, card.subtitle)
-            await setCookieClient(user.id)
+            await addWatchLater(user.id, card.title, card.tmdbID, card.subtitle)
+            await checkWatchLaterList()
+
         } catch (err: any) {
-            if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
-            return toast.error("Erro inesperado ao adicionar filme à lista!")
+            const errorMessage = err.response?.data?.message || "Erro ao adicionar filme à lista!";
+            toast.error(errorMessage);
+
         } finally {
             setIsLoading(false)
         }
+    }, [isLoading, user, card, checkWatchLaterList])
 
-    }
+
+
 
     function handlePlay() {
         const serie = new URLSearchParams({
@@ -120,7 +110,7 @@ export default function CardInfoSerieModal({ card, handleModalClose }: InfoModal
                         <div className={styles.watch} onClick={handlePlay}>
                             <h3>Episódios</h3>
                         </div>
-                        <div className={styles.queue} onClick={() => modalWatchLater(card.title, card.subtitle)}>
+                        <div className={styles.queue} onClick={() => handleWatchLater()}>
                             {onWatchLater ?
                                 <>
                                     <h3>ADICIONADO À LISTA!</h3>

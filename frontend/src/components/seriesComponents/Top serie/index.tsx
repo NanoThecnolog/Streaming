@@ -1,11 +1,10 @@
 import { series } from '@/js/series'
 import { FaCirclePlay } from "react-icons/fa6";
-import { IoIosAddCircleOutline } from "react-icons/io";
 import styles from './styles.module.scss'
-import { DO_NOT_USE_OR_YOU_WILL_BE_FIRED_EXPERIMENTAL_REACT_NODES, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Router from 'next/router';
-import { toast } from 'react-toastify';
-import { serieData } from '@/services/fetchSeries';
+import { fetchTMDBSeries } from '@/services/fetchTMDBData';
+
 
 interface TopSerieProps {
     width?: number
@@ -40,7 +39,7 @@ export default function TopSerie({ width }: TopSerieProps) {
         fetchSerieData()
     }, [cardOn])
     async function fetchSerieData() {
-        const serie = await serieData(series[cardOn].tmdbID)
+        const serie = await fetchTMDBSeries(series[cardOn].tmdbID)
         if (!serie || !serie.backdrop_path || !serie.poster_path) {
             setTMDBBackDrop(null)
             setTMDBPoster(null)

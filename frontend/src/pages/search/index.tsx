@@ -1,30 +1,27 @@
 import Header from "@/components/Header";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import styles from './styles.module.scss'
 import { CardsProps } from "@/@types/Cards";
 import { cards } from "@/js/cards";
 import { series } from "@/js/series";
-import Link from "next/link";
-import { FaInfoCircle, FaPlay, FaRegClock, FaStar } from "react-icons/fa";
 import Card from "@/components/Card";
 import CardSerie from "@/components/seriesComponents/Card";
-import { getCookieClient } from "@/services/cookieClient";
 import { UserProps } from "@/@types/user";
 import Footer from "@/components/Footer";
-import { Seasons, SeriesProps } from "@/@types/series";
+import { SeriesProps } from "@/@types/series";
 import { GetServerSideProps } from "next";
 import { serverStatus } from "@/services/verifyStatusServer";
+import { getUserCookieData } from "@/services/cookieClient";
 
 
 
-export default function Search(status: { status: string }) {
+export default function Search(status: string) {
     const router = useRouter();
     const [movie, setMovie] = useState<string>();
     const [searchCards, setSearchCards] = useState<CardsProps[]>()
     const [searchSeries, setSearchSeries] = useState<SeriesProps[]>()
-    const [cardPerContainer, setCardPerContainer] = useState<number>(5)
-    const [width, setWidth] = useState<number>()
+    //const [width, setWidth] = useState<number>()
     const [usuario, setUsuario] = useState<UserProps | null>(null)
 
     useEffect(() => {
@@ -38,7 +35,7 @@ export default function Search(status: { status: string }) {
 
     }, [router.isReady, router.query, movie])
 
-    useEffect(() => {
+    /*useEffect(() => {
         function handleResize() {
             const width = window.innerWidth;
             //console.log(width)
@@ -63,14 +60,13 @@ export default function Search(status: { status: string }) {
         handleResize()
 
         return () => window.removeEventListener('resize', handleResize)
-    }, [])
+    }, [])*/
     useEffect(() => {
-        const user = getCookieClient();
-        if (!user) {
-            Router.push('/login')
-            return
+        const fetchUserData = async () => {
+            const user = await getUserCookieData();
+            if (user) setUsuario(user)
         }
-        setUsuario(user)
+        fetchUserData()
     }, [])
 
     function searchingMovie(movie: string) {

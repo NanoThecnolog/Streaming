@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import CardInfoModal from "../modals/CardInfos";
 import Overlay from "../Overlay";
-import { fetchTMDBPoster } from "@/services/fetchTMDBPoster";
-import { getCookieClient, setCookieClient } from "@/services/cookieClient";
+import { updateUserCookie } from "@/services/cookieClient";
+import { fetchTMDBPoster } from "@/services/fetchTMDBData";
 
 interface CardProps {
     card: CardsProps;
@@ -23,9 +23,10 @@ export default function Card({ card }: CardProps) {
     const { modalVisible, TMDBImage } = state
 
     useEffect(() => {
-        const user = getCookieClient()
-        if (!user) return
-        setCookieClient(user.id);
+        const fetchUserData = async () => {
+            await updateUserCookie()
+        }
+        fetchUserData()
     }, [modalVisible])
 
 

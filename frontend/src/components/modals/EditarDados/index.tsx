@@ -5,8 +5,8 @@ import { toast } from 'react-toastify'
 import { api } from '@/services/api'
 import Router from 'next/router'
 import { X } from 'lucide-react'
-import { getCookieClient, setCookieClient } from '@/services/cookieClient'
 import { UserProps } from '@/@types/user'
+import { getUserCookieData, updateUserCookie } from '@/services/cookieClient'
 
 interface EditarDadosProps {
     handleClose: () => void;
@@ -29,7 +29,7 @@ export default function EditarDados({ handleClose }: EditarDadosProps) {
         }
         try {
             setLoading(true)
-            const user: UserProps = getCookieClient();
+            const user = await getUserCookieData();
             if (!user) {
                 toast.error("Erro ao tentar editar dados do usuario.")
                 return
@@ -43,17 +43,9 @@ export default function EditarDados({ handleClose }: EditarDadosProps) {
 
             const response = await api.put('/user', userData)
             const data = response.data;
-            await setCookieClient(user.id)
+            await updateUserCookie()
             toast.success("Dados alterados com sucesso.")
             console.log("Dados alterados com sucesso", data)
-            const atualizarUsuario = await api.get('/user', {
-                params: {
-                    id: user.id
-                }
-            })
-            const expressTime = 15 * 24 * 60 * 60 * 1000;
-            const userJson = JSON.stringify(atualizarUsuario.data)
-            document.cookie = `flixnext=${userJson}; path=/; max-age=${expressTime}`
 
         } catch (err) {
             console.log("Erro ao alterar dados", err)
@@ -66,7 +58,6 @@ export default function EditarDados({ handleClose }: EditarDadosProps) {
         <div className={styles.container}>
             <div className={styles.formContainer}>
                 <X size={30} className={styles.closeButton} onClick={handleClose} />
-
                 <form onSubmit={handleDados} className={styles.formulario}>
                     <div className={styles.labelContainer}>
                         <h3>Nome:</h3>
