@@ -5,7 +5,7 @@ import Image from "next/image";
 import CardInfoModal from "../modals/CardInfos";
 import Overlay from "../Overlay";
 import { updateUserCookie } from "@/services/cookieClient";
-import { fetchTMDBPoster } from "@/services/fetchTMDBData";
+import { fetchTMDBMovie, fetchTMDBPoster } from "@/services/fetchTMDBData";
 
 interface CardProps {
     card: CardsProps;
@@ -13,12 +13,14 @@ interface CardProps {
 type StateProps = {
     modalVisible: boolean,
     TMDBImage: string | null,
+    vote_average: number,
 }
 
 export default function Card({ card }: CardProps) {
     const [state, setState] = useState<StateProps>({
         modalVisible: false,
-        TMDBImage: null
+        TMDBImage: null,
+        vote_average: 0
     })
     const { modalVisible, TMDBImage } = state
 
@@ -33,7 +35,19 @@ export default function Card({ card }: CardProps) {
     useEffect(() => {
         setState(prev => ({ ...prev, TMDBImage: null }))
         handlePosterImage();
+        handleMovieData()
     }, [card, modalVisible])
+
+    async function handleMovieData() {
+        if (card.tmdbId === 0 || !card.tmdbId) return console.error("TMDBID inválido.", card.tmdbId)
+        const movieData = await fetchTMDBMovie(card.tmdbId)
+        if (!movieData) {
+            console.log("Erro ao buscar dados do filme")
+            return null
+        }
+        setState(prev => ({ ...prev, vote_average: movieData.vote_average }))
+
+    }
 
     async function handlePosterImage() {
         if (card.tmdbId === 0) return
@@ -77,6 +91,7 @@ export default function Card({ card }: CardProps) {
                         src={card.src}
                         duration={card.duration}
                         genero={card.genero}
+                        vote_average={state.vote_average}
                         modalVisible={modalVisibility}
                         isVisible={modalVisible}
                     />
@@ -86,6 +101,7 @@ export default function Card({ card }: CardProps) {
                 <div className={styles.modalInfo}>
                     <CardInfoModal
                         card={card}
+                        average={state.vote_average}
                         handleModalClose={handleModalClose}
                     />
                 </div>

@@ -11,13 +11,15 @@ import { FaCheck } from "react-icons/fa"
 import { getUserCookieData } from "@/services/cookieClient"
 import { fetchTMDBBackDrop, fetchTMDBMovie } from "@/services/fetchTMDBData"
 import { addWatchLater, isOnTheList } from "@/services/handleWatchLater"
+import Stars from "@/components/ui/StarAverage"
 
 interface InfoModalProps {
     card: CardsProps;
+    average: number
     handleModalClose: () => void
 }
 
-export default function CardInfoModal({ card, handleModalClose }: InfoModalProps) {
+export default function CardInfoModal({ card, average, handleModalClose }: InfoModalProps) {
     //refatorar esse componente
     const [onWatchLater, setOnWatchLater] = useState(false)
     const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -82,60 +84,6 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
 
     const handlePlay = () => Router.push(movieURL)
 
-    /*useEffect(() => {
-        setTMDBImage(null);
-        handlePosterImage();
-        checkWatchLaterList();
-    }, [card])
-
-    async function handlePosterImage() {
-        if (card.tmdbId === 0) return
-        const imageURL = await fetchTMDBBackDrop(card.tmdbId)
-        if (!imageURL) {
-            console.log("Erro em movieData")
-        } else {
-            setTMDBImage(imageURL)
-        }
-    }
-    useEffect(() => {
-        setTMDBMovie(null)
-        if (card.tmdbId === 0) {
-            setTMDBMovie(null)
-            return
-        }
-        fetchMovieData()
-    }, [card])
-    async function fetchMovieData() {
-        const movie = await fetchTMDBMovie(card.tmdbId)
-        if (!movie) {
-            setTMDBMovie(null)
-            return
-        }
-        setTMDBMovie(movie)
-    }
-
-
-    async function handleWatchLater() {
-        //toast.warning("A função assistir mais tarde está temporariamente desativada.")
-        try {
-            if (isLoading) return
-            setIsLoading(true)
-            if (!user) return Router.push('/login')
-            await Promise.all([
-                addWatchLater(user.id, card.title, card.tmdbId, card.subtitle),
-                checkWatchLaterList()
-            ])
-        } catch (err: any) {
-            if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
-            return toast.error("Erro inesperado ao adicionar filme à lista!")
-        } finally {
-            setIsLoading(false)
-        }
-    }*/
-
-
-
-
     return (
         <div className={styles.movie_desc}>
             <div className={styles.modal_content}>
@@ -180,6 +128,7 @@ export default function CardInfoModal({ card, handleModalClose }: InfoModalProps
                         ))}
                         &quot;
                     </p>
+                    <Stars average={average} />
                 </div>
                 <div className={styles.desc_mid}>
                     <p>{TMDBData.movie?.overview || card.description}</p>

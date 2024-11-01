@@ -14,6 +14,7 @@ import { getUserCookieData, updateUserCookie } from '@/services/cookieClient';
 import { getCookie } from 'cookies-next';
 import { addWatchLater, isOnTheList } from '@/services/handleWatchLater';
 import { addFavorite, isFavorite } from '@/services/handleFavorite';
+import Stars from '@/components/ui/StarAverage';
 
 
 interface OverlayProps {
@@ -22,7 +23,8 @@ interface OverlayProps {
     subtitle: string,
     season: Seasons[];
     genero: string[]
-    isVisible: boolean
+    isVisible: boolean,
+    vote_average: number
 
     modalVisible: () => void;
 }
@@ -34,7 +36,7 @@ type StateProps = {
     isMovieFavorite: boolean
 }
 
-export default function OverlaySerie({ tmdbId, title, subtitle, season, genero, isVisible, modalVisible }: OverlayProps) {
+export default function OverlaySerie({ tmdbId, title, subtitle, season, genero, isVisible, vote_average, modalVisible }: OverlayProps) {
     //refatorar
     const [state, setState] = useState<StateProps>({
         user: undefined,
@@ -133,6 +135,7 @@ export default function OverlaySerie({ tmdbId, title, subtitle, season, genero, 
                         : season.length === 1
                         && `${season.length} temporada`} - {genero.join(', ')}
                 </p>
+                <Stars average={vote_average} />
             </div>
 
             <div className={styles.button_container}>

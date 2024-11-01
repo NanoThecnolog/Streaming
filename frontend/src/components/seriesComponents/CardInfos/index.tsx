@@ -10,13 +10,15 @@ import { UserProps } from "@/@types/user"
 import { getUserCookieData } from '@/services/cookieClient'
 import { fetchTMDBSeries } from '@/services/fetchTMDBData'
 import { addWatchLater, isOnTheList } from '@/services/handleWatchLater'
+import Stars from '@/components/ui/StarAverage'
 
 interface InfoModalProps {
     card: SeriesProps;
+    vote_average: number
     handleModalClose: () => void
 }
 
-export default function CardInfoSerieModal({ card, handleModalClose }: InfoModalProps) {
+export default function CardInfoSerieModal({ card, vote_average, handleModalClose }: InfoModalProps) {
     const [TMDBBackDrop, setTMDBBackDrop] = useState<string | null>(null)
     const [overview, setOverview] = useState<string | null>(null)
     const [isLoading, setIsLoading] = useState(false)
@@ -134,6 +136,7 @@ export default function CardInfoSerieModal({ card, handleModalClose }: InfoModal
                     <p>
                         {card.season.length === 1 ? `${card.season.length} temporada` : card.season.length > 1 && `${card.season.length} temporadas`}
                     </p>
+                    <Stars average={vote_average} />
                 </div>
                 <div className={styles.desc_mid}>
                     <p>{overview ? overview : card.description}</p>

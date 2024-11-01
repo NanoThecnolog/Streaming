@@ -10,9 +10,9 @@ import { UserProps } from '@/@types/user';
 import { IoCheckmarkCircle } from 'react-icons/io5';
 import { ListaFavoritos } from '@/@types/favoritos';
 import { getUserCookieData, updateUserCookie } from '@/services/cookieClient';
-import { getCookie } from 'cookies-next';
 import { addWatchLater, isOnTheList } from '@/services/handleWatchLater';
 import { addFavorite, isFavorite } from '@/services/handleFavorite';
+import Stars from '../ui/StarAverage';
 
 
 interface OverlayProps {
@@ -22,7 +22,8 @@ interface OverlayProps {
     src: string,
     duration: string,
     genero: string[]
-    isVisible: boolean
+    isVisible: boolean,
+    vote_average: number
 
     modalVisible: () => void;
 }
@@ -31,10 +32,10 @@ type StateProps = {
     favoriteList: ListaFavoritos[],
     onWatchLater: boolean,
     isLoading: boolean,
-    isMovieFavorite: boolean
+    isMovieFavorite: boolean,
 }
 
-export default function Overlay({ tmdbId, title, subtitle = "", src, duration, genero, isVisible, modalVisible }: OverlayProps) {
+export default function Overlay({ tmdbId, title, subtitle = "", src, duration, genero, isVisible, vote_average, modalVisible }: OverlayProps) {
 
     //Refatorar Esse componente
     const [state, setState] = useState<StateProps>({
@@ -125,6 +126,7 @@ export default function Overlay({ tmdbId, title, subtitle = "", src, duration, g
         await updateUserCookie();
     }
 
+
     return (
         <>
             <h3>{title.toUpperCase()}</h3>
@@ -133,6 +135,9 @@ export default function Overlay({ tmdbId, title, subtitle = "", src, duration, g
 
             )}
             <p>{duration} - {genero.join(', ')}</p>
+            <div>
+                <Stars average={vote_average} />
+            </div>
             <div className={styles.button_container}>
                 <div className={styles.watch}>
                     <Link href={`${playLink}`}>

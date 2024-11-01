@@ -13,12 +13,14 @@ interface CardProps {
 type StateProps = {
     modalVisible: boolean,
     TMDBPoster: string | null,
+    vote_average: number
 }
 
 export default function Card({ card }: CardProps) {
     const [state, setState] = useState<StateProps>({
         modalVisible: false,
         TMDBPoster: null,
+        vote_average: 0
     })
     const { modalVisible, TMDBPoster } = state;
     useEffect(() => {
@@ -32,6 +34,7 @@ export default function Card({ card }: CardProps) {
     async function fetchSerieData() {
         const serie = await fetchTMDBSeries(card.tmdbID)
         setState(prev => ({ ...prev, TMDBPoster: serie?.poster_path ? `https://image.tmdb.org/t/p/original${serie.poster_path}` : null }))
+        setState(prev => ({ ...prev, vote_average: serie?.vote_average ? serie.vote_average : 0 }))
     }
 
     const handleClick = useCallback(() => setState(prev => ({ ...prev, modalVisible: !prev.modalVisible })), [])
@@ -61,6 +64,7 @@ export default function Card({ card }: CardProps) {
                         season={card.season}
                         genero={card.genero}
                         isVisible={modalVisible}
+                        vote_average={state.vote_average}
                         modalVisible={modalVisibility}
                     />
                 </div>
@@ -72,6 +76,7 @@ export default function Card({ card }: CardProps) {
                     {
                         <CardInfoSerieModal
                             card={card}
+                            vote_average={state.vote_average}
                             handleModalClose={handleModalClose}
                         />
                     }

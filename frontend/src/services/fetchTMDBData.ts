@@ -17,7 +17,7 @@ if (!tmdbToken) {
  * @returns Retorna o caminho da imagem ou o objeto com as informações gerais do filme no TMDB,ou null em caso de erro.
  */
 async function fetchTMDBData<T>(tmdbID: number, type: 'movie' | 'tv', imageType: 'backdrop' | 'poster' | 'details' = 'details'): Promise<T | null> {
-    if (!tmdbToken || tmdbID === 0) return null;
+    if (!tmdbToken || tmdbID === 0) throw new Error("TMDBID ou TMDBToken inválidos.");
 
     const baseUrl = type === 'movie' ? 'https://api.themoviedb.org/3/movie/' : 'https://api.themoviedb.org/3/tv/';
     const language = 'pt-BR';
