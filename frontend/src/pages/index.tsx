@@ -21,7 +21,7 @@ export default function Home(status: string) {
   const [width, setWidth] = useState<number>()
   const [userData, setUserData] = useState<UserProps>()
   const divisaoPorGenero = [
-    "ação", "aventura", "suspense", "comédia", "terror",
+    "ação", "suspense", "aventura", "comédia", "terror",
     "romance", "super herói", "drama", "ficção científica",
     "fantasia", "marvel", "dc", "animação"
   ]

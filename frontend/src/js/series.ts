@@ -25,6 +25,71 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.gamearena.gg%2Fwp-content%2Fuploads%2F2024%2F07%2F25161717%2Flove-next-door-dorama.jpg&f=1&nofb=1&ipt=8a72f7898099458a2920a6e35ac4c424d573487932b2d8d6c177af1f4aef43cf&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.RRZ5muJzoELZVYkBLylg6wEsGQ%26pid%3DApi&f=1&ipt=4eee5b63fb1792c8ab1eebf07c522a1e4dacb0aa3902391cf4cb2bbac6a15f1e&ipo=images",
+        tmdbID: 241454,
+        title: "O Amor Mora Ao Lado",
+        subtitle: "",
+        description: "Na tentativa de recomeçar a vida, uma mulher retorna à Coreia e se envolve com alguém do passado. O problema é que existe uma história complicada entre os dois.",
+        genero: ["Drama", "Comédia", "Coreano", "Netflix", "Legendado"],
+        season: [
+            {
+                s: 1,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1EH5msFL5-qceCrvtvLbaR4-vMzqu_nHf/preview",
+                        duration: "01h 05m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1jRXfZ28XXRRRzsgy0iVHy3YiNd8Gq8in/preview",
+                        duration: "01h 15m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1CycJAmEpdO6Dy9eYpXvCCPdd5dneerdN/preview",
+                        duration: "01h 16m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1R3qK5Pv-OyyNq4JkFxbgJ-scRScVAHj1/preview",
+                        duration: "01h 16m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1hpzMPtMtnCGKmFvtJsRG7GAG2vi1KxpS/preview",
+                        duration: "01h 18m"
+                    }, {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1430bW_pAead8_Cp7FFl-PfeOGSx4b-_d/preview",
+                        duration: ""
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1jEc7TxpC96VX1xSYQtV74H2xpcHHUQ20/preview",
+                        duration: "01h 17m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1P3N_x_qpyxS47W8N_kI_Ek89N1KpWC_3/preview",
+                        duration: "01h 20m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1rfNqWTeBQgq2fe_L4gFwcS4s_L_8VbzB/preview",
+                        duration: "01h 26m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1ENdT6FIgmFAxnSjsSui-ugGy1kUtGYCR/preview",
+                        duration: "01h 30m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcriticalhits.com.br%2Fwp-content%2Fuploads%2F2024%2F10%2Fagatha5.jpg&f=1&nofb=1&ipt=38d08807d8c86fb1ad239e956f9ceb04cfffd4c7dc4c8b5d6fbdb10ac3937641&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.cfz7LGgjHtou9KdduxLCHAEsGQ%26pid%3DApi&f=1&ipt=994b9cf7acc9cc0d6d119fdfe0256f3d5deee81b82cb7c4dad4eba425bc6ed52&ipo=images",
         tmdbID: 138501,

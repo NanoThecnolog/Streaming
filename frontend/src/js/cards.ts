@@ -21,6 +21,105 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "",
+        overlay: "",
+        tmdbId: 283445,
+        title: "A Entidade 2",
+        subtitle: "",
+        description: "Courtney, uma jovem mãe solteira e superprotetora de dois gêmeos de 9 anos, se muda com os filhos para uma casa em uma área rural de uma pequena cidade. Logo, ela descobre que o local foi palco de estranhos acontecimentos e que sua família está marcada para morrer.",
+        src: "https://drive.google.com/file/d/1-soWYT8rCYC53wbCVFajFUnnw3oOlExE/preview",
+        duration: "01h 37m",
+        genero: ["Terror"]
+    },
+    {
+        background: "",
+        overlay: "",
+        tmdbId: 82507,
+        title: "A Entidade",
+        subtitle: "",
+        description: "Ellison (Ethan Hawke) é um escritor de romances policias que acaba de se mudar com a família. No sótão da nova casa ele descobre antigos rolos de filme, que trazem imagens de pessoas sendo mortas. Intrigado com o que elas representam e com um estranho símbolo presente nas imagens, ele e sua família logo passam a correr sério risco de morte.",
+        src: "https://drive.google.com/file/d/1-pwEqettHXrCnQgzLGpCGg2VMLwZ5l2j/preview",
+        duration: "01h 50m",
+        genero: ["Terror"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.oficinadanet.com.br%2Fimagens%2Fpost%2F57590%2Fnao-se-mexa-meio-netflix.gif&f=1&nofb=1&ipt=33d42ea99a91c43d21ed4d7058a563ab0ce605f34e7f1c01a2e69930a52909a8&ipo=images",
+        overlay: "",
+        tmdbId: 1063877,
+        title: "Não se Mexa",
+        subtitle: "",
+        description: "Uma mulher em luto é injetada com uma substância paralisante. Agora, ela precisará escapar de um assassino impiedoso antes de perder completamente os movimentos.",
+        src: "https://drive.google.com/file/d/101gifGYCnr7NGI1EjC4V_v21-3c2dLIL/preview",
+        duration: "01h 30m",
+        genero: ["Terror", "Suspense"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmultiversogeek.ig.com.br%2Fwp-content%2Fuploads%2F2024%2F10%2FCorte-no-Tempo-saiba-tudo-sobre-o-filme.jpg&f=1&nofb=1&ipt=5f80ad3b1e7a8bd4c17deea1103dc9c154274d3a51be5570da6fc441ef8e18e0&ipo=images",
+        overlay: "",
+        tmdbId: 827931,
+        title: "Corte no Tempo",
+        subtitle: "",
+        description: "Uma adolescente viaja no tempo e vai parar no ano de 2003, dias antes de sua irmã ser assassinada. Será que ela vai mudar o passado ou destruir o futuro?",
+        src: "https://drive.google.com/file/d/1pwGb1NZNPtRmRR5IKU75BkZFPYU-FScr/preview",
+        duration: "01h 31m",
+        genero: ["Terror", "Ficção Científica", "Suspense", "Netflix", "Legendado"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.hobbyconsolas.com%2Fsites%2Fnavi.axelspringer.es%2Fpublic%2Fmedia%2Fimage%2F2020%2F10%2Fscary-movie-2000-2113037.jpg%3Ftf%3D3840x&f=1&nofb=1&ipt=5a132ab367c0a478fda0f30fc08918be30e1f3e04cb09b0533422f53230e6db0&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.sYZPL4Npv5rNAV6RDmP6VQAAAA%26pid%3DApi&f=1&ipt=bdc886e061cbccb7dc95991f250a21ca9404b62f458e5132e3ecfd8943200ff8&ipo=images",
+        tmdbId: 4247,
+        title: "Todo Mundo Em Pânico",
+        subtitle: "",
+        description: "Depois do assassinato de uma bela colega de classe, um grupo de adolescentes desorientados descobre que há um assassino entre eles. A heroína Cindy Campbell e a sua turma de amigos mauricinhos e patricinhas, tentam se proteger do perigo... Mas uma reporter irritante, Gail Hailstorm, simplesmente não os deixa em paz! Parece familiar? Talvez sim, mas essa história repleta de reviravoltas e surpresas horripilantes e humor ultrajante extrapola no gênero de horror e ação.",
+        src: "https://drive.google.com/file/d/1TYTeEmBQ567nyTv_6ojuZO4YIKaLUpE0/preview",
+        duration: "1h 31m",
+        genero: ["Comédia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.fanart.tv%2Ffanart%2Fscary-movie-2-5be0982a98323.jpg&f=1&nofb=1&ipt=083388a66a57b58009029aca9a4d1fcbfd854a558e01d72edf1fc09467d2bb35&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.6aiDXcU6xa-C7Cxy8CKQ-AHaLH%26pid%3DApi&f=1&ipt=7096ee26635adb9764942645d56e3eed2f01d6391ab94db325922adf0eb53855&ipo=images",
+        tmdbId: 4248,
+        title: "Todo Mundo Em Pânico 2",
+        subtitle: "",
+        description: 'Brincando com o terror, o professor Oldman e Dwight seu assistente, preparam um final de semana hilariante e super especial. Um experiência sobre exorcismo, onde Cindy e "aquele" grupo de jovens malucos e assustados deverão ficar sem dormir. A incrível arapuca terá lugar na "Casa do Inferno", um casarão mal-assombrado afastado da cidade, e onde não falta nem o repulsivo mordono sempre presente nas melhores histórias de terror. Como alvos desta comédia escrachada, encontramos "O Exorcista", "Poltergeist", "A Casa da Colina", "Revelação" e até mesmo "As Panteras" e "Missão Impossível 2". Agora muito mais engraçado. Imperdível!',
+        src: "https://drive.google.com/file/d/1AYZtSyrgH3d6rsZzihr6_rFaLpkSJlco/preview",
+        duration: "01h 22m",
+        genero: ["Comédia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.planocritico.com%2Fwp-content%2Fuploads%2F2021%2F02%2Ftodo-mundo-em-panico-3-plano-critico.jpg&f=1&nofb=1&ipt=2fb383712654a4e98d5c5d89d03432d0e00d5373c0146addaf39cc916368a9a7&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.xWrfY621cTjpm0MDdWu4zgHaLH%26pid%3DApi&f=1&ipt=f84addfaa32bc017092f2c01083e4afc5a313bfcc521f24f28271f4c866887fd&ipo=images",
+        tmdbId: 4256,
+        title: "Todo Mundo Em Pânico 3",
+        subtitle: "",
+        description: "Tudo começa quando a apresentadora de telejornal Cindy Campbell descobre uma série de terríveis acontecimentos que ameaçam o planeta, envolvendo invasores extraterrestres, vídeos assassinos, assustadores círculos de plantações, profecias sobre o Escolhido, crianças com olhares sinistros, rappers brancos ambiciosos e até mesmo uma discussão com Michael Jackson.",
+        src: "https://drive.google.com/file/d/1R9yX-tC4M0GeotaSiFh0d_veFNTr4nAW/preview",
+        duration: "01h 24m",
+        genero: ["Comédia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.planocritico.com%2Fwp-content%2Fuploads%2F2021%2F02%2Ftodo_mundo_em_anico_4.jpg&f=1&nofb=1&ipt=592fd60a6be8cb7fc26d6f7ea9f560378d3d26704ff9032d9acbb6abe026eabd&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.11H2qf7RiFQKWiq7iXVXdQHaLH%26pid%3DApi&f=1&ipt=6c6c11b479217d5bc041b5325663e3cdf09aa2455efb021d0a637eb8f443be36&ipo=images",
+        tmdbId: 4257,
+        title: "Todo Mundo Em Pânico 4",
+        subtitle: "",
+        description: 'Mais uma continuação da franquia de filmes que faz sátiras das produções mais recentes de terror, como "Jogos Mortais" e "O Grito". Desta vez, duas jovens tentam salvar o mundo de uma invasão alienígena.',
+        src: "https://drive.google.com/file/d/189DJav36HaCQYdy55nCDch9RM6nPkRyJ/preview",
+        duration: "01h 23m",
+        genero: ["Comédia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fconteudo.imguol.com.br%2Fc%2Fentretenimento%2F2013%2F06%2F27%2Fcena-da-comedia-todo-mundo-em-panico-5-dirigida-por-malcolm-d-lee-1372314826803_1920x1080.jpg&f=1&nofb=1&ipt=c74bc63a67e3c653c1d1faaacd9496a80d4b5f53fca3c382c2a66c4b9be5628d&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.tN7j0Xd9M9nOIUAefUd_vAHaLH%26pid%3DApi&f=1&ipt=482ef23b0903674ea80b27d123064446bcfe2f9a59392f3a24efd4d25b7889b3&ipo=images",
+        tmdbId: 4258,
+        title: "Todo Mundo Em Pânico 5",
+        subtitle: "",
+        description: 'O novo filme da franquia mais politicamente incorreta do cinema inclui paródias dos filmes "Atividade Paranormal", "Mama", "A Entidade", "A Morte do Demônio", "A Origem", "Cisne Negro" e outras referências da cultura pop.',
+        src: "https://drive.google.com/file/d/1JhoafsdxauQaZVSZaaYFwrh2pG9MD2wt/preview",
+        duration: "01h 26m",
+        genero: ["Comédia"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.justwatch.com%2Fimages%2Fbackdrop%2F176643115%2Fs1440%2Fmarley-e-eu&f=1&nofb=1&ipt=dd47becf2a8369ec7720c9b35c489308f6c77c03461b139ab438aab445d997f6&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.2RlMI_qQV_BL4tzVF_TG0AHaKk%26pid%3DApi&f=1&ipt=0ab112eae5d451bcb142711bab00b4e2d457b429769bbc4c17a4401aa643d3df&ipo=images",
         tmdbId: 14306,
