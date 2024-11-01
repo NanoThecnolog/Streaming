@@ -131,6 +131,9 @@
 
         .gen_mid {
             padding: 0 0 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
 
             p {
                 font-family: var(--font-Roboto);

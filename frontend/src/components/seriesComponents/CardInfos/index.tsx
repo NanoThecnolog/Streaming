@@ -127,15 +127,16 @@ export default function CardInfoSerieModal({ card, vote_average, handleModalClos
                     </div>
                 </div>
                 <div className={styles.gen_mid}>
-                    <p>&quot;
+                    <p>
+                        {card.season.length === 1 ? `${card.season.length} temporada` : card.season.length > 1 && `${card.season.length} temporadas`}                    </p>
+                    <p>
+                        - &quot;
                         {card.genero.map((gen, index) => (
                             <span key={index}>{gen}{index < card.genero.length - 1 && ", "}</span>
                         ))}
                         &quot;
                     </p>
-                    <p>
-                        {card.season.length === 1 ? `${card.season.length} temporada` : card.season.length > 1 && `${card.season.length} temporadas`}
-                    </p>
+
                     <Stars average={vote_average} />
                 </div>
                 <div className={styles.desc_mid}>
