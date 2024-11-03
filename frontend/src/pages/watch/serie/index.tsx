@@ -6,6 +6,8 @@ import { ChevronLeft } from "lucide-react"
 import { useEffect, useState } from "react"
 import { api } from "@/services/api"
 import { getUserCookieData } from "@/services/cookieClient"
+import NextEpisode from "@/components/ui/NextEpisode"
+import PrevEpisode from "@/components/ui/PreviousEpisode"
 
 
 export default function WatchSerie() {
@@ -99,6 +101,20 @@ export default function WatchSerie() {
                                 width="100%"
                                 height="100%"
                                 src={episodio.src}
+                            />
+                        </div>
+                        <div className={styles.buttonContainer}>
+                            <PrevEpisode
+                                title={episodio.title}
+                                subtitle={episodio.subtitle}
+                                season={episodio.season}
+                                episode={episodio.episode}
+                            />
+                            <NextEpisode
+                                title={episodio.title}
+                                subtitle={episodio.subtitle}
+                                season={episodio.season}
+                                episode={episodio.episode}
                             />
                         </div>
                     </div>

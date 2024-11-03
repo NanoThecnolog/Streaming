@@ -16,7 +16,6 @@ import { getUserCookieData } from "@/services/cookieClient";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home(status: string) {
-  //refatorar esse componente
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
   const [width, setWidth] = useState<number>()
   const [userData, setUserData] = useState<UserProps>()
@@ -121,8 +120,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
     const status = await serverStatus();
     return status
   }
-
-
   const status = await fetchServerStatus()
   return {
     props: {

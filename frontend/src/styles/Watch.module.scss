@@ -1,6 +1,6 @@
 .container {
     display: flex;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     overflow: hidden;
 }
@@ -48,9 +48,6 @@
 
     }
 
-
-
-
     .iframe {
         height: 100vh;
         width: 100%;
@@ -60,5 +57,12 @@
             border: none;
             object-fit: 'contain';
         }
+    }
+
+    .buttonContainer {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        margin: 50px 0;
     }
 }
