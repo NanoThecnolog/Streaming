@@ -2,6 +2,7 @@ import axios from "axios"
 import { MovieTMDB } from "@/@types/Cards"
 import { TMDBSeries } from "@/@types/series";
 import { TMDBEpisodes } from "@/@types/series"
+import { apiTMDB } from "./apiTMDB";
 
 const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
 
@@ -22,13 +23,10 @@ async function fetchTMDBData<T>(tmdbID: number, type: 'movie' | 'tv', imageType:
     const baseUrl = type === 'movie' ? 'https://api.themoviedb.org/3/movie/' : 'https://api.themoviedb.org/3/tv/';
     const language = 'pt-BR';
     const endPoint = `${baseUrl}${tmdbID}?language=${language}${imageType !== 'details' ? '/images' : ''}`;
+    const endPoint2 = `/${type}/${tmdbID}`;
 
     try {
-        const response = await axios.get(endPoint, {
-            headers: {
-                Authorization: `Bearer ${tmdbToken}`
-            }
-        });
+        const response = await apiTMDB.get(endPoint2);
 
         if (type === 'movie') {
             if (imageType === 'backdrop') {
