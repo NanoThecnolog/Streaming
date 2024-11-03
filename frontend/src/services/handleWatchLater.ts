@@ -106,8 +106,8 @@ export async function isOnTheList(title: string, subtitle?: string, tmdbid?: num
         return tmdbid
             ? data.some(item => item.tmdbid === tmdbid)
             : data.some(item => compareTitles(item, title, subtitle));
-    } catch (err) {
-        console.error("Erro na função isOnTheList:", err);
+    } catch (err: any) {
+        console.error("Erro na função isOnTheList:", err?.response?.data?.error);
         return false;
     }
 }

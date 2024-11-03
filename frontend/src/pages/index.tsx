@@ -35,8 +35,8 @@ export default function Home(status: string) {
           return
         }
         setUserData(user)
-      } catch (err) {
-        console.log("Erro ao buscar dados do usuário no cookie", err)
+      } catch (err: any) {
+        console.log("Erro ao buscar dados do usuário no cookie", err?.response?.data?.error)
       }
     }
     settingUserData()

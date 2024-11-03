@@ -40,12 +40,16 @@ export default function Card({ card }: CardProps) {
 
     async function handleMovieData() {
         if (card.tmdbId === 0 || !card.tmdbId) return console.error("TMDBID inválido.", card.tmdbId)
-        const movieData = await fetchTMDBMovie(card.tmdbId)
-        if (!movieData) {
-            console.log("Erro ao buscar dados do filme")
+        try {
+            const movieData = await fetchTMDBMovie(card.tmdbId)
+            if (movieData) {
+                setState(prev => ({ ...prev, vote_average: movieData.vote_average }))
+            }
+        } catch (err: any) {
+            console.log("Erro ao buscar dados do filme", err?.response?.data?.error)
             return null
         }
-        setState(prev => ({ ...prev, vote_average: movieData.vote_average }))
+
 
     }
 

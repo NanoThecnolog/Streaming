@@ -44,6 +44,10 @@ export default function FAQ(status: string) {
             answer: "Caso não consiga assistir um filme ou série por alguma razão, peço que entre em contato conosco através do email: contato@ericssongomes.com com o nome do filme ou episódio da série em questão e tentaremos te ajudar."
         },
         {
+            question: "Uma autorização é solicitada ao tentar assistir ao filme/série, ou o filme/série está bloqueado por algum motivo. O que faço?",
+            answer: "Tentamos sempre manter atualizados e disponíveis os filmes e séries da plataforma. Como não temos controle sobre os arquivos de filmes e séries incorporados na nossa plataforma, erros como esse podem ocorrer. Nesses casos pedimos que entre em contato conosco através do email: contato@ericssongomes.com informando o problema. Avisaremos quando o problema for resolvido assim que possível."
+        },
+        {
             question: "De onde vêm os filmes e séries que assisto?",
             answer: "Os arquivos dos filmes são disponibilizados através da plataforma Google Drive por terceiros. Por esse motivo, não possuímos controle ou responsabilidade sobre os arquivos incorporados à plataforma."
         },

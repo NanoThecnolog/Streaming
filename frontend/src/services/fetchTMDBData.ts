@@ -42,7 +42,7 @@ async function fetchTMDBData<T>(tmdbID: number, type: 'movie' | 'tv', imageType:
             return response.data; // Retorna dados da série
         }
     } catch (err: any) {
-        console.error(`Erro ao buscar ${type === 'movie' ? (imageType === 'details' ? 'dados do filme' : `${imageType} do filme`) : 'dados da série'}`, err);
+        console.error(`Erro ao buscar ${type === 'movie' ? (imageType === 'details' ? 'dados do filme' : `${imageType} do filme`) : 'dados da série'}`, err?.response?.data?.error);
         return null;
     }
 }

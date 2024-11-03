@@ -21,8 +21,8 @@ export const cards: CardsProps[] = [
     },
     */
     {
-        background: "",
-        overlay: "",
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fv3MEI66V9hdXGCD7pdeMqXShUOi.jpg&f=1&nofb=1&ipt=feb2f1c997716ad828d401ab6df740f66edaf4d6b0088e1ad5ccd4f71cb8aa04&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.5mbw7dAEKNuoBxmcohbBTAAAAA%26pid%3DApi&f=1&ipt=c2520b22e1ecc5aa8b75b0db6a7b04df731e43bfbb5e1a909ad4dd443e231256&ipo=images",
         tmdbId: 283445,
         title: "A Entidade 2",
         subtitle: "",
@@ -32,8 +32,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror"]
     },
     {
-        background: "",
-        overlay: "",
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ffilmoteca-static.b-cdn.net%2Ft%2Fp%2Foriginal%2F6WvJAj4OigLvnhIxgkfrOmjSJz2.jpg&f=1&nofb=1&ipt=9e82de952f3eb27eeaa16c2527f4790f248b15683535329d05cabe8690a4fd5a&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Seky-G-uZbOqQsHq55d1BgAAAA%26pid%3DApi&f=1&ipt=9380499e357a8eed3c9414a6dba81cf8207ea6de651592df66694ba8a8d3e887&ipo=images",
         tmdbId: 82507,
         title: "A Entidade",
         subtitle: "",
@@ -44,7 +44,7 @@ export const cards: CardsProps[] = [
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.oficinadanet.com.br%2Fimagens%2Fpost%2F57590%2Fnao-se-mexa-meio-netflix.gif&f=1&nofb=1&ipt=33d42ea99a91c43d21ed4d7058a563ab0ce605f34e7f1c01a2e69930a52909a8&ipo=images",
-        overlay: "",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIF.IFNOF9kxjPtz0%252flszswRPw%26pid%3DApi&f=1&ipt=68d7c802c67dfc80ea2e308ae53a1a87fa2c2c057281691a274b5490cc1a21e9&ipo=images",
         tmdbId: 1063877,
         title: "Não se Mexa",
         subtitle: "",
@@ -55,7 +55,7 @@ export const cards: CardsProps[] = [
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmultiversogeek.ig.com.br%2Fwp-content%2Fuploads%2F2024%2F10%2FCorte-no-Tempo-saiba-tudo-sobre-o-filme.jpg&f=1&nofb=1&ipt=5f80ad3b1e7a8bd4c17deea1103dc9c154274d3a51be5570da6fc441ef8e18e0&ipo=images",
-        overlay: "",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIF.zLd5GgSkUXN8UsVyA6YXoA%26pid%3DApi&f=1&ipt=95bd42bf8b3c92022b319c3a9f9d6a55db5461d7b3c8e64f1d682ae3fec57d87&ipo=images",
         tmdbId: 827931,
         title: "Corte no Tempo",
         subtitle: "",
