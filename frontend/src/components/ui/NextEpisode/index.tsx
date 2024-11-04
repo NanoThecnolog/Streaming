@@ -51,6 +51,7 @@ export default function NextEpisode({ title, subtitle, season, episode }: NextPr
                 className={styles.next}
                 onClick={handleNextEpisode}
                 disabled={!nextEpisode}
+                type='button'
             >
                 Próximo Episódio
             </button>

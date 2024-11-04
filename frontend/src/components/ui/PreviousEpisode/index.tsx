@@ -63,6 +63,7 @@ export default function PrevEpisode({ title, subtitle, season, episode }: PrevPr
                 className={styles.prev}
                 onClick={handlePrevEpisode}
                 disabled={!prevEpisode}
+                type='button'
             >
                 Episódio Anterior
             </button>
