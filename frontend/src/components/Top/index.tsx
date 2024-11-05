@@ -9,7 +9,8 @@ import { UserProps } from '@/@types/user';
 import { FaCheck } from 'react-icons/fa';
 import { getUserCookieData } from '@/services/cookieClient';
 import { addWatchLater, isOnTheList } from '@/services/handleWatchLater';
-import { fetchTMDBBackDrop, fetchTMDBPoster } from '@/services/fetchTMDBData';
+import { fetchTMDBBackDrop, fetchTMDBMovie, fetchTMDBPoster } from '@/services/fetchTMDBData';
+import { MovieTMDB } from '@/@types/Cards';
 
 interface TopProps {
     width?: number;
@@ -22,17 +23,25 @@ export default function Top({ width }: TopProps) {
     const [user, setUser] = useState<UserProps | null>(null)
     const [onWatchLater, setOnWatchLater] = useState<boolean>(false)
     const [isLoading, setIsLoading] = useState<boolean>(false)
-    //const [TMDBBackDrop, setTMDBBackDrop] = useState<string | null>(null)
-    //const [TMDBPoster, setTMDBPoster] = useState<string | null>(null)
     const [TMDBImages, setTMDBImages] = useState<{ backdrop: string | null; poster: string | null }>({
         backdrop: null,
         poster: null
+    })
+    const [TMDBMovie, setTMDBMovie] = useState<MovieTMDB | null>({
+        adult: false,
+        backdrop_path: "",
+        id: 0,
+        overview: "",
+        popularity: 0,
+        poster_path: "",
+        release_date: "",
+        vote_average: 0
     })
 
     useEffect(() => {
         const interval = setInterval(() => {
             setFade('fadeOut')
-            setTimeout(() => {
+            setTimeout(async () => {
                 setCardOn(prevCardOn => (prevCardOn + 1) % cards.length);
                 setFade('fadeIn')
             }, 1800)
@@ -48,17 +57,27 @@ export default function Top({ width }: TopProps) {
         fetchUserData()
     }, [])
 
-    /*useEffect(() => {
-        if (!user) return
-        onWatchLaterList(cards[cardOn].title, cards[cardOn].subtitle, cards[cardOn].tmdbId)
-    }, [user, cardOn])*/
-
     useEffect(() => {
+        setTMDBImages({ backdrop: null, poster: null })
         const fetchImages = async () => {
             const card = cards[cardOn]
             if (card.tmdbId !== 0) {
-                const [backdrop, poster] = await Promise.all([fetchTMDBBackDrop(card.tmdbId), fetchTMDBPoster(card.tmdbId)])
-                setTMDBImages({ backdrop, poster })
+                const movie = await fetchTMDBMovie(card.tmdbId)
+                if (movie) {
+                    const backdropUrl = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
+                    const posterUrl = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
+
+                    const loadImage = (url: string) => new Promise<void>((resolve) => {
+                        const img = new Image()
+                        img.src = url
+                        img.onload = () => resolve()
+                    })
+                    await Promise.all([loadImage(backdropUrl), loadImage(posterUrl)])
+                    setTMDBImages({ backdrop: backdropUrl, poster: posterUrl })
+                    setFade('fadeIn')
+                }
+
+                //setTMDBImages({ backdrop: `https://image.tmdb.org/t/p/original${movie.backdrop_path}`, poster: `https://image.tmdb.org/t/p/original${movie.poster_path}` })
             } else {
                 setTMDBImages({ backdrop: null, poster: null })
             }
@@ -102,11 +121,6 @@ export default function Top({ width }: TopProps) {
             : TMDBImages.backdrop ?? card.background
     }
     function handleWatch() {
-        /*const movie = new URLSearchParams({
-            title: `${cards[cardOn].title}`,
-            subTitle: `${cards[cardOn].subtitle}` || "",
-            src: `${cards[cardOn].src}`
-        })*/
         const { title, subtitle, src } = cards[cardOn]
         const play: string = `/watch?title=${title}&subTitle=${subtitle}&src=${src}`
         Router.push(play)

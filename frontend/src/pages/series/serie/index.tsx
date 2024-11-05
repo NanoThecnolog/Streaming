@@ -16,6 +16,7 @@ import { serverStatus } from "@/services/verifyStatusServer";
 import { fetchEpisodeData, fetchTMDBSeries } from "@/services/fetchTMDBData";
 import { getUserCookieData } from "@/services/cookieClient";
 import { addWatchLater, isOnTheList } from "@/services/handleWatchLater";
+import Stars from "@/components/ui/StarAverage";
 export default function Serie(status: string) {
     //refatorar
     const router = useRouter()
@@ -29,6 +30,7 @@ export default function Serie(status: string) {
     const [headTitle, setHeadTitle] = useState<string>(' ')
     const [TMDBBackDrop, setTMDBBackDrop] = useState<string | null>(null)
     const [TMDBPoster, setTMDBPoster] = useState<string | null>(null)
+    const [vote_average, setVote_Average] = useState<number>(0)
 
     useEffect(() => {
         const getUserData = async () => {
@@ -92,6 +94,7 @@ export default function Serie(status: string) {
         const posterURL = `https://image.tmdb.org/t/p/original${serieInfo.poster_path}`
         setTMDBBackDrop(backdropURL)
         setTMDBPoster(posterURL)
+        setVote_Average(serieInfo.vote_average)
     }
 
     async function fetchEpisodes() {
@@ -189,6 +192,7 @@ export default function Serie(status: string) {
                                     <div className={styles.title}>
                                         <h1>{serie.title} {serie.subtitle !== '' && `- ${serie.subtitle}`}</h1>
                                     </div>
+                                    <Stars average={vote_average} />
                                     <div className={styles.seasons}>
                                         <h4>{serie.season.length === 1 ? `${serie.season.length} temporada` : serie.season.length >= 2 && `${serie.season.length} temporadas`} - {serie.genero.join(', ')}</h4>
                                     </div>
