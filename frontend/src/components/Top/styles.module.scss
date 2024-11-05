@@ -508,7 +508,19 @@
                         font-weight: 700;
                     }
                 }
+
+                .button_section {
+                    .queue {
+                        &:hover {
+                            background-color: var(--grey);
+                            //cursor: not-allowed;
+                            transform: initial;
+                        }
+                    }
+                }
             }
         }
     }
+
+
 }

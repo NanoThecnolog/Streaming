@@ -1792,6 +1792,21 @@ export const series: SeriesProps[] = [
                         src: "https://drive.google.com/file/d/1-8c96v9SMMnHTh5zvgHiTK4j-E7gariv/preview",
                         duration: "59m"
                     },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/10uCijD7HEk7jLXfaNjeNoSiqfDnPndre/preview",
+                        duration: "59m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/11CBXTn_sfzWWFkdXCiuSP1ZkxFBD07Sg/preview ",
+                        duration: "58m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/11J-pCpqMVQLFw62X3dEORbTCre6WKDZ9/preview ",
+                        duration: "58m"
+                    },
 
                 ]
             },
