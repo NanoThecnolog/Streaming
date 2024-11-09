@@ -21,6 +21,17 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2024%2F11%2Fapoca5.webp&f=1&nofb=1&ipt=262647717f4b9cdc5137fd8fd7def9685f4a70477e71a32578817730f3b5433e&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIF.mfpibjwfHKqpecpZcOb3Yw%26pid%3DApi&f=1&ipt=0dedabc57cb87321803989fbc19fa3b1e268aa750d4e8e2cf5b40b4e1e1ef72c&ipo=images",
+        tmdbId: 1118031,
+        title: "Apocalipse z",
+        subtitle: "O Princípio do Fim",
+        description: "Quando um tipo de raiva que transforma as pessoas em criaturas agressivas se espalha pelo planeta, Manel se isola em casa com seu gato, confiando em sua inteligência para sobreviver; mas logo eles precisam sair em busca de comida, por terra e por mar, esquivando-se de muitos perigos.",
+        src: "https://drive.google.com/file/d/1lESCkSNXSDPnEBgZwKuRh_CaLULhKlMg/preview",
+        duration: "1h 59m",
+        genero: ["Ação", "Drama", "Terror", "Prime Video"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fv3MEI66V9hdXGCD7pdeMqXShUOi.jpg&f=1&nofb=1&ipt=feb2f1c997716ad828d401ab6df740f66edaf4d6b0088e1ad5ccd4f71cb8aa04&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.5mbw7dAEKNuoBxmcohbBTAAAAA%26pid%3DApi&f=1&ipt=c2520b22e1ecc5aa8b75b0db6a7b04df731e43bfbb5e1a909ad4dd443e231256&ipo=images",
         tmdbId: 283445,
