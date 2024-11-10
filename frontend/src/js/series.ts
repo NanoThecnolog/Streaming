@@ -25,6 +25,137 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.eklecty-city.fr%2Fwp-content%2Fuploads%2F2015%2F06%2FScream-The-TV-Series-2015-Series-Picture-02.jpg&f=1&nofb=1&ipt=f210b67d8c0c81d3bdde6f3b4ac35ea849cac7d22b5e89e27ec0b3bf1dcba786&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.YgY1WUvU3md9ObcOlGqXdAHaLH%26pid%3DApi&f=1&ipt=70c43bdd100d5616af3cd097dd60d32d29b3f074421ee4a3353b7106bf3f0069&ipo=images",
+        tmdbID: 62823,
+        title: "Scream",
+        subtitle: "",
+        description: "Nesta série baseada na clássica franquia de terror, um incidente de bullying por rede social leva a um assassinato que traz o passado à tona.",
+        genero: ["Terror", "Mistério"],
+        season: [
+            {
+                s: 1,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1RKXFpXAtca6rSgTw8RZTWI2xWAPgoyNU/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1HIsSTYnGS0y61883TLCfqsDICIHFhTVJ/preview",
+                        duration: "40m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/16F3ac9x5YfXXUa58ezjH1F-BZoJG1bZy/preview",
+                        duration: "40m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1qDg4-lE8lV5hAvZe5r2fBt9y55g5Rowu/preview",
+                        duration: "39m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/16nNHh4zrY86qHWJ6lOQj2i2QFDZy6WiI/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1OHuiqE_ema0e5ilFsA_b5F8uEZuzDU0p/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1F1LoZuusC8pKpbMMlQLWoL9cYyjZrAJt/preview",
+                        duration: "40m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1IlXzRp5m5U60fuvtTl9HcjjB_Hcsq59V/preview",
+                        duration: "40m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/15T4naZTaJK4L896cecgQUFVgPiwFTYC3/preview",
+                        duration: "41m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1UYHNW9Hp0oTi3pCpQXQ0MsEMyUZVdUUH/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1VqMkiGPmbtPEt33O3G03x39TJWjl53Lp/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1VQBV8TOvjxXax-QkqrnMy4grLmxCeKuO/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1VReOQWr3HDW5soeWF7L0Iqo7uES7erer/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1Uv3lR3LuE-1umzmsN0oNw2o_QbgXhvfM/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1Ut7yzkEdjv7W2rcDzyf4u9Nl_jOewBnd/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1VwA8PwwXaOfsk-A5RMlJjYsvlBW0LiH1/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1V_AJZDkPYIQXiaIx53bqKfkrZljGTc66/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1ViIW8bNzKtSBYSuguSfO4J7FwyqNrjjo/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1VhlpzKgI54KhcO3UUC-pidv72D8sCElh/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 11,
+                        src: "https://drive.google.com/file/d/1VjvP7Io7ctSRwzjiby43ihxT7D8c968v/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 12,
+                        src: "https://drive.google.com/file/d/1Vx-p7hn4JN0RABWkuuBBMEgmzoveXZJv/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 13,
+                        src: "https://drive.google.com/file/d/1VpodO8ezpji5zMf5hUbN-kWkV2NdALDi/preview",
+                        duration: "01h 21m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.gamearena.gg%2Fwp-content%2Fuploads%2F2024%2F07%2F25161717%2Flove-next-door-dorama.jpg&f=1&nofb=1&ipt=8a72f7898099458a2920a6e35ac4c424d573487932b2d8d6c177af1f4aef43cf&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.RRZ5muJzoELZVYkBLylg6wEsGQ%26pid%3DApi&f=1&ipt=4eee5b63fb1792c8ab1eebf07c522a1e4dacb0aa3902391cf4cb2bbac6a15f1e&ipo=images",
         tmdbID: 241454,
