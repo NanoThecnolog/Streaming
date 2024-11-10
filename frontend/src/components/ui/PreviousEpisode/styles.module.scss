@@ -10,6 +10,8 @@
 
     &:hover {
         transform: scale(1.1);
+        background-color: var(--red);
+        border: 1px solid var(--red);
     }
 
     &:disabled {
@@ -19,6 +21,7 @@
 
         cursor: not-allowed;
         background-color: gray;
+        border: 1px solid gray;
         color: #2c2c2c;
     }
 }
