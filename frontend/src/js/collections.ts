@@ -32,7 +32,7 @@ export const collections: CollectionProp[] = [
     },
     {
         id: 263,
-        name: "O Cavaleiro das Trevas"
+        name: "Batman"
     }
 
 ]

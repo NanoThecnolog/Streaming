@@ -21,6 +21,7 @@ export default function Collection(status: string) {
         if (router.query.collection) {
             try {
                 const collectionData = JSON.parse(router.query.collection as string);
+                console.log(collectionData)
                 setCollection(collectionData)
             } catch (err) {
                 console.log("Erro ao capturar coleção", err)
@@ -51,6 +52,12 @@ export default function Collection(status: string) {
                             if (colecao.name.toLowerCase() === 'pânico') {
                                 filteredCards = filteredCards.filter((card) =>
                                     !card.title.toLowerCase().includes("todo mundo")
+                                )
+                            }
+                            if (colecao.name.toLowerCase() === 'batman') {
+                                filteredCards = filteredCards.filter((card) =>
+                                    card.subtitle?.toLowerCase().includes('cavaleiro das trevas') ||
+                                    card.subtitle?.toLowerCase().includes('begins')
                                 )
                             }
                             return filteredCards ? filteredCards.map(card => (
