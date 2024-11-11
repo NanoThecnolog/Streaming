@@ -1988,6 +1988,11 @@ export const series: SeriesProps[] = [
                         src: "https://drive.google.com/file/d/11J-pCpqMVQLFw62X3dEORbTCre6WKDZ9/preview ",
                         duration: "58m"
                     },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/11VRmhj3tkpl1R3eoCq_TyC2CdvadM-pL/preview",
+                        duration: "01h 07m"
+                    }
 
                 ]
             },
