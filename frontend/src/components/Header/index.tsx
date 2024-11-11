@@ -10,7 +10,7 @@ import { api } from "@/services/api";
 
 interface HeaderProps {
     userAvatar?: string | undefined;
-    status: string
+    status?: string
 }
 
 export default function Header({ userAvatar, status }: HeaderProps) {

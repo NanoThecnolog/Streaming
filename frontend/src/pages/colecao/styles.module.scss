@@ -1,0 +1,18 @@
+.sectionContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    padding: 250px 0;
+
+    .data {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        padding: 50px;
+        gap: 14px;
+        width: 80%;
+    }
+}

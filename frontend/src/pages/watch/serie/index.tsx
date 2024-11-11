@@ -1,6 +1,5 @@
 import Head from "next/head"
 import Router, { useRouter } from "next/router"
-//import styles from './styles.module.scss'
 import styles from '@/styles/Watch.module.scss'
 import { ChevronLeft } from "lucide-react"
 import { useEffect, useState } from "react"

@@ -1,0 +1,16 @@
+.collectionContainer {
+    cursor: pointer;
+    transition: .4s;
+    border: 2px solid transparent;
+
+    &:hover {
+        //transform: scale(1.1);
+        border: 2px solid white;
+    }
+
+    .imageContainer {
+        position: relative;
+        width: 350px;
+        height: 600px;
+    }
+}

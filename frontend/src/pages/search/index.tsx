@@ -19,7 +19,6 @@ export default function Search(status: string) {
     const [movie, setMovie] = useState<string>();
     const [searchCards, setSearchCards] = useState<CardsProps[]>()
     const [searchSeries, setSearchSeries] = useState<SeriesProps[]>()
-    //const [width, setWidth] = useState<number>()
     const [usuario, setUsuario] = useState<UserProps | null>(null)
 
     useEffect(() => {
@@ -32,33 +31,6 @@ export default function Search(status: string) {
         }
 
     }, [router.isReady, router.query, movie])
-
-    /*useEffect(() => {
-        function handleResize() {
-            const width = window.innerWidth;
-            //console.log(width)
-            setWidth(width)
-
-            //ajustar os breakpoints depois
-            if (width < 780) {
-                setCardPerContainer(1)
-            } else if (width < 1100) {
-                setCardPerContainer(2)
-            } else if (width < 1480) {
-                setCardPerContainer(3)
-            } else if (width < 1650) {
-                setCardPerContainer(4)
-            } else {
-                setCardPerContainer(5)
-            }
-
-        }
-        window.addEventListener('resize', handleResize)
-
-        handleResize()
-
-        return () => window.removeEventListener('resize', handleResize)
-    }, [])*/
     useEffect(() => {
         const fetchUserData = async () => {
             const user = await getUserCookieData();

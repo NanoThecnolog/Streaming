@@ -3,6 +3,7 @@ import { MovieTMDB } from "@/@types/Cards"
 import { TMDBSeries } from "@/@types/series";
 import { TMDBEpisodes } from "@/@types/series"
 import { apiTMDB } from "./apiTMDB";
+import { CollectionProps, ResultsProps } from "@/@types/collection";
 
 const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
 
@@ -108,6 +109,16 @@ export async function fetchEpisodeData(tmdbID: number, season: number): Promise<
         return response.data.episodes
     } catch (err) {
         console.error("Erro ao buscar imagens dos episódios", err)
+        return null
+    }
+}
+
+export async function fetchCollection(name: string): Promise<ResultsProps[] | null> {
+    try {
+        const response = await apiTMDB<CollectionProps>(`/collection/${name}`)
+        return response.data.results
+    } catch (err) {
+        console.error("Erro ao buscar dados da coleção")
         return null
     }
 }

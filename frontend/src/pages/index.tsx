@@ -12,6 +12,7 @@ import { GetServerSideProps } from "next";
 import { serverStatus } from "@/services/verifyStatusServer";
 import setData from "@/services/setDataOnStorage";
 import { getUserCookieData } from "@/services/cookieClient";
+import CollectionContainer from "@/components/CollectionContainer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -98,6 +99,7 @@ export default function Home(status: string) {
         <div className={styles.content}>
           <Top width={width} />
           <div className={styles.mid}>
+            <CollectionContainer cardPerContainer={cardPerContainer} />
             {divisaoPorGenero.map((sec, index) => (
               <div key={index}>
                 <CardContainer
