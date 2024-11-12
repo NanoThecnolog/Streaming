@@ -25,6 +25,52 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fotakukart.com%2Fwp-content%2Fuploads%2F2024%2F03%2FDAN-DA-DAN-A-1-scaled.webp&f=1&nofb=1&ipt=d132e18cdd0d98f29dbcd305033f5e84321b49da88c6883255a546d0b3350637&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.ulssgcWxOtPu03Sl-nyFQAHaKe%26pid%3DApi&f=1&ipt=3e1087ed7a93bb34006ec4dc83a509945efc95839ff79d384ecff858bb3c2357&ipo=images",
+        tmdbID: 240411,
+        title: "Dan Da Dan",
+        subtitle: "",
+        description: "Esta é uma história sobre Momo, uma garota do ensino médio que vem de uma família de médiuns espirituais, e seu colega de classe Okarun, um garoto fanático pelo ocultismo. Depois que Momo resgata Okarun de uns valentões, eles começam a conversar... No entanto, surge uma discussão entre eles, já que Momo acredita em fantasmas, mas nega a existência de alienígenas, e Okarun acredita em alienígenas, mas nega a existência de fantasmas. Visando provar que o que acreditam é real, Momo vai a um hospital abandonado onde um OVNI foi avistado e Okarun vai a um túnel que dizem ser assombrado. Para surpresa deles, cada um se depara com atividades paranormais avassaladoras que transcendem a compreensão. Em meio a isso tudo, Momo desperta seu poder oculto e Okarun ganha o poder de uma maldição para superar esses novos perigos! Será que o amor deles destinado também começa aqui!?",
+        genero: ["Animação", "Aventura", "Comédia", "Netflix"],
+        season: [
+            {
+                s: 1,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/12Usy-7t73OUT8cdR6LhG8KT8YJ1Co3pG/preview",
+                        duration: "24m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/12ZTafBqH1dcNRPACh05mhw22nsEZjOxM/preview",
+                        duration: "24m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/12h-0STRMvAdFG5dnRFxP5eudWZsW7Kqg/preview",
+                        duration: "24m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/13W9VK8lXj-ijspULEpag1mauC-wO3Vh2/preview",
+                        duration: "24m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/13YkeFui7bMrBYckNAu2fAEG6jtDQCJmY/preview",
+                        duration: "24m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/13_0QSEm2jQiiNqpJKTMTIUuEIIVLPTF_/preview",
+                        duration: "24m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.eklecty-city.fr%2Fwp-content%2Fuploads%2F2015%2F06%2FScream-The-TV-Series-2015-Series-Picture-02.jpg&f=1&nofb=1&ipt=f210b67d8c0c81d3bdde6f3b4ac35ea849cac7d22b5e89e27ec0b3bf1dcba786&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.YgY1WUvU3md9ObcOlGqXdAHaLH%26pid%3DApi&f=1&ipt=70c43bdd100d5616af3cd097dd60d32d29b3f074421ee4a3353b7106bf3f0069&ipo=images",
         tmdbID: 62823,
