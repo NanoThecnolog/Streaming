@@ -77,7 +77,7 @@ export const series: SeriesProps[] = [
         title: "Scream",
         subtitle: "",
         description: "Nesta série baseada na clássica franquia de terror, um incidente de bullying por rede social leva a um assassinato que traz o passado à tona.",
-        genero: ["Terror", "Mistério"],
+        genero: ["Terror", "Suspense", "Mistério", "Netflix"],
         season: [
             {
                 s: 1,

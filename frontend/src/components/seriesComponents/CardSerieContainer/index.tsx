@@ -47,13 +47,10 @@ export default function CardContainerSerie({ section, cardPerContainer }: Contai
                 <div className={styles.cardContainer}>
                     {filteredCards.slice(currentIndex, currentIndex + cardsPerPage).map((serie, index) => (
                         <div className={styles.card} key={index}>
-
-
                             <Card
                                 key={index}
                                 card={serie}
                             />
-
                         </div>
                     ))}
                 </div>
