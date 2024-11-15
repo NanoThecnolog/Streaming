@@ -113,7 +113,6 @@ export default function Home(status: string) {
             )}
           </div>
         </div>
-        <WelcomeModal />
       </main>
       <Footer />
     </>
