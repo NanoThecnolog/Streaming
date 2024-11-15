@@ -21,6 +21,50 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F2.bp.blogspot.com%2F-VZaSmevtIT4%2FXNGvxRmPTYI%2FAAAAAAAACO0%2Fr18HF9Nw5ikY7W9hHPBAYfNS0uixLPBDACKgBGAs%2Fw0%2Faladdin-2019-aladdin-jasmine-genie-uhdpaper.com-4K-3.jpg&f=1&nofb=1&ipt=daca0cc245b676f91f69436f4352c477643f5e78a897734b60b7cec724f80535&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.oOgNhaye_W_yFkmL573fWAHaK9%26pid%3DApi&f=1&ipt=d502949d718dd0aaead08dfbb29fd1b4d88f757314542eb9c8bf3e74911ba73b&ipo=images",
+        tmdbId: 420817,
+        title: "Aladdin",
+        subtitle: "",
+        description: "Um jovem humilde descobre uma lâmpada mágica, com um gênio que pode lhe conceder desejos. Agora o rapaz quer conquistar a moça por quem se apaixonou, mas o que ele não sabe é que a jovem é uma princesa que está prestes a se noivar. Com a ajuda do Gênio, ele tenta se passar por um príncipe para conquistar o amor da moça e a confiança do pai dela.",
+        src: "https://drive.google.com/file/d/1pixT3Elg2dM7YrUwf_AtnULs8N6lPWQM/preview",
+        duration: "02h 09m",
+        genero: ["Aventura", "Fantasia", "Família", "Disney"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Florena.r7.com%2Fpublic%2Fassets%2Fimg%2Fpostagens%2Fpost_44020.jpg&f=1&nofb=1&ipt=f247093308b8df88be58b34af36bb77109bc65e6a357637e55cb4e9597a0db39&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.OAmOP1eYk1-lTAQKzW67tQHaNK%26pid%3DApi&f=1&ipt=b8519110a3bdb1e5b1d185b87feac08798a432a225f55032f1b2f2f0e171e6f3&ipo=images",
+        tmdbId: 533535,
+        title: "Deadpool & Wolverine",
+        subtitle: "",
+        description: "Um apático Wade Wilson trabalha duro na vida civil. Seus dias como mercenário moralmente flexível, Deadpool, ficaram para trás. Quando seu planeta enfrenta uma ameaça, Wade deve relutantemente vestir-se novamente com um ainda mais relutante... relutante? Mais relutante? Ele deve convencer um Wolverine relutante em... Porra. As sinopses são tão estúpidas.",
+        src: "https://drive.google.com/file/d/1TMmw3r2G8asR2c5W-ThYYRa1pmzdKJSi/preview",
+        duration: "02h 08m",
+        genero: ["Ação", "Comédia", "Marvel"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdescontexto.com.br%2Fwp-content%2Fuploads%2Felementor%2Fthumbs%2Ffullwidth.ceaae5fe-o1oe4izmnop7ih8tkc92v7f35snz0cbg6kr80dkj00.jpg&f=1&nofb=1&ipt=83b3622fcaab5ebd649131e4d5620ad69f04154ef835e0c48af0422698cd71f9&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.TCUd9OFmY_Wj_PUkKhamNgHaLH%26pid%3DApi&f=1&ipt=4e3239666e7f65816aa07736af8f7e918c3256df9a695cff5b3f7f7b6315310b&ipo=images",
+        tmdbId: 2108,
+        title: "Clube dos Cinco",
+        subtitle: "",
+        description: "Em virtude de terem cometido pequenos delitos, cinco adolescentes são confinados no colégio em um sábado com a tarefa de escrever uma redação de mil palavras sobre o que pensam de si mesmos. Apesar de serem pessoas completamente diferentes, enquanto o dia transcorre, eles passam a aceitar uns aos outros, fazem várias confissões e se tornam amigos.",
+        src: "https://drive.google.com/file/d/12N4I3FFT5oci5RKjbsxz6zNwdVSU2FfG/preview",
+        duration: "1h 37m",
+        genero: ["Comédia", "Drama"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FtweDJNQzBGgsWVF5MC8JhSAk07p.jpg&f=1&nofb=1&ipt=b8ca0c212173e4c50c718db871026ba9639059207c4b2067e1623d10da946f25&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.KGFd99-2jhmjinWIKWpXyAHaLH%26pid%3DApi&f=1&ipt=befe917ca13b2f93e4d52d626b3451cd394d5fe395b14974f881d5e74f5f4112&ipo=images",
+        tmdbId: 570670,
+        title: "O Homem Invisível",
+        subtitle: "",
+        description: "Quando o ex abusivo de Cecilia tira a própria vida e deixa sua fortuna, ela suspeita que a morte dele tenha sido uma farsa. Como uma série de coincidências se torna letal, Cecilia trabalha para provar que está sendo caçada por alguém que ninguém pode ver.",
+        src: "https://drive.google.com/file/d/14OQvZiOiVHGO1WqMHvy3oQTqL73yNiGr/preview",
+        duration: "02h 4m",
+        genero: ["Suspense", "Ficção Científica", "Terror"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2024%2F11%2Fapoca5.webp&f=1&nofb=1&ipt=262647717f4b9cdc5137fd8fd7def9685f4a70477e71a32578817730f3b5433e&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIF.mfpibjwfHKqpecpZcOb3Yw%26pid%3DApi&f=1&ipt=0dedabc57cb87321803989fbc19fa3b1e268aa750d4e8e2cf5b40b4e1e1ef72c&ipo=images",
         tmdbId: 1118031,

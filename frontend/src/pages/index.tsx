@@ -13,6 +13,7 @@ import { serverStatus } from "@/services/verifyStatusServer";
 import setData from "@/services/setDataOnStorage";
 import { getUserCookieData } from "@/services/cookieClient";
 import CollectionContainer from "@/components/CollectionContainer";
+import WelcomeModal from "@/components/modal/Welcome";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -112,6 +113,7 @@ export default function Home(status: string) {
             )}
           </div>
         </div>
+        <WelcomeModal />
       </main>
       <Footer />
     </>
