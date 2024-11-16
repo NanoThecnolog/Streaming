@@ -21,6 +21,17 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages2.alphacoders.com%2F131%2Fthumb-1920-1319333.jpeg&f=1&nofb=1&ipt=6f2210d17de0079de14fb4055bacb9f3b42974a8ebff11091655e27175379e28&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.erMbaV-aK8C5Rh6D1qgueQHaLH%26pid%3DApi&f=1&ipt=15fdc4b92165804a5f92e78903cd6a10a469c50cf1eb4011f9aa67d194e00c2c&ipo=images",
+        tmdbId: 980489,
+        title: "Gran Turismo",
+        subtitle: "De Jogador a Corredor",
+        description: "Baseado na história de Jann Mardenborough, e relata a trajetória de um jogador de videogame que utilizou suas habilidades nos simuladores para se tornar um piloto profissional de verdade.",
+        src: "https://drive.google.com/file/d/1vUw9uJMFL2KTquIsLNl3NB9h4j05okTh/preview",
+        duration: "02h 15m",
+        genero: ["Aventura", "Ação", "Drama"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2316916.jpg&f=1&nofb=1&ipt=6eddc3b1d278587dc67a8ab5ddb3880a0dcae8630ef2b1d79d3b6815e29fd426&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.2fCemzR3rP-zHsbSLCodfAHaKd%26pid%3DApi&f=1&ipt=b5f5a56cbbd434bd134c870767672f6d4e4b5ed90efba34ef28faa033a89a398&ipo=images",
         tmdbId: 1359,
