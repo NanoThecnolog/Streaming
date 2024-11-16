@@ -21,6 +21,17 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2316916.jpg&f=1&nofb=1&ipt=6eddc3b1d278587dc67a8ab5ddb3880a0dcae8630ef2b1d79d3b6815e29fd426&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.2fCemzR3rP-zHsbSLCodfAHaKd%26pid%3DApi&f=1&ipt=b5f5a56cbbd434bd134c870767672f6d4e4b5ed90efba34ef28faa033a89a398&ipo=images",
+        tmdbId: 1359,
+        title: "Psicopata Americano",
+        subtitle: "",
+        description: "Em Nova York, em 1987, o belo jovem profissional Patrick Bateman tem uma segunda vida como um horrível assassino em série durante a noite. O elenco é formado pelo detetive, a noiva, a amante, o colega de trabalho e a secretária. Esta é uma comédia de humor seco que examina os elementos que transformam um homem em um monstro.",
+        src: "https://drive.google.com/file/d/1gE79P_3Iz92ER0rqepB_AdhgH7D-3hh4/preview",
+        duration: "01h 42m",
+        genero: ["Suspense", "Drama", "Crime"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F2.bp.blogspot.com%2F-VZaSmevtIT4%2FXNGvxRmPTYI%2FAAAAAAAACO0%2Fr18HF9Nw5ikY7W9hHPBAYfNS0uixLPBDACKgBGAs%2Fw0%2Faladdin-2019-aladdin-jasmine-genie-uhdpaper.com-4K-3.jpg&f=1&nofb=1&ipt=daca0cc245b676f91f69436f4352c477643f5e78a897734b60b7cec724f80535&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.oOgNhaye_W_yFkmL573fWAHaK9%26pid%3DApi&f=1&ipt=d502949d718dd0aaead08dfbb29fd1b4d88f757314542eb9c8bf3e74911ba73b&ipo=images",
         tmdbId: 420817,
@@ -423,9 +434,9 @@ export const cards: CardsProps[] = [
         title: "Cuckoo",
         subtitle: "",
         description: "Relutantemente, aos 17 anos, Gretchen deixa sua casa nos Estados Unidos para morar na Alemanha com seu pai Luis, que se casou com Beth, uma mulher mais nova. Juntos, eles se mudam para um resort nos Alpes. Ao chegarem à sua nova casa, eles são recebidos pelo Sr. König, o chefe do pai de Gretchen, que demonstra um interesse inexplicável por Alma, a meia-irmã muda da garota. Com o passar do tempo, Gretchen começa a ser assombrada por estranhos barulhos e visões sangrentas, até que descobre um segredo chocante que também envolve sua própria família, revelando algo de errado no local aparentemente tranquilo.",
-        src: "https://drive.google.com/file/d/1y88FoPiKsR6TjX95H1XW-RlkdB3CToSL/preview",
+        src: "https://drive.google.com/file/d/1pyYz0er2ICNoiNe3ouvRrrBwImRnuarj/preview",
         duration: "01h 43m",
-        genero: ["Terror", "Mistério", "Ficção Científica", "Legendado"]
+        genero: ["Terror", "Mistério", "Ficção Científica"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic1.colliderimages.com%2Fwordpress%2Fwp-content%2Fuploads%2F2024%2F08%2Falien_-romulus-2024-poster.jpg&f=1&nofb=1&ipt=e1f21af7226873ebed3bc0068f5e804f62eb6a0fab40c81d64ede51ae0236100&ipo=images",
