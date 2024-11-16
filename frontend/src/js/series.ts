@@ -507,6 +507,41 @@ export const series: SeriesProps[] = [
                     },
                 ]
             },
+            {
+                s: 3,
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1lgkxbTvNpHa6uwQ_X_QOiLxKglExQASi/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1ztaBtBleC97I-LIm-MFgwEmJWQzAqlMV/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1xfH6u_0DyDFPp6B33UJ5LVOI6wRVsG6W/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1qx3pakPu4KflFiaqoGhHcIqHbYXDdoMA/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1nW_T720QPC6Lu_F0s9w-JDxg6VcHrJwX/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1srRZdNJM_KCvpZApeXTYkE7OFZ_Bw56X/preview",
+                        duration: "41m"
+                    },
+                ]
+            }
         ]
     },
     {
