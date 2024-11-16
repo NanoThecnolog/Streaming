@@ -13,6 +13,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
+                lang: "",
                 episodes: [
                     {
                         ep: 1,
@@ -25,6 +26,104 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fapartamento702.com.br%2Fwp-content%2Fuploads%2F2021%2F04%2Fsombra-e-ossos.jpeg&f=1&nofb=1&ipt=4ba0c6d80fca449ea693c7fd1c26279b3e11fa18f6231d2af505a5b4772ace6a&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.25j651E8OVc7EWiSfIJ8YwHaJ4%26pid%3DApi&f=1&ipt=af19ac22320789c6123c16344053fe14e282c4b1a2f4dd9ca197e613520bd5cd&ipo=images",
+        tmdbID: 85720,
+        title: "Sombra e Ossos",
+        subtitle: "",
+        description: "Em um mundo destruído pela guerra, a órfã Alina Starkov descobre que tem poderes extraordinários e vira alvo de forças sombrias.",
+        genero: ["Drama", "Fantasia", "Netflix"],
+        season: [
+            {
+                s: 1,
+                lang: "Legendado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1s_0-HejubRzA-KowRkIZjjJmh9ejo2H1/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1Vzb_L0E2BiHZyOkpKMDq8XzM8tLl8TGl/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1RkVYhwoOTY1DmJhoKf1itc-cFhdZwUHd/preview",
+                        duration: "47m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1-nAGe6BvGFEKDGadNh6SweOv3cx8JiC-/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1t3ykL-4ykUySPsY3b43pna0nvQT1y05b/preview",
+                        duration: "58m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1MZGTfhT6iGxtr3IoTTQXOQgrZiXYx80Y/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1RANB8Gi2wN4vbonaMTVpRTbes2KzhJ5t/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1aZjpMmye2po9GAavpmTuGxqR9Fp4z0O5/preview",
+                        duration: "45m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                lang: "Legendado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1zTvR56XshNTGtys5BstI9VeqjBPHqQiP/preview",
+                        duration: "55m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1zD6yPZBevmgUcxZVt6IA28SG13u45JCA/preview",
+                        duration: "01h 05m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1bjsORJv5iPaPlNudFHHIP9ZOKjkB0Cd3/preview",
+                        duration: "01h 01m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1L8K67SBIF76AodLsite-n12EyfIhdTlK/preview",
+                        duration: "59m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1ueb0jIeRmstJ4lwT0wXKLgGOYbPKXPqA/preview",
+                        duration: "59m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1MJBFMl9fk88YamzUtANpFA8v0pgPE8Op/preview",
+                        duration: "01h 01m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/15o7dbwc4TS9vlDLWMQ3qOSVRChDd11P-/preview",
+                        duration: "01h 03m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FaNrcxmzCZc1Tgze4jOwJrwk7tCl.jpg&f=1&nofb=1&ipt=d06197624119d4df357b6df159f4e409acae7a2720cb8bc49a50845309fab56d&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fflxt.tmsimg.com%2Fassets%2Fp18637010_b_v13_ae.jpg&f=1&nofb=1&ipt=b2409201d554569443a968cefbcd2058f381503323165ea4dcb93efe3fe3b475&ipo=images",
         tmdbID: 76479,
@@ -35,6 +134,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -80,6 +180,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 2,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -125,6 +226,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 3,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -170,6 +272,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 4,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -221,6 +324,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -276,6 +380,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 2,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -322,7 +427,6 @@ export const series: SeriesProps[] = [
                         src: "https://drive.google.com/file/d/1RdDKg_Vgo2fxQ0cHbqycGxrbDWUC4bZb/preview",
                         duration: "31m"
                     },
-
                 ]
             }
         ]
@@ -338,6 +442,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -384,6 +489,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -439,6 +545,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 2,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -509,6 +616,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 3,
+                lang: "Legendado",
                 episodes: [
                     {
                         ep: 1,
@@ -555,6 +663,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
+                lang: "Legendado",
                 episodes: [
                     {
                         ep: 1,
@@ -620,6 +729,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -681,6 +791,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -727,6 +838,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -747,6 +859,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 2,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -772,6 +885,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 3,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -807,6 +921,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 4,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -842,6 +957,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 5,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -862,6 +978,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 6,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -888,7 +1005,6 @@ export const series: SeriesProps[] = [
                         src: "https://drive.google.com/file/d/13747weP0VzAypMjwZ3EllPTTOu8A-UXZ/preview",
                         duration: "01h 14m"
                     },
-
                 ]
             },
         ]
@@ -904,6 +1020,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -955,6 +1072,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 2,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -996,6 +1114,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -1052,6 +1171,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -1107,6 +1227,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 2,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -1173,6 +1294,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -1228,6 +1350,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 2,
+                lang: "Legendado",
                 episodes: [
                     {
                         ep: 1,
@@ -1284,6 +1407,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -1350,6 +1474,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -1405,6 +1530,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 2,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -1461,6 +1587,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 3,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -1517,6 +1644,7 @@ export const series: SeriesProps[] = [
 
             {
                 s: 4,
+                lang: "Legendado",
                 episodes: [
                     {
                         ep: 1,
@@ -1583,6 +1711,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -1784,6 +1913,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -1830,6 +1960,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 2,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -1886,6 +2017,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -1943,6 +2075,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -1993,6 +2126,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -2040,6 +2174,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -2096,6 +2231,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 2,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -2151,6 +2287,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 3,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -2207,6 +2344,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 4,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -2254,6 +2392,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -2304,6 +2443,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 2,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -2336,6 +2476,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -2394,6 +2535,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
@@ -2440,6 +2582,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 2,
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,

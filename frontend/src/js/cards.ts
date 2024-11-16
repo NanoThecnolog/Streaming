@@ -21,6 +21,61 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2024%2F05%2Ftrigger.jpg&f=1&nofb=1&ipt=2b97667ab4d9ec1f8aefd645c245ea44c864848c47e342f225b894fc56da941b&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.7lzEDKIMvtIQfp7dJ_3RNgHaLJ%26pid%3DApi&f=1&ipt=ddb2c8bf83dc4e9b3b336cc9f1fd6a6404397238265a7f3d3f798017acccb3c3&ipo=images",
+        tmdbId: 704673,
+        title: "Alerta de Risco",
+        subtitle: "",
+        description: "Uma militar de elite descobre uma perigosa conspiração ao retornar à cidade natal em busca de respostas para a morte do pai.",
+        src: "https://drive.google.com/file/d/1ScOq8x81nLl9xq-bp8oFDVvQ2vxHNlXk/preview",
+        duration: "01h 47m",
+        genero: ["Ação", "Suspense", "Netflix"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F2.bp.blogspot.com%2F-aujSokLL8QM%2FUOtNvONLtpI%2FAAAAAAAAOxo%2FhCI1qPsH6WM%2Fs1600%2FWB_056_DF-JT-16727_rgb.jpg&f=1&nofb=1&ipt=df88df323078699e6cf8105b374a2f0d5c5f662435a377b9dd8cb73ed0658016&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.D4-YHEcvb5KDg6Q77fVvzgHaKa%26pid%3DApi&f=1&ipt=6ebe99d4cd48621e5d2fbfa18e9d065e5869a983d92e1f92a1060cb94100721f&ipo=images",
+        tmdbId: 82654,
+        title: "Meu Namorado É Um Zumbi",
+        subtitle: "",
+        description: "Em um mundo pós-apocalíptico, um zumbi romântico se apaixona por uma humana, e o envolvimento deles cria uma reação em cadeia. Ele quer provar que os zumbis podem mudar, mas o cenário indica uma batalha entre os vivos e os mortos-vivos.",
+        src: "https://drive.google.com/file/d/1eWs9e3c10KzBbqB-SEXqIqafAkupOICw/preview",
+        duration: "01h 37m",
+        genero: ["Comédia", "Romance"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F3.bp.blogspot.com%2F-c2dvJgAqj1I%2FUmVtVYTX_SI%2FAAAAAAAAAL4%2FKK9t-s2JeZ8%2Fw1200-h630-p-k-no-nu%2FInatividade-Paranormal-Poster-brasileiro-7Jan2013.jpg&f=1&nofb=1&ipt=e17999b25d88fd99f095995d886ba006839416682b4d9f834e5c64173332d9cc&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.fr2lBRNOXTklmy2Fdu0OcwHaLH%26pid%3DApi&f=1&ipt=6468825457c352d3a883f7415a2b63487616e1d752d041c81a88997046b2ade8&ipo=images",
+        tmdbId: 139038,
+        title: "Inatividade Paranormal",
+        subtitle: "",
+        description: "Malcolm e Kisha se mudam para a casa dos sonhos, mas logo percebem que não estão sozinhos. Não porque a casa seja assombrada, mas porque Kisha está possuída por demônios. Para salvá-la, Malcolm contrata um grupo de paranormais.",
+        src: "https://drive.google.com/file/d/1kVrUqtm3_dKhDlRL2p8QPCvM0OaFd52k/preview",
+        duration: "01h 26m",
+        genero: ["Comédia", "Terror"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F2.bp.blogspot.com%2F-2U6VvqPSgwg%2FVCAUE4X9zHI%2FAAAAAAAAUI8%2FoS_NjkC6onk%2Fs1600%2FInatividade%252BParanormal2%252BDivulga%25C3%25A7%25C3%25A3o.jpg&f=1&nofb=1&ipt=32a930940b3d857fc03217c044e07938677deeb34ba29e410b0ad4329a81a152&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.BtJiA_Wri8GrlGTkqCui9QHaLH%26pid%3DApi&f=1&ipt=7f7da8722cfde8550b58a303059e351b23523601876780d6015ed6f3d1f1eefc&ipo=images",
+        tmdbId: 184345,
+        title: "Inatividade Paranormal 2",
+        subtitle: "",
+        description: "Malcolm (Marlon Wayans) está tentando reiniciar a vida ao lado de outra mulher, Megan (Jaime Pressly), juntamente com os dois filhos dela, Becky (Ashley Rickards) e Wyatt (Steele Stebbins). Juntos, eles se mudam para uma nova casa. Ele, para variar, permanece com a mania de filmar tudo o que acontece à sua volta, com diversas câmeras. Entretanto, não demora muito para que Malcolm volte a ser afetado por acontecimentos sobrenaturais, especialmente quando inicia um caso com uma estranha boneca.",
+        src: "https://drive.google.com/file/d/1-6oJixCyZFKuGwW6X7ZphCdlOM0515hu/preview",
+        duration: "01h 27m",
+        genero: ["Comédia", "Terror"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FpRrq1t1rBEELElYUA3B2eM3AXnP.jpg&f=1&nofb=1&ipt=9c55dec8896ccf3d02cb8e832b16dc9f9ccf060c0d4b1d278ccf942f304cc708&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.m-WeBXDvETtbMOidz3TdPwHaJh%26pid%3DApi&f=1&ipt=ce51407341515106ebc3733713fd6bdfda4481e03202d1b03dcc85264b0f54d4&ipo=images",
+        tmdbId: 718930,
+        title: "Trem Bala",
+        subtitle: "",
+        description: "5 assassinos da máfia japonesa se encontram à bordo de um trem-bala que faz o trajeto entre as cidades Tóquio até Morioka com poucas paradas. Assim, a tensão entre esse grupo de habilidosos e mortais profissionais só aumentam quando eles descobrem a presença um do outro e começam a entrar em conflito em si.",
+        src: "https://drive.google.com/file/d/1DU5PeeLVYtvm56IToYsCt_fqoZt26NCr/preview",
+        duration: "02h 06m",
+        genero: ["Ação", "Comédia", "Suspense"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages2.alphacoders.com%2F131%2Fthumb-1920-1319333.jpeg&f=1&nofb=1&ipt=6f2210d17de0079de14fb4055bacb9f3b42974a8ebff11091655e27175379e28&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.erMbaV-aK8C5Rh6D1qgueQHaLH%26pid%3DApi&f=1&ipt=15fdc4b92165804a5f92e78903cd6a10a469c50cf1eb4011f9aa67d194e00c2c&ipo=images",
         tmdbId: 980489,

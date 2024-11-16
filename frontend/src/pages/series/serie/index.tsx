@@ -226,7 +226,7 @@ export default function Serie(status: string) {
                                             onChange={(e) => handleChangeSeason(e.target.value)}
                                         >
                                             {serie.season.map((s, index) => (
-                                                <option key={index} value={s.s}>Temporada {s.s}</option>
+                                                <option key={index} value={s.s}>Temporada {s.s} - {s.lang}</option>
                                             ))}
                                         </select>
                                     </div>

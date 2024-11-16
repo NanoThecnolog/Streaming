@@ -11,6 +11,7 @@ export interface SeriesProps {
 
 export interface Seasons {
     s: number;
+    lang: string
     episodes: Episodes[]
 }
 
