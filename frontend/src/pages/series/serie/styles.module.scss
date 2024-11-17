@@ -12,9 +12,6 @@
     background-repeat: no-repeat;
     background-size: cover;
 
-
-
-
     .serieContainer {
         width: 100%;
         height: 100%;
@@ -23,24 +20,31 @@
         justify-content: flex-start;
         background-position: top;
 
+        .imageContainer {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            z-index: 1;
+        }
+
+
         .imageBackground {
             width: 100%;
             height: 100%;
             background: rgb(20, 20, 20);
             background: linear-gradient(0deg,
-                    rgba(20, 20, 20, 1) 55%,
+                    rgba(20, 20, 20, 1) 20%,
                     rgba(255, 255, 255, 0) 100%);
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             z-index: 2;
 
-
             .desc_top {
-                padding: 20rem 4rem 2rem 4rem;
+                padding: 30rem 4rem 0rem 4rem;
 
                 .seasons {
-                    padding: 0.4rem 0;
+                    //padding: 0.4rem 0;
                 }
 
                 .watchButton {
@@ -68,8 +72,6 @@
                     display: flex;
                     justify-content: center;
                     width: 150px;
-
-
 
                     button {
                         background-color: transparent;
@@ -115,67 +117,69 @@
                     }
 
                 }
+            }
+        }
 
-                .cardContainer {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-                    justify-content: center;
-                    margin-top: 2rem;
-                    gap: 12px;
+        .cardContainer {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            justify-content: center;
+            gap: 12px;
+            padding: 5rem 4rem 2rem 4rem;
+            background: rgb(20, 20, 20);
+            z-index: 3;
 
-                    .episodeContainer {
-                        height: 300px;
-                        width: 350px;
-                        background-color: rgba(0, 0, 0, .9);
-                        transition: .2s;
-                        cursor: pointer;
+            .episodeContainer {
+                height: 320px;
+                width: 350px;
+                background-color: rgba(0, 0, 0, .9);
+                transition: .2s;
+                cursor: pointer;
 
-                        &:hover {
-                            transform: scale(1.05);
+                &:hover {
+                    transform: scale(1.05);
+                }
+
+
+                .episodeImage {
+                    width: 350px;
+                    height: 180px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: cover;
+                    background-color: #141414;
+                    position: relative;
+
+                    svg {
+                        position: absolute;
+                        top: 70px;
+                        left: 155px;
+                        visibility: hidden;
+                        opacity: 0;
+                        transition: all .4s;
+
+                    }
+
+                    &:hover {
+                        svg {
+                            visibility: visible;
+                            opacity: 1;
                         }
+                    }
+                }
 
+                .epiInfo {
+                    padding: 15px 10px;
 
-                        .episodeImage {
-                            width: 350px;
-                            height: 180px;
-                            background-repeat: no-repeat;
-                            background-position: center;
-                            background-size: cover;
-                            background-color: #141414;
-                            position: relative;
-
-                            svg {
-                                position: absolute;
-                                top: 70px;
-                                left: 155px;
-                                visibility: hidden;
-                                opacity: 0;
-                                transition: all .4s;
-
-                            }
-
-                            &:hover {
-                                svg {
-                                    visibility: visible;
-                                    opacity: 1;
-                                }
-                            }
-                        }
-
-                        .epiInfo {
-                            padding: 15px 10px;
-
-                            .description {
-                                font-style: italic;
-                                line-clamp: 3;
-                                overflow: hidden;
-                                text-overflow: ellipsis;
-                                height: 55px;
-                                display: -webkit-box;
-                                -webkit-box-orient: vertical;
-                                -webkit-line-clamp: 3;
-                            }
-                        }
+                    .description {
+                        font-style: italic;
+                        line-clamp: 3;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        height: 55px;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 3;
                     }
                 }
             }

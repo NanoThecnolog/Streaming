@@ -17,6 +17,7 @@ import { fetchEpisodeData, fetchTMDBSeries } from "@/services/fetchTMDBData";
 import { getUserCookieData } from "@/services/cookieClient";
 import { addWatchLater, isOnTheList } from "@/services/handleWatchLater";
 import Stars from "@/components/ui/StarAverage";
+import Image from "next/image";
 export default function Serie(status: string) {
     //refatorar
     const router = useRouter()
@@ -185,8 +186,10 @@ export default function Serie(status: string) {
                 <Header userAvatar={user?.avatar} status={status} />
                 {serie ?
                     (
-                        <div className={styles.serieContainer} style={{ backgroundImage: `url(${TMDBBackDrop ? TMDBBackDrop : serie?.background})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
-
+                        <div className={styles.serieContainer}>
+                            <div className={styles.imagecontainer}>
+                                <Image src={TMDBBackDrop ? TMDBBackDrop : serie?.background} fill alt={serie.title} />
+                            </div>
                             <div className={styles.imageBackground}>
                                 <div className={styles.desc_top}>
                                     <div className={styles.title}>
@@ -230,30 +233,34 @@ export default function Serie(status: string) {
                                             ))}
                                         </select>
                                     </div>
-                                    <div className={styles.cardContainer}>
-                                        {
-                                            episodesToShow.map((ep) => {
-                                                const season = episodesData[seasonToShow - 1];
-                                                const episode = season?.find(e => e.episode_number === ep.ep)
-                                                const image = `https://image.tmdb.org/t/p/original${episode?.still_path}`
-                                                return (
-                                                    <div key={ep.src} className={styles.episodeContainer} onClick={() => handlePlayEpisode(ep, seasonToShow)}>
-                                                        <div
-                                                            className={styles.episodeImage}
-                                                            style={{ backgroundImage: `url(${image})` }}
-                                                        ><PlayIcon size={35} /></div>
-                                                        <div className={styles.epiInfo}>
-                                                            <h3>Ep.{ep.ep}: {episode?.name}</h3>
-                                                            <p>Duração: {ep.duration}</p>
-                                                            <p className={styles.description} title={episode?.overview}>{episode?.overview}</p>
-                                                        </div>
-                                                    </div>
-                                                )
-                                            })
-                                        }
-                                    </div>
+
                                 </div>
+
                             </div>
+                            <div className={styles.cardContainer}>
+                                {
+                                    episodesToShow.map((ep) => {
+                                        const season = episodesData[seasonToShow - 1];
+                                        const episode = season?.find(e => e.episode_number === ep.ep)
+                                        const image = `https://image.tmdb.org/t/p/original${episode?.still_path}`
+                                        return (
+                                            <div key={ep.src} className={styles.episodeContainer} onClick={() => handlePlayEpisode(ep, seasonToShow)}>
+                                                <div
+                                                    className={styles.episodeImage}
+                                                    style={{ backgroundImage: `url(${image})` }}
+                                                ><PlayIcon size={35} /></div>
+                                                <div className={styles.epiInfo}>
+                                                    <h3>Ep.{ep.ep}: {episode?.name}</h3>
+                                                    <p>Duração: {ep.duration}</p>
+                                                    <p className={styles.description} title={episode?.overview}>{episode?.overview}</p>
+                                                </div>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
+
+
                         </div>
                     ) : "Carregando..."
                 }
