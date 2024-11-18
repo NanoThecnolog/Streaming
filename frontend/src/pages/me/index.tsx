@@ -93,11 +93,11 @@ export default function Me(status: string) {
 
     function handleLogout() {
         deleteCookies('flixnext');
-        //document.cookie = `userData=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+        document.cookie = `userData=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
         localStorage.removeItem('flixnext');
         localStorage.removeItem('favoriteList');
         localStorage.removeItem('watchLaterList');
-        deleteCookies('userData');
+        //deleteCookies('userData');
         Router.push('/login');
     }
 
