@@ -93,6 +93,9 @@ export default function Me(status: string) {
 
     function handleLogout() {
         deleteCookies('flixnext');
+        localStorage.removeItem('flixnext');
+        localStorage.removeItem('favoriteList');
+        localStorage.removeItem('watchLaterList');
         deleteCookies('userData');
         Router.push('/login');
     }
