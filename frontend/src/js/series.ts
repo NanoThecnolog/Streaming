@@ -26,6 +26,28 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd2d7ho1ae66ldi.cloudfront.net%2FArquivoNoticias%2F7a63f7dc-9303-11ef-aa79-9bebc91072b3%2Fduna-profecia.jpg&f=1&nofb=1&ipt=dfcad1ebf07d0f09e9a5317716a98d48ba4e4cc342b4ef3bfef3221616d71146&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.djzeUW3Zm8cFHY-MDct0jAHaLG%26pid%3DApi&f=1&ipt=10cc65614ca017333fe2a314fba08145c8f8d3316953c90c60ee5c1168ce19f1&ipo=images",
+        tmdbID: 90228,
+        title: "Duna",
+        subtitle: "A Profecia",
+        description: "Dez mil anos antes da ascensão de Paul Atreides, as irmãs Valya e Tula Harkonnen estabeleceram a lendária seita e ordem feminina que se tornaria conhecida como Bene Gesserit para controlar o futuro da humanidade.",
+        genero: ["Ficção Científica", "Drama", "HBO"],
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/14WbHHRfDWfMu__GKH7UPu1LqMi1qG142/preview",
+                        duration: "01h 05m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fgoinswriter.com%2Fwp-content%2Fuploads%2F2013%2F10%2Fbreaking-bad.png&f=1&nofb=1&ipt=557fa77bc003264ff739c6919f3f11a60e7d51a81cf1163d5b53f888cf941887&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.22LyRJpediL_GQouUG8IHgHaLG%26pid%3DApi&f=1&ipt=29165b1c0603b6745e403c3e64b70d2188dbabe7ef8b42661c04c58c219b6ff1&ipo=images",
         tmdbID: 1396,
