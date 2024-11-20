@@ -33,6 +33,10 @@ export const collections: CollectionProp[] = [
     {
         id: 263,
         name: "Batman"
+    },
+    {
+        id: 119,
+        name: "O Senhor dos Anéis"
     }
 
 ]

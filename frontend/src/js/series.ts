@@ -3164,7 +3164,7 @@ export const series: SeriesProps[] = [
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.portalimparcial.com.br%2Fwp-content%2Fuploads%2F2022%2F08%2Fcropped-trilha-sonora-aneis-do-poder-scaled-e1660920771134.jpg&f=1&nofb=1&ipt=944726d2d698f80a08f812d923ee94941f8f8b26eb57a3ea522a517efa83f7a1&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Fw1280%2FutAMIYnHweINM2jiMJYII9ILCw2.jpg&f=1&nofb=1&ipt=6d0b7a70fdba3360cd7bc12c6ded4df4e7c9cda2dd9ffb5d9225e15ba575d54f&ipo=images",
         tmdbID: 84773,
-        title: "O Senhor dos Aneis",
+        title: "O Senhor dos Anéis",
         subtitle: "Os Aneis de Poder",
         description: "Antes da jornada de Frodo pela Terra-Média, a Segunda Era foi palco de diversas lendas heróicas. O drama épico que se passa milhares de anos antes de A Sociedade do Anel, tem foco em um momento da história em que grandes poderes foram forjados, reinos ascenderam e também ruíram, ao mesmo tempo em que heróis foram testados e tiveram a esperança quase aniquilada pelo grande vilão do universo de Senhor dos Anéis. A série começa em um momento de paz, quando o elenco de novos e antigos personagens precisam enfrentar o ressurgimento do mal, vindo das profundezas mais escuras das Montanhas Sombrias. Os reinos e personagens irão esculpir legados que viverão por muito tempo depois que eles se forem.",
         genero: ["Drama", "Fantasia", "Prime Video"],

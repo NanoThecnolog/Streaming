@@ -22,7 +22,8 @@ export default function CollectionContainer({ cardPerContainer }: CollectionProp
         'pânico',
         'divergente',
         'vingadores',
-        'O Cavaleiro das Trevas'
+        'O Cavaleiro das Trevas',
+        'O Senhor dos Anéis'
     ]
     useEffect(() => {
         if (cardPerContainer) {
@@ -35,30 +36,33 @@ export default function CollectionContainer({ cardPerContainer }: CollectionProp
         fetchCollectionData()
     }, [])
 
+    /**
+ * Faz a requisição de dados das coleções, realizando as seguintes etapas:
+ * 
+ * 1. Mapeia os nomes das coleções da constante `collectionsName` e executa uma função de busca para cada nome.
+ * 2. Filtra os resultados da requisição, descartando os valores `null`, e os organiza em um único array.
+ * 3. Cria um `Set` contendo os IDs das coleções a partir da constante importada `collections`.
+ * 4. Filtra os resultados da requisição, mantendo apenas os objetos cujo ID esteja presente no `Set` de IDs.
+ * 5. Atualiza o estado `resultados` com os dados filtrados.
+ * 
+ * Em caso de erro, a função captura e exibe o erro no console.
+ */
+
     async function fetchCollectionData() {
         try {
+            const resultados = (await Promise.all(collectionsName.map(fetchCollection)))
+                .flat()
+                .filter((result): result is ResultsProps => result !== null)
 
-            const promises = collectionsName.map(collection => fetchCollection(collection))
-            const results = await Promise.all(promises)
-
-            const resultados = results.filter((result): result is ResultsProps[] => result !== null).flat()
-            //console.log("resultados: ", resultados)
-
-            const colecao = new Set(collections.map(card => card.id))
-            //console.log("colecao: ", colecao)
-
-            const filtrados = resultados.filter(result => colecao.has(result.id))
-            setResultados(filtrados)
-
+            const colecaoIds = new Set(collections.map(({ id }) => id))
+            setResultados(resultados.filter(({ id }) => colecaoIds.has(id)))
         } catch (err) {
             console.error(err)
         }
     }
     function nextPage() {
         if (currentIndex + 1 < resultados.length) {
-            if (currentIndex < currentIndex + cardsPerPage) {
 
-            }
             setCurrentIndex(currentIndex + 1)
         }
     }
