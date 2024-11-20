@@ -26,6 +26,264 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fminhaseriefavorita.com%2Fwp-content%2Fuploads%2F2022%2F05%2Fround6.jpg&f=1&nofb=1&ipt=f7069ce8576674ac192b0fff03f505ca3e5eab438483943a8a5d956b94e5bb07&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.hepOeQ-av4_cFGEew5oJ2QAAAA%26pid%3DApi&f=1&ipt=1e65a06f4a58d79bbc2cef8ce241cf3362cb50447ccc51f91761c764b8407d51&ipo=images",
+        tmdbID: 93405,
+        title: "Round 6",
+        subtitle: "",
+        description: "Centenas de jogadores falidos aceitam um estranho convite para um jogo de sobrevivência. Um prêmio milionário aguarda, mas as apostas são altas e mortais.",
+        genero: ["Ação", "Mistério", "Drama"],
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/18al7AiQOe3gTZ6o-xxsel04AeUKHgNrm/preview",
+                        duration: "59m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1zN8I2-bCthmcujimK40o2Hx7phsUV5iR/preview",
+                        duration: "01h 02m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1BZclg24E6UaUX735XHXEyrsl0YQrQsW8/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1Z8itLprpcF0lGNY9ON-fr4C8hT_LaRLU/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1kNhMlWQUcKURACiIkKn9_X6vHRinkhV_/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1A26h4y7Qfy0z-D-ivl5m3UeqhupcMcu6/preview",
+                        duration: "01h 01m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1zTVZt5cLahQugs7drMQy_urjSQd2ihXW/preview",
+                        duration: "57m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1a9RfNBNo52pjPQzfkjt2T00Ms6Y_mSQC/preview",
+                        duration: "32m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1G1TvNivd4Bjzg2sodtNIb0OckygUuNV1/preview",
+                        duration: "55m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.collider.com%2Fwp-content%2Fuploads%2F2019%2F01%2Fsex-education-image-1.jpg&f=1&nofb=1&ipt=4b74ab78399e5f54370d67cd10b1a02086122dd84a7ed9e831bf56fb0fc76844&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.qiFmzoh7jRaNmuKEHnYJPwHaKM%26pid%3DApi&f=1&ipt=5a9c08baf5ffad80069cf0f909702c22c7b22c99382569a1f910e9420e5b821c&ipo=images",
+        tmdbID: 81356,
+        title: "Sex Education",
+        subtitle: "",
+        description: "Graças à mãe terapeuta, Otis sabe tudo de sexo. Para aproveitar isso, a rebelde Maeve propõe abrir uma clínica de terapia sexual na escola.",
+        genero: ["Comédia", "Drama", "Netflix"],
+        season: [
+            {
+                s: 1,
+                lang: "Legendado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1DzO6rJ8S-M8VFFYdzWl37UVsJTj--EYy/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1USKGofiyOle_0ktyX9uO1c8dUyvhT1Xf/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1NX6vVzVq5rAyL20C-VPZdk4NNkLWM3jb/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1bps30XCuMeDOyXQnJSDcwGlHcy7ZrCaI/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1y3fdo0yrxIf2PY51nkRQHG-suklYj2hU/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1A7FC4msCCSZ6PZKnVcXt7PFl5j1a8D93/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1YP7ASY3zgQnQV5SPn8k48KNMuekGPdxE/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1cqBMzNeAWlio-2CR_-85ChoLTKVMT5C1/preview",
+                        duration: "52m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                lang: "Legendado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1_1E_dGf1zXZimeHMqTc36FoAXSevPqDk/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1xSQKP4CxHJ4YdysR0t9Voj9WYYzk9Oq3/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1GX4FxVyx3l9UWkBqvxfFj8NbNKQM5ep4/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1v5r-Wj08NRe64bIaOtKhhJsUkHeFweMS/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1uC9qqnndopGZCz3SwvEnI6n21pdmi3gC/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1lsQY8klxTvoomM5AnqmrUXEvt2dHmBID/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1Pt67Ba41hl29It28akDqZp-eYy_wfiie/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1fwkh_xHldWtGbJy0f0TKTY85OJBvIZjm/preview",
+                        duration: "59m"
+                    },
+
+                ]
+            },
+            {
+                s: 3,
+                lang: "Legendado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1ovVLV8qFds2KiFAGWXErPfdHj8lPf42N/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/18ip3S59OP0Xa5mtBOqxHPubhEDOlkVyt/preview",
+                        duration: "01h"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1xBpuU8DeNCydq72c1CZXxWlDV5n4Ezfg/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/100pt6o3a9BaI3NoQ4uQAcgTLl7J4eMnB/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1g2N9QtK71UmhE7PitYfpws7fDvYinDk3/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1r3uE4fbgpFuB_aSNaQYLV8dDctQ4_xJj/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1BHTuCY54fvIoYgCsh57ctLjubg_LRxmK/preview",
+                        duration: "58m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/12mqFieikQzU9GlD8_jSAeHgY-7FXcNGA/preview",
+                        duration: "01h"
+                    },
+                ]
+            },
+            {
+                s: 4,
+                lang: "Legendado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1pDUjBu_NjmrvXa3T3aRxUiY5Z_Cmf6_Y/preview",
+                        duration: "55m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1ZK3_OKUh0FbXEaRmSBMZLC-XR0J7dt8G/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/19mOXLmP37wqra5wvO04eBjaRgGD4NKcC/preview",
+                        duration: "55m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1ZndvKVo45Ox8jw0rsNb7SIWtDp7QMLS0/preview",
+                        duration: "56m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1m5eWLKfj-Y6YG535WuI3gkIeyLzSanwf/preview",
+                        duration: "55m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/186QAuIB8Z3yfc2dN4ffirTrByeKC0caM/preview",
+                        duration: "01h 06m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1trZ74LvvZtFVxlZMXxojKa2d69NtU3uA/preview",
+                        duration: "01h"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1FpT33OFMQ1reQPgZpV3S4UDyes4pii-d/preview",
+                        duration: "01h 25m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd2d7ho1ae66ldi.cloudfront.net%2FArquivoNoticias%2F7a63f7dc-9303-11ef-aa79-9bebc91072b3%2Fduna-profecia.jpg&f=1&nofb=1&ipt=dfcad1ebf07d0f09e9a5317716a98d48ba4e4cc342b4ef3bfef3221616d71146&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.djzeUW3Zm8cFHY-MDct0jAHaLG%26pid%3DApi&f=1&ipt=10cc65614ca017333fe2a314fba08145c8f8d3316953c90c60ee5c1168ce19f1&ipo=images",
         tmdbID: 90228,

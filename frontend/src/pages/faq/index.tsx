@@ -52,6 +52,10 @@ export default function FAQ(status: string) {
             answer: "Os arquivos dos filmes são disponibilizados através da plataforma Google Drive por terceiros. Por esse motivo, não possuímos controle ou responsabilidade sobre os arquivos incorporados à plataforma."
         },
         {
+            question: "Nos filmes e séries legendados, onde fica a legenda?",
+            answer: "Na maioria dos filmes e séries legendados, a legenda já vem embutida e não é necessário ativá-la. Porém, nos casos em que a legenda não está ativada por padrão, você pode ativar nos controles do vídeo."
+        },
+        {
             question: "Posso pedir ou indicar que acrescentem algum filme específico ao catálogo?",
             answer: "Sim, você pode! Envie um email para contato@ericssongomes.com com as informações do filme/série (nome e ano de lançamento) e tentaremos adicioná-lo ao catálogo."
         },

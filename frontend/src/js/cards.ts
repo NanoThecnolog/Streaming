@@ -21,6 +21,17 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fj8uwQxgNsX2d7BHmls8Gj3Gd4c.jpg&f=1&nofb=1&ipt=0e77ff1ef7e883798cb2afeba8de2a05201926c73110f6807207f48a26a85d51&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.z5KvasVYWZgp5Lw4W50m1QHaLH%26pid%3DApi&f=1&ipt=90c07c48b36188fc52ca098ae83d6aa071e73a1ea939a9fcad0e4aa9dbda04b5&ipo=images",
+        tmdbId: 23168,
+        title: "Atração Perigosa",
+        subtitle: "",
+        description: "Doug MacRay é o líder de um grupo de ladrões. Um dia, ao realizar um assalto, seu parceiro James faz Claire Keesey refém para facilitar a fuga do grupo, libertando-a logo em seguida. Sabendo que a jovem está traumatizada, Doug se aproxima dela e os dois se apaixonam. Doug tenta abandonar a vida de crimes, mas é forçado a continuar cometendo assaltos.",
+        src: "https://drive.google.com/file/d/1RH8McZfzM-M7qpy9xwf6kHHkx-cPAyrh/preview",
+        duration: "01h 45m",
+        genero: ["Drama", "Suspense", "Crime"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2024%2F05%2Ftrigger.jpg&f=1&nofb=1&ipt=2b97667ab4d9ec1f8aefd645c245ea44c864848c47e342f225b894fc56da941b&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.7lzEDKIMvtIQfp7dJ_3RNgHaLJ%26pid%3DApi&f=1&ipt=ddb2c8bf83dc4e9b3b336cc9f1fd6a6404397238265a7f3d3f798017acccb3c3&ipo=images",
         tmdbId: 704673,
