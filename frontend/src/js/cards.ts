@@ -21,6 +21,17 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.papodecinema.com.br%2Fwp-content%2Fuploads%2F2015%2F01%2F20150118-projeto-almanaque-papo-de-cinema.jpg&f=1&nofb=1&ipt=48b6632768b7c095ba688500a3031120c7e64f8370aeb0446fbe8531e73499c0&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.4Wfz4z_oaqaaNIokYId3gwHaLH%26pid%3DApi&f=1&ipt=6a22bf80539209f629f1f7271d79fdea444cadb3ab7483271e0949ba39a772d2&ipo=images",
+        tmdbId: 227719,
+        title: "Projeto Almanaque",
+        subtitle: "",
+        description: "Um grupo de jovens acaba descobrindo instruções secretas para montar uma máquina do tempo, e decidem construir o aparelho. No entanto, os efeitos são muito diferentes do que esperavam.",
+        src: "https://drive.google.com/file/d/1jkKhEUMBcYwvCh4jLM6JyQ_u7GlkhKOq/preview",
+        duration: "01h 46m",
+        genero: ["Ficção Científica", "Suspense"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FqBQV4i2sjIydDJUKm7pwvpyfy5p.jpg&f=1&nofb=1&ipt=81abde77bedde741fdd419722c634c4cbdae35824754a147bd6d87ab784a4b40&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Xy1G1tsGQW8cvxafdFQH_wHaLH%26pid%3DApi&f=1&ipt=bc486b4e736e975708f3923e6dfe57dcbe6a091ea59b2df74a5211738697232f&ipo=images",
         tmdbId: 693134,
