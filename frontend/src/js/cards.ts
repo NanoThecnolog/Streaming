@@ -21,6 +21,17 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FqBQV4i2sjIydDJUKm7pwvpyfy5p.jpg&f=1&nofb=1&ipt=81abde77bedde741fdd419722c634c4cbdae35824754a147bd6d87ab784a4b40&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Xy1G1tsGQW8cvxafdFQH_wHaLH%26pid%3DApi&f=1&ipt=bc486b4e736e975708f3923e6dfe57dcbe6a091ea59b2df74a5211738697232f&ipo=images",
+        tmdbId: 693134,
+        title: "Duna",
+        subtitle: "Parte dois",
+        description: "A jornada de Paul Atreides continua. Ele está determinado a buscar vingança contra aqueles que destruíram sua família e seu lar. Com a ajuda de Chani e dos Fremen, ele embarca em uma jornada espiritual, mística e marcial. Se torna Muad'Dib, o líder messiânico dos Fremen, enquanto luta para evitar um futuro sombrio que ele testemunhou em visões. No entanto, suas ações inadvertidamente desencadeiam uma Guerra Santa em seu nome, que se espalha pelo universo conhecido. Enquanto enfrenta escolhas difíceis entre o amor por Chani e o destino de seu povo, Paul precisa usar suas habilidades e conhecimentos para evitar o terrível futuro que previu.",
+        src: "https://drive.google.com/file/d/1cm9iOdc2K-r_RXXZLPPLRiSIpkT_HyV6/preview",
+        duration: "02h 46m",
+        genero: ["Ficção Científica", "Aventura"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fj8uwQxgNsX2d7BHmls8Gj3Gd4c.jpg&f=1&nofb=1&ipt=0e77ff1ef7e883798cb2afeba8de2a05201926c73110f6807207f48a26a85d51&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.z5KvasVYWZgp5Lw4W50m1QHaLH%26pid%3DApi&f=1&ipt=90c07c48b36188fc52ca098ae83d6aa071e73a1ea939a9fcad0e4aa9dbda04b5&ipo=images",
         tmdbId: 23168,
@@ -29,7 +40,7 @@ export const cards: CardsProps[] = [
         description: "Doug MacRay é o líder de um grupo de ladrões. Um dia, ao realizar um assalto, seu parceiro James faz Claire Keesey refém para facilitar a fuga do grupo, libertando-a logo em seguida. Sabendo que a jovem está traumatizada, Doug se aproxima dela e os dois se apaixonam. Doug tenta abandonar a vida de crimes, mas é forçado a continuar cometendo assaltos.",
         src: "https://drive.google.com/file/d/1RH8McZfzM-M7qpy9xwf6kHHkx-cPAyrh/preview",
         duration: "01h 45m",
-        genero: ["Drama", "Suspense", "Crime"]
+        genero: ["Drama", "Suspense", "Crime", "Legendado"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2024%2F05%2Ftrigger.jpg&f=1&nofb=1&ipt=2b97667ab4d9ec1f8aefd645c245ea44c864848c47e342f225b894fc56da941b&ipo=images",

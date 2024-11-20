@@ -32,7 +32,7 @@ export const series: SeriesProps[] = [
         title: "Round 6",
         subtitle: "",
         description: "Centenas de jogadores falidos aceitam um estranho convite para um jogo de sobrevivência. Um prêmio milionário aguarda, mas as apostas são altas e mortais.",
-        genero: ["Ação", "Mistério", "Drama"],
+        genero: ["Ação", "Mistério", "Drama", "Netflix"],
         season: [
             {
                 s: 1,
