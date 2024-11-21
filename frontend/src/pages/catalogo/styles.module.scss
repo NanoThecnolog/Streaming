@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-family: var(--font-Roboto);
+    padding: 150px 50px;
+
+    .contentContainer {
+        display: grid;
+        width: 80vw;
+        gap: 6px;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+}
