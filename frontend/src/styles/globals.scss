@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&display=swap");
 
+
 :root {
   --blue: #2349bd;
   --blue-selected: #1e49d2cc;
@@ -15,7 +16,8 @@
   --yellow: #e0bf29;
   --font-bebas: "Bebas Neue", cursive;
   --font-Anton: "Anton", sans-serif;
-  --font-Roboto: "Roboto", sans-serif;
+  --font-Roboto: "Roboto", serif;
+  --font-Montserrat: "Montserrat", sans-serif;
   --background-gray-light: #343434;
 }
 
@@ -28,7 +30,7 @@ body {
   box-sizing: border-box;
   scroll-behavior: smooth;
   color: var(--white);
-
+  font-optical-sizing: auto;
 
 }
 

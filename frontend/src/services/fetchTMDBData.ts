@@ -15,7 +15,7 @@ if (!tmdbToken) {
  * Função de centralização de lógica para chamada à API do TMDB. Parâmetro type distingue entre filmes e séries. Aceita o parametro imageType que determina o que deve ser buscado.
  * @param tmdbID ID do filme no TMDB
  * @param type movie (filme) | tv (serie)
- * @param imageType Tipo de imagem para busca (backdrop: imagem larga; poster: imagem alta;)
+ * @param imageType Tipo de imagem para busca -> backdrop imagem larga | poster: imagem alta
  * @returns Retorna o caminho da imagem ou o objeto com as informações gerais do filme no TMDB,ou null em caso de erro.
  */
 async function fetchTMDBData<T>(tmdbID: number, type: 'movie' | 'tv', imageType: 'backdrop' | 'poster' | 'details' = 'details'): Promise<T | null> {
@@ -23,7 +23,7 @@ async function fetchTMDBData<T>(tmdbID: number, type: 'movie' | 'tv', imageType:
 
     const baseUrl = type === 'movie' ? 'https://api.themoviedb.org/3/movie/' : 'https://api.themoviedb.org/3/tv/';
     const language = 'pt-BR';
-    const endPoint = `${baseUrl}${tmdbID}?language=${language}${imageType !== 'details' ? '/images' : ''}`;
+    //const endPoint = `${baseUrl}${tmdbID}?language=${language}${imageType !== 'details' ? '/images' : ''}`;
     const endPoint2 = `/${type}/${tmdbID}`;
 
     try {
