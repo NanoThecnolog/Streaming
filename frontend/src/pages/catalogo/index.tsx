@@ -32,7 +32,7 @@ export default function Catalogo() {
                 <div>
                     <h1>Filmes</h1>
                     <div className={styles.contentContainer}>
-                        {cards.map(card => (
+                        {[...cards].sort((a, b) => a.title.localeCompare(b.title)).map(card => (
                             <div key={card.tmdbId}>
                                 <h4>{card.title} {card.subtitle && ` - ${card.subtitle}`}</h4>
                             </div>

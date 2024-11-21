@@ -47,8 +47,8 @@ export default function Donate(status: string) {
                 <div className={styles.donateContainer}>
                     <div className={styles.title}>
                         <h1>Faça uma doação ao Projeto</h1>
-                        <p>O <strong className={styles.brand}><span className={styles.red}>FLIX</span><span className={styles.white}>NEXT</span></strong> é um projeto sem fins lucrativos, mas, como tudo na vida, manter o site no ar tem seus custos.</p>
-                        <p>Se você curtiu a experiência de assistir seu filme favorito gratuitamente ou simplesmente quer apoiar o projeto, sinta-se à vontade para contribuir usando um dos métodos abaixo!</p>
+                        <p>A plataforma <strong className={styles.brand}><span className={styles.red}>FLIX</span><span className={styles.white}>NEXT</span></strong> é um projeto sem fins lucrativos, mas, como tudo na vida, manter o site no ar tem seus custos.</p>
+                        <p>Se você curtiu a experiência de assistir seu filme ou série favorito gratuitamente ou simplesmente quer apoiar o projeto, sinta-se à vontade para contribuir usando um dos métodos abaixo!</p>
                         <p>Ao doar, Você também receberá um <strong>*emblema de doador</strong> em sua conta, para exibir com orgulho.</p>
                     </div>
                     <div className={styles.donate}>
@@ -67,7 +67,7 @@ export default function Donate(status: string) {
 
                     </div>
                     <div>
-                        <h4>*Após fazer sua doação, envie o comprovante e o e-mail utilizado para criar sua conta em nossa plataforma para contato@ericssongomes.com, e assim receber seu emblema.</h4>
+                        <h4>*Ao fazer sua doação, identifique-se enviando o email da sua conta na descrição do pix para assim receber seu emblema, ou entre em contato conosco!</h4>
                     </div>
 
                 </div>

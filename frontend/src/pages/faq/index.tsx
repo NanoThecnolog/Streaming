@@ -52,20 +52,20 @@ export default function FAQ(status: string) {
             answer: "Os arquivos dos filmes são disponibilizados através da plataforma Google Drive por terceiros. Por esse motivo, não possuímos controle ou responsabilidade sobre os arquivos incorporados à plataforma."
         },
         {
-            question: "Nos filmes e séries legendados, onde fica a legenda?",
-            answer: "Na maioria dos filmes e séries legendados, a legenda já vem embutida e não é necessário ativá-la. Porém, nos casos em que a legenda não está ativada por padrão, você pode ativar nos controles do vídeo."
+            question: "Nos filmes e séries legendados, como ativar a legenda?",
+            answer: "Na maioria dos filmes e séries legendados, a legenda já vem embutida e não é necessário ativá-la. Porém, nos casos em que a legenda não está ativa, pode ativá-la nos controles do vídeo."
         },
         {
-            question: "Posso pedir ou indicar que acrescentem algum filme específico ao catálogo?",
+            question: "Posso pedir ou indicar que acrescente algum filme ou série específico ao catálogo?",
             answer: "Sim, você pode! Envie um email para contato@ericssongomes.com com as informações do filme/série (nome e ano de lançamento) e tentaremos adicioná-lo ao catálogo."
         },
         {
             question: "A plataforma é paga?",
-            answer: "Não! Não realizamos cobranças, nem exigimos pagamentos para criar sua conta. Como os filmes e séries são disponibilizados por terceiros, não possuímos responsabilidade pelos mesmos e não temos direitos ou liçensas comerciais para tal. </br> </br> O propósito é justamente facilitar o acesso a conteúdos para aqueles que não possuem condições financeiras para pagar streamings ou alugar filmes e séries por aí. Ao invés de se expor a ataques na internet entrando em sites maliciosos procurando o arquivo para baixar, a plataforma entrega de forma gratuita, segura e livre os conteúdos para que todos possam assistir."
+            answer: "Não! Não realizamos cobranças, nem exigimos pagamentos para criar sua conta. Como os filmes e séries são disponibilizados por terceiros, não possuímos responsabilidade pelos mesmos e não temos direitos ou licenças comerciais para tal. </br> </br> O propósito é justamente facilitar o acesso a conteúdos para aqueles que não possuem condições financeiras para manter tantos streamings ou alugar filmes e séries por aí. Ao invés de se expor a ataques na internet entrando em sites maliciosos, procurando o filme ou série para baixar, a plataforma entrega de forma gratuita, segura e livre os conteúdos para que todos possam assistir."
         },
         {
             question: "Como posso ajudar o projeto?",
-            answer: "Você pode ajudar realizando uma doação ao projeto fazendo um pix! As chaves disponíveis são: <ul><li>email: <strong>dev@ericssongomes.com</strong></li> <li>chave-aleatória: <strong>69d28ddb-5447-44ec-997a-71be04038409</strong></li></ul> Qualquer valor é bem vindo, sinta-se livre para contribuir como quiser. Você estará me ajudando e ajudando com os custos de hospedagem do projeto."
+            answer: "Você pode ajudar realizando uma doação ao projeto! As chaves PIX disponíveis são: <ul><li>email: <strong>dev@ericssongomes.com</strong></li> <li>chave-aleatória: <strong>69d28ddb-5447-44ec-997a-71be04038409</strong></li></ul> Qualquer valor é bem vindo, sinta-se livre para contribuir como quiser. Você estará me ajudando e ajudando com os custos de hospedagem do projeto."
         },
     ]
     return (
