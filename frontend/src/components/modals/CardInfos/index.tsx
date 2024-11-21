@@ -12,6 +12,7 @@ import { getUserCookieData } from "@/services/cookieClient"
 import { fetchTMDBBackDrop, fetchTMDBMovie } from "@/services/fetchTMDBData"
 import { addWatchLater, isOnTheList } from "@/services/handleWatchLater"
 import Stars from "@/components/ui/StarAverage"
+import Adult from "@/components/ui/Adult"
 
 interface InfoModalProps {
     card: CardsProps;
@@ -24,8 +25,6 @@ export default function CardInfoModal({ card, average, handleModalClose }: InfoM
     const [onWatchLater, setOnWatchLater] = useState(false)
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [user, setUser] = useState<UserProps>()
-    //const [TMDBImage, setTMDBImage] = useState<string | null>(null)
-    //const [TMDBMovie, setTMDBMovie] = useState<MovieTMDB | null>(null)
     const [TMDBData, setTMDBData] = useState<{ image: string | null, movie: MovieTMDB | null }>({ image: null, movie: null });
 
     useEffect(() => {
@@ -129,6 +128,7 @@ export default function CardInfoModal({ card, average, handleModalClose }: InfoM
                         &quot;
                     </p>
                     <Stars average={average} />
+                    {TMDBData.movie?.adult && <Adult />}
                 </div>
                 <div className={styles.desc_mid}>
                     <p>{TMDBData.movie?.overview || card.description}</p>

@@ -14,13 +14,15 @@ type StateProps = {
     modalVisible: boolean,
     TMDBImage: string | null,
     vote_average: number,
+    adult: boolean
 }
 
 export default function Card({ card }: CardProps) {
     const [state, setState] = useState<StateProps>({
         modalVisible: false,
         TMDBImage: null,
-        vote_average: 0
+        vote_average: 0,
+        adult: false
     })
     const { modalVisible, TMDBImage } = state
 
@@ -36,7 +38,7 @@ export default function Card({ card }: CardProps) {
         setState(prev => ({ ...prev, TMDBImage: null }))
         handlePosterImage();
         handleMovieData()
-    }, [card, modalVisible])
+    }, [card])
 
     async function handleMovieData() {
         if (card.tmdbId === 0 || !card.tmdbId) return console.error("TMDBID inválido.", card.tmdbId)
@@ -44,6 +46,8 @@ export default function Card({ card }: CardProps) {
             const movieData = await fetchTMDBMovie(card.tmdbId)
             if (movieData) {
                 setState(prev => ({ ...prev, vote_average: movieData.vote_average }))
+                setState(prev => ({ ...prev, adult: movieData.adult }))
+                console.log(movieData.adult)
             }
         } catch (err: any) {
             console.log("Erro ao buscar dados do filme", err?.response?.data?.error)
@@ -98,6 +102,7 @@ export default function Card({ card }: CardProps) {
                         vote_average={state.vote_average}
                         modalVisible={modalVisibility}
                         isVisible={modalVisible}
+                        adult={state.adult}
                     />
                 </div>
             </div>

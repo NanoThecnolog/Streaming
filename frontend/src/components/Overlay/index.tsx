@@ -13,6 +13,7 @@ import { getUserCookieData, updateUserCookie } from '@/services/cookieClient';
 import { addWatchLater, isOnTheList } from '@/services/handleWatchLater';
 import { addFavorite, isFavorite } from '@/services/handleFavorite';
 import Stars from '../ui/StarAverage';
+import Adult from '../ui/Adult';
 
 
 interface OverlayProps {
@@ -24,6 +25,7 @@ interface OverlayProps {
     genero: string[]
     isVisible: boolean,
     vote_average: number
+    adult: boolean
 
     modalVisible: () => void;
 }
@@ -35,7 +37,7 @@ type StateProps = {
     isMovieFavorite: boolean,
 }
 
-export default function Overlay({ tmdbId, title, subtitle = "", src, duration, genero, isVisible, vote_average, modalVisible }: OverlayProps) {
+export default function Overlay({ tmdbId, title, subtitle = "", src, duration, genero, isVisible, vote_average, modalVisible, adult }: OverlayProps) {
 
     //Refatorar Esse componente
     const [state, setState] = useState<StateProps>({
@@ -132,11 +134,11 @@ export default function Overlay({ tmdbId, title, subtitle = "", src, duration, g
             <h3>{title.toUpperCase()}</h3>
             {subtitle && (
                 <h4>{subtitle}</h4>
-
             )}
             <p>{duration} - {genero.join(', ')}</p>
-            <div>
+            <div className={styles.tmdbInfo}>
                 <Stars average={vote_average} />
+                {adult && <Adult />}
             </div>
             <div className={styles.button_container}>
                 <div className={styles.watch}>
