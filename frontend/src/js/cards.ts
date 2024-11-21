@@ -21,6 +21,28 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F5A1ObQ0fGNHVWivBdlJyO586BTK.jpg&f=1&nofb=1&ipt=6851eddfb7d1e47a81ef8a109609d99607ce3d31a82e733f3fa76e5d393a6cfd&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.oNNb8RW3ZdOdbHtEjetK-QHaLH%26pid%3DApi&f=1&ipt=6e02f4147d028b3ac6f7765bb9149f67c16de27c2b171f335ae89b67904fe084&ipo=images",
+        tmdbId: 8247,
+        title: "Jumper",
+        subtitle: "",
+        description: 'David Rice é um "jumper", alguém capaz de se teleportar para qualquer lugar do planeta que queira. Ele usa seus poderes para se divertir, até que um dia descobre que está sendo perseguido por uma organização secreta, que pretende matar todos os Jumpers. A partir de então David se une a outro jumper e passa a enfrentar uma guerra que já existe há milhares de anos.',
+        src: "https://drive.google.com/file/d/1ZXfbzyQ_NsC2oJWkUxn4kuRCKkW6q_UL/preview",
+        duration: "01h 28m",
+        genero: ["Ação", "Ficção Científica"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.nextflicks.tv%2Fwp-content%2Fuploads%2F2023%2F05%2Fwhere-to-watch-fight-club.jpg&f=1&nofb=1&ipt=04ddc1d4f1dfd2d88844845911f9a3ebaf35875c88b13ea1a812092913a4bcc3&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.RQbk86KGjAZJG6oq0IxqnQHaLH%26pid%3DApi&f=1&ipt=41f66366c3544d4955b5053864fa681d41010e7f65d53d9e274b7b100f439a88&ipo=images",
+        tmdbId: 550,
+        title: "Clube da Luta",
+        subtitle: "",
+        description: "Um homem deprimido que sofre de insônia conhece um estranho vendedor de sabonetes chamado Tyler Durden. Eles formam um clube clandestino com regras rígidas onde lutam com outros homens cansados de suas vidas mundanas. Mas sua parceria perfeita é comprometida quando Marla chama a atenção de Tyler.",
+        src: "https://drive.google.com/file/d/1DpZzrI0cfmsuRPo3Ues0yEE2F_1-3GMY/preview",
+        duration: "02h 19m",
+        genero: ["Drama"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.papodecinema.com.br%2Fwp-content%2Fuploads%2F2015%2F01%2F20150118-projeto-almanaque-papo-de-cinema.jpg&f=1&nofb=1&ipt=48b6632768b7c095ba688500a3031120c7e64f8370aeb0446fbe8531e73499c0&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.4Wfz4z_oaqaaNIokYId3gwHaLH%26pid%3DApi&f=1&ipt=6a22bf80539209f629f1f7271d79fdea444cadb3ab7483271e0949ba39a772d2&ipo=images",
         tmdbId: 227719,
