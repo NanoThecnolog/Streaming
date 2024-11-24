@@ -187,8 +187,8 @@ export default function Serie(status: string) {
                 {serie ?
                     (
                         <div className={styles.serieContainer}>
-                            <div className={styles.imagecontainer}>
-                                <Image src={TMDBBackDrop ? TMDBBackDrop : serie?.background} fill alt={serie.title} />
+                            <div className={styles.imageContainer}>
+                                <Image className={styles.img} src={TMDBBackDrop ? TMDBBackDrop : serie?.background} fill alt={serie.title} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                             </div>
                             <div className={styles.imageBackground}>
                                 <div className={styles.desc_top}>
