@@ -21,6 +21,17 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmeialua.net%2Fwp-content%2Fuploads%2F2022%2F10%2Fadao-negro-scaled.jpg&f=1&nofb=1&ipt=5a6e946e676bf91c3832d7ef591418370123fb4718873c848499488afdf49699&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.FWR939m1CYxWkoPlXC4VNAHaJ5%26pid%3DApi&f=1&ipt=a2a44a0c015d6cc08a31b4628745f2b0cc4d7cd3eb6f24a09616d124e4488847&ipo=images",
+        tmdbId: 436270,
+        title: "Adão Negro",
+        subtitle: "",
+        description: "Quase 5.000 anos depois de ter sido concedido com os poderes onipotentes dos deuses egípcios - e de ter sido preso, - Adão Negro se ergue de seu túmulo, pronto para trazer sua justiça ao mundo moderno.",
+        src: "https://drive.google.com/file/d/10LuHLwj9FuUhJRS48OgpcwAgcxvqj_-I/preview",
+        duration: "02h 05m",
+        genero: ["Ação", "Aventura", "Ficção Científica", "Vilão", "DC"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F5A1ObQ0fGNHVWivBdlJyO586BTK.jpg&f=1&nofb=1&ipt=6851eddfb7d1e47a81ef8a109609d99607ce3d31a82e733f3fa76e5d393a6cfd&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.oNNb8RW3ZdOdbHtEjetK-QHaLH%26pid%3DApi&f=1&ipt=6e02f4147d028b3ac6f7765bb9149f67c16de27c2b171f335ae89b67904fe084&ipo=images",
         tmdbId: 8247,

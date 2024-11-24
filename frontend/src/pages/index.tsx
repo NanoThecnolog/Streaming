@@ -52,7 +52,9 @@ export default function Home(status: string) {
       { width: 1650, cards: 4 },
       { width: Infinity, cards: 5 },
     ]
-    //definindo quantidade de cards por container
+    /**
+     * Define a quantidade de cards por container baseado na largura da página
+     */
     function handleResize() {
       const windowWidth = window.innerWidth;
       setWidth(windowWidth)
@@ -63,6 +65,7 @@ export default function Home(status: string) {
     handleResize()
     return () => window.removeEventListener('resize', handleResize)
   }, [])
+
   useEffect(() => {
     function rightClickBlock(event: MouseEvent) { event.preventDefault(); }
 

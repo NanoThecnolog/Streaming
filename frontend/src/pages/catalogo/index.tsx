@@ -25,7 +25,7 @@ export default function Catalogo() {
         <>
             <Head>
                 <title>Catálogo | FlixNext</title>
-                <meta name="description" content="Veja os títulos disponíveis na plataforma" />
+                <meta name="description" content="Catálogo com mais de 200 títulos para todos os gostos. Veja os conteúdos disponíveis na plataforma" />
             </Head>
             <Header userAvatar={user?.avatar} />
             <main className={styles.container}>
