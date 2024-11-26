@@ -19,6 +19,7 @@ import { addWatchLater, isOnTheList } from "@/services/handleWatchLater";
 import Stars from "@/components/ui/StarAverage";
 import Image from "next/image";
 import Adult from "@/components/ui/Adult";
+
 export default function Serie(status: string) {
     //refatorar
     const router = useRouter()
@@ -189,7 +190,7 @@ export default function Serie(status: string) {
                     (
                         <div className={styles.serieContainer}>
                             <div className={styles.imageContainer}>
-                                <Image className={styles.img} src={TMDBBackDrop ? TMDBBackDrop : serie?.background} fill alt={serie.title} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                                <Image className={styles.img} src={TMDBBackDrop ? TMDBBackDrop : serie?.background} fill quality={100} alt={serie.title} sizes="100vw" />
                             </div>
                             <div className={styles.imageBackground}>
                                 <div className={styles.desc_top}>

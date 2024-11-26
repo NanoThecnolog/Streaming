@@ -54,7 +54,7 @@ export default function WatchSerie() {
     }, [])
 
     function handleBack() {
-        Router.back()
+        Router.push(`/series/serie?title=${title}`)
     }
     useEffect(() => {
         function rightClickBlock(event: MouseEvent) { event.preventDefault(); }
