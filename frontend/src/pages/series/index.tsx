@@ -20,6 +20,7 @@ export default function Series(status: string) {
     const divisaoPorGenero = [
         "ação",
         "suspense",
+        "Comédia",
         "Terror",
         "ficção científica",
         "drama",
