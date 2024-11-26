@@ -1,9 +1,7 @@
-import { Container } from "react-dom"
 import Card from "@/components/seriesComponents/Card"
 import { series } from "@/js/series";
 import styles from './styles.module.scss'
 import { useEffect, useState } from "react";
-
 import { MdNavigateNext } from "react-icons/md";
 import { MdNavigateBefore } from "react-icons/md";
 

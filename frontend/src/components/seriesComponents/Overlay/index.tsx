@@ -15,6 +15,7 @@ import { getCookie } from 'cookies-next';
 import { addWatchLater, isOnTheList } from '@/services/handleWatchLater';
 import { addFavorite, isFavorite } from '@/services/handleFavorite';
 import Stars from '@/components/ui/StarAverage';
+import Adult from '@/components/ui/Adult';
 
 
 interface OverlayProps {
@@ -23,6 +24,7 @@ interface OverlayProps {
     subtitle: string,
     season: Seasons[];
     genero: string[]
+    faixa: string
     isVisible: boolean,
     vote_average: number
 
@@ -36,7 +38,7 @@ type StateProps = {
     isMovieFavorite: boolean
 }
 
-export default function OverlaySerie({ tmdbId, title, subtitle, season, genero, isVisible, vote_average, modalVisible }: OverlayProps) {
+export default function OverlaySerie({ tmdbId, title, subtitle, season, genero, faixa, isVisible, vote_average, modalVisible }: OverlayProps) {
     //refatorar
     const [state, setState] = useState<StateProps>({
         user: undefined,
@@ -135,7 +137,10 @@ export default function OverlaySerie({ tmdbId, title, subtitle, season, genero, 
                         : season.length === 1
                         && `${season.length} temporada`} - {genero.join(', ')}
                 </p>
+            </div>
+            <div className={styles.tmdbInfo}>
                 <Stars average={vote_average} />
+                <Adult faixa={faixa} />
             </div>
 
             <div className={styles.button_container}>
@@ -157,6 +162,7 @@ export default function OverlaySerie({ tmdbId, title, subtitle, season, genero, 
                     onClick={handleFavorite}
                 >
                     <FaStar size={20} />
+
                 </div>
                 <div className={`${styles.queue}`} onClick={openModalVisible}>
                     <FaInfoCircle size={20} />

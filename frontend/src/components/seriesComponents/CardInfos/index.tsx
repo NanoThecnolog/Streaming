@@ -11,6 +11,7 @@ import { getUserCookieData } from '@/services/cookieClient'
 import { fetchTMDBSeries } from '@/services/fetchTMDBData'
 import { addWatchLater, isOnTheList } from '@/services/handleWatchLater'
 import Stars from '@/components/ui/StarAverage'
+import Adult from '@/components/ui/Adult'
 
 interface InfoModalProps {
     card: SeriesProps;
@@ -136,8 +137,8 @@ export default function CardInfoSerieModal({ card, vote_average, handleModalClos
                         ))}
                         &quot;
                     </p>
-
                     <Stars average={vote_average} />
+                    <Adult faixa={card.faixa} />
                 </div>
                 <div className={styles.desc_mid}>
                     <p>{overview ? overview : card.description}</p>

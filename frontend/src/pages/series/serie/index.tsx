@@ -18,6 +18,7 @@ import { getUserCookieData } from "@/services/cookieClient";
 import { addWatchLater, isOnTheList } from "@/services/handleWatchLater";
 import Stars from "@/components/ui/StarAverage";
 import Image from "next/image";
+import Adult from "@/components/ui/Adult";
 export default function Serie(status: string) {
     //refatorar
     const router = useRouter()
@@ -195,7 +196,10 @@ export default function Serie(status: string) {
                                     <div className={styles.title}>
                                         <h1>{serie.title} {serie.subtitle !== '' && `- ${serie.subtitle}`}</h1>
                                     </div>
-                                    <Stars average={vote_average} />
+                                    <div className={styles.tmdbInfo}>
+                                        <Stars average={vote_average} />
+                                        <Adult faixa={serie.faixa} />
+                                    </div>
                                     <div className={styles.seasons}>
                                         <h4>{serie.season.length === 1 ? `${serie.season.length} temporada` : serie.season.length >= 2 && `${serie.season.length} temporadas`} - {serie.genero.join(', ')}</h4>
                                     </div>

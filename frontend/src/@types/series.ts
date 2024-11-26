@@ -5,7 +5,8 @@ export interface SeriesProps {
     title: string;
     subtitle: string;
     description: string;
-    genero: string[];
+    genero: string[]
+    faixa: string
     season: Seasons[]
 }
 

@@ -48,6 +48,15 @@
 
             .desc_top {
                 padding: 30rem 4rem 0rem 4rem;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+
+                .tmdbInfo {
+                    display: flex;
+                    align-items: center;
+                    gap: 25px;
+                }
 
                 .seasons {
                     //padding: 0.4rem 0;

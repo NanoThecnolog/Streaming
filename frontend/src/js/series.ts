@@ -5,11 +5,12 @@ export const series: SeriesProps[] = [
     {
         background: "",
         overlay: "",
-        tmdbID: 0,        
+        tmdbID: 0,
         title: "",
         subtitle: "",
         description: "",
         genero: ["",""],
+        faixa: "L",
         season: [
             {
                 s: 1,
@@ -26,6 +27,202 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcapricho.abril.com.br%2Fwp-content%2Fuploads%2F2016%2F12%2Ftodo-mundo-odeia-o-chris-foto-pais-ficcao.jpg&f=1&nofb=1&ipt=864bb63e340813a1992151a64b39b84f3350b8a70a274bb99dc9493b0a5ff146&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.5mwsQp49gZT8jklK4ulOWgHaJ4%26pid%3DApi&f=1&ipt=ad1f89245997227b8565be28db9dafcbe17c5123fee3eec211c1bb601a48cf31&ipo=images",
+        tmdbID: 252,
+        title: "Todo Mundo Odeia o Chris",
+        subtitle: "",
+        description: "Para Chris, fazer 13 anos não tem nada de maravilhoso. Ele é o único negro da turma do ensino médio, onde tem uma educação medíocre. É amigo de Greg, e é frequentemente abusado por Joey Caruso. Ambos os pais trabalham e ele cuida de seus dois irmãos. Parece trágico, mas é hilário.",
+        genero: ["Comédia", "Família"],
+        faixa: "L",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1-3s2cDtfTGk_m1FD0vG-DgSlypKRRxcV/preview",
+                        duration: "20m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1-FqZdT3Gxai3qofgjIGQyLRguvgJd-yz/preview",
+                        duration: "20m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1-kZZ3oqCuR6wvKIUw0BqeYFQEEmVyooN/preview",
+                        duration: "20m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1-e38jnd7a6HruM4SRmyLoeKBBWiIwF_-/preview",
+                        duration: "19m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1-XFyif4xKItysVHEipQGmIBQWbynOGwh/preview",
+                        duration: "19m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1-vmLPwPLcF4lfbowWajomqBsnrdoUkWq/preview",
+                        duration: "20m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1-Xc08hcdI1VEbw4mRU_8ldnsuEgFjV9O/preview",
+                        duration: "20m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1-b81eSuc0BGyQyU8uf8ckSI9wEYEWQ0Y/preview",
+                        duration: "20m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1-xwwH8u-xd8ZUmXH3sfiiS9w4aHZJtpz/preview",
+                        duration: "20m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/101vKo91DJOH3G69m9BHF5eqDGhUfayaJ/preview",
+                        duration: "20m"
+                    },
+                    {
+                        ep: 11,
+                        src: "https://drive.google.com/file/d/107BVzj9qOJR6XO4F_molCedosQmVPyDg/preview",
+                        duration: "20m"
+                    },
+                    {
+                        ep: 12,
+                        src: "https://drive.google.com/file/d/1-kkv8f5zywSZesOR2XM5wiIKi4e89cJM/preview",
+                        duration: "20m"
+                    },
+                    {
+                        ep: 13,
+                        src: "https://drive.google.com/file/d/1-jcWY-grr5gVFU-TxImraOQg27MmKzP-/preview",
+                        duration: "20m"
+                    },
+                    {
+                        ep: 14,
+                        src: "https://drive.google.com/file/d/1078TRgjsdIQOeDLfJ5TY7gCqU2t5NyDL/preview",
+                        duration: "20m"
+                    },
+                    {
+                        ep: 15,
+                        src: "https://drive.google.com/file/d/1-U-8djP_q4N92WG_y90BwsbXA_7aR1dn/preview",
+                        duration: "20m"
+                    },
+                    {
+                        ep: 16,
+                        src: "https://drive.google.com/file/d/1-5gbmjmc_TsrHSX8yIRMwpQRclzg0a8C/preview",
+                        duration: "20m"
+                    },
+                    {
+                        ep: 17,
+                        src: "https://drive.google.com/file/d/1-vhB0Z61xhqeKpAOABlfjEm0x720ahV6/preview",
+                        duration: "20m"
+                    },
+                    {
+                        ep: 18,
+                        src: "https://drive.google.com/file/d/1-_tUccjdC8YOYu6sLr5a9JxFCgwibfHj/preview",
+                        duration: "20m"
+                    },
+                    {
+                        ep: 19,
+                        src: "https://drive.google.com/file/d/1-KmYF8Clu7OAeCjTNV-JfJtxVla3I0T3/preview",
+                        duration: "20m"
+                    },
+                    {
+                        ep: 20,
+                        src: "https://drive.google.com/file/d/1-_kSW7rwIuVMUpRO-GdBfbrF3pWWUSXV/preview",
+                        duration: "20m"
+                    },
+                    {
+                        ep: 21,
+                        src: "https://drive.google.com/file/d/1-v2Vb4MDBVj7Wkd_xIEjS2gCvTT-bEcl/preview",
+                        duration: "20m"
+                    },
+                    {
+                        ep: 22,
+                        src: "https://drive.google.com/file/d/104J3L7G-Y_W0EoGbdhy67yC01B9DOckB/preview",
+                        duration: "20m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fportalpopline.com.br%2Fwp-content%2Fuploads%2F2023%2F06%2Fbruna-marquezine-serie-star-capa-1152x866.jpg&f=1&nofb=1&ipt=44f655598eb7476b702bf1b8943c937a6857051e543e1714dc92120afed6050c&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIF.1LY3vaV1b0s4OmNvFfsj2Q%26pid%3DApi&f=1&ipt=c94a179f7003ff6b8852672b0c832cb1f43040ddfd0801a838585e771349eee4&ipo=images",
+        tmdbID: 224505,
+        title: "Amor da Minha Vida",
+        subtitle: "",
+        description: "Bia e Victor são melhores amigos e grandes confidentes um do outro. Enquanto ele vive um relacionamento antigo que caiu no tédio, ela coleciona namoros curtos, dos mais diferentes tipos, sem nunca acreditar no amor.",
+        genero: ["Drama", "Romance", "Comédia", "Disney+"],
+        faixa: "18",
+        season: [
+            {
+                s: 1,
+                lang: "Nacional",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1aEOJ3g0J0ucdMp4BsGliRMFvVYzMv2S4/preview",
+                        duration: "40m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1EQ1ZN6pwITPo5TTSDccQ7lJddNAji5uJ/preview",
+                        duration: "40m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1PnUNT5sWbDwPNvx_KxqfKUxH70hmUwSY/preview",
+                        duration: "32m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1JT3mcEf7jmLalPSUviBpCkpH9QgEBVh2/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/18HICEJzBTHTCR10-sXujhnlaSLuTbEUw/preview",
+                        duration: "35m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1UXazPxF2oKCdXVBYXk_SHAqYpQypctZ0/preview",
+                        duration: "38m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/19gL_RuozBY8gQFpbX25jgiBBZ-mEpf-k/preview",
+                        duration: "36m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1_-N3VBZtaSPjj5LfqC_a0TvPSCH0LEcJ/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1xhZMp9xk3baxUKgKGiH-dRJZSCrkiFWn/preview",
+                        duration: "36m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1f-ddy6txy2qpNz2Jn8jT9E2O7FjKjrDp/preview",
+                        duration: "37m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmultiversonoticias.com.br%2Fwp-content%2Fuploads%2F2022%2F06%2Fwandinha.jpg&f=1&nofb=1&ipt=b95e14ee575e1c0898d64c8389b29466b1d056408352d849289d45d0e60f9e39&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.papodecinema.com.br%2Fwp-content%2Fuploads%2F2022%2F11%2F20221124-wandinha-papo-de-cinema-cartaz-teaser-324x500.png&f=1&nofb=1&ipt=e4ac83da847fb9a0e31650ed2297bba77410df8b07dfa4b3c587d35f978d7ccc&ipo=images",
         tmdbID: 119051,
@@ -33,6 +230,7 @@ export const series: SeriesProps[] = [
         subtitle: "",
         description: "Inteligente, sarcástica e apática, Wandinha Addams pode estar meio morta por dentro, mas na Escola Nunca Mais ela vai fazer amigos, inimigos e investigar assassinatos.",
         genero: ["Fantasia", "Comédia", "Netflix"],
+        faixa: "A16",
         season: [
             {
                 s: 1,
@@ -90,6 +288,7 @@ export const series: SeriesProps[] = [
         subtitle: "",
         description: "Um homem misterioso que atende pelo nome de El Profesor, está planejando o maior assalto do século. A fim de realizar o ambicioso plano ele recruta uma gangue de oito pessoas com certas habilidades que não tem nada a perder. O objetivo é infiltrar na Casa da Moeda, de modo que eles possam imprimir 2,4 bilhões de euros. Para fazer isso eles precisam de onze dias de reclusão, durante o qual eles vão ter que lidar com sessenta e sete reféns e as forças da Polícia de Elite, com cenas de muita ação e planos brilhantes de El Profesor.",
         genero: ["Ação", "Crime", "Drama", "Netflix"],
+        faixa: "A16",
         season: [
             {
                 s: 1,
@@ -315,6 +514,7 @@ export const series: SeriesProps[] = [
         subtitle: "",
         description: "Centenas de jogadores falidos aceitam um estranho convite para um jogo de sobrevivência. Um prêmio milionário aguarda, mas as apostas são altas e mortais.",
         genero: ["Ação", "Mistério", "Drama", "Netflix"],
+        faixa: "18",
         season: [
             {
                 s: 1,
@@ -377,6 +577,7 @@ export const series: SeriesProps[] = [
         subtitle: "",
         description: "Graças à mãe terapeuta, Otis sabe tudo de sexo. Para aproveitar isso, a rebelde Maeve propõe abrir uma clínica de terapia sexual na escola.",
         genero: ["Comédia", "Drama", "Netflix"],
+        faixa: "A16",
         season: [
             {
                 s: 1,
@@ -629,6 +830,7 @@ export const series: SeriesProps[] = [
         subtitle: "A Profecia",
         description: "Dez mil anos antes da ascensão de Paul Atreides, as irmãs Valya e Tula Harkonnen estabeleceram a lendária seita e ordem feminina que se tornaria conhecida como Bene Gesserit para controlar o futuro da humanidade.",
         genero: ["Ficção Científica", "Drama", "HBO"],
+        faixa: "A16",
         season: [
             {
                 s: 1,
@@ -651,6 +853,7 @@ export const series: SeriesProps[] = [
         subtitle: "A Química do Mal",
         description: "Ao saber que tem câncer, um professor passa a fabricar metanfetamina pelo futuro da família, mudando o destino de todos.",
         genero: ["Drama", "Crime"],
+        faixa: "A16",
         season: [
             {
                 s: 1,
@@ -1002,6 +1205,7 @@ export const series: SeriesProps[] = [
         subtitle: "",
         description: "Em um mundo destruído pela guerra, a órfã Alina Starkov descobre que tem poderes extraordinários e vira alvo de forças sombrias.",
         genero: ["Drama", "Fantasia", "Netflix"],
+        faixa: "A16",
         season: [
             {
                 s: 1,
@@ -1100,6 +1304,7 @@ export const series: SeriesProps[] = [
         subtitle: "",
         description: "Na trama, conhecemos um mundo em que super-heróis são as maiores celebridades do planeta, e rotineiramente abusam dos seus poderes ao invés de os usarem para o bem.",
         genero: ["Ação", "Aventura", "Ficção Científica", "Prime Video"],
+        faixa: "18",
         season: [
             {
                 s: 1,
@@ -1290,6 +1495,7 @@ export const series: SeriesProps[] = [
         subtitle: "",
         description: "Nesta aclamada série que é continuação dos filmes Karatê Kid, Daniel e Johnny retomam a rivalidade dos tempos de escola.",
         genero: ["Ação", "Aventura", "Comédia", "Netflix"],
+        faixa: "A14",
         season: [
             {
                 s: 1,
@@ -1408,6 +1614,7 @@ export const series: SeriesProps[] = [
         subtitle: "",
         description: "Esta é uma história sobre Momo, uma garota do ensino médio que vem de uma família de médiuns espirituais, e seu colega de classe Okarun, um garoto fanático pelo ocultismo. Depois que Momo resgata Okarun de uns valentões, eles começam a conversar... No entanto, surge uma discussão entre eles, já que Momo acredita em fantasmas, mas nega a existência de alienígenas, e Okarun acredita em alienígenas, mas nega a existência de fantasmas. Visando provar que o que acreditam é real, Momo vai a um hospital abandonado onde um OVNI foi avistado e Okarun vai a um túnel que dizem ser assombrado. Para surpresa deles, cada um se depara com atividades paranormais avassaladoras que transcendem a compreensão. Em meio a isso tudo, Momo desperta seu poder oculto e Okarun ganha o poder de uma maldição para superar esses novos perigos! Será que o amor deles destinado também começa aqui!?",
         genero: ["Animação", "Aventura", "Comédia", "Netflix"],
+        faixa: "A16",
         season: [
             {
                 s: 1,
@@ -1460,6 +1667,7 @@ export const series: SeriesProps[] = [
         subtitle: "",
         description: "Nesta série baseada na clássica franquia de terror, um incidente de bullying por rede social leva a um assassinato que traz o passado à tona.",
         genero: ["Terror", "Suspense", "Mistério", "Netflix"],
+        faixa: "A14",
         season: [
             {
                 s: 1,
@@ -1634,6 +1842,7 @@ export const series: SeriesProps[] = [
         subtitle: "",
         description: "Na tentativa de recomeçar a vida, uma mulher retorna à Coreia e se envolve com alguém do passado. O problema é que existe uma história complicada entre os dois.",
         genero: ["Drama", "Comédia", "Coreano", "Netflix", "Legendado"],
+        faixa: "A12",
         season: [
             {
                 s: 1,
@@ -1699,7 +1908,8 @@ export const series: SeriesProps[] = [
         title: "Agatha Desde Sempre",
         subtitle: "",
         description: "A infame Agatha Harkness encontra-se sem poderes depois de um jovem gótico suspeito ajudá-la a se libertar de um feitiço distorcido. Ela se mostra interessada quando ele pede que seja levado ao lendário Caminho das Bruxas, um caminho mágico de provações que recompensará a bruxa sobrevivente com o que lhe falta. Juntos, Agatha e esse misterioso Jovem reúnem um coven desesperado e partem para o Caminho...",
-        genero: ["Fantasia", "Mistério", "Marvel", "Disney"],
+        genero: ["Fantasia", "Mistério", "Marvel", "Disney+"],
+        faixa: "A14",
         season: [
             {
                 s: 1,
@@ -1762,6 +1972,7 @@ export const series: SeriesProps[] = [
         subtitle: "",
         description: "Há oito anos, a Citadel, uma agência de espionagem global independente, foi destruída por um novo grupo, a Mantícora. Com as memórias apagadas, os agentes de elite Mason Kane e Nadia Singh escaparam com vida. Oito anos depois, o ex-colega de Mason, Bernard Orlick, pede ajuda para impedir que a Mantícora estabeleça uma nova ordem mundial.",
         genero: ["Ação", "Suspense", "Prime Video"],
+        faixa: "A16",
         season: [
             {
                 s: 1,
@@ -1809,6 +2020,7 @@ export const series: SeriesProps[] = [
         subtitle: "",
         description: "Esta série antológica de ficção científica explora um futuro próximo onde a natureza humana e a tecnologia de ponta entram em um perigoso conflito.",
         genero: ["Fantasia", "Ficção Científica", "Drama", "Mistério", "Netflix"],
+        faixa: "18",
         season: [
             {
                 s: 1,
@@ -1991,6 +2203,7 @@ export const series: SeriesProps[] = [
         subtitle: "",
         description: "Depois de cumprir 25 anos de prisão, Dwight Manfredi é exilado sem cerimônia por seu chefe da máfia para se estabelecer em Oklahoma. Dwight lentamente constrói um novo império criminoso em Tulsa.",
         genero: ["Ação", "Drama", "Crime"],
+        faixa: "A14",
         season: [
             {
                 s: 1,
@@ -2085,6 +2298,7 @@ export const series: SeriesProps[] = [
         subtitle: "",
         description: "Um assassinato hediondo deixa o escritório da Promotoria de Justiça de Chicago de cabeça para baixo quando um dos funcionários é suspeito do crime, o que deixa o acusado lutando para manter sua família unida.",
         genero: ["Drama", "Mistério", "Apple TV"],
+        faixa: "A16",
         season: [
             {
                 s: 1,
@@ -2142,6 +2356,7 @@ export const series: SeriesProps[] = [
         subtitle: "",
         description: "Desvende o mistério de uma cidade no centro dos EUA. Enquanto os moradores lutam para manter um senso de normalidade, eles também devem sobreviver às ameaças da floresta ao redor, incluindo as criaturas aterrorizantes que surgem quando o sol se põe.",
         genero: ["Terror", "Globo Play"],
+        faixa: "A16",
         season: [
             {
                 s: 1,
@@ -2265,6 +2480,7 @@ export const series: SeriesProps[] = [
         subtitle: "",
         description: "Warrior Nun é uma série de ação e aventura da Netflix que conta a história de Ava Silva (Alba Baptista), uma jovem que acorda em um necrotério e descobre que tem superpoderes e faz parte de uma seita secreta de freiras guerreiras",
         genero: ["Ação", "Netflix", "Legendado"],
+        faixa: "A14",
         season: [
             {
                 s: 1,
@@ -2378,6 +2594,7 @@ export const series: SeriesProps[] = [
         subtitle: "Cruzado Encapuzado",
         description: "A série se passa em Gotham City, uma cidade onde os criminosos dominam e os cidadãos vivem em medo. O socialite Bruce Wayne se torna o Batman após uma tragédia pessoal. O Batman luta contra o crime sozinho, mas atrai aliados do Departamento de Polícia e da Prefeitura.",
         genero: ["Animação", "DC", "Super Herói", "Prime Vídeo"],
+        faixa: "A14",
         season: [
             {
                 s: 1,
@@ -2445,6 +2662,7 @@ export const series: SeriesProps[] = [
         subtitle: "",
         description: "O jovem John convoca seus melhores amigos para procurarem por um tesouro ligado ao desaparecimento de seu pai. Aos poucos, o grupo vai entrando em uma perigosa trama de segredos e perigos.",
         genero: ["Drama", "Netflix"],
+        faixa: "A16",
         season: [
             {
                 s: 1,
@@ -2682,6 +2900,7 @@ export const series: SeriesProps[] = [
         subtitle: "",
         description: "Um inteligente estudante do ensino médio embarca em uma cruzada secreta para eliminar os criminosos do mundo depois de descobrir um caderno capaz de matar qualquer pessoa cujo nome está escrito nele.",
         genero: ["Animação", "Japonês"],
+        faixa: "18",
         season: [
             {
                 s: 1,
@@ -2884,6 +3103,7 @@ export const series: SeriesProps[] = [
         subtitle: "",
         description: "A Casa do Dragão é uma série de TV norte-americana que conta a história de uma guerra civil entre a Casa Targaryen, que se passa 200 anos antes dos eventos de Game of Thrones",
         genero: ["Fantasia", "Ficção Científica", "HBO"],
+        faixa: "18",
         season: [
             {
                 s: 1,
@@ -2988,6 +3208,7 @@ export const series: SeriesProps[] = [
         subtitle: "Um Canibal Americano",
         description: "Por mais de uma década, Jeffrey Dahmer conseguiu matar 17 jovens rapazes sem levantar suspeitas da polícia. Como ele conseguiu evitar a prisão por tanto tempo? Assista o quanto quiser. Evan Peters, Richard Jenkins e Niecy Nash estrelam esta série policial com produção executiva de Peters e Ryan Murphy.",
         genero: ["Drama", "Terror", "Netflix"],
+        faixa: "18",
         season: [
             {
                 s: 1,
@@ -3046,6 +3267,7 @@ export const series: SeriesProps[] = [
         subtitle: "Zero",
         description: "Em 1997, um cientista atormentado deixa a família de lado por um projeto. Em 2022, uma guerreira rebelde luta contra um poderoso robô por conta de dados vitais.",
         genero: ["Violento", "Animação", "Ficção Científica", "Ação", "Japonês", "Netflix"],
+        faixa: "A16",
         season: [
             {
                 s: 1,
@@ -3097,6 +3319,7 @@ export const series: SeriesProps[] = [
         subtitle: "",
         description: "Cinco anos após o assassinato de uma adolescente de 17 anos em uma cidadezinha inglesa pacata, uma estudante decide investigar o caso.",
         genero: ["Suspense", "Drama", "Mistério", "Netflix"],
+        faixa: "A16",
         season: [
             {
                 s: 1,
@@ -3145,6 +3368,7 @@ export const series: SeriesProps[] = [
         subtitle: "",
         description: "Irmãos com poderes extraordinários se reúnem depois de passar muito tempo afastados e descobrem surpreendentes segredos de família. A família enfrenta viagens no tempo, assassinos e o fim do mundo.",
         genero: ["Drama", "Comédia", "Ficção Científica", "ação"],
+        faixa: "A16",
         season: [
             {
                 s: 1,
@@ -3363,6 +3587,7 @@ export const series: SeriesProps[] = [
         subtitle: "League of Legends",
         description: "Em meio ao conflito entre as cidades-gêmeas de Piltover e Zaun, duas irmãs lutam em lados opostos de uma guerra entre tecnologias mágicas e convicções incompatíveis.",
         genero: ["Ação", "Netflix", "Animação", "Fantasia"],
+        faixa: "A16",
         season: [
             {
                 s: 1,
@@ -3447,6 +3672,7 @@ export const series: SeriesProps[] = [
         subtitle: "",
         description: "Colin Farrell retorna como Oswald 'Oz' Cobb, O Pinguim, para conquistar Gotham neste novo capítulo da saga Batman de Matt Reeves.",
         genero: ["Suspense", "DC", "Crime", "Vilão", "HBO"],
+        faixa: "A16",
         season: [
             {
                 s: 1,
@@ -3506,6 +3732,7 @@ export const series: SeriesProps[] = [
         subtitle: "Os Aneis de Poder",
         description: "Antes da jornada de Frodo pela Terra-Média, a Segunda Era foi palco de diversas lendas heróicas. O drama épico que se passa milhares de anos antes de A Sociedade do Anel, tem foco em um momento da história em que grandes poderes foram forjados, reinos ascenderam e também ruíram, ao mesmo tempo em que heróis foram testados e tiveram a esperança quase aniquilada pelo grande vilão do universo de Senhor dos Anéis. A série começa em um momento de paz, quando o elenco de novos e antigos personagens precisam enfrentar o ressurgimento do mal, vindo das profundezas mais escuras das Montanhas Sombrias. Os reinos e personagens irão esculpir legados que viverão por muito tempo depois que eles se forem.",
         genero: ["Drama", "Fantasia", "Prime Video"],
+        faixa: "A14",
         season: [
             {
                 s: 1,

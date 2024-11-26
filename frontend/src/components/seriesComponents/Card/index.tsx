@@ -63,6 +63,7 @@ export default function Card({ card }: CardProps) {
                         subtitle={card.subtitle}
                         season={card.season}
                         genero={card.genero}
+                        faixa={card.faixa}
                         isVisible={modalVisible}
                         vote_average={state.vote_average}
                         modalVisible={modalVisibility}

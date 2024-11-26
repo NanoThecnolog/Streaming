@@ -2,6 +2,12 @@
     font-family: var(--font-Roboto);
 }
 
+.tmdbInfo {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
 .button_container {
     display: flex;
     gap: 12px;
