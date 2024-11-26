@@ -27,6 +27,134 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnosomosnonos.com%2Fwp-content%2Fuploads%2F2021%2F02%2F5030AA49-0CA3-45EC-808F-8535FC53AD80.jpeg&f=1&nofb=1&ipt=6fe2a2d7f5ea741d73b30db5b8f18242fc1900d6c47c286b16dcfbd38645f9b5&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.lYIpbCtAZRAP-0RSUIlmWQHaLH%26pid%3DApi&f=1&ipt=bbd938d69fc60cbb9cbdda7fa848b15dda601cb75a5b55923ff545c4a97df24d&ipo=images",
+        tmdbID: 48891,
+        title: "Brooklyn Nine Nine",
+        subtitle: "",
+        description: "O brilhante e imaturo detetive Jake Peralta precisa aprender a seguir as regras e trabalhar em equipe quando um capitão exigente assume o comando de seu esquadrão.",
+        genero: ["Comédia", "Crime"],
+        faixa: "A14",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1HvP2tjA4bAVbR6XYkQ4LQuZ98Rz0_OA0/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1-L1kyH00Z2ZauqIPEmg2us58IlDc-UyL/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1FBGi9r6Vq-4jwS1xaspTCKkuW_WAR5WA/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1DMAn1_PqPJN_Bw6_KuU5C2mJIpvZhsRh/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1suiUqJ9xAjZhBx5W2xD-r_2bpyNoOlId/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1-Ttpm2AycjxO0auV_c3mE4RXiIPrIsf-/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1RNuk3UZbh3iuOADak1Dq1pvPotsQVV7M/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1IiAPKVhCafLeKUzBmvUx4LUQIfMUU8H-/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1q3FZ9IweoNl2qyy7NfunRAq4JUERs9A0/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1llKkWsKhgpbOW6CSOOMRzASsK1UEZ9sJ/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 11,
+                        src: "https://drive.google.com/file/d/1bSME-3b-gdr_xJytrw7a-rmZ9kN5Xjt4/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 12,
+                        src: "https://drive.google.com/file/d/1RHLrnU-FLDqp7hy6zmCuBbQePq3mrU-f/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 13,
+                        src: "https://drive.google.com/file/d/1krfcQB_Ijq7BOtdUzRrqHFxLMbunk-R3/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 14,
+                        src: "https://drive.google.com/file/d/1hps5J6HnASq7A-ZAUfYjCxDdoMsU_Xho/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 15,
+                        src: "https://drive.google.com/file/d/1i-5PIlxsX_LAmGqSfTYvtCt0Rgg5lxEi/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 16,
+                        src: "https://drive.google.com/file/d/1-DlJb2zaUVmN9IwZhFx7LicpKAH4Jp6o/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 17,
+                        src: "https://drive.google.com/file/d/1EvrXcpS3xlpBFYoiSMsUHJbk8xLic5DE/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 18,
+                        src: "https://drive.google.com/file/d/1A6S1N02D69vD0kG50ytcN3P2o31GwpOY/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 19,
+                        src: "https://drive.google.com/file/d/1M6OjwgBTcKhn0xkTXkOp2l7r3rJz3OMo/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 20,
+                        src: "https://drive.google.com/file/d/16bMbhCyEVueLvXak8FyQ8l5aEqp4h-_s/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 21,
+                        src: "https://drive.google.com/file/d/1kAwDZFqdPYUWZFOhSEacHMBnfbhlLnUw/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 22,
+                        src: "https://drive.google.com/file/d/1fNEjr6NdVAKuJhTx6jDluRhIq7fBmRlk/preview",
+                        duration: "22m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcapricho.abril.com.br%2Fwp-content%2Fuploads%2F2016%2F12%2Ftodo-mundo-odeia-o-chris-foto-pais-ficcao.jpg&f=1&nofb=1&ipt=864bb63e340813a1992151a64b39b84f3350b8a70a274bb99dc9493b0a5ff146&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.5mwsQp49gZT8jklK4ulOWgHaJ4%26pid%3DApi&f=1&ipt=ad1f89245997227b8565be28db9dafcbe17c5123fee3eec211c1bb601a48cf31&ipo=images",
         tmdbID: 252,
