@@ -22,6 +22,42 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2Fdj1vX0u9WV5H6qhtukX9AfAUgi5.jpg&f=1&nofb=1&ipt=d374a45dcd91e605f1e59d0adef280d6af3079925681e043b5ae03f8dd081898&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.wsiBpsBQSStmJGYFgzyPyQHaLH%26pid%3DApi&f=1&ipt=df06f418a33393626fe31ef19185aa1327b56298c02d4ca2e10ad39acab4165d&ipo=images",
+        tmdbId: 1858,
+        title: "Transformers",
+        subtitle: "",
+        description: "O destino da humanidade está em jogo quando duas raças de robôs, os Autobots e os vilões Decepticons, chegam à Terra. Os robôs possuem a capacidade de se transformarem em diferentes objetos mecânicos enquanto buscam a chave do poder supremo com a ajuda do jovem Sam.",
+        faixa: "A10",
+        src: "https://drive.google.com/file/d/1sE1OFGRBvD49ciRO4RtKLZDU_MR15Dc3/preview",
+        duration: "02h 24m",
+        genero: ["Ação", "Ficção Científica", "Aventura"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FkfkJVUIV32Tzhu1rdtDGmtRbQZh.jpg&f=1&nofb=1&ipt=7ba7ad8e9c26abed2368e4c17bf515273c83a6d0e600861fe1f718113f165c59&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.q9KMl8jQliQ7P7Jzi5oCJwHaLH%26pid%3DApi&f=1&ipt=a8b3d23cc78ebfa257f99eecc75acd1eed9463e18968516844e9bdcd7de20e60&ipo=images",
+        tmdbId: 8373,
+        title: "Transformers",
+        subtitle: "A Vingança dos Derrotados",
+        description: "Passaram-se dois anos desde que Sam Witwicky e os Autobots salvaram a raça humana e tentam ter uma vida normal: Sam está começando a faculdade, enquanto os Autobots trabalham com uma organização militar secreta e tentam construir uma casa para eles na Terra. Porém, um antigo Decepticon conhecido como 'The Fallen' aparece para se vingar, então Sam e sua namorada Mikaela precisam desvendar a história dos Transformes e achar um caminho para derrotá-lo.",
+        faixa: "A10",
+        src: "https://drive.google.com/file/d/1yaqIjDZaWeaXOIq7gb0-TVqXGHA8D0ae/preview",
+        duration: "02h 30m",
+        genero: ["Ação", "Ficção Científica", "Aventura"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnosbastidores.com.br%2Fwp-content%2Fuploads%2F2020%2F06%2Ftransformers-dark-of-the-moon-5ac67ee55a5bf-1536x864.jpg&f=1&nofb=1&ipt=3a4262f85d10b7ff05e4f3677236278d5b2aec9a55f6b1c45516c8cde0bcd95f&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.rkUJnWqWDbPcimzcHcKweAHaK-%26pid%3DApi&f=1&ipt=e7319249243f67cd109c8dc763e577d6d29a06a5e5bf6ef3b13debf07928194b&ipo=images",
+        tmdbId: 38356,
+        title: "Transformers",
+        subtitle: "O Lado Oculto da Lua",
+        description: "Sam Witwicky e sua nova namorada, Carly, entram na briga quando os Decepticons renovam sua guerra contra os Autobots. Optimus Prime acredita que ressuscitar o antigo Transformer Sentinel Prime, ex-líder dos Autobots, pode levar à vitória. Essa decisão tem consequências devastadoras e a guerra parece pender a favor dos Decepticons, causando um conflito épico em Chicago.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/12Gik0v7WNFO-3Bjj-iX0EEkKrmE9AMMY/preview",
+        duration: "02h 34m",
+        genero: ["Ação", "Ficção Científica", "Aventura"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwegeekgirls.files.wordpress.com%2F2014%2F06%2Ftransformers-age-of-extinction_stills-6.jpg&f=1&nofb=1&ipt=cf354c5a059a3565690035e723fc173991720bf5c3e36e9673759cce4fdf5f97&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.4U3yUm8yiaD4LDAN4DBiCwHaK-%26pid%3DApi&f=1&ipt=b93dcdcb70c766ac4a0abb1b490f6d3bb2ed936b20b9a076b035e54ec4295e22&ipo=images",
         tmdbId: 91314,
