@@ -5,6 +5,7 @@ export interface CardsProps {
     title: string;
     subtitle?: string;
     description: string;
+    faixa: string;
     src: string;
     duration: string;
     genero: string[];

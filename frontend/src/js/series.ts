@@ -10,7 +10,7 @@ export const series: SeriesProps[] = [
         subtitle: "",
         description: "",
         genero: ["",""],
-        faixa: "L",
+        faixa: "",
         season: [
             {
                 s: 1,
