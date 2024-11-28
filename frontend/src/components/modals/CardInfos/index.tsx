@@ -128,7 +128,7 @@ export default function CardInfoModal({ card, average, handleModalClose }: InfoM
                         &quot;
                     </p>
                     <Stars average={average} />
-                    {TMDBData.movie?.adult && <Adult />}
+                    <Adult faixa={card.faixa} />
                 </div>
                 <div className={styles.desc_mid}>
                     <p>{TMDBData.movie?.overview || card.description}</p>
