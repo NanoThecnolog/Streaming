@@ -22,6 +22,54 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Ze5thoPtC0YwC6GlW1ggEwHaJQ%26pid%3DApi&f=1&ipt=f0b8b48583d4e1d9b2d9c0ca013e821c8da2d7855802de41653f0f9efac05361&ipo=images",
+        tmdbId: 1290486,
+        title: "No Ritmo Do Natal",
+        subtitle: "",
+        description: "Para salvar a casa de espetáculos dos pais, uma dançarina da Broadway organiza uma apresentação natalina só com homens. E, de quebra, ainda conhece um cara incrível.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1i9PdparxdZ7y--cArW3ygmqPGIzvjQb7/preview",
+        duration: "01h 27m",
+        genero: ["Romance", "Comédia", "Netflix"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fgiselirodrigues.com%2Fwp-content%2Fuploads%2F2020%2F07%2Fo-amor-nao-tira-ferias.jpg&f=1&nofb=1&ipt=cbc65d061e13d43033ccd5a3e636b6f123e23435c859b30eaedbec2c50105048&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.OxzJ7EUAY_3UBkwSojwchAHaJ4%26pid%3DApi&f=1&ipt=4007ef9d1e7b558bc9cda3591e1ce8f5575465055202a74064ddda0ae86cc5ea&ipo=images",
+        tmdbId: 1581,
+        title: "O Amor Não Tira Férias",
+        subtitle: "",
+        description: "Conheça Iris e Amanda, duas mulheres que não poderiam ser mais diferentes – uma vive numa aconchegante casa de campo na Inglaterra, a outra numa ostensiva mansão em Hollywood – mas uma coisa elas têm em comum: a tremenda má sorte com homens. Desesperadas em busca de uma saída, as duas se conhecem na internet e, num ato impulsivo, trocam de casas e de país. E encontram a última coisa que podiam esperar – um novo romance – descobrindo que a troca de endereços realmente pode mudar a vida de alguém.",
+        faixa: "A10",
+        src: "https://drive.google.com/file/d/1MwHHRo90n0S9kJgYWVp-ML0klQKFktus/preview",
+        duration: "02h 16m",
+        genero: ["Romance", "Comédia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FsBOhevbei8jVNR3vKhckWpgfQON.jpg&f=1&nofb=1&ipt=044b358c895687b5e8c1c1cfe608ecc0ee2b6e2e74c003987fb027cb463ec7a3&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.084HAO6tvlXR_mo3-PJGCwHaJ4%26pid%3DApi&f=1&ipt=353a37b589bd203ca5a577c825a36bb7f56b1e47f2443407e2ccbe509ede3d67&ipo=images",
+        tmdbId: 37056,
+        title: "Cartas Para Julieta",
+        subtitle: "",
+        description: "Em visita à cidade italiana de Verona com seu noivo ocupado, uma jovem chamada Sophie visita um muro onde os desiludidos deixam cartas para a trágica heroína de Shakespeare, Julieta Capuleto. Ao encontrar uma dessas cartas, de 1957, a jovem decide escrever à autora, Claire. Inspirada pela atitude de Sophie, Claire decide procurar por seu antigo amor.",
+        faixa: "A10",
+        src: "https://drive.google.com/file/d/171g_qMcenVTzJe8fMTmhqpDKqxMJqwDr/preview",
+        duration: "01h 45m",
+        genero: ["Romance", "Comédia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FeMshjnjEq8gha5a7JalUDFAJS90.jpg&f=1&nofb=1&ipt=c324537a1a58ae239544f3200ccca65331a01323643f6d2099bde3a1cfee18e6&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.18e39hKMLe_qpqDY4KL79gHaLH%26pid%3DApi&f=1&ipt=dd475cf2da7aba583c698a981c94c7db9712e96f359528caa8b2464dd54efaaa&ipo=images",
+        tmdbId: 5255,
+        title: "O Expresso Polar",
+        subtitle: "",
+        description: "Acorde, caia na real e esteja pronto para a jornada de sua vida! É véspera de Natal e um garoto está acordado. Sem acreditar mais em Papai Noel, ele espera por algo que faça com que sua crença na figura natalina retorne. De repente ele ouve um grande barulho, de fora de sua casa. O garoto então vê à sua frente um gigantesco trem negro com destino ao Pólo Norte, cujo condutor o convida para embarcar. Após certa relutância, ele decide seguir viagem. Você está prestes a embarcar em uma verdadeira montanha-russa que o levará para cima e para baixo através de montanhas, campos gelados e pontes gigantescas, saboreando chocolate quente. Você está a bordo do Expresso Polar!",
+        faixa: "L",
+        src: "https://drive.google.com/file/d/1VreVszWD_Fck9sifKg9UBwFhJ15W4llD/preview",
+        duration: "01h 40m",
+        genero: ["Aventura", "Família", "Fantasia"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2Fdj1vX0u9WV5H6qhtukX9AfAUgi5.jpg&f=1&nofb=1&ipt=d374a45dcd91e605f1e59d0adef280d6af3079925681e043b5ae03f8dd081898&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.wsiBpsBQSStmJGYFgzyPyQHaLH%26pid%3DApi&f=1&ipt=df06f418a33393626fe31ef19185aa1327b56298c02d4ca2e10ad39acab4165d&ipo=images",
         tmdbId: 1858,
