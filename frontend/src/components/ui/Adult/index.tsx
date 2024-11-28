@@ -13,7 +13,7 @@ export default function Adult({ faixa }: Props) {
             msg: "Indicado para todos os públicos."
         },
         {
-            etaria: "A10",
+            etaria: "10",
             cor: "var(--blue)",
             msg: "Pode conter linguagem e violência leve."
         },
@@ -44,14 +44,10 @@ export default function Adult({ faixa }: Props) {
     return (
         <>
 
-            {faixaEtaria ? (
+            {faixaEtaria && (
                 <div className={styles.selo} title={faixaEtaria.msg} style={{ backgroundColor: faixaEtaria.cor }}>
                     <span>{faixaEtaria.etaria}</span>
                 </div>
-            ) : (
-                <><div className={styles.selo} style={{ backgroundColor: "var(--orange)" }}>
-                    <span>L</span>
-                </div></>
             )}
         </>
     )

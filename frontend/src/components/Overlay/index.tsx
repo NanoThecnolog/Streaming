@@ -14,15 +14,11 @@ import { addWatchLater, isOnTheList } from '@/services/handleWatchLater';
 import { addFavorite, isFavorite } from '@/services/handleFavorite';
 import Stars from '../ui/StarAverage';
 import Adult from '../ui/Adult';
+import { CardsProps } from '@/@types/Cards';
 
 
 interface OverlayProps {
-    tmdbId: number
-    title: string,
-    subtitle?: string,
-    src: string,
-    duration: string,
-    genero: string[]
+    card: CardsProps;
     isVisible: boolean,
     vote_average: number
     adult: boolean
@@ -37,7 +33,7 @@ type StateProps = {
     isMovieFavorite: boolean,
 }
 
-export default function Overlay({ tmdbId, title, subtitle = "", src, duration, genero, isVisible, vote_average, modalVisible, adult }: OverlayProps) {
+export default function Overlay({ card, isVisible, vote_average, modalVisible, adult }: OverlayProps) {
 
     //Refatorar Esse componente
     const [state, setState] = useState<StateProps>({
@@ -47,7 +43,9 @@ export default function Overlay({ tmdbId, title, subtitle = "", src, duration, g
         isLoading: false,
         isMovieFavorite: false
     })
+    const { title, subtitle, tmdbId, src, duration, genero, faixa } = card
     const { user, favoriteList, onWatchLater, isLoading, isMovieFavorite } = state
+
 
 
 
@@ -67,7 +65,7 @@ export default function Overlay({ tmdbId, title, subtitle = "", src, duration, g
         userData()
         favoriteList()
         onWatchLaterList(title, subtitle)
-    }, [title, subtitle, isVisible])
+    }, [card, isVisible])
 
     const onWatchLaterList = useCallback(async (title: string, subtitle?: string) => {
         const result: boolean = await isOnTheList(title, subtitle, tmdbId);
@@ -86,7 +84,7 @@ export default function Overlay({ tmdbId, title, subtitle = "", src, duration, g
         if (!user) return Router.push('/login')
         setState(prev => ({ ...prev, isLoading: true }))
         try {
-            await addWatchLater(user.id, title, tmdbId, subtitle)
+            await addWatchLater(user.id, card.title, tmdbId, subtitle)
             await onWatchLaterList(title, subtitle)
         } catch (err: any) {
             const errorMessage = err.response?.data?.error || "Erro ao adicionar filme à lista.";
@@ -118,7 +116,7 @@ export default function Overlay({ tmdbId, title, subtitle = "", src, duration, g
         //toast.warning("A função Favoritos está temporariamente desativada.")
 
         if (!user) return
-        await addFavorite(tmdbId, title, subtitle, user.id)
+        await addFavorite(tmdbId, title, subtitle ? subtitle : "", user.id)
         await favoriteMovie();
     }, [user, title, subtitle, tmdbId])
 
@@ -138,7 +136,7 @@ export default function Overlay({ tmdbId, title, subtitle = "", src, duration, g
             <p>{duration} - {genero.join(', ')}</p>
             <div className={styles.tmdbInfo}>
                 <Stars average={vote_average} />
-                {adult && <Adult />}
+                <Adult faixa={faixa} />
             </div>
             <div className={styles.button_container}>
                 <div className={styles.watch}>

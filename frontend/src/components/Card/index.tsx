@@ -93,12 +93,7 @@ export default function Card({ card }: CardProps) {
                 />
                 <div className={styles.overlay}>
                     <Overlay
-                        tmdbId={card.tmdbId}
-                        title={card.title}
-                        subtitle={card.subtitle}
-                        src={card.src}
-                        duration={card.duration}
-                        genero={card.genero}
+                        card={card}
                         vote_average={state.vote_average}
                         modalVisible={modalVisibility}
                         isVisible={modalVisible}

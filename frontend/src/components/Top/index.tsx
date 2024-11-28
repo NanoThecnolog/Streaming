@@ -11,6 +11,7 @@ import { getUserCookieData } from '@/services/cookieClient';
 import { addWatchLater, isOnTheList } from '@/services/handleWatchLater';
 import { fetchTMDBBackDrop, fetchTMDBMovie, fetchTMDBPoster } from '@/services/fetchTMDBData';
 import { MovieTMDB } from '@/@types/Cards';
+import Adult from '../ui/Adult';
 
 interface TopProps {
     width?: number;
@@ -139,6 +140,7 @@ export default function Top({ width }: TopProps) {
                     )}
                     <div className={styles.gen}>
                         <p>{cards[cardOn].genero.join(', ')}</p>
+                        <Adult faixa={cards[cardOn].faixa} />
                     </div>
                     <div className={styles.description}>
                         <p>{cards[cardOn].description}</p>

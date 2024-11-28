@@ -4,6 +4,7 @@ import styles from './styles.module.scss'
 import { useEffect, useState } from 'react';
 import Router from 'next/router';
 import { fetchTMDBSeries } from '@/services/fetchTMDBData';
+import Adult from '@/components/ui/Adult';
 
 
 interface TopSerieProps {
@@ -89,6 +90,7 @@ export default function TopSerie({ width }: TopSerieProps) {
                     </div>
                     <div className={styles.season}>
                         <p>{series[cardOn].season.length === 1 ? `${series[cardOn].season.length} Temporada` : series[cardOn].season.length >= 2 && `${series[cardOn].season.length} Temporadas`}</p>
+                        <Adult faixa={series[cardOn].faixa} />
                     </div>
 
                     <div className={styles.button_section}>
