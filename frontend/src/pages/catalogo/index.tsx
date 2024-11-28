@@ -30,7 +30,7 @@ export default function Catalogo() {
             <Header userAvatar={user?.avatar} />
             <main className={styles.container}>
                 <div>
-                    <h1>Filmes</h1>
+                    <h1>Filmes - {cards.length}</h1>
                     <div className={styles.contentContainer}>
                         {[...cards].sort((a, b) => a.title.localeCompare(b.title)).map(card => (
                             <div key={card.tmdbId}>
@@ -40,7 +40,7 @@ export default function Catalogo() {
                     </div>
                 </div>
                 <div>
-                    <h1>Séries</h1>
+                    <h1>Séries - {series.length}</h1>
                     <div className={styles.contentContainer}>
                         {[...series].sort((a, b) => a.title.localeCompare(b.title)).map(serie => (
                             <div key={serie.tmdbID}>
