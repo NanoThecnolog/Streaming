@@ -4541,10 +4541,10 @@ export const series: SeriesProps[] = [
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdiscussingfilm.net%2Fwp-content%2Fuploads%2F2020%2F07%2FUA-3-859176066-1595879190645.jpg&f=1&nofb=1&ipt=1850193f57df1c16b63b1fdd359c7eb57055596f5ea8c1c6df2e404358236178&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpics.filmaffinity.com%2Fthe_umbrella_academy-794888543-large.jpg&f=1&nofb=1&ipt=41acad8c0545834d5522507a076e3a28d994c8806dfdd6b6022c9d119975a7db&ipo=images",
         tmdbID: 75006,
-        title: "The Humbrella Academy",
+        title: "The Umbrella Academy",
         subtitle: "",
         description: "Irmãos com poderes extraordinários se reúnem depois de passar muito tempo afastados e descobrem surpreendentes segredos de família. A família enfrenta viagens no tempo, assassinos e o fim do mundo.",
-        genero: ["Drama", "Comédia", "Ficção Científica", "ação"],
+        genero: ["Drama", "Comédia", "Ficção Científica", "ação", "Netflix"],
         faixa: "A16",
         season: [
             {
@@ -4754,7 +4754,6 @@ export const series: SeriesProps[] = [
                 ]
             }
         ]
-
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fq8eejQcg1bAqImEV8jh8RtBD4uH.jpg&f=1&nofb=1&ipt=881cd6df8563c736501ee55991218003a2a09940d251ddd3cf20f6b694d43384&ipo=images",

@@ -40,7 +40,7 @@ export const cards: CardsProps[] = [
         title: "O Amor Não Tira Férias",
         subtitle: "",
         description: "Conheça Iris e Amanda, duas mulheres que não poderiam ser mais diferentes – uma vive numa aconchegante casa de campo na Inglaterra, a outra numa ostensiva mansão em Hollywood – mas uma coisa elas têm em comum: a tremenda má sorte com homens. Desesperadas em busca de uma saída, as duas se conhecem na internet e, num ato impulsivo, trocam de casas e de país. E encontram a última coisa que podiam esperar – um novo romance – descobrindo que a troca de endereços realmente pode mudar a vida de alguém.",
-        faixa: "A10",
+        faixa: "10",
         src: "https://drive.google.com/file/d/1MwHHRo90n0S9kJgYWVp-ML0klQKFktus/preview",
         duration: "02h 16m",
         genero: ["Romance", "Comédia"]
@@ -52,7 +52,7 @@ export const cards: CardsProps[] = [
         title: "Cartas Para Julieta",
         subtitle: "",
         description: "Em visita à cidade italiana de Verona com seu noivo ocupado, uma jovem chamada Sophie visita um muro onde os desiludidos deixam cartas para a trágica heroína de Shakespeare, Julieta Capuleto. Ao encontrar uma dessas cartas, de 1957, a jovem decide escrever à autora, Claire. Inspirada pela atitude de Sophie, Claire decide procurar por seu antigo amor.",
-        faixa: "A10",
+        faixa: "10",
         src: "https://drive.google.com/file/d/171g_qMcenVTzJe8fMTmhqpDKqxMJqwDr/preview",
         duration: "01h 45m",
         genero: ["Romance", "Comédia"]
@@ -88,7 +88,7 @@ export const cards: CardsProps[] = [
         title: "Transformers",
         subtitle: "",
         description: "O destino da humanidade está em jogo quando duas raças de robôs, os Autobots e os vilões Decepticons, chegam à Terra. Os robôs possuem a capacidade de se transformarem em diferentes objetos mecânicos enquanto buscam a chave do poder supremo com a ajuda do jovem Sam.",
-        faixa: "A10",
+        faixa: "10",
         src: "https://drive.google.com/file/d/1sE1OFGRBvD49ciRO4RtKLZDU_MR15Dc3/preview",
         duration: "02h 24m",
         genero: ["Ação", "Ficção Científica", "Aventura"]
@@ -100,7 +100,7 @@ export const cards: CardsProps[] = [
         title: "Transformers",
         subtitle: "A Vingança dos Derrotados",
         description: "Passaram-se dois anos desde que Sam Witwicky e os Autobots salvaram a raça humana e tentam ter uma vida normal: Sam está começando a faculdade, enquanto os Autobots trabalham com uma organização militar secreta e tentam construir uma casa para eles na Terra. Porém, um antigo Decepticon conhecido como 'The Fallen' aparece para se vingar, então Sam e sua namorada Mikaela precisam desvendar a história dos Transformes e achar um caminho para derrotá-lo.",
-        faixa: "A10",
+        faixa: "10",
         src: "https://drive.google.com/file/d/1yaqIjDZaWeaXOIq7gb0-TVqXGHA8D0ae/preview",
         duration: "02h 30m",
         genero: ["Ação", "Ficção Científica", "Aventura"]
@@ -172,7 +172,7 @@ export const cards: CardsProps[] = [
         title: "Animais Fantásticos",
         subtitle: "Os Segredos de Dumbledore",
         description: "O professor Alvo Dumbledore sabe que o poderoso mago das trevas Gellert Grindelwald está se movimentando para assumir o controle do mundo mágico. Incapaz de detê-lo sozinho, ele pede ao magizoologista Newt Scamander para liderar uma intrépida equipe de bruxos, bruxas e um corajoso padeiro trouxa em uma missão perigosa, em que eles encontram velhos e novos animais fantásticos e entram em conflito com a crescente legião de seguidores de Grindelwald. Mas com tantas ameaças, quanto tempo poderá Dumbledore permanecer à margem do embate?",
-        faixa: "A10",
+        faixa: "10",
         src: "https://drive.google.com/file/d/1GWg0TDwjNIelrhBDelEmmeWE8j7Uvw4W/preview",
         duration: "02h 22m",
         genero: ["Fantasia", "Aventura"]
@@ -304,7 +304,7 @@ export const cards: CardsProps[] = [
         title: "Meu Namorado É Um Zumbi",
         subtitle: "",
         description: "Em um mundo pós-apocalíptico, um zumbi romântico se apaixona por uma humana, e o envolvimento deles cria uma reação em cadeia. Ele quer provar que os zumbis podem mudar, mas o cenário indica uma batalha entre os vivos e os mortos-vivos.",
-        faixa: "A10",
+        faixa: "10",
         src: "https://drive.google.com/file/d/1eWs9e3c10KzBbqB-SEXqIqafAkupOICw/preview",
         duration: "01h 37m",
         genero: ["Comédia", "Romance"]
@@ -376,7 +376,7 @@ export const cards: CardsProps[] = [
         title: "Aladdin",
         subtitle: "",
         description: "Um jovem humilde descobre uma lâmpada mágica, com um gênio que pode lhe conceder desejos. Agora o rapaz quer conquistar a moça por quem se apaixonou, mas o que ele não sabe é que a jovem é uma princesa que está prestes a se noivar. Com a ajuda do Gênio, ele tenta se passar por um príncipe para conquistar o amor da moça e a confiança do pai dela.",
-        faixa: "A10",
+        faixa: "10",
         src: "https://drive.google.com/file/d/1pixT3Elg2dM7YrUwf_AtnULs8N6lPWQM/preview",
         duration: "02h 09m",
         genero: ["Aventura", "Fantasia", "Família", "Disney"]
@@ -952,7 +952,7 @@ export const cards: CardsProps[] = [
         title: "Thor",
         subtitle: "O Mundo Sombrio",
         description: "Thor precisa contar com a ajuda de seus companheiros e até de seu traiçoeiro irmão Loki em um plano audacioso para salvar o universo. Entretanto, os caminhos de Thor se cruzam com Jane Foster e, dessa vez, a vida dela está realmente em perigo.",
-        faixa: "A10",
+        faixa: "10",
         src: "https://drive.google.com/file/d/1lezsWVyBagXi2lNlqNuRMrIpUu0ZiA-e/preview",
         duration: "01h 52m",
         genero: ["Ação", "Fantasia", "Marvel", "Super Herói"]
@@ -964,7 +964,7 @@ export const cards: CardsProps[] = [
         title: "Thor",
         subtitle: "",
         description: "Thor, filho de Odin, o rei dos deuses nórdicos, logo herdará o trono de Asgard de seu idoso pai. No entanto, no dia de sua coroação, Thor reage com brutalidade quando os inimigos dos deuses entram no palácio violando o tratado. Como punição, Odin manda Thor para a Terra. Enquanto seu irmão Loki conspira em Asgard, Thor, agora sem seus poderes, enfrenta sua maior ameaça.",
-        faixa: "A10",
+        faixa: "10",
         src: "https://drive.google.com/file/d/1OON3LmVgkfSeVA71aoK5jjSiaHBQ0-FY/preview",
         duration: "01h 54m",
         genero: ["Ação", "Fantasia", "Marvel", "Super Herói"]
@@ -1529,7 +1529,7 @@ export const cards: CardsProps[] = [
         title: "Star wars 3",
         subtitle: "A Vingança dos Sith",
         description: "As Guerras Clônicas estão em pleno andamento e Anakin Skywalker mantém um elo de lealdade com Palpatine, ao mesmo tempo em que luta para que seu casamento com Padmé Amidala não seja afetado por esta situação. Seduzido por promessas de poder, Anakin se aproxima cada vez mais de Darth Sidious até se tornar o temível Darth Vader. Juntos eles tramam um plano para aniquilar de uma vez por todas com os cavaleiros jedi.",
-        faixa: "A10",
+        faixa: "10",
         src: "https://drive.google.com/file/d/1hkS7jNa0pb0brLyopsP22qlgJvECyIka/preview",
         duration: "02h 20m",
         genero: ["Ficção Científica", "Ação"]
@@ -1710,7 +1710,7 @@ export const cards: CardsProps[] = [
         title: "Batman",
         subtitle: "Begins",
         description: "O jovem Bruce Wayne viaja para o Oriente e recebe treinamento em artes marciais do mestre Henri Ducard, um membro da misteriosa Liga das Sombras. Quando Ducard revela que a verdadeira proposta da Liga é a destruição completa de Gotham City, Wayne retorna à sua cidade natal com o intuito de livrá-la de criminosos e assassinos. Bruce assume a persona de Batman, o Cavaleiro das Trevas, e conta com a ajuda do mordomo Alfred e do expert Lucius Fox.",
-        faixa: "A10",
+        faixa: "10",
         src: "https://drive.google.com/file/d/1G4Pl6JZNIOEFXiDUczTsxAcI7ay-mS13/preview",
         duration: "2h 20m",
         genero: ["Ação", "Crime", "DC", "Super Herói"]
@@ -1851,7 +1851,7 @@ export const cards: CardsProps[] = [
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.papodecinema.com.br%2Fwp-content%2Fuploads%2F2017%2F05%2F20170703-bg_spiderman-copy.jpg&f=1&nofb=1&ipt=9d585d7989dfbfdfd0d7bc0019068affb5c4a3395cbb89558d531628644cfc54&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.sonypictures.com.br%2Fsites%2Fbrazil%2Ffiles%2F2022-03%2FDP_3409108_TC_1400x2100_DP_3409112_SpiderManHomecoming_INTL_2017_2000x3000_BR_thumbnail_xlarge.jpg&f=1&nofb=1&ipt=6c36ca916c76457759e25c03e284f02bcc6c2e300d1b4ddf3f19927ff9d1913d&ipo=images",
         tmdbId: 315635,
-        title: "Homem-Aranha",
+        title: "Homem Aranha",
         subtitle: "De volta ao Lar",
         description: "Depois de lutar ao lado dos Vingadores, chegou a hora do jovem Peter Parker voltar para casa em Nova York ao lado de sua tia May. Sob o olhar atento do mentor Tony Stark, Peter começa a abraçar sua nova identidade como Homem-Aranha e combate diariamente pequenos crimes nas redondezas. Ele acredita que encontrou a missão de sua vida quando o terrível vilão Abutre surge ameaçando a cidade. O problema é que a tarefa não será tão fácil como ele imaginava.",
         faixa: "A12",
@@ -1863,7 +1863,7 @@ export const cards: CardsProps[] = [
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages4.alphacoders.com%2F102%2Fthumb-1920-1023915.jpg&f=1&nofb=1&ipt=a1580b32cd61af90e08c5ca619144c699aa722af2740e28ca530adcf1ac715ed&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FtX0o4AdHpidgniTWwfzK0dNTKrc.jpg&f=1&nofb=1&ipt=97bdd70814c09abd2e8952f3cb7c2cc59608c56126d6c98743a2df66e8c9b174&ipo=images",
         tmdbId: 429617,
-        title: "Homem-Aranha",
+        title: "Homem Aranha",
         subtitle: "Longe de Casa",
         description: "Peter Parker está em uma viagem de duas semanas pela Europa, ao lado de seus amigos de colégio, quando é surpreendido pela visita de Nick Fury. Convocado para mais uma missão heroica, ele precisa enfrentar vários vilões que surgem em cidades-símbolo do continente, como Londres, Paris e Veneza, e também a aparição do enigmático Mysterio.",
         faixa: "10",
@@ -3185,7 +3185,7 @@ export const cards: CardsProps[] = [
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fhn5TleW44PcZCejyz0BHdLch5yy.jpg&f=1&nofb=1&ipt=1b12df4fc13832960f1ca49b7313a9d295ec61530a454a1b3d8f574fcd8dd62a&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.sonypictures.com.br%2Fsites%2Fbrazil%2Ffiles%2F2022-03%2FKEY%2520ART_SPIDER%2520NO%2520WAY%2520HOME.JPG&f=1&nofb=1&ipt=925490eda2c3759b3e3247dca419d1e318d09a23a16e6a2fd51e947c0629444d&ipo=images",
         tmdbId: 634649,
-        title: "Homem-Aranha",
+        title: "Homem Aranha",
         subtitle: "Sem Volta pra Casa",
         description: "Peter Parker tem a sua identidade secreta revelada e pede ajuda ao Doutor Estranho. Quando um feitiço para reverter o evento não sai como o esperado, o Homem-Aranha precisa enfrentar inimigos de todo o multiverso.",
         faixa: "",
