@@ -2018,6 +2018,11 @@ export const series: SeriesProps[] = [
                         src: "https://drive.google.com/file/d/14WbHHRfDWfMu__GKH7UPu1LqMi1qG142/preview",
                         duration: "01h 05m"
                     },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1SsNif32MDrKDB41o_lcdWzINNLqoTkox/preview",
+                        duration: "01h 02m"
+                    }
                 ]
             },
         ]

@@ -21,6 +21,67 @@ export const cards: CardsProps[] = [
     genero: ["", ""]
     },
     */
+
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp3005682.jpg&f=1&nofb=1&ipt=74b97ae9158f5508c6942e534d862d3687b389b6dd67829f4735b0319727e257&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.P4txkNtafMdb14AFe5dY_gHaLH%26pid%3DApi&f=1&ipt=f0d27598949f461a29b08a86dde96c3b4d8ba4b1e94e404b3ff5b6acbd318c11&ipo=images",
+        tmdbId: 277,
+        title: "Anjos Da Noite",
+        subtitle: "",
+        description: "Na calada da noite, vampiros se envolvem em uma batalha antiga com seus inimigos, os Lycans, um grupo de lobisomens violentos. Selene, uma vampira que é órfã por conta de um ataque dos Lycan, trabalha para o clã dos vampiros como uma matadora treinada. Quando os Lycan se interessam misteriosamente por Michael Corvin, um doutor mortal excepcional, Selene luta para livrá-lo de Lucian, um cruel Lycan.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1BYOPD_RkV_iUtaa1fuTbeJl8zX0Bi6_K/preview",
+        duration: "02h 2m",
+        genero: ["Ação", "suspense"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F67fs51YjXewKkXOnPRZXpktGceQ.jpg&f=1&nofb=1&ipt=304a20a225cfa1b17413b646d0082e0c78bc4eea5d041f288f4f366caed3e95e&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP._lMZdzp3BBUKJb1GaRoniQHaJ4%26pid%3DApi&f=1&ipt=4f715b0cb420db28917aaf5809aa294ddadb72c2f2a1d708f175294906313f7e&ipo=images",
+        tmdbId: 834,
+        title: "Anjos da Noite",
+        subtitle: "A Evolução",
+        description: "Após o final do primeiro filme, a união de Selene a vampira e seu namorado Michael o vampiro-lobisomen terá de ser mais forte que o amor. Os dois terão de enfrentar uma legião de vampiros e lobisomen, e a evolução das espécies. Além disso, o centenário vampiro Marcus desperta de seu sono, pronto para matá-los.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1hpvwxQPYuqL2cGtUGwQfMTac_Hhq_wfW/preview",
+        duration: "01h 46m",
+        genero: ["Ação", "Suspense", "Fantasia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fc7JgVgsF2qMp2UbCr9mCx85CIZo.jpg&f=1&nofb=1&ipt=e9a9d40f787cf958f4a6e5342a0298bfcbcd368295ec241d5980f0d1bc04b74b&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.nI9IutdLyNQc6FrL5G5yywHaLH%26pid%3DApi&f=1&ipt=2422e226d96c42051f7c439a11937748a30e05081b0e763c0d8ba8511ae96427&ipo=images",
+        tmdbId: 12437,
+        title: "Anjos da Noite",
+        subtitle: "A Rebelião",
+        description: "Viktor, o cruel rei dos vampiros, tem perseguido e escravizado os lycans, uma linhagem de lobisomens nascidos humanos, por séculos. Este tirano ancião exige prata dos nobres, com o propósito de manter o controle dos seus escravos bestiais. Enquanto cresce, o jovem Lucian se apaixona pela filha de Viktor, Sonja, uma vampira insubordinada e imprudente. Juntos, Sonja e Lucian orquestram uma batalha épica, que marca o início de uma longa guerra entre vampiros e lobisomens.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1mndP4HmPJetdUHhySmcSaZzKZPB_MSwN/preview",
+        duration: "01h 32m",
+        genero: ["Ação", "Suspense", "Fantasia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2Fv63E5H5TD7Eay1gZPVt9ibP9riy.jpg&f=1&nofb=1&ipt=2261b802f642cb221766569195f2d867df1c14650c37b2750aed4bf98a0798b5&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.1H1EqGgsqUV0qgjSviR8rAHaLH%26pid%3DApi&f=1&ipt=cae8ed893000b7272bb19f0e107b761ae32e575ed46715b6b6e13b3aa49559ff&ipo=images",
+        tmdbId: 52520,
+        title: "Anjos da Noite",
+        subtitle: "O Despertar",
+        description: "Após ser mantida em estado de coma por quinze anos, a vampira Selene descobre que ela possui uma filha de quatorze anos, híbrida de vampiro e lobisomem. Com a ajuda dela, Selene deve impedir a empresa BioCom de criar super lobisomens que possam matar todos os vampiros",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1-XTa7qZbC2_7P93BW0cIPe_WuY1Ffvu7/preview",
+        duration: "01h 28m",
+        genero: ["Ação", "Suspense", "Fantasia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F1bfj55sPYXIGAFBUMaiewJ4a81S.jpg&f=1&nofb=1&ipt=1cbef8c903eca47c56d1c102d9229aee5876185a188e8314d43d4b24aa64483c&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.KCBucj-dMiA5GjYddfOL_wHaJ4%26pid%3DApi&f=1&ipt=7b6f00d882ab60bf7de93f5e2efff1c2240100511a814142bf8ad5ae28d27deb&ipo=images",
+        tmdbId: 346672,
+        title: "Anjos da Noite",
+        subtitle: "Guerras de Sangue",
+        description: "Selene é uma guerreira vampira que luta para acabar com a guerra eterna entre o clã Lycan de lobisomens sanguinários e a facção de vampiros que a traiu. Quando um novo levante parece tomar forma, ela irá utilizar sua influência e relacionamento com ambas as partes para negociar um cessar fogo.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1mRQeOCScsOPPibZ58dEtLNapujtW3a_G/preview",
+        duration: "01h 31m",
+        genero: ["Ação", "Suspense", "Fantasia"]
+    },
     {
         background: "",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Ze5thoPtC0YwC6GlW1ggEwHaJQ%26pid%3DApi&f=1&ipt=f0b8b48583d4e1d9b2d9c0ca013e821c8da2d7855802de41653f0f9efac05361&ipo=images",
