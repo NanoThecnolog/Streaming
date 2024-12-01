@@ -22,6 +22,78 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F96o558hWHjsxzfrLgHEysT2rKwY.jpg&f=1&nofb=1&ipt=279c8ed79b0cf85952016c1454f1b4e8927b8e35fe52a897c87aaf1ad298951a&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.rDjiJd9QYswvzMdoQzSu1wHaJ4%26pid%3DApi&f=1&ipt=35ee8bef219355427ca9553392e6ee4de48760e5813cb8277ed2681905583ec0&ipo=images",
+        tmdbId: 887357,
+        title: "Lanterna Verde",
+        subtitle: "Cuidado Com Meu Poder",
+        description: "O franco-atirador da Marinha John Stewart está em uma encruzilhada em sua vida, que só é complicada por receber um anel extraterrestre que lhe concede os poderes do Lanterna Verde da Terra. Infelizmente, o anel não vem com instruções, mas vem com bagagem, como uma horda de assassinos interplanetários (Tropa Sinestro) empenhados em eliminar todos os Lanternas Verdes do universo. Agora, com a ajuda do Arqueiro Verde, Adam Strange e Mulher-Gavião, este soldado deve viajar para o coração de uma guerra galáctica Rann/Thanagar e de alguma forma ter sucesso onde todos os outros Lanternas Verdes falharam.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1k1n_m3-61fqFhA-fTWUrU7GocGxMCX_E/preview",
+        duration: "1h 28m",
+        genero: ["Animação", "Ação", "DC", "Super Herói"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fbb%2F57%2F35%2Fbb57350dbf19c2367bdf9a569e65aa78.jpg&f=1&nofb=1&ipt=1890035fd417aa6cc4c88952baa74ab4f444a67bfcbf94168514e7768cd71e0a&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.KKEvCIUhUqvtmhRPY9RJXgHaJ4%26pid%3DApi&f=1&ipt=1e8b86f8e8b3168f0db7dabd5f9ff5a71303ac8274d2231a03635b19e6cbe5c5&ipo=images",
+        tmdbId: 408220,
+        title: "Liga da Justiça Sombria",
+        subtitle: "",
+        description: "Um grupo de anti-heróis sobrenaturais se unem para enfrentar ameaças ocultas, ameaças sobrenaturais, ameaças que talvez Batman, Superman e companhia não conseguiriam vencer. O clã é formado por personagens como John Constantine, Zatanna, o Monstro do Pântano, Etrigan, o Demônio, e a Orquídea Negra.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1M6yZrgpig_Jd_4QwayqrPWd3q54OjpVY/preview",
+        duration: "01h 15m",
+        genero: ["Animação", "Ação", "DC", "Super Herói"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F7zhm42mTFa7WCpufXZlnarwaCdI.jpg&f=1&nofb=1&ipt=f1a3d655c310deb6503f11823dfc532e639a40ac1fb65d3ec92a22dabbfa1cb7&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.y1UofZDeCDh1OAVSvQyocgHaKl%26pid%3DApi&f=1&ipt=ba70fde6675439f6effb507a2352294fe7b1fa05768b9dcadf172d49fb9e801a&ipo=images",
+        tmdbId: 49521,
+        title: "O Homem de Aço",
+        subtitle: "",
+        description: "Um garoto descobre que não é deste planeta e que tem poderes extraordinários. Quando se torna adolescente, viaja para descobrir de onde veio e para o quê foi enviado a fazer. Mas o herói nele deve emergir se quiser salvar o mundo da aniquilação e se tornar o símbolo de esperança para toda a humanidade.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1oVIFQyCc-Eg3xMFNE1tvaoyKDOfEjUIg/preview",
+        duration: "02h 23m",
+        genero: ["Ação", "Ficção Científica", "DC", "Super Herói"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fhdqwalls.com%2Fdownload%2Fshazam-movie-2019-4k-91-1920x1080.jpg&f=1&nofb=1&ipt=f29a33cdf29f91dd92e9f6b5ac83c859522598b0a647ab109aa013a2959bd7f0&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Lhl63h-XDghP5qu_JBKH9AHaLH%26pid%3DApi&f=1&ipt=03b815d4b198143a1e68b481e4875e870706fed18fd47abf2acc247cc3ef4c92&ipo=images",
+        tmdbId: 287947,
+        title: "Shazam!",
+        subtitle: "",
+        description: "Billy Batson tem apenas 14 anos de idade, mas recebeu de um antigo mago o dom de se transformar num super-herói adulto chamado Shazam. Ao gritar a palavra SHAZAM!, o adolescente se transforma nessa sua poderosa versão adulta para se divertir e testar suas habilidades. Contudo, ele precisa aprender a controlar seus poderes para enfrentar o malvado Dr. Thaddeus Sivana.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1YfL51rZJs0heg3_pa2X9U6SiJc6hzn_A/preview",
+        duration: "02h 11m",
+        genero: ["Ação", "Comédia", "Fantasia", "DC", "Super Herói"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.uhdpaper.com%2Fwallpaper%2Fshazam-fury-of-the-gods-337%401%40j-pc-4k.jpg&f=1&nofb=1&ipt=b89d6a8442861fba1379da8c229f46b33a761dd14bad43bd1d1c4af35e4cdd1f&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.CaLubbVdtpokfdpSF5mqyQHaLH%26pid%3DApi&f=1&ipt=e694ab4831bf75b6a7a5b456eb6578aaf5ff3aa4888284e366b9d8250fa95a31&ipo=images",
+        tmdbId: 594767,
+        title: "Shazam!",
+        subtitle: "Fúria dos Deuses",
+        description: "Continua a história do adolescente Billy Batson que, ao recitar a palavra mágica “SHAZAM!”, é transformado em seu alto ego adulto de super-herói, Shazam.",
+        faixa: "L",
+        src: "https://drive.google.com/file/d/1YqMmWVbDqqOZD8zW0pH84Ig5H4wiTJsA/preview",
+        duration: "02h 10m",
+        genero: ["Ação", "Comédia", "Fantasia", "DC", "Super Herói"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages5.alphacoders.com%2F103%2F1033468.jpg&f=1&nofb=1&ipt=ea2c152e4af42129036df6f4d63856c1584a245c1f3687b4d483c63bc5a524fb&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.nuTX5-8pCCFSKgHWLLvgkwHaLH%26pid%3DApi&f=1&ipt=416f4e71416e89ad42500909d31fe623bc55ba3906acc4d4e6027614647a0480&ipo=images",
+        tmdbId: 752,
+        title: "V de Vingança",
+        subtitle: "",
+        description: "Após uma guerra mundial, a Inglaterra é ocupada por um governo fascista e vive sob um regime totalitário. Na luta pela liberdade, um vigilante, conhecido apenas como V, utiliza-se de táticas terroristas para enfrentar os opressores da sociedade. V salva uma jovem chamada Evey da polícia secreta e encontra nela uma nova aliada em busca de liberdade e justiça para o seu país.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1D50ed4DM8tIXexqT40osxSeQUII0ymAw/preview",
+        duration: "02h 12m",
+        genero: ["Ação", "Suspense"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages5.alphacoders.com%2F757%2F757038.jpg&f=1&nofb=1&ipt=283882f034b00f37cf224586263d5c503c2836dd65cf9102d83c91d47e7d022a&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.kHc9qVu0sP9Rgp0W2NKjBQHaLH%26pid%3DApi&f=1&ipt=6896d7bac362b731c164b179625757ed121db54a3316aeb5ea82509aa0a4e8fa&ipo=images",
         tmdbId: 277834,
