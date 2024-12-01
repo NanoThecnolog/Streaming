@@ -21,7 +21,18 @@ export const cards: CardsProps[] = [
     genero: ["", ""]
     },
     */
-
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages5.alphacoders.com%2F757%2F757038.jpg&f=1&nofb=1&ipt=283882f034b00f37cf224586263d5c503c2836dd65cf9102d83c91d47e7d022a&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.kHc9qVu0sP9Rgp0W2NKjBQHaLH%26pid%3DApi&f=1&ipt=6896d7bac362b731c164b179625757ed121db54a3316aeb5ea82509aa0a4e8fa&ipo=images",
+        tmdbId: 277834,
+        title: "Moana",
+        subtitle: "Um Mar de Aventuras",
+        description: "Moana Waialiki é uma corajosa jovem, filha do chefe de uma tribo na Oceania, vinda de uma longa linhagem de navegadores. Querendo descobrir mais sobre seu passado e ajudar a família, ela resolve partir em busca de seus ancestrais, habitantes de uma ilha mítica que ninguém sabe onde é. Acompanhada pelo lendário semideus Maui, Moana começa sua jornada em mar aberto, onde enfrenta terríveis criaturas marinhas e descobre histórias do submundo.",
+        faixa: "L",
+        src: "https://drive.google.com/file/d/1aHVoN-kWxIvdQBi9a6OMSqXws7q674Cr/preview",
+        duration: "01h 47m",
+        genero: ["Aventura", "Comédia", "Família", "Animação", "Disney Plus"]
+    },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp3005682.jpg&f=1&nofb=1&ipt=74b97ae9158f5508c6942e534d862d3687b389b6dd67829f4735b0319727e257&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.P4txkNtafMdb14AFe5dY_gHaLH%26pid%3DApi&f=1&ipt=f0d27598949f461a29b08a86dde96c3b4d8ba4b1e94e404b3ff5b6acbd318c11&ipo=images",

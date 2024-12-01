@@ -12,5 +12,10 @@
         position: relative;
         width: 350px;
         height: 600px;
+
+        img {
+            object-fit: cover;
+            object-position: center;
+        }
     }
 }

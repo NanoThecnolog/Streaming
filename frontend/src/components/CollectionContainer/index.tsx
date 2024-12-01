@@ -23,7 +23,9 @@ export default function CollectionContainer({ cardPerContainer }: CollectionProp
         'divergente',
         'vingadores',
         'O Cavaleiro das Trevas',
-        'O Senhor dos Anéis'
+        'O Senhor dos Anéis',
+        'Anjos da Noite',
+        'Transformers'
     ]
     useEffect(() => {
         if (cardPerContainer) {
