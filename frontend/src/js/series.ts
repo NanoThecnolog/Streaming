@@ -27,6 +27,200 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FbsQM8tL1HgkpNGqtotzz6iQ2NfT.jpg&f=1&nofb=1&ipt=37594f5a1d87cb1a2c8ccefcb5ffdb807b9a696e4d25113a39c2c63537bdf8d2&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.qxn_M-pRE5dUlt-c102FDQHaKX%26pid%3DApi&f=1&ipt=11ac2a0c7c3772166a0f4b14101fff260521b4d43360d09d9cf16bc8320e72e5&ipo=images",
+        tmdbID: 108545,
+        title: "O Problema dos 3 Corpos",
+        subtitle: "",
+        description: "Um grupo de cientistas faz descobertas revolucionárias ao longo das décadas. Ao mesmo tempo, as leis da ciência começam a cair por terra.",
+        genero: ["Drama", "Mistério", "Ficção Científica", "Netflix"],
+        faixa: "A16",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1I12iKiJiTGEuPVhrrq_dp6QCCCIhDmL7/preview",
+                        duration: "01h"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1SdSUuCr89Og-ho2GFLJrJBOB3-NQWJEN/preview",
+                        duration: "01h 03m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1F9WufMYfmbd6vQeXw3qfMwX0m7GGzG8V/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1eDHFKOokTgWJ2xyhMUqdAyrvzTmpWc3S/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1BwOg1h96kFEe3EcRaQVOWti21f34qasC/preview",
+                        duration: "57m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1nShadBFTliP3a4422mT2h1vVCRlDt_XG/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1e6kARBI_g3SgQakJtyVDW9_6L_QBYBEZ/preview",
+                        duration: "58m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1BgOsK1DUAlgMwkgqonA-1AeCN7nD1ppd/preview",
+                        duration: "56m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F1zJTsCTmWndVmHtJbUX9OANXHLR.jpg&f=1&nofb=1&ipt=1466e974eb1a4f5b517afff3e014db4d739be07408669a61ea9b4995679267b1&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.IpknxUDcamp3oEFE112rIAHaLH%26pid%3DApi&f=1&ipt=396c7a864d836d4c6249ef5ffa7d7e76af289436c904f6bee04fa9b9a6ca0683&ipo=images",
+        tmdbID: 124800,
+        title: "Amor e Morte",
+        subtitle: "",
+        description: "A história real de Candy e Pat Montgomery e Betty e Allan Gore, dois casais que frequentam a igreja e vivem uma vida simples no Texas… até que uma traição faz alguém pegar um machado.",
+        genero: ["Crime", "Drama", "HBO"],
+        faixa: "A16",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1ye8FuDQ-g78A60Z37wwRAL5qB82DSWIV/preview",
+                        duration: "56m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1jEtoUfEqeKi5SbfFP0NtJQh1ncnjo5g_/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1rdlMG5B9ZUL2vAUyerSiEpJy0z8GpKtP/preview",
+                        duration: "58m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1EE-8yzEYFcDdA5i3v-AVQCV65Vvyl9Yk/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1BrQ50071Yr4WGEBmeLYups_jb1HSJ24N/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1B0ux8CNPGowWOd6ryK_Qp3L4T88zjanY/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1yZ-0j73HxMQUQ77lmRyPQniIWu2LwV1P/preview",
+                        duration: "57m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.oneesports.gg%2Fcdn-data%2F2024%2F02%2FAnime_NinjaKamui_AdultSwim_KeyImage-1536x864.jpg&f=1&nofb=1&ipt=bff9d2a121d862e88edbd7cd2f9f57096c096d05e4722e3658da3218c84a745f&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.vgHLESaBn98YTv2gKJhlmwHaLH%26pid%3DApi&f=1&ipt=05cecb1e97c425d78c6bc4581b73b114ecefa2d10a9ff4b613f4d77243910e34&ipo=images",
+        tmdbID: 202284,
+        title: "Ninja Kamui",
+        subtitle: "",
+        description: "Um ex-membro de um clã ninja desistiu para viver uma vida tranquila com sua esposa e filho. Uma noite, sua família morre após ser atacada por uma organização misteriosa. O homem é torturado pelas consequências.",
+        genero: ["Animação", "Ação", "HBO"],
+        faixa: "A14",
+        season: [
+            {
+                s: 1,
+                lang: "Legendado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/10F4T7kwRlauZRoa7_2ch-Pr46ankk_Y_/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1vOEq3JPVGs0JSfg32hVXWDcHSeDvpDjz/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/16VqbFCkIqGzwx5dKjrIFw93ekrDOJTYC/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1pcyemEMPGX24JeENi55W3q1Rpy-6j-lJ/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1ldlaHSAbn6WBjpFAXMJw5545sZgRl6Gx/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1xzN-4OukQf1_z-GOjYwGbAUCRao9cwlE/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1-su6ZnZdI21wiUOx88EwvpAzzGiqTmNs/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/103xLVu7pzCXEFbOhvyaNywxnhT9G4m96/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1JoX_XZMnly2sF7CBGnotFFx2qEGqjFkl/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1QNHvsYrknu4EOllSHjj2tdW6T6BXzXF1/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 11,
+                        src: "https://drive.google.com/file/d/1TXqHDsHGdQq_RBqlAPAf3Bsn3sfvdC0s/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 12,
+                        src: "https://drive.google.com/file/d/1TYA0hUXrMKtSMbspP-bAcCpkSEl6w7JY/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 13,
+                        src: "https://drive.google.com/file/d/1Th4q0zvwhEzYg-aEuqSQ_K-ocSGtXZYv/preview",
+                        duration: "23m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fn6V0WbgytbeXKoGoUjpHvh2GlbM.jpg&f=1&nofb=1&ipt=3f451826e028c46f66957f4b6d527c1cbb806659ca3279d46b1fa4da3f9eb758&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.WIAHCsaE7RpMCtpQ9PVFCwHaLH%26pid%3DApi&f=1&ipt=fe48f1195f04ed3a6c83fec32943c90aef9d3f2e27ae9f3fafbe11b596f59496&ipo=images",
         tmdbID: 103540,
