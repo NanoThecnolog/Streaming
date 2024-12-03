@@ -27,6 +27,44 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblogger.googleusercontent.com%2Fimg%2Fb%2FR29vZ2xl%2FAVvXsEir1vAf8yahp_bQ-uSdaKlHZnGd9r46vC0UPRByiq3FIQbymQpeCLAWS0m6SAe1D1qsa9QX9Qw6UheqrrKtHzobcmU82JNrz88z4OOJq05HMaWVKRtchax1YEtlq8GBj_d9nPOSbe9QQY8ECAsIInAsfqiuI9VGsOdfmd6AqznPIUqPfjmogNXDgc6VJQ%2Fw1600%2FTATUDOCERTO_FILMINGANNOUNCEMENT_0015.jpg&f=1&nofb=1&ipt=e252263f24930edc92f6bfc0e608cab8b1532eb2a536dfa8a49012b5d0769e49&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.nhmxWCbn_Uc4qudNU9TaQgHaLH%26pid%3DApi&f=1&ipt=85142c346cade0b5bec9545c28042a0c5c7f7a1a616e44a2ba1221777c19b78c&ipo=images",
+        tmdbID: 153784,
+        title: "Tá Tudo Certo",
+        subtitle: "",
+        description: "Esta é a história de Pedro, um jovem estudante de direito que sonha em ser uma estrela da música e que, por acaso, conhece Ana. Com ela, o caminho do sucesso parece possível, mas logo ele se encontra com o dilema de perseguir seu sonho de sucesso ou ter uma vida cheia de música e boas vibrações ao lado de Ana.",
+        genero: ["Comédia", "Drama", "Romance", "Disney+"],
+        faixa: "A12",
+        season: [
+            {
+                s: 1,
+                lang: "Nacional",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1MByXAvl_wb9A1H2euGt80G7kDL7xyifq/preview",
+                        duration: "32m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1MN36xOHkQZpZUD0x2GpbE4cPnS6Al4Nk/preview",
+                        duration: "27m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1MY9dlCQ1LmOHEjadwdZxknyq9xu7yDt0/preview",
+                        duration: "34m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1MiUFkhWDH9ICSBJJ5WqdfJZPNj_41aDq/preview",
+                        duration: "35m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmr.comingsoon.it%2Fimgdb%2Fserietv%2Fserie%2F3066%2F3066_hd.jpg&f=1&nofb=1&ipt=e0e4cfb3484cea3813f58a644aa53bcc088d69ad72863fc79a9e363012e49463&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.8K3JDgcUZo4aJD7lGFGyfAHaLH%26pid%3DApi&f=1&ipt=121e4d1288833d75e55f5c594808faef47379f2653f3ffcf79cd74356e9b2dba&ipo=images",
         tmdbID: 89901,
@@ -3193,6 +3231,62 @@ export const series: SeriesProps[] = [
                     },
                 ]
             },
+            {
+                s: 5,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1r0dYvqL3OBoKfvCT6ytKZ9s0UgYSeWUP/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1vrg_q5KYusVf5usP_a3x8FFEFkqUxN22/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1VCMO75b5HU-AP3rJURx_43mCvl2y3gPF/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1W9TBgOHoVgT2MUkWqy4r2Ctc4yXiytzW/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1TQ-simvBJfHau_NXYAWm_z7rRPqMkZmq/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1DKVSBTRrJoUisOm5Pmd1c4_WLMUh6Hd3/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1KzBDGrebwk6xCuR46DUXKMPofxI0zCao/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1-j3NPzVg9PIWqXiiNQrY_WbZ3BJxcYAo/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/14HU5F-4MvLovINlFE2BcssOJNMvhv8Uk/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1D4fR2bCiombxiCmfEcUcdYc91EMzlRxA/preview",
+                        duration: "01h 16m"
+                    },
+                ]
+            },
         ]
     },
     {
@@ -3453,62 +3547,7 @@ export const series: SeriesProps[] = [
                     },
                 ]
             },
-            {
-                s: 5,
-                lang: "Dublado",
-                episodes: [
-                    {
-                        ep: 1,
-                        src: "https://drive.google.com/file/d/1r0dYvqL3OBoKfvCT6ytKZ9s0UgYSeWUP/preview",
-                        duration: "49m"
-                    },
-                    {
-                        ep: 2,
-                        src: "https://drive.google.com/file/d/1vrg_q5KYusVf5usP_a3x8FFEFkqUxN22/preview",
-                        duration: "52m"
-                    },
-                    {
-                        ep: 3,
-                        src: "https://drive.google.com/file/d/1VCMO75b5HU-AP3rJURx_43mCvl2y3gPF/preview",
-                        duration: "49m"
-                    },
-                    {
-                        ep: 4,
-                        src: "https://drive.google.com/file/d/1W9TBgOHoVgT2MUkWqy4r2Ctc4yXiytzW/preview",
-                        duration: "51m"
-                    },
-                    {
-                        ep: 5,
-                        src: "https://drive.google.com/file/d/1TQ-simvBJfHau_NXYAWm_z7rRPqMkZmq/preview",
-                        duration: "54m"
-                    },
-                    {
-                        ep: 6,
-                        src: "https://drive.google.com/file/d/1DKVSBTRrJoUisOm5Pmd1c4_WLMUh6Hd3/preview",
-                        duration: "53m"
-                    },
-                    {
-                        ep: 7,
-                        src: "https://drive.google.com/file/d/1KzBDGrebwk6xCuR46DUXKMPofxI0zCao/preview",
-                        duration: "53m"
-                    },
-                    {
-                        ep: 8,
-                        src: "https://drive.google.com/file/d/1-j3NPzVg9PIWqXiiNQrY_WbZ3BJxcYAo/preview",
-                        duration: "49m"
-                    },
-                    {
-                        ep: 9,
-                        src: "https://drive.google.com/file/d/14HU5F-4MvLovINlFE2BcssOJNMvhv8Uk/preview",
-                        duration: "52m"
-                    },
-                    {
-                        ep: 10,
-                        src: "https://drive.google.com/file/d/1D4fR2bCiombxiCmfEcUcdYc91EMzlRxA/preview",
-                        duration: "01h 16m"
-                    },
-                ]
-            },
+
         ]
     },
     {

@@ -247,7 +247,7 @@ export default function Serie(status: string) {
                                     episodesToShow.map((ep) => {
                                         const season = episodesData[seasonToShow - 1];
                                         const episode = season?.find(e => e.episode_number === ep.ep)
-                                        const image = `https://image.tmdb.org/t/p/original${episode?.still_path}`
+                                        const image = episode ? `https://image.tmdb.org/t/p/original${episode?.still_path}` : '/blurImage.png';
                                         return (
                                             <div key={ep.src} className={styles.episodeContainer} onClick={() => handlePlayEpisode(ep, seasonToShow)}>
                                                 <div
