@@ -1,7 +1,7 @@
 import { SeriesProps } from "@/@types/series";
 
 export const series: SeriesProps[] = [
-    /*
+    /*HBO, Disney+, Netflix, Prime Video, Apple TV
     {
         background: "",
         overlay: "",
@@ -26,6 +26,250 @@ export const series: SeriesProps[] = [
         ]
     },
     */
+
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wallpapersden.com%2Fimage%2Fdownload%2Flocke-and-key-2022_bWpqZWyUmZqaraWkpJRnamtlrWZpaWU.jpg&f=1&nofb=1&ipt=ced73b198c19ec9b7a5cb798d99c491e45f7f87ea30af56054376e461d11fd31&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Kn1371emYx2YweTuEjZ51gHaJ4%26pid%3DApi&f=1&ipt=7f100955a02cb859f4fc719f6b0d79dfef39e5dd542bfa9649b0a950b784ece5&ipo=images",
+        tmdbID: 86423,
+        title: "Locke & Key",
+        subtitle: "",
+        description: "Após o assassinato do pai, três irmãos se mudam com a mãe para uma casa antiga onde descobrem chaves mágicas que revelam poderes e segredos.",
+        genero: ["Fantasia", "Mistério", "Drama", "Netflix"],
+        faixa: "A16",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/15xS_StPveKxK6B4neZbqtQNwkNvc0-HC/preview",
+                        duration: "56m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1objk8FnWVIt-45wHjCmyD_AqXS-WlK9P/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/18hTV_N61iTnfFQUHSA1oWjFZPcQjRwfJ/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1QH62JKvOlGD0kW7Es_YHUBDnxHjvXhpi/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1MSZbeozSrKl6cgdQlmCKFpCO8wLvUCzo/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/17ZKdQyBSBChfguERSa1vS1rDJnzRyQ-b/preview",
+                        duration: "47m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1ysq9HS0u9RSB6-H-emtwa8OLiIJapgZp/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1r8fB2m-F9lIRnI6FUjuBbiLSC3i079NZ/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1W3nMQTrxZdXvPhglcquIDKijg7NMhKVs/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1DEjfuKVaxfubSK1fdtQaknBIDOPRK2Vz/preview",
+                        duration: "40m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1H0RsSg6_7OcLQhomLOnfa3KSBdIpV4PK/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/11yLWKsCjkinjdiTV4OdeMyiBNLARornr/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1xww_dcoX445quapJ8nX91L6-w8Y_r87u/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1RV3zIcTvk8_Z0h4B9abfJ_9Q6mJW_aco/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1R-s9zIpEBnmzuKX3Iyql1CIe50OXvayK/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1GkchXh1ab1LDONphHgTcdGcdj0K7IZ8e/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/14EpogXKA5nUcoJJN_FED_UeCZXdhIL7r/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1KNQNMzhL7G4Cx3XCCOWiPjAZ9o4kFwQ4/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1EJZE2n-UwPafQj5ZkBlcT0tbaTfuF2ct/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1DZtcGHzdSf_mXCAOw6-9r56Fem3nGqcw/preview",
+                        duration: "46m"
+                    },
+                ]
+            },
+            {
+                s: 3,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1xMWyJKSm7Lz0avd_k7EIyQRKzsflYfg9/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1Lj14oiFp_VRL3GwC-Yk3uh5zNVQ2Y-HL/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1GABTQDbsOPQKKJ3m_wrZavHwNCOg-Oeo/preview",
+                        duration: "47m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1_xxZMCg6qxixZZiJkCA5JVBD0jzqToFW/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1xeXFPncVumyyZF89iB-NBSgDuE1XSTVP/preview",
+                        duration: "36m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1sEHZQd-RQuPNL8xQP1jwTHOoyiT9UZAH/preview",
+                        duration: "34m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1k5a0H15-ewApuz38P-TTPC9mtWjY3MyC/preview",
+                        duration: "35m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1b7-TazdD0VTzEERlmqWQP5rpbx3SgxPS/preview",
+                        duration: "40m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsportshub.cbsistatic.com%2Fi%2F2023%2F02%2F15%2F914543ca-478d-4f36-9631-bef35576bfa1%2Fgkts1-8x12.jpg%3Fwidth%3D1200&f=1&nofb=1&ipt=d974ebc9fa835f583a2561b3dfdaa77afc6b289bbb20e16ae787ba4fe77f162b&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.v1SZdfiQsBbv_bkTm8yI_wHaLH%26pid%3DApi&f=1&ipt=7017f9d7ab42eb1ecb38c582b6964a06b05085e35b33883cd5196b3b881648a0&ipo=images",
+        tmdbID: 195868,
+        title: "Gotham Knights",
+        subtitle: "",
+        description: "No rescaldo do assassinato de Bruce Wayne, seu filho adotivo rebelde forja uma aliança improvável com os filhos dos inimigos de Batman quando todos eles são enquadrados por matar o Cruzado Encapuzado.",
+        genero: ["Ação", "Aventura", "DC", "Super Herói", "HBO"],
+        faixa: "A14",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1EjztJWUi6I2aThzCWw8lpRhpsPu_bRKm/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1f8QRjfOOrYcioKBbepYwA6NgL0hf2xaQ/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1rMLqG9cRftem_lk2lVftY1NG-6LMHSGN/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1YGC4Ye9P7pHFBw6rDLyHipr92l--x5fE/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1dqTvQv8ILHVdPVfnYm47deveU-4aPbkg/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1PjUWN41aVSCXOldqsqP2esYSCNuSPLC4/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1s2DdpbBWJkcSwa1JGkS1F4QjvZ_Y2sX-/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1Bc7_bMpVlGjAEyvYxUwFDf-IJTweFNI1/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1v0fmZ0TCHrZWwlVobf8tSkm_t-Fs0Jv2/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1T_hkUPaUgIKghJYTsap8Mumg7RluflrS/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 11,
+                        src: "https://drive.google.com/file/d/19PBjRHPlftFh9KQsod3ADmKCRbprdY77/preview",
+                        duration: "42m"
+                    },
+                ]
+            },
+        ]
+    },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblogger.googleusercontent.com%2Fimg%2Fb%2FR29vZ2xl%2FAVvXsEir1vAf8yahp_bQ-uSdaKlHZnGd9r46vC0UPRByiq3FIQbymQpeCLAWS0m6SAe1D1qsa9QX9Qw6UheqrrKtHzobcmU82JNrz88z4OOJq05HMaWVKRtchax1YEtlq8GBj_d9nPOSbe9QQY8ECAsIInAsfqiuI9VGsOdfmd6AqznPIUqPfjmogNXDgc6VJQ%2Fw1600%2FTATUDOCERTO_FILMINGANNOUNCEMENT_0015.jpg&f=1&nofb=1&ipt=e252263f24930edc92f6bfc0e608cab8b1532eb2a536dfa8a49012b5d0769e49&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.nhmxWCbn_Uc4qudNU9TaQgHaLH%26pid%3DApi&f=1&ipt=85142c346cade0b5bec9545c28042a0c5c7f7a1a616e44a2ba1221777c19b78c&ipo=images",
@@ -3573,6 +3817,11 @@ export const series: SeriesProps[] = [
                         ep: 2,
                         src: "https://drive.google.com/file/d/1SsNif32MDrKDB41o_lcdWzINNLqoTkox/preview",
                         duration: "01h 02m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1Wzm5qBn1Y9N2vSjNSZe_1KndS3HyaZsK/preview",
+                        duration: "01h 01m"
                     }
                 ]
             },
