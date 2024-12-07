@@ -22,6 +22,30 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fs9KUIs0vFyzjy1bouVcvN7tNbuw.jpg&f=1&nofb=1&ipt=1b4eabe440d0a41e7db67c4b99489d90034916363f4dc3beee259e3bfd5be5ac&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.xZvk9fhen9hpHpiMoF5eRQHaKf%26pid%3DApi&f=1&ipt=bfcd89416f535d3b7cedc8c55f564aa3997e3a7bac08a4e8cbec92a5fcefe9b0&ipo=images",
+        tmdbId: 41233,
+        title: "Ela Dança, Eu Danço 3",
+        subtitle: "",
+        description: "Um unido grupo de dançarinos de rua, que inclui Luke e Natalie, se une ao calouro da Universidade de Nova York Moose. Eles disputam contra os melhores dançarinos de hip hop do mundo em uma competição de alto risco, que mudará suas vidas para sempre.",
+        faixa: "A12",
+        src: "",
+        duration: "01h 47m",
+        genero: ["Drama", "Romance"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.portalnipponja.com.br%2Fuploads%2F2024%2F05%2F27162847%2FHAIKYU-The-Dumpster-Battle_Still-1-1.jpg&f=1&nofb=1&ipt=be4c96cd1befd47eea7301b1edbe6d85dec71926d57397fbb3e8df77db516c35&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.BNxR_KNYsNXoruF8OgZf9gHaLG%26pid%3DApi&f=1&ipt=69fc61dfb7650ff53f9285a801151ae837df1dc360b4e1af684d96b01d3d76a9&ipo=images",
+        tmdbId: 1012201,
+        title: "Haikyu",
+        subtitle: "A Batalha do Lixão",
+        description: "Shoyo Hinata se junta ao clube de vôlei do Karasuno High para ser como seu ídolo, um ex-jogador do Karasuno conhecido como o “Pequeno Gigante”. Mas Hinata logo descobre que deve se juntar a seu inimigo do ensino médio, Tobio Kageyama. Seus estilos conflitantes se transformam em uma arma surpreendente, mas será que eles conseguirão derrotar seu rival Nekoma High na tão aguardada “Dumpster Battle”, o tão aguardado confronto final entre duas equipes adversárias?",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1YWowTZ3Na1vlfJJd2FmSADIufRK3zmEm/preview",
+        duration: "01h 25m",
+        genero: ["Animação", "Drama"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftheilluminerdi.com%2Fwp-content%2Fuploads%2F2024%2F03%2F10E58_sq2300_s28.sq8001_s56_f456_pf_sRGB.jpg&f=1&nofb=1&ipt=24728b2591e42028af4f9cf1869ef5b14271fee603fdfcfd690607ee28f129a9&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.AoGM-lSGH_cm366N9nhScAHaLH%26pid%3DApi&f=1&ipt=253f735bf99cb0421452b0b7532ef487a31549859a4a1c7fe50f136bfcfdcccd&ipo=images",
         tmdbId: 1184918,
