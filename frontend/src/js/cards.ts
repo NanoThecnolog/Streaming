@@ -19,8 +19,68 @@ export const cards: CardsProps[] = [
     src: "",
     duration: "",
     genero: ["", ""]
-    },
+    },     
     */
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Ft6TL7V9IsT4Ktx6YO8b1UYj3agd.jpg&f=1&nofb=1&ipt=4a3e9d9cbb4d19934c79c542845513cda802c909f1d1d7021b0e794fe7dca189&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.UnmqL0H31A86W_1pjs-cGQAAAA%26pid%3DApi&f=1&ipt=e6b8f011898605995c021afcdd0246c644bc2fb3087a285d1ba30b32b2748eb5&ipo=images",
+        tmdbId: 339846,
+        title: "Baywatch",
+        subtitle: "S.0.S Malibu",
+        description: "Quando uma perigosa onda de crime atinge o local, o lendário tenente Mitch Buchannon aciona seu esquadrão de elite de salva-vidas durões, para provar que não é preciso usar um distintivo para cumprir sua missão. Junto com um trio de fortes recrutas, incluindo o ex-olímpico Matt Brody, eles vão deixar o surfe de lado e fazer de tudo para derrotar uma cruel empresária, cujos planos infames ameaçam o futuro da praia.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1qdNz8Wb32WOyMcjmnj5J0KN65nMfjVH1/preview",
+        duration: "01h 56m",
+        genero: ["Comédia", "Ação"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn-images.rtp.pt%2FEPG%2Fimagens%2F32123_37631_91581.jpg%3Famp%3Bw%3D160&f=1&nofb=1&ipt=bd119801f879633f82536f316ddd4e97844694883a50d7cba5abbaa773747cd2&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.6wST-ySXTABo3LhE2o4F0wHaLH%26pid%3DApi&f=1&ipt=f72397a9eb1bf8bd742e42b6edab449c62d0f8da6649aced4719be67e88d90aa&ipo=images",
+        tmdbId: 59962,
+        title: "Guerra é Guerra",
+        subtitle: "",
+        description: "Tuck e Frank são melhores amigos que trabalham juntos como agentes da CIA. Quando descobrem que estão saindo com a mesma mulher, entram em uma disputa que coloca em risco a amizade e a vida dos dois.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1yOjITgGni814GEcwT9ZK5JZSwWa5y3L9/preview",
+        duration: "01h 38m",
+        genero: ["Ação", "Comédia", "Romance"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FitLPMBamtOwRhTHikgD5RrNMlq4.jpg&f=1&nofb=1&ipt=ed327e56ccca8cfeb1c1d003eee08c6fab3d3696fb4b5a61cae39de17573ad1b&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.MXb4Tvq-Dxoy5g1hriEz3AHaKE%26pid%3DApi&f=1&ipt=f45195df9b29eb1edd335b4d690f719fcd9d42d2d5ab22760aeb94f85a89081e&ipo=images",
+        tmdbId: 296099,
+        title: "Férias Frustradas",
+        subtitle: "",
+        description: "Rusty Griswold trabalha como piloto de avião na EconoAir, uma companhia de baixo custo. Ele é casado com Debbie e tem dois filhos, James e Kevin, que vivem brigando. Disposto a se divertir com a família, Rusty decide seguir os passos de seu pai e comandar uma ida ao parque de diversões Wally World, localizado a dias de viagem. Rusty logo aluga um carro albanês, sem imaginar que a viagem em família será bem mais complicada do que imaginava.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1DTYF3980y1leDfDdxdcPBmrPngmCSMLi/preview",
+        duration: "01h 39m",
+        genero: ["Comédia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F523DJjPPgq5fKOni2B8Ly4hTrUE.jpg&f=1&nofb=1&ipt=ab842fb1667b672128485dba599f2c618cd54db6e60c3bbcd96e13b42e7ba300&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Ti6rNU6MA7054dyHSHHEDgHaJ4%26pid%3DApi&f=1&ipt=ac6c30744993e69f999fdab4ae385c90af895ef326fabce5129fb3f3c102df39&ipo=images",
+        tmdbId: 37834,
+        title: "Encontro Explosivo",
+        subtitle: "",
+        description: "Roy Miller (Tom Cruise) é um agente que guarda consigo uma bateria especial, que jamais descarrega. O objeto é cobiçado pelo governo dos Estados Unidos, que enviou o agente Fitzgerald (Peter Sarsgaard) para obtê-lo, e Antonio (Jordi Mollà), um perigoso bandido espanhol. No aeroporto Miller usa June Havens (Cameron Diaz) para passar a bateria pela alfândega. June deseja apenas chegar o quanto antes para participar do casamento de sua irmã e, devido à pressa, consegue transferir seu voo para o mesmo de Miller. Só que no voo estão vários agentes destacados para eliminar Miller e recuperar a bateria, a qualquer custo.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1m9PKJk9EdSNkDRjwe2VokyoJeAHLu-0M/preview",
+        duration: "01h 49m",
+        genero: ["Ação", "Comédia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FolpwGvVHbTWEqcJD7csnaNE2mdR.jpg&f=1&nofb=1&ipt=1c35b1b8bce25978a4b4298d8004d81110e8275a28e224c63498f5284bed1b65&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Fw1280%2F804VouNe00vTbyeMsWUD0dMNIH6.jpg&f=1&nofb=1&ipt=bf153a69fa156e3d86e9884f6be3ef6e0736affaff29dd7d310fed93c6aecb23&ipo=images",
+        tmdbId: 9762,
+        title: "Ela Dança, Eu Danço",
+        subtitle: "",
+        description: "Tyler Gage é um rapaz problemático que tem que fazer trabalhos comunitários em uma escola de arte. Ele chama a atenção de Nora, uma talentosa bailarina que está tentando misturar passos de hip-hop ao balé clássico e que o convence a ajudá-la.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1tyIAlW0tSUJys2nvksu1f6FpIN1xzX3I/preview",
+        duration: "01h 44m",
+        genero: ["Música", "Drama", "Romance"]
+    },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fs9KUIs0vFyzjy1bouVcvN7tNbuw.jpg&f=1&nofb=1&ipt=1b4eabe440d0a41e7db67c4b99489d90034916363f4dc3beee259e3bfd5be5ac&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.xZvk9fhen9hpHpiMoF5eRQHaKf%26pid%3DApi&f=1&ipt=bfcd89416f535d3b7cedc8c55f564aa3997e3a7bac08a4e8cbec92a5fcefe9b0&ipo=images",
@@ -29,9 +89,9 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Um unido grupo de dançarinos de rua, que inclui Luke e Natalie, se une ao calouro da Universidade de Nova York Moose. Eles disputam contra os melhores dançarinos de hip hop do mundo em uma competição de alto risco, que mudará suas vidas para sempre.",
         faixa: "A12",
-        src: "",
+        src: "https://drive.google.com/file/d/1cPGyDM1d8wNnMIesRTymzCzV8SliJDf9/preview",
         duration: "01h 47m",
-        genero: ["Drama", "Romance"]
+        genero: ["Música", "Drama", "Romance"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.portalnipponja.com.br%2Fuploads%2F2024%2F05%2F27162847%2FHAIKYU-The-Dumpster-Battle_Still-1-1.jpg&f=1&nofb=1&ipt=be4c96cd1befd47eea7301b1edbe6d85dec71926d57397fbb3e8df77db516c35&ipo=images",
