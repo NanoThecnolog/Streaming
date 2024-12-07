@@ -22,6 +22,18 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftheilluminerdi.com%2Fwp-content%2Fuploads%2F2024%2F03%2F10E58_sq2300_s28.sq8001_s56_f456_pf_sRGB.jpg&f=1&nofb=1&ipt=24728b2591e42028af4f9cf1869ef5b14271fee603fdfcfd690607ee28f129a9&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.AoGM-lSGH_cm366N9nhScAHaLH%26pid%3DApi&f=1&ipt=253f735bf99cb0421452b0b7532ef487a31549859a4a1c7fe50f136bfcfdcccd&ipo=images",
+        tmdbId: 1184918,
+        title: "Robô Selvagem",
+        subtitle: "",
+        description: "Um robô – unidade ROZZUM 7134, abreviadamente “Roz” – naufraga em uma ilha desabitada e deve aprender a se adaptar ao ambiente hostil, gradualmente construindo relacionamentos com os animais da ilha e se tornando o pai adotivo de um filhote de ganso órfão.",
+        faixa: "L",
+        src: "https://drive.google.com/file/d/1IV66dZ4VtV3KpM6b2c9Km1vdjSQD_JJf/preview",
+        duration: "01h 41m",
+        genero: ["Animação", "Ficção Científica", "Família"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimages2.fanpop.com%2Fimages%2Fphotos%2F3300000%2FTwilight-Cast-Photoshoots-HQ-twilight-series-3380285-1650-1031.jpg&f=1&nofb=1&ipt=084a34dcc07f24c48f5cadd1d99cb6eaca97190acb92ff260689c24ff556246a&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.gFwfDSBOHrqtgnv1-mpwhAHaLH%26pid%3DApi&f=1&ipt=226e8fd67927629dcc2c0e691337182d80e8914715e733cbcd465cb8a265bafb&ipo=images",
         tmdbId: 8966,
