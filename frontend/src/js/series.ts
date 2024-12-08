@@ -27,6 +27,84 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.animecorner.me%2F2024%2F01%2F1704467896-5380.jpg&f=1&nofb=1&ipt=5ecb576d66aecf5188b887aea7399a4b7fec7265546f93f065f2e570802ed745&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.MGRRsyeq3kMGdUIG01DVQgHaLH%26pid%3DApi&f=1&ipt=bfbb545482090f3305b36c1cefbbcbc003de19039f89553a30fbf3a691d844a7&ipo=images",
+        tmdbID: 127532,
+        title: "Solo Leveling",
+        subtitle: "",
+        description: 'Há mais de uma década, surgiu uma misteriosa passagem chamada "portal", que conecta este mundo a uma dimensão diferente, o que fez com que pessoas despertassem poderes únicos… e essas pessoas são chamadas de "caçadores". Os caçadores usam seus poderes sobre-humanos para conquistar masmorras dentro dos portais e assim ganhar a vida. Sung Jinwoo, um caçador de nível baixo, é considerado o caçador mais fraco de toda a humanidade. Certo dia, ele se depara com uma "masmorra dupla", que tem uma masmorra de nível alto escondida dentro de uma masmorra de nível baixo. Diante de um Jinwoo gravemente ferido, surge uma misteriosa missão! À beira da morte, Jinwoo decide aceitar essa missão, tornando-se assim a única pessoa capaz de subir de nível!',
+        genero: ["Animação", "Ação", "Aventura", "Fantasia"],
+        faixa: "A16",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1OJt8mGa4AyX4FjecZehvA1P_SZ4jlXmv/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1ArsYO0NJ34qPiQ_YmmqFHDdGBNrDVyUN/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1V8x9LF0xtmsFxaeuiuWo5JWbmJSuTRdb/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1XxLGXcjYkcl4gvUNwqDiVBi23C0YlUKF/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1hpBYjnW-3OF1OShdJXhLzJGW60vR3wBf/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1szUygNiWfssBrXfcMMsck6P3Necg-boz/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1d0kXhBClsiAmmOifHF3MFSBN05vbhzlZ/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1omEGYOqaxB0bPXdAsHhXRv8Bc2837PDe/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1kiO5BoyXY2kfhBX8vsCR0X0FOd6Ut0gL/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1NxlGVA07iNVxdi_FRcp7H9gTceyIk4fu/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 11,
+                        src: "https://drive.google.com/file/d/185na25gVF4cAC4dyF1FsTL4IQf9Sl7wU/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 12,
+                        src: "https://drive.google.com/file/d/1JaZDUXClsjgcfQ4WzLLNAjBz5uQZwbGw/preview",
+                        duration: "23m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-JwKb8fjVT4Y%2FUKjoGxKmb6I%2FAAAAAAAABaY%2F1_SdOH3FZkE%2Fs1600%2Foliver_queen_in_arrow-wide.jpg&f=1&nofb=1&ipt=32203d283af1ae3daf390a306fbf6b05b046ae29e778dbb85db1c1308e86b969&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Z6X0JzkLOh9R-9RQl6n1cQHaLG%26pid%3DApi&f=1&ipt=b02db80c6cdf26fe75638c5c46fd4301eeb93b010312afc6a8ddca1ae4804d7d&ipo=images",
         tmdbID: 1412,

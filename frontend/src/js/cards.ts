@@ -19,8 +19,33 @@ export const cards: CardsProps[] = [
     src: "",
     duration: "",
     genero: ["", ""]
-    },     
+    },
     */
+
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.astropt.org%2Fblog%2Fwp-content%2Fuploads%2F2014%2F07%2FPacific-Rim-Big-Promo-Image.jpg&f=1&nofb=1&ipt=06b07710ff194069bbc86489ee9cdb46c4bcb3dcae0d794532b924c0654f785f&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.dsudEX2SWlMYUTAhS0dB2gHaLH%26pid%3DApi&f=1&ipt=1cbef6766b016863e4425ffca71118af0d3ffc1ce5c6d9222cfbfe8649f08736&ipo=images",
+        tmdbId: 68726,
+        title: "Círculo de Fogo",
+        subtitle: "",
+        description: "Criaturas monstruosas conhecidas como Kaiju começam a emergir do mar. Para combatê-los, a humanidade desenvolve uma série de robôs gigantescos, os Jaegers. Cada um é controlado por duas pessoas por meio de uma conexão neural. Entretanto, mesmo os Jaegers se mostram insuficientes para derrotar os Kaiju. Diante deste cenário, a última esperança é um velho robô, que passa a ser comandado por um antigo piloto e uma pessoa em treinamento.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/18K_6YEqCUZ6p74bc7aLglYJdf8rOC8SK/preview",
+        duration: "02h 11m",
+        genero: ["Ação", "Ficção Científica", "Aventura"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.planocritico.com%2Fwp-content%2Fuploads%2F2017%2F11%2FCirculo_de_Fogo_A_Revolta.jpg&f=1&nofb=1&ipt=31c256f728104e419eca9bf298e8d7123824194f1affd8d835341f8f14c89bc4&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.XfWWfEZlD6_fkiSlTiJQbwHaJ4%26pid%3DApi&f=1&ipt=eb2ce671082769b76cbcd400d0f41198a6e3e8e3036e2258d34d3e8d6fcf0cc4&ipo=images",
+        tmdbId: 268896,
+        title: "Círculo de Fogo",
+        subtitle: "A Revolta",
+        description: "Filho de Stacker Pentecost (Idris Elba), responsável pelo comando do programa Jaeger, Jake (John Boyega) era um promissor talento do programa de defesa, mas abandonou o treinamento e entrou no mundo do crime ao vasculhar ferros-velhos em busca de peças de robôs abandonados. Perseguido após não encontrar uma peça valiosa, ele encontra o esconderijo da jovem Amara (Cailee Spaeny), que clandestinamente está construindo um Jaeger de pequeno porte. Ambos tentam fugir usando o robô, mas acabam sendo capturados. Para escapar da prisão, eles são enviados ao treinamento de pilotos Jaeger. Lá, Jake reencontra sua irmã de criação Mako (Rinko Kikuchi), uma heroína da época do combate contra os Kaiju que tenta lhe ajudar a se readaptar ao ambiente militar.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1Osz7RdOHk3xHrBqpkWjXlFeCIdk5MUNc/preview",
+        duration: "01h 51m",
+        genero: ["Ação", "Ficção Científica", "Aventura"]
+    },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Ft6TL7V9IsT4Ktx6YO8b1UYj3agd.jpg&f=1&nofb=1&ipt=4a3e9d9cbb4d19934c79c542845513cda802c909f1d1d7021b0e794fe7dca189&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.UnmqL0H31A86W_1pjs-cGQAAAA%26pid%3DApi&f=1&ipt=e6b8f011898605995c021afcdd0246c644bc2fb3087a285d1ba30b32b2748eb5&ipo=images",
