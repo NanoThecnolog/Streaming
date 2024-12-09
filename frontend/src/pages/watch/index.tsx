@@ -5,11 +5,16 @@ import Router, { useRouter } from "next/router";
 import { ChevronLeft } from 'lucide-react';
 import { api } from "@/services/api";
 import { getUserCookieData } from "@/services/cookieClient";
+import HelpFlag from "@/components/Helpflag";
+import HelpModal from "@/components/modals/HelpModal/index ";
+import { UserProps } from "@/@types/user";
 
 export default function Watch() {
     const router = useRouter()
-    const { title, subTitle, src } = router.query;
-    const [movieData, setMovieData] = useState({ title: '', subTitle: '', src: '' });
+    const { title, subTitle, src, tmdbId } = router.query;
+    const [movieData, setMovieData] = useState({ title: '', subTitle: '', src: '', tmdbId: 0 });
+    const [user, setUser] = useState<UserProps>()
+    const [visible, setVisible] = useState(false)
 
     const acordarServidor = useCallback(async () => {
         try {
@@ -21,6 +26,7 @@ export default function Watch() {
     const userData = useCallback(async () => {
         const user = await getUserCookieData();
         if (!user) return router.push('/login');
+        setUser(user)
     }, [router])
 
     useEffect(() => {
@@ -40,14 +46,16 @@ export default function Watch() {
                 title: title as string,
                 subTitle: subTitle as string || '',
                 src: src as string,
+                tmdbId: Number(tmdbId as string)
             })
         }
-    }, [title, subTitle, src])
+    }, [title, subTitle, src, tmdbId])
 
 
     const handleBack = useCallback(() => {
         router.back()
     }, [router])
+
     useEffect(() => {
         function rightClickBlock(event: MouseEvent) { event.preventDefault(); }
 
@@ -72,6 +80,10 @@ export default function Watch() {
         };
     }, []);
 
+    function handleHelpModal() {
+        setVisible(!visible)
+    }
+
     return (
         <>
             <Head>
@@ -85,6 +97,9 @@ export default function Watch() {
                         </button>
                         <h3>{title} {subTitle != "" && `- ${subTitle}`}</h3>
                     </div>
+                    <div className={styles.flagContainer}>
+                        <HelpFlag modalVisible={handleHelpModal} />
+                    </div>
                     <div className={styles.iframe} id="iframe">
                         <iframe
                             title={movieData.title}
@@ -94,6 +109,13 @@ export default function Watch() {
                             src={movieData.src}
                         />
                     </div>
+                    {visible && (
+                        <HelpModal
+                            handleHelpModal={handleHelpModal}
+                            userId={user?.id}
+                            tmdbId={Number(tmdbId as string)}
+                        />
+                    )}
                 </div>
             </div>
         </>

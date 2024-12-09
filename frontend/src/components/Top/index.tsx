@@ -122,8 +122,8 @@ export default function Top({ width }: TopProps) {
             : TMDBImages.backdrop ?? card.background
     }
     function handleWatch() {
-        const { title, subtitle, src } = cards[cardOn]
-        const play: string = `/watch?title=${title}&subTitle=${subtitle}&src=${src}`
+        const { title, subtitle, src, tmdbId } = cards[cardOn]
+        const play: string = `/watch?title=${title}&subTitle=${subtitle}&src=${src}&tmdbId=${tmdbId}`
         Router.push(play)
     }
 

@@ -1,0 +1,60 @@
+.helpContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, .4);
+        z-index: 1;
+    }
+
+    .help {
+        background-color: var(--background-gray);
+        border-radius: 1em;
+        width: 30%;
+        //height: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+        z-index: 2;
+        padding: 20px;
+
+        &[data-loading="true"] {
+            cursor: wait;
+        }
+
+        h1 {
+            font-size: 1.4rem;
+        }
+
+        .flag {
+            height: 100px;
+            width: 90%;
+            border: 2px solid var(--grey);
+            border-radius: 1rem;
+            padding: 20px;
+            transition: .4s;
+            cursor: pointer;
+
+            &[data-loading="true"] {
+                cursor: wait;
+            }
+
+            &:hover {
+                background-color: var(--grey);
+            }
+        }
+    }
+}

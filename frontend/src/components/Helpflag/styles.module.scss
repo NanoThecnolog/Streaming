@@ -1,0 +1,8 @@
+.flagIcon {
+    cursor: pointer;
+    transition: .4s;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
