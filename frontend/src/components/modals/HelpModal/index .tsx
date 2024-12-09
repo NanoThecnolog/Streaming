@@ -16,11 +16,19 @@ export default function HelpModal({ handleHelpModal, userId, tmdbId }: HelpProps
     const flags = [
         {
             title: "O vídeo pediu permissão para acessar",
-            description: "Se o vídeo solicitou permissão de acesso, clique aqui!"
+            description: "O vídeo solicitou permissão de acesso"
         },
         {
             title: "Número de reproduções excedido",
-            description: "Em casos de muitos acessos, o vídeo podem não reproduzir por conta do excesso de reproduções. Basta aguardar e tentar novamente mais tarde."
+            description: "O vídeo não reproduziu e apresentou a mensagem dizendo que o número de reproduções foi excedido."
+        },
+        {
+            title: "Filme não reproduziu",
+            description: "Apresentou mensagem informando que o arquivo porque ele viola os termos de serviço do Google Drive"
+        },
+        {
+            title: "Episódio com problema",
+            description: "O vídeo não carregou por motivo desconhecido."
         }
     ]
 

@@ -1,5 +1,8 @@
 .flagIcon {
     cursor: pointer;
+    background-color: var(--background-gray);
+    padding: 10px;
+    border-radius: .4rem;
     transition: .4s;
 
     &:hover {
