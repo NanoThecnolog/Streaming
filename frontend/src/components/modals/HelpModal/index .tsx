@@ -23,11 +23,11 @@ export default function HelpModal({ handleHelpModal, userId, tmdbId }: HelpProps
             description: "O vídeo não reproduziu e apresentou a mensagem dizendo que o número de reproduções foi excedido."
         },
         {
-            title: "Filme não reproduziu",
-            description: "Apresentou mensagem informando que o arquivo porque ele viola os termos de serviço do Google Drive"
+            title: "Vídeo não reproduziu",
+            description: "Apresentou mensagem informando que o arquivo não reproduziu porque ele viola os termos de serviço do Google Drive"
         },
         {
-            title: "Episódio com problema",
+            title: "Vídeo com problema",
             description: "O vídeo não carregou por motivo desconhecido."
         }
     ]
