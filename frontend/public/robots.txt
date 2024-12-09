@@ -1,0 +1,13 @@
+# *
+User-agent: *
+Allow: /
+
+# *
+User-agent: *
+Disallow: /watch
+
+# Host
+Host: https://flixnext.vercel.app
+
+# Sitemaps
+Sitemap: https://flixnext.vercel.app/sitemap.xml

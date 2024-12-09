@@ -24,7 +24,8 @@ const nextConfig = {
         port: '',
       }
     ]
-  }
+  },
+  compress: true
 
 };
 

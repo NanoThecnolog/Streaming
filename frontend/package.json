@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:sitemap": "next-sitemap"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
@@ -19,6 +20,7 @@
     "cookies-next": "^4.2.1",
     "lucide-react": "^0.441.0",
     "next": "14.2.5",
+    "next-sitemap": "^4.2.3",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.2.1",
