@@ -1895,18 +1895,7 @@ export const cards: CardsProps[] = [
         duration: "1h 57m",
         genero: ["Terror", "Mistério"]
     },
-    {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.indiependent.co.uk%2Fwp-content%2Fuploads%2F2015%2F08%2FStar-Wars-Episode-III-Revenge-of-the-Sith.jpg&f=1&nofb=1&ipt=330193fcf4f1f73a520cbecb28aa2cfe13bd39f5d32fc5b0cc4254b69232c9a2&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.a-z2GR-Ss-7PN5a3dR_jawHaLH%26pid%3DApi&f=1&ipt=a9932d155ff8bbae900bc68bacf7836a040d4b1101e7d73f496c41dfd9607e80&ipo=images",
-        tmdbId: 1895,
-        title: "Star wars 3",
-        subtitle: "A Vingança dos Sith",
-        description: "As Guerras Clônicas estão em pleno andamento e Anakin Skywalker mantém um elo de lealdade com Palpatine, ao mesmo tempo em que luta para que seu casamento com Padmé Amidala não seja afetado por esta situação. Seduzido por promessas de poder, Anakin se aproxima cada vez mais de Darth Sidious até se tornar o temível Darth Vader. Juntos eles tramam um plano para aniquilar de uma vez por todas com os cavaleiros jedi.",
-        faixa: "10",
-        src: "https://drive.google.com/file/d/1hkS7jNa0pb0brLyopsP22qlgJvECyIka/preview",
-        duration: "02h 20m",
-        genero: ["Ficção Científica", "Ação"]
-    },
+
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fj1l9zqe5ZQPEHGsz91FyZxMldq4.jpg&f=1&nofb=1&ipt=00830ffc93a43e972b798b137fc23f4c2b649cfa62ab9836340e9fdc4d8a58a0&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.NYxhSAnUIoeWaKJau3NpagHaLG%26pid%3DApi&f=1&ipt=20785704be3c395a8efc03ca9f92ee53c18914f21b8e1e9cc09715331366a94f&ipo=images",
@@ -2311,7 +2300,7 @@ export const cards: CardsProps[] = [
         title: "Orgulho e Preconceito",
         subtitle: "",
         description: "Elizabeth Bennet vive com sua mãe, pai e irmãs no campo, na Inglaterra. Por ser uma das filhas mais velhas, ela enfrenta uma crescente pressão de seus pais para se casar. Quando Elizabeth é apresentada ao belo e rico Darcy, faíscas voam. Embora haja uma química óbvia entre os dois, a natureza excessivamente reservada de Darcy ameaça a relação.",
-        faixa: "",
+        faixa: "L",
         src: "https://drive.google.com/file/d/1zc4c-wb3VgAtX5OufT3GbH5Ti35x0iLj/preview",
         duration: "02h 07m",
         genero: ["Romance", "Comédia"]
@@ -2323,7 +2312,7 @@ export const cards: CardsProps[] = [
         title: "Matrix",
         subtitle: "Reloaded",
         description: "Após derrotar as máquinas em seu combate inicial, Neo ainda vive na Nabucodonosor ao lado de Morpheus, Trinity e Link, o novo tripulante da nave. As máquinas estão realizando uma grande ofensiva contra Zion, onde 250 mil delas escavam rumo à cidade e podem alcançá-la em poucos dias. A Nabucodonosor é convocada para retornar a Zion e participar da reunião que definirá o contra-ataque para salvar a humanidade da extinção. Entretanto, um recado enviado pelo Oráculo faz com que Neo retorne à Matrix.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1qYiZt-JKCJBCrR0G3y9AxY1lBqtJBSFv/preview",
         duration: "02h 18m",
         genero: ["Ação", "Ficção Científica"]
@@ -2335,7 +2324,7 @@ export const cards: CardsProps[] = [
         title: "O Corvo",
         subtitle: "2024 - Legendado",
         description: "As almas gêmeas Eric Draven e Shelly Webster são brutalmente assassinadas quando os demônios de seu passado sombrio os alcançam. Atravessando os mundos dos vivos e dos mortos, Draven retorna em busca de vingança sangrenta contra os assassinos.",
-        faixa: "",
+        faixa: "18",
         src: "https://drive.google.com/file/d/12-dMBXQZql8RvQFkmAeapH4GGxmenED5/preview",
         duration: "01h 51m",
         genero: ["Ação", "Fantasia"]
@@ -2347,7 +2336,7 @@ export const cards: CardsProps[] = [
         title: "Batman vs Superman",
         subtitle: "A Origem da Justiça",
         description: "O confronto entre Superman e Zod em Metrópolis fez a população mundial se dividir sobre a presença de extraterrestres na Terra. Enquanto muitos consideram Superman um novo deus, há aqueles que entendem ser extremamente perigosa a existência de um ser tão poderoso sem qualquer tipo de controle. Bruce Wayne é um dos que acreditam nesta segunda hipótese. Sob o manto de um Batman violento e obcecado, ele enfrenta Superman enquanto o mundo se pergunta que tipo de herói precisa.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1nZl5FpWzhE5zlw8sGChziRoI_ZiVKMKx/preview",
         duration: "02h 31m",
         genero: ["Ação", "DC", "Ficção Científica", "Super Herói"]
@@ -2359,7 +2348,7 @@ export const cards: CardsProps[] = [
         title: "Matrix",
         subtitle: "Revolution",
         description: "Após enfrentar os sentinelas no mundo real, Neo, a maior esperança da humanidade, está preso entre a Matrix e a realidade. A maioria da população do planeta permanece em um estado de suspensão da realidade virtual. Os poucos humanos que estão cientes das duras realidades tentam desesperadamente afastar as máquinas a tempo de Neo escapar e salvar o dia. Mas as coisas pioram quando o poderoso programa de computador, Agente Smith, aparece na forma humana.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1cUBYcc5noLTgyr1PAwgI0DVobAwnjx7h/preview",
         duration: "02h 09m",
         genero: ["Ação", "Ficção Científica"]
@@ -2371,7 +2360,7 @@ export const cards: CardsProps[] = [
         title: "Matrix",
         subtitle: "",
         description: "O jovem programador Thomas Anderson é atormentado por estranhos pesadelos em que está sempre conectado por cabos a um imenso sistema de computadores do futuro. À medida que o sonho se repete, ele começa a desconfiar da realidade. Thomas conhece os misteriosos Morpheus e Trinity e descobre que é vítima de um sistema inteligente e artificial chamado Matrix, que manipula a mente das pessoas e cria a ilusão de um mundo real enquanto usa os cérebros e corpos dos indivíduos para produzir energia.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1Ffx2nq5lLMcgGjlDXB3r-knf3iwGqGwZ/preview",
         duration: "02h 16m",
         genero: ["Ação", "Ficção Científica"]
@@ -2383,7 +2372,7 @@ export const cards: CardsProps[] = [
         title: "Ghostbusters",
         subtitle: "Mais Além",
         description: "Uma mãe solo e seus dois filhos se mudam para uma nova cidade e descobrem que têm uma conexão com os Caça-Fantasmas originais e o legado secreto de seu avô.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1-7MAlM13mL-I47wGhOD90vppWxyPsD5a/preview",
         duration: "02h 04m",
         genero: ["Comédia", "Aventura", "Fantasia"]
@@ -2395,7 +2384,7 @@ export const cards: CardsProps[] = [
         title: "Rick Stanicky",
         subtitle: "",
         description: "Após uma pegadinha, três adolescentes acabaram queimando a casa de um vizinho. Para escaparem de punição, eles inventam uma outra pessoa para assumir a culpa: Ricky Stanicky. Mais de 20 anos depois, os três caras continuam colocando a culpa no sujeito. Incomodadas com a má influência, as esposas dos três exigem um encontro com Stanicky, o que obrigou o grupo a contratar um ator para viver o cara.",
-        faixa: "",
+        faixa: "18",
         src: "https://drive.google.com/file/d/1eV0qyTnfZlg5lVvT2glHP7TN8ui7KXS9/preview",
         duration: "01h 54m",
         genero: ["Comédia", "Prime Video"]
@@ -2407,7 +2396,7 @@ export const cards: CardsProps[] = [
         title: "127 Horas",
         subtitle: "",
         description: "Ao explorar um cânion remoto em Utah, o alpinista e aventureiro Aron Ralston fica preso em uma fenda quando uma pedra cai. Nos cinco dias seguintes, Ralston examina sua vida e considera suas opções, as quais o levam a uma situação angustiante. Aron precisa tomar uma atitude para que possa se libertar e tentar voltar para a civilização.",
-        faixa: "",
+        faixa: "A16",
         src: "https://drive.google.com/file/d/1dynuM5hIgh4OGY0m1kKWixTZjFmPGHKv/preview",
         duration: "01h 34m",
         genero: ["Aventura", "Suspense"]
@@ -2419,7 +2408,7 @@ export const cards: CardsProps[] = [
         title: "Guerra Sem Regras",
         subtitle: "",
         description: "A história da primeira organização de forças especiais, formada durante a Segunda Guerra pelo primeiro-ministro britânico Winston Churchill e um pequeno grupo de oficiais militares. A unidade de combate ultrassecreta, composta por uma heterogênea equipe de insubordinados e rebeldes, deve enfrentar uma audaciosa missão contra os nazistas lançando mão de técnicas não convencionais e nada cavalheirescas.",
-        faixa: "",
+        faixa: "A16",
         src: "https://drive.google.com/file/d/1JOcPcDDm29TcMaPT952jMHFx1HrJzWd-/preview",
         duration: "02h 01m",
         genero: ["Ação", "Comédia"]
@@ -2431,7 +2420,7 @@ export const cards: CardsProps[] = [
         title: "Eu Sou a Lenda",
         subtitle: "",
         description: "Robert Neville é um brilhante cientista e o único sobrevivente de uma epidemia que transformou os humanos em mutantes sedentos por sangue. Andando pela cidade de Nova York, ele procura por outros possíveis sobreviventes e tenta achar a cura da praga usando seu próprio sangue, que é imune.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/1HdYNkRSbUpOwTUvI5Egr0Qm0_fDDShEC/preview",
         duration: "01h 41m",
         genero: ["Ação", "Suspense"]
@@ -2444,7 +2433,7 @@ export const cards: CardsProps[] = [
         title: "Homem Aranha",
         subtitle: "No Aranhaverso",
         description: "Após ser mordido por uma aranha radioativa, Miles Morales, um jovem negro do Brooklyn, se torna o Homem-Aranha, inspirado no legado do já falecido Peter Parker. Entretanto, ao visitar o túmulo de seu ídolo em uma noite chuvosa, ele é surpreendido com a presença do próprio Peter, vestindo o traje do herói por baixo de um sobretudo. A surpresa fica ainda maior quando Miles descobre que ele veio de uma dimensão paralela, assim como outras versões do Homem-Aranha.",
-        faixa: "",
+        faixa: "10",
         src: "https://drive.google.com/file/d/1cIn12Q4t3Xaiaqf54dVB2kxbUnSG6VOt/preview",
         duration: "01h 56m",
         genero: ["Animação", "Marvel", "Super Herói"]
@@ -2456,7 +2445,7 @@ export const cards: CardsProps[] = [
         title: "Homem Aranha",
         subtitle: "Através do Aranhaverso",
         description: "Depois de se reunir com Gwen Stacy, Homem-Aranha é jogado no multiverso. Lá, o Super Herói aracnídeo encontra uma numerosa equipe encarregada de proteger sua própria existência.",
-        faixa: "",
+        faixa: "10",
         src: "https://drive.google.com/file/d/1SgxSsNXm_cq6wmQdQwuxQXjtbAX-FPrc/preview",
         duration: "02h 14m",
         genero: ["Animação", "Marvel", "Super Herói"]
@@ -2468,7 +2457,7 @@ export const cards: CardsProps[] = [
         title: "Barbie",
         subtitle: "",
         description: "Depois de ser expulsa da Barbieland por ser uma boneca de aparência menos do que perfeita, Barbie parte para o mundo humano em busca da verdadeira felicidade.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1suaHMDw-J_3tL77OcEyAzqH5nfwLlY3b/preview",
         duration: "01h 54m",
         genero: ["Comédia", "Fantasia"]
@@ -2480,7 +2469,7 @@ export const cards: CardsProps[] = [
         title: "Cidade Perdida",
         subtitle: "",
         description: "A Brilhante e reclusa autora Loretta Sage escreve romances populares de aventura, cujas capas são estreladas pelo belo modelo Alan. Durante a turnê de promoção de seu novo livro, Loretta é raptada.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/132j8HSZC-wW6viLjeNAjVIw0xAh-RDm-/preview",
         duration: "01h 53m",
         genero: ["Aventura", "Ação"]
@@ -2492,7 +2481,7 @@ export const cards: CardsProps[] = [
         title: "Lift",
         subtitle: "Roubo nas Alturas",
         description: "Um ladrão e sua equipe tentam fazer um assalto de 500 milhões de dólares em um avião.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1-7d0_24vWN_jdnz1iNWc0M1M1ed_lBYF/preview",
         duration: "01h 47m",
         genero: ["Ação", "Aventura", "Netflix"]
@@ -2504,7 +2493,7 @@ export const cards: CardsProps[] = [
         title: "Beekeeper",
         subtitle: "Rede de Vingança",
         description: "As ações brutais de vingança de um homem assume riscos de proporções nacionais quando é revelado que ele é um ex-agente de uma organização poderosa e clandestina.",
-        faixa: "",
+        faixa: "18",
         src: "https://drive.google.com/file/d/1dF09H9_pt33hjlPZ-p1uesblK_iIcciu/preview",
         duration: "01h 45m",
         genero: ["Ação", "Suspense"]
@@ -2516,7 +2505,7 @@ export const cards: CardsProps[] = [
         title: "Sim Senhor",
         subtitle: "",
         description: "Carl Allen é um homem que perdeu muitas oportunidades por causa da palavra não. Ele decide ir para um seminário de autoajuda para aprender a dizer sim. Respondendo positivamente a todos os convites e oportunidades, Carl passa por experiências incríveis e logo descobre que as mudanças não precisariam ser tão drásticas.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1fmK0Nb0xlO65i-JohN-ILTilA9a_y18X/preview",
         duration: "01h 44m",
         genero: ["Comédia"]
@@ -2528,57 +2517,21 @@ export const cards: CardsProps[] = [
         title: "Quero Matar Meu Chefe",
         subtitle: "",
         description: "Nick, Kurt e Dale sofrem nas mãos de seus chefes Dave, Bobby e Julia, respectivamente. Juntos, eles resolvem colocar em ação um plano para eliminá-los.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/1VzmeF-DlG-MAigii3_v7xxu_PxspF2Lq/preview",
         duration: "01h 37m",
         genero: ["Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbr.trace.tv%2Fwp-content%2Fuploads%2F2023%2F05%2FScream6_BR_3840x2160-scaled.jpg&f=1&nofb=1&ipt=355d2c761693025e37ed956b30cec5d98f31d3977f9a9e154053529c357fa3ac&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsupercinema.com.br%2Fposters%2F2023%2Fposter-panico-vi-scream-vi.jpg&f=1&nofb=1&ipt=e1df854955b4166e1e583eb23c69c90bb639543cac8577cdd0919c7c9fa352e4&ipo=images",
-        tmdbId: 934433,
-        title: "Pânico 6",
-        subtitle: "2023",
-        description: "Os sobreviventes dos assassinatos de Ghostface deixam Woodsboro para trás e iniciam um novo capítulo na cidade de Nova York, mas uma antiga ameaça resurge.",
-        faixa: "",
-        src: "https://drive.google.com/file/d/1--T-Vn5BFjsVkpG5_15_pKwYmUEahUAu/preview",
-        duration: "02h 05m",
-        genero: ["Terror", "Suspense"]
-    },
-    {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fv1PuxThVwlpaxP3s99XuuZA5HX0.jpg&f=1&nofb=1&ipt=15eb7c05de0cdb15e32b7b8d7b17440b6c0ec8c73dcf5e155394e2ae75127aea&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fw0.peakpx.com%2Fwallpaper%2F375%2F379%2FHD-wallpaper-scream-5-panic-panico-panico-5-todo-mundo-em-panico.jpg&f=1&nofb=1&ipt=778d1f2a3a22c52a0e294430885921b6954b166e4db89ac2ab64e1de71960940&ipo=images",
-        tmdbId: 646385,
-        title: "Pânico 5",
-        subtitle: "2022",
-        description: "25 anos depois de uma série de assassinatos chocar a pacata cidade de Woodsboro, na Califórnia, um novo assassino veste a máscara de Ghostface e começa a atacar um grupo de adolescentes.",
-        faixa: "",
-        src: "https://drive.google.com/file/d/1-ZaR88SATR7-Ij2KtNl_tul2mbSQ8ocy/preview",
-        duration: "01h 52m",
-        genero: ["Terror", "Suspense"]
-    },
-    {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fis5-ssl.mzstatic.com%2Fimage%2Fthumb%2FR8ByCGulvMBP9scxwCn-Hw%2F2000x1125.jpg&f=1&nofb=1&ipt=323e6475a50b29bf1eb9875712a7cab519dd3820f826ed0fe6a4d994b070902d&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FS%2Fpv-target-images%2F95c37522ea259b38d73d228bf5f1bff04b8506f0bef4d8abd5059767757f155c._RI_V_TTW_.jpg&f=1&nofb=1&ipt=8b8f1c20a3c26a83f01c75baa7fe8ef4433f671c7a2291aa749f6b709969796e&ipo=images",
-        tmdbId: 41446,
-        title: "Pânico 4",
-        subtitle: "2011",
-        description: "Dez anos se passaram, e Sidney Prescott, que se reergueu graças, em parte, a sua escrita, é visitada pelo assassino Ghostface mais uma vez.",
-        faixa: "",
-        src: "https://drive.google.com/file/d/1PVGcjQTBnnyFYA7Uqo-O0AhT9mDYQ0Ux/preview",
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbr.web.img3.acsta.net%2Fpictures%2F22%2F01%2F07%2F17%2F03%2F1507158.jpg&f=1&nofb=1&ipt=637352a6e14047a444fac1aa790cada891ce6ee9a763dfcb32720504c64370d7&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FlQjLnyc4zUYbJ9aFAz2pazf8Erz.jpg&f=1&nofb=1&ipt=cd553642752e445ac056dc3914b702c5ea16823b248e86eccbb0b6b623ebf99d&ipo=images",
+        tmdbId: 4232,
+        title: "Pânico",
+        subtitle: "1996",
+        description: "Um ano apís o assassinato de sua mãe, uma adolescente é aterrorizada por um novo assassino que a escolheu como alvo e usa filmes de terror como parte de seu jogo mortal.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1LXqbSWzbuD8XN83xzsOH_xjAUb8H5FoG/preview",
         duration: "01h 50m",
-        genero: ["Terror", "Suspense"]
-    },
-    {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FAbFWty0o5nKGo4iLJaGRgqFtC8W.jpg&f=1&nofb=1&ipt=5bdb428cda22b01a760d5688942f9f564e8016ec7e80e199ba55372568ffcc6b&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.nossocinema.com.br%2Fwp-content%2Fuploads%2F2022%2F01%2FPanico-3-cartaz-scaled.jpg&f=1&nofb=1&ipt=2ca3f47a53e5f97636f7f36ed23cfb88d3fc50c5667a595fdfcc14ca3b130957&ipo=images",
-        tmdbId: 4234,
-        title: "Pânico 3",
-        subtitle: "2000",
-        description: "Enquanto Sidney e suas amigas visitam o set de Hollywood de Stab 3, outro assassino do Ghostface aparece para aterrorizá-los.",
-        faixa: "",
-        src: "https://drive.google.com/file/d/1NSSzGFuc0Ph_dbDULPbtF8IU666GMIlr/preview",
-        duration: "01h 56m",
         genero: ["Terror", "Suspense"]
     },
     {
@@ -2588,21 +2541,57 @@ export const cards: CardsProps[] = [
         title: "Pânico 2",
         subtitle: "1997",
         description: "Dois anos após o massacre de Woodsboro, Sidney e Randy estão refazendo suas vidas numa nova cidade. Mas uma nova onda de assassinatos mostra que o psicopata voltou na véspera do lançamento de um filme baseado nos seus crimes.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/1N8wB63dpoKUjU006pkMwoHl53bkB7s71/preview",
         duration: "02h 00m",
         genero: ["Terror", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbr.web.img3.acsta.net%2Fpictures%2F22%2F01%2F07%2F17%2F03%2F1507158.jpg&f=1&nofb=1&ipt=637352a6e14047a444fac1aa790cada891ce6ee9a763dfcb32720504c64370d7&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FlQjLnyc4zUYbJ9aFAz2pazf8Erz.jpg&f=1&nofb=1&ipt=cd553642752e445ac056dc3914b702c5ea16823b248e86eccbb0b6b623ebf99d&ipo=images",
-        tmdbId: 4232,
-        title: "Pânico",
-        subtitle: "1996",
-        description: "Um ano apís o assassinato de sua mãe, uma adolescente é aterrorizada por um novo assassino que a escolheu como alvo e usa filmes de terror como parte de seu jogo mortal.",
-        faixa: "",
-        src: "https://drive.google.com/file/d/1LXqbSWzbuD8XN83xzsOH_xjAUb8H5FoG/preview",
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FAbFWty0o5nKGo4iLJaGRgqFtC8W.jpg&f=1&nofb=1&ipt=5bdb428cda22b01a760d5688942f9f564e8016ec7e80e199ba55372568ffcc6b&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.nossocinema.com.br%2Fwp-content%2Fuploads%2F2022%2F01%2FPanico-3-cartaz-scaled.jpg&f=1&nofb=1&ipt=2ca3f47a53e5f97636f7f36ed23cfb88d3fc50c5667a595fdfcc14ca3b130957&ipo=images",
+        tmdbId: 4234,
+        title: "Pânico 3",
+        subtitle: "2000",
+        description: "Enquanto Sidney e suas amigas visitam o set de Hollywood de Stab 3, outro assassino do Ghostface aparece para aterrorizá-los.",
+        faixa: "18",
+        src: "https://drive.google.com/file/d/1NSSzGFuc0Ph_dbDULPbtF8IU666GMIlr/preview",
+        duration: "01h 56m",
+        genero: ["Terror", "Suspense"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fis5-ssl.mzstatic.com%2Fimage%2Fthumb%2FR8ByCGulvMBP9scxwCn-Hw%2F2000x1125.jpg&f=1&nofb=1&ipt=323e6475a50b29bf1eb9875712a7cab519dd3820f826ed0fe6a4d994b070902d&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FS%2Fpv-target-images%2F95c37522ea259b38d73d228bf5f1bff04b8506f0bef4d8abd5059767757f155c._RI_V_TTW_.jpg&f=1&nofb=1&ipt=8b8f1c20a3c26a83f01c75baa7fe8ef4433f671c7a2291aa749f6b709969796e&ipo=images",
+        tmdbId: 41446,
+        title: "Pânico 4",
+        subtitle: "2011",
+        description: "Dez anos se passaram, e Sidney Prescott, que se reergueu graças, em parte, a sua escrita, é visitada pelo assassino Ghostface mais uma vez.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1PVGcjQTBnnyFYA7Uqo-O0AhT9mDYQ0Ux/preview",
         duration: "01h 50m",
+        genero: ["Terror", "Suspense"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fv1PuxThVwlpaxP3s99XuuZA5HX0.jpg&f=1&nofb=1&ipt=15eb7c05de0cdb15e32b7b8d7b17440b6c0ec8c73dcf5e155394e2ae75127aea&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fw0.peakpx.com%2Fwallpaper%2F375%2F379%2FHD-wallpaper-scream-5-panic-panico-panico-5-todo-mundo-em-panico.jpg&f=1&nofb=1&ipt=778d1f2a3a22c52a0e294430885921b6954b166e4db89ac2ab64e1de71960940&ipo=images",
+        tmdbId: 646385,
+        title: "Pânico 5",
+        subtitle: "2022",
+        description: "25 anos depois de uma série de assassinatos chocar a pacata cidade de Woodsboro, na Califórnia, um novo assassino veste a máscara de Ghostface e começa a atacar um grupo de adolescentes.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1-ZaR88SATR7-Ij2KtNl_tul2mbSQ8ocy/preview",
+        duration: "01h 52m",
+        genero: ["Terror", "Suspense"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbr.trace.tv%2Fwp-content%2Fuploads%2F2023%2F05%2FScream6_BR_3840x2160-scaled.jpg&f=1&nofb=1&ipt=355d2c761693025e37ed956b30cec5d98f31d3977f9a9e154053529c357fa3ac&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsupercinema.com.br%2Fposters%2F2023%2Fposter-panico-vi-scream-vi.jpg&f=1&nofb=1&ipt=e1df854955b4166e1e583eb23c69c90bb639543cac8577cdd0919c7c9fa352e4&ipo=images",
+        tmdbId: 934433,
+        title: "Pânico 6",
+        subtitle: "2023",
+        description: "Os sobreviventes dos assassinatos de Ghostface deixam Woodsboro para trás e iniciam um novo capítulo na cidade de Nova York, mas uma antiga ameaça resurge.",
+        faixa: "18",
+        src: "https://drive.google.com/file/d/1--T-Vn5BFjsVkpG5_15_pKwYmUEahUAu/preview",
+        duration: "02h 05m",
         genero: ["Terror", "Suspense"]
     },
     {
@@ -2612,7 +2601,7 @@ export const cards: CardsProps[] = [
         title: "Dungeons & Dragons",
         subtitle: "Honra entre Rebeldes",
         description: "Um ladrão e um bando de aventureiros embarcam em uma jornada épica para recuperar uma relíquia.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/143CZ8stsx0bZ-D1TSXug2Gqv_E6M4aoP/preview",
         duration: "02h 14m",
         genero: ["Aventura", "Ação"]
@@ -2624,7 +2613,7 @@ export const cards: CardsProps[] = [
         title: "Um Lugar Silencioso",
         subtitle: "Dia Um",
         description: "Uma mulher luta pela sobrevivência durante uma invasão alienígena na cidade de Nova York.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/12JmKWBDZysngiIAS3gKJLjBaVui2bgrN/preview",
         duration: "01h 39m",
         genero: ["Terror", "Suspense", "Ficção Científica"]
@@ -2636,7 +2625,7 @@ export const cards: CardsProps[] = [
         title: "Twisters 2024",
         subtitle: "",
         description: "Dois caçadores de tempestades arriscam suas vidas na tentativa de testar um sistema experimental de alerta meteorológico.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1rUTXl_ltpWNdSaZgZlktBDeRQbUZBncs/preview",
         duration: "02h 02m",
         genero: ["Ação", "Suspense", "Drama"]
@@ -2648,7 +2637,7 @@ export const cards: CardsProps[] = [
         title: "Armadilha",
         subtitle: "",
         description: 'Cooper (Josh Hartnett) e sua filha Riley (Ariel Donoghue) estão prontos para uma noite inesquecível no show da maior popstar do momento. No entanto, a atmosfera de diversão rapidamente se transforma em tensão quando Cooper percebe uma presença anormal de policiais no local. Em um jogo de olhares e desconfiança, ele logo compreende que a polícia está em busca de um serial killer extremamente perigoso. À medida que o cerco se fecha, Cooper percebe uma aterrorizante verdade: ele é o alvo da caçada. O que deveria ser uma noite de alegria entre pai e filha se transforma em uma desesperada e silenciosa fuga pela sobrevivência, enquanto Cooper tenta proteger Riley e escapar da captura iminente, tudo enquanto esconde de todos – e até de si mesmo – os segredos obscuros que o levaram a essa situação. Em "Armadilha", a linha entre herói e vilão se desmancha, e a maior ameaça pode estar mais perto do que parece.',
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/11NTrnOSHb6cqaZKUR-6pHeKCZdssWXSE/preview",
         duration: "01h 45m",
         genero: ["Suspense", "Mistério"]
@@ -2660,7 +2649,7 @@ export const cards: CardsProps[] = [
         title: "Rebel Ridge",
         subtitle: "",
         description: "Um ex-fuzileiro descobre a extensão da corrupção de uma pequena cidade quando uma tentativa de resgatar seu primo se transforma em um confronto violento com a polícia.",
-        faixa: "",
+        faixa: "A16",
         src: "https://drive.google.com/file/d/1-22kFxe8TSAkWWtA9dDI7SQs0uAZBqeP/preview",
         duration: "02h 11m",
         genero: ["Suspense", "Ação"]
@@ -2672,7 +2661,7 @@ export const cards: CardsProps[] = [
         title: "Oppenheimer",
         subtitle: "",
         description: "O físico J. Robert Oppenheimer trabalha com uma equipe de cientistas durante o Projeto Manhattan, levando ao desenvolvimento da bomba atômica.",
-        faixa: "",
+        faixa: "A16",
         src: "https://drive.google.com/file/d/1E-Ogjp-bM3DwEZCN-grrqBVLoVNp04B8/preview",
         duration: "03h 00m",
         genero: ["Suspense", "Drama"]
@@ -2684,7 +2673,7 @@ export const cards: CardsProps[] = [
         title: "Coringa",
         subtitle: "",
         description: "Isolado, intimidado e desconsiderado pela sociedade, o fracassado comediante Arthur Fleck inicia seu caminho como uma mente criminosa após assassinar três homens em pleno metrô. Sua ação inicia um movimento popular contra a elite de Gotham City, da qual Thomas Wayne é seu maior representante.",
-        faixa: "",
+        faixa: "A16",
         src: "https://drive.google.com/file/d/1tMwP8k3avVdbYss69eFtn68jCiGRH59r/preview",
         duration: "2h 2m",
         genero: ["Drama", "Crime"]
@@ -2696,7 +2685,7 @@ export const cards: CardsProps[] = [
         title: "Sr Sra Smith",
         subtitle: "",
         description: "John e Jane Smith aparentemente parecem formar um casal normal, mas na realidade ambos mantêm um segredo. Os dois são assassinos de aluguel contratados por empresas rivais. A verdade só vem à tona quando John e Jane, sem saber, recebem uma missão para eliminar o mesmo alvo e mais tarde descobrem que devem matar um ao outro.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1bJsB7wjvU7WWuFSJzwcz0VKQ6vz2UMlA/preview",
         duration: "1h 59m",
         genero: ["Ação", "Romance", "Comédia"]
@@ -2707,18 +2696,56 @@ export const cards: CardsProps[] = [
         title: "Gladiador",
         subtitle: "",
         description: "Maximus é um poderoso general romano, amado pelo povo e pelo imperador Marcus Aurelius. Antes de sua morte, o Imperador desperta a ira de seu filho Commodus ao tornar pública a sua predileção em deixar o trono para Maximus. Sedento pelo poder, Commodus mata seu pai, assume a coroa e ordena a morte de Maximus, que consegue fugir antes de ser pego, e passa a se esconder como um escravo e gladiador enquanto vai atrás de vingança.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/1mWnDcsfr7EysUhrQE1gLKL7-ngUU_Pga/preview",
         duration: "2h 35m",
         genero: ["Ação", "Drama"]
-    }, {
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FqDEvctVfAheD7x9Rzz8xcFRAGAU.jpg&f=1&nofb=1&ipt=8bae5d3c6d18da241dd8e9da28b6ba561409ae140567a5bd81107e49bcd2c02a&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpicfiles.alphacoders.com%2F124%2F124818.jpg&f=1&nofb=1&ipt=ee3e164146864432c2502b9f35e062a351da068ff049add9631580fa5c824fbf&ipo=images",
+        tmdbId: 1893,
+        title: "Star Wars 1",
+        subtitle: "A Ameaça Fantasma",
+        description: "Obi-Wan e seu mentor embarcam em uma perigosa aventura na tentativa de salvar o planeta das garras de Darth Sidious. Durante a viagem, eles conhecem um habilidoso menino e decidem treiná-lo para se tornar um Jedi. Mas o tempo irá revelar que as coisas nem sempre são o que aparentam ser.",
+        faixa: "L",
+        src: "https://drive.google.com/file/d/1loRP8o2o3rPMPQ8Iii-ICyIaHhsgIrld/preview",
+        duration: "2h 11m",
+        genero: ["Ficção Científica", "Ação"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FdNt5q68BBkddBxlvrHDa1apyBy8.jpg&f=1&nofb=1&ipt=564c5a7e21f2d68270362afdbe117856ea788b69d18b0f2eae4e14c2f8cdede1&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Dla4Cu7g_KDOEEfwrDMhuwHaLH%26pid%3DApi&f=1&ipt=769dafe84d9943026783f30cc9bde000b62cfc765025bdee9ba73cd18425c87d&ipo=images",
+        tmdbId: 1894,
+        title: "Star Wars 2",
+        subtitle: "O Ataque dos Clones",
+        description: "Dez anos após o primeiro encontro, Anakin Skywalker vive um romance proibido com Padmé, enquanto Obi-Wan investiga uma tentativa de assassinato do senador e descobre um exército secreto de clones criado para tentar destruir os Jedi.",
+        faixa: "L",
+        src: "https://drive.google.com/file/d/1YY5yLfAntg-aHblpgGiLYvKmnVnhKU5J/preview",
+        duration: "2h 22m",
+        genero: ["Ficção Científica",
+            "Ação"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.indiependent.co.uk%2Fwp-content%2Fuploads%2F2015%2F08%2FStar-Wars-Episode-III-Revenge-of-the-Sith.jpg&f=1&nofb=1&ipt=330193fcf4f1f73a520cbecb28aa2cfe13bd39f5d32fc5b0cc4254b69232c9a2&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.a-z2GR-Ss-7PN5a3dR_jawHaLH%26pid%3DApi&f=1&ipt=a9932d155ff8bbae900bc68bacf7836a040d4b1101e7d73f496c41dfd9607e80&ipo=images",
+        tmdbId: 1895,
+        title: "Star wars 3",
+        subtitle: "A Vingança dos Sith",
+        description: "As Guerras Clônicas estão em pleno andamento e Anakin Skywalker mantém um elo de lealdade com Palpatine, ao mesmo tempo em que luta para que seu casamento com Padmé Amidala não seja afetado por esta situação. Seduzido por promessas de poder, Anakin se aproxima cada vez mais de Darth Sidious até se tornar o temível Darth Vader. Juntos eles tramam um plano para aniquilar de uma vez por todas com os cavaleiros jedi.",
+        faixa: "10",
+        src: "https://drive.google.com/file/d/1hkS7jNa0pb0brLyopsP22qlgJvECyIka/preview",
+        duration: "02h 20m",
+        genero: ["Ficção Científica", "Ação"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FyUiXA68FfQeA8cRBhd0Ao0jIRZt.jpg&f=1&nofb=1&ipt=d25dd44c7076de2504be1afe53a29373780df495b72ae0551e667b06c8e46c17&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpicfiles.alphacoders.com%2F125%2F125208.jpg&f=1&nofb=1&ipt=83a6d61a8cf3c2369768749f808acf774a99bb684766c2b563f8cecaeab03e36&ipo=images",
         tmdbId: 11,
         title: "Star Wars 4",
         subtitle: "Uma Nova Esperança",
         description: "A princesa Leia é mantida refém pelas forças imperiais comandadas por Darth Vader. Luke Skywalker e o capitão Han Solo precisam libertá-la e restaurar a liberdade e a justiça na galáxia.",
-        faixa: "",
+        faixa: "10",
         src: "https://drive.google.com/file/d/1vZDRk35V-NbMKFXvH7ps5SsUKB3xJr48/preview",
         duration: "2h 01m",
         genero: ["Ficção Científica", "Ação"]
@@ -2733,53 +2760,27 @@ export const cards: CardsProps[] = [
         src: "https://drive.google.com/file/d/1fgV62Bx6e3jhk-SjyU9LiY5aJZUxZFAJ/preview",
         duration: "2h 4m",
         genero: ["Ficção Científica", "Ação"]
-    }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FqDEvctVfAheD7x9Rzz8xcFRAGAU.jpg&f=1&nofb=1&ipt=8bae5d3c6d18da241dd8e9da28b6ba561409ae140567a5bd81107e49bcd2c02a&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpicfiles.alphacoders.com%2F124%2F124818.jpg&f=1&nofb=1&ipt=ee3e164146864432c2502b9f35e062a351da068ff049add9631580fa5c824fbf&ipo=images",
-        tmdbId: 1893,
-        title: "Star Wars 1",
-        subtitle: "A Ameaça Fantasma",
-        description: "Obi-Wan e seu mentor embarcam em uma perigosa aventura na tentativa de salvar o planeta das garras de Darth Sidious. Durante a viagem, eles conhecem um habilidoso menino e decidem treiná-lo para se tornar um Jedi. Mas o tempo irá revelar que as coisas nem sempre são o que aparentam ser.",
-        faixa: "",
-        src: "https://drive.google.com/file/d/1loRP8o2o3rPMPQ8Iii-ICyIaHhsgIrld/preview",
-        duration: "2h 11m",
-        genero: ["Ficção Científica", "Ação"]
-    }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FdNt5q68BBkddBxlvrHDa1apyBy8.jpg&f=1&nofb=1&ipt=564c5a7e21f2d68270362afdbe117856ea788b69d18b0f2eae4e14c2f8cdede1&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Dla4Cu7g_KDOEEfwrDMhuwHaLH%26pid%3DApi&f=1&ipt=769dafe84d9943026783f30cc9bde000b62cfc765025bdee9ba73cd18425c87d&ipo=images",
-        tmdbId: 1894,
-        title: "Star Wars 2",
-        subtitle: "O Ataque dos Clones",
-        description: "Dez anos após o primeiro encontro, Anakin Skywalker vive um romance proibido com Padmé, enquanto Obi-Wan investiga uma tentativa de assassinato do senador e descobre um exército secreto de clones criado para tentar destruir os Jedi.",
-        faixa: "",
-        src: "https://drive.google.com/file/d/1YY5yLfAntg-aHblpgGiLYvKmnVnhKU5J/preview",
-        duration: "2h 22m",
-        genero: ["Ficção Científica",
-            "Ação"]
-
-    }, {
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wallpapersden.com%2Fimage%2Fdownload%2Fcharlize-theron-in-the-old-guard_bGVtbW2UmZqaraWkpJRobWllrWdpZWU.jpg&f=1&nofb=1&ipt=0a3d050850b421ad6d4bc08e2bf2b200b89eb4d3927b20491337163130626302&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2F6aUiWKlFmH5emk40O14oLKF090R.jpg&f=1&nofb=1&ipt=2fcf1bf3f5a3d63e274913dc289601f0390b8046107457e4377086aef9ec9b66&ipo=images",
         tmdbId: 547016,
         title: "The old Guard",
         subtitle: "",
         description: "Um grupo de mercenários com o dom da imortalidade protege a humanidade há séculos e faz de tudo para manter sua identidade em segredo. Mas tudo muda quando alguém descobre seu segredo e eles passam a ser caçados.",
-        faixa: "",
+        faixa: "A16",
         src: "https://drive.google.com/file/d/1EBOyldegcJk4Xh2dVyCyuBz4QRsRP6hH/preview",
         duration: "2h 5m",
-        genero: ["Ação",
-            "Fantasia"
-
-        ]
-
-    }, {
+        genero: ["Ação", "Fantasia"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wallpapersden.com%2Fimage%2Fdownload%2Fcaptain-marvel-2019_a2lmaG2UmZqaraWkpJRmbmdlrWZlbWU.jpg&f=1&nofb=1&ipt=a78735c85fd20178cf6eab36c5d78f252086dbfbeea4feecf6de3f6ecd2348d2&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.images.express.co.uk%2Fimg%2Fdynamic%2F36%2F590x%2Fsecondary%2Fcaptain-marvel-poster-1328520.jpg&f=1&nofb=1&ipt=8b27c206fd79afa14d132c50e27d700a3f41bdcccfd78fc5f80e4ac9a58a004c&ipo=images",
         tmdbId: 299537,
         title: "Capitã Marvel",
         subtitle: "",
         description: "Capitã Marvel é uma alienígena Kree que se encontra no meio de uma batalha entre seu povo e os Skrulls. Com a ajuda de Nick Fury, ela tenta impedir uma invasão na Terra, descobrir os segredos de seu passado e pôr um fim ao antigo conflito.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1Zi4GcLlnPwlnWiOmtL1HkDi2czK9uEhj/preview",
         duration: "2h 4m",
         genero: ["Ação",
@@ -2794,108 +2795,91 @@ export const cards: CardsProps[] = [
         title: "Homem de Ferro 2",
         subtitle: "",
         description: 'Em um mundo ciente da existência do Homem de Ferro, o inventor bilionário Tony Stark sofre pressão de todos os lados para compartilhar sua tecnologia com as forças armadas. Ele resiste para divulgar os segredos de sua inigualável armadura, com medo de que estas informações caiam nas mãos erradas. Com a bela Pepper Potts e o amigo "Rhodey" Rhodes ao seu lado, Tony precisa forjar novas alianças e confrontar um inimigo poderoso.',
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1NESARf5orL9bHF8j-fSMyAXhFsTmCsNG/preview",
         duration: "2h 5m",
-        genero: ["Ação",
-            "Super Herói",
-            "Marvel"
-        ]
-
-    }, {
+        genero: ["Ação", "Super Herói", "Marvel"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages8.alphacoders.com%2F377%2Fthumb-1920-377609.jpg&f=1&nofb=1&ipt=6eb1096e4521a665d599569470f473efd4a0142412b97de88cea8e130b833b9e&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimagizer.imageshack.com%2Fimg922%2F5924%2FlfmfXg.jpg&f=1&nofb=1&ipt=40fe0a4538392359ed1387971b47573303d4c9f325de6f5abd4c6804e47976f6&ipo=images",
         tmdbId: 68721,
         title: "Homem de Ferro 3",
         subtitle: "",
         description: "Depois de um inimigo reduzir o mundo de Tony Stark a destroços, o Homem de Ferro precisa aprender a confiar em seus instintos para proteger aqueles que ama, especialmente sua namorada, e lutar contra seu maior medo: o fracasso.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1F6CTOYdqIjAM7KkVwxJpm7ljWLTU3H3m/preview",
         duration: "2h 10m",
-        genero: ["Ação",
-            "Super Herói",
-            "Marvel"
-        ]
-
-    }, {
+        genero: ["Ação", "Super Herói", "Marvel"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsobresagas.com.br%2Fwp-content%2Fuploads%2F2022%2F06%2FSessao-da-Tarde-Hoje-Classico-da-comedia-Esposa-de-Mentirinha-e-destaque-nessa-segunda-feira-20.jpg&f=1&nofb=1&ipt=f2035ce7d471adbad5741d43c6bfc3cb98c078f6f8e3d93278636717b9f8bda6&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cafecomfilme.com.br%2Fmedia%2Fk2%2Fitems%2Fcache%2F18cb4412b3fd96d4c2c15944894f7ea5_XL.jpg%3Ft%3D20200329_144258&f=1&nofb=1&ipt=0609231dd848ff1aacee435ba0aed18b49f782074565816d998580b66765e74e&ipo=images",
         tmdbId: 50546,
         title: "Esposa de Mentirinha",
         subtitle: "",
         description: "Infeliz em sua tentativa de casamento, Danny passa a vivenciar relacionamentos sem compromisso para driblar a carência. Assim, ele toca sua vida como cirurgião plástico bem-sucedido, tendo sua melhor amiga Katherine, mãe solteira de um casal, como fiel escudeira. Quando conhece a jovem Palmer e a paixão toma conta de ambos, ele inventa, para tentar conquistá-la, que é marido de Katherine, pai das crianças e que vai se separar.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1--I4LM6zwHpQGkoooD29-MghhTDw6Gj-/preview",
         duration: "1h 57m",
-        genero: ["Comédia",
-            "Romance"]
-
-
-    }, {
+        genero: ["Comédia", "Romance"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fprogrammi.sky.it%2Fimages%2Fcc%2Fupload%2Fc_scale%2Cw_1920%2Ff_webp%2Fv1%2Fbackground%2Fbackground-50-volte-il-primo-bacio&f=1&nofb=1&ipt=a807e2b8d49cb6fb3f9528c51235adea2634958e493b07f34bb75b28cc019244&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.KQOAcoYEaCSTo0KwWZFeKgHaJ4%26pid%3DApi&f=1&ipt=287571b91992e40bf0125917f6b0765d2b3068e54d35d1705c5fa55b8823bbfc&ipo=images",
         tmdbId: 1824,
         title: "Como se Fosse a Primeira Vez",
         subtitle: "",
         description: "Henry Roth é um veterinário paquerador que vive no Havaí e famoso pelo grande número de turistas que conquista. Seu novo alvo é Lucy Whitmore, que mora no local e por quem Henry se apaixona perdidamente. No entanto, Lucy sofre de falta de memória de curto prazo e se esquece rapidamente de fatos que acabaram de acontecer. Assim, Henry é obrigado a conquistá-la, dia após dia, para ficar ao seu lado.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1-1n95EkY7mwplqUPNfsO6B-BsU0V7lqG/preview",
         duration: "1h 39m",
-        genero: ["Comédia",
-            "Romance"]
-
-
-
-    }, {
+        genero: ["Comédia", "Romance"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F_HMy37ytch4s%2FTRc16yfY_SI%2FAAAAAAAABzU%2Foihfq_Ps0k4%2Fs1600%2Fpar.jpg&f=1&nofb=1&ipt=98c62144d08b06cdf43e1a66216c3b3ac562e1644dd4d0472c26501d3045c364&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2F9VB8vGV4Aznf6GUc9C7a1EzGHLz.jpg&f=1&nofb=1&ipt=b1e29add21f69b764dc375ff7b83422b276e244f74ae64d8cdd8939cb4fb6709&ipo=images",
         tmdbId: 37821,
         title: "Par Perfeito",
         subtitle: "",
         description: "A vida tranquila de Jen e Spencer começa a mudar quando ela descobre que o marido é um assassino profissional.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1OjlaP1AzngmeP9MXU2OwuHMih5XCLwlQ/preview",
         duration: "1h 40m",
-        genero: ["Comédia",
-            "Ação",
-            "Romance"]
-
-    }, {
+        genero: ["Comédia", "Ação", "Romance"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages4.alphacoders.com%2F909%2Fthumb-1920-909855.jpg&f=1&nofb=1&ipt=808eb61f927a2aacb88321ce4b31e42dd326882d5b6e274fa6b5dff71ffcc5be&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FySm3Ep84oquDVH5K6cXbRGX0sax.jpg&f=1&nofb=1&ipt=96efd0550b13532b5211c4df3959100764f2a6f86e9a7e5bafd8920dc7a45856&ipo=images",
         tmdbId: 401981,
         title: "Operação Red Sparrow",
         subtitle: "",
         description: "Outrora talentosa bailarina, Dominika Egorova é convencida a se tornar uma Sparrow, ou seja, uma sedutora treinada na melhor escola de espionagem russa. Após passar pelo árduo processo de aprendizagem, ela se torna a mais talentosa espiã do país e precisa lidar com o agente da CIA Nathaniel Nash. Os dois, no entanto, acabam desenvolvendo uma paixão proibida que ameaça não só suas vidas, mas também as de outras pessoas.",
-        faixa: "",
+        faixa: "A16",
         src: "https://drive.google.com/file/d/1_rf2oh6ZQLZvWpQ-FNjWE8xnn0fI_q8t/preview",
         duration: "2h 20m",
-        genero: ["Suspense",
-            "Ação"]
-
-
-    }, {
+        genero: ["Suspense", "Ação"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fhdqwalls.com%2Fdownload%2F2017-jumanji-welcome-to-the-jungle-movie-5k-zt-1920x1080.jpg&f=1&nofb=1&ipt=3fcbfa96fd39cb75e518e79a296a0b9747d45e29c362c0d5f7c0e5efd0acda56&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FvfiJehTiJGV649XOHLFfIptnWyG.jpg&f=1&nofb=1&ipt=5aca97fe8d3e2118f13f7290e9943ce5f5f29ed32eee352c5795fff236b35ad7&ipo=images",
         tmdbId: 353486,
         title: "Jumanji",
         subtitle: "Bem Vindo a Selva",
         description: "Quatro adolescentes encontram um videogame cuja ação se passa em uma floresta tropical. Empolgados com o jogo, eles escolhem seus avatares para o desafio, mas um evento inesperado faz com que eles sejam transportados para dentro do universo fictício, transformando-os nos personagens da aventura.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1j5puYj2JzBgDcH0QKIR__UY1o1Zvs022/preview",
         duration: "1h 59m",
-        genero: ["Aventura",
-            "Ação",
-            "Comédia"
-        ]
-    }, {
+        genero: ["Aventura", "Ação", "Comédia"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcloud.filmfed.com%2Fmovies%2Fimages%2Fl_5da5f130-021b-41bb-8ea5-f341b0a87575.jpg&f=1&nofb=1&ipt=65c52b90c30f0c12e1994c82c8541867e334a6aa2d813a9bb1f9e35a7371e9f6&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Fw500%2Fv0f6zLv2TwhscRFDRnbcw8McBeI.jpg&f=1&nofb=1&ipt=e848cbbfc3d3b4078e2449237ec049455453f68e4f8655f312a2d8a95b450d48&ipo=images",
         tmdbId: 205775,
         title: "No Coração do Mar",
         subtitle: "",
         description: "A tripulação do barco baleeiro Essex precisa fazer o impossível para sobreviver em uma ilha deserta após sofrer brutal ataque de uma baleia gigantesca.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/1USqKAwKU6-JRGLVUDv2gDilJPKvRRk5F/preview",
         duration: "2h 2m",
         genero: ["Suspense",
@@ -2909,7 +2893,7 @@ export const cards: CardsProps[] = [
         title: "Jack",
         subtitle: "O Caçador de Gigantes",
         description: "Jack é um pobre fazendeiro que abre um portal entre o mundo real e o universo de uma terrível raça de gigantes, desencadeando uma guerra. A situação obriga Jack a lutar para deter os gigantes e salvar a raça humana.",
-        faixa: "",
+        faixa: "10",
         src: "https://drive.google.com/file/d/1NVAm9qplZ6frGCfb-rO-Y5lov_ztZhJE/preview",
         duration: "1h 54m",
         genero: ["Fantasia",
@@ -2922,7 +2906,7 @@ export const cards: CardsProps[] = [
         title: "Beleza Oculta",
         subtitle: "",
         description: "Howard entra em depressão após uma tragédia pessoal e passa a escrever cartas para a Morte, o Tempo e o Amor, algo que preocupa seus amigos. Mas o que parece impossível se torna realidade quando estas três partes do universo decidem responder. Morte, Tempo e Amor tentam agora ensinar o valor da vida para Howard.",
-        faixa: "",
+        faixa: "10",
         src: "https://drive.google.com/file/d/1a4o5nOSOgtVip1rmoi3gbOf82NsnrmhO/preview",
         duration: "1h 37m",
         genero: ["Drama",
@@ -2935,7 +2919,7 @@ export const cards: CardsProps[] = [
         title: "As Crônicas de Nárnia",
         subtitle: "O Leão, A Feiticeira e o Guarda-Roupa",
         description: "Durante os bombardeios da Segunda Guerra Mundial de Londres, quatro irmãos ingleses são enviados para uma casa de campo onde eles estarão seguros. Um dia, Lucy encontra um guarda-roupa que a transporta para um mundo mágico chamado Nárnia. Depois de voltar, ela logo volta a Nárnia com seus irmãos, Peter e Edmund, e sua irmã, Susan. Lá eles se juntam ao leão mágico, Aslan, na luta contra a Feiticeira Branca.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1yfawrjalXd6g7OPg258P_SfYHSlCYtCm/preview",
         duration: "2h 30m",
         genero: ["Fantasia",
@@ -2948,7 +2932,7 @@ export const cards: CardsProps[] = [
         title: "As Crônicas de Nárnia",
         subtitle: "Príncipe Caspian",
         description: "Um ano após a sua última aventura, os irmãos Pevensie regressam à terra mágica de Nárnia e descobrem que 1300 anos se passaram. Nárnia está em guerra novamente e os irmãos unem forças com o Príncipe Caspian para derrotar o maldoso Rei Miraz e restaurar a paz.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1QTuiHDqlaez2Zgeyr4zQE5__jMBU_DTx/preview",
         duration: "2h 30m",
         genero: ["Fantasia",
@@ -2961,7 +2945,7 @@ export const cards: CardsProps[] = [
         title: "As Crônicas de Nárnia",
         subtitle: "A Viagem do Peregrino da Alvorada",
         description: 'Lucy, Edmund e Eustace se encontram com o rei Caspian e outros amigos e começam uma nova aventura a bordo do navio "O Peregrino da Alvorada" para encontrar os Lordes Desaparecidos de Telmar. Lá, encaram guerreiros, dragões, anões e tritões e tentam salvar a terra mágica.',
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/18Vf0d5dsP0QNFwfirjtzKnoE6rSLIj2B/preview",
         duration: "1h 53m",
         genero: ["Fantasia",
@@ -2974,7 +2958,7 @@ export const cards: CardsProps[] = [
         title: "As Panteras",
         subtitle: "",
         description: "Três detetives particulares de elite, lindas, sensuais e brilhantes trabalham para Charlie. Especialistas em artes marciais, estão armadas com alta tecnologia e veículos de alto desempenho. Usando uma série de disfarces, elas utilizam suas habilidades para resgatar um futuro bilionário que foi sequestrado, tentando evitar que seu software secreto de identificação de voz caia em mãos erradas.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/101Dn13FS0PJ93wkPDfpfSbz-WtRsLDbi/preview",
         duration: "1h 38m",
         genero: ["Ação",
@@ -2989,7 +2973,7 @@ export const cards: CardsProps[] = [
         title: "As Panteras",
         subtitle: "Detonando",
         description: "Um arquivo do sistema de proteção a testemunhas é roubado do governo estadunidense e, em seguida, cinco participantes do programa são assassinados. A Agência de Detetives Charles Townsend é contratada para desvendar o caso, e o trio Natalie, Dylan e Alex é destacado para a investigação. A principal suspeita dos crimes é uma ex-pantera que trocou a agência pelo mundo do crime.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1LNZuQzTj5lciJRdOVIqT0dH-JBmK6VrP/preview",
         duration: "1h 52m",
         genero: ["Ação",
@@ -3002,7 +2986,7 @@ export const cards: CardsProps[] = [
         title: "Divergente",
         subtitle: "",
         description: "Na futurística cidade de Chicago, ao completar 16 anos, Beatrice precisa escolher entre as diferentes facções em que a cidade está dividida. Cada uma representa um valor diferente e, ao contrário de sua família, a jovem opta pela facção dos destemidos, a Audácia. Ela então se torna Tris e inicia uma jornada para afastar seus medos e descobrir quem realmente é. Durante essa jornada, acaba conhecendo o jovem Quatro, um rapaz experiente que tem o dom de intrigá-la e de encantá-la ao mesmo tempo.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/1ot-xsUBc77ZXbJm7H5kzrg_YEArWMad4/preview",
         duration: "2h 19m",
         genero: ["Ação",
@@ -3015,7 +2999,7 @@ export const cards: CardsProps[] = [
         title: "A série Divergente",
         subtitle: "Insurgente",
         description: "Tris e Quatro agora são fugitivos perseguidos por Jeanine e os demais membros ambiciosos da Erudição, facção disposta a fazer tudo para capturá-los. O casal busca aliados e respostas nas ruínas da cidade de Chicago, tentando descobrir o que os familiares de Tris sacrificaram suas vidas para proteger. Tris aceita sua Divergência, mesmo sem saber exatamente o que pode perder ao fazê-lo. Em tempos de guerra, segredos emergem e as escolhas se tornam mais determinantes.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/1dLKEn0wrt_NebffGm3mAv12ORavpwC1d/preview",
         duration: "1h 59m",
         genero: ["Ação",
@@ -3029,7 +3013,7 @@ export const cards: CardsProps[] = [
         title: "A Série Divergente",
         subtitle: "Convergente",
         description: "Tris e Quatro embarcam em uma jornada além da cerca ao redor de Chicago em busca de uma solução pacífica para a sua cidade, e acabam descobrindo a existência de uma nova sociedade.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1JATQcvLXsydWE6vX22PYIXzQULq_-beR/preview",
         duration: "02h 00m",
         genero: ["Ação", "Ficção Científica"]
@@ -3041,7 +3025,7 @@ export const cards: CardsProps[] = [
         title: "Batman",
         subtitle: "O Cavaleiro das Trevas",
         description: "Batman tem conseguido manter a ordem em Gotham com a ajuda de Jim Gordon e Harvey Dent. No entanto, um jovem e anárquico criminoso, conhecido apenas como Coringa, pretende testar o Cavaleiro das Trevas e mergulhar a cidade em um verdadeiro caos.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1146J0pg5alhED9xfYS4g1vynWA_VMt6E/preview",
         duration: "2h 32m",
         genero: ["Ação",
@@ -3055,7 +3039,7 @@ export const cards: CardsProps[] = [
         title: "As Branquelas",
         subtitle: "",
         description: "Dois irmãos agentes do FBI, Marcus e Kevin Copeland, acidentalmente evitam que bandidos sejam presos em uma apreensão de drogas. Como castigo, eles são forçados a escoltar um par de socialites nos Hamptons. Quando as meninas descobrem o plano da agência, elas se recusam a ir. Sem opções, Marcus e Kevin, dois homens negros, decidem fingir que são as irmãs e se transformam em um par de loiras.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1avm4yXd2tg1lZKy00yZRknboNv2Dxqpi/preview",
         duration: "1h 49m",
         genero: ["Comédia",
@@ -3069,7 +3053,7 @@ export const cards: CardsProps[] = [
         title: "As Vantagens de ser invisível",
         subtitle: "",
         description: "Um jovem tímido se esconde em seu próprio mundo até conhecer dois irmãos que o ajudam a viver novas experiências. Embora esteja feliz nessa nova fase, ele não esquece as tristezas do passado, que têm origem em uma chocante revelação.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/12cnRyPwcXDTbbU26MF7wXhz9cnotdEoX/preview",
         duration: "1h 45m",
         genero: ["Drama",
@@ -3083,7 +3067,7 @@ export const cards: CardsProps[] = [
         title: "A Mentira",
         subtitle: "",
         description: "Estimulada pela popular melhor amiga a revelar detalhes de seu fim de semana entediante, Olive, uma adolescente certinha, decide apimentar um pouco os detalhes contando uma pequena mentira sobre a perda de sua virgindade. Quando a bisbilhoteira da escola ouve a conversa e espalha para todo o campus, Olive fica famosa repentinamente, mas pelas razões erradas.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/1fCLpDLk_U1_OFzGcYxR_UZMtAUoS4CZJ/preview",
         duration: "1h 32m",
         genero: ["Comédia",
@@ -3095,9 +3079,9 @@ export const cards: CardsProps[] = [
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flimonadatorrent.com%2Fwp-content%2Fuploads%2F2024%2F02%2FMeninas-Malvadas-2024.jpg&f=1&nofb=1&ipt=ad0c1b87cf929cf0964faa7b096f470b81349874da6770c0e51302a8c51320a1&ipo=images",
         tmdbId: 673593,
         title: "Meninas Malvadas",
-        subtitle: "O Musical",
+        subtitle: "",
         description: "Uma nova aluna do ensino médio enfrenta a ira de uma garota popular e de seus amigos.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1SVH0UjmeRTKi4KEHu7PDJ_clFxY7CRXG/preview",
         duration: "1h 53m",
         genero: ["Comédia",
@@ -3110,7 +3094,7 @@ export const cards: CardsProps[] = [
         title: "Ad Astra",
         subtitle: "Rumo às Estrelas",
         description: "Um homem viaja pelo interior de um sistema solar sem lei para encontrar seu pai desaparecido, um cientista renegado que representa uma ameaça à humanidade.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/1Odx1C3GCjfO0SqGu_BYmu4hfWxGGtH47/preview",
         duration: "2h 03m",
         genero: ["Ficção Científica",
@@ -3123,7 +3107,7 @@ export const cards: CardsProps[] = [
         title: "Freaky",
         subtitle: "No corpo de um Assassino",
         description: "Um punhal místico faz com que Millie, uma garota de 17 anos, e um serial killer troquem de corpo. A jovem descobre que possui apenas 24 horas para ter seu corpo de volta antes que a troca se torne permanente e ela fique presa na forma de um maníaco de meia-idade para sempre. O grande problema é que, agora, ela parece uma psicopata imponente que é alvo de uma caçada humana por toda a cidade.",
-        faixa: "",
+        faixa: "A16",
         src: "https://drive.google.com/file/d/1916cSKK_WgIgAhixkCmnTG6mCW_Hhxuf/preview",
         duration: "1h 42",
         genero: ["Comédia",
@@ -3136,7 +3120,7 @@ export const cards: CardsProps[] = [
         title: "Efeito Borboleta",
         subtitle: "",
         description: "O estudante universitário Evan Treborn está aflito com dores de cabeça tão fortes que frequentemente desmaia. Enquanto está inconsciente, Evan pode viajar de volta no tempo para momentos de dificuldades na infância. Ele também pode alterar o passado para os amigos, como Kayleigh, que foi molestada pelo pai. Porém ao mudar o passado, ele pode alterar o presente, o que leva Evan a se encontrar em um pesadelo de realidades alternativas, incluindo uma onde ele está preso.",
-        faixa: "",
+        faixa: "A16",
         src: "https://drive.google.com/file/d/1aE2DlzYcggiBH41rG-ZfU_oAtzGUBEyo/preview",
         duration: "1h 59m",
         genero: ["Suspense",
@@ -3149,7 +3133,7 @@ export const cards: CardsProps[] = [
         title: "Kong",
         subtitle: "A ilha da Caveira",
         description: "Um ex-militar viaja com um grupo de desbravadores até a mítica Ilha da Caveira, onde seu irmão desapareceu. A equipe de exploradores se aventura nas profundezas da ilha desconhecida, sem saber que está entrando nos domínios do mítico Kong.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1jjYvUOIhnyhNkO4ulbKWI8U82rXerPxC/preview",
         duration: "1h 58m",
         genero: ["Ação",
@@ -3162,7 +3146,7 @@ export const cards: CardsProps[] = [
         title: "Godzilla",
         subtitle: "",
         description: "Um especialista em bombas da marinha norte-americana acaba de se reunir com a família em São Francisco, Estados Unidos, quando é forçado a ir para o Japão para ajudar seu pai. Logo, os dois se deparam com um grande acontecimento: Godzilla, o rei dos monstros, surge do mar para combater criaturas inimigas. Em uma luta pela supremacia, os monstros ameaçam a sobrevivência da humanidade. Por onde passam, deixam um rastro de destruição, rumo ao local da batalha final: São Francisco.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1fHasj8EbVXToBIth-YxiiWBJDc4MBMyv/preview",
         duration: "2h 03m",
         genero: ["Ação",
@@ -3175,76 +3159,81 @@ export const cards: CardsProps[] = [
         title: "Jogos Vorazes",
         subtitle: "A Cantiga dos Passaros e das Serpentes",
         description: "Anos antes de se tornar o presidente tirânico de Panem, Coriolanus Snow, de 18 anos, vê uma chance de mudar sua sorte quando se torna o mentor de Lucy Gray Baird, o tributo feminino do Distrito 12.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/1bFkzQ7AuB_A_ySyX7JB9v3G8QTuna0MV/preview",
         duration: "2h 37m",
         genero: ["Ação",
             "Suspense"
         ]
-    }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Faodisseia.b-cdn.net%2Fwp-content%2Fuploads%2F2015%2F11%2FJogos-Vorazes-scaled.jpg&f=1&nofb=1&ipt=d646cd3ab39e524b51b20e18b54a9bed69b6d9a866517029e4d3e41eb5b134d1&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FrCDfKHFpZoLLl4CDMDCMGAy8wiN.jpg&f=1&nofb=1&ipt=07d64d8ce3165b8f2b37cd066d42274f33ae9817527ddb484aac1c3b972df605&ipo=images",
-        tmdbId: 131634,
-        title: "Jogos Vorazes",
-        subtitle: "A Esperança - parte 2",
-        description: "Katniss e seus amigos Peeta, Gale e Finnick embarcam em sua última missão: organizar uma resistência contra o presidente e libertar o povo de Panem. A coragem de Katniss faz renascer a esperança em um país disposto a se livrar da opressão.",
-        faixa: "",
-        src: "https://drive.google.com/file/d/1UquFsUSu4iJAu75FqxPiZzsTkTvjWvTE/preview",
-        duration: "2h 16m",
-        genero: ["Ação",
-            "Suspense",
-            "Ficção Científica"
-        ]
-    }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fs2.glbimg.com%2FEATpCIuUlOorUhNzqPEqmHxAIGU%3D%2Fsmart%2Fe.glbimg.com%2Fog%2Fed%2Ff%2Foriginal%2F2014%2F09%2F13%2Fabre_j-law-esperanca-parte-1-cartaz.jpg&f=1&nofb=1&ipt=b4e733f906c64bf16e4f22cf94365c10d81d8609fe73fb84c3606c23ab70b8fe&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FhekpVNWOROZm57RS4OLW0ySkxx9.jpg&f=1&nofb=1&ipt=773eb8377c103464f95aa8f3ac6fa4a42bf2cbea03aa8567d0959967eccb2f06&ipo=images",
-        tmdbId: 131631,
-        title: "Jogos Vorazes",
-        subtitle: "A Esperança - parte 1",
-        description: 'Após sobreviver à temível arena dos Jogos Vorazes, Katniss Everdeen está desanimada e destruída. Depois que a Capital reduziu o Distrito 12 a destroços, ela se refugiou no Distrito 13. Peeta Mellark foi submetido a uma lavagem cerebral, e agora está sob o domínio de Snow. Então, a presidência quer que Katniss lidere uma "resistência" e mobilize a população em uma empreitada que irá colocá-la no centro da trama para desmascarar Snow.',
-        faixa: "",
-        src: "https://drive.google.com/file/d/1yOHRP2ZT6nr5HjoThQQAkLYuaCCpKa0j/preview",
-        duration: "2h 02m",
-        genero: ["Ação",
-            "Ficção Científica",
-            "Suspense"
-        ]
-    }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.entrandonumafria.com.br%2Fwp-content%2Fuploads%2F2013%2F10%2FJogos-Vorazes-Em-Chamas-destaque-01.jpg&f=1&nofb=1&ipt=3f88a3928ce6a41e1ba692728014f3766754c65ea1e9a82a0de82beb5251e103&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FvuBnGAxBICptd3UuSPjt9rwb6w5.jpg&f=1&nofb=1&ipt=7a459b0be517dc9c4f73c3b1334b8cd4fceeb64e8ccf1963d360a70649b034a9&ipo=images",
-        tmdbId: 101299,
-        title: "Jogos Vorazes",
-        subtitle: "Em Chamas",
-        description: "Após saírem vencedores da última edição dos Jogos Vorazes, as atitudes desafiadoras de Katniss e Peeta acabam inspirando uma rebelião contra a opressiva Capital. No entanto, os dois são obrigados a participarem de uma edição especial do torneio, o Massacre Quaternário, que acontece apenas a cada 25 anos, e reúne vencedores das edições anteriores.",
-        faixa: "",
-        src: "https://drive.google.com/file/d/16o3licpSEwrWlQDuAgEHLmLmXR_UYbGf/preview",
-        duration: "2h 26m",
-        genero: ["Ação",
-            "Ficção Científica",
-            "Suspense"
-        ]
-    }, {
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcapricho.abril.com.br%2Fwp-content%2Fuploads%2F2017%2F01%2Fjennifer-lawrence-jogos-vorazes.jpg&f=1&nofb=1&ipt=5945bf07178de9aa5c708b89b1f36131ef1cb5cfe7ed7a56c6d3b3408378f71c&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.ucicinemas.com.br%2FContent%2FUpload%2FFilmes%2FPosters%2F11763%2Ffilme_11763.jpg&f=1&nofb=1&ipt=6b8b164377489e0b7300b4534f0647bdd1c9ce8f3268b54bfe546a5a39d54a1e&ipo=images",
         tmdbId: 70160,
         title: "Jogos Vorazes",
         subtitle: "",
         description: "Na região antigamente conhecida como América do Norte, a Capital de Panem controla 12 distritos e os força a escolher um garoto e uma garota, conhecidos como tributos, para competir em um evento anual televisionado. Todos os cidadãos assistem aos temidos jogos, no qual os jovens lutam até a morte, de modo que apenas um saia vitorioso. A jovem Katniss Everdeen, do Distrito 12, confia na habilidade de caça e na destreza com o arco, além dos instintos aguçados, nesta competição mortal.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/1BMXk1Z3oSvJyLmVM4Lc_pEQph6oa-Kt-/preview",
         duration: "2h 22m",
         genero: ["Ação",
             "Suspense",
             "Ficção Científica"
         ]
-    }, {
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.entrandonumafria.com.br%2Fwp-content%2Fuploads%2F2013%2F10%2FJogos-Vorazes-Em-Chamas-destaque-01.jpg&f=1&nofb=1&ipt=3f88a3928ce6a41e1ba692728014f3766754c65ea1e9a82a0de82beb5251e103&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FvuBnGAxBICptd3UuSPjt9rwb6w5.jpg&f=1&nofb=1&ipt=7a459b0be517dc9c4f73c3b1334b8cd4fceeb64e8ccf1963d360a70649b034a9&ipo=images",
+        tmdbId: 101299,
+        title: "Jogos Vorazes",
+        subtitle: "Em Chamas",
+        description: "Após saírem vencedores da última edição dos Jogos Vorazes, as atitudes desafiadoras de Katniss e Peeta acabam inspirando uma rebelião contra a opressiva Capital. No entanto, os dois são obrigados a participarem de uma edição especial do torneio, o Massacre Quaternário, que acontece apenas a cada 25 anos, e reúne vencedores das edições anteriores.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/16o3licpSEwrWlQDuAgEHLmLmXR_UYbGf/preview",
+        duration: "2h 26m",
+        genero: ["Ação",
+            "Ficção Científica",
+            "Suspense"
+        ]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fs2.glbimg.com%2FEATpCIuUlOorUhNzqPEqmHxAIGU%3D%2Fsmart%2Fe.glbimg.com%2Fog%2Fed%2Ff%2Foriginal%2F2014%2F09%2F13%2Fabre_j-law-esperanca-parte-1-cartaz.jpg&f=1&nofb=1&ipt=b4e733f906c64bf16e4f22cf94365c10d81d8609fe73fb84c3606c23ab70b8fe&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FhekpVNWOROZm57RS4OLW0ySkxx9.jpg&f=1&nofb=1&ipt=773eb8377c103464f95aa8f3ac6fa4a42bf2cbea03aa8567d0959967eccb2f06&ipo=images",
+        tmdbId: 131631,
+        title: "Jogos Vorazes",
+        subtitle: "A Esperança - parte 1",
+        description: 'Após sobreviver à temível arena dos Jogos Vorazes, Katniss Everdeen está desanimada e destruída. Depois que a Capital reduziu o Distrito 12 a destroços, ela se refugiou no Distrito 13. Peeta Mellark foi submetido a uma lavagem cerebral, e agora está sob o domínio de Snow. Então, a presidência quer que Katniss lidere uma "resistência" e mobilize a população em uma empreitada que irá colocá-la no centro da trama para desmascarar Snow.',
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1yOHRP2ZT6nr5HjoThQQAkLYuaCCpKa0j/preview",
+        duration: "2h 02m",
+        genero: ["Ação",
+            "Ficção Científica",
+            "Suspense"
+        ]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Faodisseia.b-cdn.net%2Fwp-content%2Fuploads%2F2015%2F11%2FJogos-Vorazes-scaled.jpg&f=1&nofb=1&ipt=d646cd3ab39e524b51b20e18b54a9bed69b6d9a866517029e4d3e41eb5b134d1&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FrCDfKHFpZoLLl4CDMDCMGAy8wiN.jpg&f=1&nofb=1&ipt=07d64d8ce3165b8f2b37cd066d42274f33ae9817527ddb484aac1c3b972df605&ipo=images",
+        tmdbId: 131634,
+        title: "Jogos Vorazes",
+        subtitle: "A Esperança - parte 2",
+        description: "Katniss e seus amigos Peeta, Gale e Finnick embarcam em sua última missão: organizar uma resistência contra o presidente e libertar o povo de Panem. A coragem de Katniss faz renascer a esperança em um país disposto a se livrar da opressão.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1UquFsUSu4iJAu75FqxPiZzsTkTvjWvTE/preview",
+        duration: "2h 16m",
+        genero: ["Ação",
+            "Suspense",
+            "Ficção Científica"
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuploads.alternativanerd.com.br%2Fwp-content%2Fuploads%2F2020%2F08%2FAfter-Movie-Poster-Cropped-1536x768.jpg&f=1&nofb=1&ipt=7bf6a8a8f4a9fb9be1739e17fe44d3293d830e6e41f16d0c3592065139496db7&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.jornaldebarueri.com.br%2Fwp-content%2Fuploads%2F2024%2F01%2Fposter_820525-scaled.jpg&f=1&nofb=1&ipt=75205e9676ccf8535566e4b3d341f25bed893c9786ad8bbf9fc96e4b9119c592&ipo=images",
         tmdbId: 820525,
         title: "After",
         subtitle: "Para Sempre",
         description: "Hardin precisa terminar seu livro, mas está sofrendo com um bloqueio criativo total. Ainda ligado ao passado, ele descobre que Tessa está em Portugal e parte para encontrá-la. Mas ele logo percebe que deve mudar de atitude se quiser recuperá-la.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/1jksPTMGdFNiN7Dm3bFgpn_p9qnuhD8Q1/preview",
         duration: "1h 33m",
         genero: ["Romance",
@@ -3257,24 +3246,10 @@ export const cards: CardsProps[] = [
         title: "A Baleia",
         subtitle: "",
         description: "Homem obeso e solitário busca se reconectar com filha adolescente em uma última chance de redenção.",
-        faixa: "",
+        faixa: "A16",
         src: "https://drive.google.com/file/d/1z5dHSZXyRmtxLo3l8EKwvmTRR3k0643F/preview",
         duration: "1h 56m",
         genero: ["Drama"
-        ]
-    },
-    {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.wp.com%2Fwww.meugamer.com%2Fwp-content%2Fuploads%2F2018%2F08%2F55eNvuXNumZ3oDmtcsJvzGhKyLZ.jpg%3Ffit%3D2560%252C1440%26ssl%3D1&f=1&nofb=1&ipt=734d18ab37d4cbde3e9939a26acdaa97794fa5283bfcd9f6d2c0655358ac6aa2&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.sonypictures.com.br%2Fsites%2Fbrazil%2Ffiles%2F2023-09%2Fsony_protetor2_1400x2100.jpg&f=1&nofb=1&ipt=fa3e5df34e5a64c1aa25db3c2a3fcf7d777f8c1dcafb2d3592bb55eaed0f952a&ipo=images",
-        tmdbId: 345887,
-        title: "O Protetor 2",
-        subtitle: "A Vingança",
-        description: "Criminosos assassinam Susan Plummer, a melhor amiga de Robert McCall e sua ex-colega de trabalho. Obcecado, Robert pensa apenas em eliminar o bando de assassinos profissionais que destruiu sua vida.",
-        faixa: "",
-        src: "https://drive.google.com/file/d/1OKbHkwocijzOwUv11v712z5tL0bsbRgM/preview",
-        duration: "2h 1m",
-        genero: ["Ação",
-            "Suspense"
         ]
     },
     {
@@ -3284,7 +3259,7 @@ export const cards: CardsProps[] = [
         title: "O Protetor",
         subtitle: "Sem Misericórdia",
         description: "O ex-agente secreto Robert McCall acredita que seu passado ficou para trás e tenta viver uma nova vida. Ele conhece Alina, uma jovem que está sob poder de uma quadrilha russa, e simplesmente não consegue ignorá-la. Munido de suas extraordinárias habilidades, ele ressurge como um verdadeiro anjo vingador. Longe da aposentadoria e com um novo desejo de fazer justiça, McCall decide ajudar quem foi brutalizado e oprimido.",
-        faixa: "",
+        faixa: "A16",
         src: "https://drive.google.com/file/d/1CiXc7BVMOQVCtXe71Hr3979C18qo7Adk/preview",
         duration: "2h 12m",
         genero: ["Ação",
@@ -3292,17 +3267,17 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperswide.com%2Fdownload%2Fmegamind_2_2024_movie-wallpaper-1440x2560.jpg&f=1&nofb=1&ipt=255b3737aa78ae4e5f85b045f8cda4eabf9742f76987f154a5d95bb2cb53b7fd&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FS%2Fpv-target-images%2F8412f3f0faefdf897c31fd1830fe15a23d567bf11d715a614cf6a5eb9703132c.jpg&f=1&nofb=1&ipt=3d562fc931df42dbdf4a63d683feebf21a46c3297506c479bec191ca6ee23cf6&ipo=images",
-        tmdbId: 1239251,
-        title: "Megamente",
-        subtitle: "Contra O Sindicato da Perdição",
-        description: "Megamente precisa manter as más aparências até conseguir reunir seus amigos para impedir que seus antigos companheiros de equipe malígnos levem Metro City para a lua.",
-        faixa: "",
-        src: "https://drive.google.com/file/d/1mVyFAvhrAPPjTqZBWwoHnl5gPiNOckuS/preview",
-        duration: "1h 25m",
-        genero: ["Animação",
-            "Comédia"
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.wp.com%2Fwww.meugamer.com%2Fwp-content%2Fuploads%2F2018%2F08%2F55eNvuXNumZ3oDmtcsJvzGhKyLZ.jpg%3Ffit%3D2560%252C1440%26ssl%3D1&f=1&nofb=1&ipt=734d18ab37d4cbde3e9939a26acdaa97794fa5283bfcd9f6d2c0655358ac6aa2&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.sonypictures.com.br%2Fsites%2Fbrazil%2Ffiles%2F2023-09%2Fsony_protetor2_1400x2100.jpg&f=1&nofb=1&ipt=fa3e5df34e5a64c1aa25db3c2a3fcf7d777f8c1dcafb2d3592bb55eaed0f952a&ipo=images",
+        tmdbId: 345887,
+        title: "O Protetor 2",
+        subtitle: "A Vingança",
+        description: "Criminosos assassinam Susan Plummer, a melhor amiga de Robert McCall e sua ex-colega de trabalho. Obcecado, Robert pensa apenas em eliminar o bando de assassinos profissionais que destruiu sua vida.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1OKbHkwocijzOwUv11v712z5tL0bsbRgM/preview",
+        duration: "2h 1m",
+        genero: ["Ação",
+            "Suspense"
         ]
     },
     {
@@ -3312,9 +3287,23 @@ export const cards: CardsProps[] = [
         title: "Megamente",
         subtitle: "",
         description: "O vilão Megamente finalmente derrota seu rival, mas percebe que sua vida perdeu sentido sem ninguém para enfrentá-lo. Agora, ele terá que encontrar um novo propósito.",
-        faixa: "",
+        faixa: "L",
         src: "https://drive.google.com/file/d/1VkhYc45C26xISAja7s6KsYEuFMhexw-7/preview",
         duration: "1h 35m",
+        genero: ["Animação",
+            "Comédia"
+        ]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperswide.com%2Fdownload%2Fmegamind_2_2024_movie-wallpaper-1440x2560.jpg&f=1&nofb=1&ipt=255b3737aa78ae4e5f85b045f8cda4eabf9742f76987f154a5d95bb2cb53b7fd&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FS%2Fpv-target-images%2F8412f3f0faefdf897c31fd1830fe15a23d567bf11d715a614cf6a5eb9703132c.jpg&f=1&nofb=1&ipt=3d562fc931df42dbdf4a63d683feebf21a46c3297506c479bec191ca6ee23cf6&ipo=images",
+        tmdbId: 1239251,
+        title: "Megamente",
+        subtitle: "Contra O Sindicato da Perdição",
+        description: "Megamente precisa manter as más aparências até conseguir reunir seus amigos para impedir que seus antigos companheiros de equipe malígnos levem Metro City para a lua.",
+        faixa: "L",
+        src: "https://drive.google.com/file/d/1mVyFAvhrAPPjTqZBWwoHnl5gPiNOckuS/preview",
+        duration: "1h 25m",
         genero: ["Animação",
             "Comédia"
         ]
@@ -3326,7 +3315,7 @@ export const cards: CardsProps[] = [
         title: "Seven",
         subtitle: "Os sete crimes capitais",
         description: "A ponto de se aposentar, o detetive William Somerset pega um último caso, com a ajuda do recém-transferido David Mills. Juntos, descobrem uma série de assassinatos e logo percebem que estão lidando com um assassino que tem como alvo pessoas que ele acredita representar os sete pecados capitais.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/1tpDCk2AQ1Vqxg-N-BQdVfWZ1Lj146wLa/preview",
         duration: "2h 07m",
         genero: ["Suspense",
@@ -3335,28 +3324,28 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblogger.googleusercontent.com%2Fimg%2Fb%2FR29vZ2xl%2FAVvXsEihjSQAICcrj_jfiTyMcgFJNmB6OMuMYUdrc3IQ619r42z_chKrNukf4BjuYlrLmoTgZ3ZInwqNY951GEneLP6HqUxMVVIi3phcLmRyDmy0PyttZsbhpb2bYOVFD5IS9vDjd3b8uJE9c7cLnjswlldk9uSccL_YK9LAb2RNAeh_tts6JvdWCu5X9iXyjPl8%2Fw1200-h630-p-k-no-nu%2Fg0rofq9t.png&f=1&nofb=1&ipt=4cc076870ebb4acc4fd442d5bb1647af3ae8b99366a50da7cb7706fd85e7a344&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.BwdQmg7a642kSD3Af9DhHAHaLH%26pid%3DApi&f=1&ipt=d4ba9c31b17af382b02b758fb84bd9308eb41b55694b3c253aaa7f1f7cd845bc&ipo=images",
-        tmdbId: 932420,
-        title: "Code 8",
-        subtitle: "Renegados - Parte 2",
-        description: "Em uma cidade onde pessoas com superpoderes são vigiadas e oprimidas, um ex-criminoso se une a um traficante para proteger uma adolescente de um policial corrupto.",
-        faixa: "",
-        src: "https://drive.google.com/file/d/1KlI6MA-cUTT2thodBQstKk8i1ezuNVfs/preview",
-        duration: "1h 40m",
-        genero: ["Ação", "Suspense", "Super poderes", "Ficção Científica"]
-    },
-    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FraspMdRYIj0cCF6SQH8NQ1lLLMB.jpg&f=1&nofb=1&ipt=306b8fadf586a938ccb327bff62898d1e8c7e6ae76e627e7467600097c466a66&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.moviesrankings.com%2Ft%2Fp%2Fw1280%2FynRI69ind5gs4CO7gSAwtSHBlas.jpg&f=1&nofb=1&ipt=33a5e726343aceba57d0206396017e2a52bd40e10cd26910335ca83acebdb625&ipo=images",
         tmdbId: 461130,
         title: "Code 8",
         subtitle: "Renegados",
         description: "Em um mundo em que 4% da população nasce com poderes sobrenaturais, um jovem usa seu dom para cometer uma série de pequenos crimes, mas é caçado por uma força policial militarizada.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/1JCiiYuVCrN7_4SJXf5ue9EMoxwZoqOa2/preview",
         duration: "1h 38m",
         genero: ["Ação", "Ficção Científica", "Super poderes", "Suspense"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblogger.googleusercontent.com%2Fimg%2Fb%2FR29vZ2xl%2FAVvXsEihjSQAICcrj_jfiTyMcgFJNmB6OMuMYUdrc3IQ619r42z_chKrNukf4BjuYlrLmoTgZ3ZInwqNY951GEneLP6HqUxMVVIi3phcLmRyDmy0PyttZsbhpb2bYOVFD5IS9vDjd3b8uJE9c7cLnjswlldk9uSccL_YK9LAb2RNAeh_tts6JvdWCu5X9iXyjPl8%2Fw1200-h630-p-k-no-nu%2Fg0rofq9t.png&f=1&nofb=1&ipt=4cc076870ebb4acc4fd442d5bb1647af3ae8b99366a50da7cb7706fd85e7a344&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.BwdQmg7a642kSD3Af9DhHAHaLH%26pid%3DApi&f=1&ipt=d4ba9c31b17af382b02b758fb84bd9308eb41b55694b3c253aaa7f1f7cd845bc&ipo=images",
+        tmdbId: 932420,
+        title: "Code 8",
+        subtitle: "Renegados - Parte 2",
+        description: "Em uma cidade onde pessoas com superpoderes são vigiadas e oprimidas, um ex-criminoso se une a um traficante para proteger uma adolescente de um policial corrupto.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1KlI6MA-cUTT2thodBQstKk8i1ezuNVfs/preview",
+        duration: "1h 40m",
+        genero: ["Ação", "Suspense", "Super poderes", "Ficção Científica"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2023%2F01%2Fx-a-marca-da-morte-mia-goth-maxxxine-foto-reproducao.jpg&f=1&nofb=1&ipt=8bb5e4854bd79777f4e69c195e4b5628b465b9f7c5fdffce246cabff446b57cc&ipo=images",
@@ -3365,7 +3354,7 @@ export const cards: CardsProps[] = [
         title: "X - A Marca da Morte",
         subtitle: "",
         description: "Em 1979, um grupo de jovens cineastas partiu para fazer um filme adulto na zona rural do Texas, mas quando seus anfitriões os pegam em flagrante, o elenco logo se vê em uma luta desesperada por suas vidas.",
-        faixa: "",
+        faixa: "18",
         src: "https://drive.google.com/file/d/1xNVtrMddYTOia21OOxN1opSdxH9hVdyV/preview",
         duration: "1h 45m",
         genero: ["Terror",
@@ -3380,7 +3369,7 @@ export const cards: CardsProps[] = [
         title: "Donzela",
         subtitle: "",
         description: "O casamento de uma jovem com um príncipe encantado se transforma em uma luta por sobrevivência quando ela é oferecida em sacrifício a um dragão",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1q_YilO701nCgPzGdBoc8qWw7eHU4BQWr/preview",
         duration: "1h 49m",
         genero: ["Ação",
@@ -3388,15 +3377,15 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fzk9ic7HDN5TsyGkfcMZxSiFcAr8.jpg&f=1&nofb=1&ipt=ab0a60ce92070ae9c0f7489f578e3c0af6dfda00de8f63cfa48c338ad9f310ae&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.justwatch.com%2Fposter%2F242552466%2Fs718%2Fmaze-runner-a-cura-mortal.%257Bformat%257D&f=1&nofb=1&ipt=b94c6d7a7145a36f630f3f537af262466e64ace578970c3c7f07c31e36847731&ipo=images",
-        tmdbId: 336843,
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FdlCvY72YBKxFSUk7ZOqasocoKWr.jpg&f=1&nofb=1&ipt=afc65c2edd91754b1b726181f84db1c930cb4271213c90550f8b319c716f7c1a&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbig1news.com.br%2Fwp-content%2Fuploads%2F2014%2F09%2FMaze-Runner-Correr-ou-Morrer.jpg&f=1&nofb=1&ipt=96e10e4d2cec24f028f27318d5786ad5077f534705c453432cb93d4a7d12ccd5&ipo=images",
+        tmdbId: 198663,
         title: "Maze Runner",
-        subtitle: "A Cura Mortal",
-        description: "Thomas parte em uma missão para encontrar a cura de uma doença mortal e descobre que os planos da C.R.U.E.L podem trazer consequências catastróficas para a humanidade.",
-        faixa: "",
-        src: "https://drive.google.com/file/d/1SxL-7m1TI-iG2O-S9oTeadhay7Gqjc4F/preview",
-        duration: "2h 23m",
+        subtitle: "Correr ou Morrer",
+        description: "Em um futuro apocalíptico, o jovem Thomas é escolhido para enfrentar o sistema. Ele acorda dentro de um escuro elevador em movimento e não consegue se lembrar nem de seu nome. Na comunidade isolada em que foi abandonado, Thomas conhece outros garotos que passaram pela mesma situação. Para conseguir escapar, ele precisa descobrir os sombrios segredos guardados em sua mente e correr muito.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1nWX9odS5E-xQn2HRJDiqL7ggJUzBbLeZ/preview",
+        duration: "1h 53m",
         genero: ["Ficção Científica",
             "Ação"
         ]
@@ -3408,7 +3397,7 @@ export const cards: CardsProps[] = [
         title: "Maze Runner",
         subtitle: "Prova de Fogo",
         description: "Depois de escapar do labirinto, Thomas e os garotos que o acompanharam em sua fuga encontram uma realidade bem diferente: a superfície da Terra foi queimada pelo Sol e eles precisam lidar com criaturas disformes chamadas Cranks.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/1jLmSmAyDNsRtAh8O9uGC3U3ninLl15LS/preview",
         duration: "2h 11m",
         genero: ["Ficção Científica",
@@ -3416,15 +3405,15 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FdlCvY72YBKxFSUk7ZOqasocoKWr.jpg&f=1&nofb=1&ipt=afc65c2edd91754b1b726181f84db1c930cb4271213c90550f8b319c716f7c1a&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbig1news.com.br%2Fwp-content%2Fuploads%2F2014%2F09%2FMaze-Runner-Correr-ou-Morrer.jpg&f=1&nofb=1&ipt=96e10e4d2cec24f028f27318d5786ad5077f534705c453432cb93d4a7d12ccd5&ipo=images",
-        tmdbId: 198663,
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fzk9ic7HDN5TsyGkfcMZxSiFcAr8.jpg&f=1&nofb=1&ipt=ab0a60ce92070ae9c0f7489f578e3c0af6dfda00de8f63cfa48c338ad9f310ae&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.justwatch.com%2Fposter%2F242552466%2Fs718%2Fmaze-runner-a-cura-mortal.%257Bformat%257D&f=1&nofb=1&ipt=b94c6d7a7145a36f630f3f537af262466e64ace578970c3c7f07c31e36847731&ipo=images",
+        tmdbId: 336843,
         title: "Maze Runner",
-        subtitle: "Correr ou Morrer",
-        description: "Em um futuro apocalíptico, o jovem Thomas é escolhido para enfrentar o sistema. Ele acorda dentro de um escuro elevador em movimento e não consegue se lembrar nem de seu nome. Na comunidade isolada em que foi abandonado, Thomas conhece outros garotos que passaram pela mesma situação. Para conseguir escapar, ele precisa descobrir os sombrios segredos guardados em sua mente e correr muito.",
-        faixa: "",
-        src: "https://drive.google.com/file/d/1nWX9odS5E-xQn2HRJDiqL7ggJUzBbLeZ/preview",
-        duration: "1h 53m",
+        subtitle: "A Cura Mortal",
+        description: "Thomas parte em uma missão para encontrar a cura de uma doença mortal e descobre que os planos da C.R.U.E.L podem trazer consequências catastróficas para a humanidade.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1SxL-7m1TI-iG2O-S9oTeadhay7Gqjc4F/preview",
+        duration: "2h 23m",
         genero: ["Ficção Científica",
             "Ação"
         ]
@@ -3436,7 +3425,7 @@ export const cards: CardsProps[] = [
         title: "Todos menos você!",
         subtitle: "",
         description: "Bea e Ben, dois antigos colegas de faculdade, são forçados a conviver quando recebem o convite do casamento de um amigo em comum. Porém, quando descobrem que seus respectivos ex-namorados também vão à cerimônia, os dois decidem fingir ser um casal.",
-        faixa: "",
+        faixa: "A16",
         src: "https://drive.google.com/file/d/1lj1JXn2bTsvGbapCjobeCuj82Zyu-EbZ/preview",
         duration: "1h 43m",
         genero: ["Comédia",
@@ -3450,7 +3439,7 @@ export const cards: CardsProps[] = [
         title: "Argylle",
         subtitle: "O Superespião",
         description: "Uma autora reclusa que escreve romances de espionagem sobre um agente secreto e um sindicato global de espiões percebe que o enredo do novo livro que ela está escrevendo começa a espelhar eventos do mundo real, em tempo real.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/1L1JdL_izynjLRqqHEWenFkjkbCW3Efox/preview",
         duration: "2h 18m",
         genero: ["Suspense",
@@ -3464,7 +3453,7 @@ export const cards: CardsProps[] = [
         title: "Duna",
         subtitle: "",
         description: "Paul Atreides é um jovem brilhante, dono de um destino além de sua compreensão. Ele deve viajar para o planeta mais perigoso do universo para garantir o futuro de seu povo.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/1dbNMU0Fnru8yixXGQbZyHch4A7DVJhuW/preview",
         duration: "2h 34m",
         genero: ["Ficção Científica",
@@ -3479,7 +3468,7 @@ export const cards: CardsProps[] = [
         title: "Aquaman 2",
         subtitle: "E o Reino Perdido",
         description: "Um antigo poder é libertado e o herói Aquaman precisa fazer um perigoso acordo com um aliado improvável para proteger Atlântida e o mundo de uma devastação irreversível.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1h0OyUDXZUrp0p7WWhdyLYpjTYVcP89M_/preview",
         duration: "Leg - 2h 04m",
         genero: ["DC",
@@ -3495,7 +3484,7 @@ export const cards: CardsProps[] = [
         title: "Upgrade",
         subtitle: "As cores do amor",
         description: "Ana, uma aspirante a estagiária de arte que é convidada para uma viagem de trabalho de última hora a Londres por seu chefe e acaba conhecendo o belo e rico William no avião.",
-        faixa: "",
+        faixa: "18",
         src: "https://drive.google.com/file/d/1asYDH3uOd0XOXECJC_LrkW1yMgU-BN13/preview",
         duration: "1h 45m",
         genero: ["Romance", "Comédia", "Prime Video"]
@@ -3507,7 +3496,7 @@ export const cards: CardsProps[] = [
         title: "Jogador Nº 1",
         subtitle: "",
         description: "Em 2045, Wade Watts, assim como o resto da humanidade, prefere a realidade virtual do jogo OASIS ao mundo real. James Halliday, o excêntrico criador do jogo, morre e deixa sua fortuna inestimável para a primeira pessoa que descobrir a chave de um quebra-cabeça diabólico que ele arquitetou. Para vencer, Watts precisa abandonar a existência virtual e experimentar o amor e a realidade.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1ogehUC8CXWagoPDKANzBZFT4KqxTu_TW/preview",
         duration: "2h 20m",
         genero: ["Ficção Científica", "Ação"]
@@ -3519,7 +3508,7 @@ export const cards: CardsProps[] = [
         title: "Wonka",
         subtitle: "",
         description: "O jovem chocolateiro Willy Wonka tenta mudar o mundo com um delicioso pedaço de cada vez.",
-        faixa: "",
+        faixa: "10",
         src: "https://drive.google.com/file/d/1xwE81U7TF1VYCZoXew_y_nmBphJvm8zr/preview",
         duration: "1h 56m",
         genero: ["Fantasia",
@@ -3533,7 +3522,7 @@ export const cards: CardsProps[] = [
         title: "As Marvels",
         subtitle: "",
         description: 'Quando suas obrigações a levam a uma fenda espacial anômala ligada a um revolucionário Kree, os poderes de Carol Danvers, a Capitã Marvel, se entrelaçam aos de Kamala Khan, a Ms. Marvel, e aos da sobrinha de Carol, a astronauta da S.A.B.E.R., Capitã Monica Rambeau. Juntas, esse trio improvável deve se unir para salvar o universo como "As Marvels".',
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1hdBaMOEc-9DmaRYQVxvxr8Efa2bFFQVf/preview",
         duration: "1h 46m",
         genero: ["Marvel",
@@ -3549,7 +3538,7 @@ export const cards: CardsProps[] = [
         title: "Liga da Justiça",
         subtitle: "Versão do Diretor Zack Snyder",
         description: "Impulsionado pela restauração de sua fé na humanidade e inspirado pelo ato altruísta do Superman, Bruce Wayne convoca sua nova aliada Diana Prince para o combate contra um inimigo ainda maior, recém-despertado. Juntos, Batman e Mulher-Maravilha buscam e recrutam com agilidade um time de meta-humanos, mas mesmo com a formação da liga de heróis sem precedentes o ataque ao planeta ainda pode ser catastrófico.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/1V4bw4FKcRQcRwrr_W8WoLLpZH0JgNqKl/preview",
         duration: "4h 02m",
         genero: ["Ação", "Super Herói", "DC"]
@@ -3561,7 +3550,7 @@ export const cards: CardsProps[] = [
         title: "Homem Aranha",
         subtitle: "Sem Volta pra Casa",
         description: "Peter Parker tem a sua identidade secreta revelada e pede ajuda ao Doutor Estranho. Quando um feitiço para reverter o evento não sai como o esperado, o Homem-Aranha precisa enfrentar inimigos de todo o multiverso.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1-8aB2F3DILZLHOXBaYQJlitJsyOUBow7/preview",
         duration: "2h 28m",
         genero: ["Marvel",
@@ -3577,7 +3566,7 @@ export const cards: CardsProps[] = [
         title: "Trem-Bala",
         subtitle: "",
         description: "Em um trem-bala indo rapidamente de Tóquio a Morioka, cinco assassinos profissionais descobrem que possuem o mesmo objetivo",
-        faixa: "",
+        faixa: "A16",
         src: "https://drive.google.com/file/d/17POcLiptxNITJe0vuYgQFQ0NVTnI0BUW/preview",
         duration: "2h 06m",
         genero: ["Ação",
@@ -3591,7 +3580,7 @@ export const cards: CardsProps[] = [
         title: "Que Horas Eu Te Pego",
         subtitle: "",
         description: "Desesperada por dinheiro, uma mulher concorda em namorar o filho introvertido e desajeitado de 19 anos de um casal rico.",
-        faixa: "",
+        faixa: "A16",
         src: "https://drive.google.com/file/d/1hFctLD5GqlaG4uaZFeSxr3ufCimrSnIo/preview",
         duration: "1h 43m",
         genero: ["Comédia",
@@ -3605,7 +3594,7 @@ export const cards: CardsProps[] = [
         title: "Interestelar",
         subtitle: "",
         description: "As reservas naturais da Terra estão chegando ao fim e um grupo de astronautas recebe a missão de verificar possíveis planetas para receberem a população mundial, possibilitando a continuação da espécie. Cooper é chamado para liderar o grupo e aceita a missão sabendo que pode nunca mais ver os filhos. Ao lado de Brand, Jenkins e Doyle, ele seguirá em busca de um novo lar.",
-        faixa: "",
+        faixa: "10",
         src: "https://drive.google.com/file/d/1AENYKs3RgjwsMi0Y5-tv57DFNfnnAOJ_/preview",
         duration: "2h 50m",
         genero: ["Ação", "Drama", "Ficção científica", "Espaço"]
@@ -3615,9 +3604,9 @@ export const cards: CardsProps[] = [
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.papodecinema.com.br%2Fwp-content%2Fuploads%2F2021%2F04%2F20210430-liga-da-justica-sombria-guerra-de-apokolips-papo-de-cinema-cartaz.jpeg&f=1&nofb=1&ipt=3ab0cd219e3747703c34deecadd838848a05360a32130244c69fc9ad07e86e36&ipo=images",
         tmdbId: 618344,
         title: "Liga da Justiça Sombria",
-        subtitle: "Guerra Apokolips",
+        subtitle: "Guerra de Apokolips",
         description: "A Liga da Justiça sempre foi a primeira e última defesa da Terra, mas, com a chegada iminente de Darkseid, tudo está para mudar. Após a destruição da Terra, o grupo se reune para derrubar o tirano e salvar os membros remanescentes da equipe.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/14e0ij22Ekbj44qMQFh0-7NEtBH-zqVAG/preview",
         duration: "1h 30m",
         genero: ["DC", "Animação", "Ação", "Super Heroi"]
@@ -3629,7 +3618,7 @@ export const cards: CardsProps[] = [
         title: "Vingadores",
         subtitle: "Ultimato",
         description: "Após Thanos eliminar metade das criaturas vivas, os sobreviventes têm de lidar com a perda de amigos e entes queridos. Com Tony Stark vagando perdido no espaço sem água e comida, Steve Rogers e Natasha Romanov lideram a resistência contra o Titã louco.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1kOzLxs0czJH75RUqMlTRzMdJ9ia6o1jh/preview",
         duration: "3h 00m",
         genero: ["Marvel", "Ação", "Super Heroi"]
@@ -3641,7 +3630,7 @@ export const cards: CardsProps[] = [
         title: "Venom",
         subtitle: "",
         description: "O jornalista investigativo Eddie Brock é possuído por uma forma alienígena simbionte, ganhando poderes-sobre humanos. Perverso, sombrio e alimentado pela raiva, Venom tenta controlar os novos e perigosos poderes inebriantes de Eddie.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/143wpGC0L8IF6M9NlK-qz9EnYb27Evng_/preview",
         duration: "1h 52m",
         genero: ["Marvel", "Ação", "Vilão"]
@@ -3653,7 +3642,7 @@ export const cards: CardsProps[] = [
         title: "O Senhor dos Anéis",
         subtitle: "A Sociedade do Anel - Versão Extendida",
         description: "Em uma terra fantástica e única, um hobbit recebe de presente de seu tio um anel mágico e maligno que precisa ser destruído antes que caia nas mãos do mal. Para isso, o hobbit Frodo tem um caminho árduo pela frente, onde encontra perigo, medo e seres bizarros. Ao seu lado para o cumprimento desta jornada, ele aos poucos pode contar com outros hobbits, um elfo, um anão, dois humanos e um mago, totalizando nove pessoas que formam a Sociedade do Anel.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1yaDcuysNUZUWa5mVnhsgVLMvF0vGdugp/preview",
         duration: "02h 59m",
         genero: ["Fantasia", "Aventura"]
@@ -3665,7 +3654,7 @@ export const cards: CardsProps[] = [
         title: "O Senhor dos Anéis",
         subtitle: "As Duas Torres",
         description: "Após a captura de Merry e Pippy pelos orcs, a Sociedade do Anel é dissolvida. Frodo e Sam seguem sua jornada rumo à Montanha da Perdição para destruir o anel e descobrem que estão sendo perseguidos pelo misterioso Gollum. Enquanto isso, Aragorn, o elfo e arqueiro Legolas e o anão Gimli partem para resgatar os hobbits sequestrados e chegam ao reino de Rohan, onde o rei Theoden foi vítima de uma maldição mortal de Saruman.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1I3HOyzouUFnJkdX1jAnchCoMZEM7YBlKVQ/preview",
         duration: "3h 55m",
         genero: ["Fantasia", "Aventura"]
@@ -3677,7 +3666,7 @@ export const cards: CardsProps[] = [
         title: "O Senhor dos Anéis",
         subtitle: "O Retorno do Rei",
         description: "O confronto final entre as forças do bem e do mal que lutam pelo controle do futuro da Terra Média se aproxima. Sauron planeja um grande ataque a Minas Tirith, capital de Gondor, o que faz com que Gandalf e Pippin partam para o local na intenção de ajudar a resistência. Um exército é reunido por Theoden em Rohan, em mais uma tentativa de deter as forças de Sauron. Enquanto isso, Frodo, Sam e Gollum seguem sua viagem rumo à Montanha da Perdição para destruir o anel.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1rPmACNblk0C1nuTJu9cGX6zmNxrL0VYA/preview",
         duration: "03h 22m",
         genero: ["Fantasia", "Aventura"]
@@ -3689,7 +3678,7 @@ export const cards: CardsProps[] = [
         title: "Vingadores",
         subtitle: "Guerra Infinita",
         description: "Homem de Ferro, Capitão América, Thor, Hulk e os Vingadores se unem para combater o maligno Thanos. Em uma missão para coletar todas as seis joias do infinito, Thanos planeja usá-las para equilibrar a balança cósmica e fazer o que ele acredita ser o melhor para o universo.",
-        faixa: "",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1cTsvQoeIvZhYxDgaewOdDJV2J4HciCQP/preview",
         duration: "2h 30m",
         genero: ["Marvel", "Ação", "Super Heroi"]
@@ -3701,7 +3690,7 @@ export const cards: CardsProps[] = [
         title: "Drácula",
         subtitle: "A Historia Nunca Contada",
         description: "Os habitantes da Transilvânia sempre travaram batalhas épicas contra o Império Otomano até que foi feito um acordo no qual o rei local aceitou entregar centenas de crianças, dentre elas o filho de Vlad. Após dez anos, o rei turco exige mais crianças, só que, dessa vez, Vlad, agora nomeado príncipe, recusa-se a entregá-las, dando início a uma nova guerra. Mesmo sendo famoso por sua ferocidade nas batalhas, Vlad vai atrás de um ser das trevas para ganhar poderes sobre-humanos.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/0B_h5c5Md422hYnRsMDB3bXBsN3M/preview?resourcekey=0-AsTC4uGN7s6WUOaqTL_BTQ",
         duration: "1h 32m",
         genero: ["Ação", "Terror"]
@@ -3713,7 +3702,7 @@ export const cards: CardsProps[] = [
         title: "Em Ritmo de Fuga",
         subtitle: "",
         description: "O talentoso motorista de fuga Baby confia nas batidas de sua própria trilha sonora para ser o melhor que existe. A música silencia um zumbido que o perturba desde um acidente na infância. Após conhecer a mulher dos seus sonhos, ele reconhece uma oportunidade de se livrar do estilo de vida questionável e recomeçar do zero. Obrigado a trabalhar para um chefão do crime, Baby lida com a música ao mesmo tempo em que um golpe fadado ao fracasso ameaça sua vida, seu amor e sua liberdade.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/0B_4lGDbhNmrDeXpuWlFMckVxcVk/preview?resourcekey=0-V-2JJYKmeQAc9m8E6402pA",
         duration: "1h 55m",
         genero: ["Ação", "Suspense", "Legendado"]
@@ -3725,7 +3714,7 @@ export const cards: CardsProps[] = [
         title: "Tempo",
         subtitle: "",
         description: "Uma família passa as férias em uma praia isolada, mas descobre que o local acelera o processo de envelhecimento, reduzindo o tempo de vida de todos a poucos dias.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/1ve34N2EvgvffaDei7JkWcIAWPmSjtzWc/preview",
         duration: "1h 48m",
         genero: ["Suspense", "Terror"]
@@ -3737,7 +3726,7 @@ export const cards: CardsProps[] = [
         title: "Ponte para Terabítia",
         subtitle: "",
         description: "Jess sente-se um estranho na escola e até mesmo em sua família. Durante todo o verão ele treinou para ser o garoto mais rápido da escola, mas seus planos são ameaçados por Leslie, que vence uma corrida que deveria ser apenas para garotos.",
-        faixa: "",
+        faixa: "L",
         src: "https://drive.google.com/file/d/1lGNHpX5XUBGWArq0eP-kMAwUTZdM0fSy/preview",
         duration: "1h 36m",
         genero: ["Fantasia", "Infântil", "Drama"]
@@ -3749,7 +3738,7 @@ export const cards: CardsProps[] = [
         title: "Escape Room",
         subtitle: "",
         description: "Seis estranhos estão em circunstâncias fora de controle e devem usar sua inteligência e encontrar as pistas para escapar ou morrer na tentativa.",
-        faixa: "",
+        faixa: "A14",
         src: "https://drive.google.com/file/d/1KM4lBk8iCXTTBSHnV3z4vqbMV4zn9vNP/preview",
         duration: "1h 40m",
         genero: ["Suspense", "Terror", "Mistério"]

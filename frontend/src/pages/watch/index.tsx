@@ -87,9 +87,6 @@ export default function Watch() {
 
     return (
         <>
-            <Head>
-                <title>{title} - FlixNext</title>
-            </Head>
             <SEO title={`${title} - FlixNext`} description=" " />
             <div className={styles.container}>
                 <div className={styles.movie}>
