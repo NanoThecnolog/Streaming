@@ -23,6 +23,7 @@ import { removeWatchLater } from "@/services/handleWatchLater";
 import { FaUserCircle } from "react-icons/fa";
 import { fetchWatchLater } from "@/services/setDataOnStorage";
 import { WatchLaterProps } from "@/@types/watchLater";
+import SEO from "@/components/SEO";
 
 export default function Me(status: string) {
     const [user, setUser] = useState<UserProps | null>(null)
@@ -113,10 +114,7 @@ export default function Me(status: string) {
     }
     return (
         <>
-            <Head>
-                <title>Minha Conta | FlixNext</title>
-                <meta name="description" content="Página da conta do usuário" />
-            </Head>
+            <SEO title="Minha Conta | FlixNext" description="Minha Conta. Altere seus dados e seu avatar!" />
             <Header userAvatar={user?.avatar} status={status} />
 
             <article className={styles.container}>

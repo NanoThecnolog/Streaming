@@ -11,6 +11,7 @@ import { serverStatus } from '@/services/verifyStatusServer';
 import ForgetPass from '@/components/modals/ForgetPassword';
 import { Verified } from 'lucide-react';
 import setData from '@/services/setDataOnStorage';
+import SEO from '@/components/SEO';
 //import { cookies } from 'next/headers';
 
 
@@ -100,10 +101,7 @@ export default function Login() {
     }
     return (
         <>
-            <Head>
-                <title>Página de Login | FlixNext</title>
-                <meta name="description" content="Página de login da plataforma" />
-            </Head>
+            <SEO title='Login | FlixNext' description='Faça login na nossa plataforma e aproveite os nossos conteúdos!' />
             <div className={styles.container}>
                 <div className={styles.loginContainer}>
                     <h1><span className={styles.white}>FLIX</span><span className={styles.red}>NEXT</span></h1>

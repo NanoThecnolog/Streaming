@@ -11,6 +11,7 @@ import { collections } from '@/js/collections';
 import { cards } from '@/js/cards';
 import Card from '@/components/Card';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 
 export default function Collection(status: string) {
     const [usuario, setUsuario] = useState<UserProps | null>(null)
@@ -39,6 +40,7 @@ export default function Collection(status: string) {
     }, [])
     return (
         <>
+            <SEO title={`${collection ? collection.name : 'Coleção'} | FlixNext`} description='Assista a coleção do seu coração!' />
             <Header userAvatar={usuario?.avatar} status={status} />
             <section className={styles.sectionContainer}>
                 <div className={styles.data}>

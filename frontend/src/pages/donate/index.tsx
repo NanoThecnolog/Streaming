@@ -10,6 +10,7 @@ import Qrcode from "@/components/Qrcode";
 import Router from "next/router";
 import { UserProps } from "@/@types/user";
 import { getUserCookieData } from "@/services/cookieClient";
+import SEO from "@/components/SEO";
 
 export default function Donate(status: string) {
     const [qrCodeUrl, setQrCodeUrl] = useState<string | null>(null);
@@ -38,10 +39,7 @@ export default function Donate(status: string) {
     }, []);
     return (
         <>
-            <Head>
-                <title>Doações | FlixNext</title>
-                <meta name="description" content="Página de Doações. Ajude a manter a plataforma! Doe qualquer valor e ganhe o emblema de doador na sua conta!" />
-            </Head>
+            <SEO title="Doações | FlixNext" description="Ajude a manter a plataforma! Doe qualquer valor e ganhe o emblema de doador na sua conta!" />
             <Header userAvatar={user?.avatar} status={status} />
             <section className={styles.container}>
                 <div className={styles.donateContainer}>

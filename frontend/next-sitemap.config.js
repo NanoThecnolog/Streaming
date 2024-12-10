@@ -7,7 +7,8 @@ module.exports = {
     robotsTxtOptions: {
         policies: [
             { userAgent: '*', allow: '/' }, // Permite o acesso a todas as páginas
-            { userAgent: '*', disallow: '/watch' }, // Bloqueia páginas específicas
+            { userAgent: '*', disallow: '/watch', }, // Bloqueia páginas específicas
+            { userAgent: '*', disallow: '/recover', }, // Bloqueia páginas específicas
         ],
     },
 };

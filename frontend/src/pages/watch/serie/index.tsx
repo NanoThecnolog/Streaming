@@ -7,6 +7,7 @@ import { api } from "@/services/api"
 import { getUserCookieData } from "@/services/cookieClient"
 import NextEpisode from "@/components/ui/NextEpisode"
 import PrevEpisode from "@/components/ui/PreviousEpisode"
+import SEO from "@/components/SEO"
 
 
 export default function WatchSerie() {
@@ -81,9 +82,7 @@ export default function WatchSerie() {
     }, []);
     return (
         <>
-            <Head>
-                <title>Episódio {episode} - {title} {subtitle != '' && `- ${subtitle}`} | FlixNext</title>
-            </Head>
+            <SEO title={`Episódio ${episode} - ${title} ${subtitle != '' && `- ${subtitle}`} | FlixNext`} description=" " />
             {src ? (
                 <div className={styles.container}>
                     <div className={styles.movie}>

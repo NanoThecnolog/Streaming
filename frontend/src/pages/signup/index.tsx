@@ -5,6 +5,7 @@ import { api } from '@/services/api'
 import { toast } from 'react-toastify'
 import Router from 'next/router'
 import { FaSpinner } from 'react-icons/fa'
+import SEO from '@/components/SEO'
 
 
 export default function Signup() {
@@ -99,64 +100,67 @@ export default function Signup() {
 
     }
     return (
-        <div className={styles.container}>
-            <div className={styles.loginContainer}>
-                <h1><span className={styles.white}>FLIX</span><span className={styles.red}>NEXT</span></h1>
-                <form onSubmit={handleRegister} className={styles.formulario}>
-                    <div className={styles.nameContainer}>
-                        <h2>Nome:</h2>
-                        <input
-                            type='text'
-                            required
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                        />
+        <>
+            <SEO title='Criar conta | FlixNext' description='Crie sua conta e começe a assistir hoje mesmo!' />
+            <div className={styles.container}>
+                <div className={styles.loginContainer}>
+                    <h1><span className={styles.white}>FLIX</span><span className={styles.red}>NEXT</span></h1>
+                    <form onSubmit={handleRegister} className={styles.formulario}>
+                        <div className={styles.nameContainer}>
+                            <h2>Nome:</h2>
+                            <input
+                                type='text'
+                                required
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                        </div>
+                        <div className={styles.birthdayContainer}>
+                            <h2>Data de Nascimento:</h2>
+                            <input
+                                type='date'
+                                required
+                                value={birthday ? birthday.toISOString().substring(0, 10) : ""}
+                                onChange={(e) => setBirthday(new Date(e.target.value))}
+                            />
+                        </div>
+                        <div className={styles.emailContainer}>
+                            <h2>Email:</h2>
+                            <input
+                                type='email'
+                                required
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </div>
+                        <div className={styles.passwordContainer}>
+                            <h2>Senha:</h2>
+                            <input
+                                type="password"
+                                required
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </div>
+                        <div className={styles.passwordContainer}>
+                            <h2>Confirmar senha:</h2>
+                            <input
+                                type="password"
+                                required
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
+                            />
+                        </div>
+                        <div className={styles.buttonContainer}>
+                            <button type='submit' disabled={loading}>{loading ? <FaSpinner size={20} /> : "Registrar"}</button>
+                        </div>
+                    </form>
+                    <div className={styles.linksContainer}>
+                        <Link href={login}><h3>Entrar com uma conta</h3></Link>
                     </div>
-                    <div className={styles.birthdayContainer}>
-                        <h2>Data de Nascimento:</h2>
-                        <input
-                            type='date'
-                            required
-                            value={birthday ? birthday.toISOString().substring(0, 10) : ""}
-                            onChange={(e) => setBirthday(new Date(e.target.value))}
-                        />
-                    </div>
-                    <div className={styles.emailContainer}>
-                        <h2>Email:</h2>
-                        <input
-                            type='email'
-                            required
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                    </div>
-                    <div className={styles.passwordContainer}>
-                        <h2>Senha:</h2>
-                        <input
-                            type="password"
-                            required
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </div>
-                    <div className={styles.passwordContainer}>
-                        <h2>Confirmar senha:</h2>
-                        <input
-                            type="password"
-                            required
-                            value={confirmPassword}
-                            onChange={(e) => setConfirmPassword(e.target.value)}
-                        />
-                    </div>
-                    <div className={styles.buttonContainer}>
-                        <button type='submit' disabled={loading}>{loading ? <FaSpinner size={20} /> : "Registrar"}</button>
-                    </div>
-                </form>
-                <div className={styles.linksContainer}>
-                    <Link href={login}><h3>Entrar com uma conta</h3></Link>
                 </div>
-            </div>
 
-        </div>
+            </div>
+        </>
     )
 }

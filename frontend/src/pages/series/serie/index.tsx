@@ -19,6 +19,7 @@ import { addWatchLater, isOnTheList } from "@/services/handleWatchLater";
 import Stars from "@/components/ui/StarAverage";
 import Image from "next/image";
 import Adult from "@/components/ui/Adult";
+import SEO from "@/components/SEO";
 
 export default function Serie(status: string) {
     //refatorar
@@ -180,10 +181,7 @@ export default function Serie(status: string) {
 
     return (
         <>
-            <Head>
-                <title>{headTitle} | FlixNext</title>
-                <meta name="description" content={serie?.description || "Descrição indisponível"} />
-            </Head>
+            <SEO title={`${headTitle} | FlixNext`} description={serie?.description || "Descrição indisponível"} />
             <section className={styles.container}>
                 <Header userAvatar={user?.avatar} status={status} />
                 {serie ?

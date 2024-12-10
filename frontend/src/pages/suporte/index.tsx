@@ -3,10 +3,12 @@ import styles from './styles.module.scss'
 import Footer from '@/components/Footer'
 import { serverStatus } from '@/services/verifyStatusServer'
 import { GetServerSideProps } from 'next'
+import SEO from '@/components/SEO'
 
 export default function Suport(status: string) {
     return (
         <>
+            <SEO title='Suporte | FlixNext' description='Página do suporte FlixNext' />
             <Header status={status} />
             <section className={styles.container}>
                 <div className={styles.suporteContainer}>

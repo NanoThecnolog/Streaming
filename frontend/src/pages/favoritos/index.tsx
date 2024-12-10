@@ -8,6 +8,7 @@ import { api } from '@/services/api';
 import { UserProps } from '@/@types/user';
 import { getUserCookieData } from '@/services/cookieClient';
 import Router from 'next/router';
+import SEO from '@/components/SEO';
 
 export default function Favorite(status: string) {
     const [user, setUser] = useState<UserProps>()
@@ -21,15 +22,9 @@ export default function Favorite(status: string) {
     }, [])
     return (
         <>
-            <Head>
-                <title>Favoritos - FlixNext</title>
-                <meta name="description" content="Favoritos da conta." />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+            <SEO title='Favoritos - FlixNext' description='Página vazia' />
             <Header status={status} />
             <main>
-
             </main>
         </>
     )

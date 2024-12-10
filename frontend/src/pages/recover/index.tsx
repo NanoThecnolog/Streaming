@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { api } from '@/services/api';
 import { toast } from 'react-toastify';
 import { FaSpinner } from 'react-icons/fa6';
+import SEO from '@/components/SEO';
 
 export default function RecoverPage() {
     //refatorar esse componente
@@ -40,18 +41,21 @@ export default function RecoverPage() {
         }
     }
     return (
-        <div className={styles.container}>
-            <div className={styles.recoverContainer}>
-                <div className={styles.recover}>
-                    <h2>Digite uma nova senha para a sua conta:</h2>
-                    <input type="password" value={password} placeholder='Digite a nova senha' onChange={(e) => setPassword(e.target.value)} />
-                    <input type="password" value={confirmPassword} placeholder='Repita a senha' onChange={(e) => setConfirmPassword(e.target.value)} />
+        <>
+            <SEO title='Recuperação | Flixnext' description='Recupere sua conta aqui!' />
+            <div className={styles.container}>
+                <div className={styles.recoverContainer}>
+                    <div className={styles.recover}>
+                        <h2>Digite uma nova senha para a sua conta:</h2>
+                        <input type="password" value={password} placeholder='Digite a nova senha' onChange={(e) => setPassword(e.target.value)} />
+                        <input type="password" value={confirmPassword} placeholder='Repita a senha' onChange={(e) => setConfirmPassword(e.target.value)} />
 
-                    <button type='submit' disabled={loading} onClick={changePassword}>{loading ? (
-                        <span>carregando... <FaSpinner /></span>
-                    ) : "Alterar Senha"}</button>
+                        <button type='submit' disabled={loading} onClick={changePassword}>{loading ? (
+                            <span>carregando... <FaSpinner /></span>
+                        ) : "Alterar Senha"}</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }

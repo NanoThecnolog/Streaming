@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import { UserProps } from '@/@types/user'
 import Router from 'next/router'
 import { getUserCookieData } from '@/services/cookieClient'
+import SEO from '@/components/SEO'
 export default function Privacy(status: string) {
     const [user, setUser] = useState<UserProps | null>()
 
@@ -21,10 +22,7 @@ export default function Privacy(status: string) {
     }, [])
     return (
         <>
-            <Head>
-                <title>Política de Privacidade | FlixNext</title>
-                <meta name="description" content="Políticas de Privacidade da plataforma" />
-            </Head>
+            <SEO title="Política de Privacidade | FlixNext" description='Políticas de Privacidade da plataforma' />
             <Header userAvatar={user?.avatar} status={status} />
             <section className={styles.container}>
                 <div className={styles.privacyContainer}>

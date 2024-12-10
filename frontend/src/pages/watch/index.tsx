@@ -8,6 +8,7 @@ import { getUserCookieData } from "@/services/cookieClient";
 import HelpFlag from "@/components/Helpflag";
 import HelpModal from "@/components/modals/HelpModal/index ";
 import { UserProps } from "@/@types/user";
+import SEO from "@/components/SEO";
 
 export default function Watch() {
     const router = useRouter()
@@ -89,6 +90,7 @@ export default function Watch() {
             <Head>
                 <title>{title} - FlixNext</title>
             </Head>
+            <SEO title={`${title} - FlixNext`} description=" " />
             <div className={styles.container}>
                 <div className={styles.movie}>
                     <div className={styles.movieName}>

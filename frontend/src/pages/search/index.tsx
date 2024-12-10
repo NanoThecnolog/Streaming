@@ -13,6 +13,7 @@ import { SeriesProps } from "@/@types/series";
 import { GetServerSideProps } from "next";
 import { serverStatus } from "@/services/verifyStatusServer";
 import { getUserCookieData } from "@/services/cookieClient";
+import SEO from "@/components/SEO";
 
 export default function Search(status: string) {
     const router = useRouter();
@@ -65,6 +66,7 @@ export default function Search(status: string) {
 
     return (
         <>
+            <SEO title="Busca | FlixNext" description="Busque entre centenas de filmes e séries! Só aqui você encontra de tudo!" />
             <Header userAvatar={usuario?.avatar} status={status} />
             <section className={styles.container}>
                 <div className={styles.title}>

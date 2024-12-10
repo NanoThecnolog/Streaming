@@ -10,6 +10,7 @@ import { GetServerSideProps } from "next";
 import { serverStatus } from "@/services/verifyStatusServer";
 import { UserProps } from "@/@types/user";
 import { getUserCookieData } from "@/services/cookieClient";
+import SEO from "@/components/SEO";
 
 export default function Series(status: string) {
     //refatorar
@@ -96,12 +97,7 @@ export default function Series(status: string) {
 
     return (
         <>
-            <Head>
-                <title>FlixNext - Series</title>
-                <meta name="description" content="Series para maratonar" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+            <SEO title="Series | FlixNext" description="Várias séries para maratonar!" />
             <main className={styles.main}>
                 <div className={styles.content}>
                     <Header userAvatar={user?.avatar} status={status} />

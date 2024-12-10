@@ -14,6 +14,7 @@ import setData from "@/services/setDataOnStorage";
 import { getUserCookieData } from "@/services/cookieClient";
 import CollectionContainer from "@/components/CollectionContainer";
 import WelcomeModal from "@/components/modal/Welcome";
+import SEO from "@/components/SEO";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -92,12 +93,7 @@ export default function Home(status: string) {
 
   return (
     <>
-      <Head>
-        <title>FlixNext - Início</title>
-        <meta name="description" content="Um Streaming nunca antes visto porque é novo." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <SEO title="FlixNext - Início" description="Um Streaming nunca antes visto porque é novo." />
       <Header userAvatar={userData?.avatar} status={status} />
       <main className={`${styles.main} ${inter.className}`}>
         <div className={styles.content}>

@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react'
 import { UserProps } from '@/@types/user'
 import Router from 'next/router'
 import { getUserCookieData } from '@/services/cookieClient'
+import SEO from '@/components/SEO'
 
 export interface FAQ {
     question: string,
@@ -70,10 +71,7 @@ export default function FAQ(status: string) {
     ]
     return (
         <>
-            <Head>
-                <title>FAQ | FlixNext</title>
-                <meta name="description" content="Perguntas frequêntes dos nossos usuários" />
-            </Head>
+            <SEO title='FAQ | FlixNext' description='Perguntas frequêntes dos nossos usuários' />
             <Header userAvatar={user?.avatar} status={status} />
             <section className={styles.container}>
                 <div className={styles.faqContainer}>

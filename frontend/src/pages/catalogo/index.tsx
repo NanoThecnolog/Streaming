@@ -8,6 +8,7 @@ import Router from 'next/router'
 import { getUserCookieData } from '@/services/cookieClient'
 import { UserProps } from '@/@types/user'
 import Footer from '@/components/Footer'
+import SEO from '@/components/SEO'
 
 export default function Catalogo() {
     const [user, setUser] = useState<UserProps>()
@@ -23,10 +24,7 @@ export default function Catalogo() {
 
     return (
         <>
-            <Head>
-                <title>Catálogo | FlixNext</title>
-                <meta name="description" content="Catálogo com mais de 200 títulos para todos os gostos. Veja os conteúdos disponíveis na plataforma" />
-            </Head>
+            <SEO title='Catálogo | FlixNext' description='Catálogo com mais de 200 títulos para todos os gostos. Veja os conteúdos disponíveis na plataforma' />
             <Header userAvatar={user?.avatar} />
             <main className={styles.container}>
                 <div>
