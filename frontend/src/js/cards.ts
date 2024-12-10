@@ -21,7 +21,6 @@ export const cards: CardsProps[] = [
     genero: ["", ""]
     },
     */
-
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.astropt.org%2Fblog%2Fwp-content%2Fuploads%2F2014%2F07%2FPacific-Rim-Big-Promo-Image.jpg&f=1&nofb=1&ipt=06b07710ff194069bbc86489ee9cdb46c4bcb3dcae0d794532b924c0654f785f&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.dsudEX2SWlMYUTAhS0dB2gHaLH%26pid%3DApi&f=1&ipt=1cbef6766b016863e4425ffca71118af0d3ffc1ce5c6d9222cfbfe8649f08736&ipo=images",

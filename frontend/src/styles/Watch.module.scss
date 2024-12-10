@@ -53,7 +53,6 @@
         position: absolute;
         top: 2.5%;
         right: 4%;
-
         z-index: 98;
     }
 
@@ -98,5 +97,14 @@
             align-items: center;
             z-index: 2;
         }
+    }
+
+    .buttonContainer {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
     }
 }
