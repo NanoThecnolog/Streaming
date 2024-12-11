@@ -7,7 +7,6 @@ export const cards: CardsProps[] = [
     https://image.tmdb.org/t/p/ + (opção de tamanho: original, w500, etc)/ + poster.file_path
     */
     /*
-    
     {
     background: "",
     overlay: "",
@@ -21,6 +20,30 @@ export const cards: CardsProps[] = [
     genero: ["", ""]
     },
     */
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fconteudo.imguol.com.br%2F2012%2F04%2F30%2Fchanning-tatum-e-jonah-hill-em-cena-do-filme-anjos-da-lei-1335820505250_1920x1080.jpg&f=1&nofb=1&ipt=28c7a12e14d0294ecc1ac5ba24ca83c90ae0ce397c692bdae41ac79ebf221690&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.xGxxGzC-YAi1i6gz2j4dXAHaJ4%26pid%3DApi&f=1&ipt=71ab2395535169b1b8b750ba6305eeef663a4e3982801fae5a00991ff9a17804&ipo=images",
+        tmdbId: 64688,
+        title: "Anjos da Lei",
+        subtitle: "",
+        description: "Jenko e Schmidt estudaram juntos, mas nunca foram amigos. Anos depois, os dois se reencontram na academia de polícia e passam a se ajudar. Já formados, a dupla se envolve em uma confusão ao tentar prender um traficante. Por causa de seu desempenho catastrófico, eles são remanejados para trabalhar infiltrados como alunos de ensino médio. Eles devem desvendar quem é o fornecedor de uma nova droga em uma escola, enquanto tentam manter seu disfarce de estudantes.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1g4teBAO__AXsvccEHc7rQzdMS2vNWMIt/preview",
+        duration: "01 49m",
+        genero: ["Ação", "Comédia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinemacao.com%2Fwp-content%2Fuploads%2F2014%2F12%2Fcapa22.jpg&f=1&nofb=1&ipt=bed104319105efc7e17fb7e14cb092f16895345cadc2a137ef1ba894d6da709f&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP._DUiHGLyelJPqXbSem37ZgHaK4%26pid%3DApi&f=1&ipt=da3c211226b158ebfe4cbc54be62bbfa53e3933fa6b9f25bc8e4ae82cc2214be&ipo=images",
+        tmdbId: 187017,
+        title: "Anjos da Lei 2",
+        subtitle: "",
+        description: "Os oficiais Schmidt e Jenko têm agora uma nova missão: se infiltrar em uma faculdade local. O problema é que, em meio à investigação, Jenko conhece sua alma gêmea em plena equipe de atletismo e Schmidt, após se infiltrar no centro de arte boêmia, começa a questionar a dupla. Em meio aos inevitáveis problemas de relacionamento, eles precisam encontrar um meio de desvendar o caso que estão investigando.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1y_IQj1iqR8XhJ9OtgnNwfDgbg-eAV0Dc/preview",
+        duration: "01h 52m",
+        genero: ["Ação", "Comédia"]
+    },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.astropt.org%2Fblog%2Fwp-content%2Fuploads%2F2014%2F07%2FPacific-Rim-Big-Promo-Image.jpg&f=1&nofb=1&ipt=06b07710ff194069bbc86489ee9cdb46c4bcb3dcae0d794532b924c0654f785f&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.dsudEX2SWlMYUTAhS0dB2gHaLH%26pid%3DApi&f=1&ipt=1cbef6766b016863e4425ffca71118af0d3ffc1ce5c6d9222cfbfe8649f08736&ipo=images",
