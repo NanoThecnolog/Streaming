@@ -47,7 +47,6 @@ export default function Card({ card }: CardProps) {
             if (movieData) {
                 setState(prev => ({ ...prev, vote_average: movieData.vote_average }))
                 setState(prev => ({ ...prev, adult: movieData.adult }))
-                console.log(movieData.adult)
             }
         } catch (err: any) {
             console.log("Erro ao buscar dados do filme", err?.response?.data?.error)

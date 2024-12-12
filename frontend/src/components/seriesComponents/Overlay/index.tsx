@@ -147,7 +147,7 @@ export default function OverlaySerie({ tmdbId, title, subtitle, season, genero, 
                 <div className={styles.watch}>
                     <Link href={`${playLink}`}>
                         <button type='button'>
-                            <FaPlay size={15} />
+                            <FaPlay size={25} />
                         </button>
                     </Link>
                 </div>
@@ -155,17 +155,17 @@ export default function OverlaySerie({ tmdbId, title, subtitle, season, genero, 
                     {
                         onWatchLater ?
                             <IoCheckmarkCircle title='Remover' size={25} className={styles.watchLater} />
-                            : <FaRegClock title='Adicionar' size={20} />
+                            : <FaRegClock title='Adicionar' size={25} />
                     }
                 </div>
                 <div className={`${styles.queue} ${isMovieFavorite ? styles.star : ''}`}
                     onClick={handleFavorite}
                 >
-                    <FaStar size={20} />
+                    <FaStar size={25} />
 
                 </div>
                 <div className={`${styles.queue}`} onClick={openModalVisible}>
-                    <FaInfoCircle size={20} />
+                    <FaInfoCircle size={25} />
                 </div>
             </div>
         </>

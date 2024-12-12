@@ -23,15 +23,24 @@
         object-position: center;
         width: 45px;
         height: 45px;
-        background-color: var(--red-selected);
+        //background-color: var(--red-selected);
         cursor: pointer;
         border-radius: 2rem;
-        border: 3px solid var(--red);
+        //border: 3px solid var(--red);
         transition: all 0.5s;
         z-index: 99;
 
+        svg {
+            transition: .4s;
+        }
+
         &:hover {
-            background-color: var(--red);
+            //background-color: var(--red);
+            transform: scale(1.2);
+
+            svg {
+                color: var(--red);
+            }
         }
 
         button {
@@ -43,16 +52,21 @@
     }
 
     .queue {
-        background-color: #303030;
+        //background-color: #303030;
         width: 45px;
         height: 45px;
         padding: 0;
-        border: 3px solid var(--grey);
+        //border: 3px solid var(--grey);
         border-radius: 2rem;
         display: flex;
         justify-content: center;
         align-items: center;
         cursor: pointer;
+        transition: .4s;
+
+        &:hover {
+            transform: scale(1.2);
+        }
     }
 
     .star {
