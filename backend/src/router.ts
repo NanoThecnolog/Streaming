@@ -19,6 +19,7 @@ import { FavoriteController } from "./Controllers/User/FavoriteControlle";
 import { ListFavoriteController } from "./Controllers/User/ListFavoriteController";
 import { RemoveFavoriteController } from "./Controllers/User/RemoveFavoriteController";
 import { SendEmailController } from "./Controllers/Email/SendEmailController";
+import { PromotionalEmailController } from "./Controllers/Email/PromotionalEmailController";
 
 const router = Router()
 
@@ -54,5 +55,6 @@ router.get('/favorites', new ListFavoriteController().handle)
 router.delete('/favorite/:favoriteid', new RemoveFavoriteController().handle)
 
 router.post('/send', new SendEmailController().handle)
+router.post('/promotional', new PromotionalEmailController().handle)
 
 export { router }
