@@ -6,13 +6,14 @@ interface EditUserRequest {
     name?: string,
     avatar?: string,
     password?: string,
-    birthday?: Date
+    birthday?: Date,
+    news?: boolean
 
 }
 
 
 class EditUserService {
-    async execute({ id, name, avatar, password, birthday }: EditUserRequest) {
+    async execute({ id, name, avatar, password, birthday, news }: EditUserRequest) {
 
         const userExiste = await prismaClient.user.findUnique({
             where: { id }
@@ -28,13 +29,14 @@ class EditUserService {
                 name: name ?? userExiste.name,
                 avatar: avatar ?? userExiste.avatar,
                 password: passwordHash ?? userExiste.password,
-                birthday: birthday ?? userExiste.birthday
+                birthday: birthday ?? userExiste.birthday,
+                news: news ?? userExiste.news
             }, select: {
                 id: true,
                 name: true,
                 avatar: true,
-                birthday: true
-
+                birthday: true,
+                news: true
             }
         })
         return editUser;

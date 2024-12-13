@@ -47,6 +47,28 @@ export class PromotionalEmailService {
                                             Ver Catálogo
                                         </a>
                                     </div>
+                                    <div style="text-align: center;">
+                                        <p>
+                                            A FlixNext envia e-mails informativos sobre filmes e séries que possam lhe interessar. Sabemos
+                                            que você é uma pessoa ocupada e por isso limitamos nossos e-mails a notícias relevantes e
+                                            informações importantes sobre sua conta. Se você não quiser mais receber nossos emails,
+                                            modifique as configurações da sua conta <a href="https://flixnext.vercel.app/me"
+                                                style="text-decoration: none; color: #f44336">aqui</a>.
+                                        </p>
+
+                                        <p>
+                                            Esta mensagem foi enviada a você pela equipe da FlixNext.
+                                        </p>
+                                        <p>
+                                            ©2024 FlixNext
+                                        </p>
+                                        <p>
+                                            Este e-mail foi enviado para ${user.email} de um endereço não monitorado. Não responda a esta
+                                            mensagem. Se você tiver dúvidas e quiser entrar em contato conosco, envie um email para: <a
+                                                href="mailto:contato@ericssongomes.com"
+                                                style="text-decoration: none; color: #f44336;">contato@ericssongomes.com</a>.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </body>

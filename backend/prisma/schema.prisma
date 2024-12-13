@@ -24,6 +24,7 @@ model user {
   donator          Boolean      @default(false)
   avatar           String?
   verified         Boolean      @default(false)
+  news             Boolean      @default(true)
   resetToken       String?
   resetTokenExpire DateTime?
 
