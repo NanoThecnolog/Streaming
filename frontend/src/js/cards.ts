@@ -21,6 +21,42 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ffilmoteca-static.b-cdn.net%2Ft%2Fp%2Foriginal%2F5rAu7jnCDlgeYxUb6sYsq1cP4dJ.jpg&f=1&nofb=1&ipt=dc50699d1fd051cdf7f89ce55f945d036712b4d59d8e6b210a5de91a266599df&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Io36nQSBRhBe7WUR3lVS1AHaLH%26pid%3DApi&f=1&ipt=e456305510eceeb73c3cc6d8073997a4e9f2d7f75c17039ec06559d7f92ac648&ipo=images",
+        tmdbId: 76726,
+        title: "Poder Sem Limites",
+        subtitle: "",
+        description: "Após ingerir uma substância misteriosa, três amigos são surpreendidos ao ganhar superpoderes. De início eles os usam para brincar com conhecidos, mas aos poucos ganham a sensação de impunidade e passam a realizar feitos maiores. Sentindo-se invulneráveis, eles ultrapassam qualquer limite quando uma pessoa é morta.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1H1qcuMbKDqQy7-LFpsKXxjbi5FRGFIIF/preview",
+        duration: "01h 24m",
+        genero: ["Ficção Científica", "Drama", "Suspense"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fforbes.com.br%2Fwp-content%2Fuploads%2F2021%2F09%2Fabrelife_oesquadraosuicida_100921_divulgacao-1.jpg&f=1&nofb=1&ipt=f844d433cb0e1c7eda5452ea66bf7760c5c8b5e16bdde8cfdc496913c8593f64&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.sSQcBi9FBMlJUCj4eUl1PwHaLH%26pid%3DApi&f=1&ipt=a1048d0d754b56291e3659c955315150e1afca95522223050f4dc9d98dbc0c05&ipo=images",
+        tmdbId: 436969,
+        title: "O Esquadrão Suicida",
+        subtitle: "",
+        description: "Bem-vindos a Belle Reve, a prisão com a maior taxa de mortalidade dos Estados Unidos. É aqui que os piores supervilões são mantidos e onde eles fazem de tudo para sair, até mesmo se unir à misteriosa e supersecreta Task Force X. Qual a missão do dia? Reunir uma equipe de vilões, incluindo Sanguinário, Pacificador, Capitão Bumerangue, Caça-Ratos 2, Sábio, Tubarão-Rei, Blackguard, Dardo e a psicopata favorita de todo mundo, Arlequina. Depois, armá-los até os dentes e soltá-los na ilha remota de Corto Maltese, cheia de inimigos. O Esquadrão atravessa uma selva repleta de oponentes e forças guerrilheiras durante sua missão de busca e abate. Apenas o Coronel Rick Flag e os dispositivos tecnológicos de Amanda Waller são capazes de mantê-los na linha. E, como sempre, basta um movimento errado para que estejam mortos (seja nas mãos de seus oponentes, de um colega de equipe ou da própria Waller).",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/156kLJdR7qqLCIDyTFKnz-lWlYu6FFp0i/preview",
+        duration: "02h 12m",
+        genero: ["Ação", "Comédia", "Aventura", "DC"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F6k6gZ1NrZH9tZ39aHeACKPWNMv5.jpg&f=1&nofb=1&ipt=4c4e4f4c33654eac1614981e4c174b060c3826f010f92d0d20ae141af6015e41&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.aHkGUHD1gPm_h9yXNy4SuQHaKj%26pid%3DApi&f=1&ipt=b1996878b1e6ae1c9e788ecd78705ba15c3a35b37810b88400ba7f0251d173aa&ipo=images",
+        tmdbId: 226857,
+        title: "Amor Sem Fim",
+        subtitle: "",
+        description: "Jade Butterfield (Gabriella Wilde) é uma jovem superprotegida pelos pais, que aparenta ter um futuro brilhante pela frente. Só que ela se apaixona perdidamente por David Elliott (Alex Pettyfer), um jovem mais humilde que tem um passado conturbado. O relacionamento não é aprovado pelo pai de Jade, Hugh (Bruce Greenwood), que recomenda cautela à filha. Ainda assim, ela se entrega de corpo e alma à paixão por David.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1kqmIEVHIZqcmzDvGAxME4bAqXsb6NCbM/preview",
+        duration: "01h 44m",
+        genero: ["Drama", "Romance"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fconteudo.imguol.com.br%2F2012%2F04%2F30%2Fchanning-tatum-e-jonah-hill-em-cena-do-filme-anjos-da-lei-1335820505250_1920x1080.jpg&f=1&nofb=1&ipt=28c7a12e14d0294ecc1ac5ba24ca83c90ae0ce397c692bdae41ac79ebf221690&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.xGxxGzC-YAi1i6gz2j4dXAHaJ4%26pid%3DApi&f=1&ipt=71ab2395535169b1b8b750ba6305eeef663a4e3982801fae5a00991ff9a17804&ipo=images",
         tmdbId: 64688,
@@ -40,7 +76,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Os oficiais Schmidt e Jenko têm agora uma nova missão: se infiltrar em uma faculdade local. O problema é que, em meio à investigação, Jenko conhece sua alma gêmea em plena equipe de atletismo e Schmidt, após se infiltrar no centro de arte boêmia, começa a questionar a dupla. Em meio aos inevitáveis problemas de relacionamento, eles precisam encontrar um meio de desvendar o caso que estão investigando.",
         faixa: "A14",
-        src: "https://drive.google.com/file/d/1ulPEqWaPslhXZZUC3HQ-hQHIRVH_R2lB/preview",
+        src: "https://drive.google.com/file/d/1rLPtRosFBUXOoiWqR5j-lOiaamXHZS8o/preview",
         duration: "01h 52m",
         genero: ["Ação", "Comédia"]
     },

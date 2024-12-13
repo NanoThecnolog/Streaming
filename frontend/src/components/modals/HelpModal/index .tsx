@@ -29,6 +29,10 @@ export default function HelpModal({ handleHelpModal, userId, tmdbId }: HelpProps
         {
             title: "Vídeo com problema",
             description: "O vídeo não carregou por motivo desconhecido."
+        },
+        {
+            title: "Legenda não existe",
+            description: "A legenda não está disponível para o vídeo."
         }
     ]
 

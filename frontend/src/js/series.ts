@@ -1,7 +1,7 @@
 import { SeriesProps } from "@/@types/series";
 
 export const series: SeriesProps[] = [
-    /*HBO, Disney+, Netflix, Prime Video, Apple TV
+    /*HBO, Disney+, Netflix, Prime Video, Apple TV, SKY, StarZ
     {
         background: "",
         overlay: "",
@@ -26,6 +26,148 @@ export const series: SeriesProps[] = [
         ]
     },
     */
+    {
+        background: "",
+        overlay: "",
+        tmdbID: 125988,
+        title: "Silo",
+        subtitle: "",
+        description: "Em um futuro destruído e tóxico, existe uma comunidade que vive dentro de um gigantesco silo subterrâneo com centenas de andares de profundidade. Lá, homens e mulheres vivem numa sociedade cheia de regras que acreditam existir para protegê-los.",
+        genero: ["Ficção Científica", "Drama", "Apple TV"],
+        faixa: "A14",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/113SjLpkGcS8aNFUE8P3WLReE8qSPMj8j/preview",
+                        duration: "59m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/116Hnu890l3PPJkCHSlTNKX36AcK1dl2X/preview",
+                        duration: "47m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/117bCQAzbbb7QmBQXc2j-gC_TRPwMRZwN/preview",
+                        duration: "01h 02m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/118p33QqWWu2LqTIiIwA4Amg7ENprP41g/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/11D12JTcJL-LzMPmyN9MxLCWcDrWO4uWX/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/11GqTri7xnKdbZXBjr-Jtf8Ro4XygTBZF/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/11M2_JuZnsMN8MtSkSkQYBZ8DMaHAXIez/preview",
+                        duration: "47m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/11NQ9PCxjaduQGKVqdc47Pg6YdZEzJJ2E/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/11ZuSQEQfwzWauO-3Pq-QTD9_DKVAICU8/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/11_DYVKjymCzR_2-Db1hsC9bt6f0jqEsY/preview",
+                        duration: "44m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1WQg-s80zf5JwVtfyVOuPxsPTq5RS5-Uy/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1mkKcbiiWg68wXmXOdGxxuebMZHA1zrvG/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1JaI6cR00UE-QXGTAdn6xC8rqsIKvNxYB/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1-xoKwyO-fzcJoJmfx3oU7coAu1AIvS5X/preview",
+                        duration: "55m"
+                    },
+                ]
+            }
+        ]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FrT4wofiMisPvUq411oKw0PUp0iN.jpg&f=1&nofb=1&ipt=83514267ae2fcaec1a7e1005d6725b17290b2c182059f116f9c15fd5fed6f278&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.sD69r2ORLC770aLgXrxTGwHaKk%26pid%3DApi&f=1&ipt=ddc7d8295ec4d78de01996d86e128566b9192c8d84496a8a5ce09dea0dfa019e&ipo=images",
+        tmdbID: 218347,
+        title: "Sweetpea",
+        subtitle: "",
+        description: "Ela é continuamente esquecida para uma promoção no trabalho, o cara de quem ela gosta não se compromete, e seu pai está muito, muito doente. Então, tudo em sua vida vira de cabeça para baixo. Rhiannon é levada ao limite e perde o controle.",
+        genero: ["Comédia", "Drama", "SKY", "StarZ"],
+        faixa: "18",
+        season: [
+            {
+                s: 1,
+                lang: "Legendado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1IsUssEdgucl-OibrH2B2MsePhJQIku45/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1QF1YncIIIinritJrVGlySv-Jp984g0s4/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1Clc5FqWQb0A18UrUPIO_CuUUamI7OhXo/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1sKwwMMao8j8jANdKL80WB0Vmwqn1RF-G/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/12nhVU4d9JHLBpqkI7VtAFRmAVa9WeXfu/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1Xfn7xnGTamLS4Lb9_txZmcV_HLdsrlWR/preview",
+                        duration: "49m"
+                    },
+                ]
+            },
+        ]
+    },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F825392.jpg&f=1&nofb=1&ipt=49a9470e4b0d0fde510b1f7b51ff99b68eb065db5a2f36ca6ecd1602e6a54c7c&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.iBA-BI97PIIu0XDpwnSQ2wHaLY%26pid%3DApi&f=1&ipt=43685f01a54edb944f440d2c1677d5d81cdc6b364040fab7fcfd8876dca2c807&ipo=images",
@@ -5662,6 +5804,11 @@ export const series: SeriesProps[] = [
                         ep: 3,
                         src: "https://drive.google.com/file/d/1Wzm5qBn1Y9N2vSjNSZe_1KndS3HyaZsK/preview",
                         duration: "01h 01m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1VEAjz334voso3VEfCYZ3jpEaJz5xMJJT/preview",
+                        duration: "01h 02m"
                     }
                 ]
             },
