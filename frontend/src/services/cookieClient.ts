@@ -26,6 +26,7 @@ export async function updateUserCookie() {
 
     try {
         const response = await fetchUserData(userData)
+        //console.log("response", response)
         const expressTime = 15 * 24 * 60 * 60 * 1000;
         const user = JSON.stringify({
             id: response.id,
@@ -33,6 +34,7 @@ export async function updateUserCookie() {
             avatar: response.avatar,
             Verified: response.verified,
             birthday: response.birthday,
+            news: response.news,
             token: response.token
         })
 

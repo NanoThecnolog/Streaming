@@ -40,7 +40,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Os oficiais Schmidt e Jenko têm agora uma nova missão: se infiltrar em uma faculdade local. O problema é que, em meio à investigação, Jenko conhece sua alma gêmea em plena equipe de atletismo e Schmidt, após se infiltrar no centro de arte boêmia, começa a questionar a dupla. Em meio aos inevitáveis problemas de relacionamento, eles precisam encontrar um meio de desvendar o caso que estão investigando.",
         faixa: "A14",
-        src: "https://drive.google.com/file/d/1y_IQj1iqR8XhJ9OtgnNwfDgbg-eAV0Dc/preview",
+        src: "https://drive.google.com/file/d/1ulPEqWaPslhXZZUC3HQ-hQHIRVH_R2lB/preview",
         duration: "01h 52m",
         genero: ["Ação", "Comédia"]
     },

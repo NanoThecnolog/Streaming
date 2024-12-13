@@ -8,6 +8,7 @@ export interface UserProps {
     token: string,
     verified: boolean,
     birthday: Date,
+    news: boolean,
     myList: MyListPorps[]
     favoritos: ListaFavoritos[]
 }

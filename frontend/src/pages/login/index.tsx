@@ -72,7 +72,8 @@ export default function Login() {
                 avatar: response.data.avatar,
                 Verified: response.data.verified,
                 birthday: response.data.verified,
-                token: response.data.verified
+                token: response.data.verified,
+                news: response.data.news
             })
             //console.log(user)
 

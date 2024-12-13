@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { getUserCookieData, updateUserCookie } from "@/services/cookieClient";
 import Router from "next/router";
 import { UserProps } from "@/@types/user";
-import Head from "next/head";
 import { serverStatus } from "@/services/verifyStatusServer";
 import { GetServerSideProps } from "next";
 import Image from "next/image";
@@ -21,15 +20,19 @@ import { deleteCookies } from "@/services/cookieClient";
 import { X } from "lucide-react";
 import { removeWatchLater } from "@/services/handleWatchLater";
 import { FaUserCircle } from "react-icons/fa";
-import { fetchWatchLater } from "@/services/setDataOnStorage";
 import { WatchLaterProps } from "@/@types/watchLater";
 import SEO from "@/components/SEO";
+import Switch from "@/components/ui/Switch";
+import { toast } from "react-toastify";
+import { api } from "@/services/api";
 
 export default function Me(status: string) {
     const [user, setUser] = useState<UserProps | null>(null)
     const [modalVisible, setModalVisible] = useState(false)
     const [editarDados, setEditarDados] = useState(false)
+    const [loading, setLoading] = useState<boolean>(false)
     const [watchLaterList, setWatchLaterList] = useState<WatchLaterProps[]>([])
+    //console.log("user: ", user)
 
     useEffect(() => {
         getUserData()
@@ -112,6 +115,30 @@ export default function Me(status: string) {
         await getUserData()
 
     }
+    async function handleNews(newsletter: boolean) {
+        try {
+            setLoading(true)
+            const user = await getUserCookieData();
+            if (!user) {
+                toast.error("Erro ao tentar editar dados do usuario.")
+                return
+            }
+            const userData: Record<string, any> = {
+                id: user.id,
+                news: newsletter
+            }
+
+            const response = await api.put('/user', userData)
+            const data = response.data;
+            await updateUserCookie()
+
+        } catch (err) {
+            console.log("Erro ao alterar dados", err)
+            toast.error("Erro ao alterar seus dados.")
+        } finally {
+            setLoading(false)
+        }
+    }
     return (
         <>
             <SEO title="Minha Conta | FlixNext" description="Minha Conta. Altere seus dados e seu avatar!" />
@@ -146,6 +173,10 @@ export default function Me(status: string) {
                                 <div className={styles.donate}>
                                     <h3>Torne-se um doador!!</h3>
                                     <Qrcode />
+                                </div>
+                                <div className={styles.newsletter}>
+                                    <Switch checked={user.news} onChange={handleNews} />
+                                    <h3>Receber Newsletters</h3>
                                 </div>
                             </aside>
                             <section className={styles.sectionContainer}>
