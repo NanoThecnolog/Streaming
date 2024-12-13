@@ -6,13 +6,14 @@ class EditUserController {
     async handle(req: Request, res: Response) {
         try {
             const editUserService = new EditUserService();
-            const { id, name, password, avatar, birthday } = req.body;
+            const { id, name, password, avatar, birthday, news } = req.body;
             const user = await editUserService.execute({
                 id,
                 name,
                 password,
                 avatar,
-                birthday
+                birthday,
+                news
             })
             return res.json(user)
         } catch (err) {

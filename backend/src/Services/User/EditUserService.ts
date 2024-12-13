@@ -39,6 +39,7 @@ class EditUserService {
                 news: true
             }
         })
+        console.log(news)
         return editUser;
     }
 }

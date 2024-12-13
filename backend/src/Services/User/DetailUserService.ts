@@ -8,6 +8,7 @@ interface DetailUserProps {
     avatar: string | null,
     verified: boolean,
     birthday: Date,
+    news: boolean,
     favoritos: {
         id: string,
         title: string,
@@ -80,6 +81,7 @@ export class DetailUserService {
             avatar: user.avatar,
             verified: user.verified,
             birthday: user.birthday,
+            news: user.news,
             favoritos: favoritos ?? favoritos,
             myList: watchLaterList,
             token: token

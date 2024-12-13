@@ -39,6 +39,7 @@ class AuthUserService {
             verified: userExiste.verified,
             birthday: userExiste.birthday,
             myList: watchLaterList,
+            news: userExiste.news,
             token: token
         }
     }
