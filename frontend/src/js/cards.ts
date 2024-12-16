@@ -21,6 +21,30 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Focc-0-3011-114.1.nflxso.net%2Fdnm%2Fapi%2Fv6%2FE8vDc_W8CLv7-yMQu8KMEC7Rrr8%2FAAAABQISquUlocM_O3yrL-56ZtZF5FQxG8XJSUJ5zBAjtJwEo0JxOuqUUNkEsUFtv20m_-X3tNr02svNGA4XRBmbGH70S-6Jvg-D7kAU.jpg%3Fr%3D0bf&f=1&nofb=1&ipt=9c1db31dfe85f320e1a096b49f9f3cc3ad97f416a7eb9281d43c77e23d02634a&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.4ngC9LN1U4ctWoQ7M_3eRgHaJQ%26pid%3DApi&f=1&ipt=9f53442166fa1cb541d3f779643f8328538a7288f14508d6c623e101ecf875a9&ipo=images",
+        tmdbId: 1005331,
+        title: "Bagagem de Risco",
+        subtitle: "",
+        description: "Um agente de segurança é chantageado e acaba deixando um pacote perigoso entrar em um voo na véspera de Natal.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1AvesvcIU_OI1yl5f3VicOCpyN6ewpzWW/preview",
+        duration: "01h 59m",
+        genero: ["Ação", "Mistério", "Suspense", "Netflix"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fsensesofcinema.com%2Fwp-content%2Fuploads%2F2014%2F06%2Fgravity.jpg&f=1&nofb=1&ipt=cd07cbe2e590d71efae8836195452840d07ff09098dd101de42139ce83942636&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.cyn-BXQFF-eB-M5gbiw1VgHaLH%26pid%3DApi&f=1&ipt=1885adab2b4b3516a6028133a86c110b958247b659f481a4e1ed6007b19c885b&ipo=images",
+        tmdbId: 49047,
+        title: "Gravidade",
+        subtitle: "",
+        description: "Matt Kowalski é um astronauta experiente que está em missão de conserto ao telescópio Hubble juntamente com a doutora Ryan Stone. Ambos são surpreendidos por uma chuva de destroços decorrente da destruição de um satélite por um míssil russo, que faz com que sejam jogados no espaço sideral. Sem qualquer apoio da base terrestre da NASA, eles precisam encontrar um meio de sobreviver em meio a um ambiente completamente inóspito para a vida humana.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1f1lxnyoV52QlzTB8C04NZJTcEV2u83aj/preview",
+        duration: "01h 31m",
+        genero: ["Ficção Científica", "Suspense"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ffilmoteca-static.b-cdn.net%2Ft%2Fp%2Foriginal%2F5rAu7jnCDlgeYxUb6sYsq1cP4dJ.jpg&f=1&nofb=1&ipt=dc50699d1fd051cdf7f89ce55f945d036712b4d59d8e6b210a5de91a266599df&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Io36nQSBRhBe7WUR3lVS1AHaLH%26pid%3DApi&f=1&ipt=e456305510eceeb73c3cc6d8073997a4e9f2d7f75c17039ec06559d7f92ac648&ipo=images",
         tmdbId: 76726,

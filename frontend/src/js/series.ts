@@ -27,8 +27,31 @@ export const series: SeriesProps[] = [
     },
     */
     {
-        background: "",
-        overlay: "",
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fepipoca.com.br%2Fwp-content%2Fuploads%2F2024%2F12%2FDexter-Pecado-Original-paramount.jpg&f=1&nofb=1&ipt=83168e4f3a1d9db27617f5eac1b66675f75f06c77b39824aef79fb58ceec1928&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.s3-ccUHvQOx8b6kIAuZN5AHaJb%26pid%3DApi&f=1&ipt=fdf94492bc137b459939b9ee451ec84c38d0718ed859643475bcc1ac00537eb6&ipo=images",
+        tmdbID: 219937,
+        title: "Dexter",
+        subtitle: "Pecado Original",
+        description: "Miami, 1991. Quando sua sede de sangue não pode mais ser ignorada, o jovem Dexter Morgan precisa aprender a canalizar sua escuridão interna conforme ele passa de estudante para assassino em série com a orientação de seu pai, Harry.",
+        genero: ["Drama", "Crime", "ShowTime"],
+        faixa: "18",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1NZ4vxTfFY2QGx5ow6MB1Qzx0bTgzQLgM/preview",
+                        duration: "50m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.hobbyconsolas.com%2Fsites%2Fnavi.axelspringer.es%2Fpublic%2Fmedia%2Fimage%2F2023%2F05%2Fsilo-3025760.jpg%3Ftf%3D3840x&f=1&nofb=1&ipt=cc1be71e71063a06d42a08707af8462fabbc9dbddef5eb40e4e1ec518f11718a&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.MmTw76EmB0ZqFY8VlJQM-wHaLH%26pid%3DApi&f=1&ipt=eb573ef8bd10c3bc1de0e830cd6366cc38f9285284d00961cf4001cf178ca871&ipo=images",
         tmdbID: 125988,
         title: "Silo",
         subtitle: "",
