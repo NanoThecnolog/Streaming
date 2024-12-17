@@ -107,7 +107,7 @@ export default function OverlaySerie({ tmdbId, title, subtitle, season, genero, 
         season: `${season[0].s}`
     }), [title, subtitle, season])
 
-    const playLink: string = `/watch/serie?${movie}`
+    const playLink: string = `/watch/serie/${tmdbId}`
 
     const handleFavorite = useCallback(async () => {
         //toast.warning("A Função favoritos está temporariamente desativada")

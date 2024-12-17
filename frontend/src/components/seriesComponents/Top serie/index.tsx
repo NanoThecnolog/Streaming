@@ -52,11 +52,8 @@ export default function TopSerie({ width }: TopSerieProps) {
         setTMDBPoster(posterURL)
     }
 
-    function handleEpisodes(title: string) {
-        const serie = new URLSearchParams({
-            title: `${title}`
-        })
-        Router.push(`/series/serie?${serie}`)
+    function handleEpisodes(tmdbId: number) {
+        Router.push(`/series/serie/${tmdbId}`)
     }
 
     function handleWatch() {
@@ -98,7 +95,7 @@ export default function TopSerie({ width }: TopSerieProps) {
                             <h3>Play</h3>
                             <FaCirclePlay color='#fff' />
                         </div>
-                        <div className={styles.queue} onClick={() => handleEpisodes(series[cardOn].title)}>
+                        <div className={styles.queue} onClick={() => handleEpisodes(series[cardOn].tmdbID)}>
                             <h3>EPISÓDIOS</h3>
 
                         </div>

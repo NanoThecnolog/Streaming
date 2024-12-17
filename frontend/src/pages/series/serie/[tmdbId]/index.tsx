@@ -24,7 +24,7 @@ import SEO from "@/components/SEO";
 export default function Serie(status: string) {
     //refatorar
     const router = useRouter()
-    const { title } = router.query;
+    const { tmdbId } = router.query;
     const [serie, setSerie] = useState<SeriesProps>()
     const [seasonToShow, setSeasonToShow] = useState<number>(1)
     const [episodesToShow, setEpisodesToShow] = useState<Episodes[]>([])
@@ -52,11 +52,11 @@ export default function Serie(status: string) {
     }, [])
 
     useEffect(() => {
-        if (title) {
-            const serie = series.find((serie) => serie.title === title)
+        if (tmdbId) {
+            const serie = series.find((serie) => serie.tmdbID === Number(tmdbId))
             setSerie(serie)
         }
-    }, [title])
+    }, [tmdbId])
     useEffect(() => {
         if (!serie) return;
         if (seasonToShow > 0) {

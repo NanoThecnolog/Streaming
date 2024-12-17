@@ -90,7 +90,7 @@ export default function CardInfoSerieModal({ card, vote_average, handleModalClos
         const serie = new URLSearchParams({
             title: `${card.title}`
         })
-        Router.push(`/series/serie?${serie}`)
+        Router.push(`/series/serie/${card.tmdbID}`)
     }
 
     return (
