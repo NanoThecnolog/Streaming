@@ -8,10 +8,12 @@ class ListUserService {
                 name: true,
                 email: true,
                 birthday: true,
+                news: true,
                 watchLater: true,
                 donator: true,
                 avatar: true,
-                verified: true
+                verified: true,
+
             }
         });
 
