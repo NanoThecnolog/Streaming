@@ -44,14 +44,14 @@ export default function Search(status: string) {
         setSearchCards([])
         setSearchSeries([])
         const filteredCards = cards
-            .filter((card) => card.title.toLowerCase().includes(movie.toLowerCase()))
+            .filter((card) => card.title.toLowerCase().includes(movie.toLowerCase()) || (card.subtitle?.toLowerCase().includes(movie.toLowerCase())))
             .map((card) => ({
                 ...card,
                 type: 'movie' as const
             }))
 
         const filteredSeries = series
-            .filter((serie) => serie.title.toLowerCase().includes(movie.toLowerCase()))
+            .filter((serie) => serie.title.toLowerCase().includes(movie.toLowerCase()) || (serie.subtitle?.toLowerCase().includes(movie.toLowerCase())))
             .map((serie) => ({
                 ...serie,
                 type: 'series' as const
