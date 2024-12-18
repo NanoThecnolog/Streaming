@@ -21,6 +21,18 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FncdHygpXzFNi6rzcLKUidwudsD3.jpg&f=1&nofb=1&ipt=9017a83ddbe2941fe1a3fc79973cc21628964b53ef0331a4f75c7c54d7dd7aef&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.BY0tufxFNdt9yto11d5Y5AHaJ4%26pid%3DApi&f=1&ipt=9fa57fc58e45d3578d819978c00dc642d3f4d293a9193cb85615b9f74a06eb26&ipo=images",
+        tmdbId: 273477,
+        title: "Como Sobreviver a um Ataque Zumbi",
+        subtitle: "",
+        description: "Ben, Carter e Augie são amigos desde que se conheceram no grupo de escoteiros. Enquanto os dois primeiros tentam realizar outras atividades, o último faz questão de convencê-los a acampar mais uma vez. Ben e Carter topam, mas fogem no meio da noite para ir a uma badalada festa secreta na cidade. Chegando ao local, descobrem que tudo foi dominado por zumbis e agora eles têm a missão de sobreviver a esse ataque.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1XmKTsogaT9TbHPEm8VFNIt8_VYUuNkFS/preview",
+        duration: "01h 32m",
+        genero: ["Comédia", "Terror"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Focc-0-3011-114.1.nflxso.net%2Fdnm%2Fapi%2Fv6%2FE8vDc_W8CLv7-yMQu8KMEC7Rrr8%2FAAAABQISquUlocM_O3yrL-56ZtZF5FQxG8XJSUJ5zBAjtJwEo0JxOuqUUNkEsUFtv20m_-X3tNr02svNGA4XRBmbGH70S-6Jvg-D7kAU.jpg%3Fr%3D0bf&f=1&nofb=1&ipt=9c1db31dfe85f320e1a096b49f9f3cc3ad97f416a7eb9281d43c77e23d02634a&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.4ngC9LN1U4ctWoQ7M_3eRgHaJQ%26pid%3DApi&f=1&ipt=9f53442166fa1cb541d3f779643f8328538a7288f14508d6c623e101ecf875a9&ipo=images",
         tmdbId: 1005331,
