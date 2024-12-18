@@ -27,6 +27,64 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmeups.com.br%2Fwp-content%2Fuploads%2F2024%2F12%2Fnivel-secreto-6.jpg.webp&f=1&nofb=1&ipt=059ce9481c655cb7348cf256a90cde4efc247b2dc7375442ed9148844c9995ab&ipo=images",
+        overlay: "",
+        tmdbID: 261579,
+        title: "Nivel Secreto",
+        subtitle: "",
+        description: "Nível Secreto é uma nova série animada de antologia para adultos, apresentando histórias originais nos mundos de alguns dos videogames mais adorados no mundo todo. Das mentes criativas por trás de LOVE, DEATH + ROBOTS, cada um dos 15 episódios é uma celebração de jogos e jogadores.",
+        genero: ["Animação", "Ficção Científica", "Ação", "Aventura", "Prime Vídeo"],
+        faixa: "A16",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1UC3vYZW517dNL8ZWsaT4w_yxbHU259Zb/preview",
+                        duration: "16m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1TUwNAiOE8O70DyAEHjRka7rYk7Kksk7w/preview",
+                        duration: "9m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1H0GhpeSY9Z4_qc1cFqThH74h_zDJZQTb/preview",
+                        duration: "14m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1hLlcxq_P-vG_h5UEYBbYX7Q28AYhUP5e/preview",
+                        duration: "19m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1xaC2xE1SOWsYZKzQe_dr9nEJ3WoKHVea/preview",
+                        duration: "19m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1HzwYWuKeVK_46a8g8rL09wDyKs7srS3x/preview",
+                        duration: "11m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1u5ik2HG2IuuoaRrBAkJ7fiSNJV5vEu2j/preview",
+                        duration: "19m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1Lyu6TKPzwh7EzfQoQ4K6mWF5f92xtkM9/preview",
+                        duration: "14m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.noreruns.net%2Fwp-content%2Fuploads%2F2020%2F10%2FDEXTER7_RevMCH-023crt.jpg&f=1&nofb=1&ipt=9b7783d435c6a7d4cf033093ef5c469f04db6a0c8a41fdc612e91ac8fd28a816&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.-oO-fMVp-BwPTOrdjJtlBgHaKE%26pid%3DApi&f=1&ipt=140f0ef4f4999a4c66b05d049225025582aac60ae99b80e5e12ed2c60b819c00&ipo=images",
         tmdbID: 1405,
@@ -7139,6 +7197,11 @@ export const series: SeriesProps[] = [
                     {
                         ep: 10,
                         src: "https://drive.google.com/file/d/1I6JhT_fd8xKgkeYpjHVhhPC5unt4nRcm/preview",
+                        duration: "24m"
+                    },
+                    {
+                        ep: 11,
+                        src: "https://drive.google.com/file/d/1sF3I4omUoaZ1t7HjJvxhzAlcNP5rTEqs/preview",
                         duration: "24m"
                     }
                 ]

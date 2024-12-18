@@ -27,13 +27,22 @@ export default function HelpModal({ handleHelpModal, userId, tmdbId }: HelpProps
             description: "Apresentou mensagem informando que o arquivo não reproduziu porque ele viola os termos de serviço do Google Drive"
         },
         {
-            title: "Vídeo com problema",
-            description: "O vídeo não carregou por motivo desconhecido."
+            title: "Problema com som",
+            description: "O som do vídeo está com problemas de sincronismo ou está falhando."
+        },
+        {
+            title: "Problema com imagem",
+            description: "A imagem do vídeo está com problemas."
         },
         {
             title: "Legenda não existe",
             description: "A legenda não está disponível para o vídeo."
-        }
+        },
+        {
+            title: "Vídeo com problema",
+            description: "O vídeo não carregou por motivo desconhecido."
+        },
+
     ]
 
     async function handleClick(title: string, description: string) {
