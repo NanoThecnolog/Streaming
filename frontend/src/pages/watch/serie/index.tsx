@@ -8,6 +8,7 @@ import { getUserCookieData } from "@/services/cookieClient"
 import NextEpisode from "@/components/ui/NextEpisode"
 import PrevEpisode from "@/components/ui/PreviousEpisode"
 import SEO from "@/components/SEO"
+import { series } from "@/js/series"
 
 
 export default function WatchSerie() {
@@ -55,7 +56,8 @@ export default function WatchSerie() {
     }, [])
 
     function handleBack() {
-        Router.push(`/series/serie?title=${title}`)
+        const serie = series.find(serie => serie.title === title && serie.subtitle === subtitle)
+        Router.push(`/series/serie/${serie?.tmdbID}`)
     }
     useEffect(() => {
         function rightClickBlock(event: MouseEvent) { event.preventDefault(); }
