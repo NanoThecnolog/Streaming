@@ -1168,7 +1168,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "O agente Ethan Hunt (Tom Cruise) está afastado do trabalho de campo para a IMF, trabalhando apenas como treinador de novos agentes. Ele agora leva uma vida tranquila com Julia, com quem pretende se casar e que nada sabe sobre seu verdadeiro trabalho. Entretanto Ethan é chamado de volta à ativa quando uma de suas pupilas, Lindsey (Keri Russell), é capturada por Owen Davian (Philip Seymour Hoffman), um negociante de armas sem escrúpulos. Para resgatá-la é reunida uma nova equipe, formada por seu velho amigo Luther Stickell (Ving Rhames), o especialista em transportes Declan (Jonathan Rhys Meyers) e Zhen (Maggie Q).",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/1cmfXwbL5fT8rqcghPXD_J5-6cdHMN6XS/preview",
+        src: "https://drive.google.com/file/d/1lxEwEhCcNoYcMjaKYwZIQz7hMAJz7cKR/preview",
         duration: "02h 06m",
         genero: ["Ação", "Suspense"]
     },
@@ -1180,7 +1180,7 @@ export const cards: CardsProps[] = [
         subtitle: "Protocolo Fantasma",
         description: "O agente secreto Ethan Hunt (Tom Cruise) é desautorizado pelo presidente dos Estados Unidos após o país ser acusado por um bombardeio no Kremlin. Tem início o Protocolo Fantasma, que visa acabar com os agentes da IMF. Sem qualquer recurso ou apoio, Ethan precisa encontrar um meio de limpar seu nome e o da agência em que trabalha. Para tanto passa a trabalhar com Benji (Simon Pegg) e Jane (Paula Patton), agentes renegados como ele, e ainda Brandt (Jeremy Renner), um ex-agente que agora trabalha como analista.",
         faixa: "A14",
-        src: "https://drive.google.com/file/d/1uEd1JeneB0OEasvObTiwSQb-Q2lxmTKl/preview",
+        src: "https://drive.google.com/file/d/12T-5BbxVs-mIa2jaV3EvQApAXYoR2D-c/preview",
         duration: "02h 13m",
         genero: ["Ação", "Suspense"]
     },

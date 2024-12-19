@@ -27,6 +27,74 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fistoe.com.br%2Fistoegeral%2Fwp-content%2Fuploads%2F2024%2F10%2F1835467977-day-of-the-jackal-1.jpg&f=1&nofb=1&ipt=5e1578d52a17bbb48cefeb88b9a8f73a1de4b52066c26781a9e22e2f367267cb&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.F2VwuVCuZo-6bdVeXCf2uwHaJQ%26pid%3DApi&f=1&ipt=bddb667ba5e48bac39f0cf07cc4cfb60b8746e4559ce2ae726d0de440307db69&ipo=images",
+        tmdbID: 222766,
+        title: "O Dia do Chacal",
+        subtitle: "",
+        description: "Um atirador de elite, um mestre dos disfarces, um assassino treinado – Chacal é um assassino que mata friamente mediante um pagamento. Após o ataque contra um político famoso e importante, Chacal recebe o trabalho mais arriscado de todos, mas que pagará o suficiente para que ele largue essa vida de vez. Só que seu trabalho atraiu a atenção de Bianca, uma policial da inteligência britânica tenaz e com uma grande experiência em armas de fogo, o que faz dela a candidata perfeita para buscá-lo. O que se segue é uma perseguição emocionante pela Europa, com Chacal tentando terminar sua missão enquanto é perseguido por Bianca. Quando a vida pessoal de Bianca e de Chacal entra em conflito com seu trabalho, eles arriscam tudo por essa caçada e vão até o limite, com consequências desastrosas.",
+        genero: ["Drama", "Ação", "Mistério", "Disney+"],
+        faixa: "A14",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/16n2Q2SNDfqOBqaLpqbhitJP_m7gCVdOh/preview",
+                        duration: "56m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1ZRa8UYGCO19Ec3GMGAWBJvv39U0K46Wb/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1aLtRKQrqZRmYStYMGEnStqeBHDfLVaZZ/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1xU0p7wspAN39h4ZXUz-OW2xEssyEBL2h/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1BC1JiH6lbhaCaOZ3R_yZjEbSasVWL3dJ/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1L-F2xcUPL99QduWETojyIe4whyfHZNhh/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1PZSVvGdcamqHqtEJzGF-YEPnu_TKUgsB/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1INwPEyQbdt-ioc1dQ60Q9qBo8R5XaWR5/preview",
+                        duration: "47m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/12yrTI9X6Rie8sW97lq_fdHqdX6JJv6bL/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1qJV-WbajlHr6XkibbOdGnKCCBaZB1crt/preview",
+                        duration: "01h 04m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FgRhEQqSh0IfxA6Wmd1OTb5vRSHf.jpg&f=1&nofb=1&ipt=1d3980f4d4b516b4c6564d25cede17c4f6ff8786d9180814a4629ed5070cbfde&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.mGv-yzaFcI25YkQ0eM_OgwHaLH%26pid%3DApi&f=1&ipt=7c7e69baf74a8981667b06259e701f32d3e4aec9d2a35c54d126f70da54011f7&ipo=images",
         tmdbID: 4604,
