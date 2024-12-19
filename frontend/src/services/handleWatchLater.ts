@@ -36,8 +36,8 @@ export async function addWatchLater(userid: string, title: string, tmdbid: numbe
         // Adiciona o novo filme à lista e atualiza as listas no localStorage
 
         await api.post(`/watchLater/`, { userid, title, subtitle: subtitle || '', tmdbid }),
-            await updateUserCookie(),
-            await setData()
+            await updateUserCookie(),//atualiza o cookie userData
+            await setData() //Atualiza as listas watchlater e favorite do localstorage
         toast.success("Filme adicionado à lista de assistir mais tarde!");
     } catch (err: any) {
         toast.error(err.response?.data?.message || "Erro ao adicionar filme à lista.");

@@ -126,6 +126,24 @@
             }
         }
 
+        .avatarLetter {
+            background-color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 45px;
+            width: 45px;
+            border-radius: 2rem;
+            cursor: pointer;
+
+            span {
+                font-size: 1.8rem;
+                font-family: var(--font-Anton);
+                color: var(--black);
+            }
+
+        }
+
         .button_container {
             display: flex;
             justify-content: center;

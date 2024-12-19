@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { AlignJustify, Search } from "lucide-react";
 import { api } from "@/services/api";
+import { getUserCookieData } from "@/services/cookieClient";
+import { UserProps } from "@/@types/user";
 
 interface HeaderProps {
     userAvatar?: string | undefined;
@@ -20,12 +22,29 @@ export default function Header({ userAvatar, status }: HeaderProps) {
     const [avatar, setAvatar] = useState<string>('')
     const [searchMobileVisible, setSearchMobileVisible] = useState<boolean>(false)
     const [serverWake, setServerWake] = useState<boolean>(false)
+    const [user, setUser] = useState<UserProps>()
+
+    function inicial(): string | null {
+        if (!user) return null
+        const letraInicial = user.name[0]
+        return letraInicial
+    }
 
 
     useEffect(() => {
         if (!userAvatar) return;
         setAvatar(userAvatar)
     }, [userAvatar])
+
+    useEffect(() => {
+        getUser()
+    }, [])
+
+    async function getUser() {
+        const data = await getUserCookieData()
+        if (!data) return
+        setUser(data)
+    }
 
     useEffect(() => {
         async function wakeUpServer() {
@@ -105,7 +124,7 @@ export default function Header({ userAvatar, status }: HeaderProps) {
                         <div className={styles.avatarImage} title="Meu Perfil">
                             <Image src={avatar} alt="avatar" width={45} height={45} onClick={handleUserClick} />
                         </div>
-                    ) : <FaUserCircle size={35} color="#fff" className={styles.loginIcon} onClick={handleUserClick} />
+                    ) : user ? <div className={styles.avatarLetter} onClick={handleUserClick}><span>{inicial()?.toUpperCase()}</span></div> : <FaUserCircle size={35} color="#fff" className={styles.loginIcon} onClick={handleUserClick} />
                 }
 
             </div>

@@ -55,7 +55,7 @@ export async function fetchFavorites(user: UserProps): Promise<ListaFavoritos[]>
 
 async function fetchList(endpoit: string, errorMessage: string) {
     try {
-        const response = await api.get(endpoit)
+        const response = await api.get(endpoit, {})
         return response.data
     } catch (err) {
         console.log(errorMessage, err)

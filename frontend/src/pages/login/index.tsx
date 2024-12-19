@@ -71,12 +71,10 @@ export default function Login() {
                 name: response.data.name,
                 avatar: response.data.avatar,
                 Verified: response.data.verified,
-                birthday: response.data.verified,
-                token: response.data.verified,
+                birthday: response.data.birthday,
+                token: response.data.token,
                 news: response.data.news
             })
-            //console.log(user)
-
             localStorage.setItem('flixnext', userData)
             await setData();
             document.cookie = `flixnext=${userData}; path=/; max-age=${expressTime}`

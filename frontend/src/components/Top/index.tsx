@@ -9,7 +9,7 @@ import { UserProps } from '@/@types/user';
 import { FaCheck } from 'react-icons/fa';
 import { getUserCookieData } from '@/services/cookieClient';
 import { addWatchLater, isOnTheList } from '@/services/handleWatchLater';
-import { fetchTMDBBackDrop, fetchTMDBMovie, fetchTMDBPoster } from '@/services/fetchTMDBData';
+import { fetchTMDBMovie } from '@/services/fetchTMDBData';
 import { MovieTMDB } from '@/@types/Cards';
 import Adult from '../ui/Adult';
 

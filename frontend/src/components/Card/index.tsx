@@ -52,8 +52,6 @@ export default function Card({ card }: CardProps) {
             console.log("Erro ao buscar dados do filme", err?.response?.data?.error)
             return null
         }
-
-
     }
 
     async function handlePosterImage() {
