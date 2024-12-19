@@ -68,7 +68,7 @@ Siga os passos abaixo para rodar o projeto localmente:
 
 ## 📄 Licença
 
-Este projeto está sob a licença CC-BY-NC-1.0. Para mais detalhes, entre em contato.
+Este projeto está sob a licença CC-BY-NC-4.0. Para mais detalhes, entre em contato.
 
 ---
 
