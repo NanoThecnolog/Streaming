@@ -21,6 +21,30 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fkx2YVkcsnTnmF9XGTAj2NqEcHFG.jpg&f=1&nofb=1&ipt=e28618ea1d672cf43cd94545722223afef166f1bfcbfbe5177dc6210c218c9ba&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.doGtcxXBqEVhnWcsa5HqcgHaLH%26pid%3DApi&f=1&ipt=b07193a18701091ff739e84ccfaf8fe628f790d16e6b0b7d038a05be8f9e6188&ipo=images",
+        tmdbId: 49530,
+        title: "O Preço do Amanhã",
+        subtitle: "",
+        description: "Acusado de assassinato, um homem deve descobrir como derrubar um sistema onde tempo é dinheiro e que permite que os ricos vivam para sempre, enquanto os pobres devem implorar por cada minuto de suas vidas.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1OptM9vpaaH2vUHKreQRh8SwTPf2oIqcS/preview",
+        duration: "01h 49m",
+        genero: ["Ação", "Suspense", "Ficção Científica"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FmgY8An5qVCgLh97KOWeJVJarskL.jpg&f=1&nofb=1&ipt=845459f055ee3109ffb685fc617c7767370ab8da9adfae52abb6490f288ff438&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.cmn1tdAUxrcgCZ5zMgAlFQHaLH%26pid%3DApi&f=1&ipt=7dc5a87f83c9f30f5b30c05986f926ed3c8f5e71f66b2458e80b0a5e0f0c978c&ipo=images",
+        tmdbId: 216015,
+        title: "Cinquenta Tons de Cinza",
+        subtitle: "",
+        description: "Anastasia Steele (Dakota Johnson) é uma estudante de literatura de 21 anos, recatada e virgem. Uma dia ela deve entrevistar para o jornal da faculdade o poderoso magnata Christian Grey (Jamie Dornan). Nasce uma complexa relação entre ambos: com a descoberta amorosa e sexual, Anastasia conhece os prazeres do sadomasoquismo, tornando-se o objeto de submissão do sádico Grey.",
+        faixa: "18",
+        src: "https://drive.google.com/file/d/1EqzHviX68B8V7jA6ysQHbaCrUJ9L4No2/preview",
+        duration: "02h 05m",
+        genero: ["Drama", "Romance", "Suspense"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Flntyt4OVDbcxA1l7LtwITbrD3FI.jpg&f=1&nofb=1&ipt=3aa130dc1d7874b8b92b0713362aa2385e064e0cb5abcb95d6d2e312d1d99480&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.32q_v0JiI7vxJpWvXpNA2gHaLH%26pid%3DApi&f=1&ipt=a0bdba1cabe89a529657fb4d788fba6fd6c5d672e9094ce8be2d8da737a363f6&ipo=images",
         tmdbId: 1010581,

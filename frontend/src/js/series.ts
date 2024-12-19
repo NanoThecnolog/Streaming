@@ -27,6 +27,102 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wallpapersden.com%2Fimage%2Fdownload%2Fmoon-knight-hd-official_bWhoZWWUmZqaraWkpJRmbmdlrWZnZWU.jpg&f=1&nofb=1&ipt=aecb50da2cdf9c4da77ddeec0a060f8ed386d149115a348e8dfc91696f49518c&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.5WAMbMYcuyDwYZoAJmjA_QHaLH%26pid%3DApi&f=1&ipt=f9aa4a08ba7a6ed66b00f2cb3fe7649a987ac1502a0abe467fc5d9ddf0dceeed&ipo=images",
+        tmdbID: 92749,
+        title: "Cavaleiro da Lua",
+        subtitle: "",
+        description: "A série acompanha Steven Grant, um gentil e educado funcionário de uma loja de souvenir, que é atormentado com apagões e memórias de outra vida. Steven descobre que tem transtorno dissociativo de identidade e divide o corpo com o mercenário Marc Spector. À medida que os inimigos de Steven/Marc se voltam para eles, ambos devem navegar em suas complexas identidades enquanto mergulham em um mistério mortal entre os poderosos deuses do Egito.",
+        genero: ["Ação", "Aventura", "Marvel", "Disney+"],
+        faixa: "A14",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1BY10yYMXNrhIPapZIiSvvhR4zl17bbaA/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1NM4P5oaHIKryxMhq93ScbQzUMTljScRl/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1jkXEKGhFdAhZEVFkeA_axNw0ccXja9Gf/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1jQUDFh_lg-EyQLQuMxC4GreeIKw7l0Hv/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1jqWndhfeYbQpAL-YFLUZabeInQ8UYkJi/preview",
+                        duration: "47m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1oqmyrmY0AbWPfbSDueVvSrNjo0zeIbJA/preview",
+                        duration: "42m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wallpapersden.com%2Fimage%2Fdownload%2Fms-marvel-4k-season-1-disney_bWlnamiUmZqaraWkpJRmbmdlrWZlbWU.jpg&f=1&nofb=1&ipt=c7a69afc55f34b7183149501a78b88d550c207934c0a68222dec9a0a9d5db98b&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.J2oUhCLBBzr9iKp0Dt9xSAHaLH%26pid%3DApi&f=1&ipt=87735448d5b9d40f1d57aa52f632e0b21c7b1cdd86b8b657bac2c4c612711489&ipo=images",
+        tmdbID: 92782,
+        title: "Ms. Marvel",
+        subtitle: "",
+        description: "Kamala Khan é uma adolescente muçulmana de Jersey City. Ela adora jogar videogames e escrever fanfictions, além de ser fã de super-heróis e ter uma imaginação sem limites – especialmente quando se trata da Capitã Marvel. Kamala sente que não se encaixa na escola e, às vezes, nem mesmo em casa. Mas um dia ela descobre que tem superpoderes como os heróis que sempre admirou... e a vida fica bem melhor com superpoderes, não é?",
+        genero: ["Ficção Científica", "Fantasia", "Ação", "Disney+", "Marvel", "Comédia"],
+        faixa: "A14",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1LVZRXR-bSjGGJkE7D7InZSaWW7avxNr-/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1HAvVnhC0pai77PKJ2pZOJEVzBHOc9oUJ/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1B52lyE4c-GyRNQsKUJqEMgf74j1N5lM5/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1GYjEcV98QR1ZFKaJBGsVBHy2I9EsRG-8/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1mYTTE_MJJIXxwwYevJpnuQleAUo2N698/preview",
+                        duration: "38m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1DyjPnEvC2KqSogoTjsYrDvZGMbnw1IIM/preview",
+                        duration: "46m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fistoe.com.br%2Fistoegeral%2Fwp-content%2Fuploads%2F2024%2F10%2F1835467977-day-of-the-jackal-1.jpg&f=1&nofb=1&ipt=5e1578d52a17bbb48cefeb88b9a8f73a1de4b52066c26781a9e22e2f367267cb&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.F2VwuVCuZo-6bdVeXCf2uwHaJQ%26pid%3DApi&f=1&ipt=bddb667ba5e48bac39f0cf07cc4cfb60b8746e4559ce2ae726d0de440307db69&ipo=images",
         tmdbID: 222766,
