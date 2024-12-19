@@ -59,12 +59,13 @@ export default function TopSerie({ width }: TopSerieProps) {
     function handleWatch() {
         const movie = new URLSearchParams({
             title: `${series[cardOn].title}`,
-            subTitle: `${series[cardOn].subtitle}` || "",
+            subtitle: `${series[cardOn].subtitle}` || "",
             src: `${series[cardOn].season[0].episodes[0].src}`,
             episode: `${series[cardOn].season[0].episodes[0].ep}`,
             season: `${series[cardOn].season[0].s}`
         });
         const play: string = `/watch/serie?${movie}`
+        console.log("filme: ", movie)
         Router.push(play)
     }
 
