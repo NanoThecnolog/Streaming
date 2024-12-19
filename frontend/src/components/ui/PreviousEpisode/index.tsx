@@ -47,7 +47,7 @@ export default function PrevEpisode({ title, subtitle, season, episode }: PrevPr
 
         const movie = new URLSearchParams({
             title: `${title}`,
-            subTitle: `${subtitle}` || "",
+            subtitle: `${subtitle}` || "",
             src: `${prevEpisode.src}`,
             episode: `${prevEpisode.episode}`,
             season: `${prevEpisode.season}`

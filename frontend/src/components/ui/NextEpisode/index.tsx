@@ -37,7 +37,7 @@ export default function NextEpisode({ title, subtitle, season, episode }: NextPr
     function handleNextEpisode() {
         const movie = new URLSearchParams({
             title: `${title}`,
-            subTitle: `${subtitle}` || "",
+            subtitle: `${subtitle}` || "",
             src: `${nextEpisode?.src}`,
             episode: `${nextEpisode?.episode}`,
             season: `${nextEpisode?.season}`
