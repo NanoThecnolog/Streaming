@@ -21,6 +21,30 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Flntyt4OVDbcxA1l7LtwITbrD3FI.jpg&f=1&nofb=1&ipt=3aa130dc1d7874b8b92b0713362aa2385e064e0cb5abcb95d6d2e312d1d99480&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.32q_v0JiI7vxJpWvXpNA2gHaLH%26pid%3DApi&f=1&ipt=a0bdba1cabe89a529657fb4d788fba6fd6c5d672e9094ce8be2d8da737a363f6&ipo=images",
+        tmdbId: 1010581,
+        title: "Minha Culpa",
+        subtitle: "",
+        description: "Noah é obrigada a mudar de cidade, deixando seus amigos e namorado para trás, após sua mãe se casar com um novo marido rico. Lá ela conhece Nick, seu novo meio-irmão, e os dois se apaixonam loucamente, vivendo um grande romance proibido.",
+        faixa: "18",
+        src: "https://drive.google.com/file/d/1cZ_2Nzn22CKN6XkWCkraMBStar5kvfSW/preview",
+        duration: "01h 57m",
+        genero: ["Romance", "Drama", "Prime Vídeo"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fconteudo.imguol.com.br%2F2012%2F05%2F10%2Fcena-do-filme-battleship---a-batalha-dos-mares-de-peter-berg-1336678898604_1920x1080.jpg&f=1&nofb=1&ipt=a180230d7a2907b5851a5e21f428ecf1185ba89d8a1ba8cff102f3d2016394f2&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.9NtcsN1lOMidmgXHxYG2TwHaJ4%26pid%3DApi&f=1&ipt=e90b53b73e469264f7960fe3e6cecd28fdd0df9489d666be22962bcb2edeff8e&ipo=images",
+        tmdbId: 44833,
+        title: "Battleship",
+        subtitle: "A Batalha dos Mares",
+        description: "A equipe comandada pelo almirante Shane está a bordo do navio USS John Paul Jones. Em alto mar, eles se deparam com uma ameça alienígena. Para defender o planeta, eles precisam unir forças com a tripulação de outro navio e também com os cientistas comandados por Cal Zapata.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1tuNb0cr8I97Bz9yB1-Y0OUSaPBuaZQQ8/preview",
+        duration: "02h 11m",
+        genero: ["Ação", "Aventura", "Ficção Científica"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FncdHygpXzFNi6rzcLKUidwudsD3.jpg&f=1&nofb=1&ipt=9017a83ddbe2941fe1a3fc79973cc21628964b53ef0331a4f75c7c54d7dd7aef&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.BY0tufxFNdt9yto11d5Y5AHaJ4%26pid%3DApi&f=1&ipt=9fa57fc58e45d3578d819978c00dc642d3f4d293a9193cb85615b9f74a06eb26&ipo=images",
         tmdbId: 273477,
