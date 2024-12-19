@@ -1240,7 +1240,7 @@ export const cards: CardsProps[] = [
         subtitle: "Acerto de Contas - Parte 1",
         description: "Ethan Hunt e sua equipe devem rastrear uma nova arma que pode ameaçar toda a humanidade se cair em mãos erradas. Com o destino do mundo em jogo, se inicia uma corrida mortal ao redor do globo. Confrontado por um inimigo misterioso e poderoso, Ethan é forçado a considerar que talvez nada importe mais do que a missão, nem mesmo as vidas daqueles com quem ele mais se importa.",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/1hzxcRpOMzKccYTgjkrFPXUVURxrZ6uw-/preview",
+        src: "https://drive.google.com/file/d/1rZk9_kOnvW1xBkhQ7_hXr2SKCgIY8cbN/preview",
         duration: "2h 43m",
         genero: ["Ação", "Suspense"]
     },
