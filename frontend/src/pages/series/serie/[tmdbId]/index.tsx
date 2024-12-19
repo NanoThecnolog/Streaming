@@ -111,6 +111,17 @@ export default function Serie(status: string) {
         )
         setEpisodesData(episodesArray)
     }
+    function minToHour(min: number = 0): string {
+        if (min <= 0) {
+            return "--"
+        }
+        const hora = Math.floor(min / 60)
+        const remainingMin = min % 60
+        if (hora === 0) {
+            return `${remainingMin}m`
+        }
+        return `${hora}h ${remainingMin}m`
+    }
 
     function handleChangeSeason(value: string) {
         const season = parseInt(value)
@@ -254,7 +265,7 @@ export default function Serie(status: string) {
                                                 ><PlayIcon size={35} /></div>
                                                 <div className={styles.epiInfo}>
                                                     <h3>Ep.{ep.ep}: {episode?.name}</h3>
-                                                    <p>Duração: {ep.duration}</p>
+                                                    <p>Duração: {episode ? minToHour(episode.runtime) : ep.duration ? ep.duration : "--"}</p>
                                                     <p className={styles.description} title={episode?.overview}>{episode?.overview}</p>
                                                 </div>
                                             </div>

@@ -29,7 +29,8 @@ export interface TMDBEpisodes {
     overview: string,
     still_path: string,
     vote_average: number,
-    season_number: number
+    season_number: number,
+    runtime: number
 }
 export interface TMDBSeries {
     backdrop_path: string,
