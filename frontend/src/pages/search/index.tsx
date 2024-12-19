@@ -74,16 +74,16 @@ export default function Search(status: string) {
                 </div>
                 <div className={styles.cardsContainer}>
                     {!searchCards && !searchSeries && <div style={{ display: "flex", justifyContent: 'center', alignItems: 'center', width: '80vw', height: '50vh' }}>Nenhum filme ou série encontrado.</div>}
-                    {searchCards && searchCards?.map((card) => {
+                    {searchCards && searchCards?.map(card => {
                         return <Card
-                            key={card.src}
+                            key={card.tmdbId}
                             card={card}
                         />
                     }
 
-                    )} {searchSeries && searchSeries?.map((serie, index) => {
+                    )} {searchSeries && searchSeries?.map(serie => {
                         return <CardSerie
-                            key={index}
+                            key={serie.tmdbID}
                             card={serie}
                         />
                     })}

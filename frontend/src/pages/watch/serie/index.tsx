@@ -33,11 +33,11 @@ export default function WatchSerie() {
     }, [])
 
     useEffect(() => {
-        if (title && src && episode && season) {
+        if (title && subtitle && src && episode && season) {
 
             setEpisodio({
                 title: Array.isArray(title) ? title[0] : title,
-                subtitle: Array.isArray(subtitle) ? subtitle[0] : subtitle || '',
+                subtitle: Array.isArray(subtitle) ? subtitle[0] : subtitle,
                 episode: Array.isArray(episode) ? parseInt(episode[0]) : parseInt(episode),
                 src: src as string,
                 season: Array.isArray(season) ? parseInt(season[0]) : parseInt(season),
