@@ -20,6 +20,7 @@ import { ListFavoriteController } from "./Controllers/User/ListFavoriteControlle
 import { RemoveFavoriteController } from "./Controllers/User/RemoveFavoriteController";
 import { SendEmailController } from "./Controllers/Email/SendEmailController";
 import { PromotionalEmailController } from "./Controllers/Email/PromotionalEmailController";
+import { Authenticate } from "./middlewares/Auth";
 
 const router = Router()
 
@@ -33,10 +34,10 @@ router.get('/pix', new GeneratePixController().handle);
 
 router.post('/user', new CreateUserController().handle);
 router.post('/login', new AuthUserController().handle);
-router.put('/user', new EditUserController().handle)
-router.get('/users', new ListUserController().handle)
+router.put('/user', Authenticate, new EditUserController().handle)
+router.get('/users', Authenticate, new ListUserController().handle)
 router.delete('/user', new DeleteUserController().handle)
-router.get('/user', new DetailUserController().handle);
+router.get('/user', Authenticate, new DetailUserController().handle);
 router.post('/recovertoken', new GenerateRecoverTokenController().handle);
 router.put('/recover', new RecoverController().handle);
 
@@ -54,7 +55,7 @@ router.post('/favorite', new FavoriteController().handle)
 router.get('/favorites', new ListFavoriteController().handle)
 router.delete('/favorite/:favoriteid', new RemoveFavoriteController().handle)
 
-router.post('/send', new SendEmailController().handle)
-router.post('/promotional', new PromotionalEmailController().handle)
+router.post('/send', Authenticate, new SendEmailController().handle)
+router.post('/promotional', Authenticate, new PromotionalEmailController().handle)
 
 export { router }
