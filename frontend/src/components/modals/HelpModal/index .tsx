@@ -67,17 +67,19 @@ export default function HelpModal({ handleHelpModal, userId, tmdbId }: HelpProps
             <div className={styles.background} onClick={handleHelpModal}></div>
             <div className={styles.help} data-loading={loading}>
                 <h1>Qual é o problema?</h1>
-                {flags.map((flag, index) => (
-                    <div
-                        onClick={() => handleClick(flag.title, flag.description)}
-                        key={index}
-                        className={styles.flag}
-                        data-loading={loading}
-                    >
-                        <h2>{flag.title}</h2>
-                        <p>{flag.description}</p>
-                    </div>
-                ))}
+                <div className={styles.flagContainer}>
+                    {flags.map((flag, index) => (
+                        <div
+                            onClick={() => handleClick(flag.title, flag.description)}
+                            key={index}
+                            className={styles.flag}
+                            data-loading={loading}
+                        >
+                            <h2>{flag.title}</h2>
+                            <p>{flag.description}</p>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     )

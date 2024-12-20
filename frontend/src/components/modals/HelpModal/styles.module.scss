@@ -22,7 +22,7 @@
         background-color: var(--background-gray);
         border-radius: 1em;
         width: 30%;
-        //height: 60%;
+        height: 80%;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -39,22 +39,36 @@
             font-size: 1.4rem;
         }
 
-        .flag {
-            height: 100px;
-            width: 90%;
-            border: 2px solid var(--grey);
-            border-radius: 1rem;
-            padding: 20px;
-            transition: .4s;
-            cursor: pointer;
+        .flagContainer {
+            overflow-y: scroll;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
 
-            &[data-loading="true"] {
-                cursor: wait;
-            }
+            .flag {
+                min-height: 100px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                width: 90%;
+                border: 2px solid var(--grey);
+                border-radius: 1rem;
+                padding: 20px;
+                transition: .4s;
+                cursor: pointer;
 
-            &:hover {
-                background-color: var(--grey);
+                &[data-loading="true"] {
+                    cursor: wait;
+                }
+
+                &:hover {
+                    background-color: var(--red-selected);
+                    border: 2px solid var(--red-selected);
+                }
             }
         }
+
+
     }
 }
