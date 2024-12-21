@@ -21,6 +21,18 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2024%2F09%2Foperacao-natal.jpg&f=1&nofb=1&ipt=acc75712377d123432c911058577f222f0e46436415ad00b5b6df35c6393e80d&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.DWdQMR3t6JqIFP6n4gR-VQHaLH%26pid%3DApi&f=1&ipt=9aa9301c9bda4701c6322a3420129ff62cb703684a5c10cb99b0f71592c2e520&ipo=images",
+        tmdbId: 845781,
+        title: "Operação Natal",
+        subtitle: "",
+        description: "Depois que o Papai Noel – codinome: Das Neves – é sequestrado, o Chefe de Segurança do Polo Norte deve se unir ao mais infame caçador de recompensas do mundo em uma missão global e cheia de ação para salvar o Natal.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1hZf5v9_4Qun0sK_f9Dn0-72DiYWg-CxI/preview",
+        duration: "2h 4m",
+        genero: ["Ação", "Comédia", "Fantasia"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.hdqwalls.com%2Fdownload%2Fvenom-the-last-dance-8k-vl-1440x900.jpg&f=1&nofb=1&ipt=d54519fd85462e130486bc4fc68c3aecc68c902d0189647ccf8c03260e17454c&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.-5hd6ww_AhqQf95yeagiNgHaJQ%26pid%3DApi&f=1&ipt=00354666d09c969a253e0a1de25abf9cdec5337f74d92b0ac3c5789a5c8630d6&ipo=images",
         tmdbId: 912649,
