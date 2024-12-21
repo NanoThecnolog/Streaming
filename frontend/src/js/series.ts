@@ -27,6 +27,74 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmoviecrue.com%2Fwp-content%2Fuploads%2F2022%2F08%2F1260707-scaled.jpg&f=1&nofb=1&ipt=9103124ad5a32b5657f41a00781bcb5745d9a1a660472a26873f109e7760e07d&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.7hdffKRgHv0UBdAWzUVtVAHaJQ%26pid%3DApi&f=1&ipt=bf5d4958fa980a4cafb58c4de18a5f5217aa831f16947210163f4520f60c5d1d&ipo=images",
+        tmdbID: 90802,
+        title: "The Sandman",
+        subtitle: "",
+        description: "Após anos aprisionado, Morpheus, o Rei dos Sonhos, embarca em uma jornada entre mundos para recuperar o que lhe foi roubado e restaurar seu poder.",
+        genero: ["Ação", "Drama", "Fantasia", "DC", "Netflix"],
+        faixa: "18",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/19ILh3rM19l7F6tNWZJrjuDyll9WN5iXX/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1bDd-xW3VVFIBfSx5tOtUGvDpOGuk2oZU/preview",
+                        duration: "37m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1rc8DbqnnIj9YifUz3u7rOvEt_HNgFDYQ/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1jpV6zmnUf2bpXd-5oCMPtqTsPob_Bzej/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/18i9DfaPA_x3yLRD7bcibP3R5PD1wrccM/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/177cCaxng0qrvIYx5O99kcCVIRIMTib6t/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1YP3lbP_Z4SOtG4aN7uOH24I6wNzDnNSC/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1g2UPONCYc8vaBS7MFA_Z3m1oiau9-FIN/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1gGKtWqh9ZJ2hZiP7E-7hYoGcgP1RKOCf/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/12jHVUhFSGKB9StoLLolVQCHnJUWTQ9ib/preview",
+                        duration: "46m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wallpapersden.com%2Fimage%2Fdownload%2Fmoon-knight-hd-official_bWhoZWWUmZqaraWkpJRmbmdlrWZnZWU.jpg&f=1&nofb=1&ipt=aecb50da2cdf9c4da77ddeec0a060f8ed386d149115a348e8dfc91696f49518c&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.5WAMbMYcuyDwYZoAJmjA_QHaLH%26pid%3DApi&f=1&ipt=f9aa4a08ba7a6ed66b00f2cb3fe7649a987ac1502a0abe467fc5d9ddf0dceeed&ipo=images",
         tmdbID: 92749,

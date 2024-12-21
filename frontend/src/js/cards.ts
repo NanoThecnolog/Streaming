@@ -21,6 +21,18 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.hdqwalls.com%2Fdownload%2Fvenom-the-last-dance-8k-vl-1440x900.jpg&f=1&nofb=1&ipt=d54519fd85462e130486bc4fc68c3aecc68c902d0189647ccf8c03260e17454c&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.-5hd6ww_AhqQf95yeagiNgHaJQ%26pid%3DApi&f=1&ipt=00354666d09c969a253e0a1de25abf9cdec5337f74d92b0ac3c5789a5c8630d6&ipo=images",
+        tmdbId: 912649,
+        title: "Venom",
+        subtitle: "A Última Rodada",
+        description: "Eddie e Venom estão fugindo. Perseguidos pelos dois mundos, a dupla é forçada a tomar uma decisão devastadora que vai fechar as cortinas da última rodada de Venom e Eddie.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1-MaDGaT2AUCi-6s_NDPt3HMLZZyauoT2/preview",
+        duration: "1h 50m",
+        genero: ["Ação", "Ficção Científica", "Suspense", "Vilão", "Marvel"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fkx2YVkcsnTnmF9XGTAj2NqEcHFG.jpg&f=1&nofb=1&ipt=e28618ea1d672cf43cd94545722223afef166f1bfcbfbe5177dc6210c218c9ba&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.doGtcxXBqEVhnWcsa5HqcgHaLH%26pid%3DApi&f=1&ipt=b07193a18701091ff739e84ccfaf8fe628f790d16e6b0b7d038a05be8f9e6188&ipo=images",
         tmdbId: 49530,
