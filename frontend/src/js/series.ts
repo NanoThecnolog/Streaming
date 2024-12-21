@@ -33,7 +33,7 @@ export const series: SeriesProps[] = [
         title: "The Sandman",
         subtitle: "",
         description: "Após anos aprisionado, Morpheus, o Rei dos Sonhos, embarca em uma jornada entre mundos para recuperar o que lhe foi roubado e restaurar seu poder.",
-        genero: ["Ação", "Drama", "Fantasia", "DC", "Netflix"],
+        genero: ["Aventura", "Drama", "Fantasia", "DC", "Netflix"],
         faixa: "18",
         season: [
             {
@@ -1625,6 +1625,11 @@ export const series: SeriesProps[] = [
                         src: "https://drive.google.com/file/d/1NZ4vxTfFY2QGx5ow6MB1Qzx0bTgzQLgM/preview",
                         duration: "50m"
                     },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1ng-8zoD0n1NA6plHsGXYhZb-e7DW1hHh/preview",
+                        duration: "46m"
+                    }
                 ]
             },
         ]
@@ -1719,6 +1724,16 @@ export const series: SeriesProps[] = [
                         src: "https://drive.google.com/file/d/1-xoKwyO-fzcJoJmfx3oU7coAu1AIvS5X/preview",
                         duration: "55m"
                     },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1F5ZI6VaDBW-LKCE4E7stbhEc0YZTA87U/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1dZnhXhsRI7HRaO9_S9YWE0B01Y8rfDkb/preview",
+                        duration: "43m"
+                    }
                 ]
             }
         ]
@@ -8250,6 +8265,11 @@ export const series: SeriesProps[] = [
                     {
                         ep: 11,
                         src: "https://drive.google.com/file/d/1sF3I4omUoaZ1t7HjJvxhzAlcNP5rTEqs/preview",
+                        duration: "24m"
+                    },
+                    {
+                        ep: 12,
+                        src: "https://drive.google.com/file/d/1gJ0lFTuxAkN1akmehwtcUWG_4kRxNbJT/preview",
                         duration: "24m"
                     }
                 ]
