@@ -27,6 +27,89 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.numerama.com%2Fwp-content%2Fuploads%2F2021%2F08%2Flucifer-saison6.jpg&f=1&nofb=1&ipt=de8e8d62f5a81b4786564ab7cfc73958d8934896d30b73b33920e4124ce9efd2&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.oUOBjta7mRZHj2WOLZGRpQHaLH%26pid%3DApi&f=1&ipt=6825064ce57392dc379b3bbca57fbb7dd22d0a845f3718a95a09e1828503c41b&ipo=images",
+        tmdbID: 63174,
+        title: "Lucifer",
+        subtitle: "",
+        description: "Entediado com a vida nas trevas, o diabo se muda para Los Angeles, abre um piano-bar e empresta sua sabedoria a uma investigadora de assassinatos.",
+        genero: ["Crime", "Fantasia", "Netflix", "DC"],
+        faixa: "A16",
+        season: [
+            {
+                s: 1,
+                lang: "Legendado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/18xJKo4YL1asghes1Xjc4SBXX4j-1cseQ/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1dUeowp7I9rOAPvKR0Yv-zpvAl_rTygGr/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1zumlIpD3c-IySmqew2B43ykzOaDurPFe/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1ui2CTCgaBKXYjWYE6y8z8mgwjRbA4Ksf/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1zigtP4gI5H3AmPocFoDxrFygo05NChJp/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1-gtW9dSRpsqXCVI1uATmMtKm4Ql_Yufz/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1kGh4vA11s1VoP0p6kEWj19F9AygS-s0E/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1eP1R2e6U-JkKLMsE8ijgNhbIYedAa45J/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1ivqqGDWA1kFOJC2221a510iWgprbR6_X/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1TQ0hNsKhChzu0r_WZCYzPJYF3SXqMqQr/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 11,
+                        src: "https://drive.google.com/file/d/1WHk5WCQHZ37FhFpyTy-99sTkoAyWn3XY/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 12,
+                        src: "https://drive.google.com/file/d/1GLlZvRxoGazkOJxv9xBH3emRnsfeVa3j/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 13,
+                        src: "https://drive.google.com/file/d/1SkDxmIjtgMtG70Yw5w986i6UNo9pUACR/preview",
+                        duration: "43m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmoviecrue.com%2Fwp-content%2Fuploads%2F2022%2F08%2F1260707-scaled.jpg&f=1&nofb=1&ipt=9103124ad5a32b5657f41a00781bcb5745d9a1a660472a26873f109e7760e07d&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.7hdffKRgHv0UBdAWzUVtVAHaJQ%26pid%3DApi&f=1&ipt=bf5d4958fa980a4cafb58c4de18a5f5217aa831f16947210163f4520f60c5d1d&ipo=images",
         tmdbID: 90802,
