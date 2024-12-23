@@ -113,92 +113,92 @@ export const series: SeriesProps[] = [
                 episodes: [
                     {
                         ep: 1,
-                        src: "",
+                        src: "https://drive.google.com/file/d/1a5FV8V-WAD32noiH-6S9Xlw5ASshnBxI/preview",
                         duration: "43m"
                     },
                     {
                         ep: 2,
-                        src: "",
+                        src: "https://drive.google.com/file/d/1gOfcRJFVPajxyQgKcWyno5zs8r55NyoQ/preview",
                         duration: "43m"
                     },
                     {
                         ep: 3,
-                        src: "",
+                        src: "https://drive.google.com/file/d/1oy2ZTBBr4BjB8Kz22-QW30VDhAs0uiJQ/preview",
                         duration: "43m"
                     },
                     {
                         ep: 4,
-                        src: "",
+                        src: "https://drive.google.com/file/d/1SQ-AZb1sQo3FzfdSBtflfR0GA8f0K9ML/preview",
                         duration: "43m"
                     },
                     {
                         ep: 5,
-                        src: "",
+                        src: "https://drive.google.com/file/d/1bnPFrGLC9-H2JtCIuggfwziiTEWWmn2m/preview",
                         duration: "43m"
                     },
                     {
                         ep: 6,
-                        src: "",
+                        src: "https://drive.google.com/file/d/1BL9b1l4BBolzwGgYMk5WQwqial1x-p4e/preview",
                         duration: "43m"
                     },
                     {
                         ep: 7,
-                        src: "",
+                        src: "https://drive.google.com/file/d/1U06bRVIXF3lZnPf2jH9JF0w9SdHsM5ix/preview",
                         duration: "43m"
                     },
                     {
                         ep: 8,
-                        src: "",
+                        src: "https://drive.google.com/file/d/1cQPpkMVM_Al4GpLmyc0KxKErcmm6iAkg/preview",
                         duration: "43m"
                     },
                     {
                         ep: 9,
-                        src: "",
+                        src: "https://drive.google.com/file/d/14Jk0l_CU0TKKn7jUhiWCQasm3o-B_0lr/preview",
                         duration: "43m"
                     },
                     {
                         ep: 10,
-                        src: "",
+                        src: "https://drive.google.com/file/d/15XXHjNdY5MU7npy91ucbUUfn71OYACzS/preview",
                         duration: "43m"
                     },
                     {
                         ep: 11,
-                        src: "",
+                        src: "https://drive.google.com/file/d/1p4KvFZ5ejB3RvqfkKPrbMAs5gHnixp3M/preview",
                         duration: "43m"
                     },
                     {
                         ep: 12,
-                        src: "",
+                        src: "https://drive.google.com/file/d/1KQNt0RqEc-lI69_FWVaUAqaFiUtItY9d/preview",
                         duration: "43m"
                     },
                     {
                         ep: 13,
-                        src: "",
+                        src: "https://drive.google.com/file/d/1ar5gY2rzkU7IzfT_HSknWiw4yocQ--Lg/preview",
                         duration: "43m"
                     },
                     {
                         ep: 14,
-                        src: "",
+                        src: "https://drive.google.com/file/d/1h5OLoV33HYbdTQPKXng7yCAuQNlbOCwE/preview",
                         duration: "43m"
                     },
                     {
                         ep: 15,
-                        src: "",
+                        src: "https://drive.google.com/file/d/1eUkT3JDNfkuP2bGUyz9VSQ-zRj4iVeSW/preview",
                         duration: "43m"
                     },
                     {
                         ep: 16,
-                        src: "",
+                        src: "https://drive.google.com/file/d/1A0bOQpgz4dxXIKCkg6fy3qxlSaqdL0xV/preview",
                         duration: "43m"
                     },
                     {
                         ep: 17,
-                        src: "",
+                        src: "https://drive.google.com/file/d/1VZtJzXTXrdIjbry0mEZbiLgqs1SDAY6c/preview",
                         duration: "43m"
                     },
                     {
                         ep: 18,
-                        src: "",
+                        src: "https://drive.google.com/file/d/1mwX2n-72zUqwkHZrf125WrTq3yOUdu3A/preview",
                         duration: "43m"
                     },
                 ]
