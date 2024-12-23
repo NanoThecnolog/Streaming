@@ -42,7 +42,5 @@ export interface TMDBSeries {
 }
 export interface DubbedEpisode {
     tmdbID: number,
-    season: number,
-    lang: string,
-    episodes: Episodes[]
+    season: Seasons[],
 }

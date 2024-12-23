@@ -107,6 +107,146 @@ export const series: SeriesProps[] = [
                     },
                 ]
             },
+            {
+                s: 2,
+                lang: "Legendado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 2,
+                        src: "",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 3,
+                        src: "",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 4,
+                        src: "",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 5,
+                        src: "",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 6,
+                        src: "",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 7,
+                        src: "",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 8,
+                        src: "",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 9,
+                        src: "",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 10,
+                        src: "",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 11,
+                        src: "",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 12,
+                        src: "",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 13,
+                        src: "",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 14,
+                        src: "",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 15,
+                        src: "",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 16,
+                        src: "",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 17,
+                        src: "",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 18,
+                        src: "",
+                        duration: "43m"
+                    },
+                ]
+            },
+            {
+                s: 3,
+                lang: "",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "",
+                        duration: ""
+                    },
+                ]
+            },
+            {
+                s: 4,
+                lang: "",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "",
+                        duration: ""
+                    },
+                ]
+            },
+            {
+                s: 5,
+                lang: "",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "",
+                        duration: ""
+                    },
+                ]
+            },
+            {
+                s: 6,
+                lang: "",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "",
+                        duration: ""
+                    },
+                ]
+            },
         ]
     },
     {
@@ -1210,6 +1350,41 @@ export const series: SeriesProps[] = [
                         ep: 8,
                         src: "https://drive.google.com/file/d/1Lyu6TKPzwh7EzfQoQ4K6mWF5f92xtkM9/preview",
                         duration: "14m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1iBvSsOKRH4oyKUqxDWuc9K-0G550IuZt/preview",
+                        duration: "18m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1qR8p9SVRFv65nd4HnHpPAWs2NnyXQ-o4/preview",
+                        duration: "8m"
+                    },
+                    {
+                        ep: 11,
+                        src: "https://drive.google.com/file/d/1lZT39l1J1IxRaHjhguoW1YByu0kqyqk2/preview",
+                        duration: "15m"
+                    },
+                    {
+                        ep: 12,
+                        src: "https://drive.google.com/file/d/1D7NeN0ZJ-DO1hurhJnCqhB8wMmEsc23I/preview",
+                        duration: "8m"
+                    },
+                    {
+                        ep: 13,
+                        src: "https://drive.google.com/file/d/1dKdhSyTAC3X75SJ8YlAk_nNmbgRCgCt0/preview",
+                        duration: "18m"
+                    },
+                    {
+                        ep: 14,
+                        src: "https://drive.google.com/file/d/1vesF73QfRRaA_ZbPKI9kTzpnc09ZHmgn/preview",
+                        duration: "18m"
+                    },
+                    {
+                        ep: 15,
+                        src: "https://drive.google.com/file/d/17uVeQ-OgFORssA-DAffFY1zTp-mUDxVC/preview",
+                        duration: "12m"
                     },
                 ]
             },
