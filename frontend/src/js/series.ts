@@ -27,6 +27,110 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://images.squarespace-cdn.com/content/51b3dc8ee4b051b96ceb10de/1689026722676-9333AHQABGP246R79AZ8/new-trailer-for-taylor-sheridans-special-ops-lioness-series-starring-zoe-saldaa-and-morgan-freeman.jpg?format=1500w&content-type=image%2Fjpeg",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.TbKNqaTwTZVAa6dbsUMshQHaLH%26pid%3DApi&f=1&ipt=17f2c1efe636348e83622469733a7da5344b20299161d743e6f1b39837276835&ipo=images",
+        tmdbID: 113962,
+        title: "Lioness",
+        subtitle: "",
+        description: "Inspirado por um programa militar americano, Operação: Lioness segue as agentes Joe, Kaitlyn e Cruz enquanto elas embarcam em uma perigosa missão secreta para impedir o próximo 11 de setembro.",
+        genero: ["Drama", "Ação", "Guerra", "Paramount"],
+        faixa: "A16",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/17GVJpbeivQcifJivHl7oExA3uncKjPBg/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1suwFIWxsqXQtollhN5JpHASG9_QYKyRq/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1AEsmnFUeTsKFV9pXRla5e_M_732vgJb-/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1zmaFzih1oBOzvd6gEnC7qnVmkfwQbCKr/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/18mSsTNQgXTs4ZeqroL0BdJrx4G1tOI4J/preview",
+                        duration: "39m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1-j8K5b2SMEwZOJV0KahvIqpwxGhBNIH_/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1b3Wk-f5rXSbY7UmTBsotJ0muz3yswweT/preview",
+                        duration: "47m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1tDV2JQ6dneX90ZE42k_XvtbTWCyTjPFt/preview",
+                        duration: "57m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1zdfcufbJCh8n45XJiBFXGbf972xN4zCW/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1YtGWoIsdk_P64yS7v3WcOiSbbAIgK-9W/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1ftNmg6okPOfE-4-3Uk5yE8geQQ7GLzLf/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1pWnpYUOrsS61z_QcadprHZrqUpKt2vtE/preview",
+                        duration: "47m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1hJzOEy1p-71zQ8b_0lf0J-JiOu4py8OG/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1S2Qm36-YkX5Y0ZyGQS8YgVpEqqahv6Hg/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1mq2FJxCYLl7XmW4RExpcx0BRIHpxKfaY/preview",
+                        duration: "56m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1-S3afVMUARSLHHfneHSQXcvreYslpZZ4/preview",
+                        duration: "51m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.numerama.com%2Fwp-content%2Fuploads%2F2021%2F08%2Flucifer-saison6.jpg&f=1&nofb=1&ipt=de8e8d62f5a81b4786564ab7cfc73958d8934896d30b73b33920e4124ce9efd2&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.oUOBjta7mRZHj2WOLZGRpQHaLH%26pid%3DApi&f=1&ipt=6825064ce57392dc379b3bbca57fbb7dd22d0a845f3718a95a09e1828503c41b&ipo=images",
         tmdbID: 63174,
@@ -1299,7 +1403,7 @@ export const series: SeriesProps[] = [
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmeups.com.br%2Fwp-content%2Fuploads%2F2024%2F12%2Fnivel-secreto-6.jpg.webp&f=1&nofb=1&ipt=059ce9481c655cb7348cf256a90cde4efc247b2dc7375442ed9148844c9995ab&ipo=images",
-        overlay: "",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.l1pB1lF0OZTVnK0xgS6WBwHaJQ%26pid%3DApi&f=1&ipt=77ae5e1498aa60c32b8d63b3f927fbc5a5907d0c4e6cc2803e5bbf251d03e0d1&ipo=images",
         tmdbID: 261579,
         title: "Nivel Secreto",
         subtitle: "",
@@ -7695,6 +7799,11 @@ export const series: SeriesProps[] = [
                         ep: 5,
                         src: "https://drive.google.com/file/d/1x5XYFCCH--P467sWY0Nem-RL9_NqfLR0/preview",
                         duration: "57m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1iyXyDiQuidpAlWtDWw--IxzjQAIItH54/preview",
+                        duration: "01h 20m"
                     }
                 ]
             },
