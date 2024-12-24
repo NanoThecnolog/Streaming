@@ -2,7 +2,7 @@
 
 Seja bem vindo ao repositório da plataforma de Streaming FlixNext.
 
-Este projeto foi desenvolvido com foco em performance e uma experiência de usuário, permitindo que usuários explorem, pesquisem e assistam a conteúdos diversos de forma gratuita.
+Este projeto foi desenvolvido com foco em performance e experiência de usuário, permitindo que usuários explorem, pesquisem e assistam a conteúdos diversos de forma gratuita.
 
 ## 🚀 Funcionalidades
 
@@ -70,6 +70,8 @@ Siga os passos abaixo para rodar o projeto localmente:
 
 Este projeto está sob a licença CC-BY-NC-4.0. Para mais detalhes, entre em contato.
 
+Este também é um projeto de finalização de curso.
+
 ---
 
-Feito com ❤️ e código por [NanoThecnolog](https://github.com/NanoThecnolog). Sinta-se à vontade para entrar em contato!
+Feito por [NanoThecnolog](https://github.com/NanoThecnolog).
