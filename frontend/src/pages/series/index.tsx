@@ -27,12 +27,12 @@ export default function Series(status: string) {
         "Drama",
         "Fantasia",
         "Animação",
-        "Disney+",
-        "Hbo",
         "Netflix",
+        "Hbo",
+        "Disney+",
         "Prime video",
         "Apple tv",
-        "Dc",
+        "DC",
         "Marvel",
     ]
 

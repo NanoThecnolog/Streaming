@@ -20,6 +20,8 @@ import Stars from "@/components/ui/StarAverage";
 import Image from "next/image";
 import Adult from "@/components/ui/Adult";
 import SEO from "@/components/SEO";
+import EpisodeCard from "@/components/seriesComponents/EpisodeCard";
+import ChangeLanguage from "@/components/ui/SwitchLang";
 
 export default function Serie(status: string) {
     //refatorar
@@ -35,6 +37,7 @@ export default function Serie(status: string) {
     const [TMDBBackDrop, setTMDBBackDrop] = useState<string | null>(null)
     const [TMDBPoster, setTMDBPoster] = useState<string | null>(null)
     const [vote_average, setVote_Average] = useState<number>(0)
+
 
     useEffect(() => {
         const getUserData = async () => {
@@ -111,17 +114,7 @@ export default function Serie(status: string) {
         )
         setEpisodesData(episodesArray)
     }
-    function minToHour(min: number = 0): string {
-        if (min <= 0) {
-            return "--"
-        }
-        const hora = Math.floor(min / 60)
-        const remainingMin = min % 60
-        if (hora === 0) {
-            return `${remainingMin}m`
-        }
-        return `${hora}h ${remainingMin}m`
-    }
+
 
     function handleChangeSeason(value: string) {
         const season = parseInt(value)
@@ -130,14 +123,16 @@ export default function Serie(status: string) {
         } else return;
     }
 
-    function handlePlayEpisode(ep: Episodes, season: number) {
+
+
+    function handlePlayEpisode(ep: Episodes, season?: number) {
         const epNumber = ep.ep
         const episode = new URLSearchParams({
             title: `${serie?.title}`,
             subtitle: `${serie?.subtitle}`,
             episode: `${epNumber}`,
             src: `${ep.src}`,
-            season: `${season}`
+            season: `${season ?? seasonToShow}`
         })
         Router.push(`/watch/serie?${episode}`)
     }
@@ -257,24 +252,21 @@ export default function Serie(status: string) {
                                         const season = episodesData[seasonToShow - 1];
                                         const episode = season?.find(e => e.episode_number === ep.ep)
                                         const image = episode ? `https://image.tmdb.org/t/p/original${episode?.still_path}` : '/blurImage.png';
+                                        const episodeInfo = {
+                                            serieTmdbId: serie.tmdbID,
+                                            seasonNumber: episode?.season_number,
+                                            image: image,
+                                            episode: episode,
+                                            data: ep
+                                        }
                                         return (
-                                            <div key={ep.src} className={styles.episodeContainer} onClick={() => handlePlayEpisode(ep, seasonToShow)}>
-                                                <div
-                                                    className={styles.episodeImage}
-                                                    style={{ backgroundImage: `url(${image})` }}
-                                                ><PlayIcon size={35} /></div>
-                                                <div className={styles.epiInfo}>
-                                                    <h3>Ep.{ep.ep}: {episode?.name}</h3>
-                                                    <p>Duração: {episode ? minToHour(episode.runtime) : ep.duration ? ep.duration : "--"}</p>
-                                                    <p className={styles.description} title={episode?.overview}>{episode?.overview}</p>
-                                                </div>
+                                            <div key={ep.src} className={styles.episodeContainer}>
+                                                <EpisodeCard episodeData={episodeInfo} handlePlay={handlePlayEpisode} />
                                             </div>
                                         )
                                     })
                                 }
                             </div>
-
-
                         </div>
                     ) : "Carregando..."
                 }

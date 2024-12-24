@@ -1,6 +1,6 @@
 import { DubbedEpisode } from "@/@types/series";
 
-const dubbedEpisodes: DubbedEpisode[] = [
+export const dubbedEpisodes: DubbedEpisode[] = [
 
     /**
     {
