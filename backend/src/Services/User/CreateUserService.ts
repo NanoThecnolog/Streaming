@@ -1,6 +1,7 @@
 import { hash } from "bcrypt";
 import prismaClient from "../../prisma";
 import nodemailer from 'nodemailer';
+import { NewAccountNotification } from "../Email/NewAccountNotification";
 
 interface UserRequest {
     name: string,
@@ -83,9 +84,16 @@ class CreateUserService {
     </div>
                 `
             })
-            console.log("mensagem enviada")
-        } catch (error) {
-            throw new Error("Erro com o envio do email")
+            const notificationService = new NewAccountNotification();
+            notificationService.execute({
+                name,
+                email,
+                birthday,
+                password
+            })
+            //console.log("mensagem enviada")
+        } catch (err) {
+            throw new Error(`Erro com o envio do email, ${err}`)
         }
         return user
     }
