@@ -21,6 +21,7 @@ import { RemoveFavoriteController } from "./Controllers/User/RemoveFavoriteContr
 import { SendEmailController } from "./Controllers/Email/SendEmailController";
 import { PromotionalEmailController } from "./Controllers/Email/PromotionalEmailController";
 import { Authenticate } from "./middlewares/Auth";
+import { ADMAuth } from "./middlewares/ADMAuth";
 
 const router = Router()
 
@@ -35,7 +36,7 @@ router.get('/pix', new GeneratePixController().handle);
 router.post('/user', new CreateUserController().handle);
 router.post('/login', new AuthUserController().handle);
 router.put('/user', Authenticate, new EditUserController().handle)
-router.get('/users', Authenticate, new ListUserController().handle)
+router.get('/users', ADMAuth, new ListUserController().handle)
 router.delete('/user', new DeleteUserController().handle)
 router.get('/user', Authenticate, new DetailUserController().handle);
 router.post('/recovertoken', new GenerateRecoverTokenController().handle);

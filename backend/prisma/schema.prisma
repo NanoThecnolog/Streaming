@@ -25,6 +25,7 @@ model user {
   avatar           String?
   verified         Boolean      @default(false)
   news             Boolean      @default(true)
+  access           Boolean      @default(false)
   resetToken       String?
   resetTokenExpire DateTime?
 
