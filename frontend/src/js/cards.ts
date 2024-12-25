@@ -5,6 +5,7 @@ export const cards: CardsProps[] = [
     TMDB: https://www.themoviedb.org/?language=pt-BR
     url pra usar imagem do tmdb:
     https://image.tmdb.org/t/p/ + (opção de tamanho: original, w500, etc)/ + poster.file_path
+    fundo preto largo: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images
     */
     /*
     {
@@ -21,6 +22,55 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.hdqwalls.com%2Fwallpapers%2Fpedro-pascal-is-marcus-acacius-in-gladiator-2-hi.jpg&f=1&nofb=1&ipt=e417210ca378478a0f0574a959e2aaf9d4626fb2058388ee96ba9b22306405c9&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.XmgF2vx1n4EVa88oNFZdnQHaK9%26pid%3DApi&f=1&ipt=075bbb5c80d0174ddab5de1ce6495883f206ac156333a456e6272c20a36432b3&ipo=images",
+        tmdbId: 558449,
+        title: "Gladiador 2",
+        subtitle: "",
+        description: "Anos depois de testemunhar a trágica morte do reverenciado herói Maximus nas mãos de seu tio malvado, Lucius se vê forçado a lutar no Coliseu depois que sua terra natal é conquistada por dois imperadores tirânicos, que agora governam Roma. Com o coração ardendo de raiva e o destino do Império pendurado por um fio, Lucius deve enfrentar perigos e inimigos, redescobrindo em seu passado a força e a honra necessárias para trazer a glória de Roma de volta ao seu povo. Prepare-se para uma jornada épica de coragem e vingança na sangrenta arena do Coliseu.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/13h9JF_Dzw082_Qz-cDTQtWdaNI2clKFw/preview",
+        duration: "02h 30m",
+        genero: ["Ação", "Aventura", "Drama"]
+    },
+
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FvaVaNrscmsG8CUKYxiwZGFNqGJo.jpg&f=1&nofb=1&ipt=fb18d5d82b5d414be97dd1be8b5e9209e0b30982fa325bde7048ed5379ff1731&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.V0LCOdkDmKVWKrgFashGegHaLH%26pid%3DApi&f=1&ipt=0f0f1b7eeb585dc2a651dbc90e1b8a51d3ba8c22a3e6d71597a72b6238089d36&ipo=images",
+        tmdbId: 771,
+        title: "Esqueceram de Mim",
+        subtitle: "",
+        description: "Uma família de Chicago planeja passar o Natal em Paris. Porém, em meio às confusões da viagem, um dos filhos, Kevin, acaba esquecido em casa. O garoto de apenas oito anos é obrigado a se virar sozinho e defender a casa de dois insistentes ladrões.",
+        faixa: "L",
+        src: "https://drive.google.com/file/d/1uPU11_FZVJ3WSzHk219Y8jB3oZzi8HVK/preview",
+        duration: "01h 43m",
+        genero: ["Comédia", "Família"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F8fnYJPoXxwAN4valDLgz2whMGTH.jpg&f=1&nofb=1&ipt=d3217d55ae3b64b5ef13db67c667c70b9da9fe125dfb38eafd510ce51fd4847e&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.kpzAC0Wp4WHB9g4xlHfuMAHaLH%26pid%3DApi&f=1&ipt=1611b7429f1cfdf369e3b115a803f184e06db76709ee3aeede64d404745718ad&ipo=images",
+        tmdbId: 772,
+        title: "Esqueceram de Mim 2",
+        subtitle: "",
+        description: "O pequeno Kevin se vê novamente sozinho, quando em virtude de uma confusão no aeroporto que fez com que ele ao invés de embarcar com a família para a Flórida partisse sozinho para Nova York. Mas como tinha o cartão de crédito do pai, ele se hospeda no melhor hotel da cidade, mas também encontra os dois ladrões que tinha enfrentado no passado e que agora planejam se vingar dele.",
+        faixa: "L",
+        src: "https://drive.google.com/file/d/11IAFVmZPibJ8e0i-y-ccPs3zlgmUsumN/preview",
+        duration: "02h",
+        genero: ["Comédia", "Família", "Aventura"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F36xTkr5CxVGKqe55q6lxVa8LyK3.jpg&f=1&nofb=1&ipt=bbbcd9704b66ff1861af62273be5335a69e464b69fc8d9b82099c73e71a664db&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Neg_EaxWF_GF-0M2lBTVDAHaJQ%26pid%3DApi&f=1&ipt=c521e2cb46da0c39f13d3ad8d0214feeca7b44aa0dc1b7871d0342e0a38f9d23&ipo=images",
+        tmdbId: 755339,
+        title: "Tudo Bem no Natal Que Vem",
+        subtitle: "",
+        description: "Depois de levar um tombo na véspera de Natal, o rabugento Jorge desmaia e acorda um ano depois sem lembrar do que se passou. Ele logo percebe que está condenado a continuar acordando na véspera de Natal, ano após ano, tendo que lidar com as consequências do que seu outro “eu” fez nos demais 364 dias.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1zJa4YNMVP93B1p4LReFUo-GbqBkDwPER/preview",
+        duration: "01h 40m",
+        genero: ["Comédia", "Família", "Drama", "Netflix"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2024%2F09%2Foperacao-natal.jpg&f=1&nofb=1&ipt=acc75712377d123432c911058577f222f0e46436415ad00b5b6df35c6393e80d&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.DWdQMR3t6JqIFP6n4gR-VQHaLH%26pid%3DApi&f=1&ipt=9aa9301c9bda4701c6322a3420129ff62cb703684a5c10cb99b0f71592c2e520&ipo=images",
         tmdbId: 845781,
@@ -31,6 +81,18 @@ export const cards: CardsProps[] = [
         src: "https://drive.google.com/file/d/1hZf5v9_4Qun0sK_f9Dn0-72DiYWg-CxI/preview",
         duration: "2h 4m",
         genero: ["Ação", "Comédia", "Fantasia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.qgb-PkrOCypyzH_X6HDhJAHaLH%26pid%3DApi&f=1&ipt=a643849c8312a9d6afa1743a5acffdef01890fa178fcedac9553d868fc1484c6&ipo=images",
+        tmdbId: 1300962,
+        title: "A Fera Interior",
+        subtitle: "",
+        description: "Willow, de dez anos, segue seus pais em uma de suas caminhadas secretas noturnas até o coração de uma floresta antiga. Depois de testemunhar o pai passar por uma terrível transformação, ela também se torna presa do sombrio segredo ancestral que eles tentaram desesperadamente esconder.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1ZISJzXKY38p4rmoJfnF1RSJbZb3Qv6Y-/preview",
+        duration: "01h 37m",
+        genero: ["Terror", "Drama", "Suspense"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.hdqwalls.com%2Fdownload%2Fvenom-the-last-dance-8k-vl-1440x900.jpg&f=1&nofb=1&ipt=d54519fd85462e130486bc4fc68c3aecc68c902d0189647ccf8c03260e17454c&ipo=images",
