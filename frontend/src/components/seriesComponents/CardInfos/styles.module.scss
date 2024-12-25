@@ -22,11 +22,12 @@
         background-color: rgba(51, 51, 51, 1);
         z-index: 9999;
         padding-bottom: 2rem;
+        overflow: hidden;
 
 
         .desc_image {
             width: 100%;
-            height: 55vh;
+            height: 55%;
             background-repeat: no-repeat;
             background-size: cover;
             object-position: center;
@@ -144,7 +145,7 @@
         .desc_mid {
             padding: 0 1rem 1rem 1rem;
             margin: 0 15px;
-            height: 14%;
+            height: 13%;
             overflow-y: auto;
 
             &::-webkit-scrollbar {
