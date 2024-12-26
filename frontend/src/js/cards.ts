@@ -690,7 +690,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "O destino da humanidade está em jogo quando duas raças de robôs, os Autobots e os vilões Decepticons, chegam à Terra. Os robôs possuem a capacidade de se transformarem em diferentes objetos mecânicos enquanto buscam a chave do poder supremo com a ajuda do jovem Sam.",
         faixa: "10",
-        src: "https://drive.google.com/file/d/1sE1OFGRBvD49ciRO4RtKLZDU_MR15Dc3/preview",
+        src: "https://drive.google.com/file/d/1PNyKuzHZuq5l_j0FcDbDBCZ0PdOiwP7l/preview",
         duration: "02h 24m",
         genero: ["Ação", "Ficção Científica", "Aventura"]
     },
@@ -702,7 +702,7 @@ export const cards: CardsProps[] = [
         subtitle: "A Vingança dos Derrotados",
         description: "Passaram-se dois anos desde que Sam Witwicky e os Autobots salvaram a raça humana e tentam ter uma vida normal: Sam está começando a faculdade, enquanto os Autobots trabalham com uma organização militar secreta e tentam construir uma casa para eles na Terra. Porém, um antigo Decepticon conhecido como 'The Fallen' aparece para se vingar, então Sam e sua namorada Mikaela precisam desvendar a história dos Transformes e achar um caminho para derrotá-lo.",
         faixa: "10",
-        src: "https://drive.google.com/file/d/1yaqIjDZaWeaXOIq7gb0-TVqXGHA8D0ae/preview",
+        src: "https://drive.google.com/file/d/1V5lsSG168ktOAJt1fJbp2nXKQ8ld3Fwu/preview",
         duration: "02h 30m",
         genero: ["Ação", "Ficção Científica", "Aventura"]
     },
@@ -714,7 +714,7 @@ export const cards: CardsProps[] = [
         subtitle: "O Lado Oculto da Lua",
         description: "Sam Witwicky e sua nova namorada, Carly, entram na briga quando os Decepticons renovam sua guerra contra os Autobots. Optimus Prime acredita que ressuscitar o antigo Transformer Sentinel Prime, ex-líder dos Autobots, pode levar à vitória. Essa decisão tem consequências devastadoras e a guerra parece pender a favor dos Decepticons, causando um conflito épico em Chicago.",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/12Gik0v7WNFO-3Bjj-iX0EEkKrmE9AMMY/preview",
+        src: "https://drive.google.com/file/d/16absZL83yGNsgbF5_wwO1HejKkOwTZoO/preview",
         duration: "02h 34m",
         genero: ["Ação", "Ficção Científica", "Aventura"]
     },
