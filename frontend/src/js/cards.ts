@@ -749,7 +749,7 @@ export const cards: CardsProps[] = [
         subtitle: "O Lado Oculto da Lua",
         description: "Sam Witwicky e sua nova namorada, Carly, entram na briga quando os Decepticons renovam sua guerra contra os Autobots. Optimus Prime acredita que ressuscitar o antigo Transformer Sentinel Prime, ex-líder dos Autobots, pode levar à vitória. Essa decisão tem consequências devastadoras e a guerra parece pender a favor dos Decepticons, causando um conflito épico em Chicago.",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/16absZL83yGNsgbF5_wwO1HejKkOwTZoO/preview",
+        src: "https://drive.google.com/file/d/1V8EO0jLc4bZVUhnM-KcG2ouuBtw1_X41/preview",
         duration: "02h 34m",
         genero: ["Ação", "Ficção Científica", "Aventura"]
     },
