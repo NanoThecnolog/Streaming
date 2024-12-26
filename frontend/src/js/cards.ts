@@ -22,6 +22,42 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages8.alphacoders.com%2F673%2Fthumb-1920-673877.jpg&f=1&nofb=1&ipt=fc03cfed8b3fe662cf0ffdc27d7538f27bafcfda27a4186df7bb81b13ed00564&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.uPAwlMJrLPwHpQ2-x8n65gHaLH%26pid%3DApi&f=1&ipt=a788ae5d7fe9a1378f1837b2879820675ac85f70062ef1da76577b8e461e46d9&ipo=images",
+        tmdbId: 127585,
+        title: "X-Men",
+        subtitle: "Dias de Um Futuro Esquecido",
+        description: "O conjunto definitivo dos X-Men luta uma guerra pela sobrevivência da espécie em dois períodos de tempo enquanto unem forças com seus eus mais jovens em uma batalha épica que deve mudar o passado – para salvar nosso futuro.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1qoOwJ0tdlvqnTNVXNpKCTLMKHeL3EITj/preview",
+        duration: "02h 11m",
+        genero: ["Ação", "Ficção Científica", "Marvel", "Super Herói"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fconteudo.imguol.com.br%2Fc%2Fentretenimento%2F2013%2F07%2F24%2Fcartaz-de-divulgacao-de-wolverine---imortal-de-james-mangold-1374709748006_1920x1080.jpg&f=1&nofb=1&ipt=8ba99fd1b03c96d9264b91db589201334a75c5c17e2e67828c1184c20d6d4775&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.4ePp3D5z8z6N35UI4t585gHaK-%26pid%3DApi&f=1&ipt=0a56e86894d180f7075b5852a37797d1daf6b031619001d7a3f7ac8b9d2e429b&ipo=images",
+        tmdbId: 76170,
+        title: "Wolverine Imortal",
+        subtitle: "",
+        description: "Após matar Jean Grey para salvar a humanidade, Logan passou a viver na selva. Deprimido, ele é encontrado em um bar pela jovem Yukio, filha de Yashida, que foi salvo por Logan em Nagasaki na época da bomba atômica. Yashima deseja reencontrar Logan para fazer-lhe uma proposta: transferir seu fator de cura para ele, de forma que Logan possa, enfim, se tornar mortal e levar uma vida como uma pessoa qualquer. Ele recusa o convite, mas acaba infectado por uma mutante imune a venenos de todo tipo.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1nM_v53Fa19K2bLhlc0GyDh2o-IhaYFZF/preview",
+        duration: "02h 06m",
+        genero: ["Ação", "Ficção Científica", "Marvel", "Super Herói"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FxniozTQSuimoQGEdV6ieUQPRTyu.jpg&f=1&nofb=1&ipt=91c8fc05665a88c4f92956187b3a9f3a49fcc171167aa279677196f5d9c8fd54&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Dlws66xmZRtj3RqeEMJ0XgHaJ4%26pid%3DApi&f=1&ipt=a1e917aa275deeea97b885762687ebf29477b1e86c022b311987d52caa5822e0&ipo=images",
+        tmdbId: 339964,
+        title: "Valerian e a Cidade dos Mil Planetas",
+        subtitle: "",
+        description: "Século XXVIII. Valérian é um agente viajante do tempo e do espaço que luta ao lado da parceira Laureline, por quem é apaixonado, em defesa da Terra e seus planetas aliados, continuamente atacados por bandidos intergaláticos. Quando chegam no planeta Alpha, eles precisarão acabar com uma operação comandada por grandes forças que deseja destruir os sonhos e as vidas dos dezessete milhões de habitantes do planeta.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/126ILFIiE1rXzCvwRcx5w_WXB5Hvs7evl/preview",
+        duration: "02h 17m",
+        genero: ["Aventura", "Ficção Científica", "Ação"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.hdqwalls.com%2Fwallpapers%2Fpedro-pascal-is-marcus-acacius-in-gladiator-2-hi.jpg&f=1&nofb=1&ipt=e417210ca378478a0f0574a959e2aaf9d4626fb2058388ee96ba9b22306405c9&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.XmgF2vx1n4EVa88oNFZdnQHaK9%26pid%3DApi&f=1&ipt=075bbb5c80d0174ddab5de1ce6495883f206ac156333a456e6272c20a36432b3&ipo=images",
         tmdbId: 558449,
@@ -33,7 +69,6 @@ export const cards: CardsProps[] = [
         duration: "02h 30m",
         genero: ["Ação", "Aventura", "Drama"]
     },
-
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FvaVaNrscmsG8CUKYxiwZGFNqGJo.jpg&f=1&nofb=1&ipt=fb18d5d82b5d414be97dd1be8b5e9209e0b30982fa325bde7048ed5379ff1731&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.V0LCOdkDmKVWKrgFashGegHaLH%26pid%3DApi&f=1&ipt=0f0f1b7eeb585dc2a651dbc90e1b8a51d3ba8c22a3e6d71597a72b6238089d36&ipo=images",
@@ -738,7 +773,7 @@ export const cards: CardsProps[] = [
         subtitle: "O Último Cavaleiro",
         description: "Optimus Prime encontra seu planeta natal, Cybertron, agora um planeta morto, e descobre que foi responsável por matá-lo. Ele encontra uma maneira de trazer o planeta de volta à vida, mas para isso precisa encontrar um artefato que está na Terra.",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/1Vfacmbd5mTYHtb6sq77cUbCeEjENlVUc/preview",
+        src: "https://drive.google.com/file/d/1juDMzSP8wYEOjMKlggalzu8KXpbNHunY/preview",
         duration: "02h 29m",
         genero: ["Ação", "Ficção Científica"]
     },
