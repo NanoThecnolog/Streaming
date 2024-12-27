@@ -27,6 +27,110 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FvoKEhzb4ExOmR0WSvQgLTTqRUEu.jpg&f=1&nofb=1&ipt=38c32f78e510adcfe6a042c692fff2f3f57cff121b84566be5d6df4c1fb88637&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.M4C63biWrv1b-mpGKJ3fwgHaLH%26pid%3DApi&f=1&ipt=d6b4aeb7cbf33adb808e8ac3d1cf539a4a4b059731a2b0dc108dd256957d18c4&ipo=images",
+        tmdbID: 108978,
+        title: "Reacher",
+        subtitle: "",
+        description: "Quando o policial militar aposentado Jack Reacher é preso por um assassinato que não cometeu, ele se vê no meio de uma trama mortal cheia de policiais corruptos, empresários obscuros e políticos conspiradores. Só com sua inteligência, ele precisa descobrir o que está havendo em Margrave, Geórgia.",
+        genero: ["Ação", "Crime", "Suspense", "Prime Vídeo"],
+        faixa: "A16",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1h4s2S5s46SUbtGRgW9NYop9U0A6yj6Qr/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1leHMhV6UbG-hB8zJfzhV2nuyZZLK44bT/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/15qEq0TICQ7s6GMwEvvni7BNec4yBSPLj/preview",
+                        duration: "47m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1a6zLO5ybTKYBSLyjEphYgGJUiKYMq74O/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1hK-vFpUKncfa1E0Ayb537JWjBilfVw59/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1glegWNiMdmQrs98qQ5DKCXmhIyn3BImD/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/177fnUyhrun-oirYUkeh5YxTHRN1sKyyI/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/19hSs2gTsdVgxfnRnXJsjT0ervWXJqDxS/preview",
+                        duration: "52m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1wDI467_uWp0GS3DrTVp-2IedI0JzWJT9/preview",
+                        duration: "55m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/120TJKTa4NKqDbgJVhC2lIEAuvvNZH_2c/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1t34Tp-NFbnpckKtt-pcHDFhr6tzouIFc/preview",
+                        duration: "47m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1jBj6Xr-PNSCEUQ5unC-3sZxZC_3QP24z/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1Ou9rt1TwXDwcI_Xlwp_oqcR4sqEElGMO/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/10uc2FzkUCcRbUNmnuSVULlEOUod57oTQ/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/110zGgRVuWXkzbxAvA4VjpjtdbyQ9LsdP/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1lIrFJW0C4YXcSRkbFzwt7aZq8wbyBn0P/preview",
+                        duration: "42m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://images.squarespace-cdn.com/content/51b3dc8ee4b051b96ceb10de/1689026722676-9333AHQABGP246R79AZ8/new-trailer-for-taylor-sheridans-special-ops-lioness-series-starring-zoe-saldaa-and-morgan-freeman.jpg?format=1500w&content-type=image%2Fjpeg",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.TbKNqaTwTZVAa6dbsUMshQHaLH%26pid%3DApi&f=1&ipt=17f2c1efe636348e83622469733a7da5344b20299161d743e6f1b39837276835&ipo=images",
         tmdbID: 113962,
