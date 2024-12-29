@@ -22,6 +22,66 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fentretetizei.com.br%2Fwp-content%2Fuploads%2F2024%2F05%2FCULPA-TUYA_3-scaled.jpg&f=1&nofb=1&ipt=d986f3d32bfa6c1bd59cad878aa55edc4adb5192506ef6def329a9d4897dc39f&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.-7jpxlPRjk6BK8iIb4nBkgAAAA%26pid%3DApi&f=1&ipt=627a04b8e84d850efb213949bb3a9dcd41999eca83932c2cbffb491c0035336c&ipo=images",
+        tmdbId: 1156593,
+        title: "Sua Culpa",
+        subtitle: "",
+        description: "O amor entre Noah e Nick aparenta ser inabalável, apesar das tentativas de seus pais de separá-los. Mas o emprego dele, e a entrada dela na faculdade abrem suas vidas para novos relacionamentos. O retorno de uma ex-namorada vingativa e da mãe de Nick, com intenções obscuras, vão balançar não só o relacionamento deles, mas também de toda a família Leister. Quando tantas pessoas buscam destruir um relacionamento, será que ele consegue sobreviver?",
+        faixa: "18",
+        src: "https://drive.google.com/file/d/112q-4CPrq5tP6eaqYYUa1b7rSJuJTX1S/preview",
+        duration: "02h",
+        genero: ["Romance", "Drama", "Prime Vídeo"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages2.alphacoders.com%2F127%2F1275138.jpg&f=1&nofb=1&ipt=986104fcece39f82da7a713fab105d99a36098faba6d4017fb5c2fa9c2c3bbc3&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.193SXQmglIpqfcYmsAuODAHaJ4%26pid%3DApi&f=1&ipt=d0c0f3ecd46326d3a5217c09d74a36e1ca32322243fa2d22098f36cbfea7834a&ipo=images",
+        tmdbId: 724495,
+        title: "A Mulher Rei",
+        subtitle: "",
+        description: "Nanisca era a comandante do exército do Reino de Daomé, um dos locais mais poderosos da África nos séculos XVII e XIX. Durante o período, o grupo militar era composto apenas por mulheres, entre as guerreiras está a filha de Nanisca, Nawi, juntas elas combateram os colonizadores franceses, tribos rivais e todos aqueles que tentaram escravizar seu povo e destruir suas terras.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1WWTfp6fCG2pEDoOqn7vx7VK6DRTuGXNG/preview",
+        duration: "02h 15m",
+        genero: ["Ação", "Drama", "História"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi0.wp.com%2Fmetagalaxia.com.br%2Fwp-content%2Fuploads%2F2017%2F12%2Fsimplesmente-acontece-resenha-1.jpg%3Fw%3D3000%26ssl%3D1&f=1&nofb=1&ipt=c80f1c4a0878d92a1d50db54ed6d6603a04c0fb621abe18fa49c203e491f677f&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.j7tZsGBhBlng1Iq5UUEXFQHaLH%26pid%3DApi&f=1&ipt=30fa6c9d4971bce56d68968f5e26d30c775ac29416a61dfc870a596cd845b9e1&ipo=images",
+        tmdbId: 200727,
+        title: "Simplesmente Acontece",
+        subtitle: "",
+        description: "Os jovens britânicos Rosie e Alex são amigos inseparáveis desde a infância, experimentando juntos as dificuldades amorosas, familiares e escolares. Embora exista uma atração entre eles, os dois mantêm a amizade acima de tudo. Um dia, Alex decide aceitar um convite para estudar medicina em Harvard, nos Estados Unidos. A distância entre eles faz com que nasçam os primeiros segredos, enquanto cada um encontra outros namorados e namoradas. Mas o destino continua atraindo Rosie e Alex um ao outro.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/192SCAl6E-QWXczclyXlqn5gtM9me3Y-8/preview",
+        duration: "01h 42m",
+        genero: ["Romance", "Drama", "Comédia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwoomagazine.com.br%2Fwp-content%2Fuploads%2F2016%2F12%2FZumbi-02.jpg&f=1&nofb=1&ipt=e79618b452165aa9f4195e1ee0c019bda9da156e45bcf001d87a9a88149e7ec7&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.oZlfh5xPswr1HwMOXORLGgHaLH%26pid%3DApi&f=1&ipt=762bd64a29680d7f04ceeb6a8525b7a9cbadf82182ddc9c38440c79a4ecc86f5&ipo=images",
+        tmdbId: 396535,
+        title: "Invasão Zombi",
+        subtitle: "",
+        description: "A Coreia do Sul decreta estado de emergência após um vírus desconhecido tomar conta do país. Algumas pessoas tentam fugir de zumbis e ficam presas em um trem-bala que está a caminho de Busan, a única cidade que não foi afetada pelo vírus.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1isx5biToHOgoqkR_bYPCzQZ2DhbuNHPb/preview",
+        duration: "01h 58m",
+        genero: ["Terror", "Ação", "Suspense"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.vigilianerd.com.br%2Fwp-content%2Fuploads%2F2020%2F02%2Finvasao_zumbi_2_vigilia_nerd-1700x946.png&f=1&nofb=1&ipt=cfb27ea4822170c684e1d920c4afa4ff2b53ea15ef0bb8f9d2ee5c827e6d13af&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.GVDcRuo4JyBNpHFi5pNJtQHaKj%26pid%3DApi&f=1&ipt=8db876969ed519872d49712d309afc4c1b77d04132b1bddca5c30f3620c9b6af&ipo=images",
+        tmdbId: 581392,
+        title: "Invasão Zombi 2",
+        subtitle: "Península",
+        description: "A península coreana ficou devastada após o surto de zumbis que atingiu os passageiros de um trem-bala com destino a Busan há quatro anos. Com isso, um ex-soldado que conseguiu fugir do país, Jung-seok, tem a missão de retornar e acaba encontrando alguns sobreviventes.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1X8rq4Kx6LhDCfYJHz5W_oT28USYJdvBr/preview",
+        duration: "01h 56m",
+        genero: ["Terror", "Ação", "Suspense"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages8.alphacoders.com%2F673%2Fthumb-1920-673877.jpg&f=1&nofb=1&ipt=fc03cfed8b3fe662cf0ffdc27d7538f27bafcfda27a4186df7bb81b13ed00564&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.uPAwlMJrLPwHpQ2-x8n65gHaLH%26pid%3DApi&f=1&ipt=a788ae5d7fe9a1378f1837b2879820675ac85f70062ef1da76577b8e461e46d9&ipo=images",
         tmdbId: 127585,
