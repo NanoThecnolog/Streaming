@@ -27,6 +27,9 @@ export default function CardInfoModal({ card, average, handleModalClose }: InfoM
     const [user, setUser] = useState<UserProps>()
     const [TMDBData, setTMDBData] = useState<{ image: string | null, movie: MovieTMDB | null }>({ image: null, movie: null });
 
+    const movieURL = `/watch/${card.tmdbId}`;
+    const handlePlay = () => Router.push(movieURL)
+
     useEffect(() => {
         const fetchUserData = async () => {
             const user = await getUserCookieData();
@@ -72,17 +75,7 @@ export default function CardInfoModal({ card, average, handleModalClose }: InfoM
         }
     }, [isLoading, user, card, checkWatchLaterList])
 
-    const movieURL = useMemo(() => {
-        const params = new URLSearchParams({
-            title: `${card.title}`,
-            subTitle: `${card.subtitle}` || "",
-            src: `${card.src}`,
-            tmdbId: `${card.tmdbId}`
-        })
-        return `/watch?${params}`
-    }, [card]);
 
-    const handlePlay = () => Router.push(movieURL)
 
     return (
         <div className={styles.movie_desc}>

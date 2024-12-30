@@ -1,7 +1,6 @@
-import Head from "next/head";
 import styles from '@/styles/Watch.module.scss';
-import { useCallback, useEffect, useRef, useState } from "react";
-import Router, { useRouter } from "next/router";
+import { useCallback, useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import { ChevronLeft } from 'lucide-react';
 import { api } from "@/services/api";
 import { getUserCookieData } from "@/services/cookieClient";
@@ -9,11 +8,13 @@ import HelpFlag from "@/components/Helpflag";
 import HelpModal from "@/components/modals/HelpModal/index ";
 import { UserProps } from "@/@types/user";
 import SEO from "@/components/SEO";
+import { cards } from '@/js/cards';
+import { CardsProps } from '@/@types/Cards';
 
 export default function Watch() {
     const router = useRouter()
-    const { title, subTitle, src, tmdbId } = router.query;
-    const [movieData, setMovieData] = useState({ title: '', subTitle: '', src: '', tmdbId: 0 });
+    const { tmdbId } = router.query;
+    const [movieData, setMovieData] = useState({ title: '', subtitle: '', src: '', tmdbId: 0 });
     const [user, setUser] = useState<UserProps>()
     const [visible, setVisible] = useState(false)
 
@@ -24,6 +25,13 @@ export default function Watch() {
             console.error("Erro ao acordar o servidor", err)
         }
     }, [])
+    useEffect(() => {
+        acordarServidor();
+        const manterAcordado = setInterval(acordarServidor, 40000);
+        return () => clearInterval(manterAcordado)
+    }, [acordarServidor])
+
+
     const userData = useCallback(async () => {
         const user = await getUserCookieData();
         if (!user) return router.push('/login');
@@ -34,24 +42,18 @@ export default function Watch() {
         userData()
     }, [userData])
 
-
     useEffect(() => {
-        acordarServidor();
-        const manterAcordado = setInterval(acordarServidor, 40000);
-        return () => clearInterval(manterAcordado)
-    }, [acordarServidor])
-
-    useEffect(() => {
-        if (title && src) {
+        if (tmdbId) {
+            const movie: CardsProps | undefined = cards.find(card => card.tmdbId === Number(tmdbId))
+            if (!movie) return
             setMovieData({
-                title: title as string,
-                subTitle: subTitle as string || '',
-                src: src as string,
-                tmdbId: Number(tmdbId as string)
+                title: movie.title,
+                subtitle: movie.subtitle ?? '',
+                src: movie.src,
+                tmdbId: movie.tmdbId
             })
         }
-    }, [title, subTitle, src, tmdbId])
-
+    }, [router, tmdbId])
 
     const handleBack = useCallback(() => {
         router.back()
@@ -87,14 +89,14 @@ export default function Watch() {
 
     return (
         <>
-            <SEO title={`${title} - FlixNext`} description=" " />
+            <SEO title={`${movieData.title} - FlixNext`} description=" " />
             <div className={styles.container}>
                 <div className={styles.movie}>
                     <div className={styles.movieName}>
                         <button onClick={handleBack} title="Voltar ao início" className={styles.buttonPreview}>
                             <ChevronLeft size={30} />
                         </button>
-                        <h3>{title} {subTitle != "" && `- ${subTitle}`}</h3>
+                        <h3>{movieData.title} {movieData.subtitle != "" && `- ${movieData.subtitle}`}</h3>
                     </div>
                     <div className={styles.flagContainer}>
                         <HelpFlag modalVisible={handleHelpModal} />

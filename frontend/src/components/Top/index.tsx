@@ -130,7 +130,8 @@ export default function Top({ width }: TopProps) {
     }
     function handleWatch() {
         const { title, subtitle, src, tmdbId } = cards[cardOn]
-        const play: string = `/watch?title=${title}&subTitle=${subtitle}&src=${src}&tmdbId=${tmdbId}`
+        //const play: string = `/watch?title=${title}&subTitle=${subtitle}&src=${src}&tmdbId=${tmdbId}`
+        const play: string = `/watch/${tmdbId}`
         Router.push(play)
     }
 

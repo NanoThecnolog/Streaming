@@ -49,8 +49,10 @@ export default function Overlay({ card, isVisible, vote_average, modalVisible, a
         isLoading: false,
         isMovieFavorite: false
     })
-    const { title, subtitle, tmdbId, src, duration, genero, faixa } = card
+    const { title, subtitle, tmdbId, duration, genero, faixa } = card
     const { user, favoriteList, onWatchLater, isLoading, isMovieFavorite } = state
+
+    const playLink = `/watch/${tmdbId}`;
 
     useEffect(() => {
 
@@ -107,14 +109,7 @@ export default function Overlay({ card, isVisible, vote_average, modalVisible, a
         setState(prev => ({ ...prev, isMovieFavorite: favorite }))
     }
 
-    const movieLink = useMemo(() => new URLSearchParams({
-        title: `${title}`,
-        subTitle: `${subtitle}` || "",
-        src: `${src}`,
-        tmdbId: `${tmdbId}`
-    }), [title, subtitle, src]);
 
-    const playLink = `/watch?${movieLink}`
 
     const handleFavorite = useCallback(async () => {
         //toast.warning("A função Favoritos está temporariamente desativada.")

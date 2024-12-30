@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CiSearch } from "react-icons/ci";
 import Router from "next/router";
 import styles from './styles.module.scss'
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { AlignJustify, Search } from "lucide-react";
 import { api } from "@/services/api";
@@ -23,12 +23,14 @@ export default function Header({ userAvatar, status }: HeaderProps) {
     const [searchMobileVisible, setSearchMobileVisible] = useState<boolean>(false)
     const [serverWake, setServerWake] = useState<boolean>(false)
     const [user, setUser] = useState<UserProps>()
+    const [initial, setInitial] = useState("-")
 
-    function inicial(): string | null {
-        if (!user) return null
+    const inicial = useCallback(() => {
+        if (!user) return
         const letraInicial = user.name[0]
-        return letraInicial
-    }
+        console.log(letraInicial)
+        setInitial(letraInicial)
+    }, [user])
 
 
     useEffect(() => {
@@ -38,7 +40,8 @@ export default function Header({ userAvatar, status }: HeaderProps) {
 
     useEffect(() => {
         getUser()
-    }, [])
+        inicial()
+    }, [inicial])
 
     async function getUser() {
         const data = await getUserCookieData()
@@ -124,7 +127,7 @@ export default function Header({ userAvatar, status }: HeaderProps) {
                         <div className={styles.avatarImage} title="Meu Perfil">
                             <Image src={avatar} alt="avatar" width={45} height={45} onClick={handleUserClick} />
                         </div>
-                    ) : user ? <div className={styles.avatarLetter} onClick={handleUserClick}><span>{inicial()?.toUpperCase()}</span></div> : <FaUserCircle size={35} color="#fff" className={styles.loginIcon} onClick={handleUserClick} />
+                    ) : user ? <div className={styles.avatarLetter} onClick={handleUserClick}><span>{initial}</span></div> : <FaUserCircle size={35} color="#fff" className={styles.loginIcon} onClick={handleUserClick} />
                 }
 
             </div>
