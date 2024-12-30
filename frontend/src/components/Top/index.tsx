@@ -36,7 +36,14 @@ export default function Top({ width }: TopProps) {
         popularity: 0,
         poster_path: "",
         release_date: "",
-        vote_average: 0
+        vote_average: 0,
+        runtime: 0,
+        genres: [
+            {
+                id: 0,
+                name: ""
+            }
+        ]
     })
 
     useEffect(() => {

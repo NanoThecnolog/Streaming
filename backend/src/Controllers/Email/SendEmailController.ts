@@ -4,9 +4,9 @@ import { SendEmailService } from '../../Services/Email/SendEmailService';
 export class SendEmailController {
     async handle(req: Request, res: Response) {
         try {
-            const { title, description, tmdbId, userId } = req.body;
+            const { title, description, userId, tmdbId } = req.body;
             const sendEmailService = new SendEmailService();
-            const sendingEmail = await sendEmailService.execute(title, description, tmdbId as number, userId)
+            const sendingEmail = await sendEmailService.execute(title, description, Number(tmdbId), userId)
 
             return res.json(sendingEmail)
 

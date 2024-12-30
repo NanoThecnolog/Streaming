@@ -4,6 +4,7 @@ import { DubbedEpisode, Episodes, TMDBEpisodes } from '@/@types/series'
 import { useEffect, useState } from 'react'
 import { dubbedEpisodes } from '@/js/dubbedEpisodes'
 import ChangeLanguage from '@/components/ui/SwitchLang'
+import { minToHour } from '@/utils/UtilitiesFunctions'
 
 interface EpisodeProps {
     episodeData: {
@@ -23,17 +24,7 @@ export default function EpisodeCard({ episodeData, handlePlay }: EpisodeProps) {
         //chama a funcão handlePlayEpisode
         setChangeLang(!changeLang)
     }
-    function minToHour(min: number = 0): string {
-        if (min <= 0) {
-            return "--"
-        }
-        const hora = Math.floor(min / 60)
-        const remainingMin = min % 60
-        if (hora === 0) {
-            return `${remainingMin}m`
-        }
-        return `${hora}h ${remainingMin}m`
-    }
+    /*
     function handlePlayEpisode(lang: string) {
         // pt-br ou original
         if (lang === 'original') {
@@ -68,7 +59,7 @@ export default function EpisodeCard({ episodeData, handlePlay }: EpisodeProps) {
         const episodeData = season.episodes.find(ep => ep.ep === episodeNumber)
 
         return episodeData || null
-    }
+    }*/
 
 
     return (

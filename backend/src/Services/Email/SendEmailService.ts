@@ -15,7 +15,7 @@ export class SendEmailService {
 
         try {
             const sendingEmail = await transporter.sendMail({
-                from: "Suporte - FlixNext",
+                from: `'Suporte - FlixNext'<${process.env.EMAIL_USER}>`,
                 to: "contato@ericssongomes.com",
                 subject: `Notificação de Problema: ${title}`,
                 html: `

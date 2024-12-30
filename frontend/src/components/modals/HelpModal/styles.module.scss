@@ -21,7 +21,7 @@
     .help {
         background-color: var(--background-gray);
         border-radius: 1em;
-        width: 30%;
+        width: 40%;
         height: 80%;
         display: flex;
         flex-direction: column;
@@ -70,5 +70,21 @@
         }
 
 
+    }
+}
+
+@media (max-width: 1250px) {
+    .helpContainer {
+        .help {
+            width: 60%;
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    .helpContainer {
+        .help {
+            width: 90%;
+        }
     }
 }

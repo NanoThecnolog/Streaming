@@ -112,7 +112,7 @@ export default function Watch() {
                         <HelpModal
                             handleHelpModal={handleHelpModal}
                             userId={user?.id}
-                            tmdbId={Number(tmdbId as string)}
+                            tmdbId={Number(tmdbId)}
                         />
                     )}
                 </div>

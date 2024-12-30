@@ -14,7 +14,14 @@ type StateProps = {
     modalVisible: boolean,
     TMDBImage: string | null,
     vote_average: number,
-    adult: boolean
+    adult: boolean,
+    runtime: number,
+    genres:
+    {
+        id: number,
+        name: string
+    }[]
+
 }
 
 export default function Card({ card }: CardProps) {
@@ -22,7 +29,14 @@ export default function Card({ card }: CardProps) {
         modalVisible: false,
         TMDBImage: null,
         vote_average: 0,
-        adult: false
+        adult: false,
+        runtime: 0,
+        genres: [
+            {
+                id: 0,
+                name: ""
+            }
+        ]
     })
     const { modalVisible, TMDBImage } = state
 
@@ -47,6 +61,8 @@ export default function Card({ card }: CardProps) {
             if (movieData) {
                 setState(prev => ({ ...prev, vote_average: movieData.vote_average }))
                 setState(prev => ({ ...prev, adult: movieData.adult }))
+                setState(prev => ({ ...prev, runtime: movieData.runtime }))
+                setState(prev => ({ ...prev, genres: movieData.genres }))
             }
         } catch (err: any) {
             console.log("Erro ao buscar dados do filme", err?.response?.data?.error)
@@ -95,6 +111,8 @@ export default function Card({ card }: CardProps) {
                         modalVisible={modalVisibility}
                         isVisible={modalVisible}
                         adult={state.adult}
+                        runtime={state.runtime}
+                        genres={state.genres}
                     />
                 </div>
             </div>

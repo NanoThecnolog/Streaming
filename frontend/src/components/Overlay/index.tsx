@@ -15,13 +15,19 @@ import { addFavorite, isFavorite } from '@/services/handleFavorite';
 import Stars from '../ui/StarAverage';
 import Adult from '../ui/Adult';
 import { CardsProps } from '@/@types/Cards';
+import { minToHour } from '@/utils/UtilitiesFunctions';
 
 
 interface OverlayProps {
     card: CardsProps;
     isVisible: boolean,
     vote_average: number
-    adult: boolean
+    adult: boolean,
+    runtime: number,
+    genres: {
+        id: number,
+        name: string
+    }[]
 
     modalVisible: () => void;
 }
@@ -33,7 +39,7 @@ type StateProps = {
     isMovieFavorite: boolean,
 }
 
-export default function Overlay({ card, isVisible, vote_average, modalVisible, adult }: OverlayProps) {
+export default function Overlay({ card, isVisible, vote_average, modalVisible, adult, runtime, genres }: OverlayProps) {
 
     //Refatorar Esse componente
     const [state, setState] = useState<StateProps>({
@@ -45,9 +51,6 @@ export default function Overlay({ card, isVisible, vote_average, modalVisible, a
     })
     const { title, subtitle, tmdbId, src, duration, genero, faixa } = card
     const { user, favoriteList, onWatchLater, isLoading, isMovieFavorite } = state
-
-
-
 
     useEffect(() => {
 
@@ -107,7 +110,8 @@ export default function Overlay({ card, isVisible, vote_average, modalVisible, a
     const movieLink = useMemo(() => new URLSearchParams({
         title: `${title}`,
         subTitle: `${subtitle}` || "",
-        src: `${src}`
+        src: `${src}`,
+        tmdbId: `${tmdbId}`
     }), [title, subtitle, src]);
 
     const playLink = `/watch?${movieLink}`
@@ -133,7 +137,7 @@ export default function Overlay({ card, isVisible, vote_average, modalVisible, a
             {subtitle && (
                 <h4>{subtitle}</h4>
             )}
-            <p>{duration} - {genero.join(', ')}</p>
+            <p>{runtime ? minToHour(runtime) : duration} - {genres ? genres.map(genre => genre.name).join(', ') : genero.join(', ')}</p>
             <div className={styles.tmdbInfo}>
                 <Stars average={vote_average} />
                 <Adult faixa={faixa} />

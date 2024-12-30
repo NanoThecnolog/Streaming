@@ -7,11 +7,11 @@ interface HelpProps {
     handleHelpModal: () => void
     userId: string | undefined,
     tmdbId: number
-
 }
 
 export default function HelpModal({ handleHelpModal, userId, tmdbId }: HelpProps) {
     const [loading, setLoading] = useState(false)
+    //console.log(`tmbdID do componente modal: ${tmdbId}`)
 
     const flags = [
         {
@@ -24,10 +24,10 @@ export default function HelpModal({ handleHelpModal, userId, tmdbId }: HelpProps
         },
         {
             title: "Vídeo não reproduziu",
-            description: "Apresentou mensagem informando que o arquivo não reproduziu porque ele viola os termos de serviço do Google Drive"
+            description: "Apresentou mensagem informando que o arquivo não reproduziu porque ele não existe mais ou viola os termos de serviço do Google Drive"
         },
         {
-            title: "Problema com som",
+            title: "Problema com o audio",
             description: "O som do vídeo está com problemas de sincronismo ou está falhando."
         },
         {
@@ -35,17 +35,18 @@ export default function HelpModal({ handleHelpModal, userId, tmdbId }: HelpProps
             description: "A imagem do vídeo está com problemas."
         },
         {
-            title: "Legenda não existe",
+            title: "A legenda está faltando!",
             description: "A legenda não está disponível para o vídeo."
         },
         {
-            title: "Vídeo com problema",
-            description: "O vídeo não carregou por motivo desconhecido."
+            title: "Não sei qual é o problema!",
+            description: "O vídeo não carregou por algum motivo desconhecido."
         },
 
     ]
 
     async function handleClick(title: string, description: string) {
+
         try {
             setLoading(true)
             await api.post('/send', {

@@ -76,7 +76,8 @@ export default function CardInfoModal({ card, average, handleModalClose }: InfoM
         const params = new URLSearchParams({
             title: `${card.title}`,
             subTitle: `${card.subtitle}` || "",
-            src: `${card.src}`
+            src: `${card.src}`,
+            tmdbId: `${card.tmdbId}`
         })
         return `/watch?${params}`
     }, [card]);
