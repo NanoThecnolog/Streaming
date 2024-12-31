@@ -26,5 +26,9 @@ export interface MovieTMDB {
         id: number,
         name: string
     }[]
+}
 
+export interface ReleaseProps {
+    tmdbId: number,
+    name: string
 }

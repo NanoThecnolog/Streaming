@@ -15,6 +15,7 @@ import { getUserCookieData } from "@/services/cookieClient";
 import CollectionContainer from "@/components/CollectionContainer";
 import WelcomeModal from "@/components/modal/Welcome";
 import SEO from "@/components/SEO";
+import ReleaseContainer from "@/components/ReleaseContainer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -99,6 +100,7 @@ export default function Home(status: string) {
         <div className={styles.content}>
           <Top width={width} />
           <div className={styles.mid}>
+            <ReleaseContainer section="lançamentos" cardPerContainer={cardPerContainer} />
             <CollectionContainer cardPerContainer={cardPerContainer} />
             {divisaoPorGenero.map((sec, index) => (
               <div key={index}>

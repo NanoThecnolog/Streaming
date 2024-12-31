@@ -18,7 +18,7 @@ export const cards: CardsProps[] = [
     faixa: "",
     src: "",
     duration: "",
-    genero: ["", ""]
+    genero: ["", ""]    
     },
     */
     {
@@ -2145,7 +2145,6 @@ export const cards: CardsProps[] = [
         duration: "02h 09m",
         genero: ["Ação", "Aventura"]
     },
-
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2024%2F05%2Fdivertida-mente-2-1.jpg&f=1&nofb=1&ipt=7b132037478ae46360ee53a409815c211bb78712df3eaf44d621905d230aed33&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.aHhmKiT1KtwEVdJLMBiKugHaKm%26pid%3DApi&f=1&ipt=d289b6ea9ed6128109e16b9411a6bb98a14fb30711d855f91280e7f8f773d9ae&ipo=images",
@@ -2218,7 +2217,6 @@ export const cards: CardsProps[] = [
         duration: "1h 57m",
         genero: ["Terror", "Mistério"]
     },
-
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fj1l9zqe5ZQPEHGsz91FyZxMldq4.jpg&f=1&nofb=1&ipt=00830ffc93a43e972b798b137fc23f4c2b649cfa62ab9836340e9fdc4d8a58a0&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.NYxhSAnUIoeWaKJau3NpagHaLG%26pid%3DApi&f=1&ipt=20785704be3c395a8efc03ca9f92ee53c18914f21b8e1e9cc09715331366a94f&ipo=images",
@@ -2387,7 +2385,6 @@ export const cards: CardsProps[] = [
         duration: "02h",
         genero: ["Drama"]
     },
-
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallup.net%2Fwp-content%2Fuploads%2F2016%2F01%2F228956-Batman_Begins.jpg&f=1&nofb=1&ipt=d619d6094b895a8bd4d78241248b69cf21be6985df6fad7155438cea5e36e7de&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjohnsneaker.com%2Fwp-content%2Fuploads%2F2021%2F06%2Fil_fullxfull.2372028995_nrmy-1519x2048.jpg&f=1&nofb=1&ipt=25b0b45da6b489e8429069d652c0cbc5908ecf8dca28436d105dd32d23295297&ipo=images",
@@ -2748,7 +2745,6 @@ export const cards: CardsProps[] = [
         duration: "01h 41m",
         genero: ["Ação", "Suspense"]
     },
-
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fgetwallpapers.com%2Fwallpaper%2Ffull%2F0%2F2%2F5%2F839892-spiderman-2018-wallpaper-1920x1080-photos.jpg&f=1&nofb=1&ipt=c3cac6ed5595cae5d72881a41c8f0e0359f21de9437ecc276097968ec49acea8&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmusicart.xboxlive.com%2F7%2F94fc5000-0000-0000-0000-000000000002%2F504%2Fimage.jpg%3Fw%3D1920%26h%3D1080&f=1&nofb=1&ipt=b10399b40985d38f1adf4b1b0ea123e9349831d4bb6700d99a38802459b28742&ipo=images",

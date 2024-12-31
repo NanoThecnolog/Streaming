@@ -5,17 +5,19 @@ import { useEffect, useState } from "react";
 
 import { MdNavigateNext } from "react-icons/md";
 import { MdNavigateBefore } from "react-icons/md";
+import { releaseCards } from "@/js/release";
 
 interface ContainerProps {
-    section: string
-
+    section: string,
     cardPerContainer: number
 }
 
-export default function CardContainer({ section, cardPerContainer }: ContainerProps) {
+export default function ReleaseContainer({ section, cardPerContainer }: ContainerProps) {
     const [currentIndex, setCurrentIndex] = useState(0)
     const [cardsPerPage, setCardsPerPage] = useState(cardPerContainer);
-    const filteredCards = cards.filter(card => card.genero.some(gen => gen.toLowerCase() === section?.toLowerCase()))
+    const releaseSet = new Set(releaseCards.map(item => item.tmdbId))
+    const filteredCards = cards.filter(card => releaseSet.has(card.tmdbId))
+
 
     useEffect(() => {
         if (cardPerContainer) {
@@ -45,7 +47,7 @@ export default function CardContainer({ section, cardPerContainer }: ContainerPr
                     <MdNavigateNext size={30} />
                 </button>
                 <div className={styles.cardContainer}>
-                    {filteredCards.slice(currentIndex, currentIndex + cardsPerPage).map((card) => (
+                    {filteredCards.slice(currentIndex, currentIndex + cardsPerPage).map(card => (
                         <div className={styles.card} key={card.src}>
                             <Card
                                 card={card}
