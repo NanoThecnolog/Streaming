@@ -3431,7 +3431,7 @@ export const cards: CardsProps[] = [
         subtitle: "No corpo de um Assassino",
         description: "Um punhal místico faz com que Millie, uma garota de 17 anos, e um serial killer troquem de corpo. A jovem descobre que possui apenas 24 horas para ter seu corpo de volta antes que a troca se torne permanente e ela fique presa na forma de um maníaco de meia-idade para sempre. O grande problema é que, agora, ela parece uma psicopata imponente que é alvo de uma caçada humana por toda a cidade.",
         faixa: "A16",
-        src: "https://drive.google.com/file/d/1916cSKK_WgIgAhixkCmnTG6mCW_Hhxuf/preview",
+        src: "https://drive.google.com/file/d/1Okor9Fep2PI8F0dfaoGwI875bYPqVRTy/preview",
         duration: "1h 42",
         genero: ["Comédia",
             "Terror"
@@ -3625,7 +3625,7 @@ export const cards: CardsProps[] = [
         subtitle: "Contra O Sindicato da Perdição",
         description: "Megamente precisa manter as más aparências até conseguir reunir seus amigos para impedir que seus antigos companheiros de equipe malígnos levem Metro City para a lua.",
         faixa: "L",
-        src: "https://drive.google.com/file/d/1mVyFAvhrAPPjTqZBWwoHnl5gPiNOckuS/preview",
+        src: "https://drive.google.com/file/d/1Oo-IWDlqhbLatMUaWGD203nuR9jBreG-/preview",
         duration: "1h 25m",
         genero: ["Animação",
             "Comédia"
