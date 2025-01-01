@@ -19,13 +19,6 @@ export default function Series(status: string) {
     const [width, setWidth] = useState<number>()
 
     const divisaoPorGenero = [
-        "Ação",
-        "Suspense",
-        "Comédia",
-        "Ficção científica",
-        "Drama",
-        "Fantasia",
-        "Animação",
         "Netflix",
         "Hbo",
         "Disney+",
@@ -33,6 +26,13 @@ export default function Series(status: string) {
         "Apple tv",
         "DC",
         "Marvel",
+        "Ação",
+        "Suspense",
+        "Comédia",
+        "Ficção científica",
+        "Drama",
+        "Fantasia",
+        "Animação",
     ]
 
     useEffect(() => {
