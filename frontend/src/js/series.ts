@@ -33,7 +33,7 @@ export const series: SeriesProps[] = [
         title: "Ruptura",
         subtitle: "",
         description: "Mark lidera uma equipe de funcionários de escritório cujas memórias foram divididas cirurgicamente entre a vida no trabalho e a vida pessoal. Quando um colega de trabalho misterioso aparece fora do escritório, ele começa uma jornada para descobrir a verdade sobre seu trabalho.",
-        genero: ["Drama", "Mistério"],
+        genero: ["Drama", "Mistério", "Apple TV"],
         faixa: "A16",
         season: [
             {
