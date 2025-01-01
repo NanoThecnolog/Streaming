@@ -27,6 +27,69 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FnpD65vPa4vvn1ZHpp3o05A5vdKT.jpg&f=1&nofb=1&ipt=6dba7a88161cadce2dc0dd8a64fcad3ab8189b90a0684d8eb8b5cc16e18d2a09&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.ACfRI0yylDw3z2GSA5waTgHaLH%26pid%3DApi&f=1&ipt=8c170bfc3c055a83409e98c85da85ae233245a86a1bf2ec15f1c40b5673a065c&ipo=images",
+        tmdbID: 95396,
+        title: "Ruptura",
+        subtitle: "",
+        description: "Mark lidera uma equipe de funcionários de escritório cujas memórias foram divididas cirurgicamente entre a vida no trabalho e a vida pessoal. Quando um colega de trabalho misterioso aparece fora do escritório, ele começa uma jornada para descobrir a verdade sobre seu trabalho.",
+        genero: ["Drama", "Mistério"],
+        faixa: "A16",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1p0vs9mgCS1L-E8vPBNbOG0-Ir5vO-MNj/preview",
+                        duration: "57m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1CWZ6J197-M3BdGBHmj1N8UL3Bj50_dtR/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/12edSfK0fZc2vog3J8Tol12t7_P2f2Zjf/preview",
+                        duration: "56m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1-ChxlMjvX8yPqQIS_SYCOamV1NmPgM83/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/16QZ2NdVBjNseauGO0kGr8A0pwuzXVhB2/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1h1-sLNM_czN7GkurAigz6lA6nvY8GTD0/preview",
+                        duration: "40m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1zd6zulP68L-QlEasscO7nMPlc07yVcQe/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1CMkU1PwTvMtX2vI5J0thXsRPiEH6kux7/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1iXqiVpeVv_EPhPNrf2k7rHqXPYQQIFLv/preview",
+                        duration: "40m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FvoKEhzb4ExOmR0WSvQgLTTqRUEu.jpg&f=1&nofb=1&ipt=38c32f78e510adcfe6a042c692fff2f3f57cff121b84566be5d6df4c1fb88637&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.M4C63biWrv1b-mpGKJ3fwgHaLH%26pid%3DApi&f=1&ipt=d6b4aeb7cbf33adb808e8ac3d1cf539a4a4b059731a2b0dc108dd256957d18c4&ipo=images",
         tmdbID: 108978,
