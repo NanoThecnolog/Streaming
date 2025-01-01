@@ -22,7 +22,6 @@ export default function Series(status: string) {
         "Ação",
         "Suspense",
         "Comédia",
-        "Terror",
         "Ficção científica",
         "Drama",
         "Fantasia",
