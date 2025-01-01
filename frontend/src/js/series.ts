@@ -27,6 +27,69 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F3238leblogdemarvelll-1278.kxcdn.com%2Fwp-content%2Fuploads%2F2021%2F02%2Fwandavision-banniere-2-disneyplus-1.jpg&f=1&nofb=1&ipt=d9dbe6043a37d60f2fa680809bbad156d63801ea9849460918ce23959a595758&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.S63dlo66u0LM18bPf3Qu_QHaJ4%26pid%3DApi&f=1&ipt=7fa795d8c66c5de03ad9a068e544829f338c506a13ce632d741b533867e2bb6d&ipo=images",
+        tmdbID: 85271,
+        title: "WandaVision",
+        subtitle: "",
+        description: "Wanda Maximoff e Visão, um casal de super-heróis com uma vida perfeita, que começa a suspeitar que nem tudo é o que parece.",
+        genero: ["Drama", "Mistério", "Disney+"],
+        faixa: "A12",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/17rqNaqpXS9BWxsZ4P-MwEagsZ50xHf2j/preview",
+                        duration: "26m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1nKvOsoFKbOsrWH7VMKsVH0AONMD34h6g/preview",
+                        duration: "33m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/17LaVZZs3IpPyeYjMEksRY7mEJU7PQZvd/preview",
+                        duration: "29m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1IuUvoLlDBmTppkQqnnBPz3d-C5Ygnbpd/preview",
+                        duration: "32m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1QxiWcJxyOvk8EXWm3pwORQY0bzDnJ4CP/preview",
+                        duration: "38m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1f9lAghr3ILNlXwXgctKN_KSEy5PTmRVH/preview",
+                        duration: "34m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1lGlesYl6FOoOob4-sPxQmOfhTxh2rLxH/preview",
+                        duration: "34m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1lJ0QbdEjuxIwbLmUbdfFyWGzbyKzXmlL/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1NDWbz0tRcLpm0d3LE-Q5_IkoBkr_OBXp/preview",
+                        duration: "46m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FnpD65vPa4vvn1ZHpp3o05A5vdKT.jpg&f=1&nofb=1&ipt=6dba7a88161cadce2dc0dd8a64fcad3ab8189b90a0684d8eb8b5cc16e18d2a09&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.ACfRI0yylDw3z2GSA5waTgHaLH%26pid%3DApi&f=1&ipt=8c170bfc3c055a83409e98c85da85ae233245a86a1bf2ec15f1c40b5673a065c&ipo=images",
         tmdbID: 95396,
