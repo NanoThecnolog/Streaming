@@ -18,10 +18,15 @@ interface InfoModalProps {
     vote_average: number
     handleModalClose: () => void
 }
+type GenreProps = {
+    id: number,
+    name: string
+}
 
 export default function CardInfoSerieModal({ card, vote_average, handleModalClose }: InfoModalProps) {
     const [TMDBBackDrop, setTMDBBackDrop] = useState<string | null>(null)
     const [overview, setOverview] = useState<string | null>(null)
+    const [genres, setGenres] = useState<GenreProps[]>()
     const [isLoading, setIsLoading] = useState(false)
     const [onWatchLater, setOnWatchLater] = useState(false)
     const [user, setUser] = useState<UserProps>()
@@ -48,7 +53,7 @@ export default function CardInfoSerieModal({ card, vote_average, handleModalClos
     }, [card])
     async function fetchSerieData() {
         const serie = await fetchTMDBSeries(card.tmdbID)
-        if (!serie || !serie.backdrop_path || !serie.overview) {
+        if (!serie) {
             setTMDBBackDrop(null)
             setOverview(null)
             return
@@ -56,6 +61,7 @@ export default function CardInfoSerieModal({ card, vote_average, handleModalClos
         const backdropURL = `https://image.tmdb.org/t/p/original${serie.backdrop_path}`
         setTMDBBackDrop(backdropURL)
         setOverview(serie.overview)
+        setGenres(serie.genres)
     }
     const checkWatchLaterList = useCallback(async () => {
         if (!user) return
@@ -129,13 +135,16 @@ export default function CardInfoSerieModal({ card, vote_average, handleModalClos
                 </div>
                 <div className={styles.gen_mid}>
                     <p>
-                        {card.season.length === 1 ? `${card.season.length} temporada` : card.season.length > 1 && `${card.season.length} temporadas`}                    </p>
-                    <p>
-                        - &quot;
-                        {card.genero.map((gen, index) => (
-                            <span key={index}>{gen}{index < card.genero.length - 1 && ", "}</span>
-                        ))}
+                        {card.season.length === 1 ? `${card.season.length} temporada` : card.season.length > 1 && `${card.season.length} temporadas`} - &quot;
+                        <span>{genres ? genres.map(genre =>
+                            genre.name === "Action & Adventure"
+                                ? "Ação e Aventura" : genre.name === "Sci-Fi & Fantasy"
+                                    ? "Ficção Científica e Fantasia" : genre.name
+                        ).join(', ') : card.genero.join(', ')}
+                        </span>
                         &quot;
+                        {//<span key={index}>{gen}{index < card.genero.length - 1 && ", "}</span>
+                        }
                     </p>
                     <Stars average={vote_average} />
                     <Adult faixa={card.faixa} />

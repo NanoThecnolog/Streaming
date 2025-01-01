@@ -13,14 +13,24 @@ interface CardProps {
 type StateProps = {
     modalVisible: boolean,
     TMDBPoster: string | null,
-    vote_average: number
+    vote_average: number,
+    genres: {
+        id: number,
+        name: string
+    }[] | undefined
 }
 
 export default function Card({ card }: CardProps) {
     const [state, setState] = useState<StateProps>({
         modalVisible: false,
         TMDBPoster: null,
-        vote_average: 0
+        vote_average: 0,
+        genres: [
+            {
+                id: 0,
+                name: ""
+            }
+        ]
     })
     const { modalVisible, TMDBPoster } = state;
     useEffect(() => {
@@ -35,6 +45,8 @@ export default function Card({ card }: CardProps) {
         const serie = await fetchTMDBSeries(card.tmdbID)
         setState(prev => ({ ...prev, TMDBPoster: serie?.poster_path ? `https://image.tmdb.org/t/p/original${serie.poster_path}` : null }))
         setState(prev => ({ ...prev, vote_average: serie?.vote_average ? serie.vote_average : 0 }))
+        setState(prev => ({ ...prev, genres: serie?.genres }))
+
     }
 
     const handleClick = useCallback(() => setState(prev => ({ ...prev, modalVisible: !prev.modalVisible })), [])
@@ -58,15 +70,11 @@ export default function Card({ card }: CardProps) {
                 />
                 <div className={styles.overlay}>
                     <OverlaySerie
-                        tmdbId={card.tmdbID}
-                        title={card.title}
-                        subtitle={card.subtitle}
-                        season={card.season}
-                        genero={card.genero}
-                        faixa={card.faixa}
+                        card={card}
                         isVisible={modalVisible}
                         vote_average={state.vote_average}
                         modalVisible={modalVisibility}
+                        genres={state.genres}
                     />
                 </div>
 

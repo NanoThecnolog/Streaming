@@ -38,7 +38,11 @@ export interface TMDBSeries {
     name: string,
     overview: string,
     poster_path: string,
-    vote_average: number
+    vote_average: number,
+    genres: {
+        id: number,
+        name: string
+    }[]
 }
 export interface DubbedEpisode {
     tmdbID: number,

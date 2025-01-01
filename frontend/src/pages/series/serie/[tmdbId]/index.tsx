@@ -23,6 +23,11 @@ import SEO from "@/components/SEO";
 import EpisodeCard from "@/components/seriesComponents/EpisodeCard";
 import ChangeLanguage from "@/components/ui/SwitchLang";
 
+type GenreProps = {
+    id: number,
+    name: string
+}
+
 export default function Serie(status: string) {
     //refatorar
     const router = useRouter()
@@ -37,6 +42,7 @@ export default function Serie(status: string) {
     const [TMDBBackDrop, setTMDBBackDrop] = useState<string | null>(null)
     const [TMDBPoster, setTMDBPoster] = useState<string | null>(null)
     const [vote_average, setVote_Average] = useState<number>(0)
+    const [genres, setGenres] = useState<GenreProps[]>()
 
 
     useEffect(() => {
@@ -92,7 +98,7 @@ export default function Serie(status: string) {
     async function fetchSerieData() {
         if (!serie) return
         const serieInfo = await fetchTMDBSeries(serie.tmdbID)
-        if (!serieInfo || !serieInfo.backdrop_path || !serieInfo.poster_path) {
+        if (!serieInfo) {
             setTMDBBackDrop(null)
             setTMDBPoster(null)
             return
@@ -102,6 +108,7 @@ export default function Serie(status: string) {
         setTMDBBackDrop(backdropURL)
         setTMDBPoster(posterURL)
         setVote_Average(serieInfo.vote_average)
+        setGenres(serieInfo.genres)
     }
 
     async function fetchEpisodes() {
@@ -206,7 +213,11 @@ export default function Serie(status: string) {
                                         <Adult faixa={serie.faixa} />
                                     </div>
                                     <div className={styles.seasons}>
-                                        <h4>{serie.season.length === 1 ? `${serie.season.length} temporada` : serie.season.length >= 2 && `${serie.season.length} temporadas`} - {serie.genero.join(', ')}</h4>
+                                        <h4>{serie.season.length === 1 ? `${serie.season.length} temporada` : serie.season.length >= 2 && `${serie.season.length} temporadas`} - {genres ? genres.map(genre =>
+                                            genre.name === "Action & Adventure"
+                                                ? "Ação e Aventura" : genre.name === "Sci-Fi & Fantasy"
+                                                    ? "Ficção Científica e Fantasia" : genre.name
+                                        ).join(', ') : serie.genero.join(', ')}</h4>
                                     </div>
                                     <div className={styles.watchButton} onClick={() => handlePlayEpisode(serie.season[0].episodes[0], serie.season[0].s)}>
                                         <button className={styles.buttonPlay}><Play /><h4>Começar a Assistir</h4></button>

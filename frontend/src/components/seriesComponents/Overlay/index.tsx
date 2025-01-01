@@ -9,7 +9,7 @@ import Router from 'next/router';
 import { UserProps } from '@/@types/user';
 import { IoCheckmarkCircle } from 'react-icons/io5';
 import { ListaFavoritos } from '@/@types/favoritos';
-import { Seasons } from '@/@types/series';
+import { Seasons, SeriesProps } from '@/@types/series';
 import { getUserCookieData, updateUserCookie } from '@/services/cookieClient';
 import { getCookie } from 'cookies-next';
 import { addWatchLater, isOnTheList } from '@/services/handleWatchLater';
@@ -19,14 +19,13 @@ import Adult from '@/components/ui/Adult';
 
 
 interface OverlayProps {
-    tmdbId: number
-    title: string,
-    subtitle: string,
-    season: Seasons[];
-    genero: string[]
-    faixa: string
+    card: SeriesProps
     isVisible: boolean,
-    vote_average: number
+    vote_average: number,
+    genres: {
+        id: number,
+        name: string
+    }[] | undefined
 
     modalVisible: () => void;
 }
@@ -38,7 +37,7 @@ type StateProps = {
     isMovieFavorite: boolean
 }
 
-export default function OverlaySerie({ tmdbId, title, subtitle, season, genero, faixa, isVisible, vote_average, modalVisible }: OverlayProps) {
+export default function OverlaySerie({ card, isVisible, vote_average, modalVisible, genres }: OverlayProps) {
     //refatorar
     const [state, setState] = useState<StateProps>({
         user: undefined,
@@ -62,11 +61,11 @@ export default function OverlaySerie({ tmdbId, title, subtitle, season, genero, 
         }
         fetchUserData()
         favoriteList()
-        onWatchLaterList(title, subtitle)
-    }, [title, subtitle, isVisible])
+        onWatchLaterList(card.title, card.subtitle)
+    }, [card, isVisible])
 
     const onWatchLaterList = useCallback(async (title: string, subtitle?: string) => {
-        const result: boolean = await isOnTheList(title, subtitle, tmdbId);
+        const result: boolean = await isOnTheList(title, subtitle, card.tmdbID);
         setState(prev => ({ ...prev, onWatchLater: result }));
     }, []);
 
@@ -81,8 +80,8 @@ export default function OverlaySerie({ tmdbId, title, subtitle, season, genero, 
         if (!user) return Router.push('/login')
         setState(prev => ({ ...prev, isLoading: true }))
         try {
-            await addWatchLater(user.id, title, tmdbId, subtitle);
-            await onWatchLaterList(title, subtitle)
+            await addWatchLater(user.id, card.title, card.tmdbID, card.subtitle);
+            await onWatchLaterList(card.title, card.subtitle)
         } catch (err: any) {
             const errorMessage = err.response?.data?.message || "Erro ao adicionar série à lista"
             return toast.error(errorMessage)
@@ -95,17 +94,17 @@ export default function OverlaySerie({ tmdbId, title, subtitle, season, genero, 
     }, [favoriteList])
 
     async function favoriteMovie() {
-        const favorite: boolean = await isFavorite(tmdbId)
+        const favorite: boolean = await isFavorite(card.tmdbID)
         setState(prev => ({ ...prev, isMovieFavorite: favorite }))
     }
 
     const movie = useMemo(() => new URLSearchParams({
-        title: `${title}`,
-        subtitle: `${subtitle}` || "",
-        src: `${season[0].episodes[0].src}`,
-        episode: `${season[0].episodes[0].ep}`,
-        season: `${season[0].s}`
-    }), [title, subtitle, season])
+        title: `${card.title}`,
+        subtitle: `${card.subtitle}` || "",
+        src: `${card.season[0].episodes[0].src}`,
+        episode: `${card.season[0].episodes[0].ep}`,
+        season: `${card.season[0].s}`
+    }), [card])
 
 
     const playLink: string = `/watch/serie?${movie}`
@@ -113,9 +112,9 @@ export default function OverlaySerie({ tmdbId, title, subtitle, season, genero, 
     const handleFavorite = useCallback(async () => {
         //toast.warning("A Função favoritos está temporariamente desativada")
         if (!user) return
-        await addFavorite(tmdbId, title, subtitle, user.id)
+        await addFavorite(card.tmdbID, card.title, card.subtitle, user.id)
         await favoriteMovie();
-    }, [user, title, subtitle, tmdbId])
+    }, [user, card])
 
 
 
@@ -128,20 +127,24 @@ export default function OverlaySerie({ tmdbId, title, subtitle, season, genero, 
     return (
         <>
             <div className={styles.title}>
-                <h3>{title.toUpperCase()}</h3>
-                {subtitle && (
-                    <h4>{subtitle}</h4>
+                <h3>{card.title.toUpperCase()}</h3>
+                {card.subtitle && (
+                    <h4>{card.subtitle}</h4>
                 )}
                 <p>
-                    {season.length > 1
-                        ? `${season.length} temporadas`
-                        : season.length === 1
-                        && `${season.length} temporada`} - {genero.join(', ')}
+                    {card.season.length > 1
+                        ? `${card.season.length} temporadas`
+                        : card.season.length === 1
+                        && `${card.season.length} temporada`} - {genres ? genres.map(genre =>
+                            genre.name === "Action & Adventure"
+                                ? "Ação e Aventura" : genre.name === "Sci-Fi & Fantasy"
+                                    ? "Ficção Científica e Fantasia" : genre.name
+                        ).join(', ') : card.genero.join(', ')}
                 </p>
             </div>
             <div className={styles.tmdbInfo}>
                 <Stars average={vote_average} />
-                <Adult faixa={faixa} />
+                <Adult faixa={card.faixa} />
             </div>
 
             <div className={styles.button_container}>

@@ -28,7 +28,7 @@ export default function Header({ userAvatar, status }: HeaderProps) {
     const inicial = useCallback(() => {
         if (!user) return
         const letraInicial = user.name[0]
-        console.log(letraInicial)
+        //console.log(letraInicial)
         setInitial(letraInicial)
     }, [user])
 
@@ -41,7 +41,7 @@ export default function Header({ userAvatar, status }: HeaderProps) {
     useEffect(() => {
         getUser()
         inicial()
-    }, [inicial])
+    }, [])
 
     async function getUser() {
         const data = await getUserCookieData()
