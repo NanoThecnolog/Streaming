@@ -22,6 +22,30 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.slashfilm.com%2Fimg%2Fgallery%2Feverything-you-need-to-remember-before-godzilla-x-kong-the-new-empire%2Fl-intro-1711642246.jpg&f=1&nofb=1&ipt=e29370bfc74923ccc3afaa2559a89b82756e6e36bc93baf98be4ceb50fd8a89f&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.gf2Or4RSy1YZ_LHKIw8vNwHaLH%26pid%3DApi&f=1&ipt=27c60d7402e05e19811a61cc2084e3815a2a131c8dba40fd809a9d74a0d1a94e&ipo=images",
+        tmdbId: 823464,
+        title: "Godzilla vs Kong",
+        subtitle: "O Novo Império",
+        description: "O poderoso Kong e o temível Godzilla se unem contra uma colossal ameaça mortal escondida no mundo dos humanos, que ameaça a existência de sua espécie e da nossa. Mergulhando profundamente nos mistérios da Ilha da Caveira e nas origens da Terra Oca, o filme irá explorar a antiga batalha de Titãs que ajudou a forjar esses seres extraordinários e os ligou à humanidade para sempre.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1h7N6nGximP8L0iGOOHTjqZfQSYzb4ryc/preview",
+        duration: "01h 55m",
+        genero: ["Ação", "Aventura", "Ficção Científica"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.gpdiZ8jAz4RhoEMWtzFYOwHaLH%26pid%3DApi&f=1&ipt=881ee7c5b1c71cbb41c5068d5c94defcdc4f1fbcde8c45e19405516afa60877c&ipo=images",
+        tmdbId: 375588,
+        title: "Robin Hood",
+        subtitle: "A Origem",
+        description: "A origem da famosa lenda sobre o ladrão que rouba dos ricos para dar aos pobres é contada a partir de quando Robin Hood (Taron Egerton) volta das Cruzadas e surpreende-se ao encontrar a Floresta Sherwood infestada de criminosos. Ele não deixará que as coisas permaneçam desse jeito e contará com a ajuda de John (Jamie Foxx) e Marian (Eve Hewson) para trazer justiça à cidade.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/18rEb3XQxfgwM3khF8aTf5lG9lsDu7AlQ/preview",
+        duration: "01h 56m",
+        genero: ["Ação", "Aventura", "Fantasia"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FpwGmXVKUgKN13psUjlhC9zBcq1o.jpg&f=1&nofb=1&ipt=43446822d20418f671afcffbcace43381c8fb93aeb2a9b08212555f5e9c421a2&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.7Znm1Ht0vlpzv0utVflacAHaLH%26pid%3DApi&f=1&ipt=3fb5c5aecac5e0ea3984cf69c7abddd2307c6597e6a6168cb4d17f9a49e11313&ipo=images",
         tmdbId: 634492,
