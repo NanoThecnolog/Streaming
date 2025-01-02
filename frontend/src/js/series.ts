@@ -27,6 +27,90 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.y2U1HrWTptLczw1hQqI4YQHaK-%26pid%3DApi&f=1&ipt=19ad3961889eb3c2a9b1a3c1e13a7b20a531c03bf26c0cfa86b53dddcab51917&ipo=images",
+        tmdbID: 84958,
+        title: "Loki",
+        subtitle: "",
+        description: "Começando imediatamente depois que Loki rouba o Tesseract (de novo), ele se encontra diante da Autoridade de Variação Temporal, uma organização burocrática que existe fora do tempo e espaço. Forçado a responder por seus crimes contra a linha do tempo, ele recebe uma escolha: Ser deletado da realidade ou ajudar a capturar uma ameaça ainda maior.",
+        genero: ["Drama", "Ficção Científica", "Marvel", "Disney+"],
+        faixa: "A14",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1y0W5N32Yv90HdTYHXCgoFmC5dMHmW9zV/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1AlBQfr9zOdwS_fbovCZnW6BiPHvanunW/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1oq_SZuf2tQZn-QKqfb_IJCbP62MK9jti/preview",
+                        duration: "40m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1AxRUkPhQ_Fe8IvXYZNK4XoKVN5kqpyKt/preview",
+                        duration: "47m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/17yRVkRg1ZvNLAPNhtd7XnoNelud-f4Lq/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1aSvaPUlgtjJLxYpxazVWip_k2vutLbFm/preview",
+                        duration: "45m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1hvlR1RE3zEbzT2u7wbvD89Mymd8g4AnL/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1_ochtQmE3-1k-vyJ9GekZYf2EPLArn8E/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/15Six-Zjc7Xwq01oWBVTF3z9qOadQI4aq/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/18SGwjiYn9JnmOr_62huaVXAYUACndNeJ/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1JtAUi7CpxGIr-uKn_JRpBIFKNMJYo3NU/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1BrzuaPd9Qns7Bb5g5DnJXuXX4LN4x60P/preview",
+                        duration: "56m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpop.proddigital.com.br%2Fwp-content%2Fuploads%2Fsites%2F8%2F2023%2F06%2F18120946210015.jpg&f=1&nofb=1&ipt=23a9008d784dddf28e322ab57b42722d1733656d446a9ed36f7300fbdf7464e3&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.-fMFUfGKT1WZQUY88woauAAAAA%26pid%3DApi&f=1&ipt=ea188f6a513af44a8c4e8a862333b3ebcd133e60c876493129b7bb32e4b39d9e&ipo=images",
         tmdbID: 82452,
