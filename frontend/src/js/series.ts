@@ -27,6 +27,54 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuploads.alternativanerd.com.br%2Fwp-content%2Fuploads%2F2024%2F12%2FAN_Comando-das-Criaturas.webp&f=1&nofb=1&ipt=b5dbdda8a050c2c8216b3034e163f98eab72d39906667fea6287c6c50d3fa1e1&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.wwSKuAcw3BUyCW1CY-5mSwHaLG%26pid%3DApi&f=1&ipt=fcba4d34786362f922807ff8bcdeb83b046bd2944feab52da0d271d611fcc44c&ipo=images",
+        tmdbID: 219543,
+        title: "Comando das Criaturas",
+        subtitle: "",
+        description: "Acompanha uma equipe secreta de monstros encarcerados, recrutados para missões consideradas perigosas demais para humanos.",
+        genero: ["Animação", "DC", "HBO"],
+        faixa: "A16",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1fm6OJZwjUhW6UOXPrb26j1x7o0klFBxm/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1zGzfIjagpUUEVS7RXAiOho6nhw0AJ2mX/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1zrKIZwV1IEsdnnm55LnNAKwC2dJsPOtV/preview",
+                        duration: "21m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1PfW-cZX0UzpsxIV1qjBlMqQQYbUto0EA/preview",
+                        duration: "25m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1X49hajNR-eKh-f-Z9Qpd0aT4bt5gTebN/preview",
+                        duration: "21m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1YFBW0dH3iQVHSYjZAgZlGDoOB2Ro_rSH/preview",
+                        duration: "24m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.y2U1HrWTptLczw1hQqI4YQHaK-%26pid%3DApi&f=1&ipt=19ad3961889eb3c2a9b1a3c1e13a7b20a531c03bf26c0cfa86b53dddcab51917&ipo=images",
         tmdbID: 84958,
