@@ -27,6 +27,64 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpop.proddigital.com.br%2Fwp-content%2Fuploads%2Fsites%2F8%2F2023%2F06%2F18120946210015.jpg&f=1&nofb=1&ipt=23a9008d784dddf28e322ab57b42722d1733656d446a9ed36f7300fbdf7464e3&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.-fMFUfGKT1WZQUY88woauAAAAA%26pid%3DApi&f=1&ipt=ea188f6a513af44a8c4e8a862333b3ebcd133e60c876493129b7bb32e4b39d9e&ipo=images",
+        tmdbID: 82452,
+        title: "Avatar",
+        subtitle: "O Ultimo Mestre do Ar",
+        description: "Água. Terra. Fogo. Ar. As quatro nações viviam em harmonia, com o Avatar, mestre de todos os elementos, mantendo a paz entre eles. Mas tudo mudou quando a Nação do Fogo atacou e exterminou os Nômades do Ar, o primeiro passo dos mestres do fogo para conquistarem o mundo. Com a próxima encarnação do Avatar ainda por vir, o mundo perdeu a esperança. Mas como uma luz na escuridão, a esperança floresce quando Aang, um jovem Nômade do Ar — e o último de seu grupo — desperta para tomar seu lugar por direito como o próximo Avatar. Junto com seus novos amigos Sokka e Katara, irmãos e membros da Tribo da Água do Sul, Aang embarca em uma busca fantástica e cheia de ação para salvar o mundo e lutar contra o terrível ataque do Senhor do Fogo Ozai. Mas com o Príncipe Zuko determinado a capturá-los, não será uma tarefa fácil. Eles vão precisar da ajuda de muitos aliados e personagens coloridos que encontrarem ao longo do caminho.",
+        genero: ["Ação", "Fantasia", "Aventura", "Netflix"],
+        faixa: "A12",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1F0JzOhfZsBHHwMPLG0IZmWwzGeTLPpiD/preview",
+                        duration: "01h 03m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1Xj2ekAeZTJOzhviNqKJhkFQXGHyG13R_/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1oHM7_qPbORVv-3vDneKzzZfp55LruxAO/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1fp2bsyuZ7D6_V9qGSIQkHkozQvMGu3WH/preview",
+                        duration: "55m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1M0-Pg7EeqEXew2Rfgb7-DpZqw7eO2fdw/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1V3Tlnk4gdh3CggL5vOSms7Zu0bmAY5xF/preview",
+                        duration: "56m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/12UdZIZ4_ryqEs-2_d2_DeKu4NwrjJIny/preview",
+                        duration: "47m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/11FS88NcSenrQdQO6HYkjxWFWJqqh69Xy/preview",
+                        duration: "57m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F3238leblogdemarvelll-1278.kxcdn.com%2Fwp-content%2Fuploads%2F2021%2F02%2Fwandavision-banniere-2-disneyplus-1.jpg&f=1&nofb=1&ipt=d9dbe6043a37d60f2fa680809bbad156d63801ea9849460918ce23959a595758&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.S63dlo66u0LM18bPf3Qu_QHaJ4%26pid%3DApi&f=1&ipt=7fa795d8c66c5de03ad9a068e544829f338c506a13ce632d741b533867e2bb6d&ipo=images",
         tmdbID: 85271,

@@ -18,9 +18,33 @@ export const cards: CardsProps[] = [
     faixa: "",
     src: "",
     duration: "",
-    genero: ["", ""]    
+    genero: ["", ""]
     },
     */
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FpwGmXVKUgKN13psUjlhC9zBcq1o.jpg&f=1&nofb=1&ipt=43446822d20418f671afcffbcace43381c8fb93aeb2a9b08212555f5e9c421a2&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.7Znm1Ht0vlpzv0utVflacAHaLH%26pid%3DApi&f=1&ipt=3fb5c5aecac5e0ea3984cf69c7abddd2307c6597e6a6168cb4d17f9a49e11313&ipo=images",
+        tmdbId: 634492,
+        title: "Madame Teia",
+        subtitle: "",
+        description: "Depois de sobreviver a um terrível acidente, a paramédica Cassandra Webb começa a desenvolver habilidades de clarividência. Forçada a enfrentar revelações sobre seu passado, ela estabelece um relacionamento com três jovens destinadas a futuros poderosos... se todas conseguirem sobreviver a um presente mortal.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1O63vzykUOyWcMo6UDafjh_ZOi0Yic35r/preview",
+        duration: "01h 56m",
+        genero: ["Ação", "Fantasia", "Marvel"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.slashfilm.com%2Fimg%2Fgallery%2Fthe-terrifying-true-story-of-netflixs-society-of-the-snow%2Fl-intro-1704830408.jpg&f=1&nofb=1&ipt=6115223907fe9c76ca4cbf3c8940a881de543ef785f261b02d9897157a0b8d48&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Jl3BuL8AVoZkPsuIf_ao3gHaLG%26pid%3DApi&f=1&ipt=810a5db3b495561c857ecd971d7caa8ea191f1501473a1b6d6e1ded4fa3d036b&ipo=images",
+        tmdbId: 906126,
+        title: "A Sociedade da Neve",
+        subtitle: "",
+        description: "Em 13 de outubro de 1972, o voo 571 da Força Aérea Uruguaia, fretado para levar um time de rúgbi ao Chile, cai em uma geleira no coração da Cordilheira dos Andes.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1cCPP69F-h6P2ezSHrwP-6QtJEj4aC9bP/preview",
+        duration: "02h 24m",
+        genero: ["Drama", "História", "Netflix"]
+    },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fentretetizei.com.br%2Fwp-content%2Fuploads%2F2024%2F05%2FCULPA-TUYA_3-scaled.jpg&f=1&nofb=1&ipt=d986f3d32bfa6c1bd59cad878aa55edc4adb5192506ef6def329a9d4897dc39f&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.-7jpxlPRjk6BK8iIb4nBkgAAAA%26pid%3DApi&f=1&ipt=627a04b8e84d850efb213949bb3a9dcd41999eca83932c2cbffb491c0035336c&ipo=images",
