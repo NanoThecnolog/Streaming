@@ -1828,7 +1828,7 @@ export const series: SeriesProps[] = [
         title: "Nivel Secreto",
         subtitle: "",
         description: "Nível Secreto é uma nova série animada de antologia para adultos, apresentando histórias originais nos mundos de alguns dos videogames mais adorados no mundo todo. Das mentes criativas por trás de LOVE, DEATH + ROBOTS, cada um dos 15 episódios é uma celebração de jogos e jogadores.",
-        genero: ["Animação", "Ficção Científica", "Ação", "Aventura", "Prime Vídeo"],
+        genero: ["Animação", "Ficção Científica", "Ação", "Aventura", "Prime Video"],
         faixa: "A16",
         season: [
             {
@@ -10250,7 +10250,7 @@ export const series: SeriesProps[] = [
 
             {
                 s: 4,
-                lang: "Legendado",
+                lang: "Dublado",
                 episodes: [
                     {
                         ep: 1,
