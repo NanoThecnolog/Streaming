@@ -22,6 +22,30 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwidescreen.hu%2Fwp-content%2Fuploads%2F2023%2F12%2Fws_netflix-rebel-moon_231220-100905.jpg&f=1&nofb=1&ipt=2c87b9d8c8d170957f88d4a297c5e207061cbac4fece16ab0a111618cfdfaf21&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.CFqnRTH_oPEp5RjrhFj8OAHaLH%26pid%3DApi&f=1&ipt=46d8a25a9e4d8acd80b826be3a144f37b96c15dc245d1edc188a23238ab99dc8&ipo=images",
+        tmdbId: 848326,
+        title: "Rebel Moon",
+        subtitle: "A Menina do Fogo - Versão do Diretor",
+        description: "Quando as forças implacáveis do Mundo-Mãe ameaçam um pacato vilarejo agrícola numa lua distante, uma misteriosa forasteira torna-se sua maior esperança de sobrevivência.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/19qJQm-7pcH8e67cSjH7rM028SrCH61Mb/preview",
+        duration: "02h 16m",
+        genero: ["Ação", "Netflix"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wallpapersden.com%2Fimage%2Fdownload%2Fzack-snyder-rebel-moon-2-poster_bmdrbmaUmZqaraWkpJRnamtlrWZpaWU.jpg&f=1&nofb=1&ipt=2bc0c2b0418d7743898ce65114e25af64b359ba709b5c99b7b8f9e963a095efa&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.RwZdyvXSd6tsg9vesbWlzwHaLH%26pid%3DApi&f=1&ipt=1b059524125bc619b6f02204e0d2676fbefde34d1a24501146bfe523217ef245&ipo=images",
+        tmdbId: 934632,
+        title: "Rebel Moon",
+        subtitle: "A Marcadora de Cicatrizes - Versão do Diretor",
+        description: "Conforme os rebeldes se preparam para a batalha contra as forças implacáveis do Mundo-Mãe, laços são forjados, heróis emergem e lendas nascem.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1HN0FO-0mHP4wZH3DwE6kUgSkKupXfPl9/preview",
+        duration: "02h 03m",
+        genero: ["Ação", "Netflix"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.slashfilm.com%2Fimg%2Fgallery%2Feverything-you-need-to-remember-before-godzilla-x-kong-the-new-empire%2Fl-intro-1711642246.jpg&f=1&nofb=1&ipt=e29370bfc74923ccc3afaa2559a89b82756e6e36bc93baf98be4ceb50fd8a89f&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.gf2Or4RSy1YZ_LHKIw8vNwHaLH%26pid%3DApi&f=1&ipt=27c60d7402e05e19811a61cc2084e3815a2a131c8dba40fd809a9d74a0d1a94e&ipo=images",
         tmdbId: 823464,

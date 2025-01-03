@@ -27,6 +27,64 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.hobbyconsolas.com%2Fsites%2Fnavi.axelspringer.es%2Fpublic%2Fmedia%2Fimage%2F2023%2F10%2Finvencible-temporada-2-prime-video-3210364.jpg%3Ftf%3D3840x&f=1&nofb=1&ipt=75e37e927a25a3f7e2b80fc89a58863bc4acdaf9574a018d98cba62036263f27&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.yq4BXLqkbyx9ZCHzHkhPCwHaLH%26pid%3DApi&f=1&ipt=edfdf47ac367d819280d3da8909f86827fd4f242203024471bccbcdaf87f410a&ipo=images",
+        tmdbID: 95557,
+        title: "Invencível",
+        subtitle: "",
+        description: "Uma animação de super-heróis para adultos e conta a história de Mark Grayson, de 17 anos, um cara como qualquer outro de sua idade, exceto que seu pai é o super-herói mais poderoso do planeta, Omni-Man. Porém, à medida que Mark desenvolve seus próprios poderes, ele descobre que o legado de seu pai pode não ser tão heroico quanto parece.",
+        genero: ["Animação", "Ação", "Prime Video"],
+        faixa: "18",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1xvWoi-mJAFzTLQ3Dhnw0V_7fr8cf0U73/preview",
+                        duration: "47m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/17ZmjPw088QzNdwQSi4wKJIVL_gFNJ0d4/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1ZprSAqRdOB9wulKAPHNaUd-qkTHy-OLZ/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1bmaogKzDM_bnC2e2qvCV8VVzwJjD7Z6a/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1opz2x3S9Lqwbde9UUuhS8jvDPEjSiMWA/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1mn4qAjKw-EdULui1_afftGupUJyEKOGo/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/18QpxjSdGfjBff8Tce6MgF6DvVFicohy1/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1l-x724VJF4WKlb4kOVu3euFK4n7ngiPx/preview",
+                        duration: "44m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuploads.alternativanerd.com.br%2Fwp-content%2Fuploads%2F2024%2F12%2FAN_Comando-das-Criaturas.webp&f=1&nofb=1&ipt=b5dbdda8a050c2c8216b3034e163f98eab72d39906667fea6287c6c50d3fa1e1&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.wwSKuAcw3BUyCW1CY-5mSwHaLG%26pid%3DApi&f=1&ipt=fcba4d34786362f922807ff8bcdeb83b046bd2944feab52da0d271d611fcc44c&ipo=images",
         tmdbID: 219543,
