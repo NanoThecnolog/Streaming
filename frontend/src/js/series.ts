@@ -2,6 +2,7 @@ import { SeriesProps } from "@/@types/series";
 
 export const series: SeriesProps[] = [
     /*HBO, Disney+, Netflix, Prime Video, Apple TV, SKY, StarZ, Paramount
+    fundo preto largo: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images
     {
         background: "",
         overlay: "",
@@ -26,6 +27,49 @@ export const series: SeriesProps[] = [
         ]
     },
     */
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.NmCgrpvb-6NqE0knsB0XlAHaKl%26pid%3DApi&f=1&ipt=a87bb14b94807216f4a3fe648b4f09538796a87e76f344c86afd2f58fb7a3dcd&ipo=images",
+        tmdbID: 122226,
+        title: "Eco",
+        subtitle: "",
+        description: "Perseguida pelo criminoso Fisk, Maya volta para casa, onde confrontará sua família e seu legado.",
+        genero: ["Ação", "Marvel", "Disney+"],
+        faixa: "A16",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1651SSXnvHbkfDuzoM4TNU2byF3e47wNZ/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/16Pvth68dKSTgV_K9NV0vq5Db6YMqSMf7/preview",
+                        duration: "39m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/16TleHfcti7FpeKrjnojEm57Q4SeCjlnJ/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/16YF75RwxVRDdlk12kL0rfEAMGNo1D51s/preview",
+                        duration: "37m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/16Zl8zRUGfX0NzjtIC2NIPAcg8_wBlyjA/preview",
+                        duration: "34m"
+                    },
+                ]
+            },
+        ]
+    },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.hobbyconsolas.com%2Fsites%2Fnavi.axelspringer.es%2Fpublic%2Fmedia%2Fimage%2F2023%2F10%2Finvencible-temporada-2-prime-video-3210364.jpg%3Ftf%3D3840x&f=1&nofb=1&ipt=75e37e927a25a3f7e2b80fc89a58863bc4acdaf9574a018d98cba62036263f27&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.yq4BXLqkbyx9ZCHzHkhPCwHaLH%26pid%3DApi&f=1&ipt=edfdf47ac367d819280d3da8909f86827fd4f242203024471bccbcdaf87f410a&ipo=images",

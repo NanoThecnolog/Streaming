@@ -1,7 +1,8 @@
 import { CardsProps } from "@/@types/Cards";
 
 export const cards: CardsProps[] = [
-    /*Links Úteis!
+    /*HBO, Disney+, Netflix, Prime Video, Apple TV, SKY, StarZ, Paramount
+    Links Úteis!
     TMDB: https://www.themoviedb.org/?language=pt-BR
     url pra usar imagem do tmdb:
     https://image.tmdb.org/t/p/ + (opção de tamanho: original, w500, etc)/ + poster.file_path
@@ -21,6 +22,18 @@ export const cards: CardsProps[] = [
     genero: ["", ""]
     },
     */
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FrVJfabCz1ViynQCEz54MRqdZig1.jpg&f=1&nofb=1&ipt=773e2ae381c2d1dfe357f6332de3ba63b895058236a160f708c7abf99195d0de&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.zL3nf5rXqdSYP21LKA7MDAHaLH%26pid%3DApi&f=1&ipt=9cb073c0dc13e802650facfac62715e02e5aafd7313aeb6607e24bcc48237ec2&ipo=images",
+        tmdbId: 1155089,
+        title: "Liga da Justiça",
+        subtitle: "Crise nas Infinitas Terras Parte 1",
+        description: "A morte é iminente. Pior que a morte: o esquecimento. Não apenas para a nossa Terra, mas para todos, em todos os lugares, em todos os universos! Para aplacar essa destruição derradeira, o misterioso Monitor reuniu a maior equipe de super-heróis já vista. Mas o que o poder combinado de Superman, Mulher-Maravilha, Batman, Flash, Lanterna Verde e centenas de heróis de várias Terras pode fazer para salvar toda a realidade de um implacável Armagedom de antimatéria?!",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1LDO29NIWnt_0lid7TZ5c0tu3pg26HGiJ/preview",
+        duration: "01h 33m",
+        genero: ["Animação", "DC", "HBO"]
+    },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwidescreen.hu%2Fwp-content%2Fuploads%2F2023%2F12%2Fws_netflix-rebel-moon_231220-100905.jpg&f=1&nofb=1&ipt=2c87b9d8c8d170957f88d4a297c5e207061cbac4fece16ab0a111618cfdfaf21&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.CFqnRTH_oPEp5RjrhFj8OAHaLH%26pid%3DApi&f=1&ipt=46d8a25a9e4d8acd80b826be3a144f37b96c15dc245d1edc188a23238ab99dc8&ipo=images",
