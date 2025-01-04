@@ -194,6 +194,52 @@ export const series: SeriesProps[] = [
                     },
                 ]
             },
+            {
+                s: 2,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1U6K3QNgy2BqujAAPFkzsoncN060qph_e/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1BtzaCFvl_--uXGAJULOEoH6NAIVnzvV7/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1ZzTSnGFj4v7oTR8kkCZKGdVMBssloRTS/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/15bItupk0uu0fzCDf_PYdgrirByOTv29u/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1whENcY-e9Ur4Pa897de0loftWDn5jqIU/preview",
+                        duration: "35m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/17Un82m3ZRSJylv_KxIVkkHhPb4t_ydk_/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/13F78n252dM7iLcCxLxvBbsZtGDlrzJd3/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1Q1CBqjns0bpl7du7vpDKX6ioQ1K-Wz0R/preview",
+                        duration: "53m"
+                    },
+                ]
+            },
         ]
     },
     {
