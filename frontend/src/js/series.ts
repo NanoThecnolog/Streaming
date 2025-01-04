@@ -29,6 +29,74 @@ export const series: SeriesProps[] = [
     */
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.RhPmGbyfi57fBuJmQQ6kcQHaLH%26pid%3DApi&f=1&ipt=595f52c5e75ee0b8812a17f9ed99ae3d0693785e638adbbb09ad06ebd04f1581&ipo=images",
+        tmdbID: 138502,
+        title: "X-men ’97",
+        subtitle: "",
+        description: "X-Men ’97 revisita a era icônica dos anos 1990, quando os X-Men, um grupo de mutantes que usam seus dons extraordinários para proteger um mundo que os odeia e teme, são desafiados como nunca antes, forçados a enfrentar um novo futuro perigoso e inesperado.",
+        genero: ["Animação", "Marvel", "Disney+"],
+        faixa: "A14",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1kOp34U-_4fexB7uavHV3zTtK62hf6P8X/preview",
+                        duration: "30m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/11duHGbCHsYBD5hr0k7kIZGTzY2hNAap-/preview",
+                        duration: "30m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1zySzehtp4VoSy8U1Sq9JTe0i7zF9GruF/preview",
+                        duration: "30m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1Dz0UgMSgrtk9G06QxKIEC-Uw0ibpqDk8/preview",
+                        duration: "27m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1WTcCR4Uk3QSTxJUOiWTMlXWthgm63OYh/preview",
+                        duration: "34m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1_KQesk7XIS7KU3K8Xr0ZrvXyBG42gYVg/preview",
+                        duration: "31m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1Xq1fboxphfNUsZ96E0orpGvOF_BeXu63/preview",
+                        duration: "31m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1asDvn7zpyZJ9rnvdJqvGnQTJrVjSS1Le/preview",
+                        duration: "31m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1KSPW3j5VhycOQwP7OPDoXtYyA6Q6KH18/preview",
+                        duration: "29m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/16NRsIXiNlZhuREmKF_LvKav5pRGMsv_f/preview",
+                        duration: "40m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.NmCgrpvb-6NqE0knsB0XlAHaKl%26pid%3DApi&f=1&ipt=a87bb14b94807216f4a3fe648b4f09538796a87e76f344c86afd2f58fb7a3dcd&ipo=images",
         tmdbID: 122226,
         title: "Eco",
