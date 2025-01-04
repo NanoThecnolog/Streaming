@@ -138,7 +138,7 @@ export default function OverlaySerie({ card, isVisible, vote_average, modalVisib
                         && `${card.season.length} temporada`} - {genres ? genres.map(genre =>
                             genre.name === "Action & Adventure"
                                 ? "Ação e Aventura" : genre.name === "Sci-Fi & Fantasy"
-                                    ? "Ficção Científica e Fantasia" : genre.name
+                                    ? "Ficção Científica e Fantasia" : genre.name === "Thriller" ? "Suspense" : genre.name
                         ).join(', ') : card.genero.join(', ')}
                 </p>
             </div>

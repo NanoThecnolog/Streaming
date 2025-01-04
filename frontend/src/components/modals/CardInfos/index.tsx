@@ -116,9 +116,10 @@ export default function CardInfoModal({ card, average, handleModalClose }: InfoM
                 </div>
                 <div className={styles.gen_mid}>
                     <p>&quot;
-                        {card.genero.map((gen, index) => (
-                            <span key={index}>{gen}{index < card.genero.length - 1 && ", "}</span>
-                        ))}
+                        {TMDBData ? TMDBData.movie?.genres.map(genre => genre.name === "Action & Adventure"
+                            ? "Ação e Aventura" : genre.name === "Sci-Fi & Fantasy"
+                                ? "Ficção Científica e Fantasia" : genre.name === "Thriller" ? "Suspense" : genre.name).join(', ') : card.genero.join(', ')
+                        }
                         &quot;
                     </p>
                     <Stars average={average} />

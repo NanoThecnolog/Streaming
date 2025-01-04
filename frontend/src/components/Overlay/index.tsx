@@ -132,7 +132,9 @@ export default function Overlay({ card, isVisible, vote_average, modalVisible, a
             {subtitle && (
                 <h4>{subtitle}</h4>
             )}
-            <p>{runtime ? minToHour(runtime) : duration} - {genres ? genres.map(genre => genre.name).join(', ') : genero.join(', ')}</p>
+            <p>{runtime ? minToHour(runtime) : duration} - {genres ? genres.map(genre => genre.name === "Action & Adventure"
+                ? "Ação e Aventura" : genre.name === "Sci-Fi & Fantasy"
+                    ? "Ficção Científica e Fantasia" : genre.name === "Thriller" ? "Suspense" : genre.name).join(', ') : genero.join(', ')}</p>
             <div className={styles.tmdbInfo}>
                 <Stars average={vote_average} />
                 <Adult faixa={faixa} />

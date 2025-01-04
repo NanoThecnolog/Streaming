@@ -74,6 +74,7 @@ export default function Top({ width }: TopProps) {
                 if (movie) {
                     const backdropUrl = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
                     const posterUrl = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
+                    setTMDBMovie(movie)
 
                     const loadImage = (url: string) => new Promise<void>((resolve) => {
                         const img = new Image()
@@ -83,6 +84,7 @@ export default function Top({ width }: TopProps) {
                     await Promise.all([loadImage(backdropUrl), loadImage(posterUrl)])
                     setTMDBImages({ backdrop: backdropUrl, poster: posterUrl })
                     setFade('fadeIn')
+
                 }
 
                 //setTMDBImages({ backdrop: `https://image.tmdb.org/t/p/original${movie.backdrop_path}`, poster: `https://image.tmdb.org/t/p/original${movie.poster_path}` })
@@ -147,7 +149,9 @@ export default function Top({ width }: TopProps) {
                         <h3 className={styles.subtitulo_principal}>{cards[cardOn].subtitle}</h3>
                     )}
                     <div className={styles.gen}>
-                        <p>{cards[cardOn].genero.join(', ')}</p>
+                        <p>{TMDBMovie ? TMDBMovie.genres.map(genre => genre.name === "Action & Adventure"
+                            ? "Ação e Aventura" : genre.name === "Sci-Fi & Fantasy"
+                                ? "Ficção Científica e Fantasia" : genre.name).join(', ') : cards[cardOn].genero.join(', ')}</p>
                         <Adult faixa={cards[cardOn].faixa} />
                     </div>
                     <div className={styles.description}>
