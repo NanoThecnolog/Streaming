@@ -28,6 +28,59 @@ export const series: SeriesProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuploads.metropoles.cloud%2Fwp-content%2Fuploads%2F2024%2F04%2F10124421%2FBebe-Rena.jpg&f=1&nofb=1&ipt=5a2e655f9be253c25daf3045bbb1edac0b2dfd8eae1acb4fb39bfcb65efc1bc5&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.tT-yuw-mQZ8uZ4UuxWQQHAAAAA%26pid%3DApi&f=1&ipt=0d298bdbe7dcf2b988d77ac5afec4daa9c4bc3738d95b7571e8c83bfee8abfda&ipo=images",
+        tmdbID: 241259,
+        title: "Bebê Rena",
+        subtitle: "",
+        description: "Um comediante é gentil com uma mulher vulnerável, despertando uma obsessão sufocante que pode acabar com as vidas dos dois.",
+        genero: ["Drama", "Netflix"],
+        faixa: "18",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1P75mO7UYm6uC8JlMlq4BI7tj8oZeUS0m/preview",
+                        duration: "32m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/16xKpIsT0b_unW2X_tybuVEcJIMJFbQ-8/preview",
+                        duration: "27m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1pAiNOylg8YYtfKE9m0wPlxh7eTrYg6Qy/preview",
+                        duration: "38m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1gaBYIfi2yGavnVlzjFhaWI7SFvZ3as5I/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1r8-AaPnterI7A004oh9QI5GfrX7Algio/preview",
+                        duration: "28m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1uKPhOGhQfQ4BBHaLdvgrKrItAoiathox/preview",
+                        duration: "34m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/13HbxhTgn9iAmkhkCv8Kns322g_MxueDd/preview",
+                        duration: "31m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.RhPmGbyfi57fBuJmQQ6kcQHaLH%26pid%3DApi&f=1&ipt=595f52c5e75ee0b8812a17f9ed99ae3d0693785e638adbbb09ad06ebd04f1581&ipo=images",
         tmdbID: 138502,
