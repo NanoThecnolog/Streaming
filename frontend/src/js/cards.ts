@@ -23,6 +23,78 @@ export const cards: CardsProps[] = [
     },
     */
     {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.x0LTTzQCjOikpqiZxgCAUgHaK5%26pid%3DApi&f=1&ipt=3cd11b84a1b65b18f9dfba0463e818a23630ac99ae29e72a11e99846be669f4c&ipo=images",
+        tmdbId: 591,
+        title: "O Código da Vinci",
+        subtitle: "",
+        description: "Robert Langdon é um famoso simbologista, que foi convocado a comparecer no Museu do Louvre após o assassinato de um curador. A morte deixou uma série de pistas e símbolos estranhos, os quais Langdon precisa decifrar. Em seu trabalho, ele conta com a ajuda de Sophie Neveu, criptógrafa da polícia. Porém, o que Langdon não esperava era que suas investigações o levassem a uma série de mensagens ocultas nas obras de Leonardo Da Vinci, que indicam a existência de uma sociedade secreta que tem por missão guardar um segredo que já dura mais de dois mil anos.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1dCkv-BTXOk23z_CUeIDkkMwaWjfvL4M1/preview",
+        duration: "02h 54m",
+        genero: ["Suspense"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Cm6GJvXAmvTRkJ6E9PL7xgHaKk%26pid%3DApi&f=1&ipt=771f0ec79aaf6ef4046e7dff234c11aedc89c0789a6285e460b45c1ce0c983bb&ipo=images",
+        tmdbId: 290595,
+        title: "O Caçador e a Rainha do Gelo",
+        subtitle: "",
+        description: "Traída por sua irmã má, Ravenna, Freya decide retirar-se para um reino ao norte e criar um exército de caçadores para serem seus protetores. Dotada de poderes capazes de congelar seus inimigos, Freya ensina seus jovens soldados a nunca se apaixonarem. Quando Eric e sua companheira de guerra, Sara, descumprem esta regra, a rainha faz de tudo para detê-los.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1GsXKztYfD5VP7H9NB0v-5RqIVpvgYqXF/preview",
+        duration: "02h 03m",
+        genero: ["Ação", "Drama"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.6JLeGknTlCgXBVCqNP0XlwHaNK%26pid%3DApi&f=1&ipt=3b7e509919a55e248cadeafc3e923fed3ef701fc416ee2c4184c269a6ea380ca&ipo=images",
+        tmdbId: 454983,
+        title: "A Barraca do Beijo",
+        subtitle: "",
+        description: "O primeiro beijo de Elle vira um romance proibido com o cara mais gato da escola, mas acaba colocando em risco a relação com seu melhor amigo.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1JNWl6jotp1x1tDWXuJwB7E80yEfIbzoS/preview",
+        duration: "01h 45m",
+        genero: ["Comédia", "Romance", "Netflix"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FhnfwqI1YGL3767gtxwWYoo07Gow.jpg&f=1&nofb=1&ipt=4d549f1e659ae2ce4170dcd1425f69e78be9310e3fcb32e7efba82e8539e5a1f&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.QSYsAFI2nGlL5zJZP2-J8gHaLH%26pid%3DApi&f=1&ipt=7efcdd206c89a653324ea1336658fb60a1180fca0ff86dba1c0174bc368704e4&ipo=images",
+        tmdbId: 40264,
+        title: "Os Vampiros que se Mordam",
+        subtitle: "",
+        description: "Sátira sobre a angústia e a vida amorosa dos adolescentes e, principalmente, dos filmes que abordam a temática vampírica. Becca, adolescente ansiosa que não é vampira, está indecisa entre dois garotos, mas primeiro ela precisa dar um jeito no pai que só faz ela passar vergonha. Enquanto isso, os amigos dela também vivem dilemas amorosos e a festa de formatura da escola está chegando.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1Dnjpj6aLcgU6-w1FFXTiJveDXSDQVtO0/preview",
+        duration: "01h 22m",
+        genero: ["Comédia", "Fantasia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FqOfUKwYsRLaZJIdkTdQyNeeGc2f.jpg&f=1&nofb=1&ipt=f3d2b927e2c2cfc349367a3833f8609dc49c0d8615eca025ca713919f231bc0a&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.RqdaZAiLxqUg4pdYNfbIuwHaLH%26pid%3DApi&f=1&ipt=0390a7a99c9ea11c176b52aab2af203b3929717a74367c12d00967315fbefaf2&ipo=images",
+        tmdbId: 9408,
+        title: "Tá Dando Onda",
+        subtitle: "",
+        description: "Cadu Maverick (Shia LaBeouf) é um jovem pinguim, que tem o lendário surfista Big Z como ídolo. Um dia ele decide deixar sua família e sua cidade, Shiverpool, na Antártida, para participar do Big Z Memorial Surf Off, um torneio de surf realizado na ilha Pen-Gu. Cadu acredita que caso vença o torneio ganhará respeito e admiração, seu grande sonho. Mas lá ele conhece um veterano surfista chamado Grego (Jeff Bridges), com quem aprende que o campeão nem sempre é aquele que chega em 1º lugar nas competições.",
+        faixa: "L",
+        src: "https://drive.google.com/file/d/1SdJFXsH-0HB7s7coTY1p_KDr4NDNVQQv/preview",
+        duration: "01h 38m",
+        genero: ["Animação", "COmédia"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.t1bmQQ9_Yc5DdbMfgSygGgHaJ4%26pid%3DApi&f=1&ipt=b2f9b1fdc8f2e76f8bf1e0e86e00c60f3405b5b6a870bc0faa687b193bd80e40&ipo=images",
+        tmdbId: 1830,
+        title: "O Senhor das Armas",
+        subtitle: "",
+        description: "Yuri Orlov é um traficante de armas que realiza negócios nos mais variados locais do planeta. Estando constantemente em perigosas zonas de guerra, Yuri tenta sempre se manter um passo a frente de Jack Valentine, um agente da Interpol, e também de seus concorrentes e até mesmo clientes, entre os quais estão alguns dos mais famosos ditadores do planeta.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1EWOC6pw_tHarnEVGNaHnw5C1ikPZFjhJ/preview",
+        duration: "02h 02m",
+        genero: ["Drama", "Suspense"]
+    },
+    {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FrVJfabCz1ViynQCEz54MRqdZig1.jpg&f=1&nofb=1&ipt=773e2ae381c2d1dfe357f6332de3ba63b895058236a160f708c7abf99195d0de&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.zL3nf5rXqdSYP21LKA7MDAHaLH%26pid%3DApi&f=1&ipt=9cb073c0dc13e802650facfac62715e02e5aafd7313aeb6607e24bcc48237ec2&ipo=images",
         tmdbId: 1155089,
