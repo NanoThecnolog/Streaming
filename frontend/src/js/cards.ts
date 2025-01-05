@@ -1,17 +1,21 @@
 import { CardsProps } from "@/@types/Cards";
 
+const background = "/fundo-largo.jpg";
+const overlay = "/fundo-alto.jpg";
+
 export const cards: CardsProps[] = [
     /*HBO, Disney+, Netflix, Prime Video, Apple TV, SKY, StarZ, Paramount
     Links Úteis!
     TMDB: https://www.themoviedb.org/?language=pt-BR
     url pra usar imagem do tmdb:
     https://image.tmdb.org/t/p/ + (opção de tamanho: original, w500, etc)/ + poster.file_path
-    fundo preto largo: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images
+    fundo preto largo: /fundo-largo.jpg
+    fundo preto alto: /fundo-alto.jpg
     */
     /*
     {
-    background: "",
-    overlay: "",
+    background: background,
+    overlay: overlay,
     tmdbId: 0,
     title: "",
     subtitle: "",
@@ -22,6 +26,54 @@ export const cards: CardsProps[] = [
     genero: ["", ""]
     },
     */
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 405774,
+        title: "Bird Box",
+        subtitle: "",
+        description: "Uma misteriosa presença dizima grande parte da sociedade. Cinco anos depois, uma sobrevivente e seus dois filhos saem em busca de um abrigo seguro.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1LaeAbCGQH6lVxekG_kfi9gkzEyVBt0Xw/preview",
+        duration: "02h 04m",
+        genero: ["Terror", "Suspense", "Drama"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.gX2WY_Qr_H6fv-VJzy_LswHaKe%26pid%3DApi&f=1&ipt=a3bab2c53593f2eca3a1f0e464733b19866f12e26657ad91b008b80cd60c2160&ipo=images",
+        tmdbId: 10191,
+        title: "Como Treinar o Seu Dragão",
+        subtitle: "",
+        description: "Soluço é um jovem viking que desafia a tradição, quando fica amigo de um dos mais mortais inimigos — um feroz dragão que ele chama de Banguela.",
+        faixa: "L",
+        src: "https://drive.google.com/file/d/103-BSC7ql4mHdKCGYWic7KZ7QSsdlRx8/preview",
+        duration: "01h 38m",
+        genero: ["Animação", "Aventura"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.u-T08wI5Ew7ZIRtSnZO2AgHaKf%26pid%3DApi&f=1&ipt=f02286aa0bc822b4b3c60f017c186525ae41be78d0922526dc599816558cf887&ipo=images",
+        tmdbId: 82702,
+        title: "Como Treinar o Seu Dragão 2",
+        subtitle: "",
+        description: "Cinco anos após convencer os habitantes de seu vilarejo que os dragões não devem ser combatidos, Soluço convive com seu dragão Fúria da Noite, e estes animais integraram pacificamente a rotina dos moradores da ilha de Berk. Entre viagens pelos céus e corridas de dragões, Soluço descobre uma caverna secreta, onde centenas de novos dragões vivem. O local é protegido por Valka, mãe de Soluço, que foi afastada do filho quando ele ainda era um bebê. Juntos, eles precisarão proteger o mundo que conhecem do perigoso Drago Bludvist, que deseja controlar todos os dragões existentes.",
+        faixa: "L",
+        src: "https://drive.google.com/file/d/1Yh1t1gPw9wo8cAYZwUQOJgbS0cZqXs9x/preview",
+        duration: "01h 42m",
+        genero: ["Animação", "Aventura"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
+        overlay: "",
+        tmdbId: 166428,
+        title: "Como treinar o seu Dragão 3",
+        subtitle: "",
+        description: "Decidido a fazer de Berk um verdadeiro libelo ao ideal da convivência pacífica entre homens e dragões, Soluço e seus amigos seguem atrás de caçadores, para não só libertar suas presas mas também impedir a matança desenfreada dos animais. O esforço do grupo desperta a atenção de Grimmel ao descobrir que entre eles está Banguela, um legítimo Fúria da Noite. O vilão então desenvolve um plano para capturá-lo a todo custo, usando como arma uma fêmea capturada, da mesma espécie.",
+        faixa: "L",
+        src: "https://drive.google.com/file/d/1dPtzGA7OBObbQmdIqpMuzMpMVGSLF0LZ/preview",
+        duration: "01h 45m",
+        genero: ["Animação", "Aventura"]
+    },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.x0LTTzQCjOikpqiZxgCAUgHaK5%26pid%3DApi&f=1&ipt=3cd11b84a1b65b18f9dfba0463e818a23630ac99ae29e72a11e99846be669f4c&ipo=images",

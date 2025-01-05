@@ -1,11 +1,14 @@
 import { SeriesProps } from "@/@types/series";
 
+const background = "/fundo-largo.jpg";
+const overlay = "/fundo-alto.jpg";
+
 export const series: SeriesProps[] = [
     /*HBO, Disney+, Netflix, Prime Video, Apple TV, SKY, StarZ, Paramount
     fundo preto largo: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images
     {
-        background: "",
-        overlay: "",
+        background: background,
+        overlay: overlay,
         tmdbID: 0,
         title: "",
         subtitle: "",
@@ -27,6 +30,55 @@ export const series: SeriesProps[] = [
         ]
     },
     */
+
+    {
+        background: background,
+        overlay: overlay,
+        tmdbID: 118906,
+        title: "Universos Paralelos",
+        subtitle: "",
+        description: "As vidas dos quatro amigos de infância, Bilal, Romane, Sam e Victor, são afetadas quando um misterioso evento os separa, enviando-os para dimensões paralelas. Eles tentam entender o que aconteceu e se esforçam para retroceder o tempo, a fim de retornar ao seu mundo anterior.",
+        genero: ["Ficção Científica", "Disney+"],
+        faixa: "A12",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1OZA26SbuVnZ55vVVN6Zo1PxAB9but2Vm/preview",
+                        duration: "35m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1ze0gALufn5DopP5H_wN1jY88MtTX92yW/preview",
+                        duration: "35m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1ZyPg7RorAUR_wLYuv6ypBtH6FYxp3P8n/preview",
+                        duration: "35m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1Blu9-90V92AFuSim-8dVKRfCsmUIdVqE/preview",
+                        duration: "37m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/17iBKQpfUeT8veiDaEbpYLI0RRu84LNhj/preview",
+                        duration: "32m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1Vlpdc8pLXvGIuTrP2y-LRZfuNHV-YCD1/preview",
+                        duration: "40m"
+                    },
+                ]
+            },
+        ]
+    },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuploads.metropoles.cloud%2Fwp-content%2Fuploads%2F2024%2F04%2F10124421%2FBebe-Rena.jpg&f=1&nofb=1&ipt=5a2e655f9be253c25daf3045bbb1edac0b2dfd8eae1acb4fb39bfcb65efc1bc5&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.tT-yuw-mQZ8uZ4UuxWQQHAAAAA%26pid%3DApi&f=1&ipt=0d298bdbe7dcf2b988d77ac5afec4daa9c4bc3738d95b7571e8c83bfee8abfda&ipo=images",
