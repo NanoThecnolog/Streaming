@@ -6,12 +6,13 @@ import { useCallback, useEffect, useState } from 'react';
 import Router from 'next/router';
 import { toast } from 'react-toastify';
 import { UserProps } from '@/@types/user';
-import { FaCheck } from 'react-icons/fa';
+import { FaCheck, FaPlay } from 'react-icons/fa';
 import { getUserCookieData } from '@/services/cookieClient';
 import { addWatchLater, isOnTheList } from '@/services/handleWatchLater';
 import { fetchTMDBMovie } from '@/services/fetchTMDBData';
 import { MovieTMDB } from '@/@types/Cards';
 import Adult from '../ui/Adult';
+import { releaseCards } from '@/js/release';
 
 interface TopProps {
     width?: number;
@@ -20,6 +21,8 @@ interface TopProps {
 export default function Top({ width }: TopProps) {
     //Componente refatorado
     const [cardOn, setCardOn] = useState(0)
+    const releaseSet = new Set(releaseCards.map(item => item.tmdbId))
+    const release = cards.filter(card => releaseSet.has(card.tmdbId))
     const [fade, setFade] = useState('fadeIn')
     const [user, setUser] = useState<UserProps | null>(null)
     const [onWatchLater, setOnWatchLater] = useState<boolean>(false)
@@ -50,7 +53,7 @@ export default function Top({ width }: TopProps) {
         const interval = setInterval(() => {
             setFade('fadeOut')
             setTimeout(async () => {
-                setCardOn(prevCardOn => (prevCardOn + 1) % cards.length);
+                setCardOn(prevCardOn => (prevCardOn + 1) % release.length);
                 setFade('fadeIn')
             }, 1800)
         }, 10000)
@@ -68,7 +71,8 @@ export default function Top({ width }: TopProps) {
     useEffect(() => {
         setTMDBImages({ backdrop: null, poster: null })
         const fetchImages = async () => {
-            const card = cards[cardOn]
+
+            const card = release[cardOn]
             if (card.tmdbId !== 0) {
                 const movie = await fetchTMDBMovie(card.tmdbId)
                 if (movie) {
@@ -97,7 +101,7 @@ export default function Top({ width }: TopProps) {
 
     const checkWatchLaterList = useCallback(async () => {
         if (!user) return
-        const card = cards[cardOn]
+        const card = release[cardOn]
         const isAdded = await isOnTheList(card.title, card.subtitle, card.tmdbId)
         setOnWatchLater(isAdded)
     }, [user, cardOn])
@@ -108,10 +112,10 @@ export default function Top({ width }: TopProps) {
     const handleWatchLater = useCallback(
         async () => {
             if (isLoading || !user) return Router.push('/login')
-            const card = cards[cardOn]
+
             setIsLoading(true)
             try {
-
+                const card = release[cardOn]
                 await addWatchLater(user.id, card.title, card.tmdbId, card.subtitle)
                 await checkWatchLaterList()
 
@@ -125,13 +129,14 @@ export default function Top({ width }: TopProps) {
         [isLoading, user, cardOn, checkWatchLaterList]
     )
     const getBackgroundImage = () => {
-        const card = cards[cardOn]
+        const card = release[cardOn]
         return width && width <= 980
             ? TMDBImages.poster ?? card.overlay
             : TMDBImages.backdrop ?? card.background
     }
     function handleWatch() {
-        const { title, subtitle, src, tmdbId } = cards[cardOn]
+        const card = release[cardOn]
+        const { tmdbId } = card
         //const play: string = `/watch?title=${title}&subTitle=${subtitle}&src=${src}&tmdbId=${tmdbId}`
         const play: string = `/watch/${tmdbId}`
         Router.push(play)
@@ -143,35 +148,35 @@ export default function Top({ width }: TopProps) {
             <div className={styles.image_container} id="inicio">
                 <div className={styles.left_side}>
                     <h1 className={styles.titulo_principal}>
-                        {cards[cardOn].title.toUpperCase()}
+                        {release[cardOn].title ?? release[cardOn].title}
                     </h1>
-                    {cards[cardOn].subtitle && (
-                        <h3 className={styles.subtitulo_principal}>{cards[cardOn].subtitle}</h3>
+                    {release[cardOn].subtitle && (
+                        <h3 className={styles.subtitulo_principal}>{release[cardOn].subtitle}</h3>
                     )}
                     <div className={styles.gen}>
                         <p>{TMDBMovie ? TMDBMovie.genres.map(genre => genre.name === "Action & Adventure"
                             ? "Ação e Aventura" : genre.name === "Sci-Fi & Fantasy"
                                 ? "Ficção Científica e Fantasia" : genre.name === "Thriller"
-                                    ? "Suspense" : genre.name).join(', ') : cards[cardOn].genero.join(', ')}</p>
-                        <Adult faixa={cards[cardOn].faixa} />
+                                    ? "Suspense" : genre.name).join(', ') : release[cardOn].genero.join(', ')}</p>
+                        <Adult faixa={release[cardOn].faixa} />
                     </div>
                     <div className={styles.description}>
-                        <p>{cards[cardOn].description}</p>
+                        <p>{release[cardOn].description}</p>
                     </div>
                     <div className={styles.button_section}>
                         <div className={styles.watch} onClick={handleWatch}>
-                            <h3>Play</h3>
-                            <FaCirclePlay color='#fff' />
+                            <FaPlay size={35} />
+                            <h3>Assistir</h3>
                         </div>
                         <div className={styles.queue} onClick={handleWatchLater}>
                             {onWatchLater ?
                                 <>
-                                    <h3>ADICIONADO À LISTA!</h3>
-                                    <FaCheck />
+                                    <FaCheck size={25} />
+                                    <h3>Adicionado à Lista!</h3>
                                 </> :
                                 <>
-                                    <h3>ASSISTIR MAIS TARDE</h3>
-                                    <IoIosAddCircleOutline />
+                                    <IoIosAddCircleOutline size={25} />
+                                    <h3>Assistir Mais Tarde</h3>
                                 </>
                             }
                         </div>
