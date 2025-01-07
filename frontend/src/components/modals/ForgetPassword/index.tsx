@@ -34,7 +34,7 @@ export default function ForgetPass({ handleClose }: ForgetPassProps) {
         <div className={styles.container}>
             <div className={styles.recoverContainer}>
                 <X onClick={handleClose} className={styles.closeButton} />
-                <h2>Digite seu email para recuperar sua acesso</h2>
+                <h2>Digite seu email para recuperar seu acesso</h2>
                 <input
                     type="email"
                     placeholder="Digite seu email"
