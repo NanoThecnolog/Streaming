@@ -23,5 +23,9 @@ export const releaseCards: ReleaseProps[] = [
     {
         tmdbId: 845781,
         name: "Operação natal"
+    },
+    {
+        tmdbId: 533535,
+        name: "deadpool e wolverine"
     }
 ]
