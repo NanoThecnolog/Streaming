@@ -21,6 +21,7 @@ interface TopProps {
 export default function Top({ width }: TopProps) {
     //Componente refatorado
     const [cardOn, setCardOn] = useState(0)
+    const card = cards[cardOn]
     const releaseSet = new Set(releaseCards.map(item => item.tmdbId))
     const release = cards.filter(card => releaseSet.has(card.tmdbId))
     const [fade, setFade] = useState('fadeIn')
@@ -53,7 +54,7 @@ export default function Top({ width }: TopProps) {
         const interval = setInterval(() => {
             setFade('fadeOut')
             setTimeout(async () => {
-                setCardOn(prevCardOn => (prevCardOn + 1) % release.length);
+                setCardOn(prevCardOn => (prevCardOn + 1) % cards.length);
                 setFade('fadeIn')
             }, 1800)
         }, 10000)
@@ -72,7 +73,7 @@ export default function Top({ width }: TopProps) {
         setTMDBImages({ backdrop: null, poster: null })
         const fetchImages = async () => {
 
-            const card = release[cardOn]
+            //const card = release[cardOn]
             if (card.tmdbId !== 0) {
                 const movie = await fetchTMDBMovie(card.tmdbId)
                 if (movie) {
@@ -101,7 +102,7 @@ export default function Top({ width }: TopProps) {
 
     const checkWatchLaterList = useCallback(async () => {
         if (!user) return
-        const card = release[cardOn]
+        //const card = release[cardOn]
         const isAdded = await isOnTheList(card.title, card.subtitle, card.tmdbId)
         setOnWatchLater(isAdded)
     }, [user, cardOn])
@@ -115,7 +116,7 @@ export default function Top({ width }: TopProps) {
 
             setIsLoading(true)
             try {
-                const card = release[cardOn]
+                //const card = release[cardOn]
                 await addWatchLater(user.id, card.title, card.tmdbId, card.subtitle)
                 await checkWatchLaterList()
 
@@ -129,13 +130,13 @@ export default function Top({ width }: TopProps) {
         [isLoading, user, cardOn, checkWatchLaterList]
     )
     const getBackgroundImage = () => {
-        const card = release[cardOn]
+        //const card = release[cardOn]
         return width && width <= 980
             ? TMDBImages.poster ?? card.overlay
             : TMDBImages.backdrop ?? card.background
     }
     function handleWatch() {
-        const card = release[cardOn]
+        //const card = release[cardOn]
         const { tmdbId } = card
         //const play: string = `/watch?title=${title}&subTitle=${subtitle}&src=${src}&tmdbId=${tmdbId}`
         const play: string = `/watch/${tmdbId}`
@@ -148,20 +149,20 @@ export default function Top({ width }: TopProps) {
             <div className={styles.image_container} id="inicio">
                 <div className={styles.left_side}>
                     <h1 className={styles.titulo_principal}>
-                        {release[cardOn].title ?? release[cardOn].title}
+                        {card.title ?? card.title}
                     </h1>
-                    {release[cardOn].subtitle && (
-                        <h3 className={styles.subtitulo_principal}>{release[cardOn].subtitle}</h3>
+                    {card.subtitle && (
+                        <h3 className={styles.subtitulo_principal}>{card.subtitle}</h3>
                     )}
                     <div className={styles.gen}>
                         <p>{TMDBMovie ? TMDBMovie.genres.map(genre => genre.name === "Action & Adventure"
                             ? "Ação e Aventura" : genre.name === "Sci-Fi & Fantasy"
                                 ? "Ficção Científica e Fantasia" : genre.name === "Thriller"
-                                    ? "Suspense" : genre.name).join(', ') : release[cardOn].genero.join(', ')}</p>
-                        <Adult faixa={release[cardOn].faixa} />
+                                    ? "Suspense" : genre.name).join(', ') : card.genero.join(', ')}</p>
+                        <Adult faixa={card.faixa} />
                     </div>
                     <div className={styles.description}>
-                        <p>{release[cardOn].description}</p>
+                        <p>{card.description}</p>
                     </div>
                     <div className={styles.button_section}>
                         <div className={styles.watch} onClick={handleWatch}>
