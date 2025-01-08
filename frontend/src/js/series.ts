@@ -37,7 +37,7 @@ export const series: SeriesProps[] = [
         title: "Xógum",
         subtitle: "A Gloriosa Saga do Japão",
         description: "Ambientada no Japão de 1600, o Senhor Yoshii Toranaga está lutando pela sua vida à medida que seus inimigos no Conselho dos Regentes se unem contra ele, quando um navio europeu misterioso é encontrado encalhado em um vilarejo de pescadores próximo.",
-        genero: ["Drama"],
+        genero: ["Drama", "Disney+"],
         faixa: "A16",
         season: [
             {
