@@ -33,6 +33,74 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 126308,
+        title: "Xógum",
+        subtitle: "A Gloriosa Saga do Japão",
+        description: "Ambientada no Japão de 1600, o Senhor Yoshii Toranaga está lutando pela sua vida à medida que seus inimigos no Conselho dos Regentes se unem contra ele, quando um navio europeu misterioso é encontrado encalhado em um vilarejo de pescadores próximo.",
+        genero: ["Drama"],
+        faixa: "A16",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1Vpns8885MYz3t1JJDP44fa_9Nwq6IoLu/preview",
+                        duration: "01h 09m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/19Tl_jeOswrn6Z7hTnEspBNg2S2YE8C8j/preview",
+                        duration: "58m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/150khbZQV299QzH2Ea8R27lnSbm4iXq05/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1AeHMddVtRj3bK_QM27wDty3LL73VT2RM/preview",
+                        duration: "56m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/10isCOvMavx3nYsBjyjZo__NZWI_WyU6F/preview",
+                        duration: "56m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/14k6vywdLhUylM-joe6Ed8TBGlX9bXiZH/preview",
+                        duration: "56m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1wwnt_c0bwTv1Yf1sRm3kYVgJYQTTsMmy/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1WozIlC4THRj4v9x5VJEWph499FIQIphg/preview",
+                        duration: "57m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/16kb2qIn0yOnLW3MMufuPfnP7ZpvTz9Tc/preview",
+                        duration: "1h"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1uLd2LI_U5VjSLzsvS5VYNo2vhWitcB-w/preview",
+                        duration: "1h"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 75450,
         title: "Titãs",
         subtitle: "",
