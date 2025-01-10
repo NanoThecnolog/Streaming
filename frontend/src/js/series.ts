@@ -3455,7 +3455,7 @@ export const series: SeriesProps[] = [
         season: [
             {
                 s: 1,
-                lang: "Dublado",
+                lang: "Dublado & Legendado",
                 episodes: [
                     {
                         ep: 1,
@@ -3517,19 +3517,13 @@ export const series: SeriesProps[] = [
                         src: "https://drive.google.com/file/d/1JaZDUXClsjgcfQ4WzLLNAjBz5uQZwbGw/preview",
                         duration: "23m"
                     },
-                ]
-            },
-            {
-                s: 2,
-                lang: "Legendado",
-                episodes: [
                     {
-                        ep: 1,
+                        ep: 13,
                         src: "https://drive.google.com/file/d/17gN05EE_OscKH0VdB_Y3tg8AsWfGYwzJ/preview",
                         duration: "23m"
                     }
                 ]
-            }
+            },
         ]
     },
     {
