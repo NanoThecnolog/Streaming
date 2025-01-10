@@ -430,7 +430,7 @@ export const cards: CardsProps[] = [
         subtitle: "Crise nas Infinitas Terras Parte 1",
         description: "A morte é iminente. Pior que a morte: o esquecimento. Não apenas para a nossa Terra, mas para todos, em todos os lugares, em todos os universos! Para aplacar essa destruição derradeira, o misterioso Monitor reuniu a maior equipe de super-heróis já vista. Mas o que o poder combinado de Superman, Mulher-Maravilha, Batman, Flash, Lanterna Verde e centenas de heróis de várias Terras pode fazer para salvar toda a realidade de um implacável Armagedom de antimatéria?!",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/1LDO29NIWnt_0lid7TZ5c0tu3pg26HGiJ/preview",
+        src: "https://drive.google.com/file/d/1DVwfMIdG1Sv7W0CJB-CwaIPUisqvYT7h/preview",
         duration: "01h 33m",
         genero: ["Animação", "DC", "HBO"]
     },
