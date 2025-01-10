@@ -25,7 +25,6 @@ import { ADMAuth } from "./middlewares/ADMAuth";
 
 const router = Router()
 
-const serverStatus = 'online'
 router.get('/acordar', (req, res) => {
     res.json({ status: 'acordado' })
 

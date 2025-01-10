@@ -14,126 +14,148 @@ export class PromotionalEmailService {
         });
 
 
+
+
         try {
             const users = await prismaClient.user.findMany()
             if (!users) throw new Error("Usuários não encontrados")
             users.map(async user => {
+                const assunto = "Muita Novidade e Diversão para o seu 2025!"
+                const html = `<body style="font-family: Arial, sans-serif; background-color: #121212; color: #fff; margin: 0; padding: 0;">
+                                <table role="presentation" width="100%" cellspacing="0" cellpadding="0"
+                                    style="background-color: #1f1f1f; padding: 20px;">
+                                    <tr>
+                                        <td align="center">
+                                            <table role="presentation" width="800" cellspacing="0" cellpadding="0"
+                                                style="background-color: #101010; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+
+                                                <!-- Header Section -->
+                                                <tr>
+                                                    <td align="center" style="padding: 20px;">
+
+                                                        <h1 style="margin: 0; font-size: 24px; color: white;">Feliz Ano Novo!!
+                                                            🎉</h1>
+                                                        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.shutterstock.com%2Fimage-vector%2Fchinese-happy-new-year-2025-600nw-2529645459.jpg&f=1&nofb=1&ipt=36dd6b0505877c7ef8ef4a618db7034d2ebd873ff23e6fbb323061e1732b4fdd&ipo=images"
+                                                            alt="Feliz Ano novo" style="width: 100%; border-radius: 2rem;">
+                                                    </td>
+                                                </tr>
+
+                                                <!-- Body Section -->
+                                                <tr>
+                                                    <td style="padding: 20px; color: #d3d3d3; font-size: 16px; line-height: 1.5;">
+                                                        <p style="font-size: 24px; font-weight: 700; margin: 0; text-align: left;">Olá,
+                                                            <strong>${user.name}</strong>!
+                                                        </p>
+                                                        <p style="font-size: 20px; margin: 10px 0; text-align: center;">O ano mal começou e já tem
+                                                            muita novidade
+                                                            chegando! Descubra os novos filmes e séries que estão vindo de todos os lugares pra começar 2025 com o
+                                                            pé direito!
+                                                        </p>
+                                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0"
+                                                            style="margin-top: 20px; padding: 15px; border-radius: 8px;">
+                                                            <tr>
+                                                                <td style="font-size: 20px; font-weight: 700; color: #d3d3d3;">
+                                                                    <h2 style="margin: 10px 0;">Novidades em Séries:</h2>
+                                                                    <a href="https://flixnext.vercel.app/series/serie/85271"><img
+                                                                            src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/sgCHdBJ1w0vJNUrW1Sq90KEXv9j.jpg"
+                                                                            alt="WandaVision" style="max-width: 350px; border-radius: 2rem;">
+                                                                    </a>
+                                                                    <a href="https://flixnext.vercel.app/series/serie/95396"><img
+                                                                            src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/d09X5AzxBq4GkHL6j8pmkDPySfA.jpg"
+                                                                            alt="Ruptura" style="max-width: 350px; border-radius: 2rem;"></a>
+                                                                    <a href="https://flixnext.vercel.app/series/serie/118906"><img
+                                                                            src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/kWllPMxt5pbtW4Rx0XbgbhcYGmP.jpg"
+                                                                            alt="Universos Paralelos"
+                                                                            style="max-width: 350px; border-radius: 2rem;"></a>
+                                                                    <a href="https://flixnext.vercel.app/series/serie/241259"><img
+                                                                            src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fJQhUBShLBPSKNzcGg1tf0kHMyo.jpg"
+                                                                            alt="Bebê Rena" style="max-width: 350px; border-radius: 2rem;">
+                                                                    </a>
+                                                                    <p style="margin: 0; text-align: center; padding-top: 20px;">
+                                                                        <a href="https://flixnext.vercel.app/series"
+                                                                            style="text-decoration: none;color: #d3d3d3;">📺 Assista essas e muitas
+                                                                            outras séries na FlixNext!</a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="center" style="padding: 20px;">
+                                                                    <a href="https://flixnext.vercel.app/series"
+                                                                        style="background-color: #921d1d; color: white; padding: 15px 30px; text-decoration: none; font-size: 18px; font-weight: 700; border-radius: 5px;">Assista
+                                                                        Agora</a>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0"
+                                                            style="margin-top: 20px; padding: 15px; border-radius: 8px;">
+                                                            <tr>
+                                                                <td style="font-size: 20px; font-weight: 700; color: #d3d3d3;">
+                                                                    <h2 style="margin: 10px 0;">Novidades em Filmes:</h2>
+                                                                    <a href="https://flixnext.vercel.app/watch/1156593"><img
+                                                                            src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/bYGXiAHUQqSp8SW3ql2lleZxQ5n.jpg"
+                                                                            alt="Filme Sua Culpa" style="max-width: 350px; border-radius: 2rem;">
+                                                                    </a>
+                                                                    <a href="https://flixnext.vercel.app/watch/558449"><img
+                                                                            src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/342bly9MqveL65TnEFzx8TTUxcL.jpg"
+                                                                            alt="Filme Gladiador 2"
+                                                                            style="max-width: 350px; border-radius: 2rem;"></a>
+                                                                    <a href="https://flixnext.vercel.app/watch/845781"><img
+                                                                            src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/zX2UeAmF8XDBJM3sZ0RS0jLQ8Gg.jpg"
+                                                                            alt="Filme Operação Natal"
+                                                                            style="max-width: 350px; border-radius: 2rem;"></a>
+                                                                    <a href="https://flixnext.vercel.app/watch/533535"><img
+                                                                            src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg"
+                                                                            alt="Filme Deadpool & Wolverine"
+                                                                            style="max-width: 350px; border-radius: 2rem;">
+                                                                    </a>
+                                                                    <p style="margin: 0; text-align: center; padding-top: 20px;">
+                                                                        <a href="https://flixnext.vercel.app/#filmes"
+                                                                            style="text-decoration: none;color: #d3d3d3;">🎞️ Assista esses filmes e
+                                                                            muito
+                                                                            mais!</a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="center" style="padding: 20px;">
+                                                                    <a href="https://flixnext.vercel.app/#filmes"
+                                                                        style="background-color: #921d1d; color: white; padding: 15px 30px; text-decoration: none; font-size: 18px; font-weight: 700; border-radius: 5px;">Assista
+                                                                        Agora</a>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+
+                                                <!-- Footer Section -->
+                                                <tr>
+                                                    <td align="center" style="padding: 20px; font-size: 14px; color: #ccc;">
+                                                        <p>
+                                                            A FlixNext envia e-mails informativos sobre filmes e séries que possam lhe interessar.
+                                                            Se você não quiser mais receber nossos emails, modifique as configurações da sua conta
+                                                            <a href="https://flixnext.vercel.app/me" target="_blank"
+                                                                style="color: #f44336; text-decoration: none;">aqui</a>.
+                                                        </p>
+                                                        <p>
+                                                            Este e-mail foi enviado de uma conta que apenas envia notificações e não pode receber
+                                                            respostas. Por favor não responda.
+                                                        </p>
+                                                        <p>©2025 FlixNext</p>
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </body>`
 
                 if (user.news) {
                     const sendEmail = await transporter.sendMail({
                         from: `'FlixNext'<${process.env.EMAIL_USER}>`,
                         to: user.email,
-                        subject: "Nosso Assassino em série favorito chegou na Flixnext!",
-                        html: `               
-                            <body style="font-family: Arial, sans-serif; background-color: #121212; color: #fff; margin: 0; padding: 0;">
-                                <table width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #121212; padding: 20px 0;">
-        <tr>
-            <td align="center">
-                <table width="600" cellspacing="0" cellpadding="0" border="0"
-                    style="background-color: #000; border-radius: 8px;">
-                    <!-- Header -->
-                    <tr>
-                        <td align="center" style="background-color: #000; padding: 20px;">
-                            <h1 style="font-size: 34px; margin: 0; color: #fff;">Dexter chegou na nossa Plataforma!</h1>
-                        </td>
-                    </tr>
-
-                    <!-- Images -->
-                    <tr>
-                        <td align="center" style="padding: 20px;">
-                            <table width="100%" cellspacing="0" cellpadding="0" border="0">
-                                <tr>
-                                    <td align="center" style="padding: 10px;">
-                                        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/8b1a019595179.560d6786d1c40.jpg"
-                                            alt="Dexter Poster" width="100%"
-                                            style="width: 300px; height: 400px; border-radius: 10px; object-fit: cover; display: block;">
-                                    </td>
-                                    <td align="center" style="padding: 10px;">
-                                        <img src="https://tse4.mm.bing.net/th?id=OIP.s3-ccUHvQOx8b6kIAuZN5AHaJb"
-                                            alt="Dexter Pecado Original Poster" width="100%"
-                                            style="width: 300px; height: 400px; border-radius: 10px; object-fit: cover; display: block;">
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-
-                    <!-- Text Content -->
-                    <tr>
-                        <td align="center" style="padding: 20px; color: #fff;">
-                            <p style="font-size: 26px; line-height: 1.5;">📣 Prepare-se para um banho de tensão e
-                                mistério!</p>
-                            <p style="font-size: 16px; line-height: 1.5;">
-                                As séries Dexter e Dexter: Pecado Original chegaram ao FlixNext e estão prontas para te
-                                prender do início ao fim. Mergulhe no universo do serial killer mais amado da TV, que
-                                elimina outros assassinos em série para conter seu passageiro sombrio.
-                            </p>
-                            <p style="font-size: 16px; line-height: 1.5;">
-                                🔪 Dexter: Acompanhe a história original de Dexter Morgan, um analista forense que
-                                trabalha para a polícia de Miami enquanto esconde um sombrio segredo. Sua luta para
-                                conter seus impulsos e seguir o "Código de Harry" é eletrizante!
-                            </p>
-                            <p style="font-size: 16px; line-height: 1.5;">
-                                🩸 Dexter: Pecado Original: Descubra como tudo começou para o serial killer mais amado
-                                de todos os tempos. Acompanhe um jovem Dexter Morgan, que precisa aprender a canalizar
-                                sua escuridão conforme ele passa de estudante para assassino em série com a orientação
-                                de seu pai, Harry, e seu código. Você está preparado para ver o início da jornada desse
-                                anti-herói e descobrir seus próximos passos?
-                            </p>
-                            <p style="font-size: 16px; line-height: 1.5;">
-                                🎬 Assista agora na FlixNext e descubra porque Dexter é um dos personagens mais
-                                marcantes da história da TV!
-                            </p>
-                        </td>
-                    </tr>
-
-                    <!-- Call to Action -->
-                    <tr>
-                        <td align="center" style="padding: 20px; text-align: center;">
-                            <!-- Tabela para centralizar e padronizar os botões -->
-                            <table align="center" cellspacing="0" cellpadding="0" style="margin: 0 auto;">
-                                <tr>
-                                    <td align="center" style="padding: 5px;">
-                                        <a href="https://flixnext.vercel.app/series/serie/1405" target="_blank"
-                                            style="display: inline-block; width: 200px; padding: 10px 20px; text-align: center; background-color: #f44336; color: #fff; text-decoration: none; font-size: 16px; border-radius: 5px;">
-                                            Dexter
-                                        </a>
-                                    </td>
-                                    <td align="center" style="padding: 5px;">
-                                        <a href="https://flixnext.vercel.app/series/serie/219937" target="_blank"
-                                            style="display: inline-block; width: 200px; padding: 10px 20px; text-align: center; background-color: #f44336; color: #fff; text-decoration: none; font-size: 16px; border-radius: 5px;">
-                                            Dexter: Pecado Original
-                                        </a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-
-                    <!-- Footer -->
-                    <tr>
-                        <td align="center" style="padding: 20px; font-size: 12px; color: #ccc;">
-                            <p>
-                                A FlixNext envia e-mails informativos sobre filmes e séries que possam lhe interessar.
-                                Se você não quiser mais receber nossos emails, modifique as configurações da sua conta
-                                <a href="https://flixnext.vercel.app/me" target="_blank"
-                                    style="color: #f44336; text-decoration: none;">aqui</a>.
-                            </p>                            
-                            <p>
-                                Este e-mail foi enviado para ${user.email} de um endereço não monitorado. Para dúvidas,
-                                envie um e-mail para:
-                                <a href="mailto:contato@ericssongomes.com"
-                                    style="color: #f44336; text-decoration: none;">contato@ericssongomes.com</a>.
-                            </p>
-                            <p>©2024 FlixNext</p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-                            </body>
-                    `
+                        subject: assunto,
+                        html: html
                     })
                 }
             })
