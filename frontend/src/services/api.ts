@@ -10,9 +10,7 @@ export const api = axios.create({
 api.interceptors.request.use(async (config) => {
     const user = await getUserCookieData()
 
-    if (user) {
-        config.headers.Authorization = `Bearer ${user.token}`
-    }
+    if (user) config.headers.Authorization = `Bearer ${user.token}`
     return config;
 }, (error) => {
     return Promise.reject(error)

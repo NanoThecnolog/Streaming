@@ -94,7 +94,7 @@ export default function Header({ userAvatar, status }: HeaderProps) {
                 <Link href="/" className={styles.button_container}>
                     <h2>INÍCIO</h2>
                 </Link>
-                <Link href="/#ação" className={styles.button_container}>
+                <Link href="/#filmes" className={styles.button_container}>
                     <h2>FILMES</h2>
                 </Link>
                 <Link href="/series" className={styles.button_container}>

@@ -1,20 +1,13 @@
 import Link from 'next/link'
 import styles from './styles.module.scss'
-import { FormEvent, FormEventHandler, useEffect, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { api } from '@/services/api';
 import { toast } from 'react-toastify';
 import Router from 'next/router';
 import { FaSpinner } from 'react-icons/fa';
-import Head from 'next/head';
-import { GetServerSideProps } from 'next';
-import { serverStatus } from '@/services/verifyStatusServer';
 import ForgetPass from '@/components/modals/ForgetPassword';
-import { Verified } from 'lucide-react';
 import setData from '@/services/setDataOnStorage';
 import SEO from '@/components/SEO';
-//import { cookies } from 'next/headers';
-
-
 
 export default function Login() {
     //refatorar esse componente
@@ -138,7 +131,6 @@ export default function Login() {
                     handleClose={handleClose}
                 />
                 }
-
             </div>
         </>
     )

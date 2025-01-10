@@ -99,7 +99,7 @@ export default function Home(status: string) {
       <main className={`${styles.main} ${inter.className}`}>
         <div className={styles.content}>
           <Top width={width} />
-          <div className={styles.mid}>
+          <div className={styles.mid} id="filmes">
             <ReleaseContainer section="lançamentos" cardPerContainer={cardPerContainer} />
             <CollectionContainer cardPerContainer={cardPerContainer} />
             {divisaoPorGenero.map((sec, index) => (
