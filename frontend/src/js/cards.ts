@@ -29,6 +29,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 1209288,
+        title: "Liga da Justiça",
+        subtitle: "Crise nas Infinitas Terras - Parte 2",
+        description: "Um exército interminável de DEMÔNIOS SOMBRIOS, empenhados na destruição de todas as realidades, assola nosso mundo e todas as Terras paralelas! A única coisa que se opõe a eles é a mais poderosa equipe de meta-humanos já reunida. Mas nem mesmo o poder combinado de Superman, Batman, Mulher-Maravilha, Lanterna Verde e todos os seus colegas super-heróis consegue retardar o ataque dessa horda invencível. Que força misteriosa a move? E como os segredos ocultos do Monitor e da Supergirl ameaçam destruir nossa última defesa?",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1XVlqRlGdppcPgAMdNIuTQODcFSI5Xj4O/preview",
+        duration: "01h 34m",
+        genero: ["Animação", "HBO", "DC", "Super Herói"]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 1930,
         title: "O Espetacular Homem Aranha",
         subtitle: "",
