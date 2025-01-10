@@ -47,16 +47,20 @@ export default function Movie() {
     useEffect(() => {
         function getRelatedCards() {
             if (movie) {
-                const relatedCards = cards.filter(card => card.tmdbId !== movie.tmdbId).filter(card => card.title.toLowerCase().includes(movie.title.toLowerCase()) ||
-                    card.genero.some((genre: string) => movie.genero.includes(genre))
-                ).sort((a, b) => {
-                    const aTitleMatch = a.title.toLowerCase().includes(movie.title.toLowerCase());
-                    const bTitleMatch = b.title.toLowerCase().includes(movie.title.toLowerCase());
+                const relatedCards = cards
+                    .filter(card => card.tmdbId !== movie.tmdbId)
+                    .map(card => {
+                        const titleMatch = card.title.toLowerCase().includes(movie.title.toLowerCase()) ? 2 : 0;
+                        const commonGenres = card.genero.filter((genre: string) => movie.genero.includes(genre)).length;
+                        const genreScore = commonGenres > 0 ? commonGenres + (commonGenres === movie.genero.length ? 1 : 0) : 0;
 
-                    if (aTitleMatch && !bTitleMatch) return -1;
-                    if (!aTitleMatch && bTitleMatch) return 1;
-                    return 0;
-                }).slice(0, 20)
+                        return {
+                            ...card,
+                            score: titleMatch + genreScore,
+                        };
+                    })
+                    .sort((a, b) => b.score - a.score)
+                    .slice(0, 20)
                 setRelatedCards(relatedCards)
             }
         }
