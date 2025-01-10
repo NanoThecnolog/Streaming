@@ -6,6 +6,7 @@ import CardInfoModal from "../modals/CardInfos";
 import Overlay from "../Overlay";
 import { updateUserCookie } from "@/services/cookieClient";
 import { fetchTMDBMovie, fetchTMDBPoster } from "@/services/fetchTMDBData";
+import { useRouter } from "next/router";
 
 interface CardProps {
     card: CardsProps;
@@ -25,6 +26,7 @@ type StateProps = {
 }
 
 export default function Card({ card }: CardProps) {
+    const router = useRouter();
     const [state, setState] = useState<StateProps>({
         modalVisible: false,
         TMDBImage: null,
@@ -80,7 +82,7 @@ export default function Card({ card }: CardProps) {
         }
     }
     function handleClick() {
-        setState(prev => ({ ...prev, modalVisible: !prev.modalVisible }))
+        router.push(`/movie/${card.tmdbId}`)
     }
     async function handleModalClose() {
         setState(prev => ({ ...prev, modalVisible: false }))
@@ -104,27 +106,7 @@ export default function Card({ card }: CardProps) {
                     sizes="100%"
                     onClick={() => handleClick()}
                 />
-                <div className={styles.overlay}>
-                    <Overlay
-                        card={card}
-                        vote_average={state.vote_average}
-                        modalVisible={modalVisibility}
-                        isVisible={modalVisible}
-                        adult={state.adult}
-                        runtime={state.runtime}
-                        genres={state.genres}
-                    />
-                </div>
             </div>
-            {modalVisible &&
-                <div className={styles.modalInfo}>
-                    <CardInfoModal
-                        card={card}
-                        average={state.vote_average}
-                        handleModalClose={handleModalClose}
-                    />
-                </div>
-            }
         </>
     )
 }

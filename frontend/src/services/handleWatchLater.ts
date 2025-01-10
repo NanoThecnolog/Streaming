@@ -7,7 +7,7 @@ import { getCookie } from "cookies-next";
 import { updateUserCookie } from "./cookieClient";
 
 /**
- * Essa função adiciona ou remove o filme da lista no banco de dados. 
+ * Essa função adiciona ou remove o filme da lista no banco de dados. Avisa com toast o resultado. 
  * Atualiza os dados do usuário, da lista de favoritos e da lista de watchlater no Storage.
  * @param userid ID do usuário
  * @param title Título do filme / série

@@ -32,15 +32,12 @@ export default function Header({ userAvatar, status }: HeaderProps) {
         setInitial(letraInicial)
     }, [user])
 
-
     useEffect(() => {
-        if (!userAvatar) return;
-        setAvatar(userAvatar)
-    }, [userAvatar])
+        inicial()
+    }, [user])
 
     useEffect(() => {
         getUser()
-        inicial()
     }, [])
 
     async function getUser() {
@@ -48,6 +45,10 @@ export default function Header({ userAvatar, status }: HeaderProps) {
         if (!data) return
         setUser(data)
     }
+    useEffect(() => {
+        if (!userAvatar) return;
+        setAvatar(userAvatar)
+    }, [userAvatar])
 
     useEffect(() => {
         async function wakeUpServer() {
@@ -123,9 +124,9 @@ export default function Header({ userAvatar, status }: HeaderProps) {
                 </div>
 
                 {
-                    avatar !== '' ? (
+                    user?.avatar ? (
                         <div className={styles.avatarImage} title="Meu Perfil">
-                            <Image src={avatar} alt="avatar" width={45} height={45} onClick={handleUserClick} />
+                            <Image src={user.avatar} alt="avatar" width={45} height={45} onClick={handleUserClick} />
                         </div>
                     ) : user ? <div className={styles.avatarLetter} onClick={handleUserClick}><span>{initial}</span></div> : <FaUserCircle size={35} color="#fff" className={styles.loginIcon} onClick={handleUserClick} />
                 }
@@ -164,11 +165,11 @@ export default function Header({ userAvatar, status }: HeaderProps) {
                 <div className={styles.divider}></div>
                 <div className={styles.dropdownIcon}>
                     {
-                        avatar !== '' ? (
-                            <div className={styles.dropdownAvatarImage} title="Meu Perfil">
-                                <Image src={avatar} alt="avatar" width={35} height={35} onClick={handleUserClick} />
+                        user?.avatar ? (
+                            <div className={styles.avatarImage} title="Meu Perfil">
+                                <Image src={user.avatar} alt="avatar" width={45} height={45} onClick={handleUserClick} />
                             </div>
-                        ) : <FaUserCircle size={35} className={styles.loginIcon} onClick={handleUserClick} />
+                        ) : user ? <div className={styles.avatarLetter} onClick={handleUserClick}><span>{initial}</span></div> : <FaUserCircle size={35} color="#fff" className={styles.loginIcon} onClick={handleUserClick} />
                     }
                 </div>
             </div>

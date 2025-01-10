@@ -340,7 +340,7 @@ export const cards: CardsProps[] = [
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
-        overlay: "",
+        overlay: overlay,
         tmdbId: 166428,
         title: "Como treinar o seu Dragão 3",
         subtitle: "",

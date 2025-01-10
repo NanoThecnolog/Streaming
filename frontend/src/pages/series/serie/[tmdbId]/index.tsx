@@ -164,7 +164,7 @@ export default function Serie(status: string) {
         } catch (err: any) {
             if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
             console.log(err)
-            return toast.error("Erro inesperado ao adicionar filme à lista!")
+            return toast.error("Erro inesperado ao adicionar série à lista!")
         }
     }
 
@@ -220,7 +220,7 @@ export default function Serie(status: string) {
                                         ).join(', ') : serie.genero.join(', ')}</h4>
                                     </div>
                                     <div className={styles.watchButton} onClick={() => handlePlayEpisode(serie.season[0].episodes[0], serie.season[0].s)}>
-                                        <button className={styles.buttonPlay}><Play /><h4>Começar a Assistir</h4></button>
+                                        <button type="button" className={styles.buttonPlay}><Play /><h4>Começar a Assistir</h4></button>
                                     </div>
                                     <div className={styles.watchLater}>
                                         <button type="button" onClick={() => handleAddUserList(serie.title, serie.tmdbID, serie.subtitle)}>

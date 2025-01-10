@@ -4,6 +4,7 @@ import { TMDBSeries } from "@/@types/series";
 import { TMDBEpisodes } from "@/@types/series"
 import { apiTMDB } from "./apiTMDB";
 import { CollectionProps, ResultsProps } from "@/@types/collection";
+import { CastProps } from "@/@types/cast";
 
 const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
 
@@ -16,15 +17,20 @@ if (!tmdbToken) {
  * @param tmdbID ID do filme no TMDB
  * @param type movie (filme) | tv (serie)
  * @param imageType Tipo de imagem para busca -> backdrop imagem larga | poster: imagem alta
- * @returns Retorna o caminho da imagem ou o objeto com as informações gerais do filme no TMDB,ou null em caso de erro.
+ * @param cast Booleano que define o retorno do elenco.
+ * @returns Retorna o caminho da imagem, o objeto com as informações gerais do filme no TMDB, as informações sobre o elenco do filme ou série, ou null em caso de erro.
  */
-async function fetchTMDBData<T>(tmdbID: number, type: 'movie' | 'tv', imageType: 'backdrop' | 'poster' | 'details' = 'details'): Promise<T | null> {
+async function fetchTMDBData<T>(tmdbID: number, type: 'movie' | 'tv', imageType: 'backdrop' | 'poster' | 'details' = 'details', cast: boolean = false): Promise<T | null> {
     if (!tmdbToken || tmdbID === 0) throw new Error("TMDBID ou TMDBToken inválidos.");
 
     const baseUrl = type === 'movie' ? 'https://api.themoviedb.org/3/movie/' : 'https://api.themoviedb.org/3/tv/';
     const language = 'pt-BR';
-    //const endPoint = `${baseUrl}${tmdbID}?language=${language}${imageType !== 'details' ? '/images' : ''}`;
-    const endPoint2 = `/${type}/${tmdbID}`;
+    //const endPoint = `${baseUrl}${tmdbID}?language=${language}${imageType !== 'details' ? '/images' : ''}`;    
+    let endPoint2 = `/${type}/${tmdbID}`;
+    if (cast) {
+        endPoint2 = `/${type}/${tmdbID}/credits`;
+    }
+
 
     try {
         const response = await apiTMDB.get(endPoint2);
@@ -62,6 +68,9 @@ export async function fetchTMDBBackDrop(tmdbID: number): Promise<string | null> 
  */
 export async function fetchTMDBMovie(tmdbID: number): Promise<MovieTMDB | null> {
     return fetchTMDBData<MovieTMDB>(tmdbID, 'movie', 'details');
+}
+export async function fetchTMDBMovieCast(tmdbID: number): Promise<CastProps | null> {
+    return fetchTMDBData<CastProps>(tmdbID, 'movie', 'details', true);
 }
 
 /**
