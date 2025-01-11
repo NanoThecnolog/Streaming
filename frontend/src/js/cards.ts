@@ -29,6 +29,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 1209290,
+        title: "Liga da Justiça",
+        subtitle: "Crise nas Infinitas Terras - Parte 3 - Legendado",
+        description: "Após se revelar como a derradeira ameaça à existência, o ANTIMONITOR lança um ataque implacável às Terras que ainda lutam pela sobrevivência em um universo de bolso. Um por um, esses mundos e todos os seus habitantes são vaporizados! Até o próprio tempo é destruído nos planetas restantes, e heróis do passado juntam-se à Liga da Justiça e a aliados inusitados na resistência contra o ser nefasto. Mas será que o sacrifício dos super-heróis nessa batalha final será o suficiente para salvar a humanidade?",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1pdMFwvEASe1djfAXKVxXA_LhMMLGCa2A/preview",
+        duration: "01h 38m",
+        genero: ["Animação", "HBO", "DC", "Super Herói"]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 1209288,
         title: "Liga da Justiça",
         subtitle: "Crise nas Infinitas Terras - Parte 2",
