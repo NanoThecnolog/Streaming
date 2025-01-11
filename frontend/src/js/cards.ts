@@ -4,7 +4,12 @@ const background = "/fundo-largo.jpg";
 const overlay = "/fundo-alto.jpg";
 
 export const cards: CardsProps[] = [
-    /*HBO, Disney+, Netflix, Prime Video, Apple TV, SKY, StarZ, Paramount
+    /*
+    schema genero: padrão > streaming > secundario
+    padrão: Ação, aventura, romance, drama, comédia, terror, suspense, animação
+    streaming: HBO, Disney+, Netflix, Prime Video, Apple TV, SKY, StarZ, Paramount
+    secundario: dc, marvel, super herói, vilão
+
     Links Úteis!
     TMDB: https://www.themoviedb.org/?language=pt-BR
     url pra usar imagem do tmdb:
@@ -29,13 +34,49 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
-        tmdbId: 1209290,
+        tmdbId: 274,
+        title: "O Silêncio dos Inocentes",
+        subtitle: "",
+        description: "Clarice Starling, uma das melhores estudantes da academia de treinamento do FBI. Jack Crawford quer que Clarice entreviste o Dr. Hannibal Lecter, um psiquiatra brilhante e também um psicopata violento, que cumpre prisão perpétua por vários atos de assassinato e canibalismo. Crawford acredita que Lecter pode ter uma visão em um caso e que Starling, como uma mulher jovem e atraente, pode ser a isca para atraí-lo.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1NTeLeOJWlHzjounEGHPvuyh6E8_nYGr6/preview",
+        duration: "01h 58m",
+        genero: ["Drama", "Suspense"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 593643,
+        title: "The Menu",
+        subtitle: "",
+        description: "Um casal viaja para uma ilha costeira para comer em um restaurante exclusivo onde o chef preparou um cardápio farto, com algumas surpresas chocantes.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/11bpWmqk0tYiVPHTcLCbyOnLnQjxpVTDs/preview",
+        duration: "01h 47m",
+        genero: ["Suspense"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 1008042,
+        title: "Fale Comigo",
+        subtitle: "",
+        description: "Quando um grupo de amigos descobre como conjurar espíritos usando uma antiga mão embalsamada, eles ficam viciados na nova emoção. Até que um deles vai longe demais e abre a porta para o mundo espiritual.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1-O9nrMlEJu6OF2QEYzAlf4kZ3bLavBqX/preview",
+        duration: "01h 35m",
+        genero: ["Terror"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FrVJfabCz1ViynQCEz54MRqdZig1.jpg&f=1&nofb=1&ipt=773e2ae381c2d1dfe357f6332de3ba63b895058236a160f708c7abf99195d0de&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.zL3nf5rXqdSYP21LKA7MDAHaLH%26pid%3DApi&f=1&ipt=9cb073c0dc13e802650facfac62715e02e5aafd7313aeb6607e24bcc48237ec2&ipo=images",
+        tmdbId: 1155089,
         title: "Liga da Justiça",
-        subtitle: "Crise nas Infinitas Terras - Parte 3 - Legendado",
-        description: "Após se revelar como a derradeira ameaça à existência, o ANTIMONITOR lança um ataque implacável às Terras que ainda lutam pela sobrevivência em um universo de bolso. Um por um, esses mundos e todos os seus habitantes são vaporizados! Até o próprio tempo é destruído nos planetas restantes, e heróis do passado juntam-se à Liga da Justiça e a aliados inusitados na resistência contra o ser nefasto. Mas será que o sacrifício dos super-heróis nessa batalha final será o suficiente para salvar a humanidade?",
+        subtitle: "Crise nas Infinitas Terras - Parte 1",
+        description: "A morte é iminente. Pior que a morte: o esquecimento. Não apenas para a nossa Terra, mas para todos, em todos os lugares, em todos os universos! Para aplacar essa destruição derradeira, o misterioso Monitor reuniu a maior equipe de super-heróis já vista. Mas o que o poder combinado de Superman, Mulher-Maravilha, Batman, Flash, Lanterna Verde e centenas de heróis de várias Terras pode fazer para salvar toda a realidade de um implacável Armagedom de antimatéria?!",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/1pdMFwvEASe1djfAXKVxXA_LhMMLGCa2A/preview",
-        duration: "01h 38m",
+        src: "https://drive.google.com/file/d/1DVwfMIdG1Sv7W0CJB-CwaIPUisqvYT7h/preview",
+        duration: "01h 33m",
         genero: ["Animação", "HBO", "DC", "Super Herói"]
     },
     {
@@ -48,6 +89,18 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1XVlqRlGdppcPgAMdNIuTQODcFSI5Xj4O/preview",
         duration: "01h 34m",
+        genero: ["Animação", "HBO", "DC", "Super Herói"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 1209290,
+        title: "Liga da Justiça",
+        subtitle: "Crise nas Infinitas Terras - Parte 3 - Legendado",
+        description: "Após se revelar como a derradeira ameaça à existência, o ANTIMONITOR lança um ataque implacável às Terras que ainda lutam pela sobrevivência em um universo de bolso. Um por um, esses mundos e todos os seus habitantes são vaporizados! Até o próprio tempo é destruído nos planetas restantes, e heróis do passado juntam-se à Liga da Justiça e a aliados inusitados na resistência contra o ser nefasto. Mas será que o sacrifício dos super-heróis nessa batalha final será o suficiente para salvar a humanidade?",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1pdMFwvEASe1djfAXKVxXA_LhMMLGCa2A/preview",
+        duration: "01h 38m",
         genero: ["Animação", "HBO", "DC", "Super Herói"]
     },
     {
@@ -445,18 +498,6 @@ export const cards: CardsProps[] = [
         src: "https://drive.google.com/file/d/1EWOC6pw_tHarnEVGNaHnw5C1ikPZFjhJ/preview",
         duration: "02h 02m",
         genero: ["Drama", "Suspense"]
-    },
-    {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FrVJfabCz1ViynQCEz54MRqdZig1.jpg&f=1&nofb=1&ipt=773e2ae381c2d1dfe357f6332de3ba63b895058236a160f708c7abf99195d0de&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.zL3nf5rXqdSYP21LKA7MDAHaLH%26pid%3DApi&f=1&ipt=9cb073c0dc13e802650facfac62715e02e5aafd7313aeb6607e24bcc48237ec2&ipo=images",
-        tmdbId: 1155089,
-        title: "Liga da Justiça",
-        subtitle: "Crise nas Infinitas Terras Parte 1",
-        description: "A morte é iminente. Pior que a morte: o esquecimento. Não apenas para a nossa Terra, mas para todos, em todos os lugares, em todos os universos! Para aplacar essa destruição derradeira, o misterioso Monitor reuniu a maior equipe de super-heróis já vista. Mas o que o poder combinado de Superman, Mulher-Maravilha, Batman, Flash, Lanterna Verde e centenas de heróis de várias Terras pode fazer para salvar toda a realidade de um implacável Armagedom de antimatéria?!",
-        faixa: "A12",
-        src: "https://drive.google.com/file/d/1DVwfMIdG1Sv7W0CJB-CwaIPUisqvYT7h/preview",
-        duration: "01h 33m",
-        genero: ["Animação", "DC", "HBO"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwidescreen.hu%2Fwp-content%2Fuploads%2F2023%2F12%2Fws_netflix-rebel-moon_231220-100905.jpg&f=1&nofb=1&ipt=2c87b9d8c8d170957f88d4a297c5e207061cbac4fece16ab0a111618cfdfaf21&ipo=images",
