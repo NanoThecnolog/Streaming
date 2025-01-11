@@ -4,7 +4,12 @@ const background = "/fundo-largo.jpg";
 const overlay = "/fundo-alto.jpg";
 
 export const series: SeriesProps[] = [
-    /*HBO, Disney+, Netflix, Prime Video, Apple TV, SKY, StarZ, Paramount
+    /*
+    schema genero: padrão > streaming > secundario
+    padrão: Ação, aventura, romance, drama, comédia, terror, suspense, animação
+    streaming: HBO, Disney+, Netflix, Prime Video, Apple TV, SKY, StarZ, Paramount
+    secundario: dc, marvel, super herói, vilão
+    
     fundo preto largo: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images
     {
         background: background,
@@ -30,6 +35,120 @@ export const series: SeriesProps[] = [
         ]
     },
     */
+    {
+        background: background,
+        overlay: overlay,
+        tmdbID: 109939,
+        title: "Nossa Bandeira é a Morte",
+        subtitle: "",
+        description: 'Uma comédia de época escandalosamente engraçada e vagamente baseada nas aventuras reais de Stede Bonnet, um aristocrata mimado do século XVIII que abandonou sua vida cheia de privilégios para virar o "Pirata Cavalheiro".',
+        genero: ["Ação", "Aventura", "Comédia", "HBO"],
+        faixa: "A16",
+        season: [
+            {
+                s: 1,
+                lang: "Legendado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1-CYSW5sjidO6-ul2k7FDNaWOTtwxdN00/preview",
+                        duration: "32m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1-E-tDeaFKWYK1T4XmkNX8KBKNUmOI07i/preview",
+                        duration: "26m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1-Fct02AUX2haJ6bbFyS7RYd54YZ4WNGp/preview",
+                        duration: "27m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1-Jjpeh503FcPejlLzFFIEM9l0Kn0Dicd/preview",
+                        duration: "34m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1-U4qW4-_dETsFgd3O4_1lkcXtKsx5z8W/preview",
+                        duration: "29m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1-agxDwHMwwPtBlL6guOhw1IixNsmbIrM/preview",
+                        duration: "28m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1-huyDiSS-rexpkUiDnF7UT-lSavH1GLK/preview",
+                        duration: "28m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1-kqAPHfZoGua9KP9pwMfMQyhWBGjrw0l/preview",
+                        duration: "35m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1-npgTnJxIdJ2cTPpzn9POJXVkijrf79Y/preview",
+                        duration: "27m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1-uJAI3TTz7oZSP8Mm_CmUvfo-lRwjgVw/preview",
+                        duration: "36m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1-iJ1AfIUjSSIENalVVseAeIZBQCIxdPF/preview",
+                        duration: "28m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1-l6579Dw0zNxvtSOcCEV2AZgimu33C1F/preview",
+                        duration: "27m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1-nYmZKrF-ptfbsWj8n0mOK-RhNkFaY_d/preview",
+                        duration: "31m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1-ZM8FYewKEy3IPS5Fi3CZzlMph6dBD_C/preview",
+                        duration: "29m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1-cu9e_EcJKHqSjZfP5uVbi6BD0MV8OOi/preview",
+                        duration: "29m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1-KzXzEtSFdg79tz8ycKNoAZbWFBxXA8R/preview",
+                        duration: "25m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1-GWIpExwu7axezeoNJuxvRLAB0eFG5Tb/preview",
+                        duration: "24m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/11uOrTrtVpvxSF_mzMXToHhNBw_Pmj1kM/preview",
+                        duration: "29m"
+                    },
+                ]
+            },
+        ]
+    },
     {
         background: background,
         overlay: overlay,
