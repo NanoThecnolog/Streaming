@@ -11,8 +11,6 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <TMDBProvider>
       <Component {...pageProps} />
-      <SpeedInsights />
-      <Analytics />
       <ToastContainer autoClose={3000} />
     </TMDBProvider>
   )
