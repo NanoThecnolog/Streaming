@@ -12,10 +12,13 @@ import { GetServerSideProps } from "next";
 import { serverStatus } from "@/services/verifyStatusServer";
 import setData from "@/services/setDataOnStorage";
 import { getUserCookieData } from "@/services/cookieClient";
-import CollectionContainer from "@/components/CollectionContainer";
-import WelcomeModal from "@/components/modal/Welcome";
 import SEO from "@/components/SEO";
+import { useTMDB } from "@/contexts/TMDBContext";
+import { apiTMDB } from "@/services/apiTMDB";
+import { MovieTMDB } from "@/@types/Cards";
 import ReleaseContainer from "@/components/ReleaseContainer";
+import Loading from "@/components/ui/Loading";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,7 +31,25 @@ export default function Home(status: string) {
     "romance", "super herói", "drama", "ficção científica",
     "fantasia", "marvel", "dc", "animação"
   ]
-
+  const { allData, setAllData } = useTMDB()
+  const [loading, setLoading] = useState(false)
+  useEffect(() => {
+    const fetchData = async () => {
+      if (loading) return
+      setLoading(true)
+      try {
+        if (allData.length > 0) return
+        const response = await apiTMDB.get('/all')
+        const cardData = response.data.data as MovieTMDB[]
+        setAllData(cardData)
+      } catch (err) {
+        console.log(err)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchData()
+  }, [])
   useEffect(() => {
     setData()
     const settingUserData = async () => {
@@ -95,27 +116,37 @@ export default function Home(status: string) {
   return (
     <>
       <SEO title="FlixNext - Início" description="Um Streaming nunca antes visto porque é novo." />
-      <Header userAvatar={userData?.avatar} status={status} />
-      <main className={`${styles.main} ${inter.className}`}>
-        <div className={styles.content}>
-          <Top width={width} />
-          <div className={styles.mid} id="filmes">
-            <ReleaseContainer section="lançamentos" cardPerContainer={cardPerContainer} />
-            <CollectionContainer cardPerContainer={cardPerContainer} />
-            {divisaoPorGenero.map((sec, index) => (
-              <div key={index}>
-                <CardContainer
-                  section={sec}
-                  cardPerContainer={cardPerContainer}
-                />
-                {index === 1 && cardPerContainer >= 2 && <Search />}
+      {
+        allData.length > 0 ?
+          <>
+            <Header userAvatar={userData?.avatar} status={status} />
+            <main className={`${styles.main} ${inter.className}`}>
+              <div className={styles.content}>
+                <Top width={width} />
+                <div className={styles.mid} id="filmes">
+                  <ReleaseContainer section="lançamentos" cardPerContainer={cardPerContainer} />
+                  {
+                    divisaoPorGenero.map((sec, index) => (
+                      <div key={index}>
+                        <CardContainer
+                          section={sec}
+                          cardPerContainer={cardPerContainer}
+                        />
+                        {index === 1 && cardPerContainer >= 2 && <Search />}
+                      </div>
+                    )
+                    )
+                  }
+                </div>
               </div>
-            )
-            )}
+            </main>
+            <Footer />
+          </> :
+          <div className={styles.loading}>
+            <Loading />
           </div>
-        </div>
-      </main>
-      <Footer />
+      }
+
     </>
   );
 }

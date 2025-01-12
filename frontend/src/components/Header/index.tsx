@@ -166,8 +166,8 @@ export default function Header({ userAvatar, status }: HeaderProps) {
                 <div className={styles.dropdownIcon}>
                     {
                         user?.avatar ? (
-                            <div className={styles.avatarImage} title="Meu Perfil">
-                                <Image src={user.avatar} alt="avatar" width={45} height={45} onClick={handleUserClick} />
+                            <div className={styles.dropdownAvatarImage} title="Meu Perfil">
+                                <Image src={user.avatar} alt="avatar" width={35} height={35} onClick={handleUserClick} />
                             </div>
                         ) : user ? <div className={styles.avatarLetter} onClick={handleUserClick}><span>{initial}</span></div> : <FaUserCircle size={35} color="#fff" className={styles.loginIcon} onClick={handleUserClick} />
                     }

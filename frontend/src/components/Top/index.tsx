@@ -13,6 +13,7 @@ import { fetchTMDBMovie } from '@/services/fetchTMDBData';
 import { MovieTMDB } from '@/@types/Cards';
 import Adult from '../ui/Adult';
 import { releaseCards } from '@/js/release';
+import { useTMDB } from '@/contexts/TMDBContext';
 
 interface TopProps {
     width?: number;
@@ -32,23 +33,8 @@ export default function Top({ width }: TopProps) {
         backdrop: null,
         poster: null
     })
-    const [TMDBMovie, setTMDBMovie] = useState<MovieTMDB | null>({
-        adult: false,
-        backdrop_path: "",
-        id: 0,
-        overview: "",
-        popularity: 0,
-        poster_path: "",
-        release_date: "",
-        vote_average: 0,
-        runtime: 0,
-        genres: [
-            {
-                id: 0,
-                name: ""
-            }
-        ]
-    })
+    const { allData } = useTMDB()
+    const [TMDBMovie, setTMDBMovie] = useState<MovieTMDB | null>(null)
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -68,11 +54,19 @@ export default function Top({ width }: TopProps) {
         }
         fetchUserData()
     }, [])
-
     useEffect(() => {
+        const data = allData.find(data => data.id === card.tmdbId)
+        if (data) {
+            const backdropUrl = `https://image.tmdb.org/t/p/original${data.backdrop_path}`;
+            const posterUrl = `https://image.tmdb.org/t/p/original${data.poster_path}`;
+            setTMDBMovie(data)
+            setTMDBImages({ backdrop: backdropUrl, poster: posterUrl })
+        }
+    }, [allData, cardOn])
+
+    /*useEffect(() => {
         setTMDBImages({ backdrop: null, poster: null })
         const fetchImages = async () => {
-
             //const card = release[cardOn]
             if (card.tmdbId !== 0) {
                 const movie = await fetchTMDBMovie(card.tmdbId)
@@ -98,7 +92,7 @@ export default function Top({ width }: TopProps) {
             }
         }
         fetchImages()
-    }, [cardOn])
+    }, [cardOn])*/
 
     const checkWatchLaterList = useCallback(async () => {
         if (!user) return

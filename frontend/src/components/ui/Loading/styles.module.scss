@@ -1,0 +1,65 @@
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+    h1 {
+        font-family: var(--font-Anton);
+        font-size: 3rem;
+        text-transform: uppercase;
+
+        span {
+            color: var(--red);
+        }
+    }
+
+
+    .spinner {
+        border: 12px solid var(--grey-selected);
+        border-top: 12px solid var(--red);
+        border-radius: 4rem;
+        width: 65px;
+        height: 65px;
+        animation: spin 1.2s linear infinite;
+    }
+
+    h2 {
+        font-size: 2rem;
+        font-family: var(--font-bebas);
+        opacity: 0;
+        animation: fade 4s linear infinite;
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    35% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

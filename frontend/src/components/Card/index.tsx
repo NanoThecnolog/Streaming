@@ -2,61 +2,38 @@ import { CardsProps, MovieTMDB } from "@/@types/Cards";
 import styles from './styles.module.scss'
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import CardInfoModal from "../modals/CardInfos";
-import Overlay from "../Overlay";
 import { updateUserCookie } from "@/services/cookieClient";
 import { fetchTMDBMovie, fetchTMDBPoster } from "@/services/fetchTMDBData";
 import { useRouter } from "next/router";
+import { useTMDB } from "@/contexts/TMDBContext";
 
 interface CardProps {
     card: CardsProps;
 }
-type StateProps = {
-    modalVisible: boolean,
-    TMDBImage: string | null,
-    vote_average: number,
-    adult: boolean,
-    runtime: number,
-    genres:
-    {
-        id: number,
-        name: string
-    }[]
-
+interface TMDBImagesProps {
+    poster: string
 }
 
 export default function Card({ card }: CardProps) {
     const router = useRouter();
-    const [state, setState] = useState<StateProps>({
-        modalVisible: false,
-        TMDBImage: null,
-        vote_average: 0,
-        adult: false,
-        runtime: 0,
-        genres: [
-            {
-                id: 0,
-                name: ""
-            }
-        ]
-    })
-    const { modalVisible, TMDBImage } = state
+    const [movie, setMovie] = useState<MovieTMDB>()
+    const { allData } = useTMDB()
+    const [TMDBImages, setTMDBImages] = useState<TMDBImagesProps>()
+    const [TMDBMovie, setTMDBMovie] = useState<MovieTMDB | null>(null)
+
 
     useEffect(() => {
-        const fetchUserData = async () => {
-            await updateUserCookie()
+        const data = allData.find(data => data.id === card.tmdbId)
+        if (data) {
+
+            const posterUrl = `https://image.tmdb.org/t/p/original${data.poster_path}`;
+            setTMDBMovie(data)
+            setTMDBImages({ poster: posterUrl })
         }
-        fetchUserData()
-    }, [modalVisible])
-
-
-    useEffect(() => {
-        setState(prev => ({ ...prev, TMDBImage: null }))
-        handlePosterImage();
-        handleMovieData()
+        //handleMovieData()
     }, [card])
 
-    async function handleMovieData() {
+    /*async function handleMovieData() {
         if (card.tmdbId === 0 || !card.tmdbId) return console.error("TMDBID inválido.", card.tmdbId)
         try {
             const movieData = await fetchTMDBMovie(card.tmdbId)
@@ -65,37 +42,40 @@ export default function Card({ card }: CardProps) {
                 setState(prev => ({ ...prev, adult: movieData.adult }))
                 setState(prev => ({ ...prev, runtime: movieData.runtime }))
                 setState(prev => ({ ...prev, genres: movieData.genres }))
+                setMovie(movieData)
             }
+            await handlePosterImage()
         } catch (err: any) {
             console.log("Erro ao buscar dados do filme", err?.response?.data?.error)
             return null
         }
     }
-
     async function handlePosterImage() {
         if (card.tmdbId === 0) return
-        const imageURL = await fetchTMDBPoster(card.tmdbId)
-        if (!imageURL) {
-            console.log("Erro ao buscar TMDBPoster")
-        } else {
+
+        if (movie) {
+            const imageURL = `https://image.tmdb.org/t/p/original${movie.poster_path}`
             setState(prev => ({ ...prev, TMDBImage: imageURL }))
+
+        } else {
+            const imageURL = await fetchTMDBPoster(card.tmdbId)
+            if (!imageURL) {
+                console.log("Erro ao buscar TMDBPoster")
+            } else {
+                setState(prev => ({ ...prev, TMDBImage: imageURL }))
+            }
         }
-    }
+    }*/
+
     function handleClick() {
         router.push(`/movie/${card.tmdbId}`)
-    }
-    async function handleModalClose() {
-        setState(prev => ({ ...prev, modalVisible: false }))
-    }
-    function modalVisibility() {
-        setState(prev => ({ ...prev, modalVisible: true }))
     }
 
     return (
         <>
             <div className={styles.card} id={card.genero[0].toLowerCase()}>
                 <Image
-                    src={TMDBImage ? TMDBImage : card.overlay}
+                    src={TMDBImages ? TMDBImages.poster : card.overlay}
                     alt={card.title}
                     fill
                     placeholder="blur"

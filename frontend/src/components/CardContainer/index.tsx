@@ -46,7 +46,7 @@ export default function CardContainer({ section, cardPerContainer }: ContainerPr
                 </button>
                 <div className={styles.cardContainer}>
                     {filteredCards.slice(currentIndex, currentIndex + cardsPerPage).map((card) => (
-                        <div className={styles.card} key={card.src}>
+                        <div className={styles.card} key={card.tmdbId}>
                             <Card
                                 card={card}
                             />
