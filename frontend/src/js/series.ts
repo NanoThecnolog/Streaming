@@ -38,6 +38,74 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 76438,
+        title: "Everything Sucks!",
+        subtitle: "",
+        description: "Em 1996, na cidade de Boring, alunos dos clubes de teatro e vídeo encaram os altos e baixos da vida adolescente nos tempos do vídeo-cassete.",
+        genero: ["Comédia", "Netflix"],
+        faixa: "A12",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1D6oVZ39lppe38yigLBbj0q0prRUSUtPm/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1DAxkHrF6AH3iFOrhnxA7w0fLDu8PSfkT/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1DBWR8Yb6feygHe946oOmE1aQH5wlh-dx/preview",
+                        duration: "26m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1DC7vaLMaHfHE0hoQ4yYUysN2PSbmdb_A/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1DDCvT-TT_nAXc-Af_T3JTJF46TfeKxRE/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1DGcPS4jZdAe3bvoA3nY5xQPXgY1DW-ix/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1DGuPPBJhd1zOGv5oaUociNspgbfxHUSu/preview",
+                        duration: "25m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1DHtGKGFXh7udD2yBLiQEpbzoteh-FKM1/preview",
+                        duration: "24m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1DM7SadfDeaWUPhbizon_JssM9l3m_wf-/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1DQE-z2aX0XGnAVsDEZgkWmSbImkjU896/preview",
+                        duration: "27m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 109939,
         title: "Nossa Bandeira é a Morte",
         subtitle: "",
@@ -843,6 +911,11 @@ export const series: SeriesProps[] = [
                         src: "https://drive.google.com/file/d/1YFBW0dH3iQVHSYjZAgZlGDoOB2Ro_rSH/preview",
                         duration: "24m"
                     },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1LwLDPvK40D7zyryuKNluH-UqzHT2FSmw/preview",
+                        duration: "28m"
+                    }
                 ]
             },
         ]
