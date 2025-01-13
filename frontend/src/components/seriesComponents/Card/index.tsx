@@ -2,62 +2,47 @@ import styles from './styles.module.scss'
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import CardInfoSerieModal from "../CardInfos";
-import { SeriesProps } from "@/@types/series";
+import { SeriesProps, TMDBSeries } from "@/@types/series";
 import OverlaySerie from "../Overlay";
 import { fetchTMDBSeries } from '@/services/fetchTMDBData';
+import { useRouter } from 'next/router';
+import { useTMDB } from '@/contexts/TMDBContext';
 
 
 interface CardProps {
     card: SeriesProps;
 }
-type StateProps = {
-    modalVisible: boolean,
-    TMDBPoster: string | null,
-    vote_average: number,
-    genres: {
-        id: number,
-        name: string
-    }[] | undefined
+
+
+interface TMDBImageProps {
+    poster: string
 }
 
 export default function Card({ card }: CardProps) {
-    const [state, setState] = useState<StateProps>({
-        modalVisible: false,
-        TMDBPoster: null,
-        vote_average: 0,
-        genres: [
-            {
-                id: 0,
-                name: ""
-            }
-        ]
-    })
-    const { modalVisible, TMDBPoster } = state;
+    const router = useRouter()
+    const [TMDBImage, setTMDBImage] = useState<TMDBImageProps>()
+    const { serieData } = useTMDB()
+    const [TMDBSerie, setTMDBSerie] = useState<TMDBSeries>()
+
     useEffect(() => {
-        if (card.tmdbID !== 0) {
-            fetchSerieData();
-        } else {
-            setState(prev => ({ ...prev, TMDBPoster: null }))
+        const data = serieData.find(data => data.id === card.tmdbID)
+        if (data) {
+            const posterUrl = `https://image.tmdb.org/t/p/original${data.poster_path}`;
+            setTMDBSerie(data)
+            setTMDBImage({ poster: posterUrl })
         }
-    }, [card, modalVisible])
+    }, [card])
 
-    async function fetchSerieData() {
-        const serie = await fetchTMDBSeries(card.tmdbID)
-        setState(prev => ({ ...prev, TMDBPoster: serie?.poster_path ? `https://image.tmdb.org/t/p/original${serie.poster_path}` : null }))
-        setState(prev => ({ ...prev, vote_average: serie?.vote_average ? serie.vote_average : 0 }))
-        setState(prev => ({ ...prev, genres: serie?.genres }))
-
+    function handleClick() {
+        router.push(`/series/serie/${card.tmdbID}`)
     }
 
-    const handleClick = useCallback(() => setState(prev => ({ ...prev, modalVisible: !prev.modalVisible })), [])
-    const handleModalClose = useCallback(() => setState(prev => ({ ...prev, modalVisible: false })), [])
-    const modalVisibility = useCallback(() => setState(prev => ({ ...prev, modalVisible: true })), [])
-    const posterSRC = useMemo(() => TMDBPoster ? TMDBPoster : card.overlay, [TMDBPoster, card.overlay])
+
     return (
         <>
             <div className={styles.card} id={card.genero[0].toLowerCase()}>
                 <Image
-                    src={posterSRC}
+                    src={TMDBImage ? TMDBImage.poster : card.overlay}
                     alt={card.title}
                     fill
                     placeholder="blur"
@@ -68,29 +53,7 @@ export default function Card({ card }: CardProps) {
                     sizes="100%"
                     onClick={() => handleClick()}
                 />
-                <div className={styles.overlay}>
-                    <OverlaySerie
-                        card={card}
-                        isVisible={modalVisible}
-                        vote_average={state.vote_average}
-                        modalVisible={modalVisibility}
-                        genres={state.genres}
-                    />
-                </div>
-
             </div>
-
-            {modalVisible &&
-                <div className={styles.modalInfo}>
-                    {
-                        <CardInfoSerieModal
-                            card={card}
-                            vote_average={state.vote_average}
-                            handleModalClose={handleModalClose}
-                        />
-                    }
-                </div>
-            }
         </>
     )
 }

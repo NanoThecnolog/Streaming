@@ -1,19 +1,18 @@
 import Router, { useRouter } from "next/router"
 import { useEffect, useState } from "react";
 import { series } from "@/js/series";
-import { Episodes, SeriesProps, TMDBEpisodes } from "@/@types/series";
+import { Episodes, SeriesProps, TMDBEpisodes, TMDBSeries } from "@/@types/series";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import styles from './styles.module.scss'
-import { Play, PlayIcon } from "lucide-react";
-import Head from "next/head";
+import { Play } from "lucide-react";
 import { toast } from "react-toastify";
 import { UserProps } from "@/@types/user";
 import { FaCheck } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
 import { GetServerSideProps } from "next";
 import { serverStatus } from "@/services/verifyStatusServer";
-import { fetchEpisodeData, fetchTMDBSeries } from "@/services/fetchTMDBData";
+import { fetchEpisodeData, fetchTMDBSerieCast, fetchTMDBSeries } from "@/services/fetchTMDBData";
 import { getUserCookieData } from "@/services/cookieClient";
 import { addWatchLater, isOnTheList } from "@/services/handleWatchLater";
 import Stars from "@/components/ui/StarAverage";
@@ -21,11 +20,18 @@ import Image from "next/image";
 import Adult from "@/components/ui/Adult";
 import SEO from "@/components/SEO";
 import EpisodeCard from "@/components/seriesComponents/EpisodeCard";
-import ChangeLanguage from "@/components/ui/SwitchLang";
+import Spinner from "@/components/ui/Loading/spinner";
+import { useTMDB } from "@/contexts/TMDBContext";
+import { CastProps } from "@/@types/cast";
 
 type GenreProps = {
     id: number,
     name: string
+}
+
+interface TMDBImagesProps {
+    backdrop: string,
+    poster: string
 }
 
 export default function Serie(status: string) {
@@ -33,16 +39,17 @@ export default function Serie(status: string) {
     const router = useRouter()
     const { tmdbId } = router.query;
     const [serie, setSerie] = useState<SeriesProps>()
+    const [TMDBSerie, setTMDBSerie] = useState<TMDBSeries>()
     const [seasonToShow, setSeasonToShow] = useState<number>(1)
     const [episodesToShow, setEpisodesToShow] = useState<Episodes[]>([])
     const [episodesData, setEpisodesData] = useState<(TMDBEpisodes[] | null)[]>([])
     const [user, setUser] = useState<UserProps>()
     const [onWatchLater, setOnWatchLater] = useState<boolean>(false)
     const [headTitle, setHeadTitle] = useState<string>(' ')
-    const [TMDBBackDrop, setTMDBBackDrop] = useState<string | null>(null)
-    const [TMDBPoster, setTMDBPoster] = useState<string | null>(null)
-    const [vote_average, setVote_Average] = useState<number>(0)
-    const [genres, setGenres] = useState<GenreProps[]>()
+    const [TMDBImage, setTMDBImage] = useState<TMDBImagesProps>()
+    const { serieData } = useTMDB();
+    const [cast, setCast] = useState<CastProps>()
+    const [loading, setLoading] = useState(false);
 
 
     useEffect(() => {
@@ -86,29 +93,30 @@ export default function Serie(status: string) {
         setHeadTitle(titulo)
     }, [serie, seasonToShow])
     useEffect(() => {
-        setTMDBBackDrop(null)
-        setTMDBPoster(null)
-        if (serie?.tmdbID === 0) {
-            setTMDBBackDrop(null)
-            setTMDBPoster(null)
-            return
-        }
         fetchSerieData()
+        getTMDBCast()
     }, [serie])
-    async function fetchSerieData() {
+    function fetchSerieData() {
         if (!serie) return
-        const serieInfo = await fetchTMDBSeries(serie.tmdbID)
-        if (!serieInfo) {
-            setTMDBBackDrop(null)
-            setTMDBPoster(null)
-            return
-        }
+        const serieInfo = serieData.find(data => data.id === serie.tmdbID)
+        if (!serieInfo) return
+        setTMDBSerie(serieInfo)
         const backdropURL = `https://image.tmdb.org/t/p/original${serieInfo.backdrop_path}`
         const posterURL = `https://image.tmdb.org/t/p/original${serieInfo.poster_path}`
-        setTMDBBackDrop(backdropURL)
-        setTMDBPoster(posterURL)
-        setVote_Average(serieInfo.vote_average)
-        setGenres(serieInfo.genres)
+        setTMDBImage({ backdrop: backdropURL, poster: posterURL })
+    }
+    async function getTMDBCast() {
+        if (loading) return
+        setLoading(true)
+        try {
+            const cast = await fetchTMDBSerieCast(Number(tmdbId));
+            if (!cast) return console.warn("Nenhum dado ao buscar elenco do filme.")
+            setCast(cast)
+        } catch (err) {
+            console.error("Erro ao buscar dados sobre o elenco do filme.")
+        } finally {
+            setLoading(false)
+        }
     }
 
     async function fetchEpisodes() {
@@ -201,7 +209,7 @@ export default function Serie(status: string) {
                     (
                         <div className={styles.serieContainer}>
                             <div className={styles.imageContainer}>
-                                <Image className={styles.img} src={TMDBBackDrop ? TMDBBackDrop : serie?.background} fill quality={100} alt={serie.title} />
+                                <Image className={styles.img} src={TMDBImage?.backdrop ? TMDBImage.backdrop : serie?.background} fill quality={100} alt={serie.title} />
                             </div>
                             <div className={styles.imageBackground}>
                                 <div className={styles.desc_top}>
@@ -209,11 +217,11 @@ export default function Serie(status: string) {
                                         <h1>{serie.title} {serie.subtitle !== '' && `- ${serie.subtitle}`}</h1>
                                     </div>
                                     <div className={styles.tmdbInfo}>
-                                        <Stars average={vote_average} />
+                                        <Stars average={TMDBSerie?.vote_average ?? 0} />
                                         <Adult faixa={serie.faixa} />
                                     </div>
                                     <div className={styles.seasons}>
-                                        <h4>{serie.season.length === 1 ? `${serie.season.length} temporada` : serie.season.length >= 2 && `${serie.season.length} temporadas`} - {genres ? genres.map(genre =>
+                                        <h4>{serie.season.length === 1 ? `${serie.season.length} temporada` : serie.season.length >= 2 && `${serie.season.length} temporadas`} - {TMDBSerie ? TMDBSerie.genres.map(genre =>
                                             genre.name === "Action & Adventure"
                                                 ? "Ação e Aventura" : genre.name === "Sci-Fi & Fantasy"
                                                     ? "Ficção Científica e Fantasia" : genre.name
@@ -278,8 +286,37 @@ export default function Serie(status: string) {
                                     })
                                 }
                             </div>
+                            {cast ?
+                                <div className={styles.cast}>
+                                    <h2>Elenco</h2>
+                                    <div className={styles.castContainer}>
+
+                                        {cast.cast.slice(0, 20).map(actor =>
+                                            <div key={actor.cast_id}>
+                                                <div className={styles.castImage}>
+                                                    <Image
+                                                        fill
+                                                        quality={20}
+                                                        priority
+                                                        sizes="100%"
+                                                        alt={actor.name}
+                                                        src={actor.profile_path ? `https://image.tmdb.org/t/p/original/${actor.profile_path}` : '/fundo-alto.jpg'}
+                                                        placeholder="blur"
+                                                        blurDataURL="/blurImage.png"
+                                                    />
+                                                </div>
+                                                <div className={styles.castInfo}>
+                                                    <h4>{actor.name}</h4>
+                                                    <h6>{actor.character}</h6>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                                : "Carregando..."
+                            }
                         </div>
-                    ) : "Carregando..."
+                    ) : <div className={styles.loading}><Spinner /></div>
                 }
             </section >
             <Footer />

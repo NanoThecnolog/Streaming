@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { Inter } from "next/font/google";
 import Header from "@/components/Header";
 import CardContainer from "@/components/CardContainer";
@@ -34,6 +33,10 @@ export default function Home(status: string) {
   const { allData, setAllData } = useTMDB()
   const [loading, setLoading] = useState(false)
   useEffect(() => {
+    /**
+     * Realiza a busca dos dados no TMDB e salva no context.
+     * @returns não retorna dado nenhum
+     */
     const fetchData = async () => {
       if (loading) return
       setLoading(true)
@@ -88,8 +91,6 @@ export default function Home(status: string) {
     handleResize()
     return () => window.removeEventListener('resize', handleResize)
   }, [])
-
-
 
   return (
     <>

@@ -9,7 +9,6 @@ import Header from '@/components/Header';
 import Image from 'next/image';
 import Stars from '@/components/ui/StarAverage';
 import Adult from '@/components/ui/Adult';
-import { Divide, Play } from 'lucide-react';
 import { FaCheck, FaPlay, FaRegStar, FaStar } from 'react-icons/fa';
 import { FiPlus } from 'react-icons/fi';
 import { getUserCookieData } from '@/services/cookieClient';
@@ -21,10 +20,7 @@ import Footer from '@/components/Footer';
 import { minToHour } from '@/utils/UtilitiesFunctions';
 import { addFavorite, isFavorite } from '@/services/handleFavorite';
 import Card from '@/components/Card';
-import Loading from '@/components/ui/Loading';
 import Spinner from '@/components/ui/Loading/spinner';
-import { useTMDB } from '@/contexts/TMDBContext';
-import { apiTMDB } from '@/services/apiTMDB';
 
 export default function Movie() {
     const router = useRouter()

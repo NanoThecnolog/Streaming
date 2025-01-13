@@ -11,6 +11,8 @@
     background-color: #141414;
     background-repeat: no-repeat;
     background-size: cover;
+    overflow-x: hidden;
+
 
     .serieContainer {
         width: 100%;
@@ -149,6 +151,53 @@
                 }
             }
         }
+    }
+
+    .cast {
+        padding: 0 4rem 15rem 4rem;
+
+
+        .castContainer {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            width: 90%;
+
+
+
+            .castImage {
+                position: relative;
+                width: 150px;
+                height: 200px;
+                border: 2px solid transparent;
+                border-radius: .5rem;
+                overflow: hidden;
+                transition: all .4s;
+
+                &:hover {
+                    border: 2px solid white;
+                }
+
+                img {
+                    object-fit: cover;
+                    object-position: center;
+
+                }
+            }
+
+            .castInfo {
+                padding: 8px 0 0 5px;
+            }
+
+        }
+    }
+
+    .loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
     }
 }
 

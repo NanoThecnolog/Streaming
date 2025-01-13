@@ -1,14 +1,15 @@
 import { cards } from "@/js/cards";
+import { series } from "@/js/series";
 import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
 const max_tentativas = 2;
 
-const fetchCardData = async (cardId: number, retries: number = max_tentativas): Promise<any> => {
+const fetchCardData = async (cardId: number, retries: number = max_tentativas, type: string = 'movie'): Promise<any> => {
     try {
         const response = await axios.get(
-            `https://api.themoviedb.org/3/movie/${cardId}`,
+            `https://api.themoviedb.org/3/${type}/${cardId}`,
             {
                 headers: {
                     Authorization: `Bearer ${tmdbToken}`,
@@ -27,7 +28,7 @@ const fetchCardData = async (cardId: number, retries: number = max_tentativas): 
         if (retries > 0) {
             console.log(`Tentativa falha para o card ${cardId}, tentando novamente...`);
             await new Promise(resolve => setTimeout(resolve, 2000));
-            return fetchCardData(cardId, retries - 1);
+            return fetchCardData(cardId, retries - 1, type);
         }
         return {
             success: false,
@@ -38,6 +39,7 @@ const fetchCardData = async (cardId: number, retries: number = max_tentativas): 
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    const { type } = req.query;
 
     if (!tmdbToken) {
         res.status(500).json({ error: "TMDB token is missing" });
@@ -46,7 +48,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
         const cardData = await Promise.all(
-            cards.map(async card => fetchCardData(card.tmdbId)))
+            type === "tv" ?
+                series.map(async card => fetchCardData(card.tmdbID, undefined, type as string))
+                : cards.map(async card => fetchCardData(card.tmdbId, undefined, type as string)))
         const successFulData = cardData.filter((result) => result.success).map((result) => result.data)
         res.status(200).json({
             success: true,

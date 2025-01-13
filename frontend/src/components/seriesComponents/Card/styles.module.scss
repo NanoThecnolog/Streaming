@@ -1,12 +1,17 @@
 .card {
-    width: 360px;
+    min-width: 350px;
     height: 600px;
     color: var(--white);
     position: relative;
-    border-radius: .6rem;
+    border: 2px solid transparent;
+    overflow: hidden;
+    //border-radius: .6rem;
     transition: all 0.5s;
+    cursor: pointer;
 
     &:hover {
+        border: 2px solid white;
+
         .overlay {
             opacity: 1;
             visibility: visible;

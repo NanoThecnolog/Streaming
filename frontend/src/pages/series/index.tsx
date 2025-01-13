@@ -11,6 +11,11 @@ import { serverStatus } from "@/services/verifyStatusServer";
 import { UserProps } from "@/@types/user";
 import { getUserCookieData } from "@/services/cookieClient";
 import SEO from "@/components/SEO";
+import { useTMDB } from "@/contexts/TMDBContext";
+import { apiTMDB } from "@/services/apiTMDB";
+import { MovieTMDB } from "@/@types/Cards";
+import { TMDBSeries } from "@/@types/series";
+import Loading from "@/components/ui/Loading";
 
 export default function Series(status: string) {
     //refatorar
@@ -34,6 +39,34 @@ export default function Series(status: string) {
         "Fantasia",
         "Animação",
     ]
+    const [loading, setLoading] = useState(false)
+    const { serieData, setSerieData } = useTMDB()
+
+    useEffect(() => {
+        /**
+         * Realiza a busca dos dados no TMDB e salva no context.
+         * @returns não retorna dado nenhum
+         */
+        const fetchData = async () => {
+            if (loading) return
+            setLoading(true)
+            try {
+                if (serieData.length > 0) return
+                const response = await apiTMDB.get('/all', {
+                    params: {
+                        type: 'tv'
+                    }
+                })
+                const cardData = response.data.data as TMDBSeries[]
+                setSerieData(cardData)
+            } catch (err) {
+                console.log(err)
+            } finally {
+                setLoading(false)
+            }
+        }
+        fetchData()
+    }, [])
 
     useEffect(() => {
         const getUserData = async () => {
@@ -98,24 +131,29 @@ export default function Series(status: string) {
     return (
         <>
             <SEO title="Series | FlixNext" description="Várias séries para maratonar!" />
-            <main className={styles.main}>
-                <div className={styles.content}>
-                    <Header userAvatar={user?.avatar} status={status} />
-                    <TopSerie width={width} />
-                    <div className={styles.mid}>
-                        {divisaoPorGenero.map((sec, index) => (
-                            <div key={index}>
-                                <CardSerieContainer
-                                    section={sec}
-                                    cardPerContainer={cardPerContainer}
-                                />
-                                {index === 1 && cardPerContainer >= 2 && <Search />}
+            {
+                serieData.length > 0 ?
+                    <>
+                        <Header userAvatar={user?.avatar} status={status} />
+                        <main className={styles.main}>
+                            <div className={styles.content}>
+                                <TopSerie width={width} />
+                                <div className={styles.mid}>
+                                    {divisaoPorGenero.map((sec, index) => (
+                                        <div key={index}>
+                                            <CardSerieContainer
+                                                section={sec}
+                                                cardPerContainer={cardPerContainer}
+                                            />
+                                            {index === 1 && cardPerContainer >= 2 && <Search />}
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
-                        ))}
-                    </div>
-                    <Footer />
-                </div>
-            </main>
+                        </main>
+                        <Footer />
+                    </> : <div className={styles.loading}><Loading /></div>
+            }
         </>
     )
 }

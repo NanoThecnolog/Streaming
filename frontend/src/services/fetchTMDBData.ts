@@ -72,6 +72,12 @@ export async function fetchTMDBBackDrop(tmdbID: number): Promise<string | null> 
 export async function fetchTMDBMovie(tmdbID: number): Promise<MovieTMDB | null> {
     return fetchTMDBData<MovieTMDB>(tmdbID, 'movie', 'details');
 }
+
+/**
+ * Busca os dados do elenco do filme
+ * @param tmdbID ID do filme no TMDB
+ * @returns Dados do elenco do filme ou null em caso de erro
+ */
 export async function fetchTMDBMovieCast(tmdbID: number): Promise<CastProps | null> {
     return fetchTMDBData<CastProps>(tmdbID, 'movie', 'details', true);
 }
@@ -92,6 +98,14 @@ export async function fetchTMDBPoster(tmdbID: number): Promise<string | null> {
  */
 export async function fetchTMDBSeries(tmdbID: number): Promise<TMDBSeries | null> {
     return fetchTMDBData<TMDBSeries>(tmdbID, 'tv', 'details');
+}
+/**
+ * Busca os dados sobre o elenco da série
+ * @param tmdbID ID da série no TMDB
+ * @returns Dados do elenco da série ou null em caso de erro
+ */
+export async function fetchTMDBSerieCast(tmdbID: number): Promise<CastProps | null> {
+    return fetchTMDBData<CastProps>(tmdbID, 'tv', 'details', true)
 }
 
 /**
