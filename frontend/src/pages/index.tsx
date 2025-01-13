@@ -89,29 +89,7 @@ export default function Home(status: string) {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  useEffect(() => {
-    function rightClickBlock(event: MouseEvent) { event.preventDefault(); }
 
-    // Impede atalhos de ferramentas de desenvolvedor
-    function openConsoleBlock(event: KeyboardEvent) {
-      const blockedKeys = ['F12', 'I', 'C', 'J', 'U']
-      if (
-        blockedKeys.includes(event.key) ||
-        (event.ctrlKey && event.shiftKey && blockedKeys.includes(event.key)) ||
-        (event.ctrlKey && event.key === 'U')
-      ) {
-        event.preventDefault();
-      }
-    };
-
-    document.addEventListener('contextmenu', rightClickBlock);
-    document.addEventListener('keydown', openConsoleBlock);
-
-    return () => {
-      document.removeEventListener('contextmenu', rightClickBlock);
-      document.removeEventListener('keydown', openConsoleBlock);
-    };
-  }, []);
 
   return (
     <>
