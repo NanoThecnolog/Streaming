@@ -3199,6 +3199,11 @@ export const series: SeriesProps[] = [
                         ep: 5,
                         src: "https://drive.google.com/file/d/1sCulhhQGigU1Ylmc0c2IIhqon7Z4gmED/preview",
                         duration: "51m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1jF9My4-50vp56M4HVghcAnhAHp5Y4t-K/preview",
+                        duration: "49m"
                     }
                 ]
             },
@@ -3314,6 +3319,11 @@ export const series: SeriesProps[] = [
                         src: "https://drive.google.com/file/d/1XiOxBjhyUCq7uqXQXnjNH-TkOupYvnSs/preview",
                         duration: "48m"
                     },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1MAjAqk2blDEtq_gqk6kSXB3vg3DibWgL/preview",
+                        duration: "01h"
+                    }
                 ]
             }
         ]
