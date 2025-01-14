@@ -6,9 +6,10 @@ Este projeto foi desenvolvido com foco em performance e experiência de usuário
 
 ## 🚀 Funcionalidades
 
-- **Catálogo de Filmes e Séries**: Sessões de filmes e séries agrupados por gênero com imagens, descrições, avaliações e classificação indicativa.
-- **Sistema de Pesquisa**: Busca inteligente de títulos de forma fácil por nome ou subtítulo.
-- **Página da Série**: Informações sobre a série, incluindo lista de temporadas e informações sobre os episódios.
+- **Catálogo de Filmes e Séries**: Sessões de filmes e séries agrupados por gênero com imagens promocionais dos filmes.
+- **Sistema de Pesquisa**: Busca inteligente de títulos de forma fácil por título e subtítulo.
+- **Página do Filme**: Informações sobre o filme, incluindo descrições, avaliações, classificação indicativa, elenco e filmes relacionados.
+- **Página da Série**: Informações sobre a série, incluindo descrições, avaliações, classificação indicativa, lista de temporadas e informações sobre os episódios e elenco principal da série.
 - **Carrossel de Destaques**: Apresentação dos conteúdos incluídos na plataforma.
 - **Contas de Usuários**: Criação de contas de usuários para reprodução de filmes, sendo possível personalizar avatar e receber emails sobre as principais adições ao catálogo.
 - **Reprodução de Vídeos**: Integração para streaming.
@@ -38,10 +39,12 @@ Este projeto foi desenvolvido com foco em performance e experiência de usuário
 │   └── src/
 │   │   ├── @types/         # Tipagens e Interfaces
 │   │   ├── components/     # Componentes reutilizáveis (botões, cards, etc.)
+│   │   ├── contexts/       # Gerenciamento de ContextAPI
 │   │   ├── js/             # Informações dos títulos disponíveis
 │   │   ├── pages/          # Páginas da aplicação
 │   │   ├── styles/         # Estilos globais e variáveis SASS
-└───└───├── services/       # Integração com APIs externas, Funções auxiliares e Microsserviços
+│   │   ├── services/       # Integração com APIs externas, Funções auxiliares e Microsserviços
+└───└───├── utils/       # Funções de utilidade
 ```
 
 ## ⚙️ Como Executar o Projeto
