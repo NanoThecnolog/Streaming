@@ -22,30 +22,19 @@ import SEO from "@/components/SEO";
 import EpisodeCard from "@/components/seriesComponents/EpisodeCard";
 import Spinner from "@/components/ui/Loading/spinner";
 import { useTMDB } from "@/contexts/TMDBContext";
-import { CastProps } from "@/@types/cast";
-import { TemplateContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import { FaCircleUser } from "react-icons/fa6";
+import { CastProps, CrewProps } from "@/@types/cast";
 import { translate } from "@/utils/UtilitiesFunctions";
-
-type GenreProps = {
-    id: number,
-    name: string
-}
+import Cast from "@/components/Cast";
+import Crew from "@/components/Crew";
+import Card from "@/components/seriesComponents/Card";
 
 interface TMDBImagesProps {
     backdrop: string,
     poster: string
 }
-interface Crew {
-    id: number;
-    name: string;
-    job: string;
-    credit_id: string
-    profile_path: string
-}
 
 interface groupedByDepartment {
-    [job: string]: Crew[]
+    [job: string]: CrewProps[]
 }
 
 export default function Serie(status: string) {
@@ -62,6 +51,7 @@ export default function Serie(status: string) {
     const [headTitle, setHeadTitle] = useState<string>(' ')
     const [TMDBImage, setTMDBImage] = useState<TMDBImagesProps>()
     const { serieData } = useTMDB();
+    const [relatedCards, setRelatedCards] = useState<SeriesProps[]>()
     const [cast, setCast] = useState<CastProps[]>()
     const [crewDepartment, setCrewDepartment] = useState<groupedByDepartment>({})
     const [loading, setLoading] = useState(false);
@@ -141,7 +131,8 @@ export default function Serie(status: string) {
      * @param mainCast - atores principais
      * @param seriesCast - todos os atores envolvidos nas temporadas
      * @param casting - filtragem para retirar possíveis undefined
-     * @param groupedByDepartment - agrupa equipe de acordo com department
+     * @param crewData - utiliza a equipe técnica geral da série ou a equipe especifica de cada temporada
+     * @param groupedByDepartment - agrupa equipe de acordo com a propriedade department
      * @returns Não retorna nada
      */
     async function getTMDBCast() {
@@ -149,7 +140,7 @@ export default function Serie(status: string) {
         setLoading(true)
         try {
             const mainCast = await fetchTMDBSerieCast(Number(tmdbId));
-            //console.log(mainCast)
+
             if (!mainCast) return console.warn("Nenhum dado sobre o elenco principal da série.")
             const seriesCast: CastProps[] = []
             if (!serie) return console.warn("Dados da Série não estão presentes");
@@ -160,8 +151,7 @@ export default function Serie(status: string) {
             }
             if (seriesCast.length <= 0) return console.warn("Nenhum dado sobre o elenco das temporadas")
             const casting = seriesCast.filter((cast): cast is CastProps => cast !== undefined)
-            //console.log(casting)
-            //console.log(casting)
+
 
             const crewData = Array.isArray(mainCast.crew) && mainCast.crew.length > 0
                 ? mainCast.crew
@@ -175,10 +165,9 @@ export default function Serie(status: string) {
                 return acc;
             }, {});
             setCrewDepartment(groupedByDepartment)
-            //console.log(groupedByDepartment)
             setCast(casting)
         } catch (err) {
-            console.error("Erro ao buscar dados sobre o elenco do filme.")
+            console.error("Erro ao buscar dados sobre o elenco do filme.", err)
         } finally {
             setLoading(false)
         }
@@ -194,6 +183,28 @@ export default function Serie(status: string) {
         )
         setEpisodesData(episodesArray)
     }
+    useEffect(() => {
+        function getRelatedCards() {
+            if (serie) {
+                const relatedCards = series
+                    .filter(card => card.tmdbID !== serie.tmdbID)
+                    .map(card => {
+                        const titleMatch = card.title.toLowerCase().includes(serie.title.toLowerCase()) ? 2 : 0;
+                        const commonGenres = card.genero.filter((genre: string) => serie.genero.includes(genre)).length;
+                        const genreScore = commonGenres > 0 ? commonGenres + (commonGenres === serie.genero.length ? 1 : 0) : 0;
+
+                        return {
+                            ...card,
+                            score: titleMatch + genreScore,
+                        };
+                    })
+                    .sort((a, b) => b.score - a.score)
+                    .slice(0, 20)
+                setRelatedCards(relatedCards)
+            }
+        }
+        getRelatedCards()
+    }, [serie])
 
 
     function handleChangeSeason(value: string) {
@@ -354,6 +365,14 @@ export default function Serie(status: string) {
                                     })
                                 }
                             </div>
+                            <div className={styles.related}>
+                                <h2>Você também vai gostar</h2>
+                                <div className={styles.relatedContainer}>
+                                    {relatedCards?.map(card =>
+                                        <Card card={card} key={card.tmdbID} />
+                                    )}
+                                </div>
+                            </div>
                             {cast ?
                                 (
                                     <>
@@ -366,30 +385,7 @@ export default function Serie(status: string) {
                                                         .filter((actor, index, self) =>
                                                             self.findIndex(a => a.id === actor.id) === index
                                                         )
-                                                        .map(actor => (
-                                                            <div key={actor.cast_id}>
-                                                                <div className={styles.castImage}>
-                                                                    {actor.profile_path ?
-                                                                        <Image
-                                                                            fill
-                                                                            quality={10}
-                                                                            priority
-                                                                            sizes="100%"
-                                                                            alt={actor.name}
-                                                                            src={actor.profile_path ? `https://image.tmdb.org/t/p/original/${actor.profile_path}` : '/fundo-alto.jpg'}
-                                                                            placeholder="blur"
-                                                                            blurDataURL="/blurImage.png"
-                                                                        />
-                                                                        : <FaCircleUser />}
-
-                                                                </div>
-                                                                <div className={styles.castInfo}>
-                                                                    <h4>{actor.name}</h4>
-                                                                    <h6>{actor.character}</h6>
-                                                                </div>
-                                                            </div>
-                                                        )
-                                                        )
+                                                        .map(actor => <Cast actor={actor} />)
                                                 }
                                             </div>
                                         </div>
@@ -406,30 +402,9 @@ export default function Serie(status: string) {
                                                                         self.findIndex(c => c.name === crew.name) === index
                                                                     )
                                                                     .map((crew, index) => (
-                                                                        <div key={index} className={styles.crewMember}>
-                                                                            <div className={styles.crewImage}>
-                                                                                {
-                                                                                    crew.profile_path ?
-                                                                                        <Image
-                                                                                            fill
-                                                                                            quality={20}
-                                                                                            priority
-                                                                                            sizes="100%"
-                                                                                            alt={crew.name}
-                                                                                            src={crew.profile_path ? `https://image.tmdb.org/t/p/original/${crew.profile_path}` : '/fundo-alto.jpg'}
-                                                                                            placeholder="blur"
-                                                                                            blurDataURL="/blurImage.png"
-                                                                                        /> : <FaCircleUser />
-                                                                                }
-                                                                            </div>
-                                                                            <div className={styles.crewInfo}>
-                                                                                <h4>{crew.name}</h4>
-                                                                                <h6>{crew.job}</h6>
-                                                                            </div>
-                                                                        </div>
+                                                                        <Crew crew={crew} index={index} />
                                                                     ))}
                                                             </div>
-
                                                         </div>
                                                     ))
                                                 }

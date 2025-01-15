@@ -153,6 +153,25 @@
         }
     }
 
+    .related {
+        padding: 4rem 4rem 2rem 4rem;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
+
+        .relatedContainer {
+            display: flex;
+            gap: 20px;
+            overflow-x: scroll;
+            padding-bottom: 2rem;
+            width: 100%;
+            scrollbar-color: var(--grey) var(--background-gray-light);
+        }
+    }
+
     .cast {
         padding: 0 2rem 4rem 4rem;
 
@@ -167,36 +186,6 @@
             gap: 15px;
             width: 90%;
             justify-items: start;
-
-            .castImage {
-                position: relative;
-                width: 150px;
-                height: 200px;
-                border: 2px solid transparent;
-                border-radius: .5rem;
-                overflow: hidden;
-                transition: all .4s;
-
-                &:hover {
-                    border: 2px solid white;
-                }
-
-                img {
-                    object-fit: cover;
-                    object-position: center;
-                }
-
-                svg {
-                    height: 100%;
-                    width: 60%;
-                    color: #242424;
-                }
-            }
-
-            .castInfo {
-                padding: 8px 0 0 5px;
-            }
-
         }
     }
 
@@ -212,10 +201,8 @@
         .crewContainer {
             display: flex;
             flex-direction: column;
-            //grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             gap: 15px;
             width: 90%;
-            //justify-items: start;
 
             .departmentGroup {
                 margin-bottom: 20px;
@@ -230,49 +217,8 @@
                     display: grid;
                     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
                     gap: 15px;
-
-                    .crewMember {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        text-align: center;
-
-                        .crewImage {
-                            position: relative;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            width: 150px;
-                            height: 200px;
-                            border: 2px solid transparent;
-                            border-radius: .5rem;
-                            overflow: hidden;
-                            transition: all .4s;
-
-                            &:hover {
-                                border: 2px solid white;
-                            }
-
-                            img {
-                                object-fit: cover;
-                                object-position: center;
-                            }
-
-                            svg {
-                                height: 100%;
-                                width: 60%;
-                                color: #242424;
-                            }
-                        }
-
-                        .crewInfo {
-                            padding: 8px 0 0 5px;
-                        }
-                    }
                 }
             }
-
-
         }
     }
 

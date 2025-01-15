@@ -3,7 +3,7 @@ export interface CastProps {
     cast: CastingProps[],
     crew: CrewProps[]
 }
-interface CastingProps {
+export interface CastingProps {
     gender: number,
     id: number,
     name: string,
@@ -15,7 +15,7 @@ interface CastingProps {
     known_for_department: string,
     order: number
 }
-interface CrewProps {
+export interface CrewProps {
     adult: boolean,
     gender: number,
     id: number,

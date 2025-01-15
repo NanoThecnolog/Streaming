@@ -15,12 +15,18 @@ import { getUserCookieData } from '@/services/cookieClient';
 import { UserProps } from '@/@types/user';
 import { addWatchLater, isOnTheList } from '@/services/handleWatchLater';
 import { toast } from 'react-toastify';
-import { CastProps } from '@/@types/cast';
+import { CastProps, CrewProps } from '@/@types/cast';
 import Footer from '@/components/Footer';
-import { minToHour } from '@/utils/UtilitiesFunctions';
+import { minToHour, translate } from '@/utils/UtilitiesFunctions';
 import { addFavorite, isFavorite } from '@/services/handleFavorite';
 import Card from '@/components/Card';
 import Spinner from '@/components/ui/Loading/spinner';
+import Cast from '@/components/Cast';
+import Crew from '@/components/Crew';
+
+interface groupedByDepartment {
+    [job: string]: CrewProps[]
+}
 
 export default function Movie() {
     const router = useRouter()
@@ -32,6 +38,7 @@ export default function Movie() {
     const [onWatchLater, setOnWatchLater] = useState(false)
     const [isFav, setIsFavorite] = useState(false)
     const [cast, setCast] = useState<CastProps>()
+    const [crewDepartment, setCrewDepartment] = useState<groupedByDepartment>({})
     const [relatedCards, setRelatedCards] = useState<CardsProps[]>()
 
 
@@ -110,6 +117,17 @@ export default function Movie() {
         try {
             const cast = await fetchTMDBMovieCast(Number(tmdbId));
             if (!cast) return console.warn("Nenhum dado ao buscar elenco do filme.")
+            console.log(cast)
+            const crewData = Array.isArray(cast.crew) && cast.crew.length
+                ? cast.crew : []
+            const groupedByDepartment = crewData.reduce<groupedByDepartment>((acc, crew) => {
+                if (!acc[crew.department]) {
+                    acc[crew.department] = []
+                }
+                acc[crew.department].push(crew)
+                return acc
+            }, {});
+            setCrewDepartment(groupedByDepartment)
             setCast(cast)
         } catch (err) {
             console.error("Erro ao buscar dados sobre o elenco do filme.")
@@ -223,36 +241,10 @@ export default function Movie() {
                                     {
                                         !loading ? (
                                             <>
-                                                <h2>Elenco</h2>
-                                                {cast ?
-                                                    <div className={styles.castContainer}>
-                                                        {cast.cast.slice(0, 20).map(actor =>
-                                                            <div key={actor.cast_id}>
-                                                                <div className={styles.castImage}>
-                                                                    <Image
-                                                                        fill
-                                                                        quality={20}
-                                                                        priority
-                                                                        sizes="100%"
-                                                                        alt={actor.name}
-                                                                        src={actor.profile_path ? `https://image.tmdb.org/t/p/original/${actor.profile_path}` : '/fundo-alto.jpg'}
-                                                                        placeholder="blur"
-                                                                        blurDataURL="/blurImage.png"
-                                                                    />
-                                                                </div>
-                                                                <div className={styles.castInfo}>
-                                                                    <h4>{actor.name}</h4>
-                                                                    <h6>{actor.character}</h6>
-                                                                </div>
-                                                            </div>
-                                                        )}
-                                                    </div>
-                                                    : "Carregando..."
-                                                }
                                                 {
                                                     movie &&
                                                     <>
-                                                        <h2>Você também pode gostar</h2>
+                                                        <h2>Você também vai gostar</h2>
                                                         <div className={styles.cardContainer}>
                                                             {relatedCards?.map(card =>
                                                                 <Card card={card} key={card.tmdbId} />
@@ -260,6 +252,38 @@ export default function Movie() {
                                                         </div>
                                                     </>
                                                 }
+                                                <div className={styles.cast}>
+                                                    <h2>Elenco</h2>
+                                                    {cast ?
+                                                        <div className={styles.castContainer}>
+                                                            {cast.cast.slice(0, 20).map(actor =>
+                                                                <Cast actor={actor} />
+                                                            )}
+                                                        </div>
+                                                        : "Carregando..."
+                                                    }
+                                                </div>
+                                                <div className={styles.crew}>
+                                                    <h2>Equipe Técnica</h2>
+                                                    <div className={styles.crewContainer}>
+                                                        {Object.keys(crewDepartment).map((department) => (
+                                                            <div key={department} className={styles.departmentGroup}>
+                                                                <h3 className={styles.departmentTitle}>{translate(department)}</h3>
+                                                                <div className={styles.departmentCrew}>
+                                                                    {crewDepartment[department]
+                                                                        .filter((crew, index, self) =>
+                                                                            self.findIndex(c => c.name === crew.name) === index
+                                                                        )
+                                                                        .map((crew, index) => (
+                                                                            <Crew crew={crew} index={index} />
+                                                                        ))
+                                                                    }
+                                                                </div>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </div>
+
                                             </>
                                         ) : <div className={styles.loadingContainer}><Spinner /></div>
                                     }

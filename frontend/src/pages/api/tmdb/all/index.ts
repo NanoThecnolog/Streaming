@@ -4,7 +4,7 @@ import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
-const max_tentativas = 2;
+const max_tentativas = 3;
 
 const fetchCardData = async (cardId: number, retries: number = max_tentativas, type: string = 'movie'): Promise<any> => {
     try {

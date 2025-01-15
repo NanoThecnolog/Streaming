@@ -1,0 +1,31 @@
+.castImage {
+    position: relative;
+    width: 150px;
+    height: 200px;
+    border: 2px solid transparent;
+    border-radius: .5rem;
+    overflow: hidden;
+    transition: all .4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        border: 2px solid white;
+    }
+
+    img {
+        object-fit: cover;
+        object-position: center;
+    }
+
+    svg {
+        height: 100%;
+        width: 60%;
+        color: #242424;
+    }
+}
+
+.castInfo {
+    padding: 8px 0 0 5px;
+}
