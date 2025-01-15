@@ -9,7 +9,6 @@ export async function serverStatus() {
         if (ultimoCommit.status === 200 && Array.isArray(ultimoCommit.data) && ultimoCommit.data.length > 0) {
             const commit = ultimoCommit.data[0].deploy
             if (commit && commit.status) {
-
                 return commit.status
             } else {
                 return "Status do servidor não encontrado"

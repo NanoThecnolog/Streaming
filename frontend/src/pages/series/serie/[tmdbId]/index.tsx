@@ -12,7 +12,7 @@ import { FaCheck } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
 import { GetServerSideProps } from "next";
 import { serverStatus } from "@/services/verifyStatusServer";
-import { fetchEpisodeData, fetchTMDBSerieCast, fetchTMDBSeries } from "@/services/fetchTMDBData";
+import { fetchEpisodeData, fetchTMDBSerieCast, fetchTMDBSerieCastBySeason, fetchTMDBSeries } from "@/services/fetchTMDBData";
 import { getUserCookieData } from "@/services/cookieClient";
 import { addWatchLater, isOnTheList } from "@/services/handleWatchLater";
 import Stars from "@/components/ui/StarAverage";
@@ -48,7 +48,7 @@ export default function Serie(status: string) {
     const [headTitle, setHeadTitle] = useState<string>(' ')
     const [TMDBImage, setTMDBImage] = useState<TMDBImagesProps>()
     const { serieData } = useTMDB();
-    const [cast, setCast] = useState<CastProps>()
+    const [cast, setCast] = useState<CastProps[]>()
     const [loading, setLoading] = useState(false);
 
 
@@ -69,9 +69,13 @@ export default function Serie(status: string) {
 
     useEffect(() => {
         if (tmdbId) {
-            const serie = series.find((serie) => serie.tmdbID === Number(tmdbId))
-            setSerie(serie)
+            const findSerie = series.find((serie) => serie.tmdbID === Number(tmdbId))
+            //console.log(findSerie)
+            setSerie(findSerie)
+        } else {
+            return console.log("tmdbId não está presente")
         }
+
     }, [tmdbId])
     useEffect(() => {
         if (!serie) return;
@@ -94,24 +98,46 @@ export default function Serie(status: string) {
     }, [serie, seasonToShow])
     useEffect(() => {
         fetchSerieData()
-        getTMDBCast()
-    }, [serie])
-    function fetchSerieData() {
-        if (!serie) return
-        const serieInfo = serieData.find(data => data.id === serie.tmdbID)
-        if (!serieInfo) return
-        setTMDBSerie(serieInfo)
-        const backdropURL = `https://image.tmdb.org/t/p/original${serieInfo.backdrop_path}`
-        const posterURL = `https://image.tmdb.org/t/p/original${serieInfo.poster_path}`
-        setTMDBImage({ backdrop: backdropURL, poster: posterURL })
+        if (serie) getTMDBCast()
+    }, [tmdbId, serie, serieData])
+    async function fetchSerieData() {
+        try {
+            if (!serie) return //console.warn("Serie ou serieData faltando..")
+            let serieInfo: TMDBSeries | null | undefined
+            if (!serieData || serieData.length <= 0) {
+                serieInfo = await fetchTMDBSeries(serie.tmdbID)
+                //console.log("SerieInfo: ", serieInfo)
+            } else {
+                //console.log("Serie data", serieData)
+                serieInfo = serieData.find(data => data.id === serie.tmdbID)
+            }
+            if (!serieInfo) return
+            //console.log("serie Info filtrado", serieInfo)
+            setTMDBSerie(serieInfo)
+            const backdropURL = `https://image.tmdb.org/t/p/original${serieInfo.backdrop_path}`
+            const posterURL = `https://image.tmdb.org/t/p/original${serieInfo.poster_path}`
+            setTMDBImage({ backdrop: backdropURL, poster: posterURL })
+        } catch (err) {
+            console.log(err)
+        }
     }
+
     async function getTMDBCast() {
         if (loading) return
         setLoading(true)
         try {
-            const cast = await fetchTMDBSerieCast(Number(tmdbId));
-            if (!cast) return console.warn("Nenhum dado ao buscar elenco do filme.")
-            setCast(cast)
+            const mainCast = await fetchTMDBSerieCast(Number(tmdbId));
+            if (!mainCast) return console.warn("Nenhum dado sobre o elenco principal da série.")
+            const seriesCast: CastProps[] = []
+            if (!serie) return console.warn("Dados da Série não estão presentes");
+            for (let i = 0; i < serie.season.length; i++) {
+                const castSeason = await fetchTMDBSerieCastBySeason(Number(tmdbId), i + 1)
+                if (!castSeason) return
+                seriesCast.push(mainCast, castSeason)
+            }
+            if (seriesCast.length <= 0) return console.warn("Nenhum dado sobre o elenco das temporadas")
+            const casting = seriesCast.filter((cast): cast is CastProps => cast !== undefined)
+            setCast(casting)
         } catch (err) {
             console.error("Erro ao buscar dados sobre o elenco do filme.")
         } finally {
@@ -221,11 +247,14 @@ export default function Serie(status: string) {
                                         <Adult faixa={serie.faixa} />
                                     </div>
                                     <div className={styles.seasons}>
-                                        <h4>{serie.season.length === 1 ? `${serie.season.length} temporada` : serie.season.length >= 2 && `${serie.season.length} temporadas`} - {TMDBSerie ? TMDBSerie.genres.map(genre =>
-                                            genre.name === "Action & Adventure"
-                                                ? "Ação e Aventura" : genre.name === "Sci-Fi & Fantasy"
-                                                    ? "Ficção Científica e Fantasia" : genre.name
-                                        ).join(', ') : serie.genero.join(', ')}</h4>
+                                        <h4>{serie.season.length === 1
+                                            ? `${serie.season.length} temporada`
+                                            : serie.season.length >= 2 && `${serie.season.length} temporadas`} - {TMDBSerie
+                                                ? TMDBSerie.genres.map(genre =>
+                                                    genre.name === "Action & Adventure"
+                                                        ? "Ação e Aventura" : genre.name === "Sci-Fi & Fantasy"
+                                                            ? "Ficção Científica e Fantasia" : genre.name
+                                                ).join(', ') : serie.genero.join(', ')}</h4>
                                     </div>
                                     <div className={styles.watchButton} onClick={() => handlePlayEpisode(serie.season[0].episodes[0], serie.season[0].s)}>
                                         <button type="button" className={styles.buttonPlay}><Play /><h4>Começar a Assistir</h4></button>
@@ -267,7 +296,7 @@ export default function Serie(status: string) {
                             </div>
                             <div className={styles.cardContainer}>
                                 {
-                                    episodesToShow.map((ep) => {
+                                    episodesToShow.map((ep, index) => {
                                         const season = episodesData[seasonToShow - 1];
                                         const episode = season?.find(e => e.episode_number === ep.ep)
                                         const image = episode ? `https://image.tmdb.org/t/p/original${episode?.still_path}` : '/blurImage.png';
@@ -279,7 +308,7 @@ export default function Serie(status: string) {
                                             data: ep
                                         }
                                         return (
-                                            <div key={ep.src} className={styles.episodeContainer}>
+                                            <div key={index} className={styles.episodeContainer}>
                                                 <EpisodeCard episodeData={episodeInfo} handlePlay={handlePlayEpisode} />
                                             </div>
                                         )
@@ -287,32 +316,42 @@ export default function Serie(status: string) {
                                 }
                             </div>
                             {cast ?
-                                <div className={styles.cast}>
-                                    <h2>Elenco</h2>
-                                    <div className={styles.castContainer}>
-
-                                        {cast.cast.slice(0, 20).map(actor =>
-                                            <div key={actor.cast_id}>
-                                                <div className={styles.castImage}>
-                                                    <Image
-                                                        fill
-                                                        quality={20}
-                                                        priority
-                                                        sizes="100%"
-                                                        alt={actor.name}
-                                                        src={actor.profile_path ? `https://image.tmdb.org/t/p/original/${actor.profile_path}` : '/fundo-alto.jpg'}
-                                                        placeholder="blur"
-                                                        blurDataURL="/blurImage.png"
-                                                    />
-                                                </div>
-                                                <div className={styles.castInfo}>
-                                                    <h4>{actor.name}</h4>
-                                                    <h6>{actor.character}</h6>
-                                                </div>
-                                            </div>
-                                        )}
+                                (
+                                    <div className={styles.cast}>
+                                        <h2>Elenco</h2>
+                                        <div className={styles.castContainer}>
+                                            {
+                                                cast
+                                                    .flatMap(object => object.cast.slice(0, 20))
+                                                    .filter((actor, index, self) =>
+                                                        self.findIndex(a => a.id === actor.id) === index
+                                                    )
+                                                    .map(actor => (
+                                                        <div key={actor.cast_id}>
+                                                            <div className={styles.castImage}>
+                                                                <Image
+                                                                    fill
+                                                                    quality={20}
+                                                                    priority
+                                                                    sizes="100%"
+                                                                    alt={actor.name}
+                                                                    src={actor.profile_path ? `https://image.tmdb.org/t/p/original/${actor.profile_path}` : '/fundo-alto.jpg'}
+                                                                    placeholder="blur"
+                                                                    blurDataURL="/blurImage.png"
+                                                                />
+                                                            </div>
+                                                            <div className={styles.castInfo}>
+                                                                <h4>{actor.name}</h4>
+                                                                <h6>{actor.character}</h6>
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                    )
+                                            }
+                                        </div>
                                     </div>
-                                </div>
+                                )
+
                                 : "Carregando..."
                             }
                         </div>
