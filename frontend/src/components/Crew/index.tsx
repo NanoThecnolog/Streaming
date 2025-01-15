@@ -5,12 +5,12 @@ import { FaCircleUser } from 'react-icons/fa6';
 
 interface CrewComponentProps {
     crew: CrewProps;
-    index: number;
+
 }
 
-export default function Crew({ crew, index }: CrewComponentProps) {
+export default function Crew({ crew }: CrewComponentProps) {
     return (
-        <div key={index} className={styles.crewMember}>
+        <div className={styles.crewMember}>
             <div className={styles.crewImage} title={crew.name}>
                 {
                     crew.profile_path ?

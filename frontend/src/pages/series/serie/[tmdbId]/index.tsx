@@ -385,7 +385,7 @@ export default function Serie(status: string) {
                                                         .filter((actor, index, self) =>
                                                             self.findIndex(a => a.id === actor.id) === index
                                                         )
-                                                        .map(actor => <Cast actor={actor} />)
+                                                        .map((actor, index) => <Cast actor={actor} key={index} />)
                                                 }
                                             </div>
                                         </div>
@@ -402,7 +402,7 @@ export default function Serie(status: string) {
                                                                         self.findIndex(c => c.name === crew.name) === index
                                                                     )
                                                                     .map((crew, index) => (
-                                                                        <Crew crew={crew} index={index} />
+                                                                        <Crew crew={crew} key={index} />
                                                                     ))}
                                                             </div>
                                                         </div>

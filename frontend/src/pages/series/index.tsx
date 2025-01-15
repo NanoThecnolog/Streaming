@@ -140,7 +140,7 @@ export default function Series(status: string) {
                                 <TopSerie width={width} />
                                 <div className={styles.mid}>
                                     {divisaoPorGenero.map((sec, index) => (
-                                        <div key={index}>
+                                        <div key={sec}>
                                             <CardSerieContainer
                                                 section={sec}
                                                 cardPerContainer={cardPerContainer}

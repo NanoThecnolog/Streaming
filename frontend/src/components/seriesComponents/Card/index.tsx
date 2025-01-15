@@ -40,7 +40,7 @@ export default function Card({ card }: CardProps) {
 
     return (
         <>
-            <div className={styles.card} id={card.genero[0].toLowerCase()}>
+            <div key={card.tmdbID} className={styles.card} id={card.genero[0].toLowerCase()}>
                 <Image
                     src={TMDBImage ? TMDBImage.poster : card.overlay}
                     alt={card.title}

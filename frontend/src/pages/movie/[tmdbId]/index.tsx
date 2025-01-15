@@ -256,8 +256,8 @@ export default function Movie() {
                                                     <h2>Elenco</h2>
                                                     {cast ?
                                                         <div className={styles.castContainer}>
-                                                            {cast.cast.slice(0, 20).map(actor =>
-                                                                <Cast actor={actor} />
+                                                            {cast.cast.slice(0, 20).map((actor, index) =>
+                                                                <Cast actor={actor} key={index} />
                                                             )}
                                                         </div>
                                                         : "Carregando..."
@@ -275,7 +275,7 @@ export default function Movie() {
                                                                             self.findIndex(c => c.name === crew.name) === index
                                                                         )
                                                                         .map((crew, index) => (
-                                                                            <Crew crew={crew} index={index} />
+                                                                            <Crew crew={crew} key={index} />
                                                                         ))
                                                                     }
                                                                 </div>
