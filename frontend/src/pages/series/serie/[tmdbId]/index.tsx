@@ -138,9 +138,10 @@ export default function Serie(status: string) {
     }
     /**
      * Função assíncrona que busca informações sobre atores e equipe técnica da série.
-     * mainCast - atores principais
-     * seriesCast - todos os atores envolvidos nas temporadas
-     * casting - filtragem para retirar possíveis undefined
+     * @param mainCast - atores principais
+     * @param seriesCast - todos os atores envolvidos nas temporadas
+     * @param casting - filtragem para retirar possíveis undefined
+     * @param groupedByDepartment - agrupa equipe de acordo com department
      * @returns Não retorna nada
      */
     async function getTMDBCast() {
@@ -148,6 +149,7 @@ export default function Serie(status: string) {
         setLoading(true)
         try {
             const mainCast = await fetchTMDBSerieCast(Number(tmdbId));
+            //console.log(mainCast)
             if (!mainCast) return console.warn("Nenhum dado sobre o elenco principal da série.")
             const seriesCast: CastProps[] = []
             if (!serie) return console.warn("Dados da Série não estão presentes");
@@ -159,18 +161,21 @@ export default function Serie(status: string) {
             if (seriesCast.length <= 0) return console.warn("Nenhum dado sobre o elenco das temporadas")
             const casting = seriesCast.filter((cast): cast is CastProps => cast !== undefined)
             //console.log(casting)
-            console.log(casting)
+            //console.log(casting)
 
-            const groupedByDepartment = mainCast.crew
-                .reduce<groupedByDepartment>((acc, crew) => {
-                    if (!acc[crew.department]) {
-                        acc[crew.department] = [];
-                    }
-                    acc[crew.department].push(crew);
-                    return acc;
-                }, {});
+            const crewData = Array.isArray(mainCast.crew) && mainCast.crew.length > 0
+                ? mainCast.crew
+                : casting.flatMap(team => team.crew)
+
+            const groupedByDepartment = crewData.reduce<groupedByDepartment>((acc, crew) => {
+                if (!acc[crew.department]) {
+                    acc[crew.department] = [];
+                }
+                acc[crew.department].push(crew);
+                return acc;
+            }, {});
             setCrewDepartment(groupedByDepartment)
-            console.log("groupedByDepartment", groupedByDepartment)
+            //console.log(groupedByDepartment)
             setCast(casting)
         } catch (err) {
             console.error("Erro ao buscar dados sobre o elenco do filme.")
