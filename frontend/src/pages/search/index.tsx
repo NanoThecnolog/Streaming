@@ -73,20 +73,26 @@ export default function Search(status: string) {
                     <h2>Resultados da busca:</h2>
                 </div>
                 <div className={styles.cardsContainer}>
-                    {!searchCards && !searchSeries && <div style={{ display: "flex", justifyContent: 'center', alignItems: 'center', width: '80vw', height: '50vh' }}>Nenhum filme ou série encontrado.</div>}
-                    {searchCards && searchCards?.map(card => {
-                        return <Card
+                    {searchCards || searchSeries ? (searchCards && searchCards.length > 0 ? searchCards?.map(card =>
+                        <Card
                             key={card.tmdbId}
                             card={card}
                         />
-                    }
 
-                    )} {searchSeries && searchSeries?.map(serie => {
-                        return <CardSerie
+
+                    ) : searchSeries && searchSeries.length > 0 ? searchSeries?.map(serie =>
+                        <CardSerie
                             key={serie.tmdbID}
                             card={serie}
                         />
-                    })}
+                    ) :
+                        <div className={styles.noResultsContainer}>
+                            <h2>"Não encontramos o que procura =/"</h2>
+                        </div>
+                    ) :
+                        <div className={styles.noResultsContainer}>
+                            <h2>"Não encontramos o que procura =/"</h2>
+                        </div>}
 
                 </div>
             </section>

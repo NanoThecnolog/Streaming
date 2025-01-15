@@ -3271,18 +3271,7 @@ export const cards: CardsProps[] = [
         duration: "02h 07m",
         genero: ["Romance", "Comédia"]
     },
-    {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fu2IlqBzlGqMwDnQsoskjCohgaPO.jpg&f=1&nofb=1&ipt=09728cb535ec1531f813fae8418c8912f0e5857a14485e3697d5c9fd66bc0618&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F_3N0VetpYvQE%2FSxWMkXzkNfI%2FAAAAAAAAA_Y%2FlN74D1gMERA%2Fs1600%2FMatrix_Reloaded_1.jpg&f=1&nofb=1&ipt=08527209b73117f738d037f77535a30a66af28e8d616fc383c0b0039e6318290&ipo=images",
-        tmdbId: 604,
-        title: "Matrix",
-        subtitle: "Reloaded",
-        description: "Após derrotar as máquinas em seu combate inicial, Neo ainda vive na Nabucodonosor ao lado de Morpheus, Trinity e Link, o novo tripulante da nave. As máquinas estão realizando uma grande ofensiva contra Zion, onde 250 mil delas escavam rumo à cidade e podem alcançá-la em poucos dias. A Nabucodonosor é convocada para retornar a Zion e participar da reunião que definirá o contra-ataque para salvar a humanidade da extinção. Entretanto, um recado enviado pelo Oráculo faz com que Neo retorne à Matrix.",
-        faixa: "A12",
-        src: "https://drive.google.com/file/d/1qYiZt-JKCJBCrR0G3y9AxY1lBqtJBSFv/preview",
-        duration: "02h 18m",
-        genero: ["Ação", "Ficção Científica"]
-    },
+
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbr.web.img2.acsta.net%2Fpictures%2F24%2F03%2F15%2F08%2F46%2F4543621.jpg&f=1&nofb=1&ipt=6922d39947ffb689f2643b71015c393d6c34e612ac8d1e84f2d9641dddcb320f&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fp2.trrsf.com%2Fimage%2Ffget%2Fcf%2F774%2F0%2Fimages.terra.com%2F2024%2F03%2F14%2Fgio9d0fwkaakm-6-uv8o8x2tgbja.jpg&f=1&nofb=1&ipt=4b5fe2ac9fc17d86525637e7b7ec8a952e0447e06b008c764550b7963f9ec6da&ipo=images",
@@ -3307,18 +3296,7 @@ export const cards: CardsProps[] = [
         duration: "02h 31m",
         genero: ["Ação", "DC", "Ficção Científica", "Super Herói"]
     },
-    {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2Fnt2ReQXxU1bk2o6JNpZzD0Y5mrx.jpg&f=1&nofb=1&ipt=f074742dca23bd7cef8798a810c477e8106e876e01dc7b813b7908a6ed517a50&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F1drWAmWvOalrGAV6PGdwMowSJVW.jpg&f=1&nofb=1&ipt=f771166f7c16659a810f40c2c6fe72dbce3872f485f256b7587adb4975fdf936&ipo=images",
-        tmdbId: 605,
-        title: "Matrix",
-        subtitle: "Revolution",
-        description: "Após enfrentar os sentinelas no mundo real, Neo, a maior esperança da humanidade, está preso entre a Matrix e a realidade. A maioria da população do planeta permanece em um estado de suspensão da realidade virtual. Os poucos humanos que estão cientes das duras realidades tentam desesperadamente afastar as máquinas a tempo de Neo escapar e salvar o dia. Mas as coisas pioram quando o poderoso programa de computador, Agente Smith, aparece na forma humana.",
-        faixa: "A12",
-        src: "https://drive.google.com/file/d/1cUBYcc5noLTgyr1PAwgI0DVobAwnjx7h/preview",
-        duration: "02h 09m",
-        genero: ["Ação", "Ficção Científica"]
-    },
+
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.wallpaperflare.com%2Fstatic%2F580%2F391%2F793%2Fthe-matrix-movies-neo-keanu-reeves-wallpaper.jpg&f=1&nofb=1&ipt=025ff314b2e10427bcf1a09883de73f840e8fe60736d7f37d964e63ad281c0fd&ipo=images",
         overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FpEoqbqtLc4CcwDUDqxmEDSWpWTZ.jpg&f=1&nofb=1&ipt=59c3ea3eb4367a1d1bd3a65e40b4bca0b26d4c17c6bc8b01824b3d928ff13f56&ipo=images",
@@ -3329,6 +3307,30 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1Ffx2nq5lLMcgGjlDXB3r-knf3iwGqGwZ/preview",
         duration: "02h 16m",
+        genero: ["Ação", "Ficção Científica"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fu2IlqBzlGqMwDnQsoskjCohgaPO.jpg&f=1&nofb=1&ipt=09728cb535ec1531f813fae8418c8912f0e5857a14485e3697d5c9fd66bc0618&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F_3N0VetpYvQE%2FSxWMkXzkNfI%2FAAAAAAAAA_Y%2FlN74D1gMERA%2Fs1600%2FMatrix_Reloaded_1.jpg&f=1&nofb=1&ipt=08527209b73117f738d037f77535a30a66af28e8d616fc383c0b0039e6318290&ipo=images",
+        tmdbId: 604,
+        title: "Matrix",
+        subtitle: "Reloaded",
+        description: "Após derrotar as máquinas em seu combate inicial, Neo ainda vive na Nabucodonosor ao lado de Morpheus, Trinity e Link, o novo tripulante da nave. As máquinas estão realizando uma grande ofensiva contra Zion, onde 250 mil delas escavam rumo à cidade e podem alcançá-la em poucos dias. A Nabucodonosor é convocada para retornar a Zion e participar da reunião que definirá o contra-ataque para salvar a humanidade da extinção. Entretanto, um recado enviado pelo Oráculo faz com que Neo retorne à Matrix.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1qYiZt-JKCJBCrR0G3y9AxY1lBqtJBSFv/preview",
+        duration: "02h 18m",
+        genero: ["Ação", "Ficção Científica"]
+    },
+    {
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2Fnt2ReQXxU1bk2o6JNpZzD0Y5mrx.jpg&f=1&nofb=1&ipt=f074742dca23bd7cef8798a810c477e8106e876e01dc7b813b7908a6ed517a50&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F1drWAmWvOalrGAV6PGdwMowSJVW.jpg&f=1&nofb=1&ipt=f771166f7c16659a810f40c2c6fe72dbce3872f485f256b7587adb4975fdf936&ipo=images",
+        tmdbId: 605,
+        title: "Matrix",
+        subtitle: "Revolution",
+        description: "Após enfrentar os sentinelas no mundo real, Neo, a maior esperança da humanidade, está preso entre a Matrix e a realidade. A maioria da população do planeta permanece em um estado de suspensão da realidade virtual. Os poucos humanos que estão cientes das duras realidades tentam desesperadamente afastar as máquinas a tempo de Neo escapar e salvar o dia. Mas as coisas pioram quando o poderoso programa de computador, Agente Smith, aparece na forma humana.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1cUBYcc5noLTgyr1PAwgI0DVobAwnjx7h/preview",
+        duration: "02h 09m",
         genero: ["Ação", "Ficção Científica"]
     },
     {
