@@ -23,6 +23,9 @@ import EpisodeCard from "@/components/seriesComponents/EpisodeCard";
 import Spinner from "@/components/ui/Loading/spinner";
 import { useTMDB } from "@/contexts/TMDBContext";
 import { CastProps } from "@/@types/cast";
+import { TemplateContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import { FaCircleUser } from "react-icons/fa6";
+import { translate } from "@/utils/UtilitiesFunctions";
 
 type GenreProps = {
     id: number,
@@ -32,6 +35,17 @@ type GenreProps = {
 interface TMDBImagesProps {
     backdrop: string,
     poster: string
+}
+interface Crew {
+    id: number;
+    name: string;
+    job: string;
+    credit_id: string
+    profile_path: string
+}
+
+interface groupedByDepartment {
+    [job: string]: Crew[]
 }
 
 export default function Serie(status: string) {
@@ -49,6 +63,7 @@ export default function Serie(status: string) {
     const [TMDBImage, setTMDBImage] = useState<TMDBImagesProps>()
     const { serieData } = useTMDB();
     const [cast, setCast] = useState<CastProps[]>()
+    const [crewDepartment, setCrewDepartment] = useState<groupedByDepartment>({})
     const [loading, setLoading] = useState(false);
 
 
@@ -121,7 +136,13 @@ export default function Serie(status: string) {
             console.log(err)
         }
     }
-
+    /**
+     * Função assíncrona que busca informações sobre atores e equipe técnica da série.
+     * mainCast - atores principais
+     * seriesCast - todos os atores envolvidos nas temporadas
+     * casting - filtragem para retirar possíveis undefined
+     * @returns Não retorna nada
+     */
     async function getTMDBCast() {
         if (loading) return
         setLoading(true)
@@ -137,6 +158,19 @@ export default function Serie(status: string) {
             }
             if (seriesCast.length <= 0) return console.warn("Nenhum dado sobre o elenco das temporadas")
             const casting = seriesCast.filter((cast): cast is CastProps => cast !== undefined)
+            //console.log(casting)
+            console.log(casting)
+
+            const groupedByDepartment = mainCast.crew
+                .reduce<groupedByDepartment>((acc, crew) => {
+                    if (!acc[crew.department]) {
+                        acc[crew.department] = [];
+                    }
+                    acc[crew.department].push(crew);
+                    return acc;
+                }, {});
+            setCrewDepartment(groupedByDepartment)
+            console.log("groupedByDepartment", groupedByDepartment)
             setCast(casting)
         } catch (err) {
             console.error("Erro ao buscar dados sobre o elenco do filme.")
@@ -317,39 +351,87 @@ export default function Serie(status: string) {
                             </div>
                             {cast ?
                                 (
-                                    <div className={styles.cast}>
-                                        <h2>Elenco</h2>
-                                        <div className={styles.castContainer}>
-                                            {
-                                                cast
-                                                    .flatMap(object => object.cast.slice(0, 20))
-                                                    .filter((actor, index, self) =>
-                                                        self.findIndex(a => a.id === actor.id) === index
-                                                    )
-                                                    .map(actor => (
-                                                        <div key={actor.cast_id}>
-                                                            <div className={styles.castImage}>
-                                                                <Image
-                                                                    fill
-                                                                    quality={20}
-                                                                    priority
-                                                                    sizes="100%"
-                                                                    alt={actor.name}
-                                                                    src={actor.profile_path ? `https://image.tmdb.org/t/p/original/${actor.profile_path}` : '/fundo-alto.jpg'}
-                                                                    placeholder="blur"
-                                                                    blurDataURL="/blurImage.png"
-                                                                />
+                                    <>
+                                        <div className={styles.cast}>
+                                            <h2>Elenco</h2>
+                                            <div className={styles.castContainer}>
+                                                {
+                                                    cast
+                                                        .flatMap(object => object.cast.slice(0, 20))
+                                                        .filter((actor, index, self) =>
+                                                            self.findIndex(a => a.id === actor.id) === index
+                                                        )
+                                                        .map(actor => (
+                                                            <div key={actor.cast_id}>
+                                                                <div className={styles.castImage}>
+                                                                    {actor.profile_path ?
+                                                                        <Image
+                                                                            fill
+                                                                            quality={10}
+                                                                            priority
+                                                                            sizes="100%"
+                                                                            alt={actor.name}
+                                                                            src={actor.profile_path ? `https://image.tmdb.org/t/p/original/${actor.profile_path}` : '/fundo-alto.jpg'}
+                                                                            placeholder="blur"
+                                                                            blurDataURL="/blurImage.png"
+                                                                        />
+                                                                        : <FaCircleUser />}
+
+                                                                </div>
+                                                                <div className={styles.castInfo}>
+                                                                    <h4>{actor.name}</h4>
+                                                                    <h6>{actor.character}</h6>
+                                                                </div>
                                                             </div>
-                                                            <div className={styles.castInfo}>
-                                                                <h4>{actor.name}</h4>
-                                                                <h6>{actor.character}</h6>
-                                                            </div>
-                                                        </div>
-                                                    )
-                                                    )
-                                            }
+                                                        )
+                                                        )
+                                                }
+                                            </div>
                                         </div>
-                                    </div>
+                                        <div className={styles.crew}>
+                                            <h2>Equipe Técnica</h2>
+                                            <div className={styles.crewContainer}>
+                                                {
+                                                    Object.keys(crewDepartment).map((department) => (
+                                                        <div key={department} className={styles.departmentGroup}>
+                                                            <h3 className={styles.departmentTitle}>{translate(department)}</h3>
+                                                            <div className={styles.departmentCrew}>
+                                                                {crewDepartment[department]
+                                                                    .filter((crew, index, self) =>
+                                                                        self.findIndex(c => c.name === crew.name) === index
+                                                                    )
+                                                                    .map((crew, index) => (
+                                                                        <div key={index} className={styles.crewMember}>
+                                                                            <div className={styles.crewImage}>
+                                                                                {
+                                                                                    crew.profile_path ?
+                                                                                        <Image
+                                                                                            fill
+                                                                                            quality={20}
+                                                                                            priority
+                                                                                            sizes="100%"
+                                                                                            alt={crew.name}
+                                                                                            src={crew.profile_path ? `https://image.tmdb.org/t/p/original/${crew.profile_path}` : '/fundo-alto.jpg'}
+                                                                                            placeholder="blur"
+                                                                                            blurDataURL="/blurImage.png"
+                                                                                        /> : <FaCircleUser />
+                                                                                }
+                                                                            </div>
+                                                                            <div className={styles.crewInfo}>
+                                                                                <h4>{crew.name}</h4>
+                                                                                <h6>{crew.job}</h6>
+                                                                            </div>
+                                                                        </div>
+                                                                    ))}
+                                                            </div>
+
+                                                        </div>
+                                                    ))
+                                                }
+                                            </div>
+                                        </div>
+                                    </>
+
                                 )
 
                                 : "Carregando..."

@@ -15,3 +15,25 @@ export function minToHour(min: number = 0): string {
     }
     return `${hora}h ${remainingMin}m`
 }
+/**
+ * Função de tradução para os departamentos da equipe técnica
+ * @param translations objeto com as traduções
+ * @param str palavra a ser traduzida
+ * @returns retorna a tradução correspondente no array translations ou str, caso não exista tradução.
+ */
+export function translate(str: string) {
+    const translations: { [key: string]: string } = {
+        "Directing": "Direção",
+        "Writing": "Roteiristas",
+        "Production": "Produção",
+        "Editing": "Edição",
+        "Sound": "Som",
+        "Camera": "Câmera",
+        "Art": "Arte",
+        "Costume & Make-Up": "Figurino e Maquiagem",
+        "Visual Effects": "Efeitos Visuais",
+        "Lighting": "Iluminação",
+        "Crew": "Equipe",
+    }
+    return translations[str] || str;
+}

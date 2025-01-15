@@ -1195,7 +1195,7 @@ export const series: SeriesProps[] = [
         title: "Reacher",
         subtitle: "",
         description: "Quando o policial militar aposentado Jack Reacher é preso por um assassinato que não cometeu, ele se vê no meio de uma trama mortal cheia de policiais corruptos, empresários obscuros e políticos conspiradores. Só com sua inteligência, ele precisa descobrir o que está havendo em Margrave, Geórgia.",
-        genero: ["Ação", "Crime", "Suspense", "Prime Vídeo"],
+        genero: ["Ação", "Crime", "Suspense", "Prime Video"],
         faixa: "A16",
         season: [
             {
