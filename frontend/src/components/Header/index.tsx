@@ -34,7 +34,7 @@ export default function Header({ userAvatar, status }: HeaderProps) {
 
     useEffect(() => {
         inicial()
-    }, [user])
+    }, [user, inicial])
 
     useEffect(() => {
         getUser()

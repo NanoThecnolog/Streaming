@@ -45,7 +45,7 @@ export default function WatchSerie() {
         }
 
 
-    }, [router, title, subtitle, src, episode])
+    }, [router, title, subtitle, src, episode, season])
 
     useEffect(() => {
         const userData = async () => {

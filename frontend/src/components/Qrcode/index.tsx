@@ -1,4 +1,5 @@
 import { api } from "@/services/api";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Qrcode() {
@@ -28,7 +29,7 @@ export default function Qrcode() {
                     <p>{error}</p>
                 ) : (
                     qrCodeUrl ? (
-                        <img src={qrCodeUrl} alt="QrCode Pix" />
+                        <Image src={qrCodeUrl} alt="QrCode Pix" width={250} height={250} />
                     ) : (
                         <p>Carregando QrCode...</p>
                     )

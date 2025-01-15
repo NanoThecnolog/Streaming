@@ -19,7 +19,6 @@ interface TMDBImageProps {
 
 
 export default function TopSerie({ width }: TopSerieProps) {
-    //refatorar
     const [cardOn, setCardOn] = useState(0)
     const card = series[cardOn]
     const [fade, setFade] = useState('fadeIn')
@@ -47,30 +46,7 @@ export default function TopSerie({ width }: TopSerieProps) {
             setTMDBSerie(data)
             setTMDBImages({ backdrop: backdropUrl, poster: posterUrl })
         }
-    }, [serieData, cardOn])
-    /*useEffect(() => {
-        setTMDBBackDrop(null)
-        setTMDBPoster(null)
-        if (series[cardOn].tmdbID === 0) {
-            setTMDBBackDrop(null)
-            setTMDBPoster(null)
-            return
-        }
-        fetchSerieData()
-    }, [cardOn])
-    async function fetchSerieData() {
-        const serie = await fetchTMDBSeries(series[cardOn].tmdbID)
-        if (!serie || !serie.backdrop_path || !serie.poster_path) {
-            setTMDBBackDrop(null)
-            setTMDBPoster(null)
-            return
-        }
-        const backdropURL = `https://image.tmdb.org/t/p/original${serie.backdrop_path}`
-        const posterURL = `https://image.tmdb.org/t/p/original${serie.poster_path}`
-        setTMDBBackDrop(backdropURL)
-        setTMDBPoster(posterURL)
-    }*/
-
+    }, [serieData, cardOn, card.tmdbID])
     function handleEpisodes(tmdbId: number) {
         Router.push(`/series/serie/${tmdbId}`)
     }
@@ -84,11 +60,9 @@ export default function TopSerie({ width }: TopSerieProps) {
             season: `${series[cardOn].season[0].s}`
         });
         const play: string = `/watch/serie?${movie}`
-        console.log("filme: ", movie)
         Router.push(play)
     }
     const getBackgroundImage = () => {
-        //const card = release[cardOn]
         return width && width <= 780
             ? TMDBImages?.poster ?? card.overlay
             : TMDBImages?.backdrop ?? card.background
@@ -105,7 +79,6 @@ export default function TopSerie({ width }: TopSerieProps) {
                     {card.subtitle && (
                         <h3 className={styles.subtitulo_principal}>{card.subtitle}</h3>
                     )}
-
                     <div className={styles.description}>
                         <p>{card.description}</p>
                     </div>
@@ -113,7 +86,6 @@ export default function TopSerie({ width }: TopSerieProps) {
                         <p>{card.season.length === 1 ? `${card.season.length} Temporada` : card.season.length >= 2 && `${card.season.length} Temporadas`}</p>
                         <Adult faixa={card.faixa} />
                     </div>
-
                     <div className={styles.button_section}>
                         <div className={styles.watch} onClick={(e) => handleWatch()}>
                             <h3>Play</h3>
@@ -121,13 +93,10 @@ export default function TopSerie({ width }: TopSerieProps) {
                         </div>
                         <div className={styles.queue} onClick={() => handleEpisodes(card.tmdbID)}>
                             <h3>EPISÓDIOS</h3>
-
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-
     )
 }

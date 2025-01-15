@@ -41,7 +41,15 @@ export default function Movie() {
     const [crewDepartment, setCrewDepartment] = useState<groupedByDepartment>({})
     const [relatedCards, setRelatedCards] = useState<CardsProps[]>()
 
-
+    const watchLater = async () => {
+        if (!movie) return
+        const onList = await isOnTheList(movie.title, movie.subtitle, movie.tmdbId)
+        setOnWatchLater(onList)
+    }
+    const favorite = async () => {
+        const favorito = await isFavorite(Number(tmdbId))
+        setIsFavorite(favorito)
+    }
     useEffect(() => {
         if (!tmdbId) return
         const movie = cards.find(card => card.tmdbId === Number(tmdbId));
@@ -49,7 +57,7 @@ export default function Movie() {
         getTMDBData()
         getTMDBCast()
         favorite()
-    }, [router])
+    }, [router, tmdbId])
     useEffect(() => {
         function getRelatedCards() {
             if (movie) {
@@ -88,15 +96,7 @@ export default function Movie() {
         }
         getUserData()
     }, [])
-    const watchLater = async () => {
-        if (!movie) return
-        const onList = await isOnTheList(movie.title, movie.subtitle, movie.tmdbId)
-        setOnWatchLater(onList)
-    }
-    const favorite = async () => {
-        const favorito = await isFavorite(Number(tmdbId))
-        setIsFavorite(favorito)
-    }
+
 
     async function getTMDBData() {
         if (loading) return
@@ -117,7 +117,6 @@ export default function Movie() {
         try {
             const cast = await fetchTMDBMovieCast(Number(tmdbId));
             if (!cast) return console.warn("Nenhum dado ao buscar elenco do filme.")
-            console.log(cast)
             const crewData = Array.isArray(cast.crew) && cast.crew.length
                 ? cast.crew : []
             const groupedByDepartment = crewData.reduce<groupedByDepartment>((acc, crew) => {

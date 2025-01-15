@@ -47,6 +47,10 @@ export default function OverlaySerie({ card, isVisible, vote_average, modalVisib
         isMovieFavorite: false
     })
     const { user, favoriteList, onWatchLater, isLoading, isMovieFavorite } = state
+    const onWatchLaterList = useCallback(async (title: string, subtitle?: string) => {
+        const result: boolean = await isOnTheList(title, subtitle, card.tmdbID);
+        setState(prev => ({ ...prev, onWatchLater: result }));
+    }, [card.tmdbID]);
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -62,18 +66,12 @@ export default function OverlaySerie({ card, isVisible, vote_average, modalVisib
         fetchUserData()
         favoriteList()
         onWatchLaterList(card.title, card.subtitle)
-    }, [card, isVisible])
-
-    const onWatchLaterList = useCallback(async (title: string, subtitle?: string) => {
-        const result: boolean = await isOnTheList(title, subtitle, card.tmdbID);
-        setState(prev => ({ ...prev, onWatchLater: result }));
-    }, []);
+    }, [card, isVisible, onWatchLaterList])
 
     /**
      * Função assíncrona. Adiciona ou remove da lista para assistir mais tarde e atualiza o estado onWatchLater
      * @returns void
      */
-
     async function handleWatchLater() {
         //toast.warning("A Função Assistir Mais Tarde está temporariamente desativada")
         if (isLoading) return;
@@ -91,7 +89,7 @@ export default function OverlaySerie({ card, isVisible, vote_average, modalVisib
     }
     useEffect(() => {
         favoriteMovie()
-    }, [favoriteList])
+    }, [favoriteList, favoriteMovie])
 
     async function favoriteMovie() {
         const favorite: boolean = await isFavorite(card.tmdbID)
@@ -114,7 +112,7 @@ export default function OverlaySerie({ card, isVisible, vote_average, modalVisib
         if (!user) return
         await addFavorite(card.tmdbID, card.title, card.subtitle, user.id)
         await favoriteMovie();
-    }, [user, card])
+    }, [user, card, favoriteMovie])
 
 
 

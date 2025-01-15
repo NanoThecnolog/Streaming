@@ -54,6 +54,11 @@ export default function Overlay({ card, isVisible, vote_average, modalVisible, a
 
     const playLink = `/watch/${tmdbId}`;
 
+    const onWatchLaterList = useCallback(async (title: string, subtitle?: string) => {
+        const result: boolean = await isOnTheList(title, subtitle, tmdbId);
+        setState(prev => ({ ...prev, onWatchLater: result }));
+    }, []);
+
     useEffect(() => {
 
         const userData = async () => {
@@ -70,12 +75,7 @@ export default function Overlay({ card, isVisible, vote_average, modalVisible, a
         userData()
         favoriteList()
         onWatchLaterList(title, subtitle)
-    }, [card, isVisible])
-
-    const onWatchLaterList = useCallback(async (title: string, subtitle?: string) => {
-        const result: boolean = await isOnTheList(title, subtitle, tmdbId);
-        setState(prev => ({ ...prev, onWatchLater: result }));
-    }, []);
+    }, [card, tmdbId, title, subtitle, isVisible, onWatchLaterList])
 
     /**
      * Função assíncrona. Adiciona ou remove da lista para assistir mais tarde e atualiza o estado onWatchLater
@@ -102,7 +102,7 @@ export default function Overlay({ card, isVisible, vote_average, modalVisible, a
 
     useEffect(() => {
         favoriteMovie()
-    }, [favoriteList])
+    }, [favoriteList, favoriteMovie])
 
     async function favoriteMovie() {
         const favorite: boolean = await isFavorite(tmdbId)
@@ -117,7 +117,7 @@ export default function Overlay({ card, isVisible, vote_average, modalVisible, a
         if (!user) return
         await addFavorite(tmdbId, title, subtitle ? subtitle : "", user.id)
         await favoriteMovie();
-    }, [user, title, subtitle, tmdbId])
+    }, [user, title, subtitle, tmdbId, favoriteMovie])
 
     async function openModalVisible() {
         modalVisible()

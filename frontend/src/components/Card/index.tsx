@@ -31,7 +31,7 @@ export default function Card({ card }: CardProps) {
             setTMDBImages({ poster: posterUrl })
         }
         //handleMovieData()
-    }, [card])
+    }, [card, allData])
 
     /*async function handleMovieData() {
         if (card.tmdbId === 0 || !card.tmdbId) return console.error("TMDBID inválido.", card.tmdbId)

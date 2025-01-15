@@ -36,7 +36,7 @@ export default function CollectionContainer({ cardPerContainer }: CollectionProp
 
     useEffect(() => {
         fetchCollectionData()
-    }, [])
+    }, [fetchCollectionData])
 
     /**
  * Faz a requisição de dados das coleções, realizando as seguintes etapas:

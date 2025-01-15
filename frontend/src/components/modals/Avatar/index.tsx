@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { api } from '@/services/api';
 import Router from 'next/router';
 import { getUserCookieData, updateUserCookie } from '@/services/cookieClient';
+import Image from 'next/image';
 
 interface AvatarProps {
     handleCloseModal: () => void;
@@ -56,7 +57,7 @@ export default function Avatar({ handleCloseModal }: AvatarProps) {
                 <h1>Escolha seu novo avatar</h1>
                 <div className={styles.avatars}>
                     {avatares.map((img, index) => (
-                        <img src={img} alt="avatar" key={index} width={100} height={100} onClick={() => handleChangeAvatar(img)} />
+                        <Image src={img} alt="avatar" key={index} width={100} height={100} onClick={() => handleChangeAvatar(img)} />
                     ))}
                 </div>
             </div>

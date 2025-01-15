@@ -30,6 +30,11 @@ export default function CardInfoSerieModal({ card, vote_average, handleModalClos
     const [isLoading, setIsLoading] = useState(false)
     const [onWatchLater, setOnWatchLater] = useState(false)
     const [user, setUser] = useState<UserProps>()
+    const checkWatchLaterList = useCallback(async () => {
+        if (!user) return
+        const isAdded = await isOnTheList(card.title, card.subtitle, card.tmdbID)
+        setOnWatchLater(isAdded)
+    }, [user, card])
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -38,7 +43,7 @@ export default function CardInfoSerieModal({ card, vote_average, handleModalClos
         }
         fetchUserData()
         checkWatchLaterList()
-    }, [])
+    }, [checkWatchLaterList])
 
     useEffect(() => {
         setTMDBBackDrop(null)
@@ -50,7 +55,7 @@ export default function CardInfoSerieModal({ card, vote_average, handleModalClos
             return
         }
         fetchSerieData()
-    }, [card])
+    }, [card, fetchSerieData])
     async function fetchSerieData() {
         const serie = await fetchTMDBSeries(card.tmdbID)
         if (!serie) {
@@ -63,15 +68,6 @@ export default function CardInfoSerieModal({ card, vote_average, handleModalClos
         setOverview(serie.overview)
         setGenres(serie.genres)
     }
-    const checkWatchLaterList = useCallback(async () => {
-        if (!user) return
-        const isAdded = await isOnTheList(card.title, card.subtitle, card.tmdbID)
-        setOnWatchLater(isAdded)
-    }, [user, card])
-    useEffect(() => {
-        checkWatchLaterList()
-    }, [checkWatchLaterList])
-
     const handleWatchLater = useCallback(async () => {
         if (isLoading || !user) return Router.push('/login')
         setIsLoading(true)
@@ -88,10 +84,6 @@ export default function CardInfoSerieModal({ card, vote_average, handleModalClos
             setIsLoading(false)
         }
     }, [isLoading, user, card, checkWatchLaterList])
-
-
-
-
     function handlePlay() {
         const serie = new URLSearchParams({
             title: `${card.title}`
@@ -100,7 +92,6 @@ export default function CardInfoSerieModal({ card, vote_average, handleModalClos
     }
 
     return (
-
         <div className={styles.movie_desc}>
             <div className={styles.modal_content}>
                 <div className={styles.desc_image} style={{ backgroundImage: `url(${TMDBBackDrop ? TMDBBackDrop : card.background})`, backgroundPosition: 'center' }}>
@@ -114,7 +105,6 @@ export default function CardInfoSerieModal({ card, vote_average, handleModalClos
                     <h1 className={styles.titulo}>{card.title} {card.subtitle && (
                         <span className={styles.subtitulo}> - {card.subtitle}</span>
                     )}</h1>
-
                     <div className={styles.button_container}>
                         <div className={styles.watch} onClick={handlePlay}>
                             <h3>Episódios</h3>
@@ -130,7 +120,6 @@ export default function CardInfoSerieModal({ card, vote_average, handleModalClos
                                 </>
                             }
                         </div>
-
                     </div>
                 </div>
                 <div className={styles.gen_mid}>
@@ -143,8 +132,6 @@ export default function CardInfoSerieModal({ card, vote_average, handleModalClos
                         ).join(', ') : card.genero.join(', ')}
                         </span>
                         &quot;
-                        {//<span key={index}>{gen}{index < card.genero.length - 1 && ", "}</span>
-                        }
                     </p>
                     <Stars average={vote_average} />
                     <Adult faixa={card.faixa} />
@@ -153,8 +140,6 @@ export default function CardInfoSerieModal({ card, vote_average, handleModalClos
                     <p>{overview ? overview : card.description}</p>
                 </div>
             </div>
-
         </div>
-
     )
 }

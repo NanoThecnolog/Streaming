@@ -38,10 +38,9 @@ export default function Home(status: string) {
      * @returns não retorna dado nenhum
      */
     const fetchData = async () => {
-      if (loading) return
+      if (loading || allData.length > 0) return
       setLoading(true)
       try {
-        if (allData.length > 0) return
         const response = await apiTMDB.get('/all')
         const cardData = response.data.data as MovieTMDB[]
         setAllData(cardData)
@@ -52,7 +51,7 @@ export default function Home(status: string) {
       }
     }
     fetchData()
-  }, [])
+  }, [allData.length, setAllData])
   useEffect(() => {
     setData()
     const settingUserData = async () => {

@@ -20,7 +20,6 @@ interface TopProps {
 }
 
 export default function Top({ width }: TopProps) {
-    //Componente refatorado
     const [cardOn, setCardOn] = useState(0)
     const card = cards[cardOn]
     const releaseSet = new Set(releaseCards.map(item => item.tmdbId))
@@ -62,44 +61,12 @@ export default function Top({ width }: TopProps) {
             setTMDBMovie(data)
             setTMDBImages({ backdrop: backdropUrl, poster: posterUrl })
         }
-    }, [allData, cardOn])
-
-    /*useEffect(() => {
-        setTMDBImages({ backdrop: null, poster: null })
-        const fetchImages = async () => {
-            //const card = release[cardOn]
-            if (card.tmdbId !== 0) {
-                const movie = await fetchTMDBMovie(card.tmdbId)
-                if (movie) {
-                    const backdropUrl = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
-                    const posterUrl = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
-                    setTMDBMovie(movie)
-
-                    const loadImage = (url: string) => new Promise<void>((resolve) => {
-                        const img = new Image()
-                        img.src = url
-                        img.onload = () => resolve()
-                    })
-                    await Promise.all([loadImage(backdropUrl), loadImage(posterUrl)])
-                    setTMDBImages({ backdrop: backdropUrl, poster: posterUrl })
-                    setFade('fadeIn')
-
-                }
-
-                //setTMDBImages({ backdrop: `https://image.tmdb.org/t/p/original${movie.backdrop_path}`, poster: `https://image.tmdb.org/t/p/original${movie.poster_path}` })
-            } else {
-                setTMDBImages({ backdrop: null, poster: null })
-            }
-        }
-        fetchImages()
-    }, [cardOn])*/
-
+    }, [allData, cardOn, card.tmdbId])
     const checkWatchLaterList = useCallback(async () => {
         if (!user) return
-        //const card = release[cardOn]
         const isAdded = await isOnTheList(card.title, card.subtitle, card.tmdbId)
         setOnWatchLater(isAdded)
-    }, [user, cardOn])
+    }, [user, cardOn, card.subtitle, card.title, card.tmdbId])
     useEffect(() => {
         checkWatchLaterList()
     }, [checkWatchLaterList])
@@ -110,7 +77,6 @@ export default function Top({ width }: TopProps) {
 
             setIsLoading(true)
             try {
-                //const card = release[cardOn]
                 await addWatchLater(user.id, card.title, card.tmdbId, card.subtitle)
                 await checkWatchLaterList()
 
@@ -121,18 +87,15 @@ export default function Top({ width }: TopProps) {
                 setIsLoading(false)
             }
         },
-        [isLoading, user, cardOn, checkWatchLaterList]
+        [isLoading, user, cardOn, checkWatchLaterList, card.subtitle, card.title, card.tmdbId]
     )
     const getBackgroundImage = () => {
-        //const card = release[cardOn]
         return width && width <= 980
             ? TMDBImages.poster ?? card.overlay
             : TMDBImages.backdrop ?? card.background
     }
     function handleWatch() {
-        //const card = release[cardOn]
         const { tmdbId } = card
-        //const play: string = `/watch?title=${title}&subTitle=${subtitle}&src=${src}&tmdbId=${tmdbId}`
         const play: string = `/watch/${tmdbId}`
         Router.push(play)
     }

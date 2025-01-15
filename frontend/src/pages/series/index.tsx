@@ -48,10 +48,9 @@ export default function Series(status: string) {
          * @returns não retorna dado nenhum
          */
         const fetchData = async () => {
-            if (loading) return
+            if (loading || serieData.length > 0) return
             setLoading(true)
             try {
-                if (serieData.length > 0) return
                 const response = await apiTMDB.get('/all', {
                     params: {
                         type: 'tv'
@@ -66,7 +65,7 @@ export default function Series(status: string) {
             }
         }
         fetchData()
-    }, [])
+    }, [serieData.length, setSerieData])
 
     useEffect(() => {
         const getUserData = async () => {

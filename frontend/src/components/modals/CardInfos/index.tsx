@@ -48,7 +48,7 @@ export default function CardInfoModal({ card, average, handleModalClose }: InfoM
         }
         fetchUserData()
         fetchTMDBData()
-    }, [])
+    }, [card.tmdbId])
     const checkWatchLaterList = useCallback(async () => {
         if (!user) return
         const isAdded = await isOnTheList(card.title, card.subtitle, card.tmdbId)

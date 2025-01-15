@@ -39,13 +39,13 @@ export default function Me(status: string) {
 
     }, [modalVisible, editarDados])
     async function getUserData() {
-        const user = await getUserCookieData()
-        if (!user) {
+        const userData = await getUserCookieData()
+        if (!userData) {
             Router.push('/login')
             return
         }
-        setUser(user)
-        handleWatchLater(user)
+        setUser(userData)
+        handleWatchLater(userData)
     }
 
     function handleWatchLater(user: UserProps) {
@@ -63,12 +63,7 @@ export default function Me(status: string) {
 
     function handleWatch(watch: SeriesProps | CardsProps) {
         if ('src' in watch) {
-            const movie = new URLSearchParams({
-                title: `${watch.title}`,
-                subTitle: `${watch.subtitle}` || "",
-                src: `${watch.src}`
-            });
-            const play: string = `/watch?${movie}`
+            const play: string = `/watch/${watch.tmdbId}`
             Router.push(play);
         } else if (watch.season?.[0]?.episodes?.[0]) {
             const ep = watch.season[0].episodes[0]
@@ -160,7 +155,7 @@ export default function Me(status: string) {
                                 <div className={styles.asideInfo}>
                                     <h2>{user.name}</h2>
                                     <h3>{user.email}</h3>
-                                    <h3>Data de Aniversário
+                                    <h3>Aniversário
                                         <p>{user?.birthday && new Date(user.birthday).toLocaleDateString('pt-br', {
                                             timeZone: 'UTC'
                                         })}</p>

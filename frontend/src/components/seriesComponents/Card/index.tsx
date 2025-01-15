@@ -31,7 +31,7 @@ export default function Card({ card }: CardProps) {
             setTMDBSerie(data)
             setTMDBImage({ poster: posterUrl })
         }
-    }, [card])
+    }, [card, serieData])
 
     function handleClick() {
         router.push(`/series/serie/${card.tmdbID}`)
