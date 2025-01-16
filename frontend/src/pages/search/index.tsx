@@ -87,11 +87,11 @@ export default function Search(status: string) {
                         />
                     ) :
                         <div className={styles.noResultsContainer}>
-                            <h2>"Não encontramos o que procura =/"</h2>
+                            <h2>Não encontramos o que procura =/</h2>
                         </div>
                     ) :
                         <div className={styles.noResultsContainer}>
-                            <h2>"Não encontramos o que procura =/"</h2>
+                            <h2>Não encontramos o que procura =/</h2>
                         </div>}
 
                 </div>

@@ -34,6 +34,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 256591,
+        title: "Golpe Duplo",
+        subtitle: "",
+        description: "Nicky é um trapaceiro profissional que acaba sendo escolhido como vítima por uma iniciante na profissão, Jess. Esperto como é, ele se deixa cair no golpe para desmascará-la no momento certo. Decepcionada, a ambiciosa Jess insiste para que Nicky lhe ensine seu método de trabalho e a aceite em sua equipe. Após uma certa relutância, Nicky concorda. Mas o problema maior é que ele também acaba se envolvendo romanticamente com ela, o que vai de encontro a uma de suas principais regras.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1_nZzMV4OQDjebGaBHJmsDhrMkBM11tFe/preview",
+        duration: "01h 44m",
+        genero: ["Romance", "Comédia"]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 24,
         title: "Kill Bill",
         subtitle: "Volume 1",
