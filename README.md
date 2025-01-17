@@ -4,16 +4,23 @@ Seja bem vindo ao repositório da plataforma de Streaming FlixNext.
 
 Este projeto foi desenvolvido com foco em performance e experiência de usuário, permitindo que usuários explorem, pesquisem e assistam a conteúdos diversos de forma gratuita.
 
+## 💻 Layout
+
+O Layout foi inspirado nos principais streamings da atualidade, adaptando e 
 ## 🚀 Funcionalidades
 
 - **Catálogo de Filmes e Séries**: Sessões de filmes e séries agrupados por gênero com imagens promocionais dos filmes.
+- **Carrossel de Destaques**: Apresentação dos conteúdos incluídos na plataforma.
+- **Sistema de recomendação Inteligente**: Recomendação baseada na utilização do usuário.
 - **Sistema de Pesquisa**: Busca inteligente de títulos de forma fácil por título e subtítulo.
 - **Página do Filme**: Informações sobre o filme, incluindo descrições, avaliações, classificação indicativa, elenco e filmes relacionados.
 - **Página da Série**: Informações sobre a série, incluindo descrições, avaliações, classificação indicativa, lista de temporadas e informações sobre os episódios e elenco principal da série.
-- **Carrossel de Destaques**: Apresentação dos conteúdos incluídos na plataforma.
 - **Contas de Usuários**: Criação de contas de usuários para reprodução de filmes, sendo possível personalizar avatar e receber emails sobre as principais adições ao catálogo.
+- **Autenticação de Contas**: Verificação de senha, geração de tokens.
+- **Recuperação de Contas de usuário**: Cadastro de usuários, geração de tokens de recuperação.
+- **Email Service**: Envio de emails marketing com novidades e informações sobre a plataforma, emails de ativação e recuperação de contas.
 - **Reprodução de Vídeos**: Integração para streaming.
-- **Responsividadee**: Interface adaptável para dispositivos móveis, tablets e desktops.
+- **Responsividade**: Interface adaptável para dispositivos móveis, tablets e desktops.
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -21,7 +28,7 @@ Este projeto foi desenvolvido com foco em performance e experiência de usuário
 - **TypeScript**: Superset para maior segurança, redução de erros e escalabilidade no código.
 - **SASS**: Pré-processador para estilização avançada.
 - **Express**: Framework Backend escrito em javascript para gerenciamento de APIs, comunicação com banco de dados e autenticação.
-- **PostgreSQL**: Banco de dados relacional.
+- **PostgreSQL**: Banco de dados relacional gerenciado pelo Prisma.
 - **TMDB API**: Integração para obtenção de informações sobre filmes e séries.
 
 ## 🎨 Estrutura de Pastas
@@ -44,7 +51,7 @@ Este projeto foi desenvolvido com foco em performance e experiência de usuário
 │   │   ├── pages/          # Páginas da aplicação
 │   │   ├── styles/         # Estilos globais e variáveis SASS
 │   │   ├── services/       # Integração com APIs externas, Funções auxiliares e Microsserviços
-└───└───├── utils/       # Funções de utilidade
+└───└───├── utils/          # Funções Utilitárias(traduções, conversões numéricas, etc)
 ```
 
 ## ⚙️ Como Executar o Projeto
