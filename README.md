@@ -6,7 +6,8 @@ Este projeto foi desenvolvido com foco em performance e experiência de usuário
 
 ## 💻 Layout
 
-O Layout foi inspirado nos principais streamings da atualidade, adaptando e 
+O Layout foi inspirado nos principais serviços de Streaming da atualidade, adaptando funcionalidades e visual intuitivo de cada um.
+
 ## 🚀 Funcionalidades
 
 - **Catálogo de Filmes e Séries**: Sessões de filmes e séries agrupados por gênero com imagens promocionais dos filmes.
