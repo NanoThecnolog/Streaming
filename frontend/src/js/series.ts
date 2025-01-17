@@ -38,6 +38,89 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 61889,
+        title: "Demolidor",
+        subtitle: "",
+        description: 'Cego desde pequeno, Matt Murdock luta contra a injustiça durante o dia como advogado e à noite nas ruas de Hell’s Kitchen, Nova York.',
+        genero: ["Ação", "Drama", "Marvel", "Disney+"],
+        faixa: "18",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/10aIzgWkaT1uWDpiCoJdGamx2Slf1OPFo/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1dheUy3tn7RFLJcL6cVohWGgSTXVA8Zos/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1nAgr1U6PPfocnMZ3ie7mQe_LqopDcme5/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/16KQ663mLddbYYY6aMtpNcUCbO6xZg8RZ/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1zdjhTA0JWLfdnPfWESAN5fZhcenGKoox/preview",
+                        duration: "55m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1Q4rC112RcvNxhHKZQNplO34YQNtQBsEy/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1L2e06xpP1-sHZoJL8Xb05L_ZvWZlieWj/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1Tk9IY0O3RBJCqIsGvA-FKvm7R6vGQmzv/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1uVFvrzAVFLJa_MK4TRSGetmVUGfhRYgD/preview",
+                        duration: "57m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1FcRuN3sBOmvckDHpRFawInkIDwWEIK8U/preview",
+                        duration: "56m"
+                    },
+                    {
+                        ep: 11,
+                        src: "https://drive.google.com/file/d/100xzgt74T3n9OPSQYlmYDVmQz607hJyu/preview",
+                        duration: "58m"
+                    },
+                    {
+                        ep: 12,
+                        src: "https://drive.google.com/file/d/1pQEdP4zLvdT9GirXsJmFjYm5IlSQLyQf/preview",
+                        duration: "59m"
+                    },
+                    {
+                        ep: 13,
+                        src: "https://drive.google.com/file/d/14cjsVAB75jqKKwww88X1CXTjqrO4vivs/preview",
+                        duration: "55m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 91363,
         title: "What If...?",
         subtitle: "",

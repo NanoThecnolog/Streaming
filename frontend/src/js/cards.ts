@@ -135,7 +135,7 @@ export const cards: CardsProps[] = [
         subtitle: "Legendado",
         description: "Durante a Segunda Guerra Mundial, na França, um grupo de judeus americanos conhecidos como Bastardos espalha o terror entre o terceiro Reich. Ao mesmo tempo, Shosanna, uma judia que fugiu dos nazistas, planeja vingança quando um evento em seu cinema reunirá os líderes do partido.",
         faixa: "18",
-        src: "https://drive.google.com/file/d/1_M4QQgztTYD5g-GtRJRNtllYCEiORpkX/preview",
+        src: "https://drive.google.com/file/d/1iroQJ1CBzdSN0Zondj6fVfwlb-RV7Uqe/preview",
         duration: "02h 32m",
         genero: ["Drama", "Suspense"]
     },
