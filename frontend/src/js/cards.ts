@@ -34,6 +34,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 539972,
+        title: "Kraven",
+        subtitle: "O Caçador",
+        description: "Sergei Kravinoff é um grande caçador, que toma um soro mágico que lhe dá habilidades sobre-humanas e uma vida mais longa.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1m8NCHDLrJwF5id4vA9IQ1OOOrosFhqrN/preview",
+        duration: "02h 07m",
+        genero: ["Ação", "Aventura", "Marvel", "Vilão"]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 256591,
         title: "Golpe Duplo",
         subtitle: "",
