@@ -34,6 +34,30 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 823219,
+        title: "Flow",
+        subtitle: "",
+        description: "Gato é um animal solitário, mas quando seu lar é destruído por uma grande inundação, ele encontra refúgio em um barco habitado por diversas espécies, tendo que se juntar a elas apesar das diferenças.",
+        faixa: "L",
+        src: "https://drive.google.com/file/d/1TQuZY-1xuSwFWFthyTfcgK7HrZCs2M-p/preview",
+        duration: "01h 25m",
+        genero: ["Animação", "Fantasia", "Aventura"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 993710,
+        title: "De Volta a Ação",
+        subtitle: "",
+        description: "Quinze anos depois de abandonar a CIA para formar uma família, os ex-agentes de elite Matt e Emily voltam ao mundo da espionagem ao terem seus disfarces revelados.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1wr4mLP1yi4aWkWD0xNgjedAH38nPHHy5/preview",
+        duration: "01h 54m",
+        genero: ["Ação", "Comédia", "Netflix"]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 539972,
         title: "Kraven",
         subtitle: "O Caçador",
@@ -66,6 +90,18 @@ export const cards: CardsProps[] = [
         src: "https://drive.google.com/file/d/11ZwamcP3TxWCYR1xi4zpzZFb-9FnyhWJ/preview",
         duration: "01h 51m",
         genero: ["Ação"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 1010600,
+        title: "Os Estranhos",
+        subtitle: "Capítulo 1 - Legendado",
+        description: "A jovem Maya viaja para o campo com seu namorado para começar uma nova vida. Quando seu carro quebra, o casal é forçado a passar a noite em um Airbnb isolado na floresta, onde o casal é aterrorizado até o amanhecer por três estranhos mascarados.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1-KPxkbUq8fvMP4CSTeCy1ORn5ZB_0YM5/preview",
+        duration: "01h 31m",
+        genero: ["Terror", "Suspense"]
     },
     {
         background: background,

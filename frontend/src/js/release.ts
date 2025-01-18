@@ -9,6 +9,18 @@ export const releaseCards: ReleaseProps[] = [
     },
      */
     {
+        tmdbId: 823219,
+        name: "flow"
+    },
+    {
+        tmdbId: 993710,
+        name: "de volta a ação"
+    },
+    {
+        tmdbId: 539972,
+        name: "kraven"
+    },
+    {
         tmdbId: 1156593,
         name: "sua culpa",
     },
@@ -27,5 +39,6 @@ export const releaseCards: ReleaseProps[] = [
     {
         tmdbId: 533535,
         name: "deadpool e wolverine"
-    }
+    },
+
 ]
