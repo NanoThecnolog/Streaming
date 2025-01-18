@@ -56,10 +56,10 @@ export default function Search(status: string) {
                 ...serie,
                 type: 'series' as const
             }))
-        if (filteredCards.length >= 1) {
+        if (filteredCards.length > 0) {
             setSearchCards(filteredCards);
         }
-        if (filteredSeries.length >= 1) {
+        if (filteredSeries.length > 0) {
             setSearchSeries(filteredSeries)
         }
     }

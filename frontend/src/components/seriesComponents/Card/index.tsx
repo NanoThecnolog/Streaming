@@ -4,7 +4,7 @@ import Image from "next/image";
 import CardInfoSerieModal from "../CardInfos";
 import { SeriesProps, TMDBSeries } from "@/@types/series";
 import OverlaySerie from "../Overlay";
-import { fetchTMDBSeries } from '@/services/fetchTMDBData';
+import { fetchTMDBPoster, fetchTMDBSeries } from '@/services/fetchTMDBData';
 import { useRouter } from 'next/router';
 import { useTMDB } from '@/contexts/TMDBContext';
 
@@ -25,12 +25,24 @@ export default function Card({ card }: CardProps) {
     const [TMDBSerie, setTMDBSerie] = useState<TMDBSeries>()
 
     useEffect(() => {
-        const data = serieData.find(data => data.id === card.tmdbID)
-        if (data) {
-            const posterUrl = `https://image.tmdb.org/t/p/original${data.poster_path}`;
-            setTMDBSerie(data)
-            setTMDBImage({ poster: posterUrl })
+        async function getImage() {
+            const data = serieData.find(data => data.id === card.tmdbID)
+            if (data) {
+                const posterUrl = `https://image.tmdb.org/t/p/original${data.poster_path}`;
+                setTMDBSerie(data)
+                setTMDBImage({ poster: posterUrl })
+            } else {
+                try {
+                    const serie = await fetchTMDBSeries(card.tmdbID)
+                    if (!serie) return
+                    const posterUrl = `https://image.tmdb.org/t/p/original${serie.poster_path}`
+                    setTMDBImage({ poster: posterUrl })
+                } catch (err) {
+                    console.log("Erro na busca da série: ", err)
+                }
+            }
         }
+        getImage()
     }, [card, serieData])
 
     function handleClick() {

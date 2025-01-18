@@ -58,14 +58,7 @@ async function fetchTMDBData<T>(tmdbID: number, type: 'movie' | 'tv', imageType:
     }
 }
 
-/**
- * Busca a imagem de fundo do filme a partir do ID do TMDB.
- * @param tmdbID ID do filme no TMDB
- * @returns URL da imagem de fundo ou null em caso de erro
- */
-export async function fetchTMDBBackDrop(tmdbID: number): Promise<string | null> {
-    return fetchTMDBData<string>(tmdbID, 'movie', 'backdrop');
-}
+
 
 /**
  * Busca os detalhes do filme a partir do ID do TMDB.
@@ -83,6 +76,15 @@ export async function fetchTMDBMovie(tmdbID: number): Promise<MovieTMDB | null> 
  */
 export async function fetchTMDBMovieCast(tmdbID: number): Promise<CastProps | null> {
     return fetchTMDBData<CastProps>(tmdbID, 'movie', 'details', true);
+}
+
+/**
+ * Busca a imagem de fundo do filme a partir do ID do TMDB.
+ * @param tmdbID ID do filme no TMDB
+ * @returns URL da imagem de fundo ou null em caso de erro
+ */
+export async function fetchTMDBBackDrop(tmdbID: number): Promise<string | null> {
+    return fetchTMDBData<string>(tmdbID, 'movie', 'backdrop');
 }
 
 /**
