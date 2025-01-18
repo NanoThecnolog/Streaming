@@ -1571,6 +1571,17 @@ export const series: SeriesProps[] = [
                     },
                 ]
             },
+            {
+                s: 2,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1444o4GtHbK-P1FbP73HLh38EijCZrV_y/preview",
+                        duration: "48m"
+                    },
+                ]
+            }
         ]
     },
     {
@@ -9432,6 +9443,47 @@ export const series: SeriesProps[] = [
                     },
                 ]
             },
+            {
+                s: 2,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/10nRSHJitVa-yWzEzu4h7aEbWB-CZqO2E/preview",
+                        duration: "01h 05m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/10pVmoxUw55l1Ry8PBH7MS7ZJMIY9qeEb/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/10z-VP6IP_Py6oubgr8Ky1wDTprus0-wW/preview",
+                        duration: "01h 01m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/110o17RIs0kT5CHZikg-HjUdMhaUVy4fH/preview",
+                        duration: "01h 02m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/114zk8D79YwtkGfKbjJJXk41DDWq3wBHq/preview",
+                        duration: "01h 16m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/11B9GaYdMNMDQ3sM3947AKoWcafqNa2uA/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/11M0IVZjWtWpozOBri55NEQfI9NQowBOw/preview",
+                        duration: "01h"
+                    },
+                ]
+            }
         ]
     },
     {
