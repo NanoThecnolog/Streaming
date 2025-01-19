@@ -5,10 +5,12 @@ const overlay = "/fundo-alto.jpg";
 
 export const cards: CardsProps[] = [
     /*
-    schema genero: padrão > streaming > secundario
-    padrão: Ação, aventura, romance, drama, comédia, terror, suspense, animação
+    schema genero: primário > secundário > streaming > agrupador
+    primário: Ação, aventura, romance, drama, comédia, terror, suspense, animação
+    secundário: Crime, Mistério, Slasher, História.
     streaming: HBO, Disney+, Netflix, Prime Video, Apple TV, SKY, StarZ, Paramount
-    secundario: dc, marvel, super herói, vilão
+    
+    agrupador: dc, marvel, super herói, vilão
 
     Links Úteis!
     TMDB: https://www.themoviedb.org/?language=pt-BR
@@ -31,6 +33,210 @@ export const cards: CardsProps[] = [
     genero: ["", ""]
     },
     */
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 370172,
+        title: "007",
+        subtitle: "Sem Tempo Para Morrer",
+        description: "Bond deixou o serviço ativo e está desfrutando de uma vida tranquila na Jamaica. Sua paz é interrompida quando o seu velho amigo Felix Leiter, da CIA, aparece pedindo sua ajuda. A missão de resgatar um cientista sequestrado acaba sendo muito mais difícil do que o esperado, deixando Bond no caminho de um vilão misterioso e armado com uma nova tecnologia perigosa.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1qOYlx0jo_Ba3gb9RCxMYpju_Aia9PINb/preview",
+        duration: "02h 43m",
+        genero: ["Ação", "Suspense"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 9342,
+        title: "A Máscara do Zorro",
+        subtitle: "",
+        description: "Depois de vinte anos, o lendário Zorro escapa da prisão para vingar o assassinato de sua mulher e o rapto de sua filha Elena, ambos realizados pelas mãos de seu inimigo Don Rafael Montero. Mas primeiro ele deve transformar o jovem ladrão arrogante Alejandro Murrieta no temido herói e lutar pelo povo do qual fez parte um dia.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1xj6dUQHXoWwv9EhUexAXGUk6em_IUfYg/preview",
+        duration: "02h 16m",
+        genero: ["Ação", "Aventura"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 11327,
+        title: "O Expresso da Meia-Noite",
+        subtitle: "",
+        description: "Billy Hayes (Brad Davis), um estudante americano, ao visitar a Turquia decide traficar alguns pacotes de haxixe, prendendo-os debaixo de suas roupas. Seu plano acaba não dando certo e ele é preso, com sua vida se transformando em um pesadelo a partir de então, pois é brutalmente espancado e jogado em uma imunda prisão. Quando espera ser libertado é levado a um novo julgamento com efeito retroativo, que o condena a uma longa pena.",
+        faixa: "18",
+        src: "https://drive.google.com/file/d/1JDlcutpEg2Xsf-gX4456fjsmaCQr_6Lu/preview",
+        duration: "02h 01m",
+        genero: ["Drama", "Crime"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 359410,
+        title: "Matador de Aluguel",
+        subtitle: "",
+        description: "Um ex-lutador do UFC consegue um emprego como segurança em um estabelecimento na Flórida Keys, apenas para descobrir que este paraíso não é tudo o que parece.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1GP5TDrxoIcAnJnXTlUNUvq-VYDmH2KGi/preview",
+        duration: "02h 01m",
+        genero: ["Ação", "Suspense", "Prime Video"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 301846,
+        title: "O Uivo",
+        subtitle: "",
+        description: "O filme centra-se em Joe, um revisor que terá que dobrar no serviço e entra em um trem no turno da noite, o trem para de repente e o maquinista acaba desaparecendo, o que resultará em Joe ter que assumir o controle da situação com muita relutância e sem convencer como líder os outros passageiros.",
+        faixa: "18",
+        src: "https://drive.google.com/file/d/188zDF5AqlYqJPDgmfpEwRtnMOQdHCGxb/preview",
+        duration: "01h 29m",
+        genero: ["Terror", "Prime Video"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 675327,
+        title: "Uma Sombra na Nuvem",
+        subtitle: "",
+        description: "Uma piloto embarca em uma fortaleza voadora B-17 que transporta itens secretos. Enquanto tenta lidar com o machismo da equipe formada inteiramente por homens, a militar começa a perceber que algo estranho está acontecendo na aeronave. Além de uma emboscada dos japoneses, o esquadrão militar também tem que combater um inimigo misterioso presente dentro do próprio avião.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1hU1kCqwj0KWj5awkhUfh6djZkDiz3G-L/preview",
+        duration: "01h 23m",
+        genero: ["Ação", "Terror", "Guerra"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 204922,
+        title: "Antes de Dormir",
+        subtitle: "",
+        description: "Dia após dia, Christine Lucas desperta sem se lembrar de absolutamente nada que aconteceu em sua vida nos últimos 20 anos. Isto acontece devido a um acidente sofrido uma década atrás, que fez com que seu cérebro não consiga reter as informações recebidas ao longo do dia. Com isso, cabe ao seu marido Ben a tarefa de relembrá-la de sua vida, através de um mural de fotos e detalhes do passado. Além disto, ela passa por uma terapia sigilosa com o dr. Nasch, que procura incitá-la a ter lembranças sobre o que aconteceu. Só que, aos poucos, ela percebe que nem tudo é o que parece ser.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/15LVGFactdj_ucAzHA90qRzQi2lu_YZHB/preview",
+        duration: "01h 32m",
+        genero: ["Suspense", "Mistério"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 11321,
+        title: "Sete Vidas",
+        subtitle: "",
+        description: "Ben Thomas é um agente do imposto de renda que possui um segredo trágico. Por conta disso, ele é um homem que tem um grande sentimento de culpa, o que faz com que salve as vidas de completos desconhecidos. Porém, tudo muda quando ele conhece Emily Posa, pela primeira vez é Ben quem tem a chance de ser salvo.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1Qk8IfN4n67HPYUbm6qeFGnvEj3X4mF9L/preview",
+        duration: "02h 03m",
+        genero: ["Drama"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 7549,
+        title: "O Mestre das Armas",
+        subtitle: "",
+        description: "Após uma terrível tragédia, um lutador de artes marciais isola-se em uma vila remota com o intuito de desenvolver uma nova visão das coisas importantes da vida. Porém, quando ele retorna para a cidade para reconciliar o passado com o presente, acaba tendo que lutar em defesa da honra da China.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1GmKyRIDCad7pVzcLTuXrbrgRtWpWJmbf/preview",
+        duration: "01h 43m",
+        genero: ["Ação", "Drama"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 14756,
+        title: "O Grande Mestre",
+        subtitle: "",
+        description: "Yip Man, um grande mestre da arte marcial Wing Chun, vive em Foshan, na província de Guangdong, no sul da China. Foshan é um famoso centro de aprendizagem para várias disciplinas marciais, mas Man é o mais respeitado dos professores da cidade. Sua vida é complicada pela desaprovação de sua esposa, bem como a presença em Foshan de Jin Shan Zhao, um mestre do norte, que está determinado a desafiar a supremacia de Man.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1T7UDrWYZzHGrIPJcXYeWt5sGilFl8Eo8/preview",
+        duration: "01h 46m",
+        genero: ["Ação", "Drama", "História"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 37472,
+        title: "O Grande Mestre 2",
+        subtitle: "",
+        description: "Ip Man imigra para Hong Kong em 1949, depois dos conflitos com os japoneses. Em Hong Kong, ele intenciona propagar sua disciplina Wing Chun de artes marciais para o mundo, mas ele esbarra no ciúme dos seus rivais e na opressão dos britânicos.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1kqBrXZLZl3ivMiBSpuXDzvu3WlKQUmKk/preview",
+        duration: "01h 48m",
+        genero: ["Ação", "Drama", "História"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 365222,
+        title: "O Grande Mestre 3",
+        subtitle: "",
+        description: "Donnie Yen terá uma luta explosiva com o ex-campeão mundial dos pesos pesados de boxe Mike Tyson. E a história ainda abordará parte da juventude do maior discípulo de Yip Man: Bruce Lee.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1QDYDwZUP6lVygupzCW2vlzQAbuLqI8Oq/preview",
+        duration: "01h 45m",
+        genero: ["Ação", "Drama", "História"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 7299,
+        title: "Equilibrium",
+        subtitle: "",
+        description: "Na nação Líbria há sempre paz entre os homens. O sistema é simples: neste mundo futurista um regime severo e rigoroso eliminou a guerra suprimindo todas as emoções. Ler livros, ouvir música e ver quadros é um crime punível inclusive com a pena de morte. Quem é feliz é preso, e quem chora, perseguido. E quem não tomar a dose diária de Prozium, uma droga distribuída pelo Estado que altera a mente e restringe as emoções, assina imediatamente a sua sentença de morte. Clerick John Preston é um alto dignatário governamental responsável por destruir quem não cumpre as regras. Mas no dia em que se esquece de tomar a sua dose, descobre que ele é afinal a única pessoa capaz de destruir o regime que o treinou para fazer cumprir as suas rígidas leis.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1VNaApPPgRSnM0ZMzwKKt2-dW9-puEsjf/preview",
+        duration: "01h 47m",
+        genero: ["Ação", "Suspense", "Ficção Científica"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 8292,
+        title: "Quatro Irmãos",
+        subtitle: "",
+        description: "Bobby (Mark Wahlberg), Jeremiah (André Benjamin), Angel (Tyrese Gibson) e Jack (Garrett Hedlund) são quatro irmãos adotivos, que foram criados pela mesma mulher. Quando a mãe deles morre, os quatro se reúnem novamente para o seu enterro. Porém quando descobrem que ela pode ter sido assassinada, os irmãos decidem se unir para investigar o caso e se vingar.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/17uS2-Ht7uZHQLXJk0TWzr_q_yAYf8teH/preview",
+        duration: "01h 48m",
+        genero: ["Ação", "Crime"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 9334,
+        title: "O Escorpião Rei",
+        subtitle: "",
+        description: "Em uma época bem remota, na cidade de Gomorra, Memnon é um governante maligno que está determinado a massacrar todos que forem contrários a ele. As poucas tribos sobreviventes, que nunca foram aliadas, se veem obrigadas a se unir para não desaparecer. Sabendo que seus inimigos acreditam e dependem das visões de um feiticeiro, eles contratam Mathayus, um eficaz mercenário, para eliminá-lo. Após se infiltrar no campo inimigo, Mathayus descobre que o feiticeiro é na verdade uma linda mulher.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1bobkHdVt-XUJvYAZGcSknNjYxQ_XJ88i/preview",
+        duration: "01h 32m",
+        genero: ["Ação", "Aventura", "Fantasia"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 653598,
+        title: "Spree",
+        subtitle: "Viagens Sem Limite",
+        description: "Kurt Kunkle, um motorista de rideshare sedento por seguidores, descobriu um plano mortal para se tornar viral. Como seu perturbador livestream é absurdamente abraçado pela paisagem infernal das redes sociais, um comediante emerge como a única esperança para parar essa fúria.",
+        faixa: "18",
+        src: "https://drive.google.com/file/d/1mghKH0AHFwKEZP4Lh_0kO6A4ALoE_htD/preview",
+        duration: "01h 33m",
+        genero: ["Comédia", "Terror", "Crime", "HBO"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 334533,
+        title: "Capitão Fantástico",
+        subtitle: "",
+        description: "Ben é o pai de seis crianças pequenas, que decide fugir da civilização e criar os filhos nas florestas selvagens do Pacífico Norte. Ele passa os seus dias dando lições às crianças, ensinando-os a praticar esportes e a combater inimigos. Um dia, no entanto, Ben é forçado a deixar o local e retornar à vida na cidade. Começa o aprendizado do pai, que deve se acostumar à vida moderna.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/11EmofupuQqFWulKX9f0Y47pgcgOUNWOK/preview",
+        duration: "01h 58m",
+        genero: ["Aventura", "Drama"]
+    },
     {
         background: background,
         overlay: overlay,
@@ -4345,10 +4551,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1tpDCk2AQ1Vqxg-N-BQdVfWZ1Lj146wLa/preview",
         duration: "2h 07m",
-        genero: ["Suspense",
-            "Crime",
-            "Mistério"
-        ]
+        genero: ["Suspense", "Crime", "Mistério"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FraspMdRYIj0cCF6SQH8NQ1lLLMB.jpg&f=1&nofb=1&ipt=306b8fadf586a938ccb327bff62898d1e8c7e6ae76e627e7467600097c466a66&ipo=images",
@@ -4360,7 +4563,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1JCiiYuVCrN7_4SJXf5ue9EMoxwZoqOa2/preview",
         duration: "1h 38m",
-        genero: ["Ação", "Ficção Científica", "Super poderes", "Suspense"]
+        genero: ["Ação", "Suspense", "Ficção Científica"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblogger.googleusercontent.com%2Fimg%2Fb%2FR29vZ2xl%2FAVvXsEihjSQAICcrj_jfiTyMcgFJNmB6OMuMYUdrc3IQ619r42z_chKrNukf4BjuYlrLmoTgZ3ZInwqNY951GEneLP6HqUxMVVIi3phcLmRyDmy0PyttZsbhpb2bYOVFD5IS9vDjd3b8uJE9c7cLnjswlldk9uSccL_YK9LAb2RNAeh_tts6JvdWCu5X9iXyjPl8%2Fw1200-h630-p-k-no-nu%2Fg0rofq9t.png&f=1&nofb=1&ipt=4cc076870ebb4acc4fd442d5bb1647af3ae8b99366a50da7cb7706fd85e7a344&ipo=images",
@@ -4372,7 +4575,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1KlI6MA-cUTT2thodBQstKk8i1ezuNVfs/preview",
         duration: "1h 40m",
-        genero: ["Ação", "Suspense", "Super poderes", "Ficção Científica"]
+        genero: ["Ação", "Suspense", "Ficção Científica"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2023%2F01%2Fx-a-marca-da-morte-mia-goth-maxxxine-foto-reproducao.jpg&f=1&nofb=1&ipt=8bb5e4854bd79777f4e69c195e4b5628b465b9f7c5fdffce246cabff446b57cc&ipo=images",

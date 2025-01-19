@@ -40,6 +40,113 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 123548,
+        title: "Castlevânia",
+        subtitle: "Noturno",
+        description: "Enquanto a revolução assola a França, Richter Belmont luta para manter o legado da família e impedir a ascensão de uma vampira brutal e gananciosa.",
+        genero: ["Animação", "Drama", "Netflix"],
+        faixa: "A16",
+        news: {
+            type: "season"
+        },
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1aoFKybmKrEx2kiH1LNjRdjMvuJ3qqGmZ/preview",
+                        duration: "28m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1oo9RBEpRCDBlrforQcWibIIqtDS3OTHe/preview",
+                        duration: "25m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1oMdMdyFXkieUF2Zlf0FKuUWrb2Uj7gN7/preview",
+                        duration: "27m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/15zdFVCWYpTPL-POFo_LWtZY9lsIkFS7X/preview",
+                        duration: "25m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/16VxXV1o5QsCHsVS9NWFUgg5eXeo2-bvH/preview",
+                        duration: "26m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/16HVKWEQujW-ilYd2skMTlW1-DSWV47AR/preview",
+                        duration: "32m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1IR6knwCANmGpit1u3g0qYievl2_CQlgt/preview",
+                        duration: "26m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/17DgbyKLMwgx9YzYrVIeKQgi9Y7zNGerR/preview",
+                        duration: "28m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1UgwsYdhwqatHXNN_V7SEEer7n46Ery33/preview",
+                        duration: "31m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1okrc4b-NqR13cy7ciO8ZjqPXG-Rxy1i1/preview",
+                        duration: "28m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/19p44XHnyeilyqlhogdpL_W2RNQSnMc2o/preview",
+                        duration: "28m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1TWmjFm8FIP2LokS3RGQG4G2E6nOew0z1/preview",
+                        duration: "28m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1YOqzuqewM3wfSEMKNU1gNDsYigFbHGOR/preview",
+                        duration: "27m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/188m49GDn_5TvpgeFdcqtlifT8Epqk-Jd/preview",
+                        duration: "28m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1OMpACwWUijsWr9hXf528TkR12TI_Nu2Q/preview",
+                        duration: "30m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1vn2G0sklwkQocJ2Vo621KmZrnbzMHuxF/preview",
+                        duration: "33m"
+                    },
+                ]
+            }
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 61889,
         title: "Demolidor",
         subtitle: "",
