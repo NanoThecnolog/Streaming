@@ -12,7 +12,7 @@ import { FaCheck } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
 import { GetServerSideProps } from "next";
 import { serverStatus } from "@/services/verifyStatusServer";
-import { fetchEpisodeData, fetchTMDBSerieCast, fetchTMDBSerieCastBySeason, fetchTMDBSeries } from "@/services/fetchTMDBData";
+import { fetchEpisodeData, fetchTMDBSerieCast, fetchTMDBSerieCastBySeason, fetchTMDBSeries, fetchTMDBTrailer } from "@/services/fetchTMDBData";
 import { getUserCookieData } from "@/services/cookieClient";
 import { addWatchLater, isOnTheList } from "@/services/handleWatchLater";
 import Stars from "@/components/ui/StarAverage";
@@ -27,6 +27,8 @@ import { translate } from "@/utils/UtilitiesFunctions";
 import Cast from "@/components/Cast";
 import Crew from "@/components/Crew";
 import Card from "@/components/seriesComponents/Card";
+import { TrailerProps } from "@/@types/trailer";
+import TrailerButton from "@/components/ui/TrailerButton";
 
 interface TMDBImagesProps {
     backdrop: string,
@@ -55,6 +57,7 @@ export default function Serie(status: string) {
     const [cast, setCast] = useState<CastProps[]>()
     const [crewDepartment, setCrewDepartment] = useState<groupedByDepartment>({})
     const [loading, setLoading] = useState(false);
+    const [trailer, setTrailer] = useState<TrailerProps | null>(null)
 
 
     useEffect(() => {
@@ -276,6 +279,15 @@ export default function Serie(status: string) {
         };
     }, []);
 
+    useEffect(() => {
+        getTrailer()
+    }, [router, tmdbId])
+    async function getTrailer() {
+        const trailer = await fetchTMDBTrailer(Number(tmdbId), 'tv')
+        if (!trailer) return setTrailer(null)
+        return setTrailer(trailer)
+    }
+
     return (
         <>
             <SEO title={`${headTitle} | FlixNext`} description={serie?.description || "Descrição indisponível"} />
@@ -309,22 +321,27 @@ export default function Serie(status: string) {
                                     <div className={styles.watchButton} onClick={() => handlePlayEpisode(serie.season[0].episodes[0], serie.season[0].s)}>
                                         <button type="button" className={styles.buttonPlay}><Play /><h4>Começar a Assistir</h4></button>
                                     </div>
-                                    <div className={styles.watchLater}>
-                                        <button type="button" onClick={() => handleAddUserList(serie.title, serie.tmdbID, serie.subtitle)}>
-                                            {onWatchLater ? (
-                                                <>
-                                                    <p><FaCheck /></p>
-                                                    <p>Adicionado à Lista</p>
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <p><FiPlus /></p>
-                                                    <p>Minha Lista</p>
-                                                </>
-                                            )
-                                            }
+                                    <div className={styles.buttonContainer}>
+                                        <div className={styles.watchLater}>
+                                            <button type="button" onClick={() => handleAddUserList(serie.title, serie.tmdbID, serie.subtitle)}>
+                                                {onWatchLater ? (
+                                                    <>
+                                                        <p><FaCheck /></p>
+                                                        <p>Adicionado à Lista</p>
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <p><FiPlus /></p>
+                                                        <p>Minha Lista</p>
+                                                    </>
+                                                )
+                                                }
 
-                                        </button>
+                                            </button>
+                                        </div>
+                                        <div className={styles.trailerButton}>
+                                            {trailer && <TrailerButton trailer={trailer} />}
+                                        </div>
                                     </div>
                                     <div>
                                         <p>

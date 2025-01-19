@@ -25,6 +25,7 @@ import Cast from '@/components/Cast';
 import Crew from '@/components/Crew';
 import { MdOutlineMovie } from 'react-icons/md';
 import { TrailerProps } from '@/@types/trailer';
+import TrailerButton from '@/components/ui/TrailerButton';
 
 interface groupedByDepartment {
     [job: string]: CrewProps[]
@@ -99,9 +100,6 @@ export default function Movie() {
         }
         getUserData()
     }, [])
-
-
-
     async function getTMDBData() {
         if (loading) return
         setLoading(true)
@@ -169,14 +167,8 @@ export default function Movie() {
         if (!trailer) return setTrailer(null)
         return setTrailer(trailer)
     }
-
     function handlePlay() {
         router.push(`/watch/${tmdbId}`)
-    }
-    async function handleTrailer() {
-        if (!trailer) return toast.warning("Nenhum trailer disponível")
-
-        router.push(`https://www.youtube.com/watch?v=${trailer.results[0].key}`)
     }
     return (
         <>
@@ -252,15 +244,7 @@ export default function Movie() {
                                         </div>
                                         {
                                             trailer &&
-                                            <div className={styles.buttonTrailer}>
-                                                <a href={`https://www.youtube.com/watch?v=${trailer.results[0].key}`} target='_blank' rel='noopener noreferrer'>
-                                                    <button type='button'>
-                                                        <p><MdOutlineMovie size={25} /></p>
-                                                        <p>Trailer</p>
-                                                    </button>
-                                                </a>
-
-                                            </div>
+                                            <TrailerButton trailer={trailer} />
                                         }
                                     </div>
                                     <div className={styles.descriptionContainer}>

@@ -82,22 +82,30 @@
                     }
                 }
 
-                .watchLater {
+                .buttonContainer {
                     display: flex;
-                    justify-content: center;
-                    width: 150px;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 10px;
 
-                    button {
-                        background-color: transparent;
-                        color: var(--white);
-                        border: none;
-                        border-radius: 8px;
-                        padding: 10px;
-                        transition: all .2s;
-                        cursor: pointer;
+                    .watchLater {
+                        display: flex;
+                        justify-content: center;
+                        width: 180px;
 
-                        &:hover {
-                            background-color: #1e1e1e;
+                        button {
+                            background-color: transparent;
+                            color: var(--white);
+                            border: none;
+                            border-radius: 8px;
+                            width: 180px;
+                            height: 100px;
+                            transition: all .2s;
+                            cursor: pointer;
+
+                            &:hover {
+                                background-color: #1e1e1e;
+                            }
                         }
                     }
                 }

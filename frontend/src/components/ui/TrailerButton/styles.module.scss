@@ -1,0 +1,13 @@
+.buttonTrailer {
+    button {
+        color: var(--white);
+        border-radius: 8px;
+        width: 180px;
+        height: 100px;
+        transition: all .2s;
+
+        &:hover {
+            background-color: #1e1e1e;
+        }
+    }
+}
