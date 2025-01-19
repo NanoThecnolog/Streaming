@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import Router from 'next/router';
 import Adult from '@/components/ui/Adult';
 import { useTMDB } from '@/contexts/TMDBContext';
+import NewContent from '@/components/ui/NewContent';
 
 
 interface TopSerieProps {
@@ -70,8 +71,16 @@ export default function TopSerie({ width }: TopSerieProps) {
         }}>
             <div className={styles.image_container} id="inicio">
                 <div className={styles.left_side}>
-                    <h1 className={styles.titulo_principal}>
-                        {card.title.toUpperCase()}</h1>
+                    <div className={styles.titulo_principal}>
+                        {
+                            card.news &&
+                            <div className={styles.newContentBox}>
+                                <NewContent type={card.news.type} />
+                            </div>
+                        }
+                        <h1>{card.title.toUpperCase()}</h1>
+                    </div>
+
                     {card.subtitle && (
                         <h3 className={styles.subtitulo_principal}>{card.subtitle}</h3>
                     )}

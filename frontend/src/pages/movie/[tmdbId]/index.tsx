@@ -23,7 +23,6 @@ import Card from '@/components/Card';
 import Spinner from '@/components/ui/Loading/spinner';
 import Cast from '@/components/Cast';
 import Crew from '@/components/Crew';
-import { MdOutlineMovie } from 'react-icons/md';
 import { TrailerProps } from '@/@types/trailer';
 import TrailerButton from '@/components/ui/TrailerButton';
 

@@ -5,6 +5,7 @@ import { SeriesProps } from "@/@types/series";
 import { fetchTMDBSeries } from '@/services/fetchTMDBData';
 import { useRouter } from 'next/router';
 import { useTMDB } from '@/contexts/TMDBContext';
+import NewContent from '@/components/ui/NewContent';
 
 interface CardProps {
     card: SeriesProps;
@@ -40,8 +41,6 @@ export default function Card({ card }: CardProps) {
     function handleClick() {
         router.push(`/series/serie/${card.tmdbID}`)
     }
-
-
     return (
         <>
             <div key={card.tmdbID} className={styles.card} id={card.genero[0].toLowerCase()}>
@@ -57,6 +56,11 @@ export default function Card({ card }: CardProps) {
                     sizes="100%"
                     onClick={() => handleClick()}
                 />
+                {card.news &&
+                    <div className={styles.newContentBox}>
+                        <NewContent type={card.news.type} />
+                    </div>
+                }
             </div>
         </>
     )

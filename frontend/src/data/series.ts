@@ -9,8 +9,10 @@ export const series: SeriesProps[] = [
     padrão: Ação, aventura, romance, drama, comédia, terror, suspense, animação
     streaming: HBO, Disney+, Netflix, Prime Video, Apple TV, SKY, StarZ, Paramount
     secundario: dc, marvel, super herói, vilão
-    
-    fundo preto largo: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images
+    para aplicar selo de novidade, incluir propriedade news:
+    news: {
+            type: "", (season OR episode)
+        },
     {
         background: background,
         overlay: overlay,
@@ -19,7 +21,7 @@ export const series: SeriesProps[] = [
         subtitle: "",
         description: "",
         genero: ["",""],
-        faixa: "",
+        faixa: "",        
         season: [
             {
                 s: 1,
@@ -269,6 +271,9 @@ export const series: SeriesProps[] = [
         description: '"What If…?" reinventa os acontecimentos do UCM, mudando a história de forma surpreendente.',
         genero: ["Animação", "Marvel", "Disney+"],
         faixa: "A14",
+        news: {
+            type: "season"
+        },
         season: [
             {
                 s: 1,
@@ -1261,6 +1266,9 @@ export const series: SeriesProps[] = [
         description: "Acompanha uma equipe secreta de monstros encarcerados, recrutados para missões consideradas perigosas demais para humanos.",
         genero: ["Animação", "DC", "HBO"],
         faixa: "A16",
+        news: {
+            type: "episode"
+        },
         season: [
             {
                 s: 1,
@@ -1519,6 +1527,9 @@ export const series: SeriesProps[] = [
         description: "Mark lidera uma equipe de funcionários de escritório cujas memórias foram divididas cirurgicamente entre a vida no trabalho e a vida pessoal. Quando um colega de trabalho misterioso aparece fora do escritório, ele começa uma jornada para descobrir a verdade sobre seu trabalho.",
         genero: ["Drama", "Mistério", "Apple TV"],
         faixa: "A16",
+        news: {
+            type: "season"
+        },
         season: [
             {
                 s: 1,
@@ -3809,6 +3820,9 @@ export const series: SeriesProps[] = [
         description: "Miami, 1991. Quando sua sede de sangue não pode mais ser ignorada, o jovem Dexter Morgan precisa aprender a canalizar sua escuridão interna conforme ele passa de estudante para assassino em série com a orientação de seu pai, Harry.",
         genero: ["Drama", "Crime", "Paramount"],
         faixa: "18",
+        news: {
+            type: 'episode'
+        },
         season: [
             {
                 s: 1,
@@ -3857,6 +3871,9 @@ export const series: SeriesProps[] = [
         description: "Em um futuro destruído e tóxico, existe uma comunidade que vive dentro de um gigantesco silo subterrâneo com centenas de andares de profundidade. Lá, homens e mulheres vivem numa sociedade cheia de regras que acreditam existir para protegê-los.",
         genero: ["Ficção Científica", "Drama", "Apple TV"],
         faixa: "A14",
+        news: {
+            type: "episode"
+        },
         season: [
             {
                 s: 1,
@@ -4220,6 +4237,9 @@ export const series: SeriesProps[] = [
         description: 'Há mais de uma década, surgiu uma misteriosa passagem chamada "portal", que conecta este mundo a uma dimensão diferente, o que fez com que pessoas despertassem poderes únicos… e essas pessoas são chamadas de "caçadores". Os caçadores usam seus poderes sobre-humanos para conquistar masmorras dentro dos portais e assim ganhar a vida. Sung Jinwoo, um caçador de nível baixo, é considerado o caçador mais fraco de toda a humanidade. Certo dia, ele se depara com uma "masmorra dupla", que tem uma masmorra de nível alto escondida dentro de uma masmorra de nível baixo. Diante de um Jinwoo gravemente ferido, surge uma misteriosa missão! À beira da morte, Jinwoo decide aceitar essa missão, tornando-se assim a única pessoa capaz de subir de nível!',
         genero: ["Animação", "Ação", "Aventura", "Fantasia"],
         faixa: "A16",
+        news: {
+            type: "episode"
+        },
         season: [
             {
                 s: 1,
@@ -9396,6 +9416,9 @@ export const series: SeriesProps[] = [
         description: "Centenas de jogadores falidos aceitam um estranho convite para um jogo de sobrevivência. Um prêmio milionário aguarda, mas as apostas são altas e mortais.",
         genero: ["Ação", "Mistério", "Drama", "Netflix"],
         faixa: "18",
+        news: {
+            type: "season"
+        },
         season: [
             {
                 s: 1,

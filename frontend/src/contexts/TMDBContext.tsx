@@ -1,5 +1,5 @@
 import { MovieTMDB } from "@/@types/Cards";
-import { SeriesProps, TMDBSeries } from "@/@types/series";
+import { TMDBSeries } from "@/@types/series";
 import { createContext, useContext, useState, ReactNode } from "react";
 
 type TMDBProviderProps = {

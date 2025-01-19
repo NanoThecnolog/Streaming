@@ -29,15 +29,22 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
+            position: relative;
 
 
-            h1 {
-                margin: 0;
-                font-family: "Montserrat", sans-serif;
-                font-weight: 600;
-                font-size: 65px;
-                color: white;
-                text-shadow: 5px 5px 10px black;
+            .titulo_principal {
+                h1 {
+                    margin: 0;
+                    font-family: "Montserrat", sans-serif;
+                    font-weight: 600;
+                    font-size: 65px;
+                    color: white;
+                    text-shadow: 5px 5px 10px black;
+                }
+
+                .newContentBox {
+                    width: 150px;
+                }
             }
 
             .subtitulo_principal {
@@ -49,18 +56,7 @@
                 text-shadow: 5px 5px 10px black;
             }
 
-            .season {
-                padding: .7rem 0;
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                font-family: var(--font-Roboto);
-                font-weight: 900;
 
-                p {
-                    text-shadow: 5px 5px 10px black;
-                }
-            }
 
             .description {
                 display: -webkit-box;
@@ -79,6 +75,19 @@
                     font-size: 20px;
                     color: white;
                     text-shadow: 2px 2px 5px black;
+                }
+            }
+
+            .season {
+                padding: .7rem 0;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                font-family: var(--font-Roboto);
+                font-weight: 900;
+
+                p {
+                    text-shadow: 5px 5px 10px black;
                 }
             }
 
@@ -236,8 +245,12 @@
                 height: 100%;
 
                 .titulo_principal {
-                    font-size: 2rem;
                     padding-top: 140%;
+
+                    h1 {
+                        font-size: 2rem;
+
+                    }
                 }
 
                 .subtitulo_principal {
@@ -294,9 +307,12 @@
                 height: 100%;
 
                 .titulo_principal {
-                    font-size: 2rem;
                     padding-top: 120%;
 
+                    h1 {
+                        font-size: 2rem;
+
+                    }
                 }
 
                 .subtitulo_principal {
@@ -356,8 +372,11 @@
 
 
                 .titulo_principal {
-                    font-size: 2rem;
                     padding-top: 40%;
+
+                    h1 {
+                        font-size: 2rem;
+                    }
                 }
 
                 .subtitulo_principal {
