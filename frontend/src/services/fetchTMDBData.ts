@@ -7,6 +7,7 @@ import { CollectionProps, ResultsProps } from "@/@types/collection";
 import { CastProps } from "@/@types/cast";
 import { useState } from "react";
 import { useTMDB } from "@/contexts/TMDBContext";
+import { TrailerProps } from "@/@types/trailer";
 
 const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
 
@@ -158,7 +159,16 @@ export async function fetchCollection(name: string): Promise<ResultsProps[] | nu
         const response = await apiTMDB<CollectionProps>(`/collection/${name}`)
         return response.data.results
     } catch (err) {
-        console.error("Erro ao buscar dados da coleção")
+        console.error("Erro ao buscar dados da coleção", err)
+        return null
+    }
+}
+export async function fetchTMDBTrailer(tmdbId: number, type: 'tv' | 'movie'): Promise<TrailerProps | null> {
+    try {
+        const response = await apiTMDB<TrailerProps>(`/trailer/${type}/${tmdbId}`)
+        return response.data
+    } catch (err) {
+        console.error("Erro ao buscar o trailer.", err)
         return null
     }
 }

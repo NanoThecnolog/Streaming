@@ -3,7 +3,7 @@ import styles from './styles.module.scss'
 import { useEffect, useState } from 'react';
 import { CardsProps, MovieTMDB } from '@/@types/Cards';
 import { cards } from '@/js/cards';
-import { fetchTMDBMovie, fetchTMDBMovieCast } from '@/services/fetchTMDBData';
+import { fetchTMDBMovie, fetchTMDBMovieCast, fetchTMDBTrailer } from '@/services/fetchTMDBData';
 import SEO from '@/components/SEO';
 import Header from '@/components/Header';
 import Image from 'next/image';
@@ -23,6 +23,8 @@ import Card from '@/components/Card';
 import Spinner from '@/components/ui/Loading/spinner';
 import Cast from '@/components/Cast';
 import Crew from '@/components/Crew';
+import { MdOutlineMovie } from 'react-icons/md';
+import { TrailerProps } from '@/@types/trailer';
 
 interface groupedByDepartment {
     [job: string]: CrewProps[]
@@ -40,6 +42,7 @@ export default function Movie() {
     const [cast, setCast] = useState<CastProps>()
     const [crewDepartment, setCrewDepartment] = useState<groupedByDepartment>({})
     const [relatedCards, setRelatedCards] = useState<CardsProps[]>()
+    const [trailer, setTrailer] = useState<TrailerProps | null>(null)
 
     const watchLater = async () => {
         if (!movie) return
@@ -96,6 +99,7 @@ export default function Movie() {
         }
         getUserData()
     }, [])
+
 
 
     async function getTMDBData() {
@@ -157,13 +161,26 @@ export default function Movie() {
             console.error(err)
         }
     }
+    useEffect(() => {
+        getTrailer()
+    }, [router, tmdbId])
+    async function getTrailer() {
+        const trailer = await fetchTMDBTrailer(Number(tmdbId), 'movie')
+        if (!trailer) return setTrailer(null)
+        return setTrailer(trailer)
+    }
 
     function handlePlay() {
         router.push(`/watch/${tmdbId}`)
     }
+    async function handleTrailer() {
+        if (!trailer) return toast.warning("Nenhum trailer disponível")
+
+        router.push(`https://www.youtube.com/watch?v=${trailer.results[0].key}`)
+    }
     return (
         <>
-            <SEO description={tmdbData ? tmdbData.overview : ""} title={movie ? movie.title : ""} />
+            <SEO description={tmdbData ? tmdbData.overview : ""} title={`${movie ? movie.title : ""} - FlixNext`} />
             <Header />
             {
                 movie ? (
@@ -233,6 +250,18 @@ export default function Movie() {
                                                 )}
                                             </button>
                                         </div>
+                                        {
+                                            trailer &&
+                                            <div className={styles.buttonTrailer}>
+                                                <a href={`https://www.youtube.com/watch?v=${trailer.results[0].key}`} target='_blank' rel='noopener noreferrer'>
+                                                    <button type='button'>
+                                                        <p><MdOutlineMovie size={25} /></p>
+                                                        <p>Trailer</p>
+                                                    </button>
+                                                </a>
+
+                                            </div>
+                                        }
                                     </div>
                                     <div className={styles.descriptionContainer}>
                                         <p>{tmdbData.overview}</p>
@@ -252,14 +281,16 @@ export default function Movie() {
                                                     </>
                                                 }
                                                 <div className={styles.cast}>
-                                                    <h2>Elenco</h2>
-                                                    {cast ?
-                                                        <div className={styles.castContainer}>
-                                                            {cast.cast.slice(0, 20).map((actor, index) =>
-                                                                <Cast actor={actor} key={index} />
-                                                            )}
-                                                        </div>
-                                                        : "Carregando..."
+
+                                                    {cast && cast.cast.length > 0 &&
+                                                        <>
+                                                            <h2>Elenco</h2>
+                                                            <div className={styles.castContainer}>
+                                                                {cast.cast.slice(0, 20).map((actor, index) =>
+                                                                    <Cast actor={actor} key={index} />
+                                                                )}
+                                                            </div>
+                                                        </>
                                                     }
                                                 </div>
                                                 <div className={styles.crew}>
