@@ -2,8 +2,6 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import styles from './styles.module.scss'
 import { useEffect, useState } from "react";
-import { api } from "../../services/api";
-import Head from "next/head";
 import { GetServerSideProps } from "next";
 import { serverStatus } from "@/services/verifyStatusServer";
 import Qrcode from "@/components/Qrcode";
@@ -13,7 +11,6 @@ import { getUserCookieData } from "@/services/cookieClient";
 import SEO from "@/components/SEO";
 
 export default function Donate(status: string) {
-    const [qrCodeUrl, setQrCodeUrl] = useState<string | null>(null);
     const [user, setUser] = useState<UserProps | null>()
 
     useEffect(() => {
@@ -24,19 +21,6 @@ export default function Donate(status: string) {
         }
         userData()
     }, [])
-
-    async function qrCode() {
-        try {
-            const response = await api.get('/pix');
-            const data = response.data;
-            setQrCodeUrl(data);
-        } catch (err) {
-            return { error: "Erro ao gerar qrCode" }
-        }
-    }
-    useEffect(() => {
-        qrCode();
-    }, []);
     return (
         <>
             <SEO title="Doações | FlixNext" description="Ajude a manter a plataforma! Doe qualquer valor e ganhe o emblema de doador na sua conta!" />

@@ -1,5 +1,4 @@
-import { cards } from '@/js/cards'
-import { FaCirclePlay } from "react-icons/fa6";
+import { cards } from '@/data/cards'
 import { IoIosAddCircleOutline } from "react-icons/io";
 import styles from './styles.module.scss'
 import { useCallback, useEffect, useState } from 'react';
@@ -9,10 +8,9 @@ import { UserProps } from '@/@types/user';
 import { FaCheck, FaPlay } from 'react-icons/fa';
 import { getUserCookieData } from '@/services/cookieClient';
 import { addWatchLater, isOnTheList } from '@/services/handleWatchLater';
-import { fetchTMDBMovie } from '@/services/fetchTMDBData';
 import { MovieTMDB } from '@/@types/Cards';
 import Adult from '../ui/Adult';
-import { releaseCards } from '@/js/release';
+import { releaseCards } from '@/data/release';
 import { useTMDB } from '@/contexts/TMDBContext';
 
 interface TopProps {
@@ -22,8 +20,8 @@ interface TopProps {
 export default function Top({ width }: TopProps) {
     const [cardOn, setCardOn] = useState(0)
     const card = cards[cardOn]
-    const releaseSet = new Set(releaseCards.map(item => item.tmdbId))
-    const release = cards.filter(card => releaseSet.has(card.tmdbId))
+    //const releaseSet = new Set(releaseCards.map(item => item.tmdbId))
+    //const release = cards.filter(card => releaseSet.has(card.tmdbId))
     const [fade, setFade] = useState('fadeIn')
     const [user, setUser] = useState<UserProps | null>(null)
     const [onWatchLater, setOnWatchLater] = useState<boolean>(false)

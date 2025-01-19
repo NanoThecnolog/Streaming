@@ -5,8 +5,6 @@ import { TMDBEpisodes } from "@/@types/series"
 import { apiTMDB } from "./apiTMDB";
 import { CollectionProps, ResultsProps } from "@/@types/collection";
 import { CastProps } from "@/@types/cast";
-import { useState } from "react";
-import { useTMDB } from "@/contexts/TMDBContext";
 import { TrailerProps } from "@/@types/trailer";
 
 const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;

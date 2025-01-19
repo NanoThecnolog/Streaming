@@ -1,7 +1,6 @@
 import { X } from 'lucide-react'
 import styles from './styles.module.scss'
 import { useState } from 'react';
-import Router from 'next/router';
 import { api } from '@/services/api';
 import { toast } from 'react-toastify';
 import { FaSpinner } from 'react-icons/fa6';

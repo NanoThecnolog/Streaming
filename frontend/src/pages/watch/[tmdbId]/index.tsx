@@ -8,7 +8,7 @@ import HelpFlag from "@/components/Helpflag";
 import HelpModal from "@/components/modals/HelpModal/index ";
 import { UserProps } from "@/@types/user";
 import SEO from "@/components/SEO";
-import { cards } from '@/js/cards';
+import { cards } from '@/data/cards';
 import { CardsProps } from '@/@types/Cards';
 
 export default function Watch() {

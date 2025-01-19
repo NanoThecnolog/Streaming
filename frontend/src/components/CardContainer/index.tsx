@@ -1,5 +1,5 @@
 import Card from "../Card"
-import { cards } from "@/js/cards";
+import { cards } from "@/data/cards";
 import styles from './styles.module.scss'
 import { useEffect, useState } from "react";
 

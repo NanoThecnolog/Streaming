@@ -1,11 +1,10 @@
 import Card from "../Card"
-import { cards } from "@/js/cards";
+import { cards } from "@/data/cards";
 import styles from './styles.module.scss'
 import { useEffect, useState } from "react";
-
 import { MdNavigateNext } from "react-icons/md";
 import { MdNavigateBefore } from "react-icons/md";
-import { releaseCards } from "@/js/release";
+import { releaseCards } from "@/data/release";
 
 interface ContainerProps {
     section: string,

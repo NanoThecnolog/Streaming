@@ -1,5 +1,5 @@
-import { cards } from '@/js/cards'
-import { series } from '@/js/series'
+import { cards } from '@/data/cards'
+import { series } from '@/data/series'
 import styles from './styles.module.scss'
 import Header from '@/components/Header'
 import { useEffect, useState } from 'react'

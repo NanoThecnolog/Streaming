@@ -1,6 +1,5 @@
-import { cards } from '@/js/cards'
-import { series } from '@/js/series';
-import { CardsProps } from '@/@types/Cards';
+import { cards } from '@/data/cards'
+import { series } from '@/data/series';
 import { useState } from 'react'
 import { CiSearch } from "react-icons/ci";
 import styles from './styles.module.scss'

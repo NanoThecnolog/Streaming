@@ -3,9 +3,7 @@ import styles from './styles.module.scss'
 import { FaSpinner } from 'react-icons/fa6'
 import { toast } from 'react-toastify'
 import { api } from '@/services/api'
-import Router from 'next/router'
 import { X } from 'lucide-react'
-import { UserProps } from '@/@types/user'
 import { getUserCookieData, updateUserCookie } from '@/services/cookieClient'
 
 interface EditarDadosProps {

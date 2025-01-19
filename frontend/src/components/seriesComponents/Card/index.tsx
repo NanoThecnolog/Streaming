@@ -1,35 +1,27 @@
 import styles from './styles.module.scss'
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import CardInfoSerieModal from "../CardInfos";
-import { SeriesProps, TMDBSeries } from "@/@types/series";
-import OverlaySerie from "../Overlay";
-import { fetchTMDBPoster, fetchTMDBSeries } from '@/services/fetchTMDBData';
+import { SeriesProps } from "@/@types/series";
+import { fetchTMDBSeries } from '@/services/fetchTMDBData';
 import { useRouter } from 'next/router';
 import { useTMDB } from '@/contexts/TMDBContext';
-
 
 interface CardProps {
     card: SeriesProps;
 }
-
-
 interface TMDBImageProps {
     poster: string
 }
-
 export default function Card({ card }: CardProps) {
     const router = useRouter()
     const [TMDBImage, setTMDBImage] = useState<TMDBImageProps>()
     const { serieData } = useTMDB()
-    const [TMDBSerie, setTMDBSerie] = useState<TMDBSeries>()
 
     useEffect(() => {
         async function getImage() {
             const data = serieData.find(data => data.id === card.tmdbID)
             if (data) {
                 const posterUrl = `https://image.tmdb.org/t/p/original${data.poster_path}`;
-                setTMDBSerie(data)
                 setTMDBImage({ poster: posterUrl })
             } else {
                 try {

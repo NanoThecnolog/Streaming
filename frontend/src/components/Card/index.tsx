@@ -2,8 +2,7 @@ import { CardsProps, MovieTMDB } from "@/@types/Cards";
 import styles from './styles.module.scss'
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { updateUserCookie } from "@/services/cookieClient";
-import { fetchTMDBMovie, fetchTMDBPoster } from "@/services/fetchTMDBData";
+import { fetchTMDBPoster } from "@/services/fetchTMDBData";
 import { useRouter } from "next/router";
 import { useTMDB } from "@/contexts/TMDBContext";
 

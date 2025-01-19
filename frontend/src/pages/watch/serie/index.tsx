@@ -1,4 +1,3 @@
-import Head from "next/head"
 import Router, { useRouter } from "next/router"
 import styles from '@/styles/Watch.module.scss'
 import { ChevronLeft } from "lucide-react"
@@ -8,7 +7,7 @@ import { getUserCookieData } from "@/services/cookieClient"
 import NextEpisode from "@/components/ui/NextEpisode"
 import PrevEpisode from "@/components/ui/PreviousEpisode"
 import SEO from "@/components/SEO"
-import { series } from "@/js/series"
+import { series } from "@/data/series"
 
 
 export default function WatchSerie() {

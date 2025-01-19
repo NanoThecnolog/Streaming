@@ -1,6 +1,6 @@
 import Router, { useRouter } from "next/router"
 import { useEffect, useState } from "react";
-import { series } from "@/js/series";
+import { series } from "@/data/series";
 import { Episodes, SeriesProps, TMDBEpisodes, TMDBSeries } from "@/@types/series";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -336,7 +336,6 @@ export default function Serie(status: string) {
                                                     </>
                                                 )
                                                 }
-
                                             </button>
                                         </div>
                                         <div className={styles.trailerButton}>

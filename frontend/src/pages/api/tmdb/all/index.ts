@@ -1,5 +1,5 @@
-import { cards } from "@/js/cards";
-import { series } from "@/js/series";
+import { cards } from "@/data/cards";
+import { series } from "@/data/series";
 import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
 

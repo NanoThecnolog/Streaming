@@ -5,7 +5,6 @@ import CardSerieContainer from "@/components/seriesComponents/CardSerieContainer
 import { useEffect, useState } from "react";
 import Search from "@/components/Searching";
 import Footer from "@/components/Footer";
-import Head from "next/head";
 import { GetServerSideProps } from "next";
 import { serverStatus } from "@/services/verifyStatusServer";
 import { UserProps } from "@/@types/user";
@@ -13,7 +12,6 @@ import { getUserCookieData } from "@/services/cookieClient";
 import SEO from "@/components/SEO";
 import { useTMDB } from "@/contexts/TMDBContext";
 import { apiTMDB } from "@/services/apiTMDB";
-import { MovieTMDB } from "@/@types/Cards";
 import { TMDBSeries } from "@/@types/series";
 import Loading from "@/components/ui/Loading";
 

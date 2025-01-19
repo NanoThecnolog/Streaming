@@ -1,11 +1,9 @@
-import { series } from '@/js/series'
+import { series } from '@/data/series'
 import { FaCirclePlay } from "react-icons/fa6";
 import styles from './styles.module.scss'
 import { useEffect, useState } from 'react';
 import Router from 'next/router';
-import { fetchTMDBSeries } from '@/services/fetchTMDBData';
 import Adult from '@/components/ui/Adult';
-import { TMDBSeries } from '@/@types/series';
 import { useTMDB } from '@/contexts/TMDBContext';
 
 
@@ -23,7 +21,6 @@ export default function TopSerie({ width }: TopSerieProps) {
     const card = series[cardOn]
     const [fade, setFade] = useState('fadeIn')
     const [TMDBImages, setTMDBImages] = useState<TMDBImageProps>()
-    const [TMDBSerie, setTMDBSerie] = useState<TMDBSeries>()
 
     const { serieData } = useTMDB();
 
@@ -43,7 +40,6 @@ export default function TopSerie({ width }: TopSerieProps) {
         if (data) {
             const backdropUrl = `https://image.tmdb.org/t/p/original${data.backdrop_path}`;
             const posterUrl = `https://image.tmdb.org/t/p/original${data.poster_path}`;
-            setTMDBSerie(data)
             setTMDBImages({ backdrop: backdropUrl, poster: posterUrl })
         }
     }, [serieData, cardOn, card.tmdbID])

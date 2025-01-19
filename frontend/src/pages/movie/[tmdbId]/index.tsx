@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import styles from './styles.module.scss'
 import { useEffect, useState } from 'react';
 import { CardsProps, MovieTMDB } from '@/@types/Cards';
-import { cards } from '@/js/cards';
+import { cards } from '@/data/cards';
 import { fetchTMDBMovie, fetchTMDBMovieCast, fetchTMDBTrailer } from '@/services/fetchTMDBData';
 import SEO from '@/components/SEO';
 import Header from '@/components/Header';

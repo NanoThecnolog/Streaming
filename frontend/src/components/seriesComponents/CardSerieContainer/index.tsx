@@ -1,5 +1,5 @@
 import Card from "@/components/seriesComponents/Card"
-import { series } from "@/js/series";
+import { series } from "@/data/series";
 import styles from './styles.module.scss'
 import { useEffect, useState } from "react";
 import { MdNavigateNext } from "react-icons/md";

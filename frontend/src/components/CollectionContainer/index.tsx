@@ -3,7 +3,7 @@ import styles from './styles.module.scss'
 import { ResultsProps } from '@/@types/collection'
 import { useEffect, useState } from 'react'
 import CardCollection from './CardCollection'
-import { collections } from '@/js/collections'
+import { collections } from '@/data/collections'
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md'
 import { useRouter } from 'next/router'
 

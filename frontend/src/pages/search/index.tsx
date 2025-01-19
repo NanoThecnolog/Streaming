@@ -3,8 +3,8 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import styles from './styles.module.scss'
 import { CardsProps } from "@/@types/Cards";
-import { cards } from "@/js/cards";
-import { series } from "@/js/series";
+import { cards } from "@/data/cards";
+import { series } from "@/data/series";
 import Card from "@/components/Card";
 import CardSerie from "@/components/seriesComponents/Card";
 import { UserProps } from "@/@types/user";
