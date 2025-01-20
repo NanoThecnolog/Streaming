@@ -14,8 +14,8 @@ O Layout foi inspirado nos principais serviços de Streaming da atualidade, adap
 - **Carrossel de Destaques**: Apresentação dos conteúdos incluídos na plataforma.
 - **Sistema de recomendação Inteligente**: Recomendação baseada na utilização do usuário.
 - **Sistema de Pesquisa**: Busca inteligente de títulos de forma fácil por título e subtítulo.
-- **Página do Filme**: Informações sobre o filme, incluindo descrições, avaliações, classificação indicativa, elenco e filmes relacionados.
-- **Página da Série**: Informações sobre a série, incluindo descrições, avaliações, classificação indicativa, lista de temporadas e informações sobre os episódios e elenco principal da série.
+- **Página do Filme**: Informações sobre o filme, incluindo descrições, trailer, avaliações, classificação indicativa, elenco e filmes relacionados.
+- **Página da Série**: Informações sobre a série, incluindo descrições, trailer, avaliações, classificação indicativa, lista de temporadas e informações sobre os episódios e elenco principal da série.
 - **Contas de Usuários**: Criação de contas de usuários para reprodução de filmes, sendo possível personalizar avatar e receber emails sobre as principais adições ao catálogo.
 - **Autenticação de Contas**: Verificação de senha, geração de tokens.
 - **Recuperação de Contas de usuário**: Cadastro de usuários, geração de tokens de recuperação.
@@ -48,7 +48,7 @@ O Layout foi inspirado nos principais serviços de Streaming da atualidade, adap
 │   │   ├── @types/         # Tipagens e Interfaces
 │   │   ├── components/     # Componentes reutilizáveis (botões, cards, etc.)
 │   │   ├── contexts/       # Gerenciamento de ContextAPI
-│   │   ├── js/             # Informações dos títulos disponíveis
+│   │   ├── data/           # diretório com objetos utilizados na aplicação
 │   │   ├── pages/          # Páginas da aplicação
 │   │   ├── styles/         # Estilos globais e variáveis SASS
 │   │   ├── services/       # Integração com APIs externas, Funções auxiliares e Microsserviços
