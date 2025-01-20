@@ -36,6 +36,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 1261501,
+        title: "Ad Vitam",
+        subtitle: "",
+        description: "Quando ele e a esposa grávida são atacados em casa, um ex-agente de elite se envolve em uma caçada perigosa ligada ao seu passado complicado.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1ysCDRwO3y1OR-Xu9e6o8EAZntQl4UWQT/preview",
+        duration: "01h 38m",
+        genero: ["Ação", "Suspense", "Drama", "Crime", "Netflix"]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 17654,
         title: "Distrito 9",
         subtitle: "Legendado",
@@ -1579,7 +1591,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1aHVoN-kWxIvdQBi9a6OMSqXws7q674Cr/preview",
         duration: "01h 47m",
-        genero: ["Aventura", "Comédia", "Família", "Animação", "Disney Plus"]
+        genero: ["Aventura", "Comédia", "Família", "Animação", "Disney+"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp3005682.jpg&f=1&nofb=1&ipt=74b97ae9158f5508c6942e534d862d3687b389b6dd67829f4735b0319727e257&ipo=images",
@@ -1999,7 +2011,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1pixT3Elg2dM7YrUwf_AtnULs8N6lPWQM/preview",
         duration: "02h 09m",
-        genero: ["Aventura", "Fantasia", "Família", "Disney"]
+        genero: ["Aventura", "Fantasia", "Família", "Disney+"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Florena.r7.com%2Fpublic%2Fassets%2Fimg%2Fpostagens%2Fpost_44020.jpg&f=1&nofb=1&ipt=f247093308b8df88be58b34af36bb77109bc65e6a357637e55cb4e9597a0db39&ipo=images",
@@ -3211,7 +3223,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1W3AhIu67xyeif_O2GYNR2OcPRGof-n_2/preview",
         duration: "02h 06m",
-        genero: ["Infantil", "Ação", "Disney"]
+        genero: ["Infantil", "Ação", "Disney+"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F1706654.jpg&f=1&nofb=1&ipt=9609a375922ce4a3e785fccbb4360d117b5ae72f0e101946c2022a21950e6508&ipo=images",
@@ -3223,7 +3235,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/13NKsZNAE_IECSMpYK_fU8X9D2wwaP36X/preview",
         duration: "01h 55m",
-        genero: ["Infantil", "Ação", "Disney"]
+        genero: ["Infantil", "Ação", "Disney+"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FM%2FMV5BMjE1MjUyODY2Nl5BMl5BanBnXkFtZTcwMTE5NTI2Nw%40%40._V1_.jpg&f=1&nofb=1&ipt=196e091d1cc5b36833561249704b55b0851db2623269d91ebd6a5b773d8197f3&ipo=images",

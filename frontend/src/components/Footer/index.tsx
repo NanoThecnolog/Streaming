@@ -1,9 +1,11 @@
 import { FaGithub } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import { SiThemoviedatabase } from "react-icons/si";
 import Link from "next/link";
 import styles from './styles.module.scss'
 import Router from "next/router";
+
 
 export default function Footer() {
 
@@ -33,7 +35,11 @@ export default function Footer() {
                     <h1 className="white">NEXT</h1>
                 </div>
                 <div className={styles.socials}>
-
+                    <Link href="https://www.themoviedb.org/?language=pt-BR" target="_blank" rel="noopener noreferrer">
+                        <button title="TMDB" type="button">
+                            <SiThemoviedatabase size={35} />
+                        </button>
+                    </Link>
                     <Link href="https://github.com/NanoThecnolog" target="_blank" rel="noopener noreferrer">
                         <button title="github" type="button">
                             <FaGithub size={35} />

@@ -7,6 +7,7 @@ interface TrailerButtonProps {
 }
 
 export default function TrailerButton({ trailer }: TrailerButtonProps) {
+
     return (
         <div className={styles.buttonTrailer}>
             <a href={`https://www.youtube.com/watch?v=${trailer.results[0].key}`} target='_blank' rel='noopener noreferrer'>

@@ -242,7 +242,7 @@ export default function Movie() {
                                             </button>
                                         </div>
                                         {
-                                            trailer &&
+                                            trailer && trailer.results.length > 0 &&
                                             <TrailerButton trailer={trailer} />
                                         }
                                     </div>

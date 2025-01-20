@@ -338,9 +338,11 @@ export default function Serie(status: string) {
                                                 }
                                             </button>
                                         </div>
-                                        <div className={styles.trailerButton}>
-                                            {trailer && <TrailerButton trailer={trailer} />}
-                                        </div>
+                                        {trailer && trailer.results.length > 0 &&
+                                            <div className={styles.trailerButton}>
+                                                <TrailerButton trailer={trailer} />
+                                            </div>
+                                        }
                                     </div>
                                     <div>
                                         <p>

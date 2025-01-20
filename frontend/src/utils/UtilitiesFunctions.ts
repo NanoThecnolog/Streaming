@@ -37,3 +37,14 @@ export function translate(str: string) {
     }
     return translations[str] || str;
 }
+
+/**
+ * Função pra garantir que a primeira letra seja maiúscula pq eu quero...
+ * @param str palavra para capitalizar
+ * @returns retorna a palavra com a primeira letra maiúscula
+ */
+
+export function capitalize(str: string): string {
+    if (!str) return '';
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
+}

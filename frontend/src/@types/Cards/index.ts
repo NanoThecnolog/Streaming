@@ -3,7 +3,7 @@ export interface CardsProps {
     overlay: string;
     tmdbId: number;
     title: string;
-    subtitle?: string;
+    subtitle: string;
     description: string;
     faixa: string;
     src: string;
