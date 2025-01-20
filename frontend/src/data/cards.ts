@@ -36,6 +36,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 17654,
+        title: "Distrito 9",
+        subtitle: "Legendado",
+        description: "Há 30 anos alienígenas chegam à Terra em busca de refúgio, pois seu planeta estava morrendo. Eles passam a viver separados dos humanos em uma área chamada Distrito 9, na África do Sul, comandada pela multinacional United, que não se importa com o bem-estar dos alienígenas, mas que está disposta a tudo para dominar a tecnologia que eles possuem. Quando um agente em campo contrai um vírus que altera o seu DNA, o Distrito 9 passa a ser o único lugar em que ele pode se esconder.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1-_q5YkOJdipn_-JSC-a37mvaT1wn25uy/preview",
+        duration: "01h 52m",
+        genero: ["Ficção Científica", "Drama"]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 370172,
         title: "007",
         subtitle: "Sem Tempo Para Morrer",
