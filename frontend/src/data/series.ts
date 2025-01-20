@@ -40,6 +40,42 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 250307,
+        title: "The Pitt",
+        subtitle: "",
+        description: "A equipe do Centro Médico de Emergência de Pittsburgh trabalha para salvar vidas em um departamento de emergência superlotado e carente de recursos.",
+        genero: ["Drama", "HBO"],
+        faixa: "A14",
+        news: {
+            type: "episode"
+        },
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1nFWEI4J4JFW9HpZs7jhBYntMwAmrN9sF/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/16gKd_iaaGCn6yxZnR6L9gq-IbygN8GXU/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1oTITjE95KrOfqY2m3saHCNjF5mE_Jddm/preview",
+                        duration: "50m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 123548,
         title: "Castlevânia",
         subtitle: "Noturno",
