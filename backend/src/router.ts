@@ -22,6 +22,11 @@ import { SendEmailController } from "./Controllers/Email/SendEmailController";
 import { PromotionalEmailController } from "./Controllers/Email/PromotionalEmailController";
 import { Authenticate } from "./middlewares/Auth";
 import { ADMAuth } from "./middlewares/ADMAuth";
+import { CreatePlanController } from "./Controllers/Efi/Plans/CreatePlanController";
+import { ListPlanController } from "./Controllers/Efi/Plans/ListPlansController";
+import { UpdatePlanController } from "./Controllers/Efi/Plans/UpdatePlanController";
+import { DeletePlanController } from "./Controllers/Efi/Plans/DeletePlanController";
+import { EmailInfoController } from "./Controllers/Email/EmailInfoController";
 
 const router = Router()
 
@@ -31,6 +36,11 @@ router.get('/acordar', (req, res) => {
 })
 
 router.get('/pix', new GeneratePixController().handle);
+//requisições efi
+router.post('/plan/create', ADMAuth, new CreatePlanController().handle);
+router.get('/plan/list', ADMAuth, new ListPlanController().handle);
+router.put('/plan/update', ADMAuth, new UpdatePlanController().handle);
+router.delete('/plan/delete', ADMAuth, new DeletePlanController().handle);
 
 router.post('/user', new CreateUserController().handle);
 router.post('/login', new AuthUserController().handle);
@@ -55,7 +65,9 @@ router.post('/favorite', new FavoriteController().handle)
 router.get('/favorites', new ListFavoriteController().handle)
 router.delete('/favorite/:favoriteid', new RemoveFavoriteController().handle)
 
+//emails
 router.post('/send', Authenticate, new SendEmailController().handle)
 router.post('/promotional', Authenticate, new PromotionalEmailController().handle)
+router.post('/info', Authenticate, new EmailInfoController().handle)
 
 export { router }
