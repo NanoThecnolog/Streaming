@@ -64,7 +64,7 @@ export class CreateBilletSubService {
 
     async execute() {
         const params = { id: 0 }
-        const body: BodyRequest = {
+        /*const body: BodyRequest = {
             items: [
                 {
                     name: "",
@@ -79,7 +79,7 @@ export class CreateBilletSubService {
                     payee_code: ""
                 }
             ],
-            metadata:
+            
         }
 
         /*
@@ -88,6 +88,6 @@ export class CreateBilletSubService {
             dados do cartão (gerar um payment_token no frontend e enviar pro backend na requisição)
                 identificação de bandeira, informações de parcelamento, token de pagamento, mascara do cartão
         */
-        const subscription = efiPay.createOneStepSubscription(params, body)
+        //const subscription = efiPay.createOneStepSubscription(params, body)
     }
 }
