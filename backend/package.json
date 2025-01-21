@@ -18,7 +18,8 @@
     "nodemailer": "^6.9.15",
     "pix-payload": "^1.0.4",
     "prisma": "^5.19.1",
-    "qrcode": "^1.5.4"
+    "qrcode": "^1.5.4",
+    "sdk-node-apis-efi": "^1.2.14"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
