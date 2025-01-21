@@ -36,6 +36,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 435,
+        title: "O Dia depois de Amanhã",
+        subtitle: "",
+        description: "A Terra sofre alterações climáticas que modificam drasticamente a vida da humanidade. Com o norte se resfriando cada vez mais e passando por uma nova era glacial, milhões de sobreviventes rumam para o sul. Porém o paleoclimatologista Jack Hall segue o caminho inverso e parte para Nova York, já que acredita que seu filho Sam ainda está vivo.",
+        faixa: "L",
+        src: "https://drive.google.com/file/d/1i8iRcUSJdla5u3IVF9UMbTts9v14zBHq/preview",
+        duration: "02h 04m",
+        genero: ["Ação", "Suspense", "Ficção Científica"]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 1261501,
         title: "Ad Vitam",
         subtitle: "",
