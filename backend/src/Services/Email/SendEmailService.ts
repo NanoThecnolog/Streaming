@@ -2,7 +2,7 @@ import prismaClient from '../../prisma';
 import nodemailer from 'nodemailer';
 
 export class SendEmailService {
-    async execute(title: string, description: string, tmdbId: number, userId: string) {
+    async execute(title: string, description: string, tmdbId: number, userId: string, season?: number, episode?: number) {
         const transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
             port: Number(process.env.SMTP_PORT),
@@ -69,6 +69,10 @@ export class SendEmailService {
                         <p>${description}</p>
                         <h4>Id do título:</h4>
                         <p>${tmdbId}</p>
+                        <h4>Temporada:</h4>
+                        <p>${season ? season : 'não é uma série'}</p>
+                        <h4>Episódio:</h4>
+                        <p>${episode ? episode : 'não é uma série'}</p>
                         <h4>ID do usuário:</h4>
                         <p>${userId}</p>
                     </div>
