@@ -36,6 +36,30 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 207703,
+        title: "Kingsman",
+        subtitle: "Serviço Secreto",
+        description: "Eggsy é um jovem com problemas de disciplina que parece perto de se tornar um criminoso. Determinado dia, ele entra em contato com Harry, que lhe apresenta à agência de espionagem Kingsman. O jovem se une a um time de recrutas em busca de uma vaga na agência. Ao mesmo tempo, Harry tenta impedir a ascensão do vilão Valentine. Adaptação da série de quadrinhos criada por Mark Millar e Dave Gibbons.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1-LIxzJJpgX_S9SnoFbux8-7BL2Kpk3Il/preview",
+        duration: "02h 09m",
+        genero: ["Ação", "Comédia", "Aventura", "Crime"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 343668,
+        title: "Kingsman",
+        subtitle: "O Círculo Dourado",
+        description: "Um grandioso ataque destrói o quartel-general Kingsman, obrigando Eggsy, Merlin e cia a unirem forças com o equivalente estadunidense da agência, os Statesman. Britânicos e norte-americanos ignoram as diferenças em defesa do mundo, ameaçado pelos planos da vilã Poppy.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1YfmoneCvBXvOtXM9PAqtmvmU03oIGlhK/preview",
+        duration: "02h 21m",
+        genero: ["Ação", "Comédia", "Aventura", "crime"]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 435,
         title: "O Dia depois de Amanhã",
         subtitle: "",

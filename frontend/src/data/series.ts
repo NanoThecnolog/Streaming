@@ -40,6 +40,110 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 74577,
+        title: "The End of The F***ing World",
+        subtitle: "",
+        description: "Nesta comédia de humor negro, um adolescente psicopata e uma rebelde louca por aventuras caem na estrada em uma malfadada viagem.",
+        genero: ["Comédia", "Drama", "Crime", "Netflix"],
+        faixa: "A16",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1ENeRB7dwGdbtFkstCWbLTU9pMVMlscaT/preview",
+                        duration: "19m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/155GeP0NXG6BUl5VxaE_8bRnVsULoAWyE/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1ANP6lMJP5U0lV3Dknr5M4Fj7FdQ4aU4r/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/19Es5pevPmD0321MxCW5n7sI-2RLBIjx-/preview",
+                        duration: "21m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/17bb_G1mQF9YU9zjMR_GgbBVPxq_dX7M8/preview",
+                        duration: "21m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1XOu1zOzMl4eBGZ82GUthL_1x8VkZ7T21/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1idEmsdSWvd2OLrZbrdeanK_5yPwXlWve/preview",
+                        duration: "21m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1oT9Hc-OsbrUpPST2EJ1XPwH8Htz9-1IT/preview",
+                        duration: "20m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1mk_aZhPzOXPAeZ8suRYIEnWO5dZRqJ7c/preview",
+                        duration: "25m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/16xTeYjjsBriQyyuVIi8TKs_NiNx52hw8/preview",
+                        duration: "19m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1aVIxZIDEk5YcOXt2XBLEoVObFX7l4F3a/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1ToNZYJWKDRk91JX3FE41QbRfqsU21k-5/preview",
+                        duration: "24m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1CJeQ_uZleEfBBbtWIorE7NOWu8vuO4eD/preview",
+                        duration: "22m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1Z-h1NLEvPL_hnkFT3BbpxQ9iUJkRyvII/preview",
+                        duration: "19m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1WOCLJBYADMzhAs0f0WEK-WbGfgo5J49Z/preview",
+                        duration: "24m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1JQNwMkAy-drT2Acx80yNds5CSyPU-i2m/preview",
+                        duration: "19m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 100088,
         title: "The Last Of Us",
         subtitle: "",
