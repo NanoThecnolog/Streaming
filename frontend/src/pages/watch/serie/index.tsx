@@ -8,12 +8,19 @@ import NextEpisode from "@/components/ui/NextEpisode"
 import PrevEpisode from "@/components/ui/PreviousEpisode"
 import SEO from "@/components/SEO"
 import { series } from "@/data/series"
+import HelpFlag from "@/components/Helpflag"
+import HelpModal from "@/components/modals/HelpModal/index "
+import { UserProps } from "@/@types/user"
+import { SeriesProps } from "@/@types/series"
 
 
 export default function WatchSerie() {
     const router = useRouter()
     const { title, subtitle, episode, src, season } = router.query
     const [episodio, setEpisodio] = useState({ title: "", subtitle: "", episode: 0, src: "", season: 0 })
+    const [serie, setSerie] = useState<SeriesProps>()
+    const [user, setUser] = useState<UserProps>()
+    const [visible, setVisible] = useState(false)
 
     useEffect(() => {
         async function acordarServidor() {
@@ -33,7 +40,10 @@ export default function WatchSerie() {
 
     useEffect(() => {
         if (title && src && episode && season) {
-
+            const serie = series.find(serie => serie.title.toLowerCase() === String(title).toLowerCase())
+            if (serie) {
+                setSerie(serie)
+            }
             setEpisodio({
                 title: Array.isArray(title) ? title[0] : title,
                 subtitle: Array.isArray(subtitle) ? subtitle[0] : subtitle || '',
@@ -42,14 +52,13 @@ export default function WatchSerie() {
                 season: Array.isArray(season) ? parseInt(season[0]) : parseInt(season),
             })
         }
-
-
     }, [router, title, subtitle, src, episode, season])
 
     useEffect(() => {
         const userData = async () => {
             const user = await getUserCookieData();
             if (!user) return Router.push('/login');
+            setUser(user)
         }
         userData()
     }, [])
@@ -81,6 +90,10 @@ export default function WatchSerie() {
             document.removeEventListener('keydown', openConsoleBlock);
         };
     }, []);
+
+    function handleHelpModal() {
+        setVisible(!visible)
+    }
     return (
         <>
             <SEO title={`Episódio ${episode} - ${title} ${subtitle != '' && `- ${subtitle}`} | FlixNext`} description=" " />
@@ -92,6 +105,9 @@ export default function WatchSerie() {
                                 <ChevronLeft size={30} />
                             </button>
                             <h3>{episodio.title} {episodio.subtitle != "" && `- ${episodio.subtitle}`} - Temporada {episodio.season} Episódio {episodio.episode}</h3>
+                        </div>
+                        <div className={styles.flagContainer}>
+                            <HelpFlag modalVisible={handleHelpModal} />
                         </div>
                         <div className={styles.iframe}>
                             <iframe
@@ -116,6 +132,16 @@ export default function WatchSerie() {
                                 episode={episodio.episode}
                             />
                         </div>
+                        {visible && (
+                            <HelpModal
+                                handleHelpModal={handleHelpModal}
+                                userId={user?.id}
+                                tmdbId={Number(serie ? serie.tmdbID : 0)}
+                                serie={serie}
+                                season={Number(season)}
+                                episode={Number(episode)}
+                            />
+                        )}
                     </div>
                 </div>
             )

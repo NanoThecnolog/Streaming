@@ -2,14 +2,18 @@ import { api } from '@/services/api'
 import styles from './styles.module.scss'
 import { toast } from 'react-toastify'
 import { useState } from 'react'
+import { SeriesProps } from '@/@types/series'
 
 interface HelpProps {
     handleHelpModal: () => void
     userId: string | undefined,
     tmdbId: number
+    serie?: SeriesProps
+    season?: number,
+    episode?: number,
 }
 
-export default function HelpModal({ handleHelpModal, userId, tmdbId }: HelpProps) {
+export default function HelpModal({ handleHelpModal, userId, tmdbId, serie, season, episode }: HelpProps) {
     const [loading, setLoading] = useState(false)
     //console.log(`tmbdID do componente modal: ${tmdbId}`)
 
@@ -53,7 +57,9 @@ export default function HelpModal({ handleHelpModal, userId, tmdbId }: HelpProps
                 title,
                 description,
                 userId: userId === undefined ? 'Indefinido' : userId,
-                tmdbId: tmdbId === null || undefined ? 'Indefinido' : tmdbId
+                tmdbId: serie ? serie.tmdbID : tmdbId ? tmdbId : 'Indefinido',
+                season: season ? season : 0,
+                episode: episode ? episode : 0
             })
             toast.success("Obrigado! Vamos cuidar do problema. Sua notificação ajuda a tornar a nossa plataforma ainda melhor!")
         } catch (err) {
