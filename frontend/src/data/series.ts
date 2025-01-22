@@ -40,6 +40,69 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 100088,
+        title: "The Last Of Us",
+        subtitle: "",
+        description: "Situado duas décadas após a implosão de nossa sociedade, o drama seguirá Joel, um sobrevivente difícil, que é contratado para contrabandear uma garota de 14 anos chamada Ellie para fora de uma zona de quarentena opressiva. O que começa como um pequeno trabalho logo se torna uma jornada brutal e de partir o coração, já que os dois precisam atravessar os Estados Unidos e dependem um do outro para sobreviver.",
+        genero: ["Drama", "HBO"],
+        faixa: "A16",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1ouag3rRozn5UhyeTFhq4ZZPp9ofzd4eg/preview",
+                        duration: "01h 20m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1z0gorcOERGvnPM5_uz7EzIRHUiCw0h9Y/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/12AkEJNKro-XYSVS_0k0uOEVFryuv4Emr/preview",
+                        duration: "01h 15m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1U9DnG2Wymc4Ky2bfA_-BXfT4O0f67E6k/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1fo3wn5LGt10BPE5viDYVbg4imGb6XL51/preview",
+                        duration: "59m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1Mde_VtRFU6WHawAWPjiZlW2MZuH_bv-G/preview",
+                        duration: "58m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1lpy291kkri9uS89kRukwP4oCfvClkrwc/preview",
+                        duration: "55m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/13wwa8_ax1TXtH7xAiy3hc92G2wBeJHfm/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1FVol1oNdOteCW90Gw32B6W8NygqUIQCT/preview",
+                        duration: "43m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 250307,
         title: "The Pitt",
         subtitle: "",
