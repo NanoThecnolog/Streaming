@@ -51,7 +51,7 @@ router.get('/user', Authenticate, new DetailUserController().handle);
 router.post('/recovertoken', new GenerateRecoverTokenController().handle);
 router.put('/recover', new RecoverController().handle);
 
-router.get('/ativar', new ActiveUserController().handle);
+router.post('/ativar', new ActiveUserController().handle);
 
 router.post('/movie/adicionar/varios', new CreateManyMovieController().handle)
 router.post('/movie/adicionar', new CreateMovieController().handle)

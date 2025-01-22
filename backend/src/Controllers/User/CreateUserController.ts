@@ -12,12 +12,12 @@ class CreateUserController {
                 birthday,
                 password
             })
-            return res.json(user)
-        } catch (err) {
+            return res.status(200).json(user)
+        } catch (err: any | Error) {
             if (err instanceof Error) {
                 return res.status(400).json({ error: err.message })
             }
-            return res.status(400).json({ error: "Erro ao criar usuário." })
+            return res.status(err.status).json({ error: "Erro ao criar usuário.", erro: err })
         }
     }
 }
