@@ -161,6 +161,12 @@ export async function fetchCollection(name: string): Promise<ResultsProps[] | nu
         return null
     }
 }
+/**
+ * 
+ * @param tmdbId id do título
+ * @param type tipo do título: tv | movie
+ * @returns retorna id do título e um array com os trailers disponíveis
+ */
 export async function fetchTMDBTrailer(tmdbId: number, type: 'tv' | 'movie'): Promise<TrailerProps | null> {
     try {
         const response = await apiTMDB<TrailerProps>(`/trailer/${type}/${tmdbId}`)

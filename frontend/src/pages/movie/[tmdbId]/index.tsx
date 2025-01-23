@@ -159,8 +159,9 @@ export default function Movie() {
         }
     }
     useEffect(() => {
+        if (!tmdbId || isNaN(Number(tmdbId))) return;
         getTrailer()
-    }, [router, tmdbId])
+    }, [tmdbId])
     async function getTrailer() {
         const trailer = await fetchTMDBTrailer(Number(tmdbId), 'movie')
         if (!trailer) return setTrailer(null)

@@ -36,6 +36,30 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 614696,
+        title: "#Alive",
+        subtitle: "",
+        description: "Um vírus terrível destrói a cidade, e um homem se tranca no apartamento para sobreviver. Desconectado do mundo, ele tenta desesperadamente encontrar uma saída.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1o6KjMnOmfu9HCoQkhg4CAqqAsANIjQAp/preview",
+        duration: "01h 38m",
+        genero: ["Ação", "Terror"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 489999,
+        title: "Buscando...",
+        subtitle: "",
+        description: "Após uma jovem de 16 anos desaparecer, seu pai David Kim pede ajuda às autoridades locais. Sem sucesso, após 37 horas, David decide invadir o computador de sua filha para procurar pistas que possam levar ao seu paradeiro.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1Q9qU0906sj9FxuydAedmx_-f0he9uKGB/preview",
+        duration: "01h 42m",
+        genero: ["Drama", "Suspense", "Mistério"]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 259316,
         title: "Animais Fantásticos e Onde Habitam",
         subtitle: "",
@@ -43,6 +67,18 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1NY163tIdvWLQg0JVCThZgulxgRROpTeL/preview",
         duration: "02h 12m",
+        genero: ["Fantasia", "Aventura"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 338952,
+        title: "Animais Fantásticos",
+        subtitle: "Os Crimes de Grindelwald",
+        description: "Depois que o poderoso bruxo das trevas Gellert Grindelwald se liberta, Newt Scamander é chamado em Hogwarts pelo professor Albus Dumbledore mais uma vez. Enfrentando perigos inesperados, Newt precisa encontrar uma maneira de impedir Grindelwald de seguir com seu plano que ameaça dividir todo o mundo bruxo: fazer com que apenas os bruxos de sangue puro comandem os seres não mágicos.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1TFDXw7SLZ4_KXR-p_4ENiKfSIRCKn2VW/preview",
+        duration: "02h 13m",
         genero: ["Fantasia", "Aventura"]
     },
     {
@@ -68,18 +104,6 @@ export const cards: CardsProps[] = [
         src: "https://drive.google.com/file/d/1gQF7vk6zEJ-s78aN3G2MyrA_KHfNUbk4/preview",
         duration: "01h 32m",
         genero: ["Drama", "Suspense"]
-    },
-    {
-        background: background,
-        overlay: overlay,
-        tmdbId: 338952,
-        title: "Animais Fantásticos",
-        subtitle: "Os Crimes de Grindelwald",
-        description: "Depois que o poderoso bruxo das trevas Gellert Grindelwald se liberta, Newt Scamander é chamado em Hogwarts pelo professor Albus Dumbledore mais uma vez. Enfrentando perigos inesperados, Newt precisa encontrar uma maneira de impedir Grindelwald de seguir com seu plano que ameaça dividir todo o mundo bruxo: fazer com que apenas os bruxos de sangue puro comandem os seres não mágicos.",
-        faixa: "A12",
-        src: "https://drive.google.com/file/d/1TFDXw7SLZ4_KXR-p_4ENiKfSIRCKn2VW/preview",
-        duration: "02h 13m",
-        genero: ["Fantasia", "Aventura"]
     },
     {
         background: background,
