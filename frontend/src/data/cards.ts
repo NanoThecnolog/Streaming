@@ -36,6 +36,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 619979,
+        title: "Águas Profundas",
+        subtitle: "",
+        description: "Vic e Melinda são um casal que, ao tentar resolver os problemas do casamento, abre a relação para ter casos com outras pessoas. Mas, quando os amantes de Melinda passam a aparecer mortos, Vic se torna o principal suspeito dessa série de assassinatos.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1OkTMmYh9HCSKZmSnSARNc4j3KIfCVi32/preview",
+        duration: "01h 56m",
+        genero: ["Drama", "Suspense", "Mistério", "Prime Video"]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 614696,
         title: "#Alive",
         subtitle: "",
@@ -1207,7 +1219,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/112q-4CPrq5tP6eaqYYUa1b7rSJuJTX1S/preview",
         duration: "02h",
-        genero: ["Romance", "Drama", "Prime Vídeo"]
+        genero: ["Romance", "Drama", "Prime Video"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages2.alphacoders.com%2F127%2F1275138.jpg&f=1&nofb=1&ipt=986104fcece39f82da7a713fab105d99a36098faba6d4017fb5c2fa9c2c3bbc3&ipo=images",
@@ -1411,7 +1423,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1cZ_2Nzn22CKN6XkWCkraMBStar5kvfSW/preview",
         duration: "01h 57m",
-        genero: ["Romance", "Drama", "Prime Vídeo"]
+        genero: ["Romance", "Drama", "Prime Video"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fconteudo.imguol.com.br%2F2012%2F05%2F10%2Fcena-do-filme-battleship---a-batalha-dos-mares-de-peter-berg-1336678898604_1920x1080.jpg&f=1&nofb=1&ipt=a180230d7a2907b5851a5e21f428ecf1185ba89d8a1ba8cff102f3d2016394f2&ipo=images",
@@ -2035,7 +2047,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/141PZRbvqm2NGItVcGAHcFr_Gjn315At_/preview",
         duration: "01h 43m",
-        genero: ["Suspense", "Drama", "Crime", "Prime Vídeo", "Nacional"]
+        genero: ["Suspense", "Drama", "Crime", "Prime Video", "Nacional"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinematologia.com.br%2Fcine%2Fwp-content%2Fuploads%2F2022%2F06%2FCapa.jpg&f=1&nofb=1&ipt=88f18e24e2706b5da865dcd963b79cfce41e32cfc434ab6d001764faf987716b&ipo=images",
