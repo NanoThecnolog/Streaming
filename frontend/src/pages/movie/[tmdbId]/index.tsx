@@ -118,13 +118,18 @@ export default function Movie() {
         try {
             const cast = await fetchTMDBMovieCast(Number(tmdbId));
             if (!cast) return console.warn("Nenhum dado ao buscar elenco do filme.")
+            //console.log("crew: ", cast.crew)
             const crewData = Array.isArray(cast.crew) && cast.crew.length
-                ? cast.crew : []
+                ? cast.crew
+                : [];
             const groupedByDepartment = crewData.reduce<groupedByDepartment>((acc, crew) => {
-                if (!acc[crew.department]) {
-                    acc[crew.department] = []
+                if (!crew.department) return acc
+                const department = crew.department || "Outros";
+
+                if (!acc[department]) {
+                    acc[department] = []
                 }
-                acc[crew.department].push(crew)
+                acc[department].push(crew)
                 return acc
             }, {});
             setCrewDepartment(groupedByDepartment)

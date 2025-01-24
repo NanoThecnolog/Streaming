@@ -1,6 +1,6 @@
 import { MdOutlineMovie } from 'react-icons/md'
 import styles from './styles.module.scss'
-import { TrailerProps } from '@/@types/trailer'
+import { TrailerProps, VideoProps } from '@/@types/trailer'
 
 interface TrailerButtonProps {
     trailer: TrailerProps
@@ -8,11 +8,12 @@ interface TrailerButtonProps {
 
 export default function TrailerButton({ trailer }: TrailerButtonProps) {
 
-    const urlTrailer = trailer.results
-        .filter(t => t.official && t.type.toLowerCase() === 'trailer').reduce((mostRecent, current) => {
+    const filtro = trailer.results.filter(t => t.type.toLowerCase() === 'trailer')
+    const urlTrailer = filtro.length > 0 ?
+        filtro.reduce((mostRecent: VideoProps, current) => {
             return new Date(current.published_at) > new Date(mostRecent.published_at) ? current : mostRecent;
-        })
-    console.log(urlTrailer)
+        }) : null
+    //console.log(urlTrailer)
     return (
         <>
             {urlTrailer &&

@@ -2,7 +2,7 @@ export interface TrailerProps {
     id: number,
     results: VideoProps[]
 }
-interface VideoProps {
+export interface VideoProps {
     iso_639_1: string,
     iso_3166_1: string,
     name: string,
