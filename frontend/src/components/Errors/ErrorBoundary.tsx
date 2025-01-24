@@ -24,7 +24,7 @@ class ErrorBoundary extends React.Component<Props, State> {
             return (
                 <div className={styles.container}>
                     <h1>Ops! Algo deu errado.</h1>
-                    <p>Tente recarregar a página ou entre em contato com o suporte <Link href='/suporte'>clicando aqui</Link>.</p>
+                    <p>Tente recarregar a página, voltar para página principal, ou entre em contato com o suporte <Link href='/suporte'>clicando aqui</Link>.</p>
                     <div className={styles.homeLink}>
                         <Link href='/'>Página principal</Link>
                     </div>

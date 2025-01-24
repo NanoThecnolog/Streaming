@@ -16,16 +16,11 @@ export default function Suport(status: string) {
                         <h1>Suporte <span className={styles.brand}><span className={styles.red}>FLIX</span>NEXT</span></h1>
                     </div>
                     <div>
-                        <h3>Problemas com reprodução do filme</h3>
-                        <p>
-                            Os arquivos de filmes e séries são incorporados utilizando hospedagens de terceiros. Como não possuímos controle sobre os arquivos incorporados na plataforma, podem ocorrer problemas no momento da reprodução.
-                        </p>
-                        <p>
-                            Caso esteja enfrentando problemas para ver seu filme, envie um email com o assunto: PROBLEMAS COM REPRODUÇÃO DE FILME, explicando com suas palavras o ocorrido e informando o nome do filme para nossa equipe no email: contato@ericssongomes.com
-                        </p>
-                        <p>Avisaremos assim que o problema for resolvido</p>
+                        <h3>Está com problemas?</h3>
+                        <p>Fale conosco através do email: contato@ericssongomes.com</p>
+                        <p>Descreva o problema da melhor forma possível.</p>
+                        <p>Estamos sempre buscando melhor atende-lo e seu email é muito importante para nós.</p>
                     </div>
-
                 </div>
             </section>
             <Footer />
