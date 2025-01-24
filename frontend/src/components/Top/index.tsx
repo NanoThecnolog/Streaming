@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from 'react';
 import Router from 'next/router';
 import { toast } from 'react-toastify';
 import { UserProps } from '@/@types/user';
-import { FaCheck, FaPlay } from 'react-icons/fa';
+import { FaCheck, FaInfo, FaInfoCircle, FaPlay } from 'react-icons/fa';
 import { getUserCookieData } from '@/services/cookieClient';
 import { addWatchLater, isOnTheList } from '@/services/handleWatchLater';
 import { MovieTMDB } from '@/@types/Cards';
@@ -69,24 +69,9 @@ export default function Top({ width }: TopProps) {
         checkWatchLaterList()
     }, [checkWatchLaterList])
 
-    const handleWatchLater = useCallback(
-        async () => {
-            if (isLoading || !user) return Router.push('/login')
-
-            setIsLoading(true)
-            try {
-                await addWatchLater(user.id, card.title, card.tmdbId, card.subtitle)
-                await checkWatchLaterList()
-
-            } catch (err: any) {
-                const errorMessage = err.response?.data?.message || "Erro inesperado ao adicionar filme à lista!"
-                toast.error(errorMessage)
-            } finally {
-                setIsLoading(false)
-            }
-        },
-        [isLoading, user, cardOn, checkWatchLaterList, card.subtitle, card.title, card.tmdbId]
-    )
+    function handleWatchLater() {
+        Router.push(`/movie/${card.tmdbId}`)
+    }
     const getBackgroundImage = () => {
         return width && width <= 980
             ? TMDBImages.poster ?? card.overlay
@@ -125,16 +110,8 @@ export default function Top({ width }: TopProps) {
                             <h3>Assistir</h3>
                         </div>
                         <div className={styles.queue} onClick={handleWatchLater}>
-                            {onWatchLater ?
-                                <>
-                                    <FaCheck size={25} />
-                                    <h3>Adicionado à Lista!</h3>
-                                </> :
-                                <>
-                                    <IoIosAddCircleOutline size={25} />
-                                    <h3>Assistir Mais Tarde</h3>
-                                </>
-                            }
+                            <FaInfoCircle size={25} />
+                            <h3>Mais Informações</h3>
                         </div>
                     </div>
                 </div>
