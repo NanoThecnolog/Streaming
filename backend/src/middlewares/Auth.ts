@@ -15,7 +15,6 @@ export const Authenticate = (req: Request, res: Response, next: NextFunction) =>
     if (!secret) {
         throw new Error('variável de ambiente não definida')
     }
-
     try {
         const { sub } = verify(
             token,

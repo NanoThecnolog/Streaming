@@ -27,6 +27,7 @@ import { ListPlanController } from "./Controllers/Efi/Plans/ListPlansController"
 import { UpdatePlanController } from "./Controllers/Efi/Plans/UpdatePlanController";
 import { DeletePlanController } from "./Controllers/Efi/Plans/DeletePlanController";
 import { EmailInfoController } from "./Controllers/Email/EmailInfoController";
+import { RequestContentController } from "./Controllers/Email/RequestContent";
 
 const router = Router()
 
@@ -69,5 +70,6 @@ router.delete('/favorite/:favoriteid', new RemoveFavoriteController().handle)
 router.post('/send', Authenticate, new SendEmailController().handle)
 router.post('/promotional', Authenticate, new PromotionalEmailController().handle)
 router.post('/info', Authenticate, new EmailInfoController().handle)
+router.post('/request/content', Authenticate, new RequestContentController().handle)
 
 export { router }
