@@ -10,10 +10,9 @@ export default function TrailerButton({ trailer }: TrailerButtonProps) {
 
     const filtro = trailer.results.filter(t => t.type.toLowerCase() === 'trailer')
     const urlTrailer = filtro.length > 0 ?
-        filtro.reduce((mostRecent: VideoProps, current) => {
+        filtro.reduce((mostRecent: VideoProps, current: VideoProps) => {
             return new Date(current.published_at) > new Date(mostRecent.published_at) ? current : mostRecent;
         }) : null
-    //console.log(urlTrailer)
     return (
         <>
             {urlTrailer &&
