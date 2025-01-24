@@ -1,72 +1,82 @@
 .container {
     display: flex;
-    gap: 20px;
     font-family: var(--font-Roboto);
 
-    .filter {
+    form {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
+        gap: 20px;
 
-        label {
-            font-size: 1.2rem;
-        }
+        .filter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
 
-        input {
-            border: 0;
-            border-radius: .4rem;
-            padding: 5px 10px;
-        }
-
-        select {
-            border: none;
-            border-radius: .4rem;
-            background-color: var(--red-selected);
-            padding: 5px;
-            color: white;
-
-            &:focus {
-                border: 0px solid white;
-                //background-color: white;
+            label {
+                font-size: 1.2rem;
             }
 
-            option {
-                background-color: var(--background-gray-light);
+            input {
+                border: 0;
+                border-radius: .4rem;
+                padding: 5px 10px;
+            }
+
+            select {
+                border: none;
+                border-radius: .4rem;
+                background-color: var(--red-selected);
+                padding: 5px;
+                color: white;
+
+                &:focus {
+                    border: 0px solid white;
+                    //background-color: white;
+                }
+
+                option {
+                    background-color: var(--background-gray-light);
+                    color: var(--white);
+                }
+            }
+        }
+
+        .buttonContainer {
+            button {
+                border: none;
+                border-radius: .4rem;
+                background-color: var(--red);
                 color: var(--white);
+                padding: 10px 15px;
+                transition: .4s;
+                font-weight: 900;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
             }
         }
     }
 
-    .buttonContainer {
-        button {
-            border: none;
-            border-radius: .4rem;
-            background-color: var(--red);
-            color: var(--white);
-            padding: 10px 15px;
-            transition: .4s;
-            font-weight: 900;
 
-            &:hover {
-                transform: scale(1.1);
-            }
-        }
-    }
 }
 
 @media(max-width: 915px) {
     .container {
-        display: grid;
-        grid-template-columns: 1fr;
-        justify-items: flex-start;
+        form {
+            display: grid;
+            grid-template-columns: 1fr;
+            justify-items: flex-start;
 
-        .buttonContainer {
-            width: 100%;
-
-            button {
+            .buttonContainer {
                 width: 100%;
+
+                button {
+                    width: 100%;
+                }
             }
         }
+
+
     }
 }

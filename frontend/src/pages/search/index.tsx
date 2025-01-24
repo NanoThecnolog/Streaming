@@ -16,18 +16,18 @@ import { getUserCookieData } from "@/services/cookieClient";
 import SEO from "@/components/SEO";
 import Filter from "@/components/ui/SearchFilter";
 import Link from "next/link";
+import Spinner from "@/components/ui/Loading/spinner";
 
 export default function Search(status: string) {
     const router = useRouter();
     const [movie, setMovie] = useState<string>();
-    const [searchCards, setSearchCards] = useState<CardsProps[]>()
-    const [searchSeries, setSearchSeries] = useState<SeriesProps[]>()
     const [usuario, setUsuario] = useState<UserProps | null>(null)
     const [title, setTitle] = useState<string>('')
     const [genre, setGenre] = useState<string>('')
     const [streaming, setStreaming] = useState<string>('')
     const [faixa, setFaixa] = useState<string>('')
     const [filtered, setFiltered] = useState<(CardsProps | SeriesProps)[] | []>([])
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         if (router.isReady) {
@@ -52,7 +52,9 @@ export default function Search(status: string) {
         newFilter()
     }
 
-    function searchingMovie(movie: string) {
+    async function searchingMovie(movie: string) {
+        if (loading) return
+        setLoading(true)
         setFiltered([])
         const filteredCards = cards
             .filter((card) => card.title.toLowerCase().includes(movie.toLowerCase()) || (card.subtitle?.toLowerCase().includes(movie.toLowerCase())))
@@ -69,18 +71,15 @@ export default function Search(status: string) {
             }))
         const combined = [...filteredCards, ...filteredSeries]
         setFiltered(combined)
-
+        await new Promise((resolve) => setTimeout(resolve, 1000))
+        setLoading(false)
     }
 
-    function newFilter() {
+    async function newFilter() {
+        if (loading) return
+        setLoading(true)
         setFiltered([])
-        if (title === '' && genre === '' && streaming === '' && faixa === '') return console.log('Tudo vazio');
-        console.log(`
-            titulo: ${title != '' ? title : 'string vazia'},
-            genero: ${genre != '' ? genre : 'string vazia'},
-            streaming: ${streaming != '' ? streaming : 'string vazia'},
-            faixa: ${faixa != '' ? faixa : 'string vazia'}
-            `)
+        if (title === '' && genre === '' && streaming === '' && faixa === '') return setLoading(false);
         function matches(item: CardsProps | SeriesProps): boolean {
             const matchesTitle = !title || item.title.toLowerCase().includes(title.toLowerCase()) || item.subtitle.toLowerCase().includes(title.toLowerCase());
             const matchesGenre = !genre || item.genero.some((g) => g.toLowerCase() === genre.toLowerCase());
@@ -94,6 +93,8 @@ export default function Search(status: string) {
         console.log([...filteredCard, ...filteredSerie])
         const combined = [...filteredCard, ...filteredSerie]
         setFiltered(combined)
+        await new Promise((resolve) => setTimeout(resolve, 1000))
+        setLoading(false)
     }
 
     return (
@@ -113,27 +114,26 @@ export default function Search(status: string) {
                     handleFilter={handleFilter}
                 />
                 <div className={styles.results}>
-                    <div className={`${filtered.length > 0 ? styles.cardsContainer : styles.noCardsContainer}`}>
-                        {filtered.length > 0 ? filtered.map(card => {
-                            if ("season" in card) {
-                                return (
-
-                                    <CardSerie key={card.tmdbID} card={card} />
-
-                                )
-                            } else {
-                                return (
-                                    <Card key={card.tmdbId} card={card} />
-                                )
-                            }
-                        })
-                            :
-                            <div className={styles.noResultsContainer}>
-                                <h2>Não achou o que procurava? Talvez ele ainda não esteja no catálogo. Mas deixa esse trabalho com a gente!</h2>
-                                <p><Link href={`/request`}>Clique aqui</Link> para selecionar e pedir o filme ou série que você quer ver!</p>
+                    {
+                        loading ? <Spinner /> :
+                            <div className={`${filtered.length > 0 ? styles.cardsContainer : styles.noCardsContainer}`}>
+                                {
+                                    filtered.length > 0 ? filtered.map((card, index) => {
+                                        if ("season" in card) {
+                                            return <CardSerie key={index} card={card} />
+                                        } else {
+                                            return <Card key={index} card={card} />
+                                        }
+                                    })
+                                        :
+                                        <div className={styles.noResultsContainer}>
+                                            <h2>Não achou o que procurava? Talvez ele ainda não esteja no catálogo. Mas deixa esse trabalho com a gente!</h2>
+                                            <p><Link href={`/request`}>Clique aqui</Link> para selecionar e pedir o filme ou série que você quer ver!</p>
+                                        </div>
+                                }
                             </div>
-                        }
-                    </div>
+                    }
+
                 </div>
             </section>
             <Footer />
