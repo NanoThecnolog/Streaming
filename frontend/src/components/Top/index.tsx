@@ -1,13 +1,10 @@
 import { cards } from '@/data/cards'
-import { IoIosAddCircleOutline } from "react-icons/io";
 import styles from './styles.module.scss'
-import { useCallback, useEffect, useState } from 'react';
-import Router from 'next/router';
-import { toast } from 'react-toastify';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import { UserProps } from '@/@types/user';
-import { FaCheck, FaInfo, FaInfoCircle, FaPlay } from 'react-icons/fa';
+import { FaInfoCircle, FaPlay } from 'react-icons/fa';
 import { getUserCookieData } from '@/services/cookieClient';
-import { addWatchLater, isOnTheList } from '@/services/handleWatchLater';
 import { MovieTMDB } from '@/@types/Cards';
 import Adult from '../ui/Adult';
 import { releaseCards } from '@/data/release';
@@ -18,14 +15,13 @@ interface TopProps {
 }
 
 export default function Top({ width }: TopProps) {
+    const router = useRouter()
     const [cardOn, setCardOn] = useState(0)
     const card = cards[cardOn]
     //const releaseSet = new Set(releaseCards.map(item => item.tmdbId))
     //const release = cards.filter(card => releaseSet.has(card.tmdbId))
     const [fade, setFade] = useState('fadeIn')
     const [user, setUser] = useState<UserProps | null>(null)
-    const [onWatchLater, setOnWatchLater] = useState<boolean>(false)
-    const [isLoading, setIsLoading] = useState<boolean>(false)
     const [TMDBImages, setTMDBImages] = useState<{ backdrop: string | null; poster: string | null }>({
         backdrop: null,
         poster: null
@@ -60,27 +56,20 @@ export default function Top({ width }: TopProps) {
             setTMDBImages({ backdrop: backdropUrl, poster: posterUrl })
         }
     }, [allData, cardOn, card.tmdbId])
-    const checkWatchLaterList = useCallback(async () => {
-        if (!user) return
-        const isAdded = await isOnTheList(card.title, card.subtitle, card.tmdbId)
-        setOnWatchLater(isAdded)
-    }, [user, cardOn, card.subtitle, card.title, card.tmdbId])
-    useEffect(() => {
-        checkWatchLaterList()
-    }, [checkWatchLaterList])
 
-    function handleWatchLater() {
-        Router.push(`/movie/${card.tmdbId}`)
-    }
     const getBackgroundImage = () => {
         return width && width <= 980
             ? TMDBImages.poster ?? card.overlay
             : TMDBImages.backdrop ?? card.background
     }
+
+    function handleMoreInfo() {
+        router.push(`/movie/${card.tmdbId}`)
+    }
     function handleWatch() {
         const { tmdbId } = card
         const play: string = `/watch/${tmdbId}`
-        Router.push(play)
+        router.push(play)
     }
 
     return (
@@ -109,7 +98,7 @@ export default function Top({ width }: TopProps) {
                             <FaPlay size={35} />
                             <h3>Assistir</h3>
                         </div>
-                        <div className={styles.queue} onClick={handleWatchLater}>
+                        <div className={styles.queue} onClick={handleMoreInfo}>
                             <FaInfoCircle size={25} />
                             <h3>Mais Informações</h3>
                         </div>
