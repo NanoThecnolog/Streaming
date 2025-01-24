@@ -12,25 +12,21 @@ import { CardsProps } from '@/@types/Cards';
 import { cards } from '@/data/cards';
 import { series } from '@/data/series';
 import { SeriesProps } from '@/@types/series';
-import { api } from '@/services/api';
 import { useRouter } from 'next/router';
-import { toast } from 'react-toastify';
 
 export default function Request() {
     const router = useRouter()
     const [user, setUser] = useState<UserProps>()
     const [title, setTitle] = useState<string>('')
     const [searchCards, setSearchCards] = useState<RequestCardProps[]>([])
-    const [loading, setLoading] = useState(false)
+
 
 
     useEffect(() => {
         const getUserData = async () => {
             try {
                 const user = await getUserCookieData();
-                if (!user) {
-                    return
-                }
+                if (!user) return router.push('/login')
                 setUser(user)
             } catch (err) {
                 console.log("Erro ao buscar dados do usuário no cookie", err)
@@ -97,29 +93,12 @@ export default function Request() {
                 ),
             ];
             setSearchCards(allResults);
-            console.log(allResults);
+            //console.log(allResults);
         } catch (err) {
             console.error(err);
         }
     }
-    async function handleRequest(tmdbId: number) {
-        if (!user) return router.push('/login')
-        if (loading) return
-        setLoading(true)
-        try {
-            const response = await api.post('/request/content', {
-                tmdbId
-            })
-            const data = response.data;
-            console.log(data)
-            toast.success("Conteúdo Solicitado!")
-        } catch (err) {
-            console.log(err)
-            toast.error("Não conseguimos solicitar o conteúdo. Tente novamente mais tarde!")
-        } finally {
-            setLoading(false)
-        }
-    }
+
 
     return (
         <>
@@ -140,7 +119,7 @@ export default function Request() {
                         <>
                             <h3 className={styles.warning}>Clique em um card para Solicitá-lo</h3>
                             <div className={styles.cardContainer}>
-                                {searchCards.map(card => <RequestCard card={card} key={card.id} handleClick={handleRequest} loading={loading} />)}
+                                {searchCards.map(card => <RequestCard card={card} key={card.id} />)}
                             </div>
                         </> :
                         <div className={styles.noResults}>
