@@ -260,6 +260,18 @@
                     }
                 }
 
+                .request {
+                    position: absolute;
+                    padding: 8px 25px;
+                    background-color: var(--red);
+                    color: var(--white);
+                    border-radius: .4rem;
+                    top: -80px;
+                    font-family: var(--font-Roboto);
+                    font-weight: 900;
+
+                }
+
                 .searchInputModal {
                     display: flex;
                     align-items: center;
@@ -279,6 +291,7 @@
                         height: 30px;
                         width: 150px;
                         padding: 0.4rem;
+                        font-family: var(--font-Roboto);
                     }
                 }
             }
@@ -381,6 +394,18 @@
                     &:hover {
                         transform: scale(1.2);
                     }
+                }
+
+                .request {
+                    position: absolute;
+                    padding: 8px 25px;
+                    background-color: var(--red);
+                    color: var(--white);
+                    border-radius: .4rem;
+                    top: -80px;
+                    font-family: var(--font-Roboto);
+                    font-weight: 900;
+
                 }
 
                 .searchInputModal {
@@ -502,6 +527,18 @@
                     }
                 }
 
+                .request {
+                    position: absolute;
+                    padding: 8px 25px;
+                    background-color: var(--red);
+                    color: var(--white);
+                    border-radius: .4rem;
+                    top: -80px;
+                    font-family: var(--font-Roboto);
+                    font-weight: 900;
+
+                }
+
                 .searchInputModal {
                     display: flex;
                     align-items: center;
@@ -609,7 +646,6 @@
                 .dropdownAvatarImage {
                     overflow: hidden;
                     transition: all .2s;
-                    //border-radius: 2rem;
                     cursor: pointer;
 
                     img {
@@ -619,6 +655,18 @@
                     &:hover {
                         transform: scale(1.2);
                     }
+                }
+
+                .request {
+                    position: absolute;
+                    padding: 8px 25px;
+                    background-color: var(--red);
+                    color: var(--white);
+                    border-radius: .4rem;
+                    top: -80px;
+                    font-family: var(--font-Roboto);
+                    font-weight: 900;
+
                 }
 
                 .searchInputModal {
