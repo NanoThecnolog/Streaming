@@ -144,9 +144,8 @@ export default function Request() {
                             </div>
                         </> :
                         <div className={styles.noResults}>
-                            <h3>"Nada encontrado."</h3>
+                            <h3>Nada encontrado.</h3>
                         </div>
-
                     }
                 </section>
             </main>
