@@ -113,9 +113,7 @@ export default function Header({ userAvatar, status }: HeaderProps) {
                         <h2><CiSearch size={35} color="#fff" /></h2>
                     </div>
                 </form>
-                <Link href="/request" className={styles.button_container}>
-                    <h2>SOLICITAR</h2>
-                </Link>
+
             </div>
             <div className={styles.right_nav}>
                 <div className={styles.status}>
@@ -143,7 +141,6 @@ export default function Header({ userAvatar, status }: HeaderProps) {
                             <button type="button" onClick={() => Router.push('/')}>filmes</button>
                             <div className={styles.divider}></div>
                             <button type="button" onClick={() => Router.push('/series')}>series</button>
-
                         </div>
                     }
                 </div>
@@ -152,9 +149,6 @@ export default function Header({ userAvatar, status }: HeaderProps) {
                     <Search onClick={() => handleClickHome(2)} />
                     {searchMobileVisible &&
                         <>
-                            <button className={styles.request} type="button" onClick={() => Router.push('/request')}>
-                                Solicitar
-                            </button>
                             <form onSubmit={(e) => { e.preventDefault(); handleSearch(searchInput) }} className={styles.searchInputModal}>
                                 <div>
                                     <input

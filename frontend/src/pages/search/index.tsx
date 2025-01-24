@@ -15,6 +15,7 @@ import { serverStatus } from "@/services/verifyStatusServer";
 import { getUserCookieData } from "@/services/cookieClient";
 import SEO from "@/components/SEO";
 import Filter from "@/components/ui/SearchFilter";
+import Link from "next/link";
 
 export default function Search(status: string) {
     const router = useRouter();
@@ -112,27 +113,26 @@ export default function Search(status: string) {
                     handleFilter={handleFilter}
                 />
                 <div className={styles.results}>
-                    <div className={styles.title}>
-                        <h2>Resultados da busca:</h2>
-                    </div>
-                    <div className={styles.cardsContainer}>
-                        {
-                            filtered.length > 0 ? filtered.map(card => {
-                                if ("season" in card) {
-                                    return (
-                                        <CardSerie key={card.tmdbID} card={card} />
-                                    )
-                                } else {
-                                    return (
-                                        <Card key={card.tmdbId} card={card} />
-                                    )
-                                }
-                            }) :
-                                <div className={styles.noResultsContainer}>
-                                    <h2>Não encontramos o que procura =/</h2>
-                                </div>
-                        }
+                    <div className={`${filtered.length > 0 ? styles.cardsContainer : styles.noCardsContainer}`}>
+                        {filtered.length > 0 ? filtered.map(card => {
+                            if ("season" in card) {
+                                return (
 
+                                    <CardSerie key={card.tmdbID} card={card} />
+
+                                )
+                            } else {
+                                return (
+                                    <Card key={card.tmdbId} card={card} />
+                                )
+                            }
+                        })
+                            :
+                            <div className={styles.noResultsContainer}>
+                                <h2>Não achou o que procurava? Talvez ele ainda não esteja no catálogo. Mas deixa esse trabalho com a gente!</h2>
+                                <p><Link href={`/request`}>Clique aqui</Link> para selecionar e pedir o filme ou série que você quer ver!</p>
+                            </div>
+                        }
                     </div>
                 </div>
             </section>
