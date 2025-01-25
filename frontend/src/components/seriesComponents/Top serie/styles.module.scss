@@ -25,7 +25,7 @@
         .left_side {
             width: 60%;
             height: 400px;
-            padding-left: 10%;
+            padding-left: 5%;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -37,7 +37,7 @@
                     margin: 0;
                     font-family: "Montserrat", sans-serif;
                     font-weight: 600;
-                    font-size: 65px;
+                    font-size: 3rem;
                     color: white;
                     text-shadow: 5px 5px 10px black;
                 }
@@ -51,7 +51,7 @@
                 margin: 0;
                 font-family: "Montserrat", sans-serif;
                 font-weight: 600;
-                font-size: 45px;
+                font-size: 2rem;
                 color: white;
                 text-shadow: 5px 5px 10px black;
             }
@@ -62,7 +62,7 @@
                 display: -webkit-box;
                 -webkit-box-orient: vertical;
                 -webkit-line-clamp: 3;
-                height: 54px;
+                height: 53px;
                 line-clamp: 3;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -72,9 +72,9 @@
                     margin: 0;
                     font-family: "Montserrat", sans-serif;
                     font-weight: 400;
-                    font-size: 20px;
+                    font-size: 1.2rem;
                     color: white;
-                    text-shadow: 2px 2px 5px black;
+                    text-shadow: 2px 2px 2px black;
                 }
             }
 
@@ -94,31 +94,39 @@
             .button_section {
                 width: 100%;
                 display: flex;
-                font-family: "Roboto", sans-serif;
+                font-family: var(--font-Roboto);
 
                 svg {
-                    width: 25px;
-                    height: 25px;
+
                     min-width: 25px;
                     padding-left: 10px;
                 }
 
                 .watch,
                 .queue {
-                    padding: 10px 25px;
+                    padding: 20px 35px;
                     border-radius: 8px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    h3 {
+                        font-size: 1.4rem;
+
+                    }
                 }
 
                 .watch {
-                    color: white;
+                    color: var(--black);
                     display: flex;
-                    background-color: var(--red);
+                    gap: 10px;
+                    background-color: var(--white);
                     transition: all 0.5s;
 
                     &:hover {
                         background-color: var(--red-selected);
                         cursor: pointer;
-                        // transform: ;
+                        color: var(--white);
                         transform: translateY(5px) scale(1.1);
                     }
                 }
@@ -248,7 +256,7 @@
                     padding-top: 140%;
 
                     h1 {
-                        font-size: 2rem;
+                        font-size: 1.5rem;
 
                     }
                 }
@@ -258,8 +266,10 @@
                 }
 
                 .description {
+                    height: 40px;
+
                     p {
-                        font-size: 1.2rem;
+                        font-size: 1rem;
                     }
                 }
 
@@ -279,7 +289,7 @@
                         margin-left: 0;
 
                         h3 {
-                            font-size: 0.8rem;
+                            font-size: 1.2rem;
                         }
                     }
                 }
@@ -320,8 +330,10 @@
                 }
 
                 .description {
+                    height: 40px;
+
                     p {
-                        font-size: 1.2rem;
+                        font-size: 1rem;
                     }
                 }
 
@@ -342,7 +354,7 @@
                         margin-left: 0;
 
                         h3 {
-                            font-size: 0.8rem;
+                            font-size: 1.2rem;
                         }
                     }
                 }
@@ -384,6 +396,8 @@
                 }
 
                 .description {
+                    height: 51px;
+
                     p {
                         font-size: 1.2rem;
                     }
@@ -397,7 +411,6 @@
                     //background-color: red;
 
                     .watch {
-
                         display: flex;
                         justify-content: center;
                     }
@@ -406,7 +419,7 @@
                         margin-left: 0;
 
                         h3 {
-                            font-size: 0.8rem;
+                            font-size: 1.2rem;
                         }
                     }
                 }
@@ -419,6 +432,18 @@
 @media (min-width: 768px) and (max-width: 1024px) {
     .top_container {
         background-position: center;
+
+        .image_container {
+            .left_side {
+                .description {
+                    height: 46px;
+
+                    p {
+                        font-size: 1.1rem;
+                    }
+                }
+            }
+        }
     }
 }
 

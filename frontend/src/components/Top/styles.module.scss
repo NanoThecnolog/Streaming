@@ -83,7 +83,7 @@
             .button_section {
                 width: 100%;
                 display: flex;
-                font-family: "Roboto", sans-serif;
+                font-family: var(--font-Roboto);
 
                 svg {
                     min-width: 25px;
@@ -122,6 +122,7 @@
                     color: white;
                     background-color: var(--grey-transparent);
                     margin-left: 30px;
+
 
                     &:hover {
                         background-color: var(--grey-selected);

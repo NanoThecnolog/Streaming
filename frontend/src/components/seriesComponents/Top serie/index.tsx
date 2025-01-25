@@ -1,11 +1,12 @@
 import { series } from '@/data/series'
-import { FaCirclePlay } from "react-icons/fa6";
+import { FaCirclePlay, FaPlay } from "react-icons/fa6";
 import styles from './styles.module.scss'
 import { useEffect, useState } from 'react';
 import Router from 'next/router';
 import Adult from '@/components/ui/Adult';
 import { useTMDB } from '@/contexts/TMDBContext';
 import NewContent from '@/components/ui/NewContent';
+import { FaInfoCircle } from 'react-icons/fa';
 
 
 interface TopSerieProps {
@@ -72,12 +73,6 @@ export default function TopSerie({ width }: TopSerieProps) {
             <div className={styles.image_container} id="inicio">
                 <div className={styles.left_side}>
                     <div className={styles.titulo_principal}>
-                        {
-                            card.news &&
-                            <div className={styles.newContentBox}>
-                                <NewContent type={card.news.type} />
-                            </div>
-                        }
                         <h1>{card.title.toUpperCase()}</h1>
                     </div>
 
@@ -88,16 +83,24 @@ export default function TopSerie({ width }: TopSerieProps) {
                         <p>{card.description}</p>
                     </div>
                     <div className={styles.season}>
-                        <p>{card.season.length === 1 ? `${card.season.length} Temporada` : card.season.length >= 2 && `${card.season.length} Temporadas`}</p>
+                        {
+                            card.news &&
+                            <div className={styles.newContentBox}>
+                                <NewContent type={card.news.type} />
+                            </div>
+                        }
                         <Adult faixa={card.faixa} />
+                        <p>{card.season.length === 1 ? `${card.season.length} Temporada` : card.season.length >= 2 && `${card.season.length} Temporadas`}</p>
+
                     </div>
                     <div className={styles.button_section}>
                         <div className={styles.watch} onClick={(e) => handleWatch()}>
-                            <h3>Play</h3>
-                            <FaCirclePlay color='#fff' />
+                            <FaPlay size={35} />
+                            <h3>Assistir</h3>
                         </div>
                         <div className={styles.queue} onClick={() => handleEpisodes(card.tmdbID)}>
-                            <h3>EPISÓDIOS</h3>
+                            <FaInfoCircle size={35} />
+                            <h3>Mais Informações</h3>
                         </div>
                     </div>
                 </div>
