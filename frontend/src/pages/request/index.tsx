@@ -13,12 +13,14 @@ import { cards } from '@/data/cards';
 import { series } from '@/data/series';
 import { SeriesProps } from '@/@types/series';
 import { useRouter } from 'next/router';
+import Spinner from '@/components/ui/Loading/spinner';
 
 export default function Request() {
     const router = useRouter()
     const [user, setUser] = useState<UserProps>()
     const [title, setTitle] = useState<string>('')
     const [searchCards, setSearchCards] = useState<RequestCardProps[]>([])
+    const [loading, setLoading] = useState<boolean>(false)
 
 
 
@@ -45,6 +47,8 @@ export default function Request() {
         setSearchCards([])
 
         try {
+            if (loading) return;
+            setLoading(true)
             const initialResponse = await apiTMDB.get(`/search`, {
                 params: {
                     query: title,
@@ -96,6 +100,8 @@ export default function Request() {
             //console.log(allResults);
         } catch (err) {
             console.error(err);
+        } finally {
+            setLoading(false)
         }
     }
 
@@ -115,16 +121,17 @@ export default function Request() {
                             <button onClick={handleSearch}>Buscar</button>
                         </div>
                     </div>
-                    {searchCards && searchCards.length > 0 ?
-                        <>
-                            <h3 className={styles.warning}>Clique em um card para Solicitá-lo</h3>
-                            <div className={styles.cardContainer}>
-                                {searchCards.map(card => <RequestCard card={card} key={card.id} />)}
+                    {
+                        loading ? <Spinner /> : searchCards && searchCards.length > 0 ?
+                            <>
+                                <h3 className={styles.warning}>Clique em um card para Solicitá-lo</h3>
+                                <div className={styles.cardContainer}>
+                                    {searchCards.map(card => <RequestCard card={card} key={card.id} />)}
+                                </div>
+                            </> :
+                            <div className={styles.noResults}>
+                                <h3>Nada encontrado.</h3>
                             </div>
-                        </> :
-                        <div className={styles.noResults}>
-                            <h3>Nada encontrado.</h3>
-                        </div>
                     }
                 </section>
             </main>

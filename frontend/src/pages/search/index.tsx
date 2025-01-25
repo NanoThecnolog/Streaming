@@ -17,29 +17,19 @@ import SEO from "@/components/SEO";
 import Filter from "@/components/ui/SearchFilter";
 import Link from "next/link";
 import Spinner from "@/components/ui/Loading/spinner";
+import { normalizing } from "@/utils/UtilitiesFunctions";
 
 export default function Search(status: string) {
     const router = useRouter();
     const [movie, setMovie] = useState<string>();
     const [usuario, setUsuario] = useState<UserProps | null>(null)
-    const [title, setTitle] = useState<string>('')
+    const [input, setinput] = useState<string>('')
     const [genre, setGenre] = useState<string>('')
     const [streaming, setStreaming] = useState<string>('')
     const [faixa, setFaixa] = useState<string>('')
     const [filtered, setFiltered] = useState<(CardsProps | SeriesProps)[] | []>([])
     const [loading, setLoading] = useState(false)
 
-    useEffect(() => {
-        if (router.isReady) {
-            const { input } = router.query;
-            setMovie(input as string)
-        }
-        if (movie && movie !== '') {
-            searchingMovie(movie);
-        }
-
-
-    }, [router.isReady, router.query, movie])
     useEffect(() => {
         const fetchUserData = async () => {
             const user = await getUserCookieData();
@@ -48,53 +38,96 @@ export default function Search(status: string) {
         fetchUserData()
     }, [])
 
-    function handleFilter() {
-        newFilter()
-    }
-
-    async function searchingMovie(movie: string) {
-        if (loading) return
-        setLoading(true)
-        setFiltered([])
-        const filteredCards = cards
-            .filter((card) => card.title.toLowerCase().includes(movie.toLowerCase()) || (card.subtitle?.toLowerCase().includes(movie.toLowerCase())))
-            .map((card) => ({
-                ...card,
-                type: 'movie' as const
-            }))
-
-        const filteredSeries = series
-            .filter((serie) => serie.title.toLowerCase().includes(movie.toLowerCase()) || (serie.subtitle?.toLowerCase().includes(movie.toLowerCase())))
-            .map((serie) => ({
-                ...serie,
-                type: 'series' as const
-            }))
-        const combined = [...filteredCards, ...filteredSeries]
-        setFiltered(combined)
-        await new Promise((resolve) => setTimeout(resolve, 1000))
-        setLoading(false)
-    }
-
-    async function newFilter() {
-        if (loading) return
-        setLoading(true)
-        setFiltered([])
-        if (title === '' && genre === '' && streaming === '' && faixa === '') return setLoading(false);
-        function matches(item: CardsProps | SeriesProps): boolean {
-            const matchesTitle = !title || item.title.toLowerCase().includes(title.toLowerCase()) || item.subtitle.toLowerCase().includes(title.toLowerCase());
-            const matchesGenre = !genre || item.genero.some((g) => g.toLowerCase() === genre.toLowerCase());
-            const matchesStreaming = !streaming || item.genero.some((g) => g.toLowerCase() === streaming.toLowerCase());
-            const matchesFaixa = !faixa || item.faixa.toLowerCase() === faixa.toLowerCase();
-            return matchesTitle && matchesGenre && matchesStreaming && matchesFaixa;
+    useEffect(() => {
+        if (router.isReady) {
+            const { input } = router.query;
+            console.log(input)
+            setMovie(normalizing(input as string))
         }
+    }, [router.isReady, router.query, movie])
+    useEffect(() => {
+        if (movie && movie !== '') {
+            searchingMovie(movie);
+        }
+    }, [movie])
+    async function searchingMovie(movie: string) {
+        setFiltered([])
+        try {
+            if (loading) return
 
-        const filteredCard = cards.filter(matches)
-        const filteredSerie = series.filter(matches)
-        console.log([...filteredCard, ...filteredSerie])
-        const combined = [...filteredCard, ...filteredSerie]
-        setFiltered(combined)
-        await new Promise((resolve) => setTimeout(resolve, 1000))
-        setLoading(false)
+            setLoading(true)
+            const normalizedMovie = normalizing(movie)
+            const filteredCards = cards
+                .filter((card) => {
+                    const normalizedTitle = normalizing(card.title).toLowerCase()
+                    const normalizedSubtitle = normalizing(card.subtitle).toLowerCase()
+                    return (
+                        normalizedTitle.includes(normalizedMovie) ||
+                        normalizedSubtitle.includes(normalizedMovie)
+                    )
+                })
+                .map((card) => ({
+                    ...card,
+                    type: 'movie' as const
+                }))
+
+            const filteredSeries = series
+                .filter((serie) => {
+                    const normalizedTitle = normalizing(serie.title).toLowerCase()
+                    const normalizedSubtitle = normalizing(serie.subtitle).toLowerCase()
+                    return (
+                        normalizedTitle.includes(normalizedMovie) ||
+                        normalizedSubtitle.includes(normalizedMovie)
+                    )
+                })
+                .map((serie) => ({
+                    ...serie,
+                    type: 'series' as const
+                }))
+            const combined = [...filteredCards, ...filteredSeries]
+            setFiltered(combined)
+            await new Promise((resolve) => setTimeout(resolve, 1000))
+        } catch (err) {
+            console.error("Erro durante a busca pelo header.", err)
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    async function handleFilter() {
+        await newFilter()
+    }
+    async function newFilter() {
+        setFiltered([])
+        try {
+            if (loading) return
+            setLoading(true)
+
+            const normalizedInput = normalizing(input).toLowerCase()
+            console.log(normalizedInput)
+            if (input === '' && genre === '' && streaming === '' && faixa === '') return setLoading(false);
+            const matches = (item: CardsProps | SeriesProps): boolean => {
+                const normalizedTitle = normalizing(item.title).toLowerCase()
+                const normalizedSubtitle = normalizing(item.subtitle).toLowerCase()
+                const matchesTitle = !input || normalizedTitle.includes(normalizedInput) || normalizedSubtitle.includes(normalizedInput);
+                const matchesGenre = !genre || item.genero.some((g) => g.toLowerCase() === genre.toLowerCase());
+                const matchesStreaming = !streaming || item.genero.some((g) => g.toLowerCase() === streaming.toLowerCase());
+                const matchesFaixa = !faixa || item.faixa.toLowerCase() === faixa.toLowerCase();
+                return matchesTitle && matchesGenre && matchesStreaming && matchesFaixa;
+            }
+
+            const filteredCard = cards.filter(matches)
+            const filteredSerie = series.filter(matches)
+            console.log([...filteredCard, ...filteredSerie])
+            const combined = [...filteredCard, ...filteredSerie]
+            setFiltered(combined)
+            await new Promise((resolve) => setTimeout(resolve, 1000))
+
+        } catch (err) {
+            console.error("Erro ao buscar pelo filtro.", err)
+        } finally {
+            setLoading(false)
+        }
     }
 
     return (
@@ -103,11 +136,11 @@ export default function Search(status: string) {
             <Header userAvatar={usuario?.avatar} status={status} />
             <section className={styles.container}>
                 <Filter
-                    title={title}
+                    title={input}
                     genre={genre}
                     streaming={streaming}
                     faixa={faixa}
-                    setTitle={setTitle}
+                    setTitle={setinput}
                     setGenre={setGenre}
                     setStreaming={setStreaming}
                     setFaixa={setFaixa}

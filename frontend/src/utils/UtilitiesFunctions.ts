@@ -48,3 +48,13 @@ export function capitalize(str: string): string {
     if (!str) return '';
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
 }
+
+/**
+ * Utiliza normalize e replace pra remover a acentuação de palavras.
+ * @param str Palavra a ser tratada
+ * @returns retorna a palavra sem acentos
+ */
+
+export function normalizing(str: string) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+}
