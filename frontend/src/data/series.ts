@@ -2528,48 +2528,48 @@ export const series: SeriesProps[] = [
                     },
                     {
                         ep: 8,
-                        src: "",
-                        duration: ""
+                        src: "https://drive.google.com/file/d/1oJy9Fgkoo0sGyxLHrLQWW7Egi1NzHUEY/preview",
+                        duration: "01h 02m"
                     },
                     {
                         ep: 9,
-                        src: "",
-                        duration: ""
+                        src: "https://drive.google.com/file/d/1T3DEySroEMcPiatHLu5VpKdqODdzPy7O/preview",
+                        duration: "55m"
                     },
                     {
                         ep: 10,
-                        src: "",
-                        duration: ""
+                        src: "https://drive.google.com/file/d/1oOtOFNkGWQxZBGRndy5Q8k6qKIEp8bDf/preview",
+                        duration: "01h"
                     },
                     {
                         ep: 11,
-                        src: "",
-                        duration: ""
+                        src: "https://drive.google.com/file/d/1nM2Dg6jMMKuJfnofOulS_i90ciivfdB8/preview",
+                        duration: "53m"
                     },
                     {
                         ep: 12,
-                        src: "",
-                        duration: ""
+                        src: "https://drive.google.com/file/d/1XJ74E_kibiDxr9pkbZIomz8mXd6nUrXE/preview",
+                        duration: "58m"
                     },
                     {
                         ep: 13,
-                        src: "",
-                        duration: ""
+                        src: "https://drive.google.com/file/d/1uPmS8K49I8zs6QCSBgN1vHgumyvjbyYw/preview",
+                        duration: "01h 01m"
                     },
                     {
                         ep: 14,
-                        src: "",
-                        duration: ""
+                        src: "https://drive.google.com/file/d/15In2s12JFq1Np_2ZpC2lFMeF9aMsbHuW/preview",
+                        duration: "59m"
                     },
                     {
                         ep: 15,
-                        src: "",
-                        duration: ""
+                        src: "https://drive.google.com/file/d/1dSD_oQqaxnEKcVV25WhZmLjR_7Dx8RDB/preview",
+                        duration: "01h 03m"
                     },
                     {
                         ep: 16,
-                        src: "",
-                        duration: ""
+                        src: "https://drive.google.com/file/d/16nD-49Fl3KrxnG8VgTkD0zG_A9yMf61C/preview",
+                        duration: "53m"
                     },
 
                 ]
@@ -2580,6 +2580,51 @@ export const series: SeriesProps[] = [
                 episodes: [
                     {
                         ep: 1,
+                        src: "",
+                        duration: ""
+                    },
+                    {
+                        ep: 2,
+                        src: "",
+                        duration: ""
+                    },
+                    {
+                        ep: 3,
+                        src: "",
+                        duration: ""
+                    },
+                    {
+                        ep: 4,
+                        src: "",
+                        duration: ""
+                    },
+                    {
+                        ep: 5,
+                        src: "",
+                        duration: ""
+                    },
+                    {
+                        ep: 6,
+                        src: "",
+                        duration: ""
+                    },
+                    {
+                        ep: 7,
+                        src: "",
+                        duration: ""
+                    },
+                    {
+                        ep: 8,
+                        src: "",
+                        duration: ""
+                    },
+                    {
+                        ep: 9,
+                        src: "",
+                        duration: ""
+                    },
+                    {
+                        ep: 10,
                         src: "",
                         duration: ""
                     },
