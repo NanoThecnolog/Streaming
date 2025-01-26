@@ -16,9 +16,36 @@ interface TMDBImageProps {
 export default function Card({ card }: CardProps) {
     const router = useRouter()
     const [TMDBImage, setTMDBImage] = useState<TMDBImageProps>()
-    const { serieData } = useTMDB()
+    const { serieData, cachedImages, setCachedImage } = useTMDB()
 
     useEffect(() => {
+        async function getImage() {
+            try {
+                if (cachedImages[card.tmdbID]) {
+                    setTMDBImage({ poster: cachedImages[card.tmdbID] })
+                } else {
+                    const data = serieData.find(data => data.id === card.tmdbID)
+                    if (data) {
+                        const url = `https://image.tmdb.org/t/p/original${data.poster_path}`;
+                        setTMDBImage({ poster: url })
+                        setCachedImage(card.tmdbID, url)
+                    } else {
+                        const url = await fetchTMDBSeries(card.tmdbID)
+                        if (url) {
+                            const posterImage = `https://image.tmdb.org/t/p/original${url.poster_path}`
+                            setTMDBImage({ poster: posterImage })
+                            setCachedImage(card.tmdbID, posterImage)
+                        }
+                    }
+                }
+            } catch (err) {
+                console.log(err)
+            }
+        }
+        getImage()
+    }, [card, serieData, cachedImages, setCachedImage])
+
+    /**useEffect(() => {
         async function getImage() {
             const data = serieData.find(data => data.id === card.tmdbID)
             if (data) {
@@ -36,7 +63,7 @@ export default function Card({ card }: CardProps) {
             }
         }
         getImage()
-    }, [card, serieData])
+    }, [card, serieData])*/
 
     function handleClick() {
         router.push(`/series/serie/${card.tmdbID}`)

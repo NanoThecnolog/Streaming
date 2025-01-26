@@ -40,7 +40,7 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
-        tmdbID: 0,
+        tmdbID: 1416,
         title: "Grey's Anatomy",
         subtitle: "",
         description: "Os médicos do Grey Sloan Memorial Hospital lidam diariamente com casos e consequências de vida ou morte. É um no outro que eles encontram apoio, conforto, amizade e, às vezes, até mais que amizade... Juntos, eles descobrem o quanto a vida profissional e a pessoal podem ser complicadas e se misturarem no meio do caminho.",
