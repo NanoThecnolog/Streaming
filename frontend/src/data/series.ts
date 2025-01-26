@@ -239,6 +239,228 @@ export const series: SeriesProps[] = [
                     },
                 ]
             },
+            {
+                s: 3,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1r-9WVTUM77yL2N1vW0fCoarT8ou7DDPl/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1_jxPLqPMs3DXIXH2v4mL_rvIEKMveX8j/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1CT4IoDUPLUrmwSbG1RR_exolNUkjE4m9/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1QEFmCRJTpRrBh0JVHLldqKKSTPYVVC_3/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/14VcLTkuA6rcjLAj4SF5ZCRcEWJ9ITbX1/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1Xz9TKqQqqhlwy7bKxbzxdzt5I1MugREH/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1ufd4MmTdixvF3fvVXncI-39lotE1NAdr/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1PyKs0TQEo4JnfYhFQqGl7uzuGQsndIIJ/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1Z4Llo7FhkQdJM2kUhFQnWCS0OCemuOi5/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1Se9wbibvdI2vezSx4-pWxRmChYytqb-z/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 11,
+                        src: "https://drive.google.com/file/d/1uWyZkthMBxh5wdTHWRH3cbr-dNHJTuqx/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 12,
+                        src: "https://drive.google.com/file/d/1irzjrrvgSFmaM-mG12osSzrMEvm8QON2/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 13,
+                        src: "https://drive.google.com/file/d/1Id4L24pLXXI0hK3PIdPfh1wFUBviZCDN/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 14,
+                        src: "https://drive.google.com/file/d/1zNy88ysikbMs-wvUrGrdrKQ0v0UQKOdH/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 15,
+                        src: "https://drive.google.com/file/d/1zRrAzw9ikbTUnM6Sf0VYXvnHoNlO7WXo/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 16,
+                        src: "https://drive.google.com/file/d/1v2FowxcBCGk14n6u5lLaIHM7qTUZ4DCS/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 17,
+                        src: "https://drive.google.com/file/d/1r-Ia_SnHqNWueElP6T6Vxh37mji8j0wT/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 18,
+                        src: "https://drive.google.com/file/d/1D8afhiGRIFqbeieNjgjp-mBo8E5c67Hs/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 19,
+                        src: "https://drive.google.com/file/d/1dE47l-1ndeOML3zVMa6u16wqLsSOo3SZ/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 20,
+                        src: "https://drive.google.com/file/d/10iusNZdETMfrrOGW9H8K1DBj3hKHw7Iu/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 21,
+                        src: "https://drive.google.com/file/d/1snuCqQN9yQ5rYsJ9G5pQul4fmnBjS7kY/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 22,
+                        src: "https://drive.google.com/file/d/1AnTwltLkEcX7LnOoppwqhUVLz1dgOduS/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 23,
+                        src: "https://drive.google.com/file/d/1trU5zdswXIDjtNn7fEdVsduk-I35VBrQ/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 24,
+                        src: "https://drive.google.com/file/d/1Ty-Fhwf-HZTiwaWFj-l44-Js4krMpftw/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 25,
+                        src: "https://drive.google.com/file/d/1wNiglkQyViB7xV8S85aqEIeCzfX9goal/preview",
+                        duration: "43m"
+                    },
+                ]
+            },
+            {
+                s: 4,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1GfkiQH5ybwmolkDu-H120dJfpSiYA1J7/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1gWkP4s1j0nI4tdaHL6dTwaWA6fg1-z1z/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1lUHtwUMFwDRVYtZKlLjOC1OpJvle8mbo/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1BmAeXgjAxvmyd6dDHTfBdT9p0Xee-9dQ/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1cmQvNb76LW1W8WWT1pVos8j9xYytpxBO/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1mFPdMBc_URHslvi9Y5yxgEcieEnB3FOe/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1Wdwmnqdu165egBFus5_xaygiz6lpW_Ti/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1hFj1O9qDyIHk0eNJgO216ImMNeQH9X39/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1e_222R0vcq2VqS1Nx9OtEMSjhBvS5FRo/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1CD7P6hw0rWXPmhP5C_dM2d6ZstOhpk04/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 11,
+                        src: "https://drive.google.com/file/d/1XYOgk9y1lzji_YapxFz5-06u-dBoOuKg/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 12,
+                        src: "https://drive.google.com/file/d/1W7kukKvwA2xdb6uWjAyAPj9k9J1mFJvJ/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 13,
+                        src: "https://drive.google.com/file/d/15oyO6AgK7M2tOYoyEw8wxJteYjkg11-u/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 14,
+                        src: "https://drive.google.com/file/d/1PdvAEGtM2WH0tZenSVc8y4QVR3L47NOl/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 15,
+                        src: "https://drive.google.com/file/d/189pBUQKblfZ8kolwENgl2H0JvWaoGFzO/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 16,
+                        src: "https://drive.google.com/file/d/1_TCLKTPVNR-YKx9nyAr2y7HyV4NkN6vI/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 17,
+                        src: "https://drive.google.com/file/d/18Bf9RP4CaLEO0XmB_rRWwTzcmdfGEFOw/preview",
+                        duration: "43m"
+                    },
+                ]
+            },
         ]
     },
     {
