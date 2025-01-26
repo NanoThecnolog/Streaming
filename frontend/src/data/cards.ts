@@ -36,6 +36,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 11918,
+        title: "Super Herói",
+        subtitle: "O Filme",
+        description: "Rick Riker é um estudante comum do colegial. Porém, ao ser mordido por uma libélula geneticamente modificada ganha superpoderes. Agora sua missão é proteger a cidade das mãos do malvado Hourglass, que suga a vida de suas vítimas.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1QNz-B6o_zBu22RZhU3A3ZE-Rldz56G5j/preview",
+        duration: "01h 22m",
+        genero: ["Comédia", "Ação", "Ficção Científica", "Super Herói"]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 258489,
         title: "A Lenda de Tarzan",
         subtitle: "",
