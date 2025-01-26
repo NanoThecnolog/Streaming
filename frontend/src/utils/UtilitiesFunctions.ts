@@ -50,7 +50,7 @@ export function capitalize(str: string): string {
 }
 
 /**
- * Utiliza normalize e replace pra remover a acentuação de palavras.
+ * Função para remover acentuação de palavras.
  * @param str Palavra a ser tratada
  * @returns retorna a palavra sem acentos
  */
