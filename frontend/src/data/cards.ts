@@ -36,6 +36,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 258489,
+        title: "A Lenda de Tarzan",
+        subtitle: "",
+        description: "Releitura da clássica lenda de Tarzan, na qual um pequeno garoto órfão é criado na selva, e mais tarde tenta se adaptar à vida entre os humanos. Na década de 30, Tarzan, aclimitado à vida em Londres em conjunto com sua esposa Jane, é chamado para retornar à selva onde passou a maior parte da sua vida onde servirá como um emissário do Parlamento Britânico.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1Ka1Wq2utOTtCA9_ARgKsVnJEPqSHR3jd/preview",
+        duration: "01h 49m",
+        genero: ["Ação", "Aventura", "Fantasia"]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 619979,
         title: "Águas Profundas",
         subtitle: "",
