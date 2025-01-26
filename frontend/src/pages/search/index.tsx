@@ -41,7 +41,6 @@ export default function Search(status: string) {
     useEffect(() => {
         if (router.isReady) {
             const { input } = router.query;
-            console.log(input)
             setMovie(normalizing(input as string))
         }
     }, [router.isReady, router.query, movie])
@@ -104,7 +103,6 @@ export default function Search(status: string) {
             setLoading(true)
 
             const normalizedInput = normalizing(input).toLowerCase()
-            console.log(normalizedInput)
             if (input === '' && genre === '' && streaming === '' && faixa === '') return setLoading(false);
             const matches = (item: CardsProps | SeriesProps): boolean => {
                 const normalizedTitle = normalizing(item.title).toLowerCase()
@@ -118,7 +116,6 @@ export default function Search(status: string) {
 
             const filteredCard = cards.filter(matches)
             const filteredSerie = series.filter(matches)
-            console.log([...filteredCard, ...filteredSerie])
             const combined = [...filteredCard, ...filteredSerie]
             setFiltered(combined)
             await new Promise((resolve) => setTimeout(resolve, 1000))
