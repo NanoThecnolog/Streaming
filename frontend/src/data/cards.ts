@@ -36,6 +36,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 939243,
+        title: "Sonic 3",
+        subtitle: "O Filme",
+        description: "Sonic, Knuckles e Tails se reúnem contra um novo e poderoso adversário, Shadow, um vilão misterioso com poderes diferentes de tudo que eles já enfrentaram antes. Com suas habilidades superadas em todos os sentidos, a Equipe Sonic deve buscar uma aliança improvável na esperança de parar Shadow e proteger o planeta.",
+        faixa: "10",
+        src: "https://drive.google.com/file/d/1jaWLj1XtXjnv_uVKYXK9O5zZIcx9WaUZ/preview",
+        duration: "01h 50m",
+        genero: ["Ação", "Ficção Científica", "Comédia", "Família"]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 11918,
         title: "Super Herói",
         subtitle: "O Filme",

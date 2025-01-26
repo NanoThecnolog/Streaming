@@ -16,12 +16,29 @@ interface TMDBImagesProps {
 export default function Card({ card }: CardProps) {
     const router = useRouter();
     const [movie, setMovie] = useState<MovieTMDB>()
-    const { allData } = useTMDB()
+    const { allData, cachedImages, setCachedImage } = useTMDB()
     const [TMDBImages, setTMDBImages] = useState<TMDBImagesProps>()
     //const [TMDBMovie, setTMDBMovie] = useState<MovieTMDB | null>(null)
 
-
     useEffect(() => {
+        async function getImage() {
+            if (cachedImages[card.tmdbId]) {
+                setTMDBImages({ poster: cachedImages[card.tmdbId] })
+            } else {
+                const data = allData.find(data => data.id === card.tmdbId)
+                const url = data ? `https://image.tmdb.org/t/p/original${data.poster_path}` : await fetchTMDBPoster(card.tmdbId)
+
+                if (url) {
+                    setTMDBImages({ poster: url })
+                    setCachedImage(card.tmdbId, url)
+                }
+            }
+        }
+        getImage()
+    }, [card, allData, cachedImages, setCachedImage])
+
+
+    /*useEffect(() => {
         async function getImage() {
             const data = allData.find(data => data.id === card.tmdbId)
             if (data) {
@@ -35,7 +52,7 @@ export default function Card({ card }: CardProps) {
         }
         getImage()
 
-    }, [card, allData])
+    }, [card, allData])*/
 
 
 

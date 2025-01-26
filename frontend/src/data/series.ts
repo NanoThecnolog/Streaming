@@ -2489,13 +2489,89 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 5,
-                lang: "",
+                lang: "Legendado",
                 episodes: [
                     {
                         ep: 1,
+                        src: "https://drive.google.com/file/d/1WpC4to7fvm11wsOppseVi0OlYjNBpYEl/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/13uKynlGnaigT2E7EpSi6aP0R0gmzXiQw/preview",
+                        duration: "57m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1NFdEy_Kq9japTBNK7-PhSO17PImb2W7I/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1PMry5WSTWq3ALYPSlxLeNRUNPZ8oAi9e/preview",
+                        duration: "55m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1I3lHZT1Zx-Rwcwk2EbXGKgBhxpLOPhEa/preview",
+                        duration: "55m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1Xpcf9HNCVkUBlSFnr3KDRXP8I8uqKS4s/preview",
+                        duration: "56m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1q5DFNytd_qHbIXSyZkEAIw62lcvqN4NI/preview",
+                        duration: "56m"
+                    },
+                    {
+                        ep: 8,
                         src: "",
                         duration: ""
                     },
+                    {
+                        ep: 9,
+                        src: "",
+                        duration: ""
+                    },
+                    {
+                        ep: 10,
+                        src: "",
+                        duration: ""
+                    },
+                    {
+                        ep: 11,
+                        src: "",
+                        duration: ""
+                    },
+                    {
+                        ep: 12,
+                        src: "",
+                        duration: ""
+                    },
+                    {
+                        ep: 13,
+                        src: "",
+                        duration: ""
+                    },
+                    {
+                        ep: 14,
+                        src: "",
+                        duration: ""
+                    },
+                    {
+                        ep: 15,
+                        src: "",
+                        duration: ""
+                    },
+                    {
+                        ep: 16,
+                        src: "",
+                        duration: ""
+                    },
+
                 ]
             },
             {
@@ -4172,6 +4248,11 @@ export const series: SeriesProps[] = [
                         ep: 6,
                         src: "https://drive.google.com/file/d/1jF9My4-50vp56M4HVghcAnhAHp5Y4t-K/preview",
                         duration: "49m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1_fD_yfmMNQBKg1vPby2YDz4J5cjCJe6e/preview",
+                        duration: "48m"
                     }
                 ]
             },
@@ -4640,6 +4721,11 @@ export const series: SeriesProps[] = [
                         src: "https://drive.google.com/file/d/1KCXWriVw0o55IVcsW5kpy8TOEWvZ8C8z/preview",
                         duration: "23m"
                     },
+                    {
+                        ep: 16,
+                        src: "https://drive.google.com/file/d/1TUL5tM0fjke3z_wKtaPelgTl49WZqov2/preview",
+                        duration: "23m"
+                    }
                 ]
             },
         ]
