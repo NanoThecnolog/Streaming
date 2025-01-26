@@ -40,6 +40,210 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 0,
+        title: "Grey's Anatomy",
+        subtitle: "",
+        description: "Os médicos do Grey Sloan Memorial Hospital lidam diariamente com casos e consequências de vida ou morte. É um no outro que eles encontram apoio, conforto, amizade e, às vezes, até mais que amizade... Juntos, eles descobrem o quanto a vida profissional e a pessoal podem ser complicadas e se misturarem no meio do caminho.",
+        genero: ["Drama"],
+        faixa: "A14",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1ODm_gFpTKH5weG_IB4o6zcbAdX3j2cxC/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1PABjqeXZ7hDypLHiFI3oOjfaTVl8E9D9/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1KMnv_WQPwlhdwK5lEY14n6EJTb5V08-X/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1vk--XxXKRUcXQkEoPD1h86VYJpAL1wcm/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1f1Jr2FliOw4gNguNls-eS3FpBMsEkmTI/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1V-xid3HXb-K4NomqoElcawQnsgerT1gO/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/10wSYSzN4-X-Kozwu3JsM3eljWVnhTkGr/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1HHqFUBOgtT6kt13TKApWDFPKbyRC4sdb/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/135UQleOAe6WE47GhqByigHLBJXCfS7J7/preview",
+                        duration: "42m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/10YyS2MOq-FQrzQjGUq01lOCfGTUzmcMy/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1ftFBxz0p9JeuzVs2Q_3B1rEajmGQW39c/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1cx7rHpHWRUaPH_BWwYsP9N55Jvgfag1K/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1UCaEs8EiB3Gp3KdYfMUqtkOW7xUeNOw4/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/17JPbXQiwlwspE52c-h6U_k3KweWylQ1Q/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/17W7DPAlHmynEVBLSD3GbdKhM1EqphnQR/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1ccSqMHTEVu29EJJKQhFl0mtQLyuoZHzW/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1fp_55CJqb1dTv6SQZEXQfMFVSSQbYWV5/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1s5If1C-ub_--a3_z1g8CLde0Sd4bBlcS/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1okmIUl8PV8I5tNK8IY9wu0ehme11_adI/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 11,
+                        src: "https://drive.google.com/file/d/1OlNTj9ocYzK590JD7OCjt07GwN7vREh0/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 12,
+                        src: "https://drive.google.com/file/d/1RNtVYBzzwLwbU-yqD8dzPj2__xky_vnG/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 13,
+                        src: "https://drive.google.com/file/d/1kUgZz0GT13ZXmpMUhUPwJSsn1rZF8rFg/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 14,
+                        src: "https://drive.google.com/file/d/1skbxozswD_S7Ha15FjxAFetSvxwfoc2w/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 15,
+                        src: "https://drive.google.com/file/d/1OHKfFyjmF8c7jgvs3XM48AAxbVzr_5C_/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 16,
+                        src: "https://drive.google.com/file/d/1WknPlWMDg45arqPNBW3IgT2To2JvbTmn/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 17,
+                        src: "https://drive.google.com/file/d/1zMZTcHiewOiWizr3LkB_o1_RBshtM3Gb/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 18,
+                        src: "https://drive.google.com/file/d/1FUn_WWYCikrJS1mr1oDEX5mh7ilXwz9W/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 19,
+                        src: "https://drive.google.com/file/d/1TrZNYFTmj73mISoAOixux_z-fbH9zsZC/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 20,
+                        src: "https://drive.google.com/file/d/1ctz1wcI7BA1cF2fKTuPiYj1T_VZzdidp/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 21,
+                        src: "https://drive.google.com/file/d/1w0BNZFavuzAlETyx-TfhGC6tLpxPRhv_/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 22,
+                        src: "https://drive.google.com/file/d/1y_czxzOQUEBB9B7JbYJpWKbJ72H-5AOz/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 23,
+                        src: "https://drive.google.com/file/d/11n3w0nMoP2f93pLEZYQ8GZT_fmJu36DM/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 24,
+                        src: "https://drive.google.com/file/d/17vUtujxnWqLIGBsXyvq-qEzD1AARlEnz/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 25,
+                        src: "https://drive.google.com/file/d/1kMCVBXysDzhkL09KJS2I-b7lvfsz6iVw/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 26,
+                        src: "https://drive.google.com/file/d/1wJeEFSIQIb8tLYZ5b5W63ixjAKr4hUDI/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 27,
+                        src: "https://drive.google.com/file/d/1UONt3NK_vdxep6PDaoeDYsxLhfEzi5eA/preview",
+                        duration: "43m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 74577,
         title: "The End of The F***ing World",
         subtitle: "",
