@@ -4,19 +4,16 @@
     flex-direction: column;
     margin-bottom: 40px;
 
-
     .content_title {
         font-family: var(--font-bebas);
-        color: white;
+        color: var(--white);
         font-size: 35px;
         letter-spacing: 5px;
         padding-left: 40px;
-
     }
 
     .card_carousel {
         display: flex;
-        //overflow: hidden;
         justify-content: flex-start;
         align-items: center;
         width: 100%;
@@ -31,16 +28,13 @@
             overflow: hidden;
             width: 100%;
             gap: 8px;
-            //z-index: 2;
         }
-
 
         button {
             background-color: transparent;
             border: none;
             padding: 8px 16px;
             cursor: pointer;
-
 
             &:disabled {
                 background-color: transparent;
@@ -76,7 +70,6 @@
             height: 600px;
             margin: 0 0.2rem;
             transition: all 0.2s;
-
 
             &:hover {
                 background-color: #c0c0c0;

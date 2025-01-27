@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 import { MdNavigateNext } from "react-icons/md";
 import { MdNavigateBefore } from "react-icons/md";
+import { Divide } from "lucide-react";
 
 interface ContainerProps {
     section: string
@@ -45,13 +46,14 @@ export default function CardContainer({ section, cardPerContainer }: ContainerPr
                     <MdNavigateNext size={30} />
                 </button>
                 <div className={styles.cardContainer}>
-                    {filteredCards.slice(currentIndex, currentIndex + cardsPerPage).map((card) => (
-                        <div className={styles.card} key={card.tmdbId}>
-                            <Card
-                                card={card}
-                            />
-                        </div>
-                    ))}
+                    {
+                        filteredCards.slice(currentIndex, currentIndex + cardsPerPage).map((card) => (
+                            <div className={styles.card} key={card.tmdbId}>
+                                <Card
+                                    card={card}
+                                />
+                            </div>
+                        ))}
                 </div>
             </div>
         </div>
