@@ -2,7 +2,7 @@
 
 Seja bem-vindo ao repositório da plataforma de Streaming **FlixNext**.
 
-Este projeto foi concebido com o intuito de oferecer uma experiência imersiva e otimizada para exploração, pesquisa e consumo de conteúdos audiovisuais de forma gratuita. Apresentado como protótipo funcional, o sistema integra práticas avançadas de desenvolvimento e design, configurando-se como o Trabalho de Conclusão de Curso para o Bacharelado em Sistemas de Informação no Centro Universitário IBMR.
+Este projeto foi concebido com o intuito de oferecer uma experiência imersiva e otimizada para exploração, pesquisa e consumo de conteúdos audiovisuais de forma gratuita. Apresentado como protótipo funcional, o sistema integra práticas avançadas de desenvolvimento e design, configurando-se como o Trabalho de Conclusão de Curso para o Bacharelado em Sistemas de Informação.
 
 ---
 
