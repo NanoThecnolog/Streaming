@@ -587,6 +587,248 @@ export const series: SeriesProps[] = [
                     },
                 ]
             },
+            {
+                s: 6,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1p_OYZevOj2JavLu7-jb8UxKJ0ZVMSmk9/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1RSxd19aTn_GvUqCAWo1TeK_p8wx-OY1R/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/13ojxeSa9m6-2uxKngT9-yBwZ7XpkiPMn/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1H3qvGxkpSdLm449-FydtOdmV5iDHzCuS/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1ZeA3XRhoBVvrhtj1BWDU0gm0Go2jfaZ0/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1OrubbHWqjbiZUPf6l_wJnyfdYyRO5fPY/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1YR6GUbiHCEW8BroruBpIqKuE8XxElLyT/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1tNjKIMbMZXbHWoK675iibGT_j0a6HvgR/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1bOFTu-6tU76Xw1-IVPr2neqWhAZ7OY7U/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/19LkE9J7UJsob8qi9ztokeN0wYMCgSiRp/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 11,
+                        src: "https://drive.google.com/file/d/1_GF0NCtzUkUnptu6EXoqzhhjdkuojT3O/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 12,
+                        src: "https://drive.google.com/file/d/1ky4AKqza9bqvbEa9iEHUZ3GQOGYUq85v/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 13,
+                        src: "https://drive.google.com/file/d/1XpzMxlkfxSWaAr5DMwzvdKP3jfc-0Ko0/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 14,
+                        src: "https://drive.google.com/file/d/101-kjCpR7hwNzJ8LzfffprUG9qtw2FTN/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 15,
+                        src: "https://drive.google.com/file/d/1ZcPUZTr9d9kJcGUrXNdeyevYJwy8hNSG/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 16,
+                        src: "https://drive.google.com/file/d/1aFPnqhNJ33BjYli3EE7YHQ9Hw7IvrlxM/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 17,
+                        src: "https://drive.google.com/file/d/1tlMXsqQVW2i3CmlwBS5QaaP1uIZdYXnZ/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 18,
+                        src: "https://drive.google.com/file/d/1yf6w_REiXYZLCg9pkp5PxGbv4ayVF1Oz/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 19,
+                        src: "https://drive.google.com/file/d/1oC_1W3NXH3o643HRMUfFaFRv7hhv5Eww/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 20,
+                        src: "https://drive.google.com/file/d/1SLKq8xmwW3tKYIjfdcceZKn6fdd3AS2Y/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 21,
+                        src: "https://drive.google.com/file/d/1R84iFV0F8eaYAzQdtISP1qlKAUahP2KK/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 22,
+                        src: "https://drive.google.com/file/d/1B4ekZY63XYZGDwA6J0lK7PQ2EAmxbaf3/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 23,
+                        src: "https://drive.google.com/file/d/1c1QdxDQlQVx6IT_Mopm3uDHtQebO_0KD/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 24,
+                        src: "https://drive.google.com/file/d/1gJ9JmJ457WK34zo9w4mur7r5glVJ8zR5/preview",
+                        duration: "43m"
+                    },
+                ]
+            },
+            {
+                s: 7,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1OIP_xZfb3IXziCxcagjdpMBoymIZZNzh/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1NpfD3XeMYWMHUwLPxwdxYiiRhOxCmnA8/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1D5YTst8hu1uYtNzv3ASdtQlVmVB5iMgK/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1K36_-YTbK3fMTmKRk-dRQ_BJqZ3FgUB7/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1_hPMafZlO7YPGlDdaXRPAZwG5RtE5MP1/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1wPGWou-Gz761QMQxNVch4M0FiQEzM5FD/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1lW9fsOM3tQ9E02Df1_ysRezj_1486ZsY/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/10Yy_YH63Maq2flwWdMV9n7UJOqCZnvDt/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/11odalaJTCe7fSIqFZYFKjqOkPTyOMhik/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1XCeM_qaKiuHEKgbuDEC_hG1vzitFJY0N/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 11,
+                        src: "https://drive.google.com/file/d/1_YRjPCJD5ubXEpXRdP-qQS5Slw0Hzwfs/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 12,
+                        src: "https://drive.google.com/file/d/1z8uTTOatCFOohmYcYtCgmpjrV-b27STx/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 13,
+                        src: "https://drive.google.com/file/d/1zY0LH8Hy85BHVyUEpDctJ8nUidzBYm36/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 14,
+                        src: "https://drive.google.com/file/d/1NBtsB8EFR6rPhTsbezWk0P2EqfFohA0a/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 15,
+                        src: "https://drive.google.com/file/d/1p_IcYRTitkEN4X3r8ZLUbRbuJ-UZvgfP/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 16,
+                        src: "https://drive.google.com/file/d/1AjJQ6jTShYkmAI345kM6aaYQJ2yE5dNk/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 17,
+                        src: "https://drive.google.com/file/d/17hu6ZYLnvxTNqIN-fSJWAyMgdzGpmvI2/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 18,
+                        src: "https://drive.google.com/file/d/1tZcOGtu4oVjKF-tcU_lrP4lv1nedFBn_/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 19,
+                        src: "https://drive.google.com/file/d/1jl5zDrgbqn_qAsVu4V5qiwx869b4vByJ/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 20,
+                        src: "https://drive.google.com/file/d/1YJmY-AV0BQ1yZ-bEsO7GgeN_Nv8aa29L/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 21,
+                        src: "https://drive.google.com/file/d/1um1B1_DJN914Ucc6k2nrvp40WnuoL_y-/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 22,
+                        src: "https://drive.google.com/file/d/1Y_ND2fPVAQPPw6GGuOcERIOnygNNE1OG/preview",
+                        duration: "43m"
+                    },
+                ]
+            },
         ]
     },
     {
@@ -1852,8 +2094,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuploads.metropoles.cloud%2Fwp-content%2Fuploads%2F2024%2F04%2F10124421%2FBebe-Rena.jpg&f=1&nofb=1&ipt=5a2e655f9be253c25daf3045bbb1edac0b2dfd8eae1acb4fb39bfcb65efc1bc5&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.tT-yuw-mQZ8uZ4UuxWQQHAAAAA%26pid%3DApi&f=1&ipt=0d298bdbe7dcf2b988d77ac5afec4daa9c4bc3738d95b7571e8c83bfee8abfda&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 241259,
         title: "Bebê Rena",
         subtitle: "",
@@ -1905,8 +2147,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.RhPmGbyfi57fBuJmQQ6kcQHaLH%26pid%3DApi&f=1&ipt=595f52c5e75ee0b8812a17f9ed99ae3d0693785e638adbbb09ad06ebd04f1581&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 138502,
         title: "X-men ’97",
         subtitle: "",
@@ -1973,8 +2215,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.NmCgrpvb-6NqE0knsB0XlAHaKl%26pid%3DApi&f=1&ipt=a87bb14b94807216f4a3fe648b4f09538796a87e76f344c86afd2f58fb7a3dcd&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 122226,
         title: "Eco",
         subtitle: "",
@@ -2016,8 +2258,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.hobbyconsolas.com%2Fsites%2Fnavi.axelspringer.es%2Fpublic%2Fmedia%2Fimage%2F2023%2F10%2Finvencible-temporada-2-prime-video-3210364.jpg%3Ftf%3D3840x&f=1&nofb=1&ipt=75e37e927a25a3f7e2b80fc89a58863bc4acdaf9574a018d98cba62036263f27&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.yq4BXLqkbyx9ZCHzHkhPCwHaLH%26pid%3DApi&f=1&ipt=edfdf47ac367d819280d3da8909f86827fd4f242203024471bccbcdaf87f410a&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 95557,
         title: "Invencível",
         subtitle: "",
@@ -2120,8 +2362,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuploads.alternativanerd.com.br%2Fwp-content%2Fuploads%2F2024%2F12%2FAN_Comando-das-Criaturas.webp&f=1&nofb=1&ipt=b5dbdda8a050c2c8216b3034e163f98eab72d39906667fea6287c6c50d3fa1e1&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.wwSKuAcw3BUyCW1CY-5mSwHaLG%26pid%3DApi&f=1&ipt=fcba4d34786362f922807ff8bcdeb83b046bd2944feab52da0d271d611fcc44c&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 219543,
         title: "Comando das Criaturas",
         subtitle: "",
@@ -2176,8 +2418,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.y2U1HrWTptLczw1hQqI4YQHaK-%26pid%3DApi&f=1&ipt=19ad3961889eb3c2a9b1a3c1e13a7b20a531c03bf26c0cfa86b53dddcab51917&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 84958,
         title: "Loki",
         subtitle: "",
@@ -2260,8 +2502,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpop.proddigital.com.br%2Fwp-content%2Fuploads%2Fsites%2F8%2F2023%2F06%2F18120946210015.jpg&f=1&nofb=1&ipt=23a9008d784dddf28e322ab57b42722d1733656d446a9ed36f7300fbdf7464e3&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.-fMFUfGKT1WZQUY88woauAAAAA%26pid%3DApi&f=1&ipt=ea188f6a513af44a8c4e8a862333b3ebcd133e60c876493129b7bb32e4b39d9e&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 82452,
         title: "Avatar",
         subtitle: "O Ultimo Mestre do Ar",
@@ -2318,8 +2560,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F3238leblogdemarvelll-1278.kxcdn.com%2Fwp-content%2Fuploads%2F2021%2F02%2Fwandavision-banniere-2-disneyplus-1.jpg&f=1&nofb=1&ipt=d9dbe6043a37d60f2fa680809bbad156d63801ea9849460918ce23959a595758&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.S63dlo66u0LM18bPf3Qu_QHaJ4%26pid%3DApi&f=1&ipt=7fa795d8c66c5de03ad9a068e544829f338c506a13ce632d741b533867e2bb6d&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 85271,
         title: "WandaVision",
         subtitle: "",
@@ -2381,8 +2623,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FnpD65vPa4vvn1ZHpp3o05A5vdKT.jpg&f=1&nofb=1&ipt=6dba7a88161cadce2dc0dd8a64fcad3ab8189b90a0684d8eb8b5cc16e18d2a09&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.ACfRI0yylDw3z2GSA5waTgHaLH%26pid%3DApi&f=1&ipt=8c170bfc3c055a83409e98c85da85ae233245a86a1bf2ec15f1c40b5673a065c&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 95396,
         title: "Ruptura",
         subtitle: "",
@@ -2463,8 +2705,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FvoKEhzb4ExOmR0WSvQgLTTqRUEu.jpg&f=1&nofb=1&ipt=38c32f78e510adcfe6a042c692fff2f3f57cff121b84566be5d6df4c1fb88637&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.M4C63biWrv1b-mpGKJ3fwgHaLH%26pid%3DApi&f=1&ipt=d6b4aeb7cbf33adb808e8ac3d1cf539a4a4b059731a2b0dc108dd256957d18c4&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 108978,
         title: "Reacher",
         subtitle: "",
@@ -2567,8 +2809,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://images.squarespace-cdn.com/content/51b3dc8ee4b051b96ceb10de/1689026722676-9333AHQABGP246R79AZ8/new-trailer-for-taylor-sheridans-special-ops-lioness-series-starring-zoe-saldaa-and-morgan-freeman.jpg?format=1500w&content-type=image%2Fjpeg",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.TbKNqaTwTZVAa6dbsUMshQHaLH%26pid%3DApi&f=1&ipt=17f2c1efe636348e83622469733a7da5344b20299161d743e6f1b39837276835&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 113962,
         title: "Lioness",
         subtitle: "",
@@ -2671,8 +2913,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.numerama.com%2Fwp-content%2Fuploads%2F2021%2F08%2Flucifer-saison6.jpg&f=1&nofb=1&ipt=de8e8d62f5a81b4786564ab7cfc73958d8934896d30b73b33920e4124ce9efd2&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.oUOBjta7mRZHj2WOLZGRpQHaLH%26pid%3DApi&f=1&ipt=6825064ce57392dc379b3bbca57fbb7dd22d0a845f3718a95a09e1828503c41b&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 63174,
         title: "Lucifer",
         subtitle: "",
@@ -3185,8 +3427,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmoviecrue.com%2Fwp-content%2Fuploads%2F2022%2F08%2F1260707-scaled.jpg&f=1&nofb=1&ipt=9103124ad5a32b5657f41a00781bcb5745d9a1a660472a26873f109e7760e07d&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.7hdffKRgHv0UBdAWzUVtVAHaJQ%26pid%3DApi&f=1&ipt=bf5d4958fa980a4cafb58c4de18a5f5217aa831f16947210163f4520f60c5d1d&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 90802,
         title: "The Sandman",
         subtitle: "",
@@ -3253,8 +3495,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wallpapersden.com%2Fimage%2Fdownload%2Fmoon-knight-hd-official_bWhoZWWUmZqaraWkpJRmbmdlrWZnZWU.jpg&f=1&nofb=1&ipt=aecb50da2cdf9c4da77ddeec0a060f8ed386d149115a348e8dfc91696f49518c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.5WAMbMYcuyDwYZoAJmjA_QHaLH%26pid%3DApi&f=1&ipt=f9aa4a08ba7a6ed66b00f2cb3fe7649a987ac1502a0abe467fc5d9ddf0dceeed&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 92749,
         title: "Cavaleiro da Lua",
         subtitle: "",
@@ -3301,8 +3543,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wallpapersden.com%2Fimage%2Fdownload%2Fms-marvel-4k-season-1-disney_bWlnamiUmZqaraWkpJRmbmdlrWZlbWU.jpg&f=1&nofb=1&ipt=c7a69afc55f34b7183149501a78b88d550c207934c0a68222dec9a0a9d5db98b&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.J2oUhCLBBzr9iKp0Dt9xSAHaLH%26pid%3DApi&f=1&ipt=87735448d5b9d40f1d57aa52f632e0b21c7b1cdd86b8b657bac2c4c612711489&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 92782,
         title: "Ms. Marvel",
         subtitle: "",
@@ -3349,8 +3591,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fistoe.com.br%2Fistoegeral%2Fwp-content%2Fuploads%2F2024%2F10%2F1835467977-day-of-the-jackal-1.jpg&f=1&nofb=1&ipt=5e1578d52a17bbb48cefeb88b9a8f73a1de4b52066c26781a9e22e2f367267cb&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.F2VwuVCuZo-6bdVeXCf2uwHaJQ%26pid%3DApi&f=1&ipt=bddb667ba5e48bac39f0cf07cc4cfb60b8746e4559ce2ae726d0de440307db69&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 222766,
         title: "O Dia do Chacal",
         subtitle: "",
@@ -3417,8 +3659,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FgRhEQqSh0IfxA6Wmd1OTb5vRSHf.jpg&f=1&nofb=1&ipt=1d3980f4d4b516b4c6564d25cede17c4f6ff8786d9180814a4629ed5070cbfde&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.mGv-yzaFcI25YkQ0eM_OgwHaLH%26pid%3DApi&f=1&ipt=7c7e69baf74a8981667b06259e701f32d3e4aec9d2a35c54d126f70da54011f7&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 4604,
         title: "Smallville",
         subtitle: "As Aventuras do Superboy",
@@ -4233,8 +4475,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmeups.com.br%2Fwp-content%2Fuploads%2F2024%2F12%2Fnivel-secreto-6.jpg.webp&f=1&nofb=1&ipt=059ce9481c655cb7348cf256a90cde4efc247b2dc7375442ed9148844c9995ab&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.l1pB1lF0OZTVnK0xgS6WBwHaJQ%26pid%3DApi&f=1&ipt=77ae5e1498aa60c32b8d63b3f927fbc5a5907d0c4e6cc2803e5bbf251d03e0d1&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 261579,
         title: "Nivel Secreto",
         subtitle: "",
@@ -4326,8 +4568,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.noreruns.net%2Fwp-content%2Fuploads%2F2020%2F10%2FDEXTER7_RevMCH-023crt.jpg&f=1&nofb=1&ipt=9b7783d435c6a7d4cf033093ef5c469f04db6a0c8a41fdc612e91ac8fd28a816&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.-oO-fMVp-BwPTOrdjJtlBgHaKE%26pid%3DApi&f=1&ipt=140f0ef4f4999a4c66b05d049225025582aac60ae99b80e5e12ed2c60b819c00&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 1405,
         title: "Dexter",
         subtitle: "",
@@ -4800,8 +5042,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fepipoca.com.br%2Fwp-content%2Fuploads%2F2024%2F12%2FDexter-Pecado-Original-paramount.jpg&f=1&nofb=1&ipt=83168e4f3a1d9db27617f5eac1b66675f75f06c77b39824aef79fb58ceec1928&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.s3-ccUHvQOx8b6kIAuZN5AHaJb%26pid%3DApi&f=1&ipt=fdf94492bc137b459939b9ee451ec84c38d0718ed859643475bcc1ac00537eb6&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 219937,
         title: "Dexter",
         subtitle: "Pecado Original",
@@ -4856,8 +5098,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.hobbyconsolas.com%2Fsites%2Fnavi.axelspringer.es%2Fpublic%2Fmedia%2Fimage%2F2023%2F05%2Fsilo-3025760.jpg%3Ftf%3D3840x&f=1&nofb=1&ipt=cc1be71e71063a06d42a08707af8462fabbc9dbddef5eb40e4e1ec518f11718a&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.MmTw76EmB0ZqFY8VlJQM-wHaLH%26pid%3DApi&f=1&ipt=eb573ef8bd10c3bc1de0e830cd6366cc38f9285284d00961cf4001cf178ca871&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 125988,
         title: "Silo",
         subtitle: "",
@@ -4983,8 +5225,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FrT4wofiMisPvUq411oKw0PUp0iN.jpg&f=1&nofb=1&ipt=83514267ae2fcaec1a7e1005d6725b17290b2c182059f116f9c15fd5fed6f278&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.sD69r2ORLC770aLgXrxTGwHaKk%26pid%3DApi&f=1&ipt=ddc7d8295ec4d78de01996d86e128566b9192c8d84496a8a5ce09dea0dfa019e&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 218347,
         title: "Sweetpea",
         subtitle: "",
@@ -5031,8 +5273,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F825392.jpg&f=1&nofb=1&ipt=49a9470e4b0d0fde510b1f7b51ff99b68eb065db5a2f36ca6ecd1602e6a54c7c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.iBA-BI97PIIu0XDpwnSQ2wHaLY%26pid%3DApi&f=1&ipt=43685f01a54edb944f440d2c1677d5d81cdc6b364040fab7fcfd8876dca2c807&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 66732,
         title: "Stranger Things",
         subtitle: "",
@@ -5227,8 +5469,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.animecorner.me%2F2024%2F01%2F1704467896-5380.jpg&f=1&nofb=1&ipt=5ecb576d66aecf5188b887aea7399a4b7fec7265546f93f065f2e570802ed745&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.MGRRsyeq3kMGdUIG01DVQgHaLH%26pid%3DApi&f=1&ipt=bfbb545482090f3305b36c1cefbbcbc003de19039f89553a30fbf3a691d844a7&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 127532,
         title: "Solo Leveling",
         subtitle: "",
@@ -5328,8 +5570,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-JwKb8fjVT4Y%2FUKjoGxKmb6I%2FAAAAAAAABaY%2F1_SdOH3FZkE%2Fs1600%2Foliver_queen_in_arrow-wide.jpg&f=1&nofb=1&ipt=32203d283af1ae3daf390a306fbf6b05b046ae29e778dbb85db1c1308e86b969&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Z6X0JzkLOh9R-9RQl6n1cQHaLG%26pid%3DApi&f=1&ipt=b02db80c6cdf26fe75638c5c46fd4301eeb93b010312afc6a8ddca1ae4804d7d&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 1412,
         title: "Arrow",
         subtitle: "",
@@ -6237,8 +6479,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fv9CyGKG1P2McFMAnOG4X59b7CI7.jpg&f=1&nofb=1&ipt=9948574b060e1a921aef612aa893a380cfdfa8194b58f5f938911ba8712ca1d4&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.sF8MujoWa5TQMqevgDHc7QHaLH%26pid%3DApi&f=1&ipt=7b6829ac48b2db5e88091b37a87e792293fac9ceefb5f9add2a5bf089d57bea8&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 2692,
         title: "Eu, a Patroa e as Crianças",
         subtitle: "",
@@ -6895,8 +7137,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wallpapersden.com%2Fimage%2Fdownload%2Flocke-and-key-2022_bWpqZWyUmZqaraWkpJRnamtlrWZpaWU.jpg&f=1&nofb=1&ipt=ced73b198c19ec9b7a5cb798d99c491e45f7f87ea30af56054376e461d11fd31&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Kn1371emYx2YweTuEjZ51gHaJ4%26pid%3DApi&f=1&ipt=7f100955a02cb859f4fc719f6b0d79dfef39e5dd542bfa9649b0a950b784ece5&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 86423,
         title: "Locke & Key",
         subtitle: "",
@@ -7065,8 +7307,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsportshub.cbsistatic.com%2Fi%2F2023%2F02%2F15%2F914543ca-478d-4f36-9631-bef35576bfa1%2Fgkts1-8x12.jpg%3Fwidth%3D1200&f=1&nofb=1&ipt=d974ebc9fa835f583a2561b3dfdaa77afc6b289bbb20e16ae787ba4fe77f162b&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.v1SZdfiQsBbv_bkTm8yI_wHaLH%26pid%3DApi&f=1&ipt=7017f9d7ab42eb1ecb38c582b6964a06b05085e35b33883cd5196b3b881648a0&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 195868,
         title: "Gotham Knights",
         subtitle: "",
@@ -7148,8 +7390,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblogger.googleusercontent.com%2Fimg%2Fb%2FR29vZ2xl%2FAVvXsEir1vAf8yahp_bQ-uSdaKlHZnGd9r46vC0UPRByiq3FIQbymQpeCLAWS0m6SAe1D1qsa9QX9Qw6UheqrrKtHzobcmU82JNrz88z4OOJq05HMaWVKRtchax1YEtlq8GBj_d9nPOSbe9QQY8ECAsIInAsfqiuI9VGsOdfmd6AqznPIUqPfjmogNXDgc6VJQ%2Fw1600%2FTATUDOCERTO_FILMINGANNOUNCEMENT_0015.jpg&f=1&nofb=1&ipt=e252263f24930edc92f6bfc0e608cab8b1532eb2a536dfa8a49012b5d0769e49&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.nhmxWCbn_Uc4qudNU9TaQgHaLH%26pid%3DApi&f=1&ipt=85142c346cade0b5bec9545c28042a0c5c7f7a1a616e44a2ba1221777c19b78c&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 153784,
         title: "Tá Tudo Certo",
         subtitle: "",
@@ -7186,8 +7428,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmr.comingsoon.it%2Fimgdb%2Fserietv%2Fserie%2F3066%2F3066_hd.jpg&f=1&nofb=1&ipt=e0e4cfb3484cea3813f58a644aa53bcc088d69ad72863fc79a9e363012e49463&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.8K3JDgcUZo4aJD7lGFGyfAHaLH%26pid%3DApi&f=1&ipt=121e4d1288833d75e55f5c594808faef47379f2653f3ffcf79cd74356e9b2dba&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 89901,
         title: "Dickinson",
         subtitle: "",
@@ -7366,8 +7608,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fobservatoriodatv.uol.com.br%2Fwp-content%2Fuploads%2F2023%2F04%2FCapa-95.jpg&f=1&nofb=1&ipt=6d6675e96014c455ae81b5aec947c029a815428e2aada0db2b21a3ce8754e577&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.GtdkSrTuiYm1LzQc-KeQJwHaLH%26pid%3DApi&f=1&ipt=d454379513aa233e1bb84a11171d58cc1c16de155eb08f916187f911597b8597&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 221300,
         title: "Fubar",
         subtitle: "",
@@ -7424,8 +7666,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F8Ert2ew3YvqN5VdCauTj8cBpjjg.jpg&f=1&nofb=1&ipt=d6ce874bf94e77c60f19c3730e48083f7420cdf692264bc0270450b48da65d77&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.wzpk4y8ih_T9ktvXPBk7jgHaLH%26pid%3DApi&f=1&ipt=c850a5feabb127dcd71fbd35898451313c7be7eb23c3d739ee9fcb0361dcc064&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 127529,
         title: "Cães de Caça",
         subtitle: "",
@@ -7482,8 +7724,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fgeneracionxbox.com%2Fwp-content%2Fuploads%2F2024%2F04%2Ffallout-serie.jpg&f=1&nofb=1&ipt=cb8cac7df2812d42fc34a3eb7477c5f77f095468080ed44d64c79a4fdc830416&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.uaH_Z36bn6mqePCKrv8DZwHaJQ%26pid%3DApi&f=1&ipt=f354266bf5d9dd28558bb28e9dc44fec0faac39787fd32add7f70101b0c2080d&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 106379,
         title: "Fallout",
         subtitle: "",
@@ -7540,8 +7782,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FbsQM8tL1HgkpNGqtotzz6iQ2NfT.jpg&f=1&nofb=1&ipt=37594f5a1d87cb1a2c8ccefcb5ffdb807b9a696e4d25113a39c2c63537bdf8d2&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.qxn_M-pRE5dUlt-c102FDQHaKX%26pid%3DApi&f=1&ipt=11ac2a0c7c3772166a0f4b14101fff260521b4d43360d09d9cf16bc8320e72e5&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 108545,
         title: "O Problema dos 3 Corpos",
         subtitle: "",
@@ -7598,8 +7840,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F1zJTsCTmWndVmHtJbUX9OANXHLR.jpg&f=1&nofb=1&ipt=1466e974eb1a4f5b517afff3e014db4d739be07408669a61ea9b4995679267b1&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.IpknxUDcamp3oEFE112rIAHaLH%26pid%3DApi&f=1&ipt=396c7a864d836d4c6249ef5ffa7d7e76af289436c904f6bee04fa9b9a6ca0683&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 124800,
         title: "Amor e Morte",
         subtitle: "",
@@ -7651,8 +7893,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.oneesports.gg%2Fcdn-data%2F2024%2F02%2FAnime_NinjaKamui_AdultSwim_KeyImage-1536x864.jpg&f=1&nofb=1&ipt=bff9d2a121d862e88edbd7cd2f9f57096c096d05e4722e3658da3218c84a745f&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.vgHLESaBn98YTv2gKJhlmwHaLH%26pid%3DApi&f=1&ipt=05cecb1e97c425d78c6bc4581b73b114ecefa2d10a9ff4b613f4d77243910e34&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 202284,
         title: "Ninja Kamui",
         subtitle: "",
@@ -7734,8 +7976,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fn6V0WbgytbeXKoGoUjpHvh2GlbM.jpg&f=1&nofb=1&ipt=3f451826e028c46f66957f4b6d527c1cbb806659ca3279d46b1fa4da3f9eb758&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.WIAHCsaE7RpMCtpQ9PVFCwHaLH%26pid%3DApi&f=1&ipt=fe48f1195f04ed3a6c83fec32943c90aef9d3f2e27ae9f3fafbe11b596f59496&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 103540,
         title: "Percy Jackson e Os Olimpianos",
         subtitle: "",
@@ -7792,8 +8034,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp7495702.png&f=1&nofb=1&ipt=f8f752d9adb0d17bf8fef76ae9e4617318064c614bc3ff17a9718b7894b01f5c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.RAZJMJCjeOhj6ei01HEIzQHaKx%26pid%3DApi&f=1&ipt=8597049508039cdd97eb49e2eeff08b714e6864f4d64b7b50a8ce584b7c9154a&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 67178,
         title: "O Justiceiro",
         subtitle: "",
@@ -7875,8 +8117,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fstatic1.squarespace.com%2Fstatic%2F51b3dc8ee4b051b96ceb10de%2F51ce6099e4b0d911b4489b79%2F6480aee7c0c5172481368f30%2F1686225652564%2Fmarvels-secret-invasion-gets-a-new-tv-spot-and-poster-no-backup-only-fury.jpg%3Fformat%3D1500w&f=1&nofb=1&ipt=39494073245b412bacf00e3363d22f33d994e04869fd21e5ba414031f0cfd1c6&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.khleb89eKuhJ0p7FhReQfwHaLH%26pid%3DApi&f=1&ipt=6d9cf73559f40bedff96b54cbd26e20b6cccb046760972311bdcce1677672f7a&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 114472,
         title: "Invasão Secreta",
         subtitle: "",
@@ -7923,8 +8165,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimages1.fanpop.com%2Fimages%2Fphotos%2F2500000%2FLost-Cast-Season-One-lost-2543754-1369-876.jpg&f=1&nofb=1&ipt=a183ecdbfc43421f3797e8d84b1fe80a621943a7467827002721694821d15e60&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.-K2HcGGtwjiKgHYQEhl91gHaLH%26pid%3DApi&f=1&ipt=d0941191af366da17fef67b88b1bae617940833881685b9c899b164dfd906810&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 4607,
         title: "Lost",
         subtitle: "",
@@ -8577,8 +8819,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.papodecinema.com.br%2Fwp-content%2Fuploads%2F2023%2F03%2F20230322-o-agente-noturno-papo-de-cinema-banner-t1.png&f=1&nofb=1&ipt=e384fefde219eff851fb9142415ef53ea339cf6df0aabb4f6709992f91cf9df7&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Q1kVff-Pj9hfndhZ1e1PrwHaKD%26pid%3DApi&f=1&ipt=564ce37a6c367ac2fdb99d7ddcdf7b91803c398b617a1e25eb13eeda74af4a19&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 129552,
         title: "Agente Noturno",
         subtitle: "",
@@ -8645,8 +8887,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.dci.com.br%2Fwp-content%2Fuploads%2F2020%2F11%2Fo-gambito-da-rainha.jpg&f=1&nofb=1&ipt=61de27fbf447e461550899ea5b6db155c03c13dfeed64e2f77448a7856c9b40f&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.KotejCF7LHgWoc5nK9t8_wHaNK%26pid%3DApi&f=1&ipt=96297627a139a71d852a5cd6fbf30a8fc382f859ff4fb8c6fc47b6d82540d3e7&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 87739,
         title: "O Gambito da Rainha",
         subtitle: "",
@@ -8698,8 +8940,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnosomosnonos.com%2Fwp-content%2Fuploads%2F2021%2F02%2F5030AA49-0CA3-45EC-808F-8535FC53AD80.jpeg&f=1&nofb=1&ipt=6fe2a2d7f5ea741d73b30db5b8f18242fc1900d6c47c286b16dcfbd38645f9b5&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.lYIpbCtAZRAP-0RSUIlmWQHaLH%26pid%3DApi&f=1&ipt=bbd938d69fc60cbb9cbdda7fa848b15dda601cb75a5b55923ff545c4a97df24d&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 48891,
         title: "Brooklyn Nine Nine",
         subtitle: "",
@@ -9528,8 +9770,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcapricho.abril.com.br%2Fwp-content%2Fuploads%2F2016%2F12%2Ftodo-mundo-odeia-o-chris-foto-pais-ficcao.jpg&f=1&nofb=1&ipt=864bb63e340813a1992151a64b39b84f3350b8a70a274bb99dc9493b0a5ff146&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.5mwsQp49gZT8jklK4ulOWgHaJ4%26pid%3DApi&f=1&ipt=ad1f89245997227b8565be28db9dafcbe17c5123fee3eec211c1bb601a48cf31&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 252,
         title: "Todo Mundo Odeia o Chris",
         subtitle: "",
@@ -10003,8 +10245,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fportalpopline.com.br%2Fwp-content%2Fuploads%2F2023%2F06%2Fbruna-marquezine-serie-star-capa-1152x866.jpg&f=1&nofb=1&ipt=44f655598eb7476b702bf1b8943c937a6857051e543e1714dc92120afed6050c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIF.1LY3vaV1b0s4OmNvFfsj2Q%26pid%3DApi&f=1&ipt=c94a179f7003ff6b8852672b0c832cb1f43040ddfd0801a838585e771349eee4&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 224505,
         title: "Amor da Minha Vida",
         subtitle: "",
@@ -10071,8 +10313,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmultiversonoticias.com.br%2Fwp-content%2Fuploads%2F2022%2F06%2Fwandinha.jpg&f=1&nofb=1&ipt=b95e14ee575e1c0898d64c8389b29466b1d056408352d849289d45d0e60f9e39&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.papodecinema.com.br%2Fwp-content%2Fuploads%2F2022%2F11%2F20221124-wandinha-papo-de-cinema-cartaz-teaser-324x500.png&f=1&nofb=1&ipt=e4ac83da847fb9a0e31650ed2297bba77410df8b07dfa4b3c587d35f978d7ccc&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 119051,
         title: "Wandinha",
         subtitle: "",
@@ -10129,8 +10371,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.wp.com%2Fcloud.estacaonerd.com%2Fwp-content%2Fuploads%2F2020%2F04%2F02200818%2Fos-novos-personagens-de-la-casa-de-papel-capa.jpg%3Ffit%3D1920%252C1080%26ssl%3D1&f=1&nofb=1&ipt=8da61141ca936f176a80755c15b83c19fd9a5bcece3114b293964d3fd54e247d&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.1SzfwcizHCxMp1v6EYGgTQHaLG%26pid%3DApi&f=1&ipt=66274f1dca3ac870d7dd7b059660a3f87dd3bba94ae801a2e512a2a180e0d19d&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 71446,
         title: "La Casa de Papel",
         subtitle: "",
@@ -10411,8 +10653,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fminhaseriefavorita.com%2Fwp-content%2Fuploads%2F2022%2F05%2Fround6.jpg&f=1&nofb=1&ipt=f7069ce8576674ac192b0fff03f505ca3e5eab438483943a8a5d956b94e5bb07&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.hepOeQ-av4_cFGEew5oJ2QAAAA%26pid%3DApi&f=1&ipt=1e65a06f4a58d79bbc2cef8ce241cf3362cb50447ccc51f91761c764b8407d51&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 93405,
         title: "Round 6",
         subtitle: "",
@@ -10518,8 +10760,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.collider.com%2Fwp-content%2Fuploads%2F2019%2F01%2Fsex-education-image-1.jpg&f=1&nofb=1&ipt=4b74ab78399e5f54370d67cd10b1a02086122dd84a7ed9e831bf56fb0fc76844&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.qiFmzoh7jRaNmuKEHnYJPwHaKM%26pid%3DApi&f=1&ipt=5a9c08baf5ffad80069cf0f909702c22c7b22c99382569a1f910e9420e5b821c&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 81356,
         title: "Sex Education",
         subtitle: "",
@@ -10716,8 +10958,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd2d7ho1ae66ldi.cloudfront.net%2FArquivoNoticias%2F7a63f7dc-9303-11ef-aa79-9bebc91072b3%2Fduna-profecia.jpg&f=1&nofb=1&ipt=dfcad1ebf07d0f09e9a5317716a98d48ba4e4cc342b4ef3bfef3221616d71146&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.djzeUW3Zm8cFHY-MDct0jAHaLG%26pid%3DApi&f=1&ipt=10cc65614ca017333fe2a314fba08145c8f8d3316953c90c60ee5c1168ce19f1&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 90228,
         title: "Duna",
         subtitle: "A Profecia",
@@ -10764,8 +11006,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fgoinswriter.com%2Fwp-content%2Fuploads%2F2013%2F10%2Fbreaking-bad.png&f=1&nofb=1&ipt=557fa77bc003264ff739c6919f3f11a60e7d51a81cf1163d5b53f888cf941887&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.22LyRJpediL_GQouUG8IHgHaLG%26pid%3DApi&f=1&ipt=29165b1c0603b6745e403c3e64b70d2188dbabe7ef8b42661c04c58c219b6ff1&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 1396,
         title: "Breaking Bad",
         subtitle: "A Química do Mal",
@@ -11116,8 +11358,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fapartamento702.com.br%2Fwp-content%2Fuploads%2F2021%2F04%2Fsombra-e-ossos.jpeg&f=1&nofb=1&ipt=4ba0c6d80fca449ea693c7fd1c26279b3e11fa18f6231d2af505a5b4772ace6a&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.25j651E8OVc7EWiSfIJ8YwHaJ4%26pid%3DApi&f=1&ipt=af19ac22320789c6123c16344053fe14e282c4b1a2f4dd9ca197e613520bd5cd&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 85720,
         title: "Sombra e Ossos",
         subtitle: "",
@@ -11215,8 +11457,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FaNrcxmzCZc1Tgze4jOwJrwk7tCl.jpg&f=1&nofb=1&ipt=d06197624119d4df357b6df159f4e409acae7a2720cb8bc49a50845309fab56d&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fflxt.tmsimg.com%2Fassets%2Fp18637010_b_v13_ae.jpg&f=1&nofb=1&ipt=b2409201d554569443a968cefbcd2058f381503323165ea4dcb93efe3fe3b475&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 76479,
         title: "The Boys",
         subtitle: "",
@@ -11406,8 +11648,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wallpapersden.com%2Fimage%2Fdownload%2Fcobra-kai-season-5_bWZoa22UmZqaraWkpJRmbmdlrWZlbWU.jpg&f=1&nofb=1&ipt=e956739334fff6eef673c044b517f99f705e60aa6998c0268f16ff7446688465&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.OmZEph3HcrrHbwK2dlSQvgHaJ4%26pid%3DApi&f=1&ipt=6d3380a106df9a55980c34c7793fb820533594d7e915abea24d805db48537ecd&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 77169,
         title: "Cobra kai",
         subtitle: "",
@@ -11525,8 +11767,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fotakukart.com%2Fwp-content%2Fuploads%2F2024%2F03%2FDAN-DA-DAN-A-1-scaled.webp&f=1&nofb=1&ipt=d132e18cdd0d98f29dbcd305033f5e84321b49da88c6883255a546d0b3350637&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.ulssgcWxOtPu03Sl-nyFQAHaKe%26pid%3DApi&f=1&ipt=3e1087ed7a93bb34006ec4dc83a509945efc95839ff79d384ecff858bb3c2357&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 240411,
         title: "Dan Da Dan",
         subtitle: "",
@@ -11603,8 +11845,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.eklecty-city.fr%2Fwp-content%2Fuploads%2F2015%2F06%2FScream-The-TV-Series-2015-Series-Picture-02.jpg&f=1&nofb=1&ipt=f210b67d8c0c81d3bdde6f3b4ac35ea849cac7d22b5e89e27ec0b3bf1dcba786&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.YgY1WUvU3md9ObcOlGqXdAHaLH%26pid%3DApi&f=1&ipt=70c43bdd100d5616af3cd097dd60d32d29b3f074421ee4a3353b7106bf3f0069&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 62823,
         title: "Scream",
         subtitle: "",
@@ -11778,8 +12020,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.gamearena.gg%2Fwp-content%2Fuploads%2F2024%2F07%2F25161717%2Flove-next-door-dorama.jpg&f=1&nofb=1&ipt=8a72f7898099458a2920a6e35ac4c424d573487932b2d8d6c177af1f4aef43cf&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.RRZ5muJzoELZVYkBLylg6wEsGQ%26pid%3DApi&f=1&ipt=4eee5b63fb1792c8ab1eebf07c522a1e4dacb0aa3902391cf4cb2bbac6a15f1e&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 241454,
         title: "O Amor Mora Ao Lado",
         subtitle: "",
@@ -11845,8 +12087,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcriticalhits.com.br%2Fwp-content%2Fuploads%2F2024%2F10%2Fagatha5.jpg&f=1&nofb=1&ipt=38d08807d8c86fb1ad239e956f9ceb04cfffd4c7dc4c8b5d6fbdb10ac3937641&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.cfz7LGgjHtou9KdduxLCHAEsGQ%26pid%3DApi&f=1&ipt=994b9cf7acc9cc0d6d119fdfe0256f3d5deee81b82cb7c4dad4eba425bc6ed52&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 138501,
         title: "Agatha Desde Sempre",
         subtitle: "",
@@ -11908,8 +12150,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpoltronanerd.com.br%2Fwp-content%2Fuploads%2F2023%2F05%2Fcritica-citadel-serie.webp&f=1&nofb=1&ipt=dbbd5bc1b08858f07d1c62b1f4fb1f4210756e8295353a0045a8739994486615&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fflxt.tmsimg.com%2Fassets%2Fp24179080_b_v13_ab.jpg&f=1&nofb=1&ipt=46d8baf8083b85e67f1076b1de26514ff6f4da2a84e28af47cfec18ef4c13107&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 114922,
         title: "Citadel",
         subtitle: "",
@@ -11956,8 +12198,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.betaseries.com%2Fblog%2Fwp-content%2Fuploads%2F2018%2F04%2FBlackMirror.jpg&f=1&nofb=1&ipt=8f4e3f5b2db9b1d01708f8188b37705d63abaf533c364c270184d688dba459f6&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.RBD42SPDqqaJJCM0INRpWQHaLH%26pid%3DApi&f=1&ipt=f7930aae5b834cfbb86e3f3dbe5242b45fbbb22c2cb3366988c1842eec6760d1&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 42009,
         title: "Black Mirror",
         subtitle: "",
@@ -12139,8 +12381,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pogdesign.co.uk%2Fcat%2Fimgs%2Fepisodes%2FTulsa-King%2FTulsa-King-S01E01-942002a303bd881ea11130b1f52b55d3-full.jpg&f=1&nofb=1&ipt=555799ddc1cbaf40884acface48516d8ef3fcf16351ee96aa4d3ceddd164084b&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.ZIBQ1azE1izd8DWq9RyJEwAAAA%26pid%3DApi&f=1&ipt=3319a2247e2b5d011808dfaba3abf2793815c8f55102c83aeaf093efa31f6391&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 153312,
         title: "Tulsa King",
         subtitle: "",
@@ -12234,8 +12476,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cnnbrasil.com.br%2Fwp-content%2Fuploads%2Fsites%2F12%2F2024%2F05%2Fjake-gyllenhaal-serie.jpg&f=1&nofb=1&ipt=360db108238b16d6c908e5a69a559e2896ada6380bbccce693517def17506590&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.GJnNq6GwmVdPt7AQUnjBAQHaLG%26pid%3DApi&f=1&ipt=81f8fa456d860816ac3af4936d636be6aa3dc8e6433b9d338c203dec3c47d428&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 156933,
         title: "Acima de Qualquer Suspeita",
         subtitle: "",
@@ -12292,8 +12534,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FseddLBvNOW9QK3j8uaJT0CSkVhI.jpg&f=1&nofb=1&ipt=4df5b00a7feb56e3f518d079df39bffc97547ad604b3161bde2a8a5b79814dbc&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.ATkbreHb8kx4wLcfyGJLkwHaLH%26pid%3DApi&f=1&ipt=6296bad3d90349e7907e6bfb76771651a11634bbd9dd8662654bfa52e2858347&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 124364,
         title: "Origem",
         subtitle: "",
@@ -12416,8 +12658,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages7.alphacoders.com%2F129%2F1293054.jpg&f=1&nofb=1&ipt=a2884a2b57046f4939a940cc93556f8ddcd12cc046783ecefb54e5b09a241109&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.TUoBpSRnSy0Eq_hkC7zh9gHaJ4%26pid%3DApi&f=1&ipt=e2b38356a75ec352f1bcc111c6afd2fcfffcb6bfc7a18e0f6a166862033f5eea&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 87689,
         title: "Warrior Nun",
         subtitle: "",
@@ -12530,8 +12772,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnerdizmo.ig.com.br%2Fwp-content%2Fuploads%2F2024%2F07%2FBatman-Cruzado-Encapuzado-Previa-Img1.jpg&f=1&nofb=1&ipt=88f64a2c73a1efd3c0f488d56ede331338b48499b567e258a6dd43a9be788109&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.dDG148-Sc3x5BPuiQb35wgHaK9%26pid%3DApi&f=1&ipt=420e4a375d4e16ea071f828fffbc44ddd78d72f69f5791112246915c9f1408a2&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 125909,
         title: "Batman",
         subtitle: "Cruzado Encapuzado",
@@ -12598,8 +12840,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblogger.googleusercontent.com%2Fimg%2Fb%2FR29vZ2xl%2FAVvXsEhVfGAOE9QAS3RvqT3DMd5vvBHjQH-otHpvrCSNet1lqe3n_bEN-stZMJywZCvseDHhzNKa9W1C0nKK3TluCdb3R_AH-bSPZNX9BDP08SHNpPYf4aRMEoKHdeY-rEkpwnVxVOP1C6bark6Q_-snymqAmt0wkLpL1o_GcTZPPkQio9EM63p46WnoQF06TA%2Fs2048%2FOuter%2520Banks.jpg&f=1&nofb=1&ipt=2a07a087033854a7648816e0dacebb83503a5ebd6249dcba2c9acec68ecf720f&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.WK59lkKTeiGlqXbg2nykOwHaPo%26pid%3DApi&f=1&ipt=4ea2e22216728397bb99e732260c17d022d36a810dd4f4ae531a79330fd1581b&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 100757,
         title: "Outer Banks",
         subtitle: "",
@@ -12836,8 +13078,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://images6.fanpop.com/image/photos/32400000/Death-Note-death-note-32414092-3917-3000.jpg",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.8rdzpvnK9AnAp1QpqPQWnQHaLF%26pid%3DApi&f=1&ipt=1f3034527c5ed282405f5510d1f8f8bacfef751ccec46f0c16d68ba3b5a3e0ad&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 13916,
         title: "Death Note",
         subtitle: "",
@@ -13039,8 +13281,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.odcdn.com.br%2Fwp-content%2Fuploads%2F2024%2F06%2Fcasa-do-dragao-1.jpg&f=1&nofb=1&ipt=298418c2df6dbdee61eb3ef193308bed69b0f7aa58f1f644e1fc22ee4158232d&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.1V8BhJ36qNQ-9gmpsWpinAHaLH%26pid%3DApi&f=1&ipt=bd6e7329ad20dba58cb6a0ab264507c55731dcaea58880ba5a1d7189f72d0ec3&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 94997,
         title: "A Casa do Dragão",
         subtitle: "",
@@ -13144,8 +13386,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsomosg.com%2Fwp-content%2Fuploads%2F2022%2F09%2FDAHMER.jpg&f=1&nofb=1&ipt=42840217ae44c2220f914ed5b35afb0a88d8dd1fc8af8588f09bd08300bb1d65&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.CXD1L5BA0X9WPYgPpwww2gHaLH%26pid%3DApi&f=1&ipt=8e4629014973f4c732dbb9ad7bcec5be56c9aedb0d9bfe91b13384b2be73d9f7&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 113988,
         title: "Dahmer",
         subtitle: "Um Canibal Americano",
@@ -13203,8 +13445,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuploads-observatoriodocinema.seox.com.br%2F2024%2F08%2FO-Exterminador-do-Futuro-Zero.webp&f=1&nofb=1&ipt=398577cc036df99aa53e31eb848801e541250590d42377f1ad6241cc463a7aea&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.zsGzypsSZNX-G9GjoHGgnAAAAA%26pid%3DApi&f=1&ipt=b2fef44f40f40a9e899700d4b468392a8c51095e2b9676c0f254f621d1c07c21&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 239287,
         title: "O Exterminador do Futuro",
         subtitle: "Zero",
@@ -13255,8 +13497,8 @@ export const series: SeriesProps[] = [
 
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F8zLyVhEsH6SM9diX7CUUWcaRlk0.jpg&f=1&nofb=1&ipt=81b9b6aed35c66bcf2fa0a333faac41cc152013bfe27c44ae9871a330bc5f574&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.fzjrykEbnQfXDgzAUVAXuQHaK9%26pid%3DApi&f=1&ipt=6cc2259eda233ab809b068b9b5a1ceb2abf961f244052dd7c4b8e96cdf58509b&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 218342,
         title: "Manual de Assassinato para Boas Garotas",
         subtitle: "",
@@ -13304,8 +13546,8 @@ export const series: SeriesProps[] = [
 
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdiscussingfilm.net%2Fwp-content%2Fuploads%2F2020%2F07%2FUA-3-859176066-1595879190645.jpg&f=1&nofb=1&ipt=1850193f57df1c16b63b1fdd359c7eb57055596f5ea8c1c6df2e404358236178&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpics.filmaffinity.com%2Fthe_umbrella_academy-794888543-large.jpg&f=1&nofb=1&ipt=41acad8c0545834d5522507a076e3a28d994c8806dfdd6b6022c9d119975a7db&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 75006,
         title: "The Umbrella Academy",
         subtitle: "",
@@ -13522,8 +13764,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fq8eejQcg1bAqImEV8jh8RtBD4uH.jpg&f=1&nofb=1&ipt=881cd6df8563c736501ee55991218003a2a09940d251ddd3cf20f6b694d43384&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd32qys9a6wm9no.cloudfront.net%2Fimages%2Ftvs%2Fposter%2F4d%2Fd0b05584a1cfaee4f72007a11e347968_original.jpg%3Ft%3D1620276565&f=1&nofb=1&ipt=04060103f7e907ed5c6a235eceb8ad927387ce2a1a17205fa6b5648b096e41b8&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 94605,
         title: "Arcane",
         subtitle: "League of Legends",
@@ -13607,8 +13849,8 @@ export const series: SeriesProps[] = [
 
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.gamearena.gg%2Fwp-content%2Fuploads%2F2024%2F07%2F24165646%2Fcolin-farrell.jpeg&f=1&nofb=1&ipt=5ccfe6e7afd9eedcbbb1ee3f0297f4d835a4dbd2dd5f8b8ec31859e4ee792430&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP._GH6JH9JunA0_k7Huv4JcQHaLH%26pid%3DApi&f=1&ipt=d2a27d958bf8f3c0feb40e0b4c57edb4ee638500cf4197d32630f45b3db592c0&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 194764,
         title: "Pinguim",
         subtitle: "",
@@ -13667,8 +13909,8 @@ export const series: SeriesProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.portalimparcial.com.br%2Fwp-content%2Fuploads%2F2022%2F08%2Fcropped-trilha-sonora-aneis-do-poder-scaled-e1660920771134.jpg&f=1&nofb=1&ipt=944726d2d698f80a08f812d923ee94941f8f8b26eb57a3ea522a517efa83f7a1&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Fw1280%2FutAMIYnHweINM2jiMJYII9ILCw2.jpg&f=1&nofb=1&ipt=6d0b7a70fdba3360cd7bc12c6ded4df4e7c9cda2dd9ffb5d9225e15ba575d54f&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbID: 84773,
         title: "O Senhor dos Anéis",
         subtitle: "Os Aneis de Poder",

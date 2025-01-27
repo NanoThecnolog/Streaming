@@ -202,8 +202,8 @@ export const cards: CardsProps[] = [
         genero: ["Fantasia", "Aventura"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinematologia.com.br%2Fcine%2Fwp-content%2Fuploads%2F2022%2F06%2FCapa.jpg&f=1&nofb=1&ipt=88f18e24e2706b5da865dcd963b79cfce41e32cfc434ab6d001764faf987716b&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.0WEWCs4O0udm0_K9NQ6keAHaKl%26pid%3DApi&f=1&ipt=de07858404518c775eed101e81d573e416c17597835aa25896740acaf19ff974&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 338953,
         title: "Animais Fantásticos",
         subtitle: "Os Segredos de Dumbledore",
@@ -814,8 +814,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FrVJfabCz1ViynQCEz54MRqdZig1.jpg&f=1&nofb=1&ipt=773e2ae381c2d1dfe357f6332de3ba63b895058236a160f708c7abf99195d0de&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.zL3nf5rXqdSYP21LKA7MDAHaLH%26pid%3DApi&f=1&ipt=9cb073c0dc13e802650facfac62715e02e5aafd7313aeb6607e24bcc48237ec2&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1155089,
         title: "Liga da Justiça",
         subtitle: "Crise nas Infinitas Terras - Parte 1",
@@ -1138,8 +1138,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror", "Suspense", "Drama"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.gX2WY_Qr_H6fv-VJzy_LswHaKe%26pid%3DApi&f=1&ipt=a3bab2c53593f2eca3a1f0e464733b19866f12e26657ad91b008b80cd60c2160&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 10191,
         title: "Como Treinar o Seu Dragão",
         subtitle: "",
@@ -1150,8 +1150,8 @@ export const cards: CardsProps[] = [
         genero: ["Animação", "Aventura"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.u-T08wI5Ew7ZIRtSnZO2AgHaKf%26pid%3DApi&f=1&ipt=f02286aa0bc822b4b3c60f017c186525ae41be78d0922526dc599816558cf887&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 82702,
         title: "Como Treinar o Seu Dragão 2",
         subtitle: "",
@@ -1162,7 +1162,7 @@ export const cards: CardsProps[] = [
         genero: ["Animação", "Aventura"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
+        background: background,
         overlay: overlay,
         tmdbId: 166428,
         title: "Como treinar o seu Dragão 3",
@@ -1174,8 +1174,8 @@ export const cards: CardsProps[] = [
         genero: ["Animação", "Aventura"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.x0LTTzQCjOikpqiZxgCAUgHaK5%26pid%3DApi&f=1&ipt=3cd11b84a1b65b18f9dfba0463e818a23630ac99ae29e72a11e99846be669f4c&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 591,
         title: "O Código da Vinci",
         subtitle: "",
@@ -1186,8 +1186,8 @@ export const cards: CardsProps[] = [
         genero: ["Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Cm6GJvXAmvTRkJ6E9PL7xgHaKk%26pid%3DApi&f=1&ipt=771f0ec79aaf6ef4046e7dff234c11aedc89c0789a6285e460b45c1ce0c983bb&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 290595,
         title: "O Caçador e a Rainha do Gelo",
         subtitle: "",
@@ -1198,8 +1198,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Drama"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.6JLeGknTlCgXBVCqNP0XlwHaNK%26pid%3DApi&f=1&ipt=3b7e509919a55e248cadeafc3e923fed3ef701fc416ee2c4184c269a6ea380ca&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 454983,
         title: "A Barraca do Beijo",
         subtitle: "",
@@ -1210,8 +1210,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Romance", "Netflix"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FhnfwqI1YGL3767gtxwWYoo07Gow.jpg&f=1&nofb=1&ipt=4d549f1e659ae2ce4170dcd1425f69e78be9310e3fcb32e7efba82e8539e5a1f&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.QSYsAFI2nGlL5zJZP2-J8gHaLH%26pid%3DApi&f=1&ipt=7efcdd206c89a653324ea1336658fb60a1180fca0ff86dba1c0174bc368704e4&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 40264,
         title: "Os Vampiros que se Mordam",
         subtitle: "",
@@ -1222,8 +1222,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Fantasia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FqOfUKwYsRLaZJIdkTdQyNeeGc2f.jpg&f=1&nofb=1&ipt=f3d2b927e2c2cfc349367a3833f8609dc49c0d8615eca025ca713919f231bc0a&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.RqdaZAiLxqUg4pdYNfbIuwHaLH%26pid%3DApi&f=1&ipt=0390a7a99c9ea11c176b52aab2af203b3929717a74367c12d00967315fbefaf2&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 9408,
         title: "Tá Dando Onda",
         subtitle: "",
@@ -1234,8 +1234,8 @@ export const cards: CardsProps[] = [
         genero: ["Animação", "COmédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.t1bmQQ9_Yc5DdbMfgSygGgHaJ4%26pid%3DApi&f=1&ipt=b2f9b1fdc8f2e76f8bf1e0e86e00c60f3405b5b6a870bc0faa687b193bd80e40&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1830,
         title: "O Senhor das Armas",
         subtitle: "",
@@ -1246,8 +1246,8 @@ export const cards: CardsProps[] = [
         genero: ["Drama", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwidescreen.hu%2Fwp-content%2Fuploads%2F2023%2F12%2Fws_netflix-rebel-moon_231220-100905.jpg&f=1&nofb=1&ipt=2c87b9d8c8d170957f88d4a297c5e207061cbac4fece16ab0a111618cfdfaf21&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.CFqnRTH_oPEp5RjrhFj8OAHaLH%26pid%3DApi&f=1&ipt=46d8a25a9e4d8acd80b826be3a144f37b96c15dc245d1edc188a23238ab99dc8&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 848326,
         title: "Rebel Moon",
         subtitle: "A Menina do Fogo - Versão do Diretor",
@@ -1258,8 +1258,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Netflix"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wallpapersden.com%2Fimage%2Fdownload%2Fzack-snyder-rebel-moon-2-poster_bmdrbmaUmZqaraWkpJRnamtlrWZpaWU.jpg&f=1&nofb=1&ipt=2bc0c2b0418d7743898ce65114e25af64b359ba709b5c99b7b8f9e963a095efa&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.RwZdyvXSd6tsg9vesbWlzwHaLH%26pid%3DApi&f=1&ipt=1b059524125bc619b6f02204e0d2676fbefde34d1a24501146bfe523217ef245&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 934632,
         title: "Rebel Moon",
         subtitle: "A Marcadora de Cicatrizes - Versão do Diretor",
@@ -1270,8 +1270,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Netflix"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.slashfilm.com%2Fimg%2Fgallery%2Feverything-you-need-to-remember-before-godzilla-x-kong-the-new-empire%2Fl-intro-1711642246.jpg&f=1&nofb=1&ipt=e29370bfc74923ccc3afaa2559a89b82756e6e36bc93baf98be4ceb50fd8a89f&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.gf2Or4RSy1YZ_LHKIw8vNwHaLH%26pid%3DApi&f=1&ipt=27c60d7402e05e19811a61cc2084e3815a2a131c8dba40fd809a9d74a0d1a94e&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 823464,
         title: "Godzilla vs Kong",
         subtitle: "O Novo Império",
@@ -1282,8 +1282,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Aventura", "Ficção Científica"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.gpdiZ8jAz4RhoEMWtzFYOwHaLH%26pid%3DApi&f=1&ipt=881ee7c5b1c71cbb41c5068d5c94defcdc4f1fbcde8c45e19405516afa60877c&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 375588,
         title: "Robin Hood",
         subtitle: "A Origem",
@@ -1294,8 +1294,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Aventura", "Fantasia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FpwGmXVKUgKN13psUjlhC9zBcq1o.jpg&f=1&nofb=1&ipt=43446822d20418f671afcffbcace43381c8fb93aeb2a9b08212555f5e9c421a2&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.7Znm1Ht0vlpzv0utVflacAHaLH%26pid%3DApi&f=1&ipt=3fb5c5aecac5e0ea3984cf69c7abddd2307c6597e6a6168cb4d17f9a49e11313&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 634492,
         title: "Madame Teia",
         subtitle: "",
@@ -1306,8 +1306,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Fantasia", "Marvel"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.slashfilm.com%2Fimg%2Fgallery%2Fthe-terrifying-true-story-of-netflixs-society-of-the-snow%2Fl-intro-1704830408.jpg&f=1&nofb=1&ipt=6115223907fe9c76ca4cbf3c8940a881de543ef785f261b02d9897157a0b8d48&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Jl3BuL8AVoZkPsuIf_ao3gHaLG%26pid%3DApi&f=1&ipt=810a5db3b495561c857ecd971d7caa8ea191f1501473a1b6d6e1ded4fa3d036b&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 906126,
         title: "A Sociedade da Neve",
         subtitle: "",
@@ -1318,8 +1318,8 @@ export const cards: CardsProps[] = [
         genero: ["Drama", "História", "Netflix"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fentretetizei.com.br%2Fwp-content%2Fuploads%2F2024%2F05%2FCULPA-TUYA_3-scaled.jpg&f=1&nofb=1&ipt=d986f3d32bfa6c1bd59cad878aa55edc4adb5192506ef6def329a9d4897dc39f&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.-7jpxlPRjk6BK8iIb4nBkgAAAA%26pid%3DApi&f=1&ipt=627a04b8e84d850efb213949bb3a9dcd41999eca83932c2cbffb491c0035336c&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1156593,
         title: "Sua Culpa",
         subtitle: "",
@@ -1330,8 +1330,8 @@ export const cards: CardsProps[] = [
         genero: ["Romance", "Drama", "Prime Video"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages2.alphacoders.com%2F127%2F1275138.jpg&f=1&nofb=1&ipt=986104fcece39f82da7a713fab105d99a36098faba6d4017fb5c2fa9c2c3bbc3&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.193SXQmglIpqfcYmsAuODAHaJ4%26pid%3DApi&f=1&ipt=d0c0f3ecd46326d3a5217c09d74a36e1ca32322243fa2d22098f36cbfea7834a&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 724495,
         title: "A Mulher Rei",
         subtitle: "",
@@ -1342,8 +1342,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Drama", "História"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi0.wp.com%2Fmetagalaxia.com.br%2Fwp-content%2Fuploads%2F2017%2F12%2Fsimplesmente-acontece-resenha-1.jpg%3Fw%3D3000%26ssl%3D1&f=1&nofb=1&ipt=c80f1c4a0878d92a1d50db54ed6d6603a04c0fb621abe18fa49c203e491f677f&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.j7tZsGBhBlng1Iq5UUEXFQHaLH%26pid%3DApi&f=1&ipt=30fa6c9d4971bce56d68968f5e26d30c775ac29416a61dfc870a596cd845b9e1&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 200727,
         title: "Simplesmente Acontece",
         subtitle: "",
@@ -1354,8 +1354,8 @@ export const cards: CardsProps[] = [
         genero: ["Romance", "Drama", "Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwoomagazine.com.br%2Fwp-content%2Fuploads%2F2016%2F12%2FZumbi-02.jpg&f=1&nofb=1&ipt=e79618b452165aa9f4195e1ee0c019bda9da156e45bcf001d87a9a88149e7ec7&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.oZlfh5xPswr1HwMOXORLGgHaLH%26pid%3DApi&f=1&ipt=762bd64a29680d7f04ceeb6a8525b7a9cbadf82182ddc9c38440c79a4ecc86f5&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 396535,
         title: "Invasão Zombi",
         subtitle: "",
@@ -1366,8 +1366,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror", "Ação", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.vigilianerd.com.br%2Fwp-content%2Fuploads%2F2020%2F02%2Finvasao_zumbi_2_vigilia_nerd-1700x946.png&f=1&nofb=1&ipt=cfb27ea4822170c684e1d920c4afa4ff2b53ea15ef0bb8f9d2ee5c827e6d13af&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.GVDcRuo4JyBNpHFi5pNJtQHaKj%26pid%3DApi&f=1&ipt=8db876969ed519872d49712d309afc4c1b77d04132b1bddca5c30f3620c9b6af&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 581392,
         title: "Invasão Zombi 2",
         subtitle: "Península",
@@ -1378,8 +1378,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror", "Ação", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages8.alphacoders.com%2F673%2Fthumb-1920-673877.jpg&f=1&nofb=1&ipt=fc03cfed8b3fe662cf0ffdc27d7538f27bafcfda27a4186df7bb81b13ed00564&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.uPAwlMJrLPwHpQ2-x8n65gHaLH%26pid%3DApi&f=1&ipt=a788ae5d7fe9a1378f1837b2879820675ac85f70062ef1da76577b8e461e46d9&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 127585,
         title: "X-Men",
         subtitle: "Dias de Um Futuro Esquecido",
@@ -1390,8 +1390,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica", "Marvel", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fconteudo.imguol.com.br%2Fc%2Fentretenimento%2F2013%2F07%2F24%2Fcartaz-de-divulgacao-de-wolverine---imortal-de-james-mangold-1374709748006_1920x1080.jpg&f=1&nofb=1&ipt=8ba99fd1b03c96d9264b91db589201334a75c5c17e2e67828c1184c20d6d4775&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.4ePp3D5z8z6N35UI4t585gHaK-%26pid%3DApi&f=1&ipt=0a56e86894d180f7075b5852a37797d1daf6b031619001d7a3f7ac8b9d2e429b&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 76170,
         title: "Wolverine Imortal",
         subtitle: "",
@@ -1402,8 +1402,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica", "Marvel", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FxniozTQSuimoQGEdV6ieUQPRTyu.jpg&f=1&nofb=1&ipt=91c8fc05665a88c4f92956187b3a9f3a49fcc171167aa279677196f5d9c8fd54&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Dlws66xmZRtj3RqeEMJ0XgHaJ4%26pid%3DApi&f=1&ipt=a1e917aa275deeea97b885762687ebf29477b1e86c022b311987d52caa5822e0&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 339964,
         title: "Valerian e a Cidade dos Mil Planetas",
         subtitle: "",
@@ -1414,8 +1414,8 @@ export const cards: CardsProps[] = [
         genero: ["Aventura", "Ficção Científica", "Ação"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.hdqwalls.com%2Fwallpapers%2Fpedro-pascal-is-marcus-acacius-in-gladiator-2-hi.jpg&f=1&nofb=1&ipt=e417210ca378478a0f0574a959e2aaf9d4626fb2058388ee96ba9b22306405c9&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.XmgF2vx1n4EVa88oNFZdnQHaK9%26pid%3DApi&f=1&ipt=075bbb5c80d0174ddab5de1ce6495883f206ac156333a456e6272c20a36432b3&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 558449,
         title: "Gladiador 2",
         subtitle: "",
@@ -1426,8 +1426,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Aventura", "Drama"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FvaVaNrscmsG8CUKYxiwZGFNqGJo.jpg&f=1&nofb=1&ipt=fb18d5d82b5d414be97dd1be8b5e9209e0b30982fa325bde7048ed5379ff1731&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.V0LCOdkDmKVWKrgFashGegHaLH%26pid%3DApi&f=1&ipt=0f0f1b7eeb585dc2a651dbc90e1b8a51d3ba8c22a3e6d71597a72b6238089d36&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 771,
         title: "Esqueceram de Mim",
         subtitle: "",
@@ -1438,8 +1438,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Família"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F8fnYJPoXxwAN4valDLgz2whMGTH.jpg&f=1&nofb=1&ipt=d3217d55ae3b64b5ef13db67c667c70b9da9fe125dfb38eafd510ce51fd4847e&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.kpzAC0Wp4WHB9g4xlHfuMAHaLH%26pid%3DApi&f=1&ipt=1611b7429f1cfdf369e3b115a803f184e06db76709ee3aeede64d404745718ad&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 772,
         title: "Esqueceram de Mim 2",
         subtitle: "",
@@ -1450,8 +1450,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Família", "Aventura"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F36xTkr5CxVGKqe55q6lxVa8LyK3.jpg&f=1&nofb=1&ipt=bbbcd9704b66ff1861af62273be5335a69e464b69fc8d9b82099c73e71a664db&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Neg_EaxWF_GF-0M2lBTVDAHaJQ%26pid%3DApi&f=1&ipt=c521e2cb46da0c39f13d3ad8d0214feeca7b44aa0dc1b7871d0342e0a38f9d23&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 755339,
         title: "Tudo Bem no Natal Que Vem",
         subtitle: "",
@@ -1462,8 +1462,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Família", "Drama", "Netflix"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2024%2F09%2Foperacao-natal.jpg&f=1&nofb=1&ipt=acc75712377d123432c911058577f222f0e46436415ad00b5b6df35c6393e80d&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.DWdQMR3t6JqIFP6n4gR-VQHaLH%26pid%3DApi&f=1&ipt=9aa9301c9bda4701c6322a3420129ff62cb703684a5c10cb99b0f71592c2e520&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 845781,
         title: "Operação Natal",
         subtitle: "",
@@ -1474,8 +1474,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Comédia", "Fantasia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2563963.jpg&f=1&nofb=1&ipt=fb578d57b41dd65861694a36bd86280c4e0e01221f0733a8a5f6bdfe17e0ce9c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.qgb-PkrOCypyzH_X6HDhJAHaLH%26pid%3DApi&f=1&ipt=a643849c8312a9d6afa1743a5acffdef01890fa178fcedac9553d868fc1484c6&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1300962,
         title: "A Fera Interior",
         subtitle: "",
@@ -1486,8 +1486,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror", "Drama", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.hdqwalls.com%2Fdownload%2Fvenom-the-last-dance-8k-vl-1440x900.jpg&f=1&nofb=1&ipt=d54519fd85462e130486bc4fc68c3aecc68c902d0189647ccf8c03260e17454c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.-5hd6ww_AhqQf95yeagiNgHaJQ%26pid%3DApi&f=1&ipt=00354666d09c969a253e0a1de25abf9cdec5337f74d92b0ac3c5789a5c8630d6&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 912649,
         title: "Venom",
         subtitle: "A Última Rodada",
@@ -1498,8 +1498,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica", "Suspense", "Vilão", "Marvel"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fkx2YVkcsnTnmF9XGTAj2NqEcHFG.jpg&f=1&nofb=1&ipt=e28618ea1d672cf43cd94545722223afef166f1bfcbfbe5177dc6210c218c9ba&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.doGtcxXBqEVhnWcsa5HqcgHaLH%26pid%3DApi&f=1&ipt=b07193a18701091ff739e84ccfaf8fe628f790d16e6b0b7d038a05be8f9e6188&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 49530,
         title: "O Preço do Amanhã",
         subtitle: "",
@@ -1510,8 +1510,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense", "Ficção Científica"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FmgY8An5qVCgLh97KOWeJVJarskL.jpg&f=1&nofb=1&ipt=845459f055ee3109ffb685fc617c7767370ab8da9adfae52abb6490f288ff438&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.cmn1tdAUxrcgCZ5zMgAlFQHaLH%26pid%3DApi&f=1&ipt=7dc5a87f83c9f30f5b30c05986f926ed3c8f5e71f66b2458e80b0a5e0f0c978c&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 216015,
         title: "Cinquenta Tons de Cinza",
         subtitle: "",
@@ -1522,8 +1522,8 @@ export const cards: CardsProps[] = [
         genero: ["Drama", "Romance", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Flntyt4OVDbcxA1l7LtwITbrD3FI.jpg&f=1&nofb=1&ipt=3aa130dc1d7874b8b92b0713362aa2385e064e0cb5abcb95d6d2e312d1d99480&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.32q_v0JiI7vxJpWvXpNA2gHaLH%26pid%3DApi&f=1&ipt=a0bdba1cabe89a529657fb4d788fba6fd6c5d672e9094ce8be2d8da737a363f6&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1010581,
         title: "Minha Culpa",
         subtitle: "",
@@ -1534,8 +1534,8 @@ export const cards: CardsProps[] = [
         genero: ["Romance", "Drama", "Prime Video"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fconteudo.imguol.com.br%2F2012%2F05%2F10%2Fcena-do-filme-battleship---a-batalha-dos-mares-de-peter-berg-1336678898604_1920x1080.jpg&f=1&nofb=1&ipt=a180230d7a2907b5851a5e21f428ecf1185ba89d8a1ba8cff102f3d2016394f2&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.9NtcsN1lOMidmgXHxYG2TwHaJ4%26pid%3DApi&f=1&ipt=e90b53b73e469264f7960fe3e6cecd28fdd0df9489d666be22962bcb2edeff8e&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 44833,
         title: "Battleship",
         subtitle: "A Batalha dos Mares",
@@ -1546,8 +1546,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Aventura", "Ficção Científica"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FncdHygpXzFNi6rzcLKUidwudsD3.jpg&f=1&nofb=1&ipt=9017a83ddbe2941fe1a3fc79973cc21628964b53ef0331a4f75c7c54d7dd7aef&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.BY0tufxFNdt9yto11d5Y5AHaJ4%26pid%3DApi&f=1&ipt=9fa57fc58e45d3578d819978c00dc642d3f4d293a9193cb85615b9f74a06eb26&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 273477,
         title: "Como Sobreviver a um Ataque Zumbi",
         subtitle: "",
@@ -1558,8 +1558,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Terror"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Focc-0-3011-114.1.nflxso.net%2Fdnm%2Fapi%2Fv6%2FE8vDc_W8CLv7-yMQu8KMEC7Rrr8%2FAAAABQISquUlocM_O3yrL-56ZtZF5FQxG8XJSUJ5zBAjtJwEo0JxOuqUUNkEsUFtv20m_-X3tNr02svNGA4XRBmbGH70S-6Jvg-D7kAU.jpg%3Fr%3D0bf&f=1&nofb=1&ipt=9c1db31dfe85f320e1a096b49f9f3cc3ad97f416a7eb9281d43c77e23d02634a&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.4ngC9LN1U4ctWoQ7M_3eRgHaJQ%26pid%3DApi&f=1&ipt=9f53442166fa1cb541d3f779643f8328538a7288f14508d6c623e101ecf875a9&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1005331,
         title: "Bagagem de Risco",
         subtitle: "",
@@ -1570,8 +1570,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Mistério", "Suspense", "Netflix"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fsensesofcinema.com%2Fwp-content%2Fuploads%2F2014%2F06%2Fgravity.jpg&f=1&nofb=1&ipt=cd07cbe2e590d71efae8836195452840d07ff09098dd101de42139ce83942636&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.cyn-BXQFF-eB-M5gbiw1VgHaLH%26pid%3DApi&f=1&ipt=1885adab2b4b3516a6028133a86c110b958247b659f481a4e1ed6007b19c885b&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 49047,
         title: "Gravidade",
         subtitle: "",
@@ -1582,8 +1582,8 @@ export const cards: CardsProps[] = [
         genero: ["Ficção Científica", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ffilmoteca-static.b-cdn.net%2Ft%2Fp%2Foriginal%2F5rAu7jnCDlgeYxUb6sYsq1cP4dJ.jpg&f=1&nofb=1&ipt=dc50699d1fd051cdf7f89ce55f945d036712b4d59d8e6b210a5de91a266599df&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Io36nQSBRhBe7WUR3lVS1AHaLH%26pid%3DApi&f=1&ipt=e456305510eceeb73c3cc6d8073997a4e9f2d7f75c17039ec06559d7f92ac648&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 76726,
         title: "Poder Sem Limites",
         subtitle: "",
@@ -1594,8 +1594,8 @@ export const cards: CardsProps[] = [
         genero: ["Ficção Científica", "Drama", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fforbes.com.br%2Fwp-content%2Fuploads%2F2021%2F09%2Fabrelife_oesquadraosuicida_100921_divulgacao-1.jpg&f=1&nofb=1&ipt=f844d433cb0e1c7eda5452ea66bf7760c5c8b5e16bdde8cfdc496913c8593f64&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.sSQcBi9FBMlJUCj4eUl1PwHaLH%26pid%3DApi&f=1&ipt=a1048d0d754b56291e3659c955315150e1afca95522223050f4dc9d98dbc0c05&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 436969,
         title: "O Esquadrão Suicida",
         subtitle: "",
@@ -1606,8 +1606,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Comédia", "Aventura", "DC"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F6k6gZ1NrZH9tZ39aHeACKPWNMv5.jpg&f=1&nofb=1&ipt=4c4e4f4c33654eac1614981e4c174b060c3826f010f92d0d20ae141af6015e41&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.aHkGUHD1gPm_h9yXNy4SuQHaKj%26pid%3DApi&f=1&ipt=b1996878b1e6ae1c9e788ecd78705ba15c3a35b37810b88400ba7f0251d173aa&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 226857,
         title: "Amor Sem Fim",
         subtitle: "",
@@ -1618,8 +1618,8 @@ export const cards: CardsProps[] = [
         genero: ["Drama", "Romance"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fconteudo.imguol.com.br%2F2012%2F04%2F30%2Fchanning-tatum-e-jonah-hill-em-cena-do-filme-anjos-da-lei-1335820505250_1920x1080.jpg&f=1&nofb=1&ipt=28c7a12e14d0294ecc1ac5ba24ca83c90ae0ce397c692bdae41ac79ebf221690&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.xGxxGzC-YAi1i6gz2j4dXAHaJ4%26pid%3DApi&f=1&ipt=71ab2395535169b1b8b750ba6305eeef663a4e3982801fae5a00991ff9a17804&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 64688,
         title: "Anjos da Lei",
         subtitle: "",
@@ -1630,8 +1630,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinemacao.com%2Fwp-content%2Fuploads%2F2014%2F12%2Fcapa22.jpg&f=1&nofb=1&ipt=bed104319105efc7e17fb7e14cb092f16895345cadc2a137ef1ba894d6da709f&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP._DUiHGLyelJPqXbSem37ZgHaK4%26pid%3DApi&f=1&ipt=da3c211226b158ebfe4cbc54be62bbfa53e3933fa6b9f25bc8e4ae82cc2214be&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 187017,
         title: "Anjos da Lei 2",
         subtitle: "",
@@ -1642,8 +1642,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.astropt.org%2Fblog%2Fwp-content%2Fuploads%2F2014%2F07%2FPacific-Rim-Big-Promo-Image.jpg&f=1&nofb=1&ipt=06b07710ff194069bbc86489ee9cdb46c4bcb3dcae0d794532b924c0654f785f&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.dsudEX2SWlMYUTAhS0dB2gHaLH%26pid%3DApi&f=1&ipt=1cbef6766b016863e4425ffca71118af0d3ffc1ce5c6d9222cfbfe8649f08736&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 68726,
         title: "Círculo de Fogo",
         subtitle: "",
@@ -1654,8 +1654,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica", "Aventura"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.planocritico.com%2Fwp-content%2Fuploads%2F2017%2F11%2FCirculo_de_Fogo_A_Revolta.jpg&f=1&nofb=1&ipt=31c256f728104e419eca9bf298e8d7123824194f1affd8d835341f8f14c89bc4&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.XfWWfEZlD6_fkiSlTiJQbwHaJ4%26pid%3DApi&f=1&ipt=eb2ce671082769b76cbcd400d0f41198a6e3e8e3036e2258d34d3e8d6fcf0cc4&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 268896,
         title: "Círculo de Fogo",
         subtitle: "A Revolta",
@@ -1666,8 +1666,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica", "Aventura"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Ft6TL7V9IsT4Ktx6YO8b1UYj3agd.jpg&f=1&nofb=1&ipt=4a3e9d9cbb4d19934c79c542845513cda802c909f1d1d7021b0e794fe7dca189&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.UnmqL0H31A86W_1pjs-cGQAAAA%26pid%3DApi&f=1&ipt=e6b8f011898605995c021afcdd0246c644bc2fb3087a285d1ba30b32b2748eb5&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 339846,
         title: "Baywatch",
         subtitle: "S.0.S Malibu",
@@ -1678,8 +1678,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Ação"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn-images.rtp.pt%2FEPG%2Fimagens%2F32123_37631_91581.jpg%3Famp%3Bw%3D160&f=1&nofb=1&ipt=bd119801f879633f82536f316ddd4e97844694883a50d7cba5abbaa773747cd2&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.6wST-ySXTABo3LhE2o4F0wHaLH%26pid%3DApi&f=1&ipt=f72397a9eb1bf8bd742e42b6edab449c62d0f8da6649aced4719be67e88d90aa&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 59962,
         title: "Guerra é Guerra",
         subtitle: "",
@@ -1690,8 +1690,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Comédia", "Romance"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FitLPMBamtOwRhTHikgD5RrNMlq4.jpg&f=1&nofb=1&ipt=ed327e56ccca8cfeb1c1d003eee08c6fab3d3696fb4b5a61cae39de17573ad1b&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.MXb4Tvq-Dxoy5g1hriEz3AHaKE%26pid%3DApi&f=1&ipt=f45195df9b29eb1edd335b4d690f719fcd9d42d2d5ab22760aeb94f85a89081e&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 296099,
         title: "Férias Frustradas",
         subtitle: "",
@@ -1702,8 +1702,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F523DJjPPgq5fKOni2B8Ly4hTrUE.jpg&f=1&nofb=1&ipt=ab842fb1667b672128485dba599f2c618cd54db6e60c3bbcd96e13b42e7ba300&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Ti6rNU6MA7054dyHSHHEDgHaJ4%26pid%3DApi&f=1&ipt=ac6c30744993e69f999fdab4ae385c90af895ef326fabce5129fb3f3c102df39&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 37834,
         title: "Encontro Explosivo",
         subtitle: "",
@@ -1714,8 +1714,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FolpwGvVHbTWEqcJD7csnaNE2mdR.jpg&f=1&nofb=1&ipt=1c35b1b8bce25978a4b4298d8004d81110e8275a28e224c63498f5284bed1b65&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Fw1280%2F804VouNe00vTbyeMsWUD0dMNIH6.jpg&f=1&nofb=1&ipt=bf153a69fa156e3d86e9884f6be3ef6e0736affaff29dd7d310fed93c6aecb23&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 9762,
         title: "Ela Dança, Eu Danço",
         subtitle: "",
@@ -1726,8 +1726,8 @@ export const cards: CardsProps[] = [
         genero: ["Música", "Drama", "Romance"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fs9KUIs0vFyzjy1bouVcvN7tNbuw.jpg&f=1&nofb=1&ipt=1b4eabe440d0a41e7db67c4b99489d90034916363f4dc3beee259e3bfd5be5ac&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.xZvk9fhen9hpHpiMoF5eRQHaKf%26pid%3DApi&f=1&ipt=bfcd89416f535d3b7cedc8c55f564aa3997e3a7bac08a4e8cbec92a5fcefe9b0&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 41233,
         title: "Ela Dança, Eu Danço 3",
         subtitle: "",
@@ -1738,8 +1738,8 @@ export const cards: CardsProps[] = [
         genero: ["Música", "Drama", "Romance"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.portalnipponja.com.br%2Fuploads%2F2024%2F05%2F27162847%2FHAIKYU-The-Dumpster-Battle_Still-1-1.jpg&f=1&nofb=1&ipt=be4c96cd1befd47eea7301b1edbe6d85dec71926d57397fbb3e8df77db516c35&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.BNxR_KNYsNXoruF8OgZf9gHaLG%26pid%3DApi&f=1&ipt=69fc61dfb7650ff53f9285a801151ae837df1dc360b4e1af684d96b01d3d76a9&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1012201,
         title: "Haikyu",
         subtitle: "A Batalha do Lixão",
@@ -1750,8 +1750,8 @@ export const cards: CardsProps[] = [
         genero: ["Animação", "Drama"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftheilluminerdi.com%2Fwp-content%2Fuploads%2F2024%2F03%2F10E58_sq2300_s28.sq8001_s56_f456_pf_sRGB.jpg&f=1&nofb=1&ipt=24728b2591e42028af4f9cf1869ef5b14271fee603fdfcfd690607ee28f129a9&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.AoGM-lSGH_cm366N9nhScAHaLH%26pid%3DApi&f=1&ipt=253f735bf99cb0421452b0b7532ef487a31549859a4a1c7fe50f136bfcfdcccd&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1184918,
         title: "Robô Selvagem",
         subtitle: "",
@@ -1762,8 +1762,8 @@ export const cards: CardsProps[] = [
         genero: ["Animação", "Ficção Científica", "Família"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimages2.fanpop.com%2Fimages%2Fphotos%2F3300000%2FTwilight-Cast-Photoshoots-HQ-twilight-series-3380285-1650-1031.jpg&f=1&nofb=1&ipt=084a34dcc07f24c48f5cadd1d99cb6eaca97190acb92ff260689c24ff556246a&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.gFwfDSBOHrqtgnv1-mpwhAHaLH%26pid%3DApi&f=1&ipt=226e8fd67927629dcc2c0e691337182d80e8914715e733cbcd465cb8a265bafb&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 8966,
         title: "A Saga Crepúsculo",
         subtitle: "Crepúsculo",
@@ -1774,8 +1774,8 @@ export const cards: CardsProps[] = [
         genero: ["Drama", "Romance", "Ação", "Fantasia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cafecomfilme.com.br%2Fmedia%2Fk2%2Fgalleries%2F2600%2F03.jpg&f=1&nofb=1&ipt=a38b533a41a9756e4dcb7b714c3d48ff3a005149a7b1bbcfb2255a7d10a32720&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.hjShTMJy5_ayef4oupwNEgHaJ4%26pid%3DApi&f=1&ipt=ebba77485c6b453bca2164ff2f55e46e86d8a9c02094004908738cac8f789f60&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 18239,
         title: "A Saga Crepúsculo",
         subtitle: "Lua Nova",
@@ -1786,8 +1786,8 @@ export const cards: CardsProps[] = [
         genero: ["Drama", "Romance", "Ação", "Fantasia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimages4.fanpop.com%2Fimage%2Fphotos%2F15100000%2FEclipse-the-twilight-saga-eclipse-15121272-1920-1440.jpg&f=1&nofb=1&ipt=dfc7be4c5bcca4f9f4db4f47d2ebaf9a7da04397b6c8d1dc437236d297a34449&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.IG0LrGR5HFm-xoi8aLtIPQHaJ4%26pid%3DApi&f=1&ipt=ffe1acf14b13a8decbab2030471bc2855cf1d924a5a2be8fa69c38adca33d7c3&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 24021,
         title: "A Saga Crepúsculo",
         subtitle: "Eclipse",
@@ -1798,8 +1798,8 @@ export const cards: CardsProps[] = [
         genero: ["Drama", "Romance", "Ação", "Fantasia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FlL4Y2eBqkp959W0pwugTzZKS4IX.jpg&f=1&nofb=1&ipt=bc5ab01c70bbf3a8fca3d0ffe856770dd0c4710e9468a40b892ddc3e51408c4a&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.18NywmCAd-bY2E7lMTrNggHaJ4%26pid%3DApi&f=1&ipt=2f1dfc4489689b6c37341a1d983415a04f4c9b579008d2a986433a752b69b1a3&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 50619,
         title: "A Saga Crepúsculo",
         subtitle: "Amanhecer Parte 1",
@@ -1810,8 +1810,8 @@ export const cards: CardsProps[] = [
         genero: ["Drama", "Romance", "Ação", "Fantasia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F77PAhK4rTkKPIXvMueg6xlq7tao.jpg&f=1&nofb=1&ipt=b0931b8ee3ae04af701ce2320b36dfbee9ccc0d437fdda9dc7dedba0a668647c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.HR0o35uvssjMlZRXL46pawHaLH%26pid%3DApi&f=1&ipt=74f85fabd714576b5c7feeeb1edac78ddf3e1a65abf9ae095adba170417ffc98&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 50620,
         title: "A Saga Crepúsculo",
         subtitle: "Amanhecer Parte 2",
@@ -1822,8 +1822,8 @@ export const cards: CardsProps[] = [
         genero: ["Drama", "Romance", "Ação", "Fantasia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages2.alphacoders.com%2F794%2Fthumb-1920-794834.jpg&f=1&nofb=1&ipt=7d76b2fe3c914b628ea59cc33879bf3e8ecb98f0b256fa05a4bc965804bca035&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.wPB6wofrapu5oS5BYMUJTgHaLH%26pid%3DApi&f=1&ipt=6b2514451711c324549ad9737d27b63a966db8cfd5a783e6a3a1a49d27588e9b&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 218,
         title: "O Exterminador do Futuro",
         subtitle: "",
@@ -1834,8 +1834,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense", "Ficção Científica"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.alphacoders.com%2F110%2Fthumb-1920-1100602.jpg&f=1&nofb=1&ipt=fae236d2c33e4fe5281e1eb293188c30735117c3436b81832143b7a1c624e926&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.HpTMQZmcB-aFFsWjjvIiOQHaLH%26pid%3DApi&f=1&ipt=e35c05f68f90159f7afcbab49ef004dff6871df8a8f79c80770733c03cc676f7&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 280,
         title: "O Exterminador do Futuro",
         subtitle: "O Julgamento Final",
@@ -1846,8 +1846,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense", "Ficção Científica"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FvoVkSwgFYv9GOpRNfUAwj6qYRTL.jpg&f=1&nofb=1&ipt=4da3dad59d1c302433d3b05c62c53cc386ab52c3f282b0a8dfcb487c81d86f89&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.bDR2e6HSExCQUua0PZrE-wHaJ4%26pid%3DApi&f=1&ipt=08f1b0d59684fea26a6ffac1ea64ef3a34668baa40e5a490e7d208b0c5b4241f&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 296,
         title: "O Exterminador do Futuro",
         subtitle: "A Rebelião das Máquinas",
@@ -1858,8 +1858,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense", "Ficção Científica"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F8veOfB9RbSzFki0Rq3IQIGsFfhC.jpg&f=1&nofb=1&ipt=8f4949755bc5b23140c328c39792e88878a0b0c2833a915a50cfb94907a4e4b0&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.4t5MMUyQJGc-oE6Noy8H3AHaKX%26pid%3DApi&f=1&ipt=d37bf536d9ac133874f136c10c143e31c5eb18fbd20b6b91a106be4dc2686428&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 615665,
         title: "Amor Com Data Marcada",
         subtitle: "",
@@ -1870,8 +1870,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Romance"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F96o558hWHjsxzfrLgHEysT2rKwY.jpg&f=1&nofb=1&ipt=279c8ed79b0cf85952016c1454f1b4e8927b8e35fe52a897c87aaf1ad298951a&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.rDjiJd9QYswvzMdoQzSu1wHaJ4%26pid%3DApi&f=1&ipt=35ee8bef219355427ca9553392e6ee4de48760e5813cb8277ed2681905583ec0&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 887357,
         title: "Lanterna Verde",
         subtitle: "Cuidado Com Meu Poder",
@@ -1882,8 +1882,8 @@ export const cards: CardsProps[] = [
         genero: ["Animação", "Ação", "DC", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fbb%2F57%2F35%2Fbb57350dbf19c2367bdf9a569e65aa78.jpg&f=1&nofb=1&ipt=1890035fd417aa6cc4c88952baa74ab4f444a67bfcbf94168514e7768cd71e0a&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.KKEvCIUhUqvtmhRPY9RJXgHaJ4%26pid%3DApi&f=1&ipt=1e8b86f8e8b3168f0db7dabd5f9ff5a71303ac8274d2231a03635b19e6cbe5c5&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 408220,
         title: "Liga da Justiça Sombria",
         subtitle: "",
@@ -1894,8 +1894,8 @@ export const cards: CardsProps[] = [
         genero: ["Animação", "Ação", "DC", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F7zhm42mTFa7WCpufXZlnarwaCdI.jpg&f=1&nofb=1&ipt=f1a3d655c310deb6503f11823dfc532e639a40ac1fb65d3ec92a22dabbfa1cb7&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.y1UofZDeCDh1OAVSvQyocgHaKl%26pid%3DApi&f=1&ipt=ba70fde6675439f6effb507a2352294fe7b1fa05768b9dcadf172d49fb9e801a&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 49521,
         title: "O Homem de Aço",
         subtitle: "",
@@ -1906,8 +1906,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica", "DC", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fhdqwalls.com%2Fdownload%2Fshazam-movie-2019-4k-91-1920x1080.jpg&f=1&nofb=1&ipt=f29a33cdf29f91dd92e9f6b5ac83c859522598b0a647ab109aa013a2959bd7f0&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Lhl63h-XDghP5qu_JBKH9AHaLH%26pid%3DApi&f=1&ipt=03b815d4b198143a1e68b481e4875e870706fed18fd47abf2acc247cc3ef4c92&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 287947,
         title: "Shazam!",
         subtitle: "",
@@ -1918,8 +1918,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Comédia", "Fantasia", "DC", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.uhdpaper.com%2Fwallpaper%2Fshazam-fury-of-the-gods-337%401%40j-pc-4k.jpg&f=1&nofb=1&ipt=b89d6a8442861fba1379da8c229f46b33a761dd14bad43bd1d1c4af35e4cdd1f&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.CaLubbVdtpokfdpSF5mqyQHaLH%26pid%3DApi&f=1&ipt=e694ab4831bf75b6a7a5b456eb6578aaf5ff3aa4888284e366b9d8250fa95a31&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 594767,
         title: "Shazam!",
         subtitle: "Fúria dos Deuses",
@@ -1930,8 +1930,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Comédia", "Fantasia", "DC", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages5.alphacoders.com%2F103%2F1033468.jpg&f=1&nofb=1&ipt=ea2c152e4af42129036df6f4d63856c1584a245c1f3687b4d483c63bc5a524fb&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.nuTX5-8pCCFSKgHWLLvgkwHaLH%26pid%3DApi&f=1&ipt=416f4e71416e89ad42500909d31fe623bc55ba3906acc4d4e6027614647a0480&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 752,
         title: "V de Vingança",
         subtitle: "",
@@ -1942,8 +1942,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages5.alphacoders.com%2F757%2F757038.jpg&f=1&nofb=1&ipt=283882f034b00f37cf224586263d5c503c2836dd65cf9102d83c91d47e7d022a&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.kHc9qVu0sP9Rgp0W2NKjBQHaLH%26pid%3DApi&f=1&ipt=6896d7bac362b731c164b179625757ed121db54a3316aeb5ea82509aa0a4e8fa&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 277834,
         title: "Moana",
         subtitle: "Um Mar de Aventuras",
@@ -1951,11 +1951,23 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1aHVoN-kWxIvdQBi9a6OMSqXws7q674Cr/preview",
         duration: "01h 47m",
-        genero: ["Aventura", "Comédia", "Família", "Animação", "Disney+"]
+        genero: ["Animação", "Aventura", "Comédia", "Família", "Disney+"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp3005682.jpg&f=1&nofb=1&ipt=74b97ae9158f5508c6942e534d862d3687b389b6dd67829f4735b0319727e257&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.P4txkNtafMdb14AFe5dY_gHaLH%26pid%3DApi&f=1&ipt=f0d27598949f461a29b08a86dde96c3b4d8ba4b1e94e404b3ff5b6acbd318c11&ipo=images",
+        background: background,
+        overlay: overlay,
+        tmdbId: 1241982,
+        title: "Moana 2",
+        subtitle: "",
+        description: "Depois de receber um chamado inesperado de seus ancestrais navegadores, Moana vai viajar para mares distantes da Oceania, em águas perdidas em uma aventura perigosa.",
+        faixa: "L",
+        src: "https://drive.google.com/file/d/1APK3Dooc7XKUK8mj50y_KzqBRUeFBc4k/preview",
+        duration: "01h 40m",
+        genero: ["Animação", "Aventura", "Comédia", "Família", "Disney+"]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 277,
         title: "Anjos Da Noite",
         subtitle: "",
@@ -1966,8 +1978,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F67fs51YjXewKkXOnPRZXpktGceQ.jpg&f=1&nofb=1&ipt=304a20a225cfa1b17413b646d0082e0c78bc4eea5d041f288f4f366caed3e95e&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP._lMZdzp3BBUKJb1GaRoniQHaJ4%26pid%3DApi&f=1&ipt=4f715b0cb420db28917aaf5809aa294ddadb72c2f2a1d708f175294906313f7e&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 834,
         title: "Anjos da Noite",
         subtitle: "A Evolução",
@@ -1978,8 +1990,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense", "Fantasia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fc7JgVgsF2qMp2UbCr9mCx85CIZo.jpg&f=1&nofb=1&ipt=e9a9d40f787cf958f4a6e5342a0298bfcbcd368295ec241d5980f0d1bc04b74b&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.nI9IutdLyNQc6FrL5G5yywHaLH%26pid%3DApi&f=1&ipt=2422e226d96c42051f7c439a11937748a30e05081b0e763c0d8ba8511ae96427&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 12437,
         title: "Anjos da Noite",
         subtitle: "A Rebelião",
@@ -1990,8 +2002,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense", "Fantasia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2Fv63E5H5TD7Eay1gZPVt9ibP9riy.jpg&f=1&nofb=1&ipt=2261b802f642cb221766569195f2d867df1c14650c37b2750aed4bf98a0798b5&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.1H1EqGgsqUV0qgjSviR8rAHaLH%26pid%3DApi&f=1&ipt=cae8ed893000b7272bb19f0e107b761ae32e575ed46715b6b6e13b3aa49559ff&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 52520,
         title: "Anjos da Noite",
         subtitle: "O Despertar",
@@ -2002,8 +2014,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense", "Fantasia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F1bfj55sPYXIGAFBUMaiewJ4a81S.jpg&f=1&nofb=1&ipt=1cbef8c903eca47c56d1c102d9229aee5876185a188e8314d43d4b24aa64483c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.KCBucj-dMiA5GjYddfOL_wHaJ4%26pid%3DApi&f=1&ipt=7b6f00d882ab60bf7de93f5e2efff1c2240100511a814142bf8ad5ae28d27deb&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 346672,
         title: "Anjos da Noite",
         subtitle: "Guerras de Sangue",
@@ -2014,8 +2026,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense", "Fantasia"]
     },
     {
-        background: "",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Ze5thoPtC0YwC6GlW1ggEwHaJQ%26pid%3DApi&f=1&ipt=f0b8b48583d4e1d9b2d9c0ca013e821c8da2d7855802de41653f0f9efac05361&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1290486,
         title: "No Ritmo Do Natal",
         subtitle: "",
@@ -2026,8 +2038,8 @@ export const cards: CardsProps[] = [
         genero: ["Romance", "Comédia", "Netflix"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fgiselirodrigues.com%2Fwp-content%2Fuploads%2F2020%2F07%2Fo-amor-nao-tira-ferias.jpg&f=1&nofb=1&ipt=cbc65d061e13d43033ccd5a3e636b6f123e23435c859b30eaedbec2c50105048&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.OxzJ7EUAY_3UBkwSojwchAHaJ4%26pid%3DApi&f=1&ipt=4007ef9d1e7b558bc9cda3591e1ce8f5575465055202a74064ddda0ae86cc5ea&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1581,
         title: "O Amor Não Tira Férias",
         subtitle: "",
@@ -2038,8 +2050,8 @@ export const cards: CardsProps[] = [
         genero: ["Romance", "Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FsBOhevbei8jVNR3vKhckWpgfQON.jpg&f=1&nofb=1&ipt=044b358c895687b5e8c1c1cfe608ecc0ee2b6e2e74c003987fb027cb463ec7a3&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.084HAO6tvlXR_mo3-PJGCwHaJ4%26pid%3DApi&f=1&ipt=353a37b589bd203ca5a577c825a36bb7f56b1e47f2443407e2ccbe509ede3d67&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 37056,
         title: "Cartas Para Julieta",
         subtitle: "",
@@ -2050,8 +2062,8 @@ export const cards: CardsProps[] = [
         genero: ["Romance", "Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FeMshjnjEq8gha5a7JalUDFAJS90.jpg&f=1&nofb=1&ipt=c324537a1a58ae239544f3200ccca65331a01323643f6d2099bde3a1cfee18e6&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.18e39hKMLe_qpqDY4KL79gHaLH%26pid%3DApi&f=1&ipt=dd475cf2da7aba583c698a981c94c7db9712e96f359528caa8b2464dd54efaaa&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 5255,
         title: "O Expresso Polar",
         subtitle: "",
@@ -2062,8 +2074,8 @@ export const cards: CardsProps[] = [
         genero: ["Aventura", "Família", "Fantasia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic1.moviewebimages.com%2Fwordpress%2Fwp-content%2Fuploads%2F2024%2F07%2Fsubservience-movie-with-megan-fox.jpg&f=1&nofb=1&ipt=a9ddabf9129322c9af140242187a8a4d525ddb2334250856210f2601bf293c78&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.rWzOTSSWshDYmQdSUc5c1gHaLG%26pid%3DApi&f=1&ipt=8fcdd1127130845ab580c4133f4d7b67dbad450e6fc0236d4e7cdbb56eafe0bd&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1064028,
         title: "Subservience",
         subtitle: "",
@@ -2074,8 +2086,8 @@ export const cards: CardsProps[] = [
         genero: ["Ficção Científica", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2Fdj1vX0u9WV5H6qhtukX9AfAUgi5.jpg&f=1&nofb=1&ipt=d374a45dcd91e605f1e59d0adef280d6af3079925681e043b5ae03f8dd081898&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.wsiBpsBQSStmJGYFgzyPyQHaLH%26pid%3DApi&f=1&ipt=df06f418a33393626fe31ef19185aa1327b56298c02d4ca2e10ad39acab4165d&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1858,
         title: "Transformers",
         subtitle: "",
@@ -2086,8 +2098,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica", "Aventura"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FkfkJVUIV32Tzhu1rdtDGmtRbQZh.jpg&f=1&nofb=1&ipt=7ba7ad8e9c26abed2368e4c17bf515273c83a6d0e600861fe1f718113f165c59&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.q9KMl8jQliQ7P7Jzi5oCJwHaLH%26pid%3DApi&f=1&ipt=a8b3d23cc78ebfa257f99eecc75acd1eed9463e18968516844e9bdcd7de20e60&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 8373,
         title: "Transformers",
         subtitle: "A Vingança dos Derrotados",
@@ -2098,8 +2110,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica", "Aventura"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnosbastidores.com.br%2Fwp-content%2Fuploads%2F2020%2F06%2Ftransformers-dark-of-the-moon-5ac67ee55a5bf-1536x864.jpg&f=1&nofb=1&ipt=3a4262f85d10b7ff05e4f3677236278d5b2aec9a55f6b1c45516c8cde0bcd95f&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.rkUJnWqWDbPcimzcHcKweAHaK-%26pid%3DApi&f=1&ipt=e7319249243f67cd109c8dc763e577d6d29a06a5e5bf6ef3b13debf07928194b&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 38356,
         title: "Transformers",
         subtitle: "O Lado Oculto da Lua",
@@ -2110,8 +2122,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica", "Aventura"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwegeekgirls.files.wordpress.com%2F2014%2F06%2Ftransformers-age-of-extinction_stills-6.jpg&f=1&nofb=1&ipt=cf354c5a059a3565690035e723fc173991720bf5c3e36e9673759cce4fdf5f97&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.4U3yUm8yiaD4LDAN4DBiCwHaK-%26pid%3DApi&f=1&ipt=b93dcdcb70c766ac4a0abb1b490f6d3bb2ed936b20b9a076b035e54ec4295e22&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 91314,
         title: "Transformers",
         subtitle: "A Era da Extinção",
@@ -2122,8 +2134,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica", "Aventura"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F3.bp.blogspot.com%2F-0yLbNc5-k8g%2FWhhiUsu24NI%2FAAAAAAAAAe4%2FEWDd8voZd-gxXHJtoN0iFEECZaAFkcZ7QCLcBGAs%2Fs1600%2F1n00NlOGRFZVs8coBxyZLm5l4EC.jpg&f=1&nofb=1&ipt=f978cc5e9fb372afe18c85721b11055acbbe7765503804e62dbc9c99b2402347&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.orCLZDQ9E_k7UhF8aM2NPwHaLH%26pid%3DApi&f=1&ipt=f1452f5a673b92a33b639f735e668552989e35aea4eb62ae12b29f17a4933fcd&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 335988,
         title: "Transformers",
         subtitle: "O Último Cavaleiro",
@@ -2134,8 +2146,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuploads.alternativanerd.com.br%2Fwp-content%2Fuploads%2F2020%2F04%2Fsamuel-l-jackson-james-mcavoy-e-bruce-willis-em-imagem-do-longa-vidro-1547586059654_v2_1920x1200-e1588096000613.jpg&f=1&nofb=1&ipt=adec393538627d90683e6f0beeaad8c9e95faf2892c4f9ea86a9f6ebc6aa9340&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.URAC2_BiG6ZlQ1w_KC3hvQHaKl%26pid%3DApi&f=1&ipt=67fafac846edbbf4be3a20bdf0ff51c3a33c849b1172b5a9fdfcefb9d9179edd&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 450465,
         title: "Vidro",
         subtitle: "",
@@ -2146,8 +2158,8 @@ export const cards: CardsProps[] = [
         genero: ["Suspense", "Drama", "Ficção Científica"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cnnbrasil.com.br%2Fwp-content%2Fuploads%2Fsites%2F12%2F2023%2F08%2FPARQ_LNF_Still_01052912-e1692965066595.png&f=1&nofb=1&ipt=cc288fbaa524d7b51185fe9335728c9163b6378169628ae61afb8791aa49613b&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.P66oZsUFGJ2VCLvqA1DxnAHaNK%26pid%3DApi&f=1&ipt=705f2a0f28fddab14fb574d7added660b16712cdd50cac1ba6bc6c6a6e2d9f93&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1156212,
         title: "Maníaco do Parque",
         subtitle: "",
@@ -2158,8 +2170,8 @@ export const cards: CardsProps[] = [
         genero: ["Suspense", "Drama", "Crime", "Prime Video", "Nacional"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FA9aXktnnsOdVtpryO3AwtwOuEd4.jpg&f=1&nofb=1&ipt=44dfeb8ef84920a903905b075d3905b606da0197208e2e3c28266143149a91f2&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.vXAL6G3fZlQovWKK9eKUYgHaJ4%26pid%3DApi&f=1&ipt=48e731ce7b27980192a239f890be7d429458d8fef3e193aaf77acb134c4c1d4a&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1402,
         title: "A Procura da Felicidade",
         subtitle: "",
@@ -2170,8 +2182,8 @@ export const cards: CardsProps[] = [
         genero: ["Drama"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cafecomfilme.com.br%2Fmedia%2Fk2%2Fgalleries%2F3781%2F07.jpg&f=1&nofb=1&ipt=d856a339694b42bafc311f06e53e4116021d288345aa6f8caa4694e54d693b84&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.OlpWAbvRsxdwUaK8RE-6JAHaK-%26pid%3DApi&f=1&ipt=cd7456076a4ea2ed2b762b3bd89e8d2393bcb1a3f1888064d0daa92077ffa1d7&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 694,
         title: "O Iluminado",
         subtitle: "",
@@ -2182,8 +2194,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fobservatoriodocinema.uol.com.br%2Fwp-content%2Fuploads%2F2019%2F02%2Fdownload-9.jpg&f=1&nofb=1&ipt=244e2739775324481808b5d4462e81a7b8ab122b8db42f0d85b5f4ad20cecf15&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP._fxb4B4vehvPPLRNMKf2PwHaJ4%26pid%3DApi&f=1&ipt=c4c6d1497584bcaddd3a90c0785b2d710fcd522023de6829d17a947af38d10de&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 440021,
         title: "A Morte te dá Parabéns",
         subtitle: "",
@@ -2194,8 +2206,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Terror"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmeialua.net%2Fwp-content%2Fuploads%2F2022%2F10%2Fadao-negro-scaled.jpg&f=1&nofb=1&ipt=5a6e946e676bf91c3832d7ef591418370123fb4718873c848499488afdf49699&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.FWR939m1CYxWkoPlXC4VNAHaJ5%26pid%3DApi&f=1&ipt=a2a44a0c015d6cc08a31b4628745f2b0cc4d7cd3eb6f24a09616d124e4488847&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 436270,
         title: "Adão Negro",
         subtitle: "",
@@ -2206,8 +2218,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Aventura", "Ficção Científica", "Vilão", "DC"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F5A1ObQ0fGNHVWivBdlJyO586BTK.jpg&f=1&nofb=1&ipt=6851eddfb7d1e47a81ef8a109609d99607ce3d31a82e733f3fa76e5d393a6cfd&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.oNNb8RW3ZdOdbHtEjetK-QHaLH%26pid%3DApi&f=1&ipt=6e02f4147d028b3ac6f7765bb9149f67c16de27c2b171f335ae89b67904fe084&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 8247,
         title: "Jumper",
         subtitle: "",
@@ -2218,8 +2230,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.nextflicks.tv%2Fwp-content%2Fuploads%2F2023%2F05%2Fwhere-to-watch-fight-club.jpg&f=1&nofb=1&ipt=04ddc1d4f1dfd2d88844845911f9a3ebaf35875c88b13ea1a812092913a4bcc3&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.RQbk86KGjAZJG6oq0IxqnQHaLH%26pid%3DApi&f=1&ipt=41f66366c3544d4955b5053864fa681d41010e7f65d53d9e274b7b100f439a88&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 550,
         title: "Clube da Luta",
         subtitle: "",
@@ -2230,8 +2242,8 @@ export const cards: CardsProps[] = [
         genero: ["Drama"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.papodecinema.com.br%2Fwp-content%2Fuploads%2F2015%2F01%2F20150118-projeto-almanaque-papo-de-cinema.jpg&f=1&nofb=1&ipt=48b6632768b7c095ba688500a3031120c7e64f8370aeb0446fbe8531e73499c0&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.4Wfz4z_oaqaaNIokYId3gwHaLH%26pid%3DApi&f=1&ipt=6a22bf80539209f629f1f7271d79fdea444cadb3ab7483271e0949ba39a772d2&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 227719,
         title: "Projeto Almanaque",
         subtitle: "",
@@ -2242,8 +2254,8 @@ export const cards: CardsProps[] = [
         genero: ["Ficção Científica", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FqBQV4i2sjIydDJUKm7pwvpyfy5p.jpg&f=1&nofb=1&ipt=81abde77bedde741fdd419722c634c4cbdae35824754a147bd6d87ab784a4b40&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Xy1G1tsGQW8cvxafdFQH_wHaLH%26pid%3DApi&f=1&ipt=bc486b4e736e975708f3923e6dfe57dcbe6a091ea59b2df74a5211738697232f&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 693134,
         title: "Duna",
         subtitle: "Parte dois",
@@ -2254,8 +2266,8 @@ export const cards: CardsProps[] = [
         genero: ["Ficção Científica", "Aventura"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fj8uwQxgNsX2d7BHmls8Gj3Gd4c.jpg&f=1&nofb=1&ipt=0e77ff1ef7e883798cb2afeba8de2a05201926c73110f6807207f48a26a85d51&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.z5KvasVYWZgp5Lw4W50m1QHaLH%26pid%3DApi&f=1&ipt=90c07c48b36188fc52ca098ae83d6aa071e73a1ea939a9fcad0e4aa9dbda04b5&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 23168,
         title: "Atração Perigosa",
         subtitle: "",
@@ -2266,8 +2278,8 @@ export const cards: CardsProps[] = [
         genero: ["Drama", "Suspense", "Crime", "Legendado"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2024%2F05%2Ftrigger.jpg&f=1&nofb=1&ipt=2b97667ab4d9ec1f8aefd645c245ea44c864848c47e342f225b894fc56da941b&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.7lzEDKIMvtIQfp7dJ_3RNgHaLJ%26pid%3DApi&f=1&ipt=ddb2c8bf83dc4e9b3b336cc9f1fd6a6404397238265a7f3d3f798017acccb3c3&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 704673,
         title: "Alerta de Risco",
         subtitle: "",
@@ -2278,8 +2290,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense", "Netflix"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F2.bp.blogspot.com%2F-aujSokLL8QM%2FUOtNvONLtpI%2FAAAAAAAAOxo%2FhCI1qPsH6WM%2Fs1600%2FWB_056_DF-JT-16727_rgb.jpg&f=1&nofb=1&ipt=df88df323078699e6cf8105b374a2f0d5c5f662435a377b9dd8cb73ed0658016&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.D4-YHEcvb5KDg6Q77fVvzgHaKa%26pid%3DApi&f=1&ipt=6ebe99d4cd48621e5d2fbfa18e9d065e5869a983d92e1f92a1060cb94100721f&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 82654,
         title: "Meu Namorado É Um Zumbi",
         subtitle: "",
@@ -2290,8 +2302,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Romance"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F3.bp.blogspot.com%2F-c2dvJgAqj1I%2FUmVtVYTX_SI%2FAAAAAAAAAL4%2FKK9t-s2JeZ8%2Fw1200-h630-p-k-no-nu%2FInatividade-Paranormal-Poster-brasileiro-7Jan2013.jpg&f=1&nofb=1&ipt=e17999b25d88fd99f095995d886ba006839416682b4d9f834e5c64173332d9cc&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.fr2lBRNOXTklmy2Fdu0OcwHaLH%26pid%3DApi&f=1&ipt=6468825457c352d3a883f7415a2b63487616e1d752d041c81a88997046b2ade8&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 139038,
         title: "Inatividade Paranormal",
         subtitle: "",
@@ -2302,8 +2314,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Terror"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F2.bp.blogspot.com%2F-2U6VvqPSgwg%2FVCAUE4X9zHI%2FAAAAAAAAUI8%2FoS_NjkC6onk%2Fs1600%2FInatividade%252BParanormal2%252BDivulga%25C3%25A7%25C3%25A3o.jpg&f=1&nofb=1&ipt=32a930940b3d857fc03217c044e07938677deeb34ba29e410b0ad4329a81a152&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.BtJiA_Wri8GrlGTkqCui9QHaLH%26pid%3DApi&f=1&ipt=7f7da8722cfde8550b58a303059e351b23523601876780d6015ed6f3d1f1eefc&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 184345,
         title: "Inatividade Paranormal 2",
         subtitle: "",
@@ -2314,8 +2326,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Terror"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FpRrq1t1rBEELElYUA3B2eM3AXnP.jpg&f=1&nofb=1&ipt=9c55dec8896ccf3d02cb8e832b16dc9f9ccf060c0d4b1d278ccf942f304cc708&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.m-WeBXDvETtbMOidz3TdPwHaJh%26pid%3DApi&f=1&ipt=ce51407341515106ebc3733713fd6bdfda4481e03202d1b03dcc85264b0f54d4&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 718930,
         title: "Trem Bala",
         subtitle: "",
@@ -2326,8 +2338,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Comédia", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages2.alphacoders.com%2F131%2Fthumb-1920-1319333.jpeg&f=1&nofb=1&ipt=6f2210d17de0079de14fb4055bacb9f3b42974a8ebff11091655e27175379e28&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.erMbaV-aK8C5Rh6D1qgueQHaLH%26pid%3DApi&f=1&ipt=15fdc4b92165804a5f92e78903cd6a10a469c50cf1eb4011f9aa67d194e00c2c&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 980489,
         title: "Gran Turismo",
         subtitle: "De Jogador a Corredor",
@@ -2338,8 +2350,8 @@ export const cards: CardsProps[] = [
         genero: ["Aventura", "Ação", "Drama"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2316916.jpg&f=1&nofb=1&ipt=6eddc3b1d278587dc67a8ab5ddb3880a0dcae8630ef2b1d79d3b6815e29fd426&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.2fCemzR3rP-zHsbSLCodfAHaKd%26pid%3DApi&f=1&ipt=b5f5a56cbbd434bd134c870767672f6d4e4b5ed90efba34ef28faa033a89a398&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1359,
         title: "Psicopata Americano",
         subtitle: "",
@@ -2350,8 +2362,8 @@ export const cards: CardsProps[] = [
         genero: ["Suspense", "Drama", "Crime"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F2.bp.blogspot.com%2F-VZaSmevtIT4%2FXNGvxRmPTYI%2FAAAAAAAACO0%2Fr18HF9Nw5ikY7W9hHPBAYfNS0uixLPBDACKgBGAs%2Fw0%2Faladdin-2019-aladdin-jasmine-genie-uhdpaper.com-4K-3.jpg&f=1&nofb=1&ipt=daca0cc245b676f91f69436f4352c477643f5e78a897734b60b7cec724f80535&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.oOgNhaye_W_yFkmL573fWAHaK9%26pid%3DApi&f=1&ipt=d502949d718dd0aaead08dfbb29fd1b4d88f757314542eb9c8bf3e74911ba73b&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 420817,
         title: "Aladdin",
         subtitle: "",
@@ -2362,8 +2374,8 @@ export const cards: CardsProps[] = [
         genero: ["Aventura", "Fantasia", "Família", "Disney+"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Florena.r7.com%2Fpublic%2Fassets%2Fimg%2Fpostagens%2Fpost_44020.jpg&f=1&nofb=1&ipt=f247093308b8df88be58b34af36bb77109bc65e6a357637e55cb4e9597a0db39&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.OAmOP1eYk1-lTAQKzW67tQHaNK%26pid%3DApi&f=1&ipt=b8519110a3bdb1e5b1d185b87feac08798a432a225f55032f1b2f2f0e171e6f3&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 533535,
         title: "Deadpool & Wolverine",
         subtitle: "",
@@ -2374,8 +2386,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Comédia", "Marvel"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdescontexto.com.br%2Fwp-content%2Fuploads%2Felementor%2Fthumbs%2Ffullwidth.ceaae5fe-o1oe4izmnop7ih8tkc92v7f35snz0cbg6kr80dkj00.jpg&f=1&nofb=1&ipt=83b3622fcaab5ebd649131e4d5620ad69f04154ef835e0c48af0422698cd71f9&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.TCUd9OFmY_Wj_PUkKhamNgHaLH%26pid%3DApi&f=1&ipt=4e3239666e7f65816aa07736af8f7e918c3256df9a695cff5b3f7f7b6315310b&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 2108,
         title: "Clube dos Cinco",
         subtitle: "",
@@ -2386,8 +2398,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Drama"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FtweDJNQzBGgsWVF5MC8JhSAk07p.jpg&f=1&nofb=1&ipt=b8ca0c212173e4c50c718db871026ba9639059207c4b2067e1623d10da946f25&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.KGFd99-2jhmjinWIKWpXyAHaLH%26pid%3DApi&f=1&ipt=befe917ca13b2f93e4d52d626b3451cd394d5fe395b14974f881d5e74f5f4112&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 570670,
         title: "O Homem Invisível",
         subtitle: "",
@@ -2398,8 +2410,8 @@ export const cards: CardsProps[] = [
         genero: ["Suspense", "Ficção Científica", "Terror"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2024%2F11%2Fapoca5.webp&f=1&nofb=1&ipt=262647717f4b9cdc5137fd8fd7def9685f4a70477e71a32578817730f3b5433e&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIF.mfpibjwfHKqpecpZcOb3Yw%26pid%3DApi&f=1&ipt=0dedabc57cb87321803989fbc19fa3b1e268aa750d4e8e2cf5b40b4e1e1ef72c&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1118031,
         title: "Apocalipse z",
         subtitle: "O Princípio do Fim",
@@ -2410,8 +2422,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Drama", "Terror", "Prime Video"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ffilmoteca-static.b-cdn.net%2Ft%2Fp%2Foriginal%2F6WvJAj4OigLvnhIxgkfrOmjSJz2.jpg&f=1&nofb=1&ipt=9e82de952f3eb27eeaa16c2527f4790f248b15683535329d05cabe8690a4fd5a&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Seky-G-uZbOqQsHq55d1BgAAAA%26pid%3DApi&f=1&ipt=9380499e357a8eed3c9414a6dba81cf8207ea6de651592df66694ba8a8d3e887&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 82507,
         title: "A Entidade",
         subtitle: "",
@@ -2422,8 +2434,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fv3MEI66V9hdXGCD7pdeMqXShUOi.jpg&f=1&nofb=1&ipt=feb2f1c997716ad828d401ab6df740f66edaf4d6b0088e1ad5ccd4f71cb8aa04&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.5mbw7dAEKNuoBxmcohbBTAAAAA%26pid%3DApi&f=1&ipt=c2520b22e1ecc5aa8b75b0db6a7b04df731e43bfbb5e1a909ad4dd443e231256&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 283445,
         title: "A Entidade 2",
         subtitle: "",
@@ -2434,8 +2446,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.oficinadanet.com.br%2Fimagens%2Fpost%2F57590%2Fnao-se-mexa-meio-netflix.gif&f=1&nofb=1&ipt=33d42ea99a91c43d21ed4d7058a563ab0ce605f34e7f1c01a2e69930a52909a8&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIF.IFNOF9kxjPtz0%252flszswRPw%26pid%3DApi&f=1&ipt=68d7c802c67dfc80ea2e308ae53a1a87fa2c2c057281691a274b5490cc1a21e9&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1063877,
         title: "Não se Mexa",
         subtitle: "",
@@ -2446,8 +2458,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmultiversogeek.ig.com.br%2Fwp-content%2Fuploads%2F2024%2F10%2FCorte-no-Tempo-saiba-tudo-sobre-o-filme.jpg&f=1&nofb=1&ipt=5f80ad3b1e7a8bd4c17deea1103dc9c154274d3a51be5570da6fc441ef8e18e0&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIF.zLd5GgSkUXN8UsVyA6YXoA%26pid%3DApi&f=1&ipt=95bd42bf8b3c92022b319c3a9f9d6a55db5461d7b3c8e64f1d682ae3fec57d87&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 827931,
         title: "Corte no Tempo",
         subtitle: "",
@@ -2458,8 +2470,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror", "Ficção Científica", "Suspense", "Netflix", "Legendado"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.hobbyconsolas.com%2Fsites%2Fnavi.axelspringer.es%2Fpublic%2Fmedia%2Fimage%2F2020%2F10%2Fscary-movie-2000-2113037.jpg%3Ftf%3D3840x&f=1&nofb=1&ipt=5a132ab367c0a478fda0f30fc08918be30e1f3e04cb09b0533422f53230e6db0&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.sYZPL4Npv5rNAV6RDmP6VQAAAA%26pid%3DApi&f=1&ipt=bdc886e061cbccb7dc95991f250a21ca9404b62f458e5132e3ecfd8943200ff8&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 4247,
         title: "Todo Mundo Em Pânico",
         subtitle: "",
@@ -2470,8 +2482,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.fanart.tv%2Ffanart%2Fscary-movie-2-5be0982a98323.jpg&f=1&nofb=1&ipt=083388a66a57b58009029aca9a4d1fcbfd854a558e01d72edf1fc09467d2bb35&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.6aiDXcU6xa-C7Cxy8CKQ-AHaLH%26pid%3DApi&f=1&ipt=7096ee26635adb9764942645d56e3eed2f01d6391ab94db325922adf0eb53855&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 4248,
         title: "Todo Mundo Em Pânico 2",
         subtitle: "",
@@ -2482,8 +2494,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.planocritico.com%2Fwp-content%2Fuploads%2F2021%2F02%2Ftodo-mundo-em-panico-3-plano-critico.jpg&f=1&nofb=1&ipt=2fb383712654a4e98d5c5d89d03432d0e00d5373c0146addaf39cc916368a9a7&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.xWrfY621cTjpm0MDdWu4zgHaLH%26pid%3DApi&f=1&ipt=f84addfaa32bc017092f2c01083e4afc5a313bfcc521f24f28271f4c866887fd&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 4256,
         title: "Todo Mundo Em Pânico 3",
         subtitle: "",
@@ -2494,8 +2506,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.planocritico.com%2Fwp-content%2Fuploads%2F2021%2F02%2Ftodo_mundo_em_anico_4.jpg&f=1&nofb=1&ipt=592fd60a6be8cb7fc26d6f7ea9f560378d3d26704ff9032d9acbb6abe026eabd&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.11H2qf7RiFQKWiq7iXVXdQHaLH%26pid%3DApi&f=1&ipt=6c6c11b479217d5bc041b5325663e3cdf09aa2455efb021d0a637eb8f443be36&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 4257,
         title: "Todo Mundo Em Pânico 4",
         subtitle: "",
@@ -2506,8 +2518,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fconteudo.imguol.com.br%2Fc%2Fentretenimento%2F2013%2F06%2F27%2Fcena-da-comedia-todo-mundo-em-panico-5-dirigida-por-malcolm-d-lee-1372314826803_1920x1080.jpg&f=1&nofb=1&ipt=c74bc63a67e3c653c1d1faaacd9496a80d4b5f53fca3c382c2a66c4b9be5628d&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.tN7j0Xd9M9nOIUAefUd_vAHaLH%26pid%3DApi&f=1&ipt=482ef23b0903674ea80b27d123064446bcfe2f9a59392f3a24efd4d25b7889b3&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 4258,
         title: "Todo Mundo Em Pânico 5",
         subtitle: "",
@@ -2518,8 +2530,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.justwatch.com%2Fimages%2Fbackdrop%2F176643115%2Fs1440%2Fmarley-e-eu&f=1&nofb=1&ipt=dd47becf2a8369ec7720c9b35c489308f6c77c03461b139ab438aab445d997f6&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.2RlMI_qQV_BL4tzVF_TG0AHaKk%26pid%3DApi&f=1&ipt=0ab112eae5d451bcb142711bab00b4e2d457b429769bbc4c17a4401aa643d3df&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 14306,
         title: "Marley e Eu",
         subtitle: "",
@@ -2530,8 +2542,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Família"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.papodecinema.com.br%2Fwp-content%2Fuploads%2F2012%2F02%2F20190204-banner.jpg&f=1&nofb=1&ipt=68fbb456d0692b0fe97f26acc31c65b36f390ecedd4e75cc0d8f6c497ea8916f&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.zoEx4jwbv0akgVriwBzzYgAAAA%26pid%3DApi&f=1&ipt=39d4e82c3acd086e35eec6b863313f4209c1271e08c4b0b92c059c8a28f1ca34&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 18240,
         title: "A Proposta",
         subtitle: "",
@@ -2542,8 +2554,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Romance", "Drama"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinemaeafins.com.br%2Fwp-content%2Fuploads%2F2021%2F05%2Fvenom-tempo-de-carnificina-poster.jpg&f=1&nofb=1&ipt=459cde8e4b6924cdde2d691d1a56eabe513f811263d6e4de34016aad5eb86daf&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.JRWC4oKchLLUKJqwCMgxFgHaLH%26pid%3DApi&f=1&ipt=5607f57cc8e98b9f4ed24bece8db45069eaac27d702fed0db0ddcca4b3b0b648&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 580489,
         title: "Venom",
         subtitle: "Tempo de Carnificina",
@@ -2554,8 +2566,8 @@ export const cards: CardsProps[] = [
         genero: ["Ficção Científica", "Ação", "Marvel", "Vilão"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmasterdica.com%2Fwp-content%2Fuploads%2F2023%2F12%2Fencontro-de-amor-md-1024x576.jpg&f=1&nofb=1&ipt=5230fba2c9e94aa6cfa572bd018652379ce398c579c3a789c929af4a20ba8b22&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.C_yWmOOtvT6EohwEP0_IIwAAAA%26pid%3DApi&f=1&ipt=800b13d1fdb4ebc4b4ef9ce968edb5e266db7e7adb862fcf95aa1a4181c74d91&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 7303,
         title: "Encontro de Amor",
         subtitle: "",
@@ -2566,8 +2578,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Romance", "Drama"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fofolhetimcultural.com.br%2Fwp-content%2Fuploads%2F2024%2F10%2Fa-garota-da-vez-filme-e1726592755685.webp&f=1&nofb=1&ipt=77423db1d35bd2354f0a40e1fb6bb7a008880b7a59899d839bfa800d85fd39ec&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.30PMYHPEmhoZ7dCCxBDTtQHaK4%26pid%3DApi&f=1&ipt=d7cbd3abf73afdcde223eee1cd5ba9eba58a12dda8bb626b9a13264de72def5a&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 835113,
         title: "A Garota da Vez",
         subtitle: "",
@@ -2578,8 +2590,8 @@ export const cards: CardsProps[] = [
         genero: ["Drama", "Suspense", "Crime"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.uhdpaper.com%2Fwallpaper%2Fblue-beetle-movie-character-poster-815%401%40k-pc-4k.jpg&f=1&nofb=1&ipt=cb5dc37177c9d3cbb0a5a3076aaa6b04232f7113613f70cafa946e1d930fdd8c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.nTpStLM-YGh7lnH4fyT2_AHaJQ%26pid%3DApi&f=1&ipt=6250960ddf58607c937fc3852907392f1297e3403fa1a71ed4152e2e8cad8ec9&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 565770,
         title: "Besouro Azul",
         subtitle: "",
@@ -2590,8 +2602,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica", "Aventura", "DC", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FM%2FMV5BYzE3ZDMxY2UtMzliNi00M2I0LWFmMjAtYTU3ZDQ2OTg2Y2ZhXkEyXkFqcGdeQWFybm8%40._V1_FMjpg_UX1000_.jpg&f=1&nofb=1&ipt=29bf10652fa83c83e81c34d6f590d71360ab8144023ff61952a5a4da1bb0cb20&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.NH4nHrEbTomQwqh5FA6krwHaKk%26pid%3DApi&f=1&ipt=d1cf78ae12d672e3aa1cef62b9eacf8d9a17111b71ac3992589e149d98027ef5&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 912916,
         title: "A Outra Zoey",
         subtitle: "",
@@ -2602,8 +2614,8 @@ export const cards: CardsProps[] = [
         genero: ["Romance", "Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F0c%2Fd4%2Ffe%2F0cd4fee4bbfb0a07f7c5f63adb0d1a89.jpg&f=1&nofb=1&ipt=e2958151209227359bb026e160da6aa689f3d3bcaa8df8f5c045486dde072cf1&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.nqYfFVq37Nd3PC9jaMEb1wHaJQ%26pid%3DApi&f=1&ipt=72005f7f920b095a70e9429bea44f4bb5b4152b78bfa2eaaeeb726c63bcfe141&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 762975,
         title: "Continência ao Amor",
         subtitle: "",
@@ -2614,8 +2626,8 @@ export const cards: CardsProps[] = [
         genero: ["Romance", "Drama"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.mundoconectado.com.br%2Fwp-content%2Fuploads%2F2024%2F09%2FA-Forja-O-Poder-da-Transformacao-estreia-no-topo-das-bilheterias-brasileiras.jpg&f=1&nofb=1&ipt=1561768257881fe8273cba6971c09e7441d59f7ebfec94c3806be914131b55c3&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.xpNcOKzJL2FKZ0kOQT6UIAHaLH%26pid%3DApi&f=1&ipt=1595c2bf5953e759f73fa023e553988af7da42b8c71f3a6e7599e06a62b49c43&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1186532,
         title: "A Forja",
         subtitle: "O Poder da Transformação",
@@ -2626,8 +2638,8 @@ export const cards: CardsProps[] = [
         genero: ["Drama"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.thedirect.com%2Fmedia%2Farticle_full%2Fcoraline.jpg&f=1&nofb=1&ipt=37792f4f6cbfe27baea50b5bf398ef152740efba6ff15b3d14377d652902eb55&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.FzN8eoLDqJmYNjn5IyT5wAHaJ4%26pid%3DApi&f=1&ipt=0d8d6982f226b67858e0e8fd34661737a2b9bf1cdab42678cae831b92c1ea017&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 14836,
         title: "Coraline",
         subtitle: "E o Mundo Secreto",
@@ -2638,8 +2650,8 @@ export const cards: CardsProps[] = [
         genero: ["Animação", "Fantasia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Fw780%2FolPXihyFeeNvnaD6IOBltgIV1FU.jpg&f=1&nofb=1&ipt=57f3f1be08953dc4254fb0b8565ef64143b875684ee90e78ce25eea5fe9aad7e&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.DuFgZLxzT2iL_3l_qEzVhwHaJQ%26pid%3DApi&f=1&ipt=3282ae00b1e9862cf202e99fcc6bc1e9c813f7dc8c6d990a30a309efb6a4bcdd&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 882598,
         title: "Sorria",
         subtitle: "",
@@ -2650,8 +2662,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror", "Mistério"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Flt3.com.ar%2Fwp-content%2Fuploads%2F2022%2F05%2FMision-Imposble-1-1996-2.jpg&f=1&nofb=1&ipt=172a30e83deb092e46e91a7c978d37c2282661d9a95fe273c39ae16939363b5b&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Eplt4lXOM69R9o89YYfDYQHaKe%26pid%3DApi&f=1&ipt=89b4164d2c3db00a0013abf7e19ac1cfa25a889c60703a17182fd5493af89c59&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 954,
         title: "Missão Impossível",
         subtitle: "",
@@ -2662,8 +2674,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages4.alphacoders.com%2F118%2F1185383.jpg&f=1&nofb=1&ipt=c564b331723f6c8b8c75cc5c7f5da03670ab70b388641a1ea07d9315e275c4f9&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.fBg_Jt08ZgGpJ1chOt_scwHaLH%26pid%3DApi&f=1&ipt=dfed35a3c59c973ddb9cd8524a063a50b5080c880a8fa97be054bc4dbc305c64&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 955,
         title: "Missão Impossível 2",
         subtitle: "",
@@ -2674,8 +2686,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FlUPlOVvj72u13gn632j9wf3WA4I.jpg&f=1&nofb=1&ipt=8b2a2d7e16a5733768d21e13eb1ff9d411b9a3a1a54406f0a36c4500c721a63b&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.xtB9HhqPN4k44GtSuhSPWAHaLH%26pid%3DApi&f=1&ipt=75b52265033064be80a98a4dee531cc79cf8270ccf1d94fa048290aead2ef2e2&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 956,
         title: "Missão Impossível 3",
         subtitle: "",
@@ -2686,8 +2698,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FhqyjzDRCs1N5gEsh2gklzPdsEFD.jpg&f=1&nofb=1&ipt=1843f2d36ff36db56b84c35d29315c364eabd4195b7636085b5075e7ba4df6eb&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.2OufZLI6uQHvvNnVJsKLoQHaJ4%26pid%3DApi&f=1&ipt=63ed327109c5e8f3bd3c703a89b2eb111007ab6ab5d837f12d58f863c7688b8f&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 56292,
         title: "Missão Impossível",
         subtitle: "Protocolo Fantasma",
@@ -2698,8 +2710,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdeveserisso.com.br%2Fblog%2Fwp-content%2Fuploads%2F2020%2F05%2Fmissao-impossivel-nacao-secreta.jpg&f=1&nofb=1&ipt=a3a72c48ec577bca5115b7a3e824e1ad5dfaf3856879a7c0b89ef6ee1cbedb03&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.9g4C1P8-JR5fnguoy6KcmQHaLH%26pid%3DApi&f=1&ipt=fc118209abd54751310b1ef6b1c01e3d75756193b95a5959b3995db2a872d9af&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 177677,
         title: "Missão Impossível",
         subtitle: "Nação Secreta",
@@ -2710,8 +2722,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FxYjJCd5PaY0wmbqL2gsVah8jZin.jpg&f=1&nofb=1&ipt=02a04b36e698ade36f9d6c9533123bfccfcc5258789036da624c9f5eb6127c0c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.gXDfcsG7q_vcwVy5W017zQHaJ4%26pid%3DApi&f=1&ipt=3d7bb1d8357ba504646cf1c8ca7a6838698bfbe28f70e53a1a9490bd65fbb242&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 353081,
         title: "Missão Impossível",
         subtitle: "Efeito Fallout",
@@ -2722,8 +2734,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FTFTfzrkX8L7bAKUcch6qLmjpLu.jpg&f=1&nofb=1&ipt=cac02230e84e6b57e041e7b2cadbd7bbf4b4fcf6be359274cc38afc11da7b28c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2F5h0j6ixjGTrh0PuQU98SIQLJmWt.jpg&f=1&nofb=1&ipt=e0592f5f0f6fade311707c1db636779d628582ed4f9df3340b1cd63ea18583e2&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 575264,
         title: "Missão Impossível",
         subtitle: "Acerto de Contas - Parte 1",
@@ -2734,8 +2746,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fe86BQFrxPtDZwv4CfzfJJFufUAm.jpg&f=1&nofb=1&ipt=9e1c3c12718695edbc8a0ffa1108e5767557f55db7a31065417cc162207e0018&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.eExGvVyOCxBvFlnjDfS6BAHaLH%26pid%3DApi&f=1&ipt=553ef68e3e1a8654fb8313ba174ba4d8705df5d8151d9ef35c11e12c069de1a4&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 840705,
         title: "Pisque Duas Vezes",
         subtitle: "",
@@ -2746,8 +2758,8 @@ export const cards: CardsProps[] = [
         genero: ["Mistério", "Suspense", "Terror"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fodia.ig.com.br%2F_midias%2Fjpg%2F2024%2F07%2F19%2Fcaptura_de_tela_2024_07_19_153518-33470209.jpg&f=1&nofb=1&ipt=ff1621178615f38b4e00f508d6f84c382efa14c89fd58165d78284a81eeeb13c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.aUjKMKgIbYDs8rCA3Yj_nwHaK-%26pid%3DApi&f=1&ipt=08315022eec88a6faae3bc870a77b4f6fdf387a1a4b9b4a43e2ef21bed8e4cfa&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 917496,
         title: "Os Fantasmas Ainda se Divertem",
         subtitle: "",
@@ -2758,8 +2770,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Terror", "Fantasia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fbr.web.img2.acsta.net%2Fnewsv7%2F20%2F06%2F11%2F02%2F24%2F2254375.jpg&f=1&nofb=1&ipt=c2346408af1f65abf0daff7f37210e6f28b07305db39003ab68aca84de8bcda4&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.explicit.bing.net%2Fth%3Fid%3DOIP.fv4slZwWRifjIy1GtUmyFQHaLH%26pid%3DApi&f=1&ipt=ab85cf383c8394f9172a55287194dc11d3a316b7cd5857fc8212956207e44f9a&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 419430,
         title: "Corra!",
         subtitle: "",
@@ -2770,8 +2782,8 @@ export const cards: CardsProps[] = [
         genero: ["Suspense", "Mistério", "Terror"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia-cldnry.s-nbcnews.com%2Fimage%2Fupload%2Frockcms%2F2022-10%2Ftwister-movie-1996-mc-221018-744a6a.jpg&f=1&nofb=1&ipt=506ea6e721e41be73f6951a437529eaa27815319e3939d45ec870455f920cd50&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.2PeUgne-em98rXGlIgvkagHaLH%26pid%3DApi&f=1&ipt=100ab0a73398352d4c760f5c1350fb43284573caeb27d8c3ac1b790f082ee027&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 664,
         title: "Twister",
         subtitle: "1996",
@@ -2782,8 +2794,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Aventura", "Drama"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FNULAOtIS%2Fposter.jpg%3Fwidth%3D1920&f=1&nofb=1&ipt=15dc223d08e29984e0e2f88699e376b6aca3a624355f75dacb36b31c564b97cc&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.hVSUs4vtQXxIVwaLr4xPQAHaK3%26pid%3DApi&f=1&ipt=775007588ee0248eb113527a027652f7817c52d62689cc27947dd78025118770&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 869291,
         title: "Cuckoo",
         subtitle: "",
@@ -2794,8 +2806,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror", "Mistério", "Ficção Científica"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic1.colliderimages.com%2Fwordpress%2Fwp-content%2Fuploads%2F2024%2F08%2Falien_-romulus-2024-poster.jpg&f=1&nofb=1&ipt=e1f21af7226873ebed3bc0068f5e804f62eb6a0fab40c81d64ede51ae0236100&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.N0haNgmxs6piDsxnNyw9DQHaJQ%26pid%3DApi&f=1&ipt=5417bad576ed1dc3ea3d8ba44e15c77a043130c7b2a9ff24df39d15ff10f5959&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 945961,
         title: "Alien",
         subtitle: "Romulus",
@@ -2806,8 +2818,8 @@ export const cards: CardsProps[] = [
         genero: ["Ficção Científica", "Terror", "Ação", "Legendado"]
     },
     {
-        background: "https://image.tmdb.org/t/p/original/kRvlwfN6aa5kbMKkimVTg3jQtrC.jpg",
-        overlay: "https://image.tmdb.org/t/p/original/vC0EzU8vri31UtGWMqAoHIylc1R.jpg",
+        background: background,
+        overlay: overlay,
         tmdbId: 1210794,
         title: "Prisioneiro do Caos",
         subtitle: "",
@@ -2818,8 +2830,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Comédia", "Crime", "Netflix"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F2b%2Fc7%2F44%2F2bc744c3ce2e1fa4d72718d92c435a88.jpg&f=1&nofb=1&ipt=e57c7abeec72cf74b66d7bc2ba324321dbdbf860834f5b6440e1dbee9ebf8d05&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.ogZxi3eNdBwmvAmiTSY2YgHaLH%26pid%3DApi&f=1&ipt=59649add520289e638f015807fa980782a9a27c56efc49aa6c5c3bd17425313e&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 297762,
         title: "Mulher Maravilha",
         subtitle: "",
@@ -2830,8 +2842,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Aventura", "DC", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wallpapersden.com%2Fimage%2Fdownload%2Fabigail-2024-movie_bmdsaGeUmZqaraWkpJRobWllrWdma2U.jpg&f=1&nofb=1&ipt=b49d47f8655b3d1920473afaf502d5a84069920013dd0079e084913cba121413&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.y5mERPvXz7lICJ43pk6L7QHaLH%26pid%3DApi&f=1&ipt=9e761a611c1f89285acfa965703913d300d3ddd866b903ae50521eedcd795e41&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1111873,
         title: "Abigail",
         subtitle: "",
@@ -2842,8 +2854,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F2.bp.blogspot.com%2F-AVujoVp58gc%2FWJP8JJKJEgI%2FAAAAAAAACMM%2FCRnoZ88XmmUW5phFKt76eOVFZgWoq5CigCLcB%2Fs1600%2Fcabana2.jpg&f=1&nofb=1&ipt=51aa5c0f40b7ce3791ff35f6e62cfa63073300eff5db2160418866dbb30fa5e8&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.xTg0APJC-gb-x_vcS6rqHQHaJ4%26pid%3DApi&f=1&ipt=cd133d78de9e2c65d754061f14cc04c02f139c61cd190e436682a42ec8e6690c&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 345938,
         title: "A Cabana",
         subtitle: "",
@@ -2854,8 +2866,8 @@ export const cards: CardsProps[] = [
         genero: ["Suspense", "Fantasia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2024%2F08%2FIdentidades-Em-Jogo-1.jpg&f=1&nofb=1&ipt=96d6465a8bc372a753b89b9474a613c261255be7fdea8ff64caaab99c27ade2d&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Ie9dWS1MXYmUjj9XaI22HwHaKk%26pid%3DApi&f=1&ipt=4280d313b49765eae70b22d2e70cfcbd551d09d564929059ffe920b118e7654a&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1052280,
         title: "Identidades em Jogo",
         subtitle: "",
@@ -2866,8 +2878,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror", "Ficção Científica", "Netflix"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.wallpapersafari.com%2F27%2F41%2FtE9Cp5.jpg&f=1&nofb=1&ipt=ed9c69705ece80663fa64edefe9e0cd7ffb5a943eabea447a0f2fcdea60708df&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.ALqeOHaWNBDkLd79-Wl8pAHaLH%26pid%3DApi&f=1&ipt=3ccf9f063de8316709202a5bc9026779502179c013c69b6ddac2c24b7b3fafc6&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 24428,
         title: "Vingadores",
         subtitle: "",
@@ -2878,8 +2890,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Aventura", "Ficção Científica", "Marvel", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp1833164.jpg&f=1&nofb=1&ipt=851ed4df43af5852fdd32738d2bec828bd626be8bc42d2d061430c83f3204708&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.q8EzpmTiFNtboBe7PANyYwHaLH%26pid%3DApi&f=1&ipt=e59eb592b098d74609c582539ffcfd928a1d0aba3eef8d0ea7851bd5e775b4b0&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 99861,
         title: "Vingadores",
         subtitle: "Era de Ultron",
@@ -2890,8 +2902,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica", "Marvel", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.hdqwalls.com%2Fwallpapers%2Fcaptain-america-civil-war-fight-scene.jpg&f=1&nofb=1&ipt=9cb6b98cded41c050e40b878fc9c0e3bc48c515a97b44f02eddf110733a8e3db&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.yyM0NlrMcR41Anb7JPOgYwHaLH%26pid%3DApi&f=1&ipt=0636b467717c28d3acfd72cd4ff2811d1f307a7b53d1ad8fb77af65212747eb6&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 271110,
         title: "Capitão América",
         subtitle: "Guerra Civil",
@@ -2902,8 +2914,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Aventura", "Marvel", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fget.wallhere.com%2Fphoto%2Fsuperhero-Captain-America-Scarlett-Johansson-Black-Widow-Captain-America-The-Winter-Soldier-Nick-Fury-Chris-Evans-Jackson-screenshot-1920x1080-px-computer-wallpaper-fictional-character-samuel-l-526365.jpg&f=1&nofb=1&ipt=8bb0c88eaf64ee593ce11823776da49c24326b70cb146a83835d84453e5bc391&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.DxNnGTJknxp4D0P3cN6zMwHaLH%26pid%3DApi&f=1&ipt=6f8cd38806cd92784ea323b9c1aa9965c652e946f560647bec8fa73afade6f44&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 100402,
         title: "Capitão América",
         subtitle: "O Soldado Invernal",
@@ -2914,8 +2926,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Aventura", "Ficção Científica", "Marvel", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.hdqwalls.com%2Fwallpapers%2Fhulk-hela-thor-in-thor-ragnarok-5w.jpg&f=1&nofb=1&ipt=fee97a34d5205a6f770562c2271e7401c80a4f16e177e7bb18b62989ab962d76&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.explicit.bing.net%2Fth%3Fid%3DOIP.diyIpAS27WphTMGXlDAgEAHaLH%26pid%3DApi&f=1&ipt=b1a94d6d96a64222193ed764c390f6abc331ba383c3053275921a20b34fe4e67&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 284053,
         title: "Thor",
         subtitle: "Ragnarok",
@@ -2926,8 +2938,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica", "Fantasia", "Marvel", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.hdqwalls.com%2Fwallpapers%2Fthor-2-the-dark-world.jpg&f=1&nofb=1&ipt=3f866e4d878e15e7661630b715f55104b3c941a05bc7dabe1749029afc4aee8d&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.AT5LE9G245WEFZbQl0FgBQHaLH%26pid%3DApi&f=1&ipt=52c3fe2d588127865d937747c755158ab19c9368a96489ad188d5ebcf0be3809&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 76338,
         title: "Thor",
         subtitle: "O Mundo Sombrio",
@@ -2938,8 +2950,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Fantasia", "Marvel", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FM%2FMV5BMTA3MDQ2OTExNzZeQTJeQWpwZ15BbWU3MDI3ODIyMDU%40._V1_.jpg&f=1&nofb=1&ipt=56d061d9385524f4e04175242bbec9f5cde7a6e8b685d6687e4867b1a14bf459&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.rjgRuEHeC0N5Qm__nstbBwHaLH%26pid%3DApi&f=1&ipt=b37c5fea19c110da3cc1f15cf87e3920dca7c598a0c7c461459d3e172a28af90&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 10195,
         title: "Thor",
         subtitle: "",
@@ -2950,8 +2962,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Fantasia", "Marvel", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmidia.gruposinos.com.br%2F_midias%2Fjpg%2F2021%2F07%2F09%2Fviuva_negra-19726451.jpg&f=1&nofb=1&ipt=22e565988ade356c67692ca22c597928ba6392aa78b41c1cecc879d5ed52a76c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.lAo4Y3Kfz6KRw7HgmJhf3QHaLH%26pid%3DApi&f=1&ipt=477552a77ef830d4265e218bcb96559e16f9508191d52288f9bb1fc60df480e2&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 497698,
         title: "Viúva Negra",
         subtitle: "",
@@ -2962,8 +2974,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica", "Marvel", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FyjSVhK0HuCcbK7jfoH2HLKyeANc.jpg&f=1&nofb=1&ipt=a1a35f407a8cc269a90a8acad8459e0f9bf92eb9de2cbd833945b7c15ed189f2&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.AOfH2UVlZX-J_TCVedcvqQHaLH%26pid%3DApi&f=1&ipt=3e4cbfba387df3acd055efbfd757e5eefed44a447f0a08ebb90c1a9170fee20d&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1726,
         title: "Homem de Ferro",
         subtitle: "",
@@ -2974,8 +2986,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica", "Marvel", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.justwatch.com%2Fimages%2Fbackdrop%2F198981995%2Fs1440%2Fcaptain-america-the-first-avenger&f=1&nofb=1&ipt=f770ca649faf84e3366d31c0ccc7f090d1f359ab43f98bd6ce1762cc2367948e&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.PUJmTloMN3NhigeFS6RzhgHaLH%26pid%3DApi&f=1&ipt=86c5f40e6223601d24c561accbb969be9503d1c49f3998a6ef2b217ea3530e71&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1771,
         title: "Capitão América",
         subtitle: "O Primeiro Vingador",
@@ -2986,8 +2998,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica", "Marvel", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fapostiladecinema.com.br%2Fwp-content%2Fuploads%2F2021%2F07%2Fum-lugar-silencioso-2018-critica-filme-imagem-2048x1150.jpg&f=1&nofb=1&ipt=d53afdebea02bdf288c1c4b176ff63e1ae63354e2648cb5f8391db867d165c7a&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.okMCXyJeXr_NmeKZraUFPQHaLH%26pid%3DApi&f=1&ipt=bf9b33333f58788295d9cec11df7bb2f40cab1f95b604f6c527710d580352996&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 447332,
         title: "Um Lugar Silencioso",
         subtitle: "Parte 1",
@@ -2998,8 +3010,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror", "Ficção Científica"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fveja.abril.com.br%2Fwp-content%2Fuploads%2F2021%2F07%2FABRE-1-FILME-A-QUIET-PLACE-PART-II-37.jpg.jpg&f=1&nofb=1&ipt=2d428f3e7d1f0e22dbf6ab63b707cc8063b9f295af73c38e0f429723ef8ddd35&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.ha6tFFUOR46G1VCRywhCfgHaLH%26pid%3DApi&f=1&ipt=bcb9172aab150e7c9de7a49a31c5978206fd6690174e636a5b02df81c7fcf67f&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 520763,
         title: "Um Lugar Silencioso",
         subtitle: "Parte 2",
@@ -3010,8 +3022,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror", "Ficção Científica"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.hobbyconsolas.com%2Fsites%2Fnavi.axelspringer.es%2Fpublic%2Fmedia%2Fimage%2F2023%2F09%2Fsangrientos-dieciseis-2023-3134676.jpg%3Ftf%3D3840x&f=1&nofb=1&ipt=f62a57055e7f590ad3305705cb77c66d7b27b8a5016ea0a27cd3aa79495beff1&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Xerf-HWuzST2JcTtexkmyAHaLH%26pid%3DApi&f=1&ipt=b0763723370c9c03b747dc2234afb8518ca21d2c17a1a0d1ef17291e0c3dcea3&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 974931,
         title: "Dezesseis Facadas",
         subtitle: "",
@@ -3022,8 +3034,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror", "Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.martincid.com%2Fwp-content%2Fuploads%2F2024%2F06%2FAAAABe-dDv5fGX0h9ztJWUbNJ2DhR4msGhBuo1E7eETK8FyWAHr57GFfqGKKhtL4N5z8PVnRcFRVIlvdZqND38-eUlXOAANrwuANi_WX-copia.jpg%3Fstrip%3Dall%26lossy%3D1%26ssl%3D1&f=1&nofb=1&ipt=d859f5d330b374b22999afba2cca957c316bf331979ada741e48d6d6e1ac429c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.vAAAlcVEIu6pxhDyaT4QQQAAAA%26pid%3DApi&f=1&ipt=e51c4bfe1cbcbc7e825919e32ff637eed40b7c5392df57c9f9f242bfeee47c4a&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 987686,
         title: "Tudo em Família",
         subtitle: "",
@@ -3034,8 +3046,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Romance", "Netflix"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.alphacoders.com%2F674%2Fthumb-1920-674254.jpg&f=1&nofb=1&ipt=264c6c2d19fd07af2ad70cae216ce76dc373ee40ef01cee62f50114c59ec5c5c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.gp7aCqLdZYwVHs8MueC61QHaLH%26pid%3DApi&f=1&ipt=2b34daa54c6906ceb50461ab4f5016752246ee562f44825508455ff41b07e27b&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 49051,
         title: "O Hobbit",
         subtitle: "Uma Jornada Inesperada",
@@ -3046,8 +3058,8 @@ export const cards: CardsProps[] = [
         genero: ["Aventura", "Fantasia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages5.alphacoders.com%2F674%2F674523.jpg&f=1&nofb=1&ipt=9f57920dc0417130a5149e48a2fe0a61006312afefcc82333ad9d3b62b6b871b&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.explicit.bing.net%2Fth%3Fid%3DOIP.nOeeZ1NIfG_2Os_Iv8GTqAHaLG%26pid%3DApi&f=1&ipt=5145191fa43a679b06baac0f4cd97f56c26db2847dbe7ece3ec406c6ffdf8e4f&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 57158,
         title: "O Hobbit",
         subtitle: "A Desolação de Smaug",
@@ -3058,8 +3070,8 @@ export const cards: CardsProps[] = [
         genero: ["Aventura", "Fantasia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages7.alphacoders.com%2F605%2F605868.jpg&f=1&nofb=1&ipt=8a4181797f172b2fb8856a9b7ab058a7dd5ee78e1d501844ce0be3ab2a208c59&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Dvw1iY5R-84e_P_dUhFYJQHaLH%26pid%3DApi&f=1&ipt=5feaaee3d77e34082dc61a95330de63d3ee4d099b4c8d873dd11840b84e3c446&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 122917,
         title: "O Hobbit",
         subtitle: "A Batalha dos Cinco Exércitos",
@@ -3070,8 +3082,8 @@ export const cards: CardsProps[] = [
         genero: ["Aventura", "Fantasia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.film-rezensionen.de%2Fwp-content%2Fuploads%2F2016%2F02%2FDeadpool-Frontpage.jpg&f=1&nofb=1&ipt=1281ef0d6e02bb407c22462d0c5ee44d949d29d7fc4a7e34fbcdb669b1632342&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.h3oLy2iV8omU8nIlIXGcRwHaJ4%26pid%3DApi&f=1&ipt=5ad783e96de01ea4d3bdc5ee7e23d03287a143f23dde2c530a296b355604fba1&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 293660,
         title: "DeadPool",
         subtitle: "",
@@ -3082,8 +3094,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FsGtXDnT08Nkb5NQq2oGD3os1zg9.jpg&f=1&nofb=1&ipt=451da7fd44c82e439c3575b09c8de2163b1f1ad1220fb6876317db97d54e6525&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.PdGXeMXGhKXd56q3jPn_VQHaJ6%26pid%3DApi&f=1&ipt=e756e87c1b0efb10c462da634f900c463cdf43d2e685bfe9bc1757040ef0a6f0&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 383498,
         title: "DeadPool 2",
         subtitle: "",
@@ -3094,8 +3106,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FxPPizf0YCCYB82AmjubPbqUhZKW.jpg&f=1&nofb=1&ipt=ec3ffe249295a1f63be2bbc8e7046b7e2d84dcb4e405261f1ec169c41ed8d6cc&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.MQnAvB-EVSle8fwVRxPQcQHaJ4%26pid%3DApi&f=1&ipt=980e02bc9ab01a0571b1d9f266c4b64ef2cdfd30fbcef3e8bdc5231092bb7d88&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 245891,
         title: "John Wick",
         subtitle: "De Volta ao Jogo",
@@ -3106,8 +3118,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FfRLftkwv8jm3DLxXOf2NbngHjPB.jpg&f=1&nofb=1&ipt=3d03a554c13ee6c448fb13f1ef29d5f6a051438341d93e6ab9dcfcb41ea70759&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.5q2eSp3YrIUKlFdDec20lQHaLG%26pid%3DApi&f=1&ipt=93dfb23eb0c78f27088f0e088b89260666eee279ab3ee96250e3dc9e863ae0a7&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 324552,
         title: "John Wick",
         subtitle: "Um Novo Dia Para Matar",
@@ -3118,8 +3130,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.hdqwalls.com%2Fdownload%2Fjohn-wick-3-parabellum-poster-qf-2560x1440.jpg&f=1&nofb=1&ipt=d65868565d232763db681c6aaef05850590faed001dd1736fa25faaca5063124&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.KcrfAVd2RvGikO0VpkytTQHaLH%26pid%3DApi&f=1&ipt=9863dff9a2533b5b779ad1c3c282ae559be61ecabf756e36fa232a79aadfdd2f&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 458156,
         title: "John Wick",
         subtitle: "Parabellum",
@@ -3130,8 +3142,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F3q01ACG0MWm0DekhvkPFCXyPZSu.jpg&f=1&nofb=1&ipt=fcc528e44477108082541414647985a34ae978d067a7ffe8ed0deaafc787ea63&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.A6a-voZg_10oWAR7GgmXNgHaLH%26pid%3DApi&f=1&ipt=dcc7ed1f3f2b155c39501eeb0ceaa712d26dd4c074e6e5a13ba8b8d421b853c0&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 573435,
         title: "BadBoys 4",
         subtitle: "Até o Fim",
@@ -3142,8 +3154,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Ação"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F8xMR5w9qfpwhTJzjjvfj2ywvIF3.jpg&f=1&nofb=1&ipt=2c009b5206c07c08f3e4a5b68749f08c3e513193a8b38d670acc025fdc85b54a&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.nrk2UwELBrOn-M8vlU7hwgHaLH%26pid%3DApi&f=1&ipt=9102c413a1456609a1d5605a6fde11fa40e27a1d10620a14e06a72e67acd8fab&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 956842,
         title: "Como vender a Lua",
         subtitle: "",
@@ -3154,8 +3166,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Romance"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fentretetizei.com.br%2Fwp-content%2Fuploads%2F2021%2F08%2Fcurtindo-a-vida-adoidado-1.jpg&f=1&nofb=1&ipt=ddd06331658f9f0796e44fd461d25582f6c9481f379c1cbdd0c5af6de41f1ebb&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.toDVXRffGWPKeibS5SGF5gHaLG%26pid%3DApi&f=1&ipt=968263745be0c35b1f17e5e0dcb8bfdf54d17c9ea43076212138012609888878&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 9377,
         title: "Curtindo a Vida Adoidado",
         subtitle: "",
@@ -3166,8 +3178,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Legendado"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmovieplayer.net-cdn.it%2Fimages%2F2016%2F03%2F15%2Fmemento02.png&f=1&nofb=1&ipt=753aab97a01ac176982954e78e27c19b7072fb7ac706bdc9d7745efd89b41867&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.0nSIvojIh_zpuwdno-mi5QHaLH%26pid%3DApi&f=1&ipt=d4ee5d14988f1a0e66cae6ba64fb5659e6af72134f7f3424034745feef21634c&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 77,
         title: "Memento",
         subtitle: "",
@@ -3178,8 +3190,8 @@ export const cards: CardsProps[] = [
         genero: ["Suspense", "Crime", "Legendado"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.alphacoders.com%2F794%2Fthumb-1920-794777.jpg&f=1&nofb=1&ipt=e248266ce3a4645d4eaea18b5142b6a160b661fea9f4ce181064b5d43e5a6033&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.explicit.bing.net%2Fth%3Fid%3DOIP.1RtaIrnoq9TKBB2wHjqCdwHaLH%26pid%3DApi&f=1&ipt=d055ed9274566e0698eb906c7c3f53344bb36a44556d42272df66c2e2e8359fe&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 854,
         title: "O Máskara",
         subtitle: "",
@@ -3190,8 +3202,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthefutureoftheforce.com%2Fwp-content%2Fuploads%2F2024%2F06%2FMaxxxine-3.jpg&f=1&nofb=1&ipt=6853ccfe9051a50b8cc0bf60098ecd29fe268ff739797bad4bd69f49e72567c2&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.KVlKgn9njUIDgqBGsCotugHaJ0%26pid%3DApi&f=1&ipt=8146a8c2a12460bf4305c8392f2715b8c533d359d87d33d6c324964ab71e7926&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1023922,
         title: "Maxxxine",
         subtitle: "",
@@ -3202,8 +3214,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror", "Mistério"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FwSZbtiFIK1fkKZdSRtn2kz2Ttfd.jpg&f=1&nofb=1&ipt=a354e5784f23b13c3f50ac79f43b6c9124bec0a72cc8ba7658556eff51a1fb77&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FjcSKH5NU8p7PtBiEXGEepLDFKdU.jpg&f=1&nofb=1&ipt=0f5be18ce52b61269ab63d67c5476cad11f61cce3e38820d639d3141d6135a5e&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1139817,
         title: "O Agente Faixa Preta",
         subtitle: "",
@@ -3214,8 +3226,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Netflix", "Coreano"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fentretenimento.oportaln10.com.br%2Fwp-content%2Fuploads%2F2024%2F09%2Ffilme-feios-na-netflix.jpg&f=1&nofb=1&ipt=67021188a1af61ee6de8f2b28575fa00b588dfc90bec21aadbeb934c9d0b4ac4&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.PxyMB12Q6FuagFmtu078sQHaLH%26pid%3DApi&f=1&ipt=23073b03b48ea1cba25cff9f0ecfa9e3ebaf507eea4a6ad2f90281fd610784c6&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 748167,
         title: "Feios",
         subtitle: "",
@@ -3226,8 +3238,8 @@ export const cards: CardsProps[] = [
         genero: ["Drama", "Ficção Científica", "Netflix"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.rogerebert.com%2Fuploads%2Freview%2Fprimary_image%2Freviews%2Fi-am-number-four-2011%2FEB20110216REVIEWS110219991AR.jpg&f=1&nofb=1&ipt=3a2d5bf8b462488d992aba2ee5c851b2c268935ef3af66e4af704662c63667a0&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Bs2GHxeROE2lzC0Nls8QiQHaLH%26pid%3DApi&f=1&ipt=45e969aaffb5935b394cf04736007d67445999ca8dce569f050746b45aa04587&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 46529,
         title: "Eu Sou o Número Quatro",
         subtitle: "",
@@ -3238,8 +3250,8 @@ export const cards: CardsProps[] = [
         genero: ["Ficção Científica", "Ação"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FM%2FMV5BMTM5MTM5OTgyMV5BMl5BanBnXkFtZTcwMzI2NzExNw%40%40._V1_.jpg&f=1&nofb=1&ipt=a962ff98e16eac6df41ae0f4a5a8389ce11a8482acb88ed51c6340030ee5c552&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.JuK6WaO8XvkR98R5SVJLcwAAAA%26pid%3DApi&f=1&ipt=a8b4f83cc3808e3f9953b34c1e683343c6d283f5c2fd3b0c1fe2c9687c7e14eb&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 8960,
         title: "Hancock",
         subtitle: "",
@@ -3250,8 +3262,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimagenes.montevideo.com.uy%2Fimgnoticias%2F201601%2F544960.jpg&f=1&nofb=1&ipt=e8edbcdc8d4d0321ac98018276475afbd7d182c1e5e122684049bfd6b9a32660&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.JvHzhT9kShyDGOgPvttk2wHaLH%26pid%3DApi&f=1&ipt=e879cab9b9337cb4193c5ef26ecd33bbf5e07edc84a2249992c9ddb118f85bb5&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 299687,
         title: "A 5ª Onda",
         subtitle: "",
@@ -3262,8 +3274,8 @@ export const cards: CardsProps[] = [
         genero: ["Fição Científica", "Ação"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpop.proddigital.com.br%2Fwp-content%2Fuploads%2Fsites%2F8%2F2024%2F01%2F01-6.jpg&f=1&nofb=1&ipt=b623356dd53e12298e267e0c2cca8f489900d0c1016e962f6faef4756fd5049e&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.FifvKTYCBoIQ4p2V1mCIjQAAAA%26pid%3DApi&f=1&ipt=ffa43b81f95d13316db8eefb6cc6d90c2ce15b604abbfcadb34b4c9143f85a60&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 937287,
         title: "Rivais",
         subtitle: "",
@@ -3274,8 +3286,8 @@ export const cards: CardsProps[] = [
         genero: ["Romance", "Drama"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2020%2F03%2Fpremoni%25C3%25A7%25C3%25A3o-1.jpg&f=1&nofb=1&ipt=b37a7c1782411e76ad15ce67dc15187b6ca948e23b2167707acafbc336b40bf5&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.kL76eB__vH0OfYl7XYqrNgHaLH%26pid%3DApi&f=1&ipt=aa9d6339ad30e9a4ca7c13ddf2c17b85ccf9d5070836f72dd1bc6f974abfe533&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 9532,
         title: "Premonição",
         subtitle: "",
@@ -3286,8 +3298,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FtSCozfXKeALzwcCilWcCXM14edJ.jpg&f=1&nofb=1&ipt=cd755b13b84c4e0861b5a3d160ea7860c92e589f4f80276422e0a865e0924865&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.SBHuM37WoZu_vz1djKc7PwHaJ4%26pid%3DApi&f=1&ipt=c3f3afad2d8ad7726392683f71f9bcca03a8ceaf430b965e91dfc36472b154de&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 9358,
         title: "Premonição 2",
         subtitle: "",
@@ -3298,8 +3310,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2020%2F03%2Fpremoni%25C3%25A7%25C3%25A3o-3.jpg&f=1&nofb=1&ipt=9d3fd9e5283cf4c04f56e42d31ca2df747412b1f0fda91908867b437fb45f3d7&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.2J7iP-838jc8rRaAQZQqVwHaKk%26pid%3DApi&f=1&ipt=a70452f871a6bedb20c7f62492d1b1fac6dd7f3ad20edcae5af1abc2756afd98&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 9286,
         title: "Premonição 3",
         subtitle: "",
@@ -3310,8 +3322,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FlOI8OhF58GkwOwDcUY9dcueEcBN.jpg&f=1&nofb=1&ipt=b072b8b38653a2105b6ab2d48da63b000d780e7eeaad206d20863e864de63f1e&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.ZKTNz6UXv3AImUm2is7KXgHaJ4%26pid%3DApi&f=1&ipt=286a9cf5be549155c4faf0a1a4a53e88a1a0dc97de7bec2d4a5a039ffba8195b&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 19912,
         title: "Premonição 4",
         subtitle: "",
@@ -3322,8 +3334,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fyg02drCtyfG9SrvHH6cY1sBz6Z1.jpg&f=1&nofb=1&ipt=a0f56af847161016d99e837328c4f521e3e9d0cdf2167eb7b8a513d7f73a0451&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP._c6_XHof07D_SQoJHI7nTwHaLH%26pid%3DApi&f=1&ipt=5fc88df3575d152fad5549f612dd232c496976b7c512e190f94e8635403f9bf6&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 55779,
         title: "Premonição 5",
         subtitle: "",
@@ -3334,8 +3346,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-gXpX18pWnfQ%2FYQ901XBZBCI%2FAAAAAAAAAD0%2FF97r9XjMqlsMgLd_nizIrp-PIf1aTmSugCLcBGAsYHQ%2Fs1920%2F10-curiosidades-sobre-o-filme-a-mumia.jpg&f=1&nofb=1&ipt=09c3570065227ef30c5d90c4aeb4a4f667260daf2db062efd9b024da4fa73a8f&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.IkYbD1p7-9Qe_kW9dB8XFgHaLG%26pid%3DApi&f=1&ipt=1b59f36480cd25f4d196261ed3d3c8588761856a9a86370e26928ec725b0f13a&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 564,
         title: "A Múmia",
         subtitle: "",
@@ -3346,8 +3358,8 @@ export const cards: CardsProps[] = [
         genero: ["Aventura", "Ação"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FfRnhnR2JfkGBT19z7EXEmIUcDSo.jpg&f=1&nofb=1&ipt=b1c9d1ccc61016cc7ed4817f380ba241cf4ee1c1e8384e0921a927fe0142d2ee&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.6JYyrbykH_Das4_Wc2jQ4AHaJ4%26pid%3DApi&f=1&ipt=229676cd1174589201dd59c1b2e983860e51de2d349d0e606c8d7e74456a37f1&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1734,
         title: "O Retorno da Múmia",
         subtitle: "",
@@ -3358,8 +3370,8 @@ export const cards: CardsProps[] = [
         genero: ["Aventura", "Ação"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FvtuGtevnaJutCqWAmGfvb1wLByh.jpg&f=1&nofb=1&ipt=bf11d6dccb2a15f69f3ed46907a9894391802cf458ad1b28011297a97dfdf8ef&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.r8hGsGSAlVqo0_DeXkRDwwHaKj%26pid%3DApi&f=1&ipt=988a19cf83894df24e0a042d041439f3f14100486381d7e4b4e5b6b604781d6a&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1008953,
         title: "Os Novatos",
         subtitle: "",
@@ -3370,8 +3382,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Netflix"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FjOh79POQu4hyVIseUxdQxTW7vOf.jpg&f=1&nofb=1&ipt=ba3558348b2763a9b8efb97a72f5fcff4143f9a704e136ec600e5c470c389afc&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.RPbjIWwiT-EbDL9QkcitwQHaLH%26pid%3DApi&f=1&ipt=5760b8a5b1c5b89d2a0ca55eab78b061bb25145dc7bbe3eb0128b4b32e65c68a&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 22,
         title: "Piratas do Caribe",
         subtitle: "A Maldição do Pérola Negra",
@@ -3382,8 +3394,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Aventura"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fumfilmeumdia.files.wordpress.com%2F2013%2F08%2Fpirates-of-the-caribbean-dead-mans-chest.png&f=1&nofb=1&ipt=65172f234ed92205e81bf66d7e99a4f912718da3edebb357c87ea758764959e4&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP._Hi9-Dq4abDAjy65fl_HkgHaKx%26pid%3DApi&f=1&ipt=ce1863b68725ed61b49ec5c51473f45e4b3e439f1a705008c29d7bdc99f0782a&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 58,
         title: "Piratas do Caribe",
         subtitle: "O Baú da Morte",
@@ -3394,8 +3406,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Aventura"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FuuBaUdTJlrjHc2gyC5XYAmQ0KUM.jpg&f=1&nofb=1&ipt=237ce745515377fa8e4ffd41eddca0657d12bb307a57ef178aa2c02ebaddee06&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.C9fMxvogB3CXXpXCDfjomgHaLH%26pid%3DApi&f=1&ipt=8f0aec49252a065bd37759c9bdcc7e0182a047cf5f83b6c5f9df21264c68e823&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 285,
         title: "Piratas do Caribe",
         subtitle: "No Fim do Mundo",
@@ -3406,8 +3418,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Aventura"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages7.alphacoders.com%2F357%2Fthumb-1920-357414.jpg&f=1&nofb=1&ipt=c9e7df8efba2a0299ec40a9a0ae21e1d8c1531482b3cd69c33f9f85fbd114165&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.3VXuhlNVi0X_fIyF98MVJgHaLH%26pid%3DApi&f=1&ipt=79cd9ffb6bf65504566677e5803adce48bf44be55d2e50b6772f3fda71a978e7&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1865,
         title: "Piratas do Caribe",
         subtitle: "Navegando em Águas Misteriosas",
@@ -3418,8 +3430,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Aventura"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.collider.com%2Fwp-content%2Fuploads%2F2017%2F03%2Fpirates-of-the-caribbean-5-johnny-depp.jpg&f=1&nofb=1&ipt=ccf55d3c1fc2da80a67397e443fafa545234a88f76459a58671126d4c9e8e052&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Hjtzm9PBYCmc4fan8pR0tgHaK3%26pid%3DApi&f=1&ipt=7c68ae2108c33909411cc900cc500c3c717ce058d9b9737450c75e1842adf977&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 166426,
         title: "Piratas do Caribe",
         subtitle: "A Vingança de Salazar",
@@ -3430,8 +3442,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Aventura"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2024%2F05%2Fdivertida-mente-2-1.jpg&f=1&nofb=1&ipt=7b132037478ae46360ee53a409815c211bb78712df3eaf44d621905d230aed33&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.aHhmKiT1KtwEVdJLMBiKugHaKm%26pid%3DApi&f=1&ipt=d289b6ea9ed6128109e16b9411a6bb98a14fb30711d855f91280e7f8f773d9ae&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1022789,
         title: "Divertida mente 2",
         subtitle: "",
@@ -3442,8 +3454,8 @@ export const cards: CardsProps[] = [
         genero: ["Infantil", "Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FjiGoKuVsKzF3isEY1MEDR90Eh1l.jpg&f=1&nofb=1&ipt=75f911beaa592297980e7e15fdbb46027f5d70ed478b63b4f2e6aa01dc5a0826&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.6zS03SQrWTB-ycSvMYJYQwHaLH%26pid%3DApi&f=1&ipt=d6f1d2119db958ce822bd13ecac9290d051a2806a3ba1a98d483fb9a096b5bd7&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1019411,
         title: "Uma Astronauta Quase Perfeita",
         subtitle: "",
@@ -3454,8 +3466,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Romance"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FhUpTMTrn1jTBUfC2JFWSfb2Uww9.jpg&f=1&nofb=1&ipt=bf9f61f4e048e9a68896990ff16d0af820de98d6d42683e66282e5b6720377b0&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.EhxokNWaEbbEGh6plui_2gHaLH%26pid%3DApi&f=1&ipt=0efd098532abffab2be263f538e71a4b84ba9f9bf9a3d915c4c9be5b73cebe81&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 37165,
         title: "O Show de Truman",
         subtitle: "O Show da Vida",
@@ -3466,8 +3478,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Ficção Científica"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Faodisseia.b-cdn.net%2Fwp-content%2Fuploads%2F2020%2F03%2Fo-po%25C3%25A7o.jpg&f=1&nofb=1&ipt=2fd3ce0f6d49f22e752381c830116727cbb8954f43a4edc5f71d8470f116fc40&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.f914LDH1vSOwomP_MRSAYQHaLG%26pid%3DApi&f=1&ipt=c78144b15fa8b7ad1273d9637654b8603bb007955a316bda926b2462d92b873c&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 619264,
         title: "O Poço",
         subtitle: "",
@@ -3478,8 +3490,8 @@ export const cards: CardsProps[] = [
         genero: ["Suspense", "Ficção Científica", "Netflix"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.hgmsites.net%2Fhug%2Fscene-from-ford-v-ferrari-movie_100702737_h.jpg&f=1&nofb=1&ipt=05ac929a19563e92830f0112eeb54f9c518f257739cfb6932300d00385ed3d61&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.NcdrPtrEGfiTtLrfhf-0GwHaLH%26pid%3DApi&f=1&ipt=57663ec78dfc73665c37083caa500b27cdd5c6317cc1dbc0b91c4c986aea22ca&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 359724,
         title: "Ford vs Ferrari",
         subtitle: "",
@@ -3490,8 +3502,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Drama"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fcw7HFI2szsPJLXZ3NexgCYR4sJW.jpg&f=1&nofb=1&ipt=c3dbc1271cf6a57db861fa99ba9a171521bd18abcf022e6a874cc0eeecfc96ea&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.VH21rlRq7CXWxaMRVrWz7QHaLH%26pid%3DApi&f=1&ipt=1e78d25f27ff2d8c4c9995d44665d9c5148980a35d0c5ca726a9b05cb9f2481d&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 381288,
         title: "Fragmentado",
         subtitle: "",
@@ -3502,8 +3514,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror", "Mistério"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fj1l9zqe5ZQPEHGsz91FyZxMldq4.jpg&f=1&nofb=1&ipt=00830ffc93a43e972b798b137fc23f4c2b649cfa62ab9836340e9fdc4d8a58a0&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.NYxhSAnUIoeWaKJau3NpagHaLG%26pid%3DApi&f=1&ipt=20785704be3c395a8efc03ca9f92ee53c18914f21b8e1e9cc09715331366a94f&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 348350,
         title: "Han Solo",
         subtitle: "Uma História Star Wars",
@@ -3514,8 +3526,8 @@ export const cards: CardsProps[] = [
         genero: ["Ficção Científica", "Ação"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flumiere-a.akamaihd.net%2Fv1%2Fimages%2Feu_sws-8_last-jedi_hero_v9_r_ddc759e5.jpeg%3Fregion%3D0%2C0%2C2400%2C1002&f=1&nofb=1&ipt=f3fe7c5174d1fde0872d74b28632cabbc8638b659c9d9e7bae05a4e488efc4fb&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FfeYMSXyirAqsNHUGzA9AkpA6m3X.jpg&f=1&nofb=1&ipt=9705806a73f66abb0e349aa096e7013169a6c838e958a4106af5bccc30855479&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 181808,
         title: "Star Wars 8",
         subtitle: "Os Últimos Jedi",
@@ -3526,8 +3538,8 @@ export const cards: CardsProps[] = [
         genero: ["Ficção Científica", "Ação"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F3.bp.blogspot.com%2F-S2Ucw7cU-t8%2FVrvfvmMN1bI%2FAAAAAAAAPSk%2F-0hKhRiwrPI%2Fs1600%2Fstar-warsjj_abrams_star_wars_the_force_awakens-wide.jpg&f=1&nofb=1&ipt=f9eae4ace12124ede396807bda8b4c3629af6394d4225f556adec9dd0bb0f136&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FhMNOcq7VFbwynvkjFq9aYd6tjX3.jpg&f=1&nofb=1&ipt=00ac2720a96043e159dde009393f23b40898959a8cb0f62e06b6a983927f2637&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 140607,
         title: "Star Wars 7",
         subtitle: "O Despertar da Força",
@@ -3538,8 +3550,8 @@ export const cards: CardsProps[] = [
         genero: ["Ficção Científica", "Ação"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F757982.jpg&f=1&nofb=1&ipt=f9fb14b8b960f93003f58e85c7f76e79c7c3f086cea9a9dc872e358414a925b0&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Ft0amAZ8KJFxBQZOxOnWlKVT4STi.jpg&f=1&nofb=1&ipt=0afd3f595ed0dc00ed11b761ad088238c603b39ad410e74645050c0849ba8ee2&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 284052,
         title: "Doutor Estranho",
         subtitle: "",
@@ -3550,8 +3562,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Fantasia", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsm.ign.com%2Fign_br%2Fscreenshot%2Fdefault%2Fdoutor-estranho-multiverso-loucura_jmqu.jpg&f=1&nofb=1&ipt=656ef70f1e1bb28d4a34647e82536a6dbe03b764e2ec9ebf24319f3baeca5962&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftopflix.re%2Fwp-content%2Fuploads%2F2022%2F05%2FboIgXXUhw5O3oVkhXsE6SJZkmYo-scaled.jpg&f=1&nofb=1&ipt=0c04de59f6070711183d3cd1f263e965c74c0c04bee89e89c8f68bde70e2c105&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 453395,
         title: "Doutor Estranho",
         subtitle: "No Multiverso da Loucura",
@@ -3562,8 +3574,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Terror", "Fantasia", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fone-cinema.s3.sa-east-1.amazonaws.com%2Ffilmes%2Fincredibles-2%2F10062020%2F3840%2Fbackground-incredibles-2.jpg&f=1&nofb=1&ipt=c49acb47a18668133d3735842303dd21d4faa86cd7a0af9a84172737e4e857f3&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.erOCCvgjEnmapFc4oLMx2AHaLH%26pid%3DApi&f=1&ipt=2584e3c8402373a649bdd8ef57d870ae2529a33c9b52822c2ffbffa0ac06c406&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 260513,
         title: "Os Incríveis 2",
         subtitle: "",
@@ -3574,8 +3586,8 @@ export const cards: CardsProps[] = [
         genero: ["Infantil", "Ação", "Disney+"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F1706654.jpg&f=1&nofb=1&ipt=9609a375922ce4a3e785fccbb4360d117b5ae72f0e101946c2022a21950e6508&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.u4A2KtZP8mULZb-DJuswLwHaLH%26pid%3DApi&f=1&ipt=eeefea1113623790fb65c7e597c83320e4d35e2d140a05964294c123b8ce143d&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 9806,
         title: "Os Incríveis",
         subtitle: "",
@@ -3586,8 +3598,8 @@ export const cards: CardsProps[] = [
         genero: ["Infantil", "Ação", "Disney+"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FM%2FMV5BMjE1MjUyODY2Nl5BMl5BanBnXkFtZTcwMTE5NTI2Nw%40%40._V1_.jpg&f=1&nofb=1&ipt=196e091d1cc5b36833561249704b55b0851db2623269d91ebd6a5b773d8197f3&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpelicula.vip%2Fwp-content%2Fuploads%2F2021%2F11%2F2ZetTSYM8ATcrxh4Otge99GJRTz.jpg&f=1&nofb=1&ipt=23854de22e09c147160f6cd2c8290c5277fd2fb06dc8183514b626d5481dcccf&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 72105,
         title: "Ted",
         subtitle: "",
@@ -3598,8 +3610,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Fantasia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi-viaplay-com.akamaized.net%2Fviaplay-prod%2F888%2F812%2F1539090669-2f46f258e6e3bd874325f07fabcccbbc82b4c98b.jpg%3Fwidth%3D1600%26height%3D900&f=1&nofb=1&ipt=794f77235a4e9f9ef997e98aa1dd844a1d1ded895770aa9ad408cacd46bbabd4&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.RthAyR6Vs3P16nrPjKusoAHaLH%26pid%3DApi&f=1&ipt=6d799af89aeafaf2f1034b18295328d5f20ac4d2c043d2d5f8b93cee26531dbd&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 214756,
         title: "Ted 2",
         subtitle: "",
@@ -3610,8 +3622,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Fantasia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpoltronanerd.com.br%2Fwp-content%2Fuploads%2F2023%2F03%2FBelo-Desastre_Diamond-FIlms-1.jpg&f=1&nofb=1&ipt=8272ac95c2381910917d095a4bd61a6a256ecd8d1842fa7effa865a3a2697a76&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.PELSDcScIsD_oLP87nN36wHaLH%26pid%3DApi&f=1&ipt=879b1de038415d25e5722b2d9a08749049823a5b4482f07132fe789ec3a4311a&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1016121,
         title: "Belo Desastre",
         subtitle: "",
@@ -3622,8 +3634,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Romance"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fentretetizei.com.br%2Fwp-content%2Fuploads%2F2024%2F04%2FBelo-Desastre-O-Casamento_Diamond-Films-6k-scaled.jpg&f=1&nofb=1&ipt=2b5ab96e5404e3a22496093670ef2c5150b998a847d13a816e276a252d32677c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.justwatch.com%2Fposter%2F319908621%2Fs718%2Fbeautiful-wedding.jpg&f=1&nofb=1&ipt=9fd33566b9a6f43a9a2d40480d2c829f0cbaba9ec2131315de2a0cb028ac6fb6&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1096342,
         title: "Belo Desastre",
         subtitle: "O Casamento",
@@ -3634,8 +3646,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Romance"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2F7RbINGEODD8u73Z7CfDJ3HRrWOv.jpg&f=1&nofb=1&ipt=10b3a63a998bd60b4dc7762d9a7b4a87666ef04e3920d9d2af532b98068d0416&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Fw1280%2FvWMXRFvpxxs5p0IKZdqWph10jIn.jpg&f=1&nofb=1&ipt=1b13975e251813852e34149c770f3fd4c07dc29ace6319214e6b94253d9bbded&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 567609,
         title: "Casamento Sangrento",
         subtitle: "",
@@ -3646,8 +3658,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror", "Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblog.videoperola.com.br%2Fwp-content%2Fuploads%2F2020%2F04%2Fparasita.jpg&f=1&nofb=1&ipt=01e1b591fb8fb0f50a5bdfaea3553f7335af64c6fa27b33932d87050532d27bd&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FS%2Fpv-target-images%2Fe64deabace60f9e45c2eb2f52212c82d54cd7f370687076229fea69baf71cdc3._RI_TTW_.jpg&f=1&nofb=1&ipt=48e3d705b3fce6344fd3f9ce412c83cee0974c1585cabc9509c1c21290e4d602&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 496243,
         title: "Parasita",
         subtitle: "",
@@ -3658,8 +3670,8 @@ export const cards: CardsProps[] = [
         genero: ["Suspense", "Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.slantmagazine.com%2Fwp-content%2Fuploads%2F2010%2F09%2Fsocialnetwork.jpg&f=1&nofb=1&ipt=59c520a7d1d3ef11042e7a5a527cf3a93d84188d4ed34b500a5f3338859805ff&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fo8Y4YbPiV7TCNCEPJKv8AKTe2Gl.jpg&f=1&nofb=1&ipt=aa54d35c373a218b2505967d751695d3764a0b0f50d544fbe752d5c1d864e460&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 37799,
         title: "A Rede Social",
         subtitle: "",
@@ -3670,8 +3682,8 @@ export const cards: CardsProps[] = [
         genero: ["Drama"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallup.net%2Fwp-content%2Fuploads%2F2016%2F01%2F228956-Batman_Begins.jpg&f=1&nofb=1&ipt=d619d6094b895a8bd4d78241248b69cf21be6985df6fad7155438cea5e36e7de&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjohnsneaker.com%2Fwp-content%2Fuploads%2F2021%2F06%2Fil_fullxfull.2372028995_nrmy-1519x2048.jpg&f=1&nofb=1&ipt=25b0b45da6b489e8429069d652c0cbc5908ecf8dca28436d105dd32d23295297&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 272,
         title: "Batman",
         subtitle: "Begins",
@@ -3682,8 +3694,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Crime", "DC", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages5.alphacoders.com%2F330%2Fthumb-1920-330769.jpg&f=1&nofb=1&ipt=7c3ea041947cd8a8bc0cfbbb17c5fc0b7a6b5e2b091cd32924ad759e73d47edd&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.kSwFiORSXMmuk_Mk9Uh8XwHaLH%26pid%3DApi&f=1&ipt=d44e01f962fc1ed0b1145693166bb7680f6b6bc726dd745575dbbc2727e3ec14&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 49026,
         title: "Batman",
         subtitle: "O Cavaleiro das Trevas Ressurge",
@@ -3694,8 +3706,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense", "DC", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.thedigitalfix.com%2Fwp-content%2Fuploads%2F2022%2F08%2Fbest-dc-animated-movies-superman-vs-the-elite.jpg&f=1&nofb=1&ipt=6e5644be3185e5f332d1549e978c41f758157171764f1f6e95b63a60a4d92d50&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.6eCfgr8Pr_Niv36CvBAVZQHaJ4%26pid%3DApi&f=1&ipt=3447c1d1c6156fef649dfd4be185558890b04dd51ea7760cdfeac7504eba0ce4&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 103269,
         title: "Superman vs The Elite",
         subtitle: "",
@@ -3706,8 +3718,8 @@ export const cards: CardsProps[] = [
         genero: ["Animação", "DC", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fhdqwalls.com%2Fwallpapers%2Fassassins-creed-4k-pic.jpg&f=1&nofb=1&ipt=e90e3b45d745b8b9e98759b33f01a6525a16a669c47ca8de4c1789c3645cb1bc&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Fw500%2Fctm9Daf0xHS3Fdy7WxvjjujQ0Tb.jpg&f=1&nofb=1&ipt=4ccb7dbcad14bc5db86b71cb07eb00b8de48216f1de0c603ddfd5a17e991fe50&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 121856,
         title: "Assassin's Creed",
         subtitle: "",
@@ -3718,8 +3730,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Aventura"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FwSMnl4TPv6PaJjZfC776264Bzxc.jpg&f=1&nofb=1&ipt=ca34a3db7708a9bce45b3f3b352de36f3c310012198767d2ac1a9d519e2fd48e&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.35hfT42r6fSYMfzGw2ubwAAAAA%26pid%3DApi&f=1&ipt=33e1d11c9584eb6bc610cf8bae7f1566744bfbf13e209d0cebd56a93f61593d1&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 671,
         title: "Harry Potter",
         subtitle: "E a Pedra Filosofal",
@@ -3730,8 +3742,8 @@ export const cards: CardsProps[] = [
         genero: ["Fantasia", "Infantil"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuploads.emaisgoias.com.br%2F2021%2F11%2Ff2544654-harry-potter.jpg&f=1&nofb=1&ipt=210bc84cafe023f7d44c60a9c7dce5a0b8b6b2c67bdcfc2fcba05061b5f732e3&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Fw1280%2F811j0Jf2D0mK1U6RxXJoZgOB29n.jpg&f=1&nofb=1&ipt=c67e9720016e6ba5d05be771c6c6a8d36ce14488e67d0b40f352fb0950a99d37&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 672,
         title: "Harry Potter",
         subtitle: "E a Câmara Secreta",
@@ -3742,8 +3754,8 @@ export const cards: CardsProps[] = [
         genero: ["Fantasia", "Infantil"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd5d5yejrba9lo.cloudfront.net%2Fgallery-jpeg%2Fmovies%2Ffile%2Fajax%2Ffieldimage%2Fund%2Fform-xv-liporwlvawgzp-cvll3jupzq-m08csyrsvvqimoe%2Fhp3_10.jpg&f=1&nofb=1&ipt=aa96f46dc62a1b503b36150db3570b9b31d359d07938af3e1fdf226522c2a3e4&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpicfiles.alphacoders.com%2F427%2F427597.jpg&f=1&nofb=1&ipt=7f841178c9d60de403bc201b51cccdd35f0a4040b2ef41ea8bbbc7f90ba658d7&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 673,
         title: "Harry Potter",
         subtitle: "E o Prisioneiro de Askaban",
@@ -3754,8 +3766,8 @@ export const cards: CardsProps[] = [
         genero: ["Fantasia", "Infantil"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fguarientoportal.com%2Fwp-content%2Fuploads%2F2021%2F07%2FHarry-Potter-e-o-Calice-de-Fogo-Critica-Filme.jpg&f=1&nofb=1&ipt=c4d24dd7da253158f9ba29d7be8f4e18624e98435ea5a583c1cfbc44e1ccf170&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.wikia.nocookie.net%2Fdublagem%2Fimages%2F9%2F96%2FHarry_Potter_e_o_C%25C3%25A1lice_de_Fogo_P%25C3%25B4ster.jpg%2Frevision%2Flatest%3Fcb%3D20220310122626%26path-prefix%3Dpt-br&f=1&nofb=1&ipt=d61078cc4f6acb3459827f33e66e3ea34de8f2a6346c1fe675207d0c7bf700fd&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 674,
         title: "Harry Potter",
         subtitle: "E o Cálice de Fogo",
@@ -3766,8 +3778,8 @@ export const cards: CardsProps[] = [
         genero: ["Fantasia", "Infantil"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages4.alphacoders.com%2F674%2Fthumb-1920-674451.jpg&f=1&nofb=1&ipt=9f86c772f7e90498dc856f0da8d0a095d9b02e734fb95ab2d2f1b45222541f99&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FtIf9aUyNljda9MG1pjlOLHCZ3b0.jpg&f=1&nofb=1&ipt=218323064da794fbf591c26ff362953bcf14e578b339c1d7ed745a34344f1acc&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 675,
         title: "Harry Potter",
         subtitle: "E a Ordem da Fênix",
@@ -3778,8 +3790,8 @@ export const cards: CardsProps[] = [
         genero: ["Fantasia", "Infantil"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.alphacoders.com%2F923%2Fthumb-1920-923269.jpg&f=1&nofb=1&ipt=c95040da387c4f5be307431a3e1ed49633e4286cf8af5a6211cff18df5c10002&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2F05xqDDh1nvU8cA_iI5D-bzrGrBd5s7Mw1HRp2hdgTOXTLBjk3c9iZX1ED54SVs2n2neSXQ&f=1&nofb=1&ipt=11013b31bed4ad9b10a36e640601cd91158f368a3f396f48fb287f610f138437&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 767,
         title: "Harry Potter",
         subtitle: "E o Enigma do Príncipe",
@@ -3790,8 +3802,8 @@ export const cards: CardsProps[] = [
         genero: ["Fantasia", "Infantil"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnosbastidores.com.br%2Fwp-content%2Fuploads%2F2020%2F05%2Fharry-potter-and-the-deathly-hallows-part-1-4fdb774a1f846-1536x864.jpg&f=1&nofb=1&ipt=b86758547d5c583e42c2f5e91499197d1503fc24046093da93531b884fd93cfd&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvizer.in%2Fcontent%2Fmovies%2FposterPt%2F342%2F17858.jpg&f=1&nofb=1&ipt=5699a41bece9f4a817d441cac6bf82e3d9782d387bbafb5a62a7f5f46033e110&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 12444,
         title: "Harry Potter",
         subtitle: "E as Relíquias da Morte - Parte 1",
@@ -3802,8 +3814,8 @@ export const cards: CardsProps[] = [
         genero: ["Fantasia", "Infantil"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages3.alphacoders.com%2F676%2Fthumb-1920-676899.jpg&f=1&nofb=1&ipt=8bec20600241e7cf018f3fb2c12be2d07bdf66b835df6b24a64697d4227b0e80&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.wikia.nocookie.net%2Fdublagem%2Fimages%2F0%2F06%2FHarry_Potter_e_as_Rel%25C3%25ADquias_da_Morte_-_Parte_2_P%25C3%25B4ster.jpg%2Frevision%2Flatest%3Fcb%3D20220311022627%26path-prefix%3Dpt-br&f=1&nofb=1&ipt=15797fffd0066c14d062e42b68c5a700c27f0dbf7c5705cafb57624e1a52f1ad&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 12445,
         title: "Harry Potter",
         subtitle: "E as Relíquias da Morte - Parte 2",
@@ -3814,8 +3826,8 @@ export const cards: CardsProps[] = [
         genero: ["Fantasia", "Infantil"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.papodecinema.com.br%2Fwp-content%2Fuploads%2F2017%2F05%2F20170703-bg_spiderman-copy.jpg&f=1&nofb=1&ipt=9d585d7989dfbfdfd0d7bc0019068affb5c4a3395cbb89558d531628644cfc54&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.sonypictures.com.br%2Fsites%2Fbrazil%2Ffiles%2F2022-03%2FDP_3409108_TC_1400x2100_DP_3409112_SpiderManHomecoming_INTL_2017_2000x3000_BR_thumbnail_xlarge.jpg&f=1&nofb=1&ipt=6c36ca916c76457759e25c03e284f02bcc6c2e300d1b4ddf3f19927ff9d1913d&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 315635,
         title: "Homem Aranha",
         subtitle: "De volta ao Lar",
@@ -3826,8 +3838,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica", "Marvel", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages4.alphacoders.com%2F102%2Fthumb-1920-1023915.jpg&f=1&nofb=1&ipt=a1580b32cd61af90e08c5ca619144c699aa722af2740e28ca530adcf1ac715ed&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FtX0o4AdHpidgniTWwfzK0dNTKrc.jpg&f=1&nofb=1&ipt=97bdd70814c09abd2e8952f3cb7c2cc59608c56126d6c98743a2df66e8c9b174&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 429617,
         title: "Homem Aranha",
         subtitle: "Longe de Casa",
@@ -3838,8 +3850,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica", "Marvel", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fveja.abril.com.br%2Fwp-content%2Fuploads%2F2022%2F12%2FFILME-AVATAR-2-O-CAMINHO-DA-AGUA-2022-008.jpg.jpg%3Fresize%3D1536&f=1&nofb=1&ipt=cea289cf0e396a03fe791e76ac6bf03be222329b35df6cc5a7d297f0e3eea5c9&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2Fxu8S1eYu9wujulG4VXXTXEKDKRl.jpg&f=1&nofb=1&ipt=1d6f5fb92b7d37fb46574a5e8cfb3591fb952a1c1043fbd0435179f28cbb6a35&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 76600,
         title: "Avatar",
         subtitle: "O Caminho da Água",
@@ -3850,8 +3862,8 @@ export const cards: CardsProps[] = [
         genero: ["Ficção Científica", "Ação"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.alphacoders.com%2F476%2Fthumb-1920-476970.jpg&f=1&nofb=1&ipt=5d779d347e13ff5272aa73ba1b4b6445745bd14ab8be67cedba46dc0576f49f9&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F8Y7WrRK1iQHEX7UIftBeBMjPjWD.jpg&f=1&nofb=1&ipt=63739780b38232ab9b12ba2ccdf9c9d5d082b13267aa247a0625e59df6d7976d&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 19995,
         title: "Avatar",
         subtitle: "Versão Estendida",
@@ -3862,8 +3874,8 @@ export const cards: CardsProps[] = [
         genero: ["Ficção Científica", "Ação"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.mos.cms.futurecdn.net%2F55fkDAVtd5VNmCLqzvTPca.jpeg&f=1&nofb=1&ipt=d75d5ff1b8501a7caf08e7eedcaf9407ec1e5ee36460b937d5e01fb3442d33ec&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic1.srcdn.com%2Fwordpress%2Fwp-content%2Fuploads%2F2023%2F08%2Fthe-batman-2-temp-poster.jpg&f=1&nofb=1&ipt=f6d64b158e4690f6074e9602ef26ade8bf7551324fa8d87e06161340a3f4b954&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 414906,
         title: "The Batman",
         subtitle: "",
@@ -3874,8 +3886,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "DC", "Crime", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.wccftech.com%2Fwp-content%2Fuploads%2F2024%2F02%2Fborderlands-movie-poster-HD-scaled.jpg&f=1&nofb=1&ipt=508b7b8d06aa51f4fe50c16a30d6b7f5004e9f27bc78a25f8b389fbc3f50e750&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic1.srcdn.com%2Fwordpress%2Fwp-content%2Fuploads%2F2023%2F07%2Fborderlands-movie-teaser-poster.jpg&f=1&nofb=1&ipt=a0aae79eb219174a721744416ab0bde1d527bdabbd43a2b479f83ce3c5ed93ff&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 365177,
         title: "BorderLands",
         subtitle: "O Destino do Universo está em jogo",
@@ -3886,8 +3898,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fnv6F6tz7r61DUhE7zgHwLJFcTYp.jpg&f=1&nofb=1&ipt=18d44dc12a51c6b989fb138ec7fc8ba8e8678823f9d58c9532454db9a141c590&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.termometrooscar.com%2Fuploads%2F1%2F4%2F8%2F8%2F1488234%2Fs118581882355374300_p90_i10_w510.jpeg&f=1&nofb=1&ipt=304bdd0573b6922c656439c7893b156a8f1da4a5b79a1b2a72fde6c6174945a1&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 974635,
         title: "Assassino por acaso",
         subtitle: "",
@@ -3898,8 +3910,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Ação", "Romance"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn-images.rtp.pt%2FEPG%2Fimagens%2F32578_38722_28399.jpg%3Famp%3Bw%3D270&f=1&nofb=1&ipt=c4f5bc53341029bb1adad5b37da1cc85a67f65eb7e57d54ed316064ac99decf8&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FS%2Fpv-target-images%2Fe5a295dcc5441e9a1fd5907e191578d510ed7f8be46c5e85a5dd51354bfd3cb6.jpg&f=1&nofb=1&ipt=c3463aaa5af77b022139b0a64111fb1728301f888e08f1ab920f8367ba31a510&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 4348,
         title: "Orgulho e Preconceito",
         subtitle: "",
@@ -3911,8 +3923,8 @@ export const cards: CardsProps[] = [
     },
 
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbr.web.img2.acsta.net%2Fpictures%2F24%2F03%2F15%2F08%2F46%2F4543621.jpg&f=1&nofb=1&ipt=6922d39947ffb689f2643b71015c393d6c34e612ac8d1e84f2d9641dddcb320f&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fp2.trrsf.com%2Fimage%2Ffget%2Fcf%2F774%2F0%2Fimages.terra.com%2F2024%2F03%2F14%2Fgio9d0fwkaakm-6-uv8o8x2tgbja.jpg&f=1&nofb=1&ipt=4b5fe2ac9fc17d86525637e7b7ec8a952e0447e06b008c764550b7963f9ec6da&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 957452,
         title: "O Corvo",
         subtitle: "2024 - Legendado",
@@ -3923,8 +3935,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Fantasia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.collider.com%2Fwp-content%2Fuploads%2F2016%2F03%2Fbatman-v-superman-dawn-of-justice-image.jpg&f=1&nofb=1&ipt=88176495630c74386c97c9e7f105596dbc40d546a8ef88a6cd0cae9ad862a3ec&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2Fvh6pjeGH0GQupLepPCZn5PylcRg.jpg&f=1&nofb=1&ipt=768b7bd341aa5bc0b565101ca3955d1bcb41bf66ebaac77fee5d85dcc033eb34&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 209112,
         title: "Batman vs Superman",
         subtitle: "A Origem da Justiça",
@@ -3936,8 +3948,8 @@ export const cards: CardsProps[] = [
     },
 
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.wallpaperflare.com%2Fstatic%2F580%2F391%2F793%2Fthe-matrix-movies-neo-keanu-reeves-wallpaper.jpg&f=1&nofb=1&ipt=025ff314b2e10427bcf1a09883de73f840e8fe60736d7f37d964e63ad281c0fd&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FpEoqbqtLc4CcwDUDqxmEDSWpWTZ.jpg&f=1&nofb=1&ipt=59c3ea3eb4367a1d1bd3a65e40b4bca0b26d4c17c6bc8b01824b3d928ff13f56&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 603,
         title: "Matrix",
         subtitle: "",
@@ -3948,8 +3960,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fu2IlqBzlGqMwDnQsoskjCohgaPO.jpg&f=1&nofb=1&ipt=09728cb535ec1531f813fae8418c8912f0e5857a14485e3697d5c9fd66bc0618&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F_3N0VetpYvQE%2FSxWMkXzkNfI%2FAAAAAAAAA_Y%2FlN74D1gMERA%2Fs1600%2FMatrix_Reloaded_1.jpg&f=1&nofb=1&ipt=08527209b73117f738d037f77535a30a66af28e8d616fc383c0b0039e6318290&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 604,
         title: "Matrix",
         subtitle: "Reloaded",
@@ -3960,8 +3972,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2Fnt2ReQXxU1bk2o6JNpZzD0Y5mrx.jpg&f=1&nofb=1&ipt=f074742dca23bd7cef8798a810c477e8106e876e01dc7b813b7908a6ed517a50&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F1drWAmWvOalrGAV6PGdwMowSJVW.jpg&f=1&nofb=1&ipt=f771166f7c16659a810f40c2c6fe72dbce3872f485f256b7587adb4975fdf936&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 605,
         title: "Matrix",
         subtitle: "Revolution",
@@ -3972,8 +3984,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wallpapersden.com%2Fimage%2Fdownload%2Fghostbusters-2021-movie_bG5saGaUmZqaraWkpJRmbmdlrWZlbWU.jpg&f=1&nofb=1&ipt=0a2682ea5bf6dbf5aee07eb295dfaae3d2a5acd69f06f5eb29e3c3221811ad33&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn32.ntcdn.pro%2Ftestme%2Fdle2%2Fposts%2F2024-08%2F719aIhGrTrJ0yzkZ806Ea4rbonV.jpg&f=1&nofb=1&ipt=ce1040a87cd1864927bd9505ca374df7e529fd2d5bfe67a5e9fe5c14c3a817a3&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 425909,
         title: "Ghostbusters",
         subtitle: "Mais Além",
@@ -3984,8 +3996,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Aventura", "Fantasia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FwfdHCilp8cNPK7tK4jLgdUT7703.jpg&f=1&nofb=1&ipt=0d2680cb9d9fd1bb3e4c4a9cfa2756f6609df8fe014bceb0d53295317848a6e1&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.theposterdb.com%2Fprod%2Fpublic%2Fimages%2Fposters%2Foptimized%2Fmovies%2F1682829%2FKVxQ8a5bbLIfLWSyHcRSEOXxiDqKpqPMhboEZY6Q.jpg&f=1&nofb=1&ipt=8fdd4a26c984f68580c3996d5ad07e527e15414081b73d7e57d224db2197a5c8&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1022690,
         title: "Rick Stanicky",
         subtitle: "",
@@ -3996,8 +4008,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Prime Video"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsimkl.in%2Ffanart%2F11%2F11016130fb71dd0025_medium.jpg&f=1&nofb=1&ipt=d6defe0ecaef97978e958b0198147f55b3b3c8789a21fac8179fedfe16f2eb5a&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F2.bp.blogspot.com%2F-WQnnQ8OCdss%2FVlSkVlyrjwI%2FAAAAAAAADfE%2FcsK8Vr4trbo%2Fs1600%2F127%252BHoras.jpg&f=1&nofb=1&ipt=acbd0c76dc0c23d37c3e7d90ad8a0672245439c6661fd41525e0b88b67c644fd&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 44115,
         title: "127 Horas",
         subtitle: "",
@@ -4008,8 +4020,8 @@ export const cards: CardsProps[] = [
         genero: ["Aventura", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fsn8shU6NtmweFJnRsUnGVXtT22P.jpg&f=1&nofb=1&ipt=b158a42691c0520c67e79e485a79a5fb28922bce9135d5d50caeaa5127999026&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Fw500%2Fm3291Tju4htO3p6P2TG5G8nrAx9.jpg&f=1&nofb=1&ipt=6ea34bbeb628e34194f93923e28d71d755cedba1e1183ceea072174f173c5caf&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 799583,
         title: "Guerra Sem Regras",
         subtitle: "",
@@ -4020,8 +4032,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.slashfilm.com%2Fwp%2Fwp-content%2Fimages%2FI-Am-Legend.jpg&f=1&nofb=1&ipt=e8440820924799e4ff16f31de8e30f339caab3a34f0b6d9a8628d7e12c65340a&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcafecomnerd.com.br%2Fwp-content%2Fuploads%2F2022%2F03%2FEu-sou-a-lenda-2-Will-Smith.jpg&f=1&nofb=1&ipt=e71f162eb922512423818a7d02b9de1191be166b1c8c313d7a309b45cef40360&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 6479,
         title: "Eu Sou a Lenda",
         subtitle: "",
@@ -4032,8 +4044,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fgetwallpapers.com%2Fwallpaper%2Ffull%2F0%2F2%2F5%2F839892-spiderman-2018-wallpaper-1920x1080-photos.jpg&f=1&nofb=1&ipt=c3cac6ed5595cae5d72881a41c8f0e0359f21de9437ecc276097968ec49acea8&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmusicart.xboxlive.com%2F7%2F94fc5000-0000-0000-0000-000000000002%2F504%2Fimage.jpg%3Fw%3D1920%26h%3D1080&f=1&nofb=1&ipt=b10399b40985d38f1adf4b1b0ea123e9349831d4bb6700d99a38802459b28742&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 324857,
         title: "Homem Aranha",
         subtitle: "No Aranhaverso",
@@ -4044,8 +4056,8 @@ export const cards: CardsProps[] = [
         genero: ["Animação", "Marvel", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.uhdpaper.com%2Fwallpaper%2Fmiles-morales-spider-man-across-the-spider-verse-903%400%40h-pc-4k.jpg&f=1&nofb=1&ipt=ad512d959d8c6d21ebe247c2d0fb2caaa3b009136bfe18f996c2bfd0602f1ff0&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FxxPXsL8V95dTwL5vHWIIQALkJQS.jpg&f=1&nofb=1&ipt=8c97b2f3d674a19eb56682db59c990cf680e7936d7d9ab48dd0353cc58f455dc&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 569094,
         title: "Homem Aranha",
         subtitle: "Através do Aranhaverso",
@@ -4056,8 +4068,8 @@ export const cards: CardsProps[] = [
         genero: ["Animação", "Marvel", "Super Herói"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpalomaynacho.com%2Fwp-content%2Fuploads%2F2023%2F04%2Fbarbie-margot-robbie-kent-ryan-gosling-patines-coche-rosa.jpg&f=1&nofb=1&ipt=851d7219a14b960b187779a334c6cd986b1f76e287ac430a9ee09aed99861de7&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flakewoodsnn.com%2Fwp-content%2Fuploads%2F2023%2F09%2F71BgdzmFDAL.jpg&f=1&nofb=1&ipt=e4542ee971ac03f00a5cef314566a83abfbc58d5c3a7adf2ee699ad9702feaad&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 346698,
         title: "Barbie",
         subtitle: "",
@@ -4068,8 +4080,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Fantasia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F6fNGc1bnVPOa1ZAVItkCqrXObe9.jpg&f=1&nofb=1&ipt=1365a4e52cc351aa3c6cac21f4cd7e59d5cd387d4e8516a13605b73dde2a2045&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcontainermedia.com.br%2Fassets%2Fimages%2Fposter-cidade-perdida.webp&f=1&nofb=1&ipt=f7bb5869a2d81ad3ab84cf1cc0537900b1b66a211b6ed42fac8b29a4d3b36018&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 752623,
         title: "Cidade Perdida",
         subtitle: "",
@@ -4080,8 +4092,8 @@ export const cards: CardsProps[] = [
         genero: ["Aventura", "Ação"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F3yxxAeQ18z7mnomodO4klVEu64.jpg&f=1&nofb=1&ipt=473f2e39e833e8cf42273c708d0ed546fb3b0c45b73e123a34846621a3fc488b&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.7ZkPtKxec6D_12yuV9W0FwAAAA%26pid%3DApi&f=1&ipt=0c9ea06bf1c91810a6ff5617b54335b5d1326cdc7d0402b61270427c816b4be5&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 955916,
         title: "Lift",
         subtitle: "Roubo nas Alturas",
@@ -4092,8 +4104,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Aventura", "Netflix"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F4MCKNAc6AbWjEsM2h9Xc29owo4z.jpg&f=1&nofb=1&ipt=2c216a5c1fed59e2da5f313887924dedbe7dfbe3e99341227392892db9aae5d7&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.justwatch.com%2Fposter%2F311662879%2Fs718%2Fthe-beekeeper-2024.jpg&f=1&nofb=1&ipt=52979235f858e86faa60b7fc42ddeaf75d3157788bd5b4f3e8b0ee4b46f2d442&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 866398,
         title: "Beekeeper",
         subtitle: "Rede de Vingança",
@@ -4104,8 +4116,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fis1-ssl.mzstatic.com%2Fimage%2Fthumb%2Fx_ZoMsZ5bh0RpKLv2txiHg%2F2000x1125.jpg&f=1&nofb=1&ipt=3ad9dc96a9acb454191cd6afbe87bab374ecceb83bc5910314afe8cd2c75ff7a&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FS%2Fpv-target-images%2F93c670a4c21235724c5e7afbb0a72474cc47fd9d185eeff98fe71f9a22e08a96._RI_TTW_.jpg&f=1&nofb=1&ipt=af68abc82cb80451402caa6df7cad58f631faf95e1d034edc8e2b207a49127d9&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 10201,
         title: "Sim Senhor",
         subtitle: "",
@@ -4116,8 +4128,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F9fkYHcOtaz4cKmlDWw7tqUr5TUt.jpg&f=1&nofb=1&ipt=0a31f54ac52e2ba514354cb5f345cc8af0d17279fadb2d99c8444783605d786f&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.wikia.nocookie.net%2Fdublagem%2Fimages%2Fb%2Fb1%2FQueromatarmeuchefe.jpg%2Frevision%2Flatest%2Fscale-to-width-down%2F1200%3Fcb%3D20240202224119%26path-prefix%3Dpt-br&f=1&nofb=1&ipt=a48e3884d011271f383dc3235566fc32be57702bb369277049a20bc81a2d8e26&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 51540,
         title: "Quero Matar Meu Chefe",
         subtitle: "",
@@ -4128,8 +4140,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbr.web.img3.acsta.net%2Fpictures%2F22%2F01%2F07%2F17%2F03%2F1507158.jpg&f=1&nofb=1&ipt=637352a6e14047a444fac1aa790cada891ce6ee9a763dfcb32720504c64370d7&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FlQjLnyc4zUYbJ9aFAz2pazf8Erz.jpg&f=1&nofb=1&ipt=cd553642752e445ac056dc3914b702c5ea16823b248e86eccbb0b6b623ebf99d&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 4232,
         title: "Pânico",
         subtitle: "1996",
@@ -4140,8 +4152,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2020%2F12%2Fpanico-2.jpg&f=1&nofb=1&ipt=58b6b3718a761ef3fc0ae2b6ed61711a3740b14c03566aeac3d15d45c00d96df&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.nossocinema.com.br%2Fwp-content%2Fuploads%2F2022%2F01%2FPanico-2-cartaz-scaled.jpg&f=1&nofb=1&ipt=a837713a7c2ba0c4b0ee0e2bf19ce0e5a26b29998a885e7e17bc2b7b662e039a&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 4233,
         title: "Pânico 2",
         subtitle: "1997",
@@ -4152,8 +4164,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FAbFWty0o5nKGo4iLJaGRgqFtC8W.jpg&f=1&nofb=1&ipt=5bdb428cda22b01a760d5688942f9f564e8016ec7e80e199ba55372568ffcc6b&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.nossocinema.com.br%2Fwp-content%2Fuploads%2F2022%2F01%2FPanico-3-cartaz-scaled.jpg&f=1&nofb=1&ipt=2ca3f47a53e5f97636f7f36ed23cfb88d3fc50c5667a595fdfcc14ca3b130957&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 4234,
         title: "Pânico 3",
         subtitle: "2000",
@@ -4164,8 +4176,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fis5-ssl.mzstatic.com%2Fimage%2Fthumb%2FR8ByCGulvMBP9scxwCn-Hw%2F2000x1125.jpg&f=1&nofb=1&ipt=323e6475a50b29bf1eb9875712a7cab519dd3820f826ed0fe6a4d994b070902d&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FS%2Fpv-target-images%2F95c37522ea259b38d73d228bf5f1bff04b8506f0bef4d8abd5059767757f155c._RI_V_TTW_.jpg&f=1&nofb=1&ipt=8b8f1c20a3c26a83f01c75baa7fe8ef4433f671c7a2291aa749f6b709969796e&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 41446,
         title: "Pânico 4",
         subtitle: "2011",
@@ -4176,8 +4188,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fv1PuxThVwlpaxP3s99XuuZA5HX0.jpg&f=1&nofb=1&ipt=15eb7c05de0cdb15e32b7b8d7b17440b6c0ec8c73dcf5e155394e2ae75127aea&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fw0.peakpx.com%2Fwallpaper%2F375%2F379%2FHD-wallpaper-scream-5-panic-panico-panico-5-todo-mundo-em-panico.jpg&f=1&nofb=1&ipt=778d1f2a3a22c52a0e294430885921b6954b166e4db89ac2ab64e1de71960940&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 646385,
         title: "Pânico 5",
         subtitle: "2022",
@@ -4188,8 +4200,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbr.trace.tv%2Fwp-content%2Fuploads%2F2023%2F05%2FScream6_BR_3840x2160-scaled.jpg&f=1&nofb=1&ipt=355d2c761693025e37ed956b30cec5d98f31d3977f9a9e154053529c357fa3ac&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsupercinema.com.br%2Fposters%2F2023%2Fposter-panico-vi-scream-vi.jpg&f=1&nofb=1&ipt=e1df854955b4166e1e583eb23c69c90bb639543cac8577cdd0919c7c9fa352e4&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 934433,
         title: "Pânico 6",
         subtitle: "2023",
@@ -4200,8 +4212,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror", "Suspense"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblogger.googleusercontent.com%2Fimg%2Fb%2FR29vZ2xl%2FAVvXsEgpYvvWCGvmuhnWIVZEmTzjCCTkWLA4thF8jir_LrPBw4ZRzr1RSM1vYInoyfpkDYPra4Dw_N1y1zCt01xuEUjeLM4UsNn5ZAITXEUw2AHL5qinD8CYPHGvlzt4TY4lFzTv1FluVbbGi0jEhV1as0wINp-LUIdKCrEt4FHMIraDO_REV7zwMn6eCy23%2Fw1200-h630-p-k-no-nu%2FDungeons%2520Dragons%2520Honra%2520Entre%2520Ladr%25C3%25B5es.webp&f=1&nofb=1&ipt=1bbf9425123b232f35c57fc13d6c1e34d219ec6ef0b9c5c2b9b0c04a7b347c51&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fencrypted-tbn2.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcRBNu4jnuw7mcPfQNSIGtyzCSqtywv2abQJXV3VEESW46lm6m6H&f=1&nofb=1&ipt=f05a83846bbf8cdfc0e90364135595df8b010dae056b0ccf8a128b2ae430edc0&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 493529,
         title: "Dungeons & Dragons",
         subtitle: "Honra entre Rebeldes",
@@ -4212,8 +4224,8 @@ export const cards: CardsProps[] = [
         genero: ["Aventura", "Ação"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fovicio.com.br%2Fwp-content%2Fuploads%2F2024%2F06%2F20240627-um-lugar-silencioso-dia-um-com-lupita-nyongo.webp&f=1&nofb=1&ipt=a4f6c0e8afe0bac8c34f8690644a9a4884cd1b3085fb03abe37e73cb4c171248&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FgyEnhITeHLky85XJxuTPqniPrzE.jpg&f=1&nofb=1&ipt=bd8af7bc9f3fd9b08c63e246312ce72e82ff530d15f1f137b320fdc73e93fe40&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 762441,
         title: "Um Lugar Silencioso",
         subtitle: "Dia Um",
@@ -4224,8 +4236,8 @@ export const cards: CardsProps[] = [
         genero: ["Terror", "Suspense", "Ficção Científica"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.augustman.com%2Fwp-content%2Fuploads%2Fsites%2F6%2F2024%2F02%2F15141507%2Ftwisters-movie-2024.jpg&f=1&nofb=1&ipt=4bff84aefb5de118f496fac873f6ba3ab3f59d57560323c30940c01530adf1a4&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fg7yg6jJj4Z377j5h6S3MBRmjQ7U.jpg&f=1&nofb=1&ipt=db10888b8a8a15136838734fbd4fd5edc7bd75b054eb94102248d80abfd2d21d&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 718821,
         title: "Twisters 2024",
         subtitle: "",
@@ -4236,8 +4248,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense", "Drama"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fentretetizei.com.br%2Fwp-content%2Fuploads%2F2024%2F07%2Fm-night-shyamalan-e-josh-hartnett-vem-ao-brasil-divulgar-armadilha.jpg&f=1&nofb=1&ipt=5afa9e8c05a8e412954079aa367cad5a32309325ca97fe9e0ed5b237ad7c58b6&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcomandotorrentsgratishd.biz%2Fwp-content%2Fuploads%2F2024%2F08%2FBaixar-Filmes-e-Series-Gratis-38.jpg.webp&f=1&nofb=1&ipt=32dfc944ca317bc144d96c9ebd5b3a7beafe5dc552941c5d9cb9696db771a042&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1032823,
         title: "Armadilha",
         subtitle: "",
@@ -4248,8 +4260,8 @@ export const cards: CardsProps[] = [
         genero: ["Suspense", "Mistério"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fportal6.com.br%2Fwp-content%2Fuploads%2F2024%2F09%2Ffilme-rebel-ridge.jpg&f=1&nofb=1&ipt=aef102a74745e3e730adbc6c24bc2d20d1bf3dc6f15402d4517fb2bfaf22a48b&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.moviefone.com%2Fimage-assets%2F646097%2FrOIy79DDrmX8ecveVBB6QIavd02.jpg%3Fd%3D360x540%26q%3D60&f=1&nofb=1&ipt=144a34ec07e3d7bdaec894af1eb53210cccf4f9f938b9dfd8baa57197f256397&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 646097,
         title: "Rebel Ridge",
         subtitle: "",
@@ -4260,8 +4272,8 @@ export const cards: CardsProps[] = [
         genero: ["Suspense", "Ação"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FrLb2cwF3Pazuxaj0sRXQ037tGI1.jpg&f=1&nofb=1&ipt=c9f5fa14726c518eea48c9f7895f761a34c2657f0b3092b9d99fd586846d0711&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.sitopreferito.it%2Fwp-content%2Fuploads%2F2023%2F12%2FOppenheimer.jpg&f=1&nofb=1&ipt=0b613c97ee4996046edb47a2d0916ed854084522ac5716827540704a25267c04&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 872585,
         title: "Oppenheimer",
         subtitle: "",
@@ -4272,8 +4284,8 @@ export const cards: CardsProps[] = [
         genero: ["Suspense", "Drama"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpostergami.com%2Fwp-content%2Fuploads%2F2022%2F01%2Fposter-wallpaper-coringa-6.jpg&f=1&nofb=1&ipt=d4c9f8c9d057c889db130497df99dfc4a909fdcea0a0c3c87622d41c6c25f587&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.amerika.org%2Fwp-content%2Fuploads%2Fjoker_-_movie_poster_-_2019-800x1200.jpg&f=1&nofb=1&ipt=6f7817d6b74418829bfc6566ad1a15473d4a629cc39b053b7643a84f65337517&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 475557,
         title: "Coringa",
         subtitle: "",
@@ -4284,8 +4296,8 @@ export const cards: CardsProps[] = [
         genero: ["Drama", "Crime"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.clarin.com%2F2020%2F09%2F21%2Fa4dGJ21A8_1200x0__1.jpg&f=1&nofb=1&ipt=93b33ad7ddef45c3105aeb7161be1658c06744f990c5f0f02ffbac510751aaf1&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.moviesrankings.com%2Ft%2Fp%2Fw1280%2F7zRxBuJ8SjqgMeQdmfXIQPDdz6b.jpg&f=1&nofb=1&ipt=a08a9f3f0ac3d3b21c612c011f55dfaadd1909fe48bff5a4e5606af3c99fb413&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 787,
         title: "Sr Sra Smith",
         subtitle: "",
@@ -4295,8 +4307,8 @@ export const cards: CardsProps[] = [
         duration: "1h 59m",
         genero: ["Ação", "Romance", "Comédia"]
     }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2021%2F05%2Fgladiador.jpg&f=1&nofb=1&ipt=9fbc2b361204696c9e7290cb2ca0f1003d010fb83568beffac519b3ce7a65bd3&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FehGpN04mLJIrSnxcZBMvHeG0eDc.jpg&f=1&nofb=1&ipt=517d0e75ce442bbe37c0b5731c8495863d2fd33f3a8fd4d5ec0aaa3e48610683&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 98,
         title: "Gladiador",
         subtitle: "",
@@ -4307,8 +4319,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Drama"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FqDEvctVfAheD7x9Rzz8xcFRAGAU.jpg&f=1&nofb=1&ipt=8bae5d3c6d18da241dd8e9da28b6ba561409ae140567a5bd81107e49bcd2c02a&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpicfiles.alphacoders.com%2F124%2F124818.jpg&f=1&nofb=1&ipt=ee3e164146864432c2502b9f35e062a351da068ff049add9631580fa5c824fbf&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1893,
         title: "Star Wars 1",
         subtitle: "A Ameaça Fantasma",
@@ -4319,8 +4331,8 @@ export const cards: CardsProps[] = [
         genero: ["Ficção Científica", "Ação"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FdNt5q68BBkddBxlvrHDa1apyBy8.jpg&f=1&nofb=1&ipt=564c5a7e21f2d68270362afdbe117856ea788b69d18b0f2eae4e14c2f8cdede1&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Dla4Cu7g_KDOEEfwrDMhuwHaLH%26pid%3DApi&f=1&ipt=769dafe84d9943026783f30cc9bde000b62cfc765025bdee9ba73cd18425c87d&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1894,
         title: "Star Wars 2",
         subtitle: "O Ataque dos Clones",
@@ -4332,8 +4344,8 @@ export const cards: CardsProps[] = [
             "Ação"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.indiependent.co.uk%2Fwp-content%2Fuploads%2F2015%2F08%2FStar-Wars-Episode-III-Revenge-of-the-Sith.jpg&f=1&nofb=1&ipt=330193fcf4f1f73a520cbecb28aa2cfe13bd39f5d32fc5b0cc4254b69232c9a2&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.a-z2GR-Ss-7PN5a3dR_jawHaLH%26pid%3DApi&f=1&ipt=a9932d155ff8bbae900bc68bacf7836a040d4b1101e7d73f496c41dfd9607e80&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1895,
         title: "Star wars 3",
         subtitle: "A Vingança dos Sith",
@@ -4344,8 +4356,8 @@ export const cards: CardsProps[] = [
         genero: ["Ficção Científica", "Ação"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FyUiXA68FfQeA8cRBhd0Ao0jIRZt.jpg&f=1&nofb=1&ipt=d25dd44c7076de2504be1afe53a29373780df495b72ae0551e667b06c8e46c17&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpicfiles.alphacoders.com%2F125%2F125208.jpg&f=1&nofb=1&ipt=83a6d61a8cf3c2369768749f808acf774a99bb684766c2b563f8cecaeab03e36&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 11,
         title: "Star Wars 4",
         subtitle: "Uma Nova Esperança",
@@ -4355,8 +4367,8 @@ export const cards: CardsProps[] = [
         duration: "2h 01m",
         genero: ["Ficção Científica", "Ação"]
     }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FyHzArdxaRF478ZT9qzqeZbrjVbo.jpg&f=1&nofb=1&ipt=ad87b2e484c0552f09574eff63ddc9b0f87803f807d9492ca05ad21e58150fdb&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpicfiles.alphacoders.com%2F125%2Fthumb-1920-125329.jpg&f=1&nofb=1&ipt=7625ee45433db68f4e9d75e00e6197ad94f101483860452ddb1c70df9ddd8195&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1891,
         title: "Star Wars 5",
         subtitle: "O Império Contra-Ataca",
@@ -4367,8 +4379,8 @@ export const cards: CardsProps[] = [
         genero: ["Ficção Científica", "Ação"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wallpapersden.com%2Fimage%2Fdownload%2Fcharlize-theron-in-the-old-guard_bGVtbW2UmZqaraWkpJRobWllrWdpZWU.jpg&f=1&nofb=1&ipt=0a3d050850b421ad6d4bc08e2bf2b200b89eb4d3927b20491337163130626302&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2F6aUiWKlFmH5emk40O14oLKF090R.jpg&f=1&nofb=1&ipt=2fcf1bf3f5a3d63e274913dc289601f0390b8046107457e4377086aef9ec9b66&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 547016,
         title: "The old Guard",
         subtitle: "",
@@ -4379,8 +4391,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Fantasia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wallpapersden.com%2Fimage%2Fdownload%2Fcaptain-marvel-2019_a2lmaG2UmZqaraWkpJRmbmdlrWZlbWU.jpg&f=1&nofb=1&ipt=a78735c85fd20178cf6eab36c5d78f252086dbfbeea4feecf6de3f6ecd2348d2&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.images.express.co.uk%2Fimg%2Fdynamic%2F36%2F590x%2Fsecondary%2Fcaptain-marvel-poster-1328520.jpg&f=1&nofb=1&ipt=8b27c206fd79afa14d132c50e27d700a3f41bdcccfd78fc5f80e4ac9a58a004c&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 299537,
         title: "Capitã Marvel",
         subtitle: "",
@@ -4394,8 +4406,8 @@ export const cards: CardsProps[] = [
         ]
 
     }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fs99xiwbOo9uVwD4kn1x6sPrWA3k.jpg&f=1&nofb=1&ipt=00071e5d95cb17767378e99cb44f1559387078fd7910922776942c6998b3f9fc&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.B3NveDKCUemcKsIYi3OKnQHaKe%26pid%3DApi&f=1&ipt=5592f5dc35982c429ae66093443efbd9e8949b9a4e826798c0c1832387230d9d&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 10138,
         title: "Homem de Ferro 2",
         subtitle: "",
@@ -4406,8 +4418,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Super Herói", "Marvel"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages8.alphacoders.com%2F377%2Fthumb-1920-377609.jpg&f=1&nofb=1&ipt=6eb1096e4521a665d599569470f473efd4a0142412b97de88cea8e130b833b9e&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimagizer.imageshack.com%2Fimg922%2F5924%2FlfmfXg.jpg&f=1&nofb=1&ipt=40fe0a4538392359ed1387971b47573303d4c9f325de6f5abd4c6804e47976f6&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 68721,
         title: "Homem de Ferro 3",
         subtitle: "",
@@ -4418,8 +4430,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Super Herói", "Marvel"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsobresagas.com.br%2Fwp-content%2Fuploads%2F2022%2F06%2FSessao-da-Tarde-Hoje-Classico-da-comedia-Esposa-de-Mentirinha-e-destaque-nessa-segunda-feira-20.jpg&f=1&nofb=1&ipt=f2035ce7d471adbad5741d43c6bfc3cb98c078f6f8e3d93278636717b9f8bda6&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cafecomfilme.com.br%2Fmedia%2Fk2%2Fitems%2Fcache%2F18cb4412b3fd96d4c2c15944894f7ea5_XL.jpg%3Ft%3D20200329_144258&f=1&nofb=1&ipt=0609231dd848ff1aacee435ba0aed18b49f782074565816d998580b66765e74e&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 50546,
         title: "Esposa de Mentirinha",
         subtitle: "",
@@ -4430,8 +4442,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Romance"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fprogrammi.sky.it%2Fimages%2Fcc%2Fupload%2Fc_scale%2Cw_1920%2Ff_webp%2Fv1%2Fbackground%2Fbackground-50-volte-il-primo-bacio&f=1&nofb=1&ipt=a807e2b8d49cb6fb3f9528c51235adea2634958e493b07f34bb75b28cc019244&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.KQOAcoYEaCSTo0KwWZFeKgHaJ4%26pid%3DApi&f=1&ipt=287571b91992e40bf0125917f6b0765d2b3068e54d35d1705c5fa55b8823bbfc&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1824,
         title: "Como se Fosse a Primeira Vez",
         subtitle: "",
@@ -4442,8 +4454,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Romance"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F_HMy37ytch4s%2FTRc16yfY_SI%2FAAAAAAAABzU%2Foihfq_Ps0k4%2Fs1600%2Fpar.jpg&f=1&nofb=1&ipt=98c62144d08b06cdf43e1a66216c3b3ac562e1644dd4d0472c26501d3045c364&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2F9VB8vGV4Aznf6GUc9C7a1EzGHLz.jpg&f=1&nofb=1&ipt=b1e29add21f69b764dc375ff7b83422b276e244f74ae64d8cdd8939cb4fb6709&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 37821,
         title: "Par Perfeito",
         subtitle: "",
@@ -4454,8 +4466,8 @@ export const cards: CardsProps[] = [
         genero: ["Comédia", "Ação", "Romance"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages4.alphacoders.com%2F909%2Fthumb-1920-909855.jpg&f=1&nofb=1&ipt=808eb61f927a2aacb88321ce4b31e42dd326882d5b6e274fa6b5dff71ffcc5be&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FySm3Ep84oquDVH5K6cXbRGX0sax.jpg&f=1&nofb=1&ipt=96efd0550b13532b5211c4df3959100764f2a6f86e9a7e5bafd8920dc7a45856&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 401981,
         title: "Operação Red Sparrow",
         subtitle: "",
@@ -4466,8 +4478,8 @@ export const cards: CardsProps[] = [
         genero: ["Suspense", "Ação"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fhdqwalls.com%2Fdownload%2F2017-jumanji-welcome-to-the-jungle-movie-5k-zt-1920x1080.jpg&f=1&nofb=1&ipt=3fcbfa96fd39cb75e518e79a296a0b9747d45e29c362c0d5f7c0e5efd0acda56&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FvfiJehTiJGV649XOHLFfIptnWyG.jpg&f=1&nofb=1&ipt=5aca97fe8d3e2118f13f7290e9943ce5f5f29ed32eee352c5795fff236b35ad7&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 353486,
         title: "Jumanji",
         subtitle: "Bem Vindo a Selva",
@@ -4478,8 +4490,8 @@ export const cards: CardsProps[] = [
         genero: ["Aventura", "Ação", "Comédia"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcloud.filmfed.com%2Fmovies%2Fimages%2Fl_5da5f130-021b-41bb-8ea5-f341b0a87575.jpg&f=1&nofb=1&ipt=65c52b90c30f0c12e1994c82c8541867e334a6aa2d813a9bb1f9e35a7371e9f6&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Fw500%2Fv0f6zLv2TwhscRFDRnbcw8McBeI.jpg&f=1&nofb=1&ipt=e848cbbfc3d3b4078e2449237ec049455453f68e4f8655f312a2d8a95b450d48&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 205775,
         title: "No Coração do Mar",
         subtitle: "",
@@ -4492,8 +4504,8 @@ export const cards: CardsProps[] = [
             "Aventura"
         ]
     }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallup.net%2Fwp-content%2Fuploads%2F2019%2F09%2F102090-jack-the-giant-slayer.jpg&f=1&nofb=1&ipt=61936a6c479dce22a380a28099feb819022680b1e2fa6018897dd72dcd8a97da&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F0a%2F5e%2F3d%2F0a5e3d58fe5f0668a41729e4f329122b.jpg&f=1&nofb=1&ipt=e126287c3c9ab7f4dcf2acb5732e86f035a7e020aafde1f82577a671a8f47138&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 81005,
         title: "Jack",
         subtitle: "O Caçador de Gigantes",
@@ -4505,8 +4517,8 @@ export const cards: CardsProps[] = [
             "Aventura"
         ]
     }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F4.bp.blogspot.com%2F-OKObxFvSFmE%2FWIfxjLHW3CI%2FAAAAAAAADyk%2FpzYswL0RPwUzZxnzhc1luok4usgeapFhgCLcB%2Fs1600%2Fmaxresdefault.jpg&f=1&nofb=1&ipt=25e6c357be6db04d3340fb70ff452c7529394a3eb37a40b1a432faee6a330956&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F2YPg2dvxJlBEOTX3OIrose5gX1K.jpg&f=1&nofb=1&ipt=a95125126282d49c4ad585e7b4a8a5a03eff53618f4d1a6f80c35b750ce34e82&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 345920,
         title: "Beleza Oculta",
         subtitle: "",
@@ -4518,8 +4530,8 @@ export const cards: CardsProps[] = [
             "Romance"
         ]
     }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FpqECkkF9Eiv5GC5dmvM5VMgH66U.jpg&f=1&nofb=1&ipt=f45fb54b8cb6799e5cb170858a952b7377d852b33240d09c5c1fd570cacd9acf&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Fw1280%2F2rElTfcZ09mfiDtD1wdE9EyXcUs.jpg&f=1&nofb=1&ipt=86c3f8c387ae6a31506619d2e1e7c11ae843eddcefd22f000ea6e3aad30580ab&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 411,
         title: "As Crônicas de Nárnia",
         subtitle: "O Leão, A Feiticeira e o Guarda-Roupa",
@@ -4531,8 +4543,8 @@ export const cards: CardsProps[] = [
             "Aventura"
         ]
     }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F9pBv1BOSloAUgAkF0meJWdnbV4Q.jpg&f=1&nofb=1&ipt=6c209f53ccd7a0f7a4ee9f1137bee0b2dc82426a7c7c3a0c36998445e821a4aa&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F3KnbbXXygucglaz9KmnOdcORCHj.jpg&f=1&nofb=1&ipt=31c765aa9b903cd8f0acfd5dc56b7a1721cb40c76ef552ee515fff6822257417&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 2454,
         title: "As Crônicas de Nárnia",
         subtitle: "Príncipe Caspian",
@@ -4544,8 +4556,8 @@ export const cards: CardsProps[] = [
             "Aventura"
         ]
     }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F10wallpaper.com%2Fwallpaper%2F1440x900%2F1107%2FThe_Chronicles_of_Narnia_3_The_Voyage_of_the_Dawn_Treader_Movie_Wallpapers_12_1440x900.jpg&f=1&nofb=1&ipt=d13ffd297d10d2b27b374aa5e36dd03ac2df4b654b464ed4480078dc95c749e5&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.planetadisney.com.br%2Fwp-content%2Fuploads%2F2010%2F12%2FViagemPeregrAlvor-filme.jpg&f=1&nofb=1&ipt=2db79ea252bb02311a82693f8b163560302e1915830962b98c0a199f08bd594d&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 10140,
         title: "As Crônicas de Nárnia",
         subtitle: "A Viagem do Peregrino da Alvorada",
@@ -4557,8 +4569,8 @@ export const cards: CardsProps[] = [
             "Aventura"
         ]
     }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Foq3IOr7QvEmei0eXsXacqaMPqlV.jpg&f=1&nofb=1&ipt=0b941b5aaab3d17e759d3901a216067b916d36c9530832ea39e6c542927db0ab&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvizer.tv%2Fcontent%2Fmovies%2FposterPt%2F342%2F17695.jpg&f=1&nofb=1&ipt=8b23186959a6493b28ab411a39ef29cc65bc77d43e9d77244e95a0ccebf22e3a&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 4327,
         title: "As Panteras",
         subtitle: "",
@@ -4572,8 +4584,8 @@ export const cards: CardsProps[] = [
 
         ]
     }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fea%2F9f%2F49%2Fea9f4955e3fb3e967d60216f4f365359.jpg&f=1&nofb=1&ipt=2f265396cc92d2190e54df0af3a580baca78fc730acaafe5eb99b391d810e36d&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2F4GZLHlKuvQCqNnKfT3GNZYnlFFc.jpg&f=1&nofb=1&ipt=2d0d52551a378b07565e68e3c7168df209ccfb423e932368f6e6b2ae9e134017&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 9471,
         title: "As Panteras",
         subtitle: "Detonando",
@@ -4585,8 +4597,8 @@ export const cards: CardsProps[] = [
             "Comédia"
         ]
     }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F2.bp.blogspot.com%2F-IskQidAPKBg%2FU9ZcYyxL5GI%2FAAAAAAAAAu8%2FQu_rKe1KvwE%2Fs1600%2FFree-Divergent-movie-Desktop-Themes-wallpapers.jpg&f=1&nofb=1&ipt=87ec79446ad9e42463d92d9026ba6a7bb94c3f3d9b6feeb21d41835e1fb615e4&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F5d%2F69%2Fd0%2F5d69d0c8d8e502503660774c1d9732e6.jpg&f=1&nofb=1&ipt=050e4d17280c0b6bdf9866601de1988c89b72b28b190279005fc93d725dc77dc&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 157350,
         title: "Divergente",
         subtitle: "",
@@ -4598,8 +4610,8 @@ export const cards: CardsProps[] = [
             "Ficção Científica"
         ]
     }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fhdqwalls.com%2Fdownload%2Fthe-divergent-series-allegiant-2016-movie-1920x1080.jpg&f=1&nofb=1&ipt=e59eaf982df7460718a3d86aac92b2f121cf7450ba5240c769ad2ff9c97a00cd&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fflxt.tmsimg.com%2Fassets%2Fp10809821_p_v8_aw.jpg&f=1&nofb=1&ipt=026d6aa5b80bc9e328f839c373f2e0202107f00aeb4e21ceea646658d8518b15&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 262500,
         title: "A série Divergente",
         subtitle: "Insurgente",
@@ -4612,8 +4624,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FqSP072apfe2EEcd5Qg9vGYy2OLw.jpg&f=1&nofb=1&ipt=df07852869f51313a74a0884fbaad4f7f947e18ebdabd8fa295528a985460513&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FS%2Fpv-target-images%2Fb029f0418a694d1525674b0b2454ff9ddbf0979301e0e74f65f0cd0f352b9766._RI_TTW_.jpg&f=1&nofb=1&ipt=bc0f0297a4b3a9c61d1e4a770582d1c2c087b6f5cf157901ab1f3695e58d839f&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 262504,
         title: "A Série Divergente",
         subtitle: "Convergente",
@@ -4624,8 +4636,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Ficção Científica"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftrecobox.com.br%2Fwp-content%2Fuploads%2F2022%2F03%2Ffilme-the-batman.png&f=1&nofb=1&ipt=93cf34cdee07352aaa4995c381c63fb907a413a95ff49e2f38896145b24edeae&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2F4HkwsmXp3uzcrNIPlNEYo3hMbL8.jpg&f=1&nofb=1&ipt=e56fca0dc5fd67c5ee33ed44e9e2b49f457710132f7d1e18d7da1a24b42a029e&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 155,
         title: "Batman",
         subtitle: "O Cavaleiro das Trevas",
@@ -4638,8 +4650,8 @@ export const cards: CardsProps[] = [
             "DC", "Super Herói"
         ]
     }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcloud.filmfed.com%2Fmovies%2Fimages%2Fl_8d650682-811a-482e-8524-61af9d77328b.jpg&f=1&nofb=1&ipt=547967e92aad84e496adbad378971012a2cf97fd65a997c697b26ef265ee1048&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Fw1280%2FaJZOcorpgloDLkPP6ED0t9sXjNu.jpg&f=1&nofb=1&ipt=8954a670f7a8032b2e5258a16335296d085b74e72cd402dda4c3243e9eeb8e1d&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 12153,
         title: "As Branquelas",
         subtitle: "",
@@ -4652,8 +4664,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.filmofilia.com%2Fwp-content%2Fuploads%2F2012%2F08%2FThe-Perks-of-Being-a-Wallflower_13.jpg&f=1&nofb=1&ipt=e1aaf0deb7b840abf7e5cc087c36a40c5d6a27c0b5598d2b7033a6491e5f1765&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstrapi.api-tvcine.com%2Fuploads%2Fdb8182441974424e99154e95d3170c9d.jpg&f=1&nofb=1&ipt=fb6e6cba5b277830f6c2cdc861dc507ffa56f513112325347b9983d2a1b5bf13&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 84892,
         title: "As Vantagens de ser invisível",
         subtitle: "",
@@ -4666,8 +4678,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cafecomfilme.com.br%2Fmedia%2Fk2%2Fgalleries%2F46%2F06.jpg&f=1&nofb=1&ipt=b8781ed855e6ca7a7ecfc1d0c00bfad2c9bb40fb1d71599f60f0301f6e531786&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F2.bp.blogspot.com%2F-bs1PzlbMtgY%2FTqrMcqqw35I%2FAAAAAAAAAtY%2FknHF_X8ALpE%2Fs1600%2Famentira.jpg&f=1&nofb=1&ipt=047a358c84a0d7b6e9ebf2bdce3508d752a6eff264bdc297cd9db9ec76991c2e&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 37735,
         title: "A Mentira",
         subtitle: "",
@@ -4680,8 +4692,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fportalpopline.com.br%2Fwp-content%2Fuploads%2F2024%2F01%2Fmeninas-malvadas.webp&f=1&nofb=1&ipt=558410a02a5e50885849bd339451c15eda06b43091bce6d6c58084f9aacd017e&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flimonadatorrent.com%2Fwp-content%2Fuploads%2F2024%2F02%2FMeninas-Malvadas-2024.jpg&f=1&nofb=1&ipt=ad0c1b87cf929cf0964faa7b096f470b81349874da6770c0e51302a8c51320a1&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 673593,
         title: "Meninas Malvadas",
         subtitle: "",
@@ -4693,8 +4705,8 @@ export const cards: CardsProps[] = [
             "Musical"
         ]
     }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.hdwallpapers.in%2Fdownload%2Fbrad_pitt_in_ad_astra_5k-1920x1080.jpg&f=1&nofb=1&ipt=fde51e7bcfc1168b426a8d438e27db6b37f057284088dc1aeb365f6d1ec9e7a4&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FxJUILftRf6TJxloOgrilOTJfeOn.jpg&f=1&nofb=1&ipt=2ec9c989c752f70af9d6e149fdfe4c48ad5448d40790f5c13c8a7d5055d9f63b&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 419704,
         title: "Ad Astra",
         subtitle: "Rumo às Estrelas",
@@ -4706,8 +4718,8 @@ export const cards: CardsProps[] = [
             "Aventura"
         ]
     }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FeShw0LB5CkoEfYtpUcXPD85oz5Q.jpg&f=1&nofb=1&ipt=6cc4970fa184f3e5e43fe0f0644d7f9d7b18606b6b3d89f6e2f6158ece943067&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpbs.twimg.com%2Fmedia%2FFxs-g2bWYAQUOC5.jpg&f=1&nofb=1&ipt=2005490a443654768c942b818743723f5702be864b2a61f030982d2dd9450856&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 551804,
         title: "Freaky",
         subtitle: "No corpo de um Assassino",
@@ -4719,8 +4731,8 @@ export const cards: CardsProps[] = [
             "Terror"
         ]
     }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F42%2Ffa%2F0f%2F42fa0ff0e44f77bf12ebb35dd0b48cbe.jpg&f=1&nofb=1&ipt=7ebfd8b657b84a95e5f64857bdb2ea14730c935583ea833606f0311fad10b692&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Fw500%2FojyrQRIQ6f0hHFpJoXTAeUx0ynX.jpg&f=1&nofb=1&ipt=d711008cffe9bc6f11399dd954c7816493936de87383c6aaa1e8f10b2fcd33d1&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1954,
         title: "Efeito Borboleta",
         subtitle: "",
@@ -4732,8 +4744,8 @@ export const cards: CardsProps[] = [
             "Ficção Científica"
         ]
     }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fobservatoriodatv.uol.com.br%2Fwp-content%2Fuploads%2F2019%2F08%2Fcropped-blogd-kong-ilha-da-caveira.jpg&f=1&nofb=1&ipt=86987ecaad1f2f87983d2d4b580a88ee9367f9e3dd1f2311d9d1082a2356f760&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fi72dysG41QHCMRS6Zr23NOxuuEe.jpg&f=1&nofb=1&ipt=520de608821a217cac8b76008401c9e3b62d50e8eb65ef5a71fe4e1cfa86ed2b&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 293167,
         title: "Kong",
         subtitle: "A ilha da Caveira",
@@ -4745,8 +4757,8 @@ export const cards: CardsProps[] = [
             "Aventura"
         ]
     }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F4.bp.blogspot.com%2F-9mtvxDVQfvY%2FU3Va12hNxJI%2FAAAAAAAAJr0%2FIgnfFe90mNM%2Fs2560%2Fgodzilla-2014-picture-movie-hd-1920x1080.jpg&f=1&nofb=1&ipt=e5485de2b1c71a7e13ad643ee22417068c0e7fbbdb3ef5760bbe2820f6b83fc7&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FyDmD9HyjbqkYLiM53WlOSg3lw2i.jpg&f=1&nofb=1&ipt=1708d2d29f08d08c25ba43790f97fc94b991e0a811637997963a1454255738a2&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 124905,
         title: "Godzilla",
         subtitle: "",
@@ -4758,8 +4770,8 @@ export const cards: CardsProps[] = [
             "Ficção Científica"
         ]
     }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.oantena.com.br%2Fwp-content%2Fuploads%2F2023%2F09%2FPoster-Oficial-1-scaled-e1695338835358.jpeg&f=1&nofb=1&ipt=be4e1261326e5f1213c2b8b68e3a1f9704f602d45aba613300a7f6f8eae2b46b&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Fw600_and_h900_bestv2%2F9fWIhZDRKOv0ad75f3G2ZsRnkp.jpg&f=1&nofb=1&ipt=2697a64dea82ca7c3ae7aa6c8bcccd66e51c506ca14d27cdd1b4be253193d0ac&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 695721,
         title: "Jogos Vorazes",
         subtitle: "A Cantiga dos Passaros e das Serpentes",
@@ -4772,8 +4784,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcapricho.abril.com.br%2Fwp-content%2Fuploads%2F2017%2F01%2Fjennifer-lawrence-jogos-vorazes.jpg&f=1&nofb=1&ipt=5945bf07178de9aa5c708b89b1f36131ef1cb5cfe7ed7a56c6d3b3408378f71c&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.ucicinemas.com.br%2FContent%2FUpload%2FFilmes%2FPosters%2F11763%2Ffilme_11763.jpg&f=1&nofb=1&ipt=6b8b164377489e0b7300b4534f0647bdd1c9ce8f3268b54bfe546a5a39d54a1e&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 70160,
         title: "Jogos Vorazes",
         subtitle: "",
@@ -4787,8 +4799,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.entrandonumafria.com.br%2Fwp-content%2Fuploads%2F2013%2F10%2FJogos-Vorazes-Em-Chamas-destaque-01.jpg&f=1&nofb=1&ipt=3f88a3928ce6a41e1ba692728014f3766754c65ea1e9a82a0de82beb5251e103&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FvuBnGAxBICptd3UuSPjt9rwb6w5.jpg&f=1&nofb=1&ipt=7a459b0be517dc9c4f73c3b1334b8cd4fceeb64e8ccf1963d360a70649b034a9&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 101299,
         title: "Jogos Vorazes",
         subtitle: "Em Chamas",
@@ -4802,8 +4814,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fs2.glbimg.com%2FEATpCIuUlOorUhNzqPEqmHxAIGU%3D%2Fsmart%2Fe.glbimg.com%2Fog%2Fed%2Ff%2Foriginal%2F2014%2F09%2F13%2Fabre_j-law-esperanca-parte-1-cartaz.jpg&f=1&nofb=1&ipt=b4e733f906c64bf16e4f22cf94365c10d81d8609fe73fb84c3606c23ab70b8fe&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FhekpVNWOROZm57RS4OLW0ySkxx9.jpg&f=1&nofb=1&ipt=773eb8377c103464f95aa8f3ac6fa4a42bf2cbea03aa8567d0959967eccb2f06&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 131631,
         title: "Jogos Vorazes",
         subtitle: "A Esperança - parte 1",
@@ -4817,8 +4829,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Faodisseia.b-cdn.net%2Fwp-content%2Fuploads%2F2015%2F11%2FJogos-Vorazes-scaled.jpg&f=1&nofb=1&ipt=d646cd3ab39e524b51b20e18b54a9bed69b6d9a866517029e4d3e41eb5b134d1&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FrCDfKHFpZoLLl4CDMDCMGAy8wiN.jpg&f=1&nofb=1&ipt=07d64d8ce3165b8f2b37cd066d42274f33ae9817527ddb484aac1c3b972df605&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 131634,
         title: "Jogos Vorazes",
         subtitle: "A Esperança - parte 2",
@@ -4832,8 +4844,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuploads.alternativanerd.com.br%2Fwp-content%2Fuploads%2F2020%2F08%2FAfter-Movie-Poster-Cropped-1536x768.jpg&f=1&nofb=1&ipt=7bf6a8a8f4a9fb9be1739e17fe44d3293d830e6e41f16d0c3592065139496db7&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.jornaldebarueri.com.br%2Fwp-content%2Fuploads%2F2024%2F01%2Fposter_820525-scaled.jpg&f=1&nofb=1&ipt=75205e9676ccf8535566e4b3d341f25bed893c9786ad8bbf9fc96e4b9119c592&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 820525,
         title: "After",
         subtitle: "Para Sempre",
@@ -4845,8 +4857,8 @@ export const cards: CardsProps[] = [
             "Suspense"
         ]
     }, {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fosfilmesdokacic.files.wordpress.com%2F2022%2F11%2Fa-baleia_os-filmes-do-kacic_critica_review_xlg.jpg&f=1&nofb=1&ipt=81f1ae94178a1530b9f2ef60368d205c6c524ac6ff3a19557d1cc53aba2f53e6&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstrapi.api-tvcine.com%2Fuploads%2Febba0ed0c5684674946c28cace294cb8.jpg&f=1&nofb=1&ipt=f35c953b408cc638409ee388a5f7edf133b24a25b3f887475171a3017ddee24e&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 785084,
         title: "A Baleia",
         subtitle: "",
@@ -4858,8 +4870,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.guiadasemana.com.br%2FcontentFiles%2Fsystem%2Fpictures%2F2014%2F9%2F120583%2Foriginal%2Fprotetor-b.jpg&f=1&nofb=1&ipt=1b72d2f5ee87bd76a8cc86eb4a3f44d9fd82fda575239725556a95e3b9b6a1b5&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FhyjSa7awezBP6ezAmGSlNyhmDg1.jpg&f=1&nofb=1&ipt=e45a68f572c4091b2dbdd642212fac47431407525f2e9ceea5ce9d5fd52bf140&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 156022,
         title: "O Protetor",
         subtitle: "Sem Misericórdia",
@@ -4872,8 +4884,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.wp.com%2Fwww.meugamer.com%2Fwp-content%2Fuploads%2F2018%2F08%2F55eNvuXNumZ3oDmtcsJvzGhKyLZ.jpg%3Ffit%3D2560%252C1440%26ssl%3D1&f=1&nofb=1&ipt=734d18ab37d4cbde3e9939a26acdaa97794fa5283bfcd9f6d2c0655358ac6aa2&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.sonypictures.com.br%2Fsites%2Fbrazil%2Ffiles%2F2023-09%2Fsony_protetor2_1400x2100.jpg&f=1&nofb=1&ipt=fa3e5df34e5a64c1aa25db3c2a3fcf7d777f8c1dcafb2d3592bb55eaed0f952a&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 345887,
         title: "O Protetor 2",
         subtitle: "A Vingança",
@@ -4886,8 +4898,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.1zoom.me%2Fbig2%2F241%2F263052-Sepik.jpg&f=1&nofb=1&ipt=4ab668457e1b8487e8b2dac30e7ace5967e2d0470487c8d2cb895e2dc539a7cb&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.moviesanywhere.com%2F511fadd4d77e80484699a5f48eb25642%2F0fa342e3-605a-4b5d-b4c3-c52d4d30efcb.jpg&f=1&nofb=1&ipt=9972d4a61b205fa4105936bd9205a58efeb8d0891f6ff1738b9e01a0ea6aa278&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 38055,
         title: "Megamente",
         subtitle: "",
@@ -4900,8 +4912,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperswide.com%2Fdownload%2Fmegamind_2_2024_movie-wallpaper-1440x2560.jpg&f=1&nofb=1&ipt=255b3737aa78ae4e5f85b045f8cda4eabf9742f76987f154a5d95bb2cb53b7fd&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FS%2Fpv-target-images%2F8412f3f0faefdf897c31fd1830fe15a23d567bf11d715a614cf6a5eb9703132c.jpg&f=1&nofb=1&ipt=3d562fc931df42dbdf4a63d683feebf21a46c3297506c479bec191ca6ee23cf6&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1239251,
         title: "Megamente",
         subtitle: "Contra O Sindicato da Perdição",
@@ -4914,8 +4926,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmiro.medium.com%2Fv2%2Fresize%3Afit%3A1200%2F1*IUGLmSfWllow51DZ719vIA.png&f=1&nofb=1&ipt=00cf2c83971990e6f0e06af5857d1e6d6e412d5142f8be4e2e306672d578a3d5&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FkpL3TcAGDFVuhXNqRMzkzlTxP2T.jpg&f=1&nofb=1&ipt=1f988f02de3a78d308210e73ddd6add31ba7ecc0965d540795e50bc82976aceb&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 807,
         title: "Seven",
         subtitle: "Os sete crimes capitais",
@@ -4926,8 +4938,8 @@ export const cards: CardsProps[] = [
         genero: ["Suspense", "Crime", "Mistério"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FraspMdRYIj0cCF6SQH8NQ1lLLMB.jpg&f=1&nofb=1&ipt=306b8fadf586a938ccb327bff62898d1e8c7e6ae76e627e7467600097c466a66&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.moviesrankings.com%2Ft%2Fp%2Fw1280%2FynRI69ind5gs4CO7gSAwtSHBlas.jpg&f=1&nofb=1&ipt=33a5e726343aceba57d0206396017e2a52bd40e10cd26910335ca83acebdb625&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 461130,
         title: "Code 8",
         subtitle: "Renegados",
@@ -4938,8 +4950,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense", "Ficção Científica"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblogger.googleusercontent.com%2Fimg%2Fb%2FR29vZ2xl%2FAVvXsEihjSQAICcrj_jfiTyMcgFJNmB6OMuMYUdrc3IQ619r42z_chKrNukf4BjuYlrLmoTgZ3ZInwqNY951GEneLP6HqUxMVVIi3phcLmRyDmy0PyttZsbhpb2bYOVFD5IS9vDjd3b8uJE9c7cLnjswlldk9uSccL_YK9LAb2RNAeh_tts6JvdWCu5X9iXyjPl8%2Fw1200-h630-p-k-no-nu%2Fg0rofq9t.png&f=1&nofb=1&ipt=4cc076870ebb4acc4fd442d5bb1647af3ae8b99366a50da7cb7706fd85e7a344&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.BwdQmg7a642kSD3Af9DhHAHaLH%26pid%3DApi&f=1&ipt=d4ba9c31b17af382b02b758fb84bd9308eb41b55694b3c253aaa7f1f7cd845bc&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 932420,
         title: "Code 8",
         subtitle: "Renegados - Parte 2",
@@ -4950,8 +4962,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense", "Ficção Científica"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinepop.com.br%2Fwp-content%2Fuploads%2F2023%2F01%2Fx-a-marca-da-morte-mia-goth-maxxxine-foto-reproducao.jpg&f=1&nofb=1&ipt=8bb5e4854bd79777f4e69c195e4b5628b465b9f7c5fdffce246cabff446b57cc&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FlopZSVtXzhFY603E9OqF7O1YKsh.jpg&f=1&nofb=1&ipt=3d325ff03e27e3cc7df96872051993dcb7ab7407fb91e9ecada1ea53e1d447c9&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 760104,
         title: "X - A Marca da Morte",
         subtitle: "",
@@ -4965,8 +4977,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fovicio.com.br%2Fwp-content%2Fuploads%2F2023%2F12%2F20231212-gbkgzu5xyaanuru.jpg&f=1&nofb=1&ipt=7b6db223647d0f6008f4a46c7658305b5b1d14582d25592d25b6962212d130ef&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.fstatic.com%2Fmedia%2Fmovies%2Fcovers%2F2023%2F08%2FMV5BMWVjZGI3NDAtMzI5ZC00ZmNkLWEzNTAtMTc0NDMwMzc3YTZlXkEyXkFqcGdeQX_S3lRDBO.jpg&f=1&nofb=1&ipt=addd8957ec8c10f5e361f1c9bef7888b1712deda8fefead4a34442e053adb0f7&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 763215,
         title: "Donzela",
         subtitle: "",
@@ -4979,8 +4991,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FdlCvY72YBKxFSUk7ZOqasocoKWr.jpg&f=1&nofb=1&ipt=afc65c2edd91754b1b726181f84db1c930cb4271213c90550f8b319c716f7c1a&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbig1news.com.br%2Fwp-content%2Fuploads%2F2014%2F09%2FMaze-Runner-Correr-ou-Morrer.jpg&f=1&nofb=1&ipt=96e10e4d2cec24f028f27318d5786ad5077f534705c453432cb93d4a7d12ccd5&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 198663,
         title: "Maze Runner",
         subtitle: "Correr ou Morrer",
@@ -4993,8 +5005,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cafecomfilme.com.br%2Fmedia%2Fk2%2Fgalleries%2F1973%2F04.jpg&f=1&nofb=1&ipt=76b0b19e672611bc86f7e08742636554d72e1a90dc0ed4944d08d15745610054&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Fw1280%2FzpdGT57Rn3mAZsNOkeDeINB6L9v.jpg&f=1&nofb=1&ipt=39f63e1016977d05db7dd5e09b3d84a38a4b15de25052eac3f4f09cb7679fd64&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 294254,
         title: "Maze Runner",
         subtitle: "Prova de Fogo",
@@ -5007,8 +5019,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fzk9ic7HDN5TsyGkfcMZxSiFcAr8.jpg&f=1&nofb=1&ipt=ab0a60ce92070ae9c0f7489f578e3c0af6dfda00de8f63cfa48c338ad9f310ae&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.justwatch.com%2Fposter%2F242552466%2Fs718%2Fmaze-runner-a-cura-mortal.%257Bformat%257D&f=1&nofb=1&ipt=b94c6d7a7145a36f630f3f537af262466e64ace578970c3c7f07c31e36847731&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 336843,
         title: "Maze Runner",
         subtitle: "A Cura Mortal",
@@ -5021,8 +5033,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.online-idol.com%2Fwp-content%2Fuploads%2F2023%2F12%2Fwc-38011-anyone-but-you-2023-synopsis.webp&f=1&nofb=1&ipt=8ab44c7411d816acd999905162c2f61ea2abd74c74656092dd39cbddfa154c16&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fportalpopline.com.br%2Fwp-content%2Fuploads%2F2024%2F02%2Ftodos-menos-voce-foto-2-jpg.webp&f=1&nofb=1&ipt=22b2b86b4bde74fb003c20c685243ce7c51fd1144c7e889d5646a4df64546ac4&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1072790,
         title: "Todos menos você!",
         subtitle: "",
@@ -5035,8 +5047,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.indianexpress.com%2F2024%2F02%2FArgylle-1600.jpg&f=1&nofb=1&ipt=829ef67ceef2f40d33d65a289648c26ccd4adc9bfdb4717ec374390af1284299&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.kinorium.com%2Fmovie%2Fposter%2F2797921%2Fw1500_52283747.jpg&f=1&nofb=1&ipt=3a92b7df0ea140120d5915573f713dc02422c6a719ca946eca097e7ef4bbe440&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 848538,
         title: "Argylle",
         subtitle: "O Superespião",
@@ -5049,8 +5061,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.olhardigital.com.br%2Fwp-content%2Fuploads%2F2021%2F10%2Fduna.jpg&f=1&nofb=1&ipt=c6a829559b69bb054e07a5812893005038ec1d637fe51cd6c97aed3ac569e62e&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.esplay.one%2Fmovie%2Fcover%2Foriginal%2FymTPj60S2T9HoQIsh4VBLu3jDM5.webp&f=1&nofb=1&ipt=ddbb7e7e0bd2500cdd83a10b83e59967cea24eb7f090e9a74f8541ef0b7fd60d&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 438631,
         title: "Duna",
         subtitle: "",
@@ -5064,8 +5076,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Funiversoheroico.com.br%2Fwp-content%2Fuploads%2F2021%2F09%2FFilme-Aquaman-2.jpg&f=1&nofb=1&ipt=bae8fed4ade9055f85abae8f5452ea86082539cd2fc8657a7d08631db218409f&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FS%2Fpv-target-images%2Ff7d0bd7844cd55ecc5c4ea15b7900bfc23315a64a4f667742dd9597722e1f6a6.jpg&f=1&nofb=1&ipt=e9be91dc39baa7df985997b77874192bfa0f30b5630a7fba10dca4bdb2716554&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 572802,
         title: "Aquaman 2",
         subtitle: "E o Reino Perdido",
@@ -5080,8 +5092,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://img59.tokyvideo.com/videos/493/493076/previews/previews_0012_custom_1707528560.6635.jpg",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbr.web.img3.acsta.net%2Fpictures%2F24%2F01%2F17%2F07%2F12%2F3298063.jpg&f=1&nofb=1&ipt=c6452783d3dea1f1d08d74a5deae2983bec4bb49b87b194028d4c2f5532b3afe&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1014590,
         title: "Upgrade",
         subtitle: "As cores do amor",
@@ -5092,8 +5104,8 @@ export const cards: CardsProps[] = [
         genero: ["Romance", "Comédia", "Prime Video"]
     },
     {
-        background: "https://i0.wp.com/oquartonerd.com.br/wp-content/uploads/2020/07/Thumbnail.jpg?fit=1920%2C1080&ssl=1",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FsN46sgCsWqwgHMu4mEtKJ19knVr.jpg&f=1&nofb=1&ipt=28a3ac945cc4dd567bea3b64e82d48e504ac480cf95c40cfdd9eb4f1e0c5984c&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 333339,
         title: "Jogador Nº 1",
         subtitle: "",
@@ -5104,8 +5116,8 @@ export const cards: CardsProps[] = [
         genero: ["Ficção Científica", "Ação"]
     },
     {
-        background: "https://image.tmdb.org/t/p/original/yOm993lsJyPmBodlYjgpPwBjXP9.jpg",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F62%2F2d%2Ffc%2F622dfc83076c916baf805a8db8d25eda.jpg&f=1&nofb=1&ipt=e822e44ed704e65cefc6c3c41d0894e2430d517d30ec30a63b2b27da9d2f5ca8&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 787699,
         title: "Wonka",
         subtitle: "",
@@ -5118,8 +5130,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi0.wp.com%2Fthedisinsider.com%2Fwp-content%2Fuploads%2F2022%2F06%2Fimage0-2022-06-14T092638.174.jpeg%3Ffit%3D3264%252C1836%26ssl%3D1&f=1&nofb=1&ipt=8ae7d225eab372370b3c41a610c1879cf9ea482901003dc023ae2105a794c1ab&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fy4YMYsGSMwu8e985g0Zbumvqxld.jpg&f=1&nofb=1&ipt=a59f2aa0d085610d6a7d8aa7f700268da3e98f9b207495f2f3364d7488ff7d05&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 609681,
         title: "As Marvels",
         subtitle: "",
@@ -5134,8 +5146,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthemoviespace.de%2Fwp-content%2Fuploads%2F2021%2F03%2FZS-Justice-League-01-scaled.jpeg&f=1&nofb=1&ipt=998a363e1007aa578ad80bdde05af9fa93422d9745b45bb812999797312cabcf&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2Fevg5FnYv4UwZLy0h2XBpl4JWgRM.jpg&f=1&nofb=1&ipt=8203bd5f5e555308e15b26f81c2ceae005a8df8c3bd4d1a501d9c67edaa45997&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 791373,
         title: "Liga da Justiça",
         subtitle: "Versão do Diretor Zack Snyder",
@@ -5146,8 +5158,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Super Herói", "DC"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fhn5TleW44PcZCejyz0BHdLch5yy.jpg&f=1&nofb=1&ipt=1b12df4fc13832960f1ca49b7313a9d295ec61530a454a1b3d8f574fcd8dd62a&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.sonypictures.com.br%2Fsites%2Fbrazil%2Ffiles%2F2022-03%2FKEY%2520ART_SPIDER%2520NO%2520WAY%2520HOME.JPG&f=1&nofb=1&ipt=925490eda2c3759b3e3247dca419d1e318d09a23a16e6a2fd51e947c0629444d&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 634649,
         title: "Homem Aranha",
         subtitle: "Sem Volta pra Casa",
@@ -5162,8 +5174,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2Fy2Ca1neKke2mGPMaHzlCNDVZqsK.jpg&f=1&nofb=1&ipt=51341d6c3ac1b3fd081f72923f7efce597680ed5f2b210be8d7e007cd703529e&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fhastadios.com%2Fwp-content%2Fuploads%2FWhatsApp-Image-2022-10-26-at-12.32.11-PM-1-682x1024.jpeg&f=1&nofb=1&ipt=615c421972f0382d8cd5c949007fb6ec53c2f9443a36afd6ae67460981116608&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 718930,
         title: "Trem-Bala",
         subtitle: "",
@@ -5176,8 +5188,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fspotlight-br.cdn.telefonica.com%2Fcustomer%2Fv1%2Fsource%3Fimage%3Dhttp%3A%252F%252Fmedia.gvp.telefonica.com%252Fstoragearea0%252FIMAGES%252F00%252F16%252F70%252F16709971_8BC9045FC637EE58.jpg%26width%3D1400%26height%3D787%26resize%3DCROP%26format%3DJPEG&f=1&nofb=1&ipt=9ac4593379acb74f117941efb36264f25fe5fcad1b397259e2b92ca1fb5541f3&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FVqOYTQBrKqxjg7AWkdh8tKPgNCjDegwUQgcw_NtwwoWHWPDmNf-LQIpeo106xEwLv8hPSwXNVE25VLwPBUE&f=1&nofb=1&ipt=492457a9c8de3ca23515f11e8f9b666a22d9713b0d56c4ccf273239d27d83442&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 884605,
         title: "Que Horas Eu Te Pego",
         subtitle: "",
@@ -5190,8 +5202,8 @@ export const cards: CardsProps[] = [
         ]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FdjS3XxneEFjCM6VlCiuuN8QavE6.jpg&f=1&nofb=1&ipt=bd09333a354cc1fab3944c00393306a91b7710df541aa3b9efa62e9810f3fa68&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fs3.amazonaws.com%2Fnightjarprod%2Fcontent%2Fuploads%2Fsites%2F130%2F2021%2F08%2F19085635%2FgEU2QniE6E77NI6lCU6MxlNBvIx-scaled.jpg&f=1&nofb=1&ipt=19b227c6715168a2c6b5a3169eaf178ec3d5fef41061eebc69e762c6a075aed4&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 157336,
         title: "Interestelar",
         subtitle: "",
@@ -5202,8 +5214,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Drama", "Ficção científica", "Espaço"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.jornadageek.com.br%2Fwp-content%2Fuploads%2F2020%2F05%2FLiga-da-Justi%25C3%25A7a-Sombria-Guerra-de-Apokolips-imagem-2-scaled.jpg&f=1&nofb=1&ipt=dae4613fc976bb88c3488fa21dd23a2a6429e3bf11a0947c5c9864f30ffea4a2&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.papodecinema.com.br%2Fwp-content%2Fuploads%2F2021%2F04%2F20210430-liga-da-justica-sombria-guerra-de-apokolips-papo-de-cinema-cartaz.jpeg&f=1&nofb=1&ipt=3ab0cd219e3747703c34deecadd838848a05360a32130244c69fc9ad07e86e36&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 618344,
         title: "Liga da Justiça Sombria",
         subtitle: "Guerra de Apokolips",
@@ -5214,8 +5226,8 @@ export const cards: CardsProps[] = [
         genero: ["DC", "Animação", "Ação", "Super Heroi"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.wallpapersafari.com%2F41%2F1%2Fhj197K.jpg&f=1&nofb=1",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2Fnz5s7-HJ3iijnvitzCwsa_oD5l7saKAnF_Hv3qGtsP6dtsXTqESZmfuQKqyZZD4UywyB&f=1&nofb=1&ipt=756b1d4e969c3c16efbfd5347818bed59444ca64777d087dca2ed5c72a6f8e4a&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 299534,
         title: "Vingadores",
         subtitle: "Ultimato",
@@ -5226,8 +5238,8 @@ export const cards: CardsProps[] = [
         genero: ["Marvel", "Ação", "Super Heroi"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FrPpxrz8o0svAPCLucjsEdMXoDfX.jpg&f=1&nofb=1",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F98%2F03%2Fd2%2F9803d2873de8892e6f3bc67b84df5d18.jpg&f=1&nofb=1&ipt=6e4de35758f76b63f105daefbb9ee20cc1e75a37f806b164c6c2044310268642&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 335983,
         title: "Venom",
         subtitle: "",
@@ -5238,8 +5250,8 @@ export const cards: CardsProps[] = [
         genero: ["Marvel", "Ação", "Vilão"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblogger.googleusercontent.com%2Fimg%2Fb%2FR29vZ2xl%2FAVvXsEinLD-vq9ZFgAo_-cNKPOwRUkawPZXlwRQhc0mgnhDX4a6j5B1qF32YPYPpwQZFrRAnu2jgsJXbKR998Qt0IjfzCSzVSFZDk8dhs9wOs_BQDGAxDmeJQ4JDl-bJqHoRm3k8j0F2Bo4Jd4lx9wuRze9uzD52c6R-JaTfbzVWtsuFbLfn2OlI38piOMpA%2Fs2806%2F00%2520-%2520O%2520Senhor%2520dos%2520An%25C3%25A9is%2520A%2520Sociedade%2520do%2520Anel%2520(2001).jpg&f=1&nofb=1&ipt=9ee1e7dadb6803b53fee423c133aad4bb96e0056e0360ad6bd6d56aadcc7f1e0&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.8l6bqzp2GGVaupVOlZ1htAHaJ4%26pid%3DApi&f=1&ipt=844d7f23b4fc9371a39d618ef2b1cf8cbbcdc4ea44ea75f6b5fb43067d7db7b6&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 120,
         title: "O Senhor dos Anéis",
         subtitle: "A Sociedade do Anel - Versão Extendida",
@@ -5250,8 +5262,8 @@ export const cards: CardsProps[] = [
         genero: ["Fantasia", "Aventura"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fis3-ssl.mzstatic.com%2Fimage%2Fthumb%2Fn-SDGISRHduIj8VQVFjnHQ%2F2000x1125.jpg&f=1&nofb=1&ipt=6d7144229f000f25827a6c2ba596a75ab2a78ece24899efe93a51917fd2ab087&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2F3ipAMPu9AMKaOMWthjCRRmVHdSX.jpg&f=1&nofb=1&ipt=5bf1b5f43e022c7d48e2923561d3e1b9df7c35c241cea200a46c6a73e8349fdf&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 121,
         title: "O Senhor dos Anéis",
         subtitle: "As Duas Torres",
@@ -5262,8 +5274,8 @@ export const cards: CardsProps[] = [
         genero: ["Fantasia", "Aventura"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblogger.googleusercontent.com%2Fimg%2Fb%2FR29vZ2xl%2FAVvXsEj02M_uSZ551w7jxyYTXbgLSA0tstcoPo0wWomyF_ACoHghABHwfzJ7a3eS22ZN0LMutEa0xhre2KSzrLFiVqvUE9voIo4b1RDo5kqCa9uqIVccZqP-aYK1eHzkT3HrMuoSJmAd68bKhfmpr8ej8djpDM9QUR9db1_91cE6-ymXNJCVPsVUWGqvv5kc%2Fs2552%2F00%2520-%2520O%2520Senhor%2520dos%2520An%25C3%25A9is%2520O%2520Retorno%2520do%2520Rei%2520(2003).jpg&f=1&nofb=1&ipt=572bee99b5910f1a9ff6f43326d0d2501dcb15ebbc10e75289a26763823cfb92&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.iEZGT9qW_vVzaapPHYA2TwHaJ4%26pid%3DApi&f=1&ipt=bec77e4bebdc1340711920905edd0ebd2210342a5defec5cd46bf8ae0aea4393&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 122,
         title: "O Senhor dos Anéis",
         subtitle: "O Retorno do Rei",
@@ -5274,8 +5286,8 @@ export const cards: CardsProps[] = [
         genero: ["Fantasia", "Aventura"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fprod-ripcut-delivery.disney-plus.net%2Fv1%2Fvariant%2Fdisney%2F78808440059F7561ECAC91F356492B3A575A836A3A7641F359D98E946C8B4F0F%2Fscale%3Fwidth%3D1200%26aspectRatio%3D1.78%26format%3Djpeg&f=1&nofb=1&ipt=535c8d489f455af6bf13db2c15be400d9e0b731ae4c3ca8015d0f88c5244d35e&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FzDJxO0yNlN3wBDvLtxp8PZqcyNE.jpg&f=1&nofb=1&ipt=e4e1c6ed4adfff4cae2f96d37b2e18ee3559d4c9b8100fbe181e2909655422f3&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 299536,
         title: "Vingadores",
         subtitle: "Guerra Infinita",
@@ -5286,8 +5298,8 @@ export const cards: CardsProps[] = [
         genero: ["Marvel", "Ação", "Super Heroi"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fis2-ssl.mzstatic.com%2Fimage%2Fthumb%2FZ2Vypr5b9sc2w51Mjn0b1A%2F2000x1125.jpg&f=1&nofb=1&ipt=cb8de5688f4727bfffea37e78bd07dc0130c4e414cc77eaf115f141852e61206&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cafecomfilme.com.br%2Fmedia%2Fk2%2Fitems%2Fcache%2F40b9b55f0670c8418c21bc05f68a28a0_XL.jpg%3Ft%3D20151107_031538&f=1&nofb=1&ipt=13c14aaa96fc99082623fdb3b4bebc9ae2db61c0e5dee383c2d7980bfadd47a7&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 49017,
         title: "Drácula",
         subtitle: "A Historia Nunca Contada",
@@ -5298,8 +5310,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Terror"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Finmagi.sfo2.digitaloceanspaces.com%2Fmedia%2F457644%2Fyir5430WblZSZuIMd9C6pIZerfA.jpg&f=1&nofb=1&ipt=898606c5bf792c880f1287dc8e82819261cc086be6e1006f0c9f07932e4b7773&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FwExouqAtLlKtQ8LN3fHW0paXRFn.jpg&f=1&nofb=1&ipt=226127f3b0516393e167405d7289aca302e9478127e7349a7c5675c087b15650&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 339403,
         title: "Em Ritmo de Fuga",
         subtitle: "",
@@ -5310,8 +5322,8 @@ export const cards: CardsProps[] = [
         genero: ["Ação", "Suspense", "Legendado"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2F263tBgB5rgk7wjZuGvul8vpO0f1.jpg&f=1&nofb=1&ipt=c751886a62379c59ed82ea5f47cd7b8a27317fab2f40b0af003608127b7d2be7&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.22prDu0lLifD_vagDIfDagHaLH%26pid%3DApi&f=1&ipt=8dab4aa42ed95caa8ecb0d14a3122f0f0d9597c86b249094cf0328632042e84c&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 631843,
         title: "Tempo",
         subtitle: "",
@@ -5322,8 +5334,8 @@ export const cards: CardsProps[] = [
         genero: ["Suspense", "Terror"]
     },
     {
-        background: "https://occ-0-2794-2219.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABeTXUuPKirfRvhmqhLKluwgnzOI8xqn1IF3GGUtKQhVWS4r8zJ_R-ifeDF1dQu2NYfzi47M-hweOknNjrxMitxO1Rx_0odYEHPkV.jpg?r=615",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2Fq1KlAS26wvmObxqms7YdiXbSxj6.jpg&f=1&nofb=1&ipt=f697b03ebbe95bfe916369103ed25c9b6a59dcf8cfec455edee2f281e1eefdae&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 1265,
         title: "Ponte para Terabítia",
         subtitle: "",
@@ -5334,8 +5346,8 @@ export const cards: CardsProps[] = [
         genero: ["Fantasia", "Infântil", "Drama"]
     },
     {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcms.dmpcdn.com%2Fmovie%2F2019%2F04%2F29%2F8eab6b5f-a16a-4ffc-9f0e-dbf580f02229_original.jpg&f=1&nofb=1&ipt=2c662ba7fe99e3ee41f1924cecefe92156880a3ef83e916beceed6961a02fa23&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.wikia.nocookie.net%2Fsoundeffects%2Fimages%2F9%2F97%2FEscape_Room_Poster.jpg%2Frevision%2Flatest%3Fcb%3D20200211022237&f=1&nofb=1&ipt=9830799720450cfdd369d508884ef6b100d50f28cb9d0b57d55c073ab043b9cf&ipo=images",
+        background: background,
+        overlay: overlay,
         tmdbId: 522681,
         title: "Escape Room",
         subtitle: "",
