@@ -21,7 +21,7 @@ $scrollbar-thumb-border: 2px solid #ddd;
         top: 0;
         left: 0;
         width: 100%;
-        height: 100vh;
+
         min-height: 100vh;
         overflow: hidden;
         z-index: 1;
@@ -68,6 +68,12 @@ $scrollbar-thumb-border: 2px solid #ddd;
             h1 {
                 margin: 0;
                 font-size: 3rem;
+            }
+
+            .harryFont {
+                font-family: var(--font-Potter);
+                font-size: 6rem;
+                font-weight: 100;
             }
 
             h3 {
@@ -243,7 +249,7 @@ $scrollbar-thumb-border: 2px solid #ddd;
     }
 }
 
-@media(max-width: 400px) {
+@media(max-width: 570px) {
     .container {
         .content {
             .buttonContainer {

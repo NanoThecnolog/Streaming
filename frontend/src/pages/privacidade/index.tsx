@@ -1,14 +1,13 @@
 import Header from '@/components/Header'
 import styles from './styles.module.scss'
 import Footer from '@/components/Footer'
-import { GetServerSideProps } from 'next'
-import { serverStatus } from '@/services/verifyStatusServer'
 import { useEffect, useState } from 'react'
 import { UserProps } from '@/@types/user'
 import Router from 'next/router'
 import { getUserCookieData } from '@/services/cookieClient'
 import SEO from '@/components/SEO'
-export default function Privacy(status: string) {
+
+export default function Privacy() {
     const [user, setUser] = useState<UserProps | null>()
 
     useEffect(() => {
@@ -22,7 +21,7 @@ export default function Privacy(status: string) {
     return (
         <>
             <SEO title="Política de Privacidade | FlixNext" description='Políticas de Privacidade da plataforma' />
-            <Header userAvatar={user?.avatar} status={status} />
+            <Header />
             <section className={styles.container}>
                 <div className={styles.privacyContainer}>
                     <div>
@@ -113,16 +112,4 @@ export default function Privacy(status: string) {
             <Footer />
         </>
     )
-}
-export const getServerSideProps: GetServerSideProps = async () => {
-    async function fetchServerStatus() {
-        const status = await serverStatus();
-        return status
-    }
-    const status = await fetchServerStatus()
-    return {
-        props: {
-            status
-        }
-    }
 }

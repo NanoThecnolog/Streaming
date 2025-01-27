@@ -109,7 +109,7 @@ export default function Request() {
     return (
         <>
             <SEO description='Solicite seu filme ou sua série!' title='Solicitar Filme ou Série' />
-            <Header userAvatar={user?.avatar} />
+            <Header />
             <main className={styles.mainContainer}>
                 <section className={styles.sectionContainer}>
                     <div>

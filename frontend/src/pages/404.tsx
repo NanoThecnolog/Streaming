@@ -11,7 +11,7 @@ export default function NotFound() {
                     <p>
                         A página que você tentou acessar não existe
                     </p>
-                    <Link href='/'>Voltar para home</Link>
+                    <Link href='/'>Voltar para página principal</Link>
                 </section>
             </main>
         </>

@@ -1,15 +1,13 @@
 import Header from '@/components/Header'
 import styles from './styles.module.scss'
 import Footer from '@/components/Footer'
-import { serverStatus } from '@/services/verifyStatusServer'
-import { GetServerSideProps } from 'next'
 import SEO from '@/components/SEO'
 
 export default function Suport(status: string) {
     return (
         <>
             <SEO title='Suporte | FlixNext' description='Página do suporte FlixNext' />
-            <Header status={status} />
+            <Header />
             <section className={styles.container}>
                 <div className={styles.suporteContainer}>
                     <div>
@@ -26,16 +24,4 @@ export default function Suport(status: string) {
             <Footer />
         </>
     )
-}
-export const getServerSideProps: GetServerSideProps = async () => {
-    async function fetchServerStatus() {
-        const status = await serverStatus();
-        return status
-    }
-    const status = await fetchServerStatus()
-    return {
-        props: {
-            status
-        }
-    }
 }

@@ -10,8 +10,6 @@ import { toast } from "react-toastify";
 import { UserProps } from "@/@types/user";
 import { FaCheck } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
-import { GetServerSideProps } from "next";
-import { serverStatus } from "@/services/verifyStatusServer";
 import { fetchEpisodeData, fetchTMDBSerieCast, fetchTMDBSerieCastBySeason, fetchTMDBSeries, fetchTMDBTrailer } from "@/services/fetchTMDBData";
 import { getUserCookieData } from "@/services/cookieClient";
 import { addWatchLater, isOnTheList } from "@/services/handleWatchLater";
@@ -39,7 +37,7 @@ interface groupedByDepartment {
     [job: string]: CrewProps[]
 }
 
-export default function Serie(status: string) {
+export default function Serie() {
     //refatorar
     const router = useRouter()
     const { tmdbId } = router.query;
@@ -64,9 +62,7 @@ export default function Serie(status: string) {
         const getUserData = async () => {
             try {
                 const user = await getUserCookieData();
-                if (!user) {
-                    return
-                }
+                if (!user) return
                 setUser(user)
             } catch (err) {
                 console.log("Erro ao buscar dados do usuário no cookie", err)
@@ -292,7 +288,7 @@ export default function Serie(status: string) {
         <>
             <SEO title={`${headTitle} | FlixNext`} description={serie?.description || "Descrição indisponível"} />
             <section className={styles.container}>
-                <Header userAvatar={user?.avatar} status={status} />
+                <Header />
                 {serie ?
                     (
                         <div className={styles.serieContainer}>
@@ -358,9 +354,7 @@ export default function Serie(status: string) {
                                             ))}
                                         </select>
                                     </div>
-
                                 </div>
-
                             </div>
                             <div className={styles.cardContainer}>
                                 {
@@ -429,9 +423,7 @@ export default function Serie(status: string) {
                                             </div>
                                         </div>
                                     </>
-
                                 )
-
                                 : "Carregando..."
                             }
                         </div>
@@ -441,16 +433,4 @@ export default function Serie(status: string) {
             <Footer />
         </>
     )
-}
-export const getServerSideProps: GetServerSideProps = async () => {
-    async function fetchServerStatus() {
-        const status = await serverStatus();
-        return status
-    }
-    const status = await fetchServerStatus()
-    return {
-        props: {
-            status
-        }
-    }
 }

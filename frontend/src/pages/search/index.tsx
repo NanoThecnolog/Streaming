@@ -7,36 +7,23 @@ import { cards } from "@/data/cards";
 import { series } from "@/data/series";
 import Card from "@/components/Card";
 import CardSerie from "@/components/seriesComponents/Card";
-import { UserProps } from "@/@types/user";
 import Footer from "@/components/Footer";
 import { SeriesProps } from "@/@types/series";
-import { GetServerSideProps } from "next";
-import { serverStatus } from "@/services/verifyStatusServer";
-import { getUserCookieData } from "@/services/cookieClient";
 import SEO from "@/components/SEO";
 import Filter from "@/components/ui/SearchFilter";
 import Link from "next/link";
 import Spinner from "@/components/ui/Loading/spinner";
 import { normalizing } from "@/utils/UtilitiesFunctions";
 
-export default function Search(status: string) {
+export default function Search() {
     const router = useRouter();
     const [movie, setMovie] = useState<string>();
-    const [usuario, setUsuario] = useState<UserProps | null>(null)
     const [input, setinput] = useState<string>('')
     const [genre, setGenre] = useState<string>('')
     const [streaming, setStreaming] = useState<string>('')
     const [faixa, setFaixa] = useState<string>('')
     const [filtered, setFiltered] = useState<(CardsProps | SeriesProps)[] | []>([])
     const [loading, setLoading] = useState(false)
-
-    useEffect(() => {
-        const fetchUserData = async () => {
-            const user = await getUserCookieData();
-            if (user) setUsuario(user)
-        }
-        fetchUserData()
-    }, [])
 
     useEffect(() => {
         if (router.isReady) {
@@ -130,7 +117,7 @@ export default function Search(status: string) {
     return (
         <>
             <SEO title="Busca | FlixNext" description="Busque entre centenas de filmes e séries! Só aqui você encontra de tudo!" />
-            <Header userAvatar={usuario?.avatar} status={status} />
+            <Header />
             <section className={styles.container}>
                 <Filter
                     title={input}
@@ -163,22 +150,9 @@ export default function Search(status: string) {
                                 }
                             </div>
                     }
-
                 </div>
             </section>
             <Footer />
         </>
     )
-}
-export const getServerSideProps: GetServerSideProps = async () => {
-    async function fetchServerStatus() {
-        const status = await serverStatus();
-        return status
-    }
-    const status = await fetchServerStatus()
-    return {
-        props: {
-            status
-        }
-    }
 }

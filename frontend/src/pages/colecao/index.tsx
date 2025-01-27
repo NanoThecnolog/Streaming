@@ -1,10 +1,6 @@
 import Header from '@/components/Header'
 import styles from './styles.module.scss'
-import { GetServerSideProps } from 'next';
-import { serverStatus } from '@/services/verifyStatusServer';
 import { useEffect, useState } from 'react';
-import { UserProps } from '@/@types/user';
-import { getUserCookieData } from '@/services/cookieClient';
 import { useRouter } from 'next/router';
 import { ResultsProps } from '@/@types/collection';
 import { collections } from '@/data/collections';
@@ -13,8 +9,7 @@ import Card from '@/components/Card';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
 
-export default function Collection(status: string) {
-    const [usuario, setUsuario] = useState<UserProps | null>(null)
+export default function Collection() {
     const router = useRouter()
     const [collection, setCollection] = useState<ResultsProps | null>(null);
 
@@ -25,23 +20,14 @@ export default function Collection(status: string) {
                 console.log(collectionData)
                 setCollection(collectionData)
             } catch (err) {
-                console.log("Erro ao capturar coleção", err)
+                console.log("Erro ao recuperar dados da coleção", err)
             }
         }
     }, [router.query])
-
-
-    useEffect(() => {
-        const fetchUserData = async () => {
-            const user = await getUserCookieData();
-            if (user) setUsuario(user)
-        }
-        fetchUserData()
-    }, [])
     return (
         <>
-            <SEO title={`${collection ? collection.name : 'Coleção'} | FlixNext`} description='Assista a coleção do seu coração!' />
-            <Header userAvatar={usuario?.avatar} status={status} />
+            <SEO title={`${collection ? collection.name : 'Coleção de Filmes'} | FlixNext`} description='Assista aos filmes do seu coração!' />
+            <Header />
             <section className={styles.sectionContainer}>
                 <div className={styles.data}>
                     {collection ? (
@@ -75,16 +61,4 @@ export default function Collection(status: string) {
             <Footer />
         </>
     )
-}
-export const getServerSideProps: GetServerSideProps = async () => {
-    async function fetchServerStatus() {
-        const status = await serverStatus();
-        return status
-    }
-    const status = await fetchServerStatus()
-    return {
-        props: {
-            status
-        }
-    }
 }

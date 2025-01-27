@@ -44,6 +44,21 @@ export default function Movie() {
     const [relatedCards, setRelatedCards] = useState<CardsProps[]>()
     const [trailer, setTrailer] = useState<TrailerProps | null>(null)
 
+    useEffect(() => {
+        const getUserData = async () => {
+            try {
+                const user = await getUserCookieData();
+                if (!user) {
+                    return
+                }
+                setUser(user)
+            } catch (err) {
+                console.log("Erro ao buscar dados do usuário no cookie", err)
+            }
+        }
+        getUserData()
+    }, [])
+
     const watchLater = async () => {
         if (!movie) return
         const onList = await isOnTheList(movie.title, movie.subtitle, movie.tmdbId)
@@ -84,21 +99,6 @@ export default function Movie() {
         watchLater()
         getRelatedCards()
     }, [movie])
-
-    useEffect(() => {
-        const getUserData = async () => {
-            try {
-                const user = await getUserCookieData();
-                if (!user) {
-                    return
-                }
-                setUser(user)
-            } catch (err) {
-                console.log("Erro ao buscar dados do usuário no cookie", err)
-            }
-        }
-        getUserData()
-    }, [])
     async function getTMDBData() {
         if (loading) return
         setLoading(true)
@@ -148,9 +148,9 @@ export default function Movie() {
             await addWatchLater(user.id, movie.title, movie.tmdbId, movie.subtitle)
             await watchLater()
         } catch (err: any) {
-            if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
             console.log(err)
-            return toast.error("Erro inesperado ao adicionar filme à lista!")
+            if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista. Tente novamente mais tarde!")
+            return toast.error("Erro inesperado ao adicionar filme à lista! Tente novamente mais tarde.")
         }
     }
     async function handleFavorite() {
@@ -161,6 +161,7 @@ export default function Movie() {
             await favorite()
         } catch (err) {
             console.error(err)
+            toast.error("Erro ao favoritar seu filme. Tente novamente mais tarde.")
         }
     }
     useEffect(() => {
@@ -196,7 +197,7 @@ export default function Movie() {
                         </div>
                         <div className={`${styles.content} ${loading ? styles.loading : ""}`}>
                             <div className={styles.titleContainer}>
-                                <h1>{movie.title}</h1>
+                                <h1 className={`${movie.title.toLowerCase() === 'harry potter' && styles.harryFont}`}>{movie.title}</h1>
                                 <h3>{movie.subtitle != '' && `${movie.subtitle}`}</h3>
                             </div>
                             {tmdbData && (

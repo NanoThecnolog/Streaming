@@ -1,30 +1,14 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import styles from './styles.module.scss'
-import { useEffect, useState } from "react";
-import { GetServerSideProps } from "next";
-import { serverStatus } from "@/services/verifyStatusServer";
 import Qrcode from "@/components/Qrcode";
-import Router from "next/router";
-import { UserProps } from "@/@types/user";
-import { getUserCookieData } from "@/services/cookieClient";
 import SEO from "@/components/SEO";
 
-export default function Donate(status: string) {
-    const [user, setUser] = useState<UserProps | null>()
-
-    useEffect(() => {
-        const userData = async () => {
-            const user = await getUserCookieData();
-            if (!user) return Router.push('/login');
-            setUser(user)
-        }
-        userData()
-    }, [])
+export default function Donate() {
     return (
         <>
             <SEO title="Doações | FlixNext" description="Ajude a manter a plataforma! Doe qualquer valor e ganhe o emblema de doador na sua conta!" />
-            <Header userAvatar={user?.avatar} status={status} />
+            <Header />
             <section className={styles.container}>
                 <div className={styles.donateContainer}>
                     <div className={styles.title}>
@@ -57,16 +41,4 @@ export default function Donate(status: string) {
             <Footer />
         </>
     )
-}
-export const getServerSideProps: GetServerSideProps = async () => {
-    async function fetchServerStatus() {
-        const status = await serverStatus();
-        return status
-    }
-    const status = await fetchServerStatus()
-    return {
-        props: {
-            status
-        }
-    }
 }

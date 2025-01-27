@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 import { getUserCookieData, updateUserCookie } from "@/services/cookieClient";
 import Router from "next/router";
 import { UserProps } from "@/@types/user";
-import { serverStatus } from "@/services/verifyStatusServer";
-import { GetServerSideProps } from "next";
 import Image from "next/image";
 import { BiSolidEditAlt } from "react-icons/bi";
 import Qrcode from "@/components/Qrcode";
@@ -26,7 +24,7 @@ import Switch from "@/components/ui/Switch";
 import { toast } from "react-toastify";
 import { api } from "@/services/api";
 
-export default function Me(status: string) {
+export default function Me() {
     const [user, setUser] = useState<UserProps | null>(null)
     const [modalVisible, setModalVisible] = useState(false)
     const [editarDados, setEditarDados] = useState(false)
@@ -137,7 +135,7 @@ export default function Me(status: string) {
     return (
         <>
             <SEO title="Minha Conta | FlixNext" description="Minha Conta. Altere seus dados e seu avatar!" />
-            <Header userAvatar={user?.avatar} status={status} />
+            <Header />
 
             <article className={styles.container}>
                 {
@@ -223,16 +221,4 @@ export default function Me(status: string) {
             <Footer />
         </>
     )
-}
-export const getServerSideProps: GetServerSideProps = async () => {
-    async function fetchServerStatus() {
-        const status = await serverStatus();
-        return status
-    }
-    const status = await fetchServerStatus()
-    return {
-        props: {
-            status
-        }
-    }
 }
