@@ -55,7 +55,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1Qq7s065zqUO8j_XqtizRYpVYtjwzGixT/preview",
         duration: "01h 21m",
-        genero: ["Comédia"]
+        genero: ["Comédia", "Nacional"]
     },
     {
         background: background,
@@ -67,7 +67,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/15ONExIy9i81JQgRDvKxBrV3D9C0sT65b/preview",
         duration: "01h 28m",
-        genero: ["Comédia"]
+        genero: ["Comédia", "Nacional"]
     },
     {
         background: background,
@@ -79,7 +79,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1bmaech6GPbchSf4bptciqjwQ5illTB87/preview",
         duration: "01h 51m",
-        genero: ["Comédia"]
+        genero: ["Comédia", "Nacional"]
     },
     {
         background: background,
@@ -202,16 +202,16 @@ export const cards: CardsProps[] = [
         genero: ["Fantasia", "Aventura"]
     },
     {
-        background: background,
-        overlay: overlay,
-        tmdbId: 21542,
-        title: "Amor de Aluguel",
-        subtitle: "",
-        description: "Alvin (Nick Cannon) é um limpador de piscinas nerd e conhecedor de carros. Ele deseja ser popular na escola, mas está longe disso. Porém, quando Paris (Christina Milian), a filha de um dos seus patrões, bate o carro, Alvin oferece sua ajuda em troca de que ela finja ser sua namorada. Com todas as oficinas cheias, ela aceita a proposta, nascendo um novo Alvin.",
-        faixa: "A14",
-        src: "https://drive.google.com/file/d/1b-BAt9-id4PTjIsZag2U8MTQv1CgInmL/preview",
-        duration: "01h 40m",
-        genero: ["Comédia", "Romance", "Drama", "Família"]
+        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinematologia.com.br%2Fcine%2Fwp-content%2Fuploads%2F2022%2F06%2FCapa.jpg&f=1&nofb=1&ipt=88f18e24e2706b5da865dcd963b79cfce41e32cfc434ab6d001764faf987716b&ipo=images",
+        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.0WEWCs4O0udm0_K9NQ6keAHaKl%26pid%3DApi&f=1&ipt=de07858404518c775eed101e81d573e416c17597835aa25896740acaf19ff974&ipo=images",
+        tmdbId: 338953,
+        title: "Animais Fantásticos",
+        subtitle: "Os Segredos de Dumbledore",
+        description: "O professor Alvo Dumbledore sabe que o poderoso mago das trevas Gellert Grindelwald está se movimentando para assumir o controle do mundo mágico. Incapaz de detê-lo sozinho, ele pede ao magizoologista Newt Scamander para liderar uma intrépida equipe de bruxos, bruxas e um corajoso padeiro trouxa em uma missão perigosa, em que eles encontram velhos e novos animais fantásticos e entram em conflito com a crescente legião de seguidores de Grindelwald. Mas com tantas ameaças, quanto tempo poderá Dumbledore permanecer à margem do embate?",
+        faixa: "10",
+        src: "https://drive.google.com/file/d/1GWg0TDwjNIelrhBDelEmmeWE8j7Uvw4W/preview",
+        duration: "02h 22m",
+        genero: ["Fantasia", "Aventura"]
     },
     {
         background: background,
@@ -2156,18 +2156,6 @@ export const cards: CardsProps[] = [
         src: "https://drive.google.com/file/d/141PZRbvqm2NGItVcGAHcFr_Gjn315At_/preview",
         duration: "01h 43m",
         genero: ["Suspense", "Drama", "Crime", "Prime Video", "Nacional"]
-    },
-    {
-        background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcinematologia.com.br%2Fcine%2Fwp-content%2Fuploads%2F2022%2F06%2FCapa.jpg&f=1&nofb=1&ipt=88f18e24e2706b5da865dcd963b79cfce41e32cfc434ab6d001764faf987716b&ipo=images",
-        overlay: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.0WEWCs4O0udm0_K9NQ6keAHaKl%26pid%3DApi&f=1&ipt=de07858404518c775eed101e81d573e416c17597835aa25896740acaf19ff974&ipo=images",
-        tmdbId: 338953,
-        title: "Animais Fantásticos",
-        subtitle: "Os Segredos de Dumbledore",
-        description: "O professor Alvo Dumbledore sabe que o poderoso mago das trevas Gellert Grindelwald está se movimentando para assumir o controle do mundo mágico. Incapaz de detê-lo sozinho, ele pede ao magizoologista Newt Scamander para liderar uma intrépida equipe de bruxos, bruxas e um corajoso padeiro trouxa em uma missão perigosa, em que eles encontram velhos e novos animais fantásticos e entram em conflito com a crescente legião de seguidores de Grindelwald. Mas com tantas ameaças, quanto tempo poderá Dumbledore permanecer à margem do embate?",
-        faixa: "10",
-        src: "https://drive.google.com/file/d/1GWg0TDwjNIelrhBDelEmmeWE8j7Uvw4W/preview",
-        duration: "02h 22m",
-        genero: ["Fantasia", "Aventura"]
     },
     {
         background: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FA9aXktnnsOdVtpryO3AwtwOuEd4.jpg&f=1&nofb=1&ipt=44dfeb8ef84920a903905b075d3905b606da0197208e2e3c28266143149a91f2&ipo=images",

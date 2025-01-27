@@ -4692,32 +4692,32 @@ export const series: SeriesProps[] = [
                 episodes: [
                     {
                         ep: 1,
-                        src: "https://drive.google.com/file/d/1NZ4vxTfFY2QGx5ow6MB1Qzx0bTgzQLgM/preview",
+                        src: "https://drive.google.com/file/d/1WAX6CyXMEc-wsUev7kBFkAlbPMk3Vjfl/preview",
                         duration: "50m"
                     },
                     {
                         ep: 2,
-                        src: "https://drive.google.com/file/d/1ng-8zoD0n1NA6plHsGXYhZb-e7DW1hHh/preview",
+                        src: "https://drive.google.com/file/d/1BmW1yMWwFy09o5zzJ9AGXC_DVKbqmTow/preview",
                         duration: "46m"
                     },
                     {
                         ep: 3,
-                        src: "https://drive.google.com/file/d/1SNrEeLuQswEoklQzKoqCd4vTy9-NeCkR/preview",
+                        src: "https://drive.google.com/file/d/1b-b9BK__YmtuKtqWKyOsK0vzfLw3IY4g/preview",
                         duration: "58m"
                     },
                     {
                         ep: 4,
-                        src: "https://drive.google.com/file/d/1Eut2qFqxcXU7BfayqK45mRIcazlZD5_l/preview",
+                        src: "https://drive.google.com/file/d/1W5QtZ9y_mwlHZIE1tUTBt3Yjl4Q1riFl/preview",
                         duration: "49m"
                     },
                     {
                         ep: 5,
-                        src: "https://drive.google.com/file/d/1sCulhhQGigU1Ylmc0c2IIhqon7Z4gmED/preview",
+                        src: "https://drive.google.com/file/d/1IHZOtoQ6nUUo9Qox4oD7bauT7osCzy9j/preview",
                         duration: "51m"
                     },
                     {
                         ep: 6,
-                        src: "https://drive.google.com/file/d/1jF9My4-50vp56M4HVghcAnhAHp5Y4t-K/preview",
+                        src: "https://drive.google.com/file/d/1zGiqNkjomEwa_dxz7Ntew3XVhZLBSEhf/preview",
                         duration: "49m"
                     },
                     {
