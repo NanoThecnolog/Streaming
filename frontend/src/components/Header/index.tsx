@@ -10,46 +10,23 @@ import { api } from "@/services/api";
 import { getUserCookieData } from "@/services/cookieClient";
 import { UserProps } from "@/@types/user";
 
-interface HeaderProps {
-    userAvatar?: string | undefined;
-    status?: string
-}
-
-export default function Header({ userAvatar, status }: HeaderProps) {
+export default function Header() {
     //refatorar esse componente
     const [searchInput, setSearchInput] = useState<string>('')
     const [menuvisible, setMenuVisible] = useState<boolean>(false)
-    const [avatar, setAvatar] = useState<string>('')
     const [searchMobileVisible, setSearchMobileVisible] = useState<boolean>(false)
     const [serverWake, setServerWake] = useState<boolean>(false)
     const [user, setUser] = useState<UserProps>()
     const [initial, setInitial] = useState("-")
 
-    const inicial = useCallback(() => {
-        if (!user) return
-        const letraInicial = user.name[0]
-        //console.log(letraInicial)
-        setInitial(letraInicial)
-    }, [user])
-
-    useEffect(() => {
-        inicial()
-    }, [user, inicial])
-
     useEffect(() => {
         getUser()
     }, [])
-
-    async function getUser() {
-        const data = await getUserCookieData()
-        if (!data) return
-        setUser(data)
-    }
     useEffect(() => {
-        if (!userAvatar) return;
-        setAvatar(userAvatar)
-    }, [userAvatar])
-
+        if (!user) return
+        const inicial = user.name[0]
+        setInitial(inicial)
+    }, [user])
     useEffect(() => {
         async function wakeUpServer() {
             try {
@@ -69,6 +46,12 @@ export default function Header({ userAvatar, status }: HeaderProps) {
         }, 40000)
         return () => clearInterval(manterAcordado)
     }, [])
+
+    async function getUser() {
+        const data = await getUserCookieData()
+        if (!data) return
+        setUser(data)
+    }
 
     function handleSearch(input: string) {
         const search = new URLSearchParams({ input: input });
@@ -129,7 +112,11 @@ export default function Header({ userAvatar, status }: HeaderProps) {
                         <div className={styles.avatarImage} title="Meu Perfil">
                             <Image src={user.avatar} alt="avatar" width={45} height={45} onClick={handleUserClick} />
                         </div>
-                    ) : user ? <div className={styles.avatarLetter} onClick={handleUserClick}><span>{initial}</span></div> : <FaUserCircle size={35} color="#fff" className={styles.loginIcon} onClick={handleUserClick} />
+                    ) : user ?
+                        <div className={styles.avatarLetter} onClick={handleUserClick}>
+                            <span>{initial}</span>
+                        </div> :
+                        <FaUserCircle size={35} color="#fff" className={styles.loginIcon} onClick={handleUserClick} />
                 }
 
             </div>
@@ -172,7 +159,11 @@ export default function Header({ userAvatar, status }: HeaderProps) {
                             <div className={styles.dropdownAvatarImage} title="Meu Perfil">
                                 <Image src={user.avatar} alt="avatar" width={35} height={35} onClick={handleUserClick} />
                             </div>
-                        ) : user ? <div className={styles.avatarLetter} onClick={handleUserClick}><span>{initial}</span></div> : <FaUserCircle size={35} color="#fff" className={styles.loginIcon} onClick={handleUserClick} />
+                        ) : user ?
+                            <div className={styles.avatarLetter} onClick={handleUserClick}>
+                                <span>{initial}</span>
+                            </div> :
+                            <FaUserCircle size={35} color="#fff" className={styles.loginIcon} onClick={handleUserClick} />
                     }
                 </div>
             </div>

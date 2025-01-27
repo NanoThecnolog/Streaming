@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&display=swap");
 
+@font-face {
+  font-family: 'HarryPotter';
+  src: url('/fonts/Harry.TTF') format('truetype');
+}
+
 
 :root {
   --blue: #2349bd;
@@ -23,6 +28,7 @@
   --font-Anton: "Anton", sans-serif;
   --font-Roboto: "Roboto", serif;
   --font-Montserrat: "Montserrat", sans-serif;
+  --font-Potter: "HarryPotter", sans-serif;
 }
 
 html,
