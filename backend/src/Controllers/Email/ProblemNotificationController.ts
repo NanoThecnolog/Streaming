@@ -1,12 +1,12 @@
 import { Request, Response } from 'express';
-import { SendEmailService } from '../../Services/Email/SendEmailService';
+import { ProblemNotificationService } from '../../Services/Email/ProblemNotificationService';
 
-export class SendEmailController {
+export class ProblemNotificationController {
     async handle(req: Request, res: Response) {
         try {
             const { title, description, userId, tmdbId, season, episode } = req.body;
-            const sendEmailService = new SendEmailService();
-            const sendingEmail = await sendEmailService.execute(title, description, Number(tmdbId), userId, Number(season), Number(episode))
+            const problemNotificationService = new ProblemNotificationService();
+            const sendingEmail = await problemNotificationService.execute(title, description, Number(tmdbId), userId, Number(season), Number(episode))
 
             return res.json(sendingEmail)
         } catch (err) {

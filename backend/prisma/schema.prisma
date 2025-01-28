@@ -14,23 +14,35 @@ datasource db {
 }
 
 model user {
-  id               String       @id @default(uuid())
+  id               String        @id @default(uuid())
   name             String
-  email            String       @unique
+  email            String        @unique
   birthday         DateTime
   password         String
+  subscription     subscription?
   watchLater       watchLater[]
   favoritos        favorito[]
-  donator          Boolean      @default(false)
+  donator          Boolean       @default(false)
   avatar           String?
-  verified         Boolean      @default(false)
-  news             Boolean      @default(true)
-  access           Boolean      @default(false)
+  verified         Boolean       @default(false)
+  news             Boolean       @default(true)
+  access           Boolean       @default(false)
   resetToken       String?
   resetTokenExpire DateTime?
 
   created_at DateTime @default(now())
   updated_at DateTime @default(now()) @updatedAt
+}
+
+model subscription {
+  id     String @id @default(uuid())
+  userId String @unique
+  user   user   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  subId  Int
+  status String
+  //antes de continuar, quero ver o que retorna na busca pela subscrição, pra decidir quais campos guardar aqui
+  //posso guardar informações de pagamento pra mostrar na página do usuário, data de vencimento, status da assinatura, quais já foram pagas, etc....
+  //preciso abranger todos os cenários: pagamento por boleto, por cartão de crédito, solicitação de cancelamento de sub, mudança de plano, etc...
 }
 
 model watchLater {

@@ -1,4 +1,4 @@
-import { BodyRequest, CustomerRequest } from "../../../@types/billetSub";
+import { BodyRequest, CustomerProps, ItemsProps, PaymentProps } from "../../../@types/billetSub";
 import { getFiveDaysLater } from "../../../Utils/Date";
 import { efiPay } from "../EfiPay";
 
@@ -11,49 +11,27 @@ import { efiPay } from "../EfiPay";
 */
 interface BilletSubRequest {
     planId: number,
-    customer: CustomerRequest,
-    item: {
-        name: string,
-        value: number,
-        amount: number// quantidade
-    }[]
+    payment: PaymentProps,
+    items: ItemsProps[]
 }
 
 export class CreateBilletSubService {
 
 
-    async execute({ planId, customer, item }: BilletSubRequest) {
+    async execute({ planId, payment, items }: BilletSubRequest) {
         const params = { id: planId }
+
+        if (!payment.banking_billet || payment.credit_card) throw new Error("Método de pagamento ausente ou incorreto.")
+
         const body: BodyRequest = {
-            items: item,
+            items: items,
             payment: {
                 banking_billet: {
                     expire_at: getFiveDaysLater(),
-                    customer
+                    customer: payment.banking_billet.customer,
                 }
             }
         }
-        /*const body: BodyRequest = {
-            items: [
-                {
-                    name: "Plano Mensal",
-                    value: 799,
-                    amount: 0
-                },
-            ],
-            payment: {
-                banking_billet: {
-                    expire_at: getFiveDaysLater(),
-                    customer: {
-                        name: 'Ericsson Gomes',
-                        email: 'contato@ericssongomes.com',
-                        cpf: '14510752784',
-                        birth: '1994-01-15',
-                        phone_number: '21966296556'
-                    }
-                }
-            }
-        }*/
         const subscription = efiPay.createOneStepSubscription(params, body)
         return subscription
     }

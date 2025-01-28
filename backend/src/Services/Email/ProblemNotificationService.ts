@@ -1,7 +1,7 @@
 import prismaClient from '../../prisma';
 import nodemailer from 'nodemailer';
 
-export class SendEmailService {
+export class ProblemNotificationService {
     async execute(title: string, description: string, tmdbId: number, userId: string, season?: number, episode?: number) {
         const transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
@@ -14,7 +14,7 @@ export class SendEmailService {
         });
 
         try {
-            const sendingEmail = await transporter.sendMail({
+            await transporter.sendMail({
                 from: `'Suporte - FlixNext'<${process.env.EMAIL_USER}>`,
                 to: "contato@ericssongomes.com",
                 subject: `Notificação de Problema: ${title}`,

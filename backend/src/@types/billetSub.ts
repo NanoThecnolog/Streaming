@@ -1,75 +1,48 @@
 
 export interface BodyRequest {
-    items: ItemsRequest[]
-    shippings?: Array<{
-        name: string;
-        value: number;
-        payee_code?: string;
-    }>;
-    metadata?: {
-        custom_id?: string;
-        notification_url?: string;
-    };
-    payment: PaymentRequest,
+    items: ItemsProps[]
+    shippings?: ShippingProps[];
+    metadata?: MetadataProps;
+    payment: PaymentProps,
 }
-export interface ItemsRequest {
+export interface ItemsProps {
     name: string,
     value: number,//valor em centavos. ex: R$10,00 = 1000.
     amount: number
 }
-
-export interface PaymentRequest {
-    banking_billet?: BilletRequest
-    credit_card?: CreditRequest
-}
-
-export interface BilletRequest {
-    customer: CustomerRequest;
-    expire_at: string;
-    discount?: {
-        type: 'percentage' | 'currency';
-        value: number;
-    };
-    conditional_discount?: {
-        type: 'percentage' | 'currency';
-        value: number;
-        until_date: string;
-    };
-    configurations?: {
-        fine?: number;
-        interest?: {
-            value: number;
-            type: 'monthly' | 'daily';
-        } | number;
-    };
-    message?: string;
-}
-export interface CreditRequest {
-    customer: CustomerRequest;
+export interface ShippingProps {
     name: string,
-    cpf: string,
-    email: string,
-    phone_number: string,
-    birth: string
-    payment_token: string,
-    message?: string
-    juridical_person?: {
-        corporate_name: string,
-        cnpj: string,
-    }
-    billing_address: {
-        street: string,
-        number: string
-        neighborhood: string,
-        zipcode: string
-        city: string,
-        complement?: string
-        state: string
-    }
+    value: number;
+    payee_code?: string;
+}
+export interface MetadataProps {
+    custom_id?: string;
+    notification_url?: string;
 }
 
+export interface PaymentProps {
+    banking_billet?: BilletProps
+    credit_card?: CreditProps
+}
 
-export interface CustomerRequest {
+export interface BilletProps {
+    customer: CustomerProps;
+    expire_at: string;
+    discount?: DiscountProps;
+    conditional_discount?: ConditionalDiscountProps;
+    configurations?: ConfigProps;
+    message?: string;
+
+}
+export interface CreditProps {
+    customer: CustomerProps;
+    billing_address: BillingAddressProps;
+    payment_token: string;
+    discount?: DiscountProps;
+    message?: string;
+    trial_days?: number
+}
+export interface CustomerProps {
     name?: string;
     cpf?: string;
     email: string;
@@ -88,4 +61,30 @@ export interface CustomerRequest {
         corporate_name: string;
         cnpj: string;
     };
+}
+export interface DiscountProps {
+    type: 'percentage' | 'currency';
+    value: number;
+}
+export interface ConditionalDiscountProps {
+    type: 'percentage' | 'currency';
+    value: number;
+    until_date: string;
+}
+export interface ConfigProps {
+    fine?: number;
+    interest?: {
+        value: number;
+        type: 'monthly' | 'daily';
+    } | number;
+}
+
+export interface BillingAddressProps {
+    street: string,
+    number: string
+    neighborhood: string,
+    zipcode: string
+    city: string,
+    complement?: string
+    state: string
 }
