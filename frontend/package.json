@@ -20,6 +20,7 @@
     "axios": "^1.7.7",
     "cookies-next": "^4.2.1",
     "lucide-react": "^0.441.0",
+    "mjml": "^4.15.3",
     "next": "14.2.5",
     "next-sitemap": "^4.2.3",
     "nookies": "^2.5.2",
