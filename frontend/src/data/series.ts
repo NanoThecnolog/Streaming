@@ -40,6 +40,74 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 127235,
+        title: "Invasão",
+        subtitle: "",
+        description: "Uma visita extraterrestre ameaça a existência humana. Os impactos a dessa chegada são acompanhados em tempo real por cinco pessoas comuns. Em cantos diferentes do planeta, elas tentam encontrar sentido em meio ao caos.",
+        genero: ["Drama", "Ficção Científica", "Apple TV"],
+        faixa: "A16",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1igKad09zff2G0temD0uJrHujvOlFgHIP/preview",
+                        duration: "55m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1ruxIqq3XXUR_MCgMoissIbV5oD84pGqm/preview",
+                        duration: "57m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1zJ64zh8E6j5itjGoHG11IYblFg41dWXX/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1jGLQ67EuYN4FgF7bylO4tCDN2Zh7C4sN/preview",
+                        duration: "56m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1qv4herTTdxWMVFJ_Hb760d2Z6FGjVyl_/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1N5Es8Udjr0NxEdkhJOPuKivk4YtvgKXM/preview",
+                        duration: "33m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1usS7HFncenuQu_dvVJYAcUneu0gzRTRY/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1pQvfEO2TIgNgIWzRnJzVqnXvuNe1hQQA/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1STTPsqceky-aDNN4gnWNvGJpZmL7XOv0/preview",
+                        duration: "58m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1Zi2TMpHwWXDn0ETAJHCWqbaBWQylJkh9/preview",
+                        duration: "57m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 1416,
         title: "Grey's Anatomy",
         subtitle: "",
