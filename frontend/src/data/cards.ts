@@ -36,6 +36,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 338970,
+        title: "Tomb Raider",
+        subtitle: "A Origem",
+        description: "Lara Croft é a independente filha de um aventureiro excêntrico que desapareceu há sete anos. Com a esperança de resolver o mistério do desaparecimento de seu pai, Lara embarca em uma perigosa jornada para seu último destino conhecido: Um túmulo lendário em uma ilha mítica que pode estar em algum lugar ao largo da costa do Japão. As apostas não podiam ser maiores, pois Lara deve confiar em sua mente aguçada, fé cega e teimosia para se aventurar no desconhecido.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/17dvXt3MmoqYmvDeZooyHGgKoEBRDhETQ/preview",
+        duration: "02h 02m",
+        genero: ["Ação", "Aventura"]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 497,
         title: "À Espera de um Milagre",
         subtitle: "",
