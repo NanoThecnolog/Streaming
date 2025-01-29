@@ -120,7 +120,7 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
-        tmdbId: 70891,
+        tmdbId: 70981,
         title: "Prometheus",
         subtitle: "",
         description: "Uma equipe de cientistas embarca em uma jornada espacial para descobrir a verdade sobre a origem da raça humana. No planeta de destino, eles encontram criaturas poderosas e revelações assustadoras.",
