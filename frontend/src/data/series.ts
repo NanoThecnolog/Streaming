@@ -40,6 +40,133 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 129552,
+        title: "Agente Noturno",
+        subtitle: "",
+        description: "A série acompanha um agente de baixo escalão do FBI que trabalha no porão da Casa Branca, a postos para atender um telefone que nunca toca. Até que um dia, ele recebe uma ligação que acaba revelando uma perigosa conspiração contra o governo dos Estados Unidos.",
+        genero: ["Ação", "Suspense", "Netflix"],
+        faixa: "A16",
+        news: {
+            type: "season"
+        },
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1v0LDKA5RncbnxGGiJTkor_3Ml_lyPFJs/preview",
+                        duration: "55m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1FBx6GvuxCe02KeYuZrS4D7CX1nljnYU7/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1hS7NSlYqBCwaiNoSfDCt2Jt68M4tAqqF/preview",
+                        duration: "56m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/19-C7NJSCOHyGJvdKSwOJMyE4pR38UG-8/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1dy-INGdSiOjpbbaEiwaYGkTQoVQKRiKD/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1PnZJbYZUPyMhotHEWaPPC2C2Atm8bBNP/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/19oTPsY_eePAI2z86j1YaJrED3qOlFYTl/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/15rLbn3xd62FPYHWMDLeyecv4QlbmRU1S/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1L-nBhyAzAzSIMKesxKqAoz44DRJNAfSo/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1diZm3VRDnukfaoHocf3umJMDPg0ONNkk/preview",
+                        duration: "45m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1xcdObN9gl6hD3BTaK19HBFL0HxzX6nEA/preview",
+                        duration: "55m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1r-GPKbXcQFIUfoX-SGtzfb61V5F28LNr/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1MwgYyB_Y_NRXl9YQbERAMIKj1PLKjQrP/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1FSP2tH7EJdrZ9WDcUSf2pSoNAN4rVsXJ/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1h8xyjZ2NVbNCnF-m1gO2fkfMeFdf_6Vi/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1WqAhn46vW-MeFhc_KyAt6V30LHeI82_d/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1aCjB1Ahzhan_z6eZ9HM7U_yk1AOMZg5V/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1YEwe54aIBj6SUZWIivDcYdABoXzWbiIS/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1i175mofFsh-ozseLNhvHYTKcz-EmC7My/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1sDnldR7uoal7O3R9EpQt0W4rlz8Ma94H/preview",
+                        duration: "45m"
+                    },
+                ]
+            }
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 127235,
         title: "Invasão",
         subtitle: "",
@@ -9264,74 +9391,7 @@ export const series: SeriesProps[] = [
             },
         ]
     },
-    {
-        background: background,
-        overlay: overlay,
-        tmdbID: 129552,
-        title: "Agente Noturno",
-        subtitle: "",
-        description: "A série acompanha um agente de baixo escalão do FBI que trabalha no porão da Casa Branca, a postos para atender um telefone que nunca toca. Até que um dia, ele recebe uma ligação que acaba revelando uma perigosa conspiração contra o governo dos Estados Unidos.",
-        genero: ["Ação", "Suspense", "Netflix"],
-        faixa: "A16",
-        season: [
-            {
-                s: 1,
-                lang: "Dublado",
-                episodes: [
-                    {
-                        ep: 1,
-                        src: "https://drive.google.com/file/d/1v0LDKA5RncbnxGGiJTkor_3Ml_lyPFJs/preview",
-                        duration: "55m"
-                    },
-                    {
-                        ep: 2,
-                        src: "https://drive.google.com/file/d/1FBx6GvuxCe02KeYuZrS4D7CX1nljnYU7/preview",
-                        duration: "48m"
-                    },
-                    {
-                        ep: 3,
-                        src: "https://drive.google.com/file/d/1hS7NSlYqBCwaiNoSfDCt2Jt68M4tAqqF/preview",
-                        duration: "56m"
-                    },
-                    {
-                        ep: 4,
-                        src: "https://drive.google.com/file/d/19-C7NJSCOHyGJvdKSwOJMyE4pR38UG-8/preview",
-                        duration: "48m"
-                    },
-                    {
-                        ep: 5,
-                        src: "https://drive.google.com/file/d/1dy-INGdSiOjpbbaEiwaYGkTQoVQKRiKD/preview",
-                        duration: "52m"
-                    },
-                    {
-                        ep: 6,
-                        src: "https://drive.google.com/file/d/1PnZJbYZUPyMhotHEWaPPC2C2Atm8bBNP/preview",
-                        duration: "49m"
-                    },
-                    {
-                        ep: 7,
-                        src: "https://drive.google.com/file/d/19oTPsY_eePAI2z86j1YaJrED3qOlFYTl/preview",
-                        duration: "45m"
-                    },
-                    {
-                        ep: 8,
-                        src: "https://drive.google.com/file/d/15rLbn3xd62FPYHWMDLeyecv4QlbmRU1S/preview",
-                        duration: "45m"
-                    },
-                    {
-                        ep: 9,
-                        src: "https://drive.google.com/file/d/1L-nBhyAzAzSIMKesxKqAoz44DRJNAfSo/preview",
-                        duration: "45m"
-                    },
-                    {
-                        ep: 10,
-                        src: "https://drive.google.com/file/d/1diZm3VRDnukfaoHocf3umJMDPg0ONNkk/preview",
-                        duration: "45m"
-                    },
-                ]
-            },
-        ]
-    },
+
     {
         background: background,
         overlay: overlay,
