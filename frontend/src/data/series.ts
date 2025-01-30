@@ -40,6 +40,140 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 63639,
+        title: "The Expanse",
+        subtitle: "",
+        description: "Duzentos anos no futuro, um detetive interespacial, o capitão de uma nave e uma diplomata antiguerra cruzam seus caminhos após uma jovem desaparecer misteriosamente.",
+        genero: ["Drama", "Ficção Científica", "Mistério"],
+        faixa: "A16",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1I5aCcW5dR-fQip7MhV_vsEht4J5dvLqU/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1PwvoC6XnegDCVgoPOIZy_WVwqsaGbx6g/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1b7wQZmi1yIEljnbDQ-XKKcObwxco-mas/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1QMALOse0LyoS4w1a3sMETYOrnbOBNipa/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1hC0-ZMV9vKfVpKDNU3ZDtd6t3q4X2jhr/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/140ka1Pby_alvkBggDO4a_sESzT-exx2E/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1WaLZczxgefaMKuZnGKesFYVrm3jjLohe/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1cDFW75OeO_5L0835FJhl39ndoJHGfIXY/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1XNKNU_4_v4lKeZfdLAcHDPlqVzmb_NgX/preview",
+                        duration: "43m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/125Fk4fc5C2z-m9tHM3NzL35gn3QTYLs4/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1ObR7HxEif0I6nm1iVf7PEhyMlyv2bHY8/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1urrSpkPHuosSbuv-9ooWgZAhFvpQgl30/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1JIA9qLnMixbgJ9cRupXL02H26P6uU43C/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1c1wQmrQdToFWhzgyYTAiJ202HNgVMUrw/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1SWGCkfU3_FHbr1fgZycLRbwlYKitfAp-/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1mDU48mJoy_ShWjd4XP76JYH9OSjDm3rX/preview",
+                        duration: "35m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1_vWjDQQYx5q86Cr6vo-v64QpLVPo-7JQ/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/18jQSbF_Fi_tRIXP3Uyge2lVo-ePWwGw4/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1IFuLWC__tCOICqxo3fotQt4AqMF7lmjV/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 11,
+                        src: "https://drive.google.com/file/d/1PhZPo7yRbh-AoeM74rIWJfC9MNwXp010/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 12,
+                        src: "https://drive.google.com/file/d/1gM7NhRb3GhvCrZ0t42khezbv9EXmoi8h/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 13,
+                        src: "https://drive.google.com/file/d/1QSqZeJ99SF31rsGpLSR2soPxP2mbAPSC/preview",
+                        duration: "42m"
+                    },
+                ]
+            }
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 129552,
         title: "Agente Noturno",
         subtitle: "",

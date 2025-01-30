@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from './styles.module.scss'
 import { CardsProps } from "@/@types/Cards";
 import { cards } from "@/data/cards";

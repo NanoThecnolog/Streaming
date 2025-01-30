@@ -1,9 +1,11 @@
 import React from "react";
 import styles from './styles.module.scss'
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 type Props = { children: React.ReactNode };
 type State = { hasError: boolean };
+
 
 class ErrorBoundary extends React.Component<Props, State> {
     constructor(props: Props) {
@@ -19,15 +21,17 @@ class ErrorBoundary extends React.Component<Props, State> {
         console.error("Erro capturado pelo ErrorBoundary:", error, errorInfo);
     }
 
+    handleClick() {
+        const router = useRouter()
+        router.push('/suporte')
+    }
+
     render() {
         if (this.state.hasError) {
             return (
                 <div className={styles.container}>
                     <h1>Ops! Algo deu errado.</h1>
-                    <p>Tente recarregar a página, voltar para página principal, ou entre em contato com o suporte <Link href='/suporte'>clicando aqui</Link>.</p>
-                    <div className={styles.homeLink}>
-                        <Link href='/'>Página principal</Link>
-                    </div>
+                    <p>Tente recarregar a página ou entre em contato com o suporte.</p>
                 </div>
             );
         }
