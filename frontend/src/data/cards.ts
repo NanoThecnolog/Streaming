@@ -36,6 +36,30 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 331482,
+        title: "Adoráveis Mulheres",
+        subtitle: "",
+        description: "As irmãs Jo, Beth, Meg e Amy amadurecem na virada da adolescência para a vida adulta enquanto os Estados Unidos atravessam a Guerra Civil. Com personalidades completamente diferentes, elas enfrentam os desafios de crescer unidas pelo amor que nutrem umas pelas outras.",
+        faixa: "10",
+        src: "https://drive.google.com/file/d/115NkIdPlXq5iKluRy8ZkD45Pn8HiIqeg/preview",
+        duration: "02h 14m",
+        genero: ["Drama", "Romance", "História"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 728949,
+        title: "Canina",
+        subtitle: "",
+        description: "Uma mulher interrompe sua carreira para se tornar mãe, mas logo sua nova vida de dona de casa toma um rumo surreal.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/15qyluXIEvlKM1U4k2tL7yBUyvm7ZoDRl/preview",
+        duration: "01h 38m",
+        genero: ["Comédia", "Terror"]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 338970,
         title: "Tomb Raider",
         subtitle: "A Origem",
