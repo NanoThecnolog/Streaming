@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './styles.module.scss'
-import Link from "next/link";
-import { useRouter } from "next/router";
+import Router from "next/router";
+
 
 type Props = { children: React.ReactNode };
 type State = { hasError: boolean };
@@ -19,11 +19,6 @@ class ErrorBoundary extends React.Component<Props, State> {
 
     componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
         console.error("Erro capturado pelo ErrorBoundary:", error, errorInfo);
-    }
-
-    handleClick() {
-        const router = useRouter()
-        router.push('/suporte')
     }
 
     render() {
