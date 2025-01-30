@@ -56,5 +56,6 @@ export function capitalize(str: string): string {
  */
 
 export function normalizing(str: string) {
+    if (!str) return ""
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
 }
