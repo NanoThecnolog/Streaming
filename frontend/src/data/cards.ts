@@ -36,6 +36,30 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 44896,
+        title: "Rango",
+        subtitle: "",
+        description: 'Rango (Johnny Depp) é um camaleão da cidade grande que vai parar, após um acidente, em pleno velho oeste, na cidade de Poeira no deserto do Mojave, na Califórnia. De uma hora para outra, sua rotina de animal de estimação mudou radicalmente e agora ele precisa deixar a vida "camuflada" para enfrentar os perigos existentes no mundo real, fazendo com que ele vivencie a experiência de fazer amigos, conhecer inimigos e até, quem sabe, se tornar um herói.',
+        faixa: "10",
+        src: "https://drive.google.com/file/d/1QTUL8enVsD-bqLMa9T_eCW-BoE4yWAOX/preview",
+        duration: "01h 51m",
+        genero: ["Animação", "Comédia", "Aventura", "Família", "Faroeste"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 933260,
+        title: "A Substância",
+        subtitle: "Legendado",
+        description: "Já sonhou com uma versão melhor de si mesmo? Continuará sendo você, só que melhor em todos os sentidos. Então, você deveria experimentar este novo produto: A Substância. MUDOU A MINHA VIDA.",
+        faixa: "18",
+        src: "https://drive.google.com/file/d/1B3XogQm584Vv2LsAKXEgYxk9uxXQklSs/preview",
+        duration: "02h 21m",
+        genero: ["Terror", "Ficção Científica"]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 331482,
         title: "Adoráveis Mulheres",
         subtitle: "",
