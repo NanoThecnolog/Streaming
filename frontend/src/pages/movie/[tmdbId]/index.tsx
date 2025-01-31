@@ -26,6 +26,7 @@ import Crew from '@/components/Crew';
 import { TrailerProps } from '@/@types/trailer';
 import TrailerButton from '@/components/ui/TrailerButton';
 import { getRelatedCards } from '@/utils/CardsManipulation';
+import { useTMDB } from '@/contexts/TMDBContext';
 
 interface groupedByDepartment {
     [job: string]: CrewProps[]
@@ -34,6 +35,7 @@ interface groupedByDepartment {
 export default function Movie() {
     const router = useRouter()
     const { tmdbId } = router.query;
+    const { allData } = useTMDB()
     const [user, setUser] = useState<UserProps>()
     const [movie, setMovie] = useState<CardsProps>()
     const [tmdbData, setTmdbData] = useState<MovieTMDB>()
@@ -79,7 +81,7 @@ export default function Movie() {
     }, [router, tmdbId])
     useEffect(() => {
         if (!movie) return
-        const relatedCards = getRelatedCards(movie)
+        const relatedCards = getRelatedCards(movie, allData)
         if (relatedCards && relatedCards.length > 0) setRelatedCards(relatedCards)
         watchLater()
     }, [movie])
