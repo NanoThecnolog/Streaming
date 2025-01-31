@@ -7,7 +7,7 @@ export const cards: CardsProps[] = [
     /*
     schema genero: primário > secundário > streaming > agrupador
     primário: Ação, aventura, romance, drama, comédia, terror, suspense, animação
-    secundário: Crime, Mistério, Slasher, História.
+    secundário: Crime, Mistério, Slasher, História, Guerra, Super Herói, Vilão.
     streaming: HBO, Disney+, Netflix, Prime Video, Apple TV, SKY, StarZ, Paramount
     
     agrupador: dc, marvel, super herói, vilão
@@ -33,6 +33,114 @@ export const cards: CardsProps[] = [
     genero: ["", ""]
     },
     */
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 615457,
+        title: "Anônimo",
+        subtitle: "",
+        description: "Quando dois ladrões invadem sua casa no subúrbio uma noite, Hutch se recusa a defender a si mesmo ou a sua família, na esperança de evitar violência grave. Seu filho adolescente, Blake, está desapontado com ele e sua esposa, Becca, parece se afastar ainda mais. Em consequência, o incidente acerta a raiva latente de Hutch, desencadeando instintos adormecidos e impulsionando-o em um caminho brutal que revelará segredos obscuros e habilidades letais para salvar sua família.",
+        faixa: "18",
+        src: "https://drive.google.com/file/d/1LTQZisDLoITnpySaZ6ucvB12oNxocvkO/preview",
+        duration: "01h 32m",
+        genero: ["Ação", "Suspense"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 487670,
+        title: "A Morte do Superman",
+        subtitle: "",
+        description: "Um monstro gigantesco batizado de Doomsday surge do mundo subterrâneo para começar uma destruição em massa na cidade de Metropolis. A Liga da Justiça precisa intervir imediatamente, mas parece que só os poderes do Superman são compatíveis com o do terrível monstro. Em uma luta mortal, o destino do super-herói torna-se incerto.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1t0evW7rv6uzJAOhHlNwvtGaJtQN8JMV9/preview",
+        duration: "01h 21m",
+        genero: ["Animação", "Ação", "Ficção Científica", "Drama", "Super Herói", "DC", "HBO"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 590223,
+        title: "Amor e Monstros",
+        subtitle: "",
+        description: "Após o mundo ser invadido por monstros, Joel terá de se aventurar por metade do país, em meio a todo tipo de perigos, para tentar encontrar o amor da sua vida.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1EJFRJuWb8Ykj_6bY8oQlZTLByQJQM-qE/preview",
+        duration: "01h 49m",
+        genero: ["Comédia", "Ação", "Aventura", "Netflix"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 399579,
+        title: "Alita",
+        subtitle: "Anjo de Combate",
+        description: "Abandonada em um ferro-velho de Iron City, a ciborgue Alita é encontrada pelo cientista Dyson Ido. Revitalizada, ela acorda sem memória e reconhecimento do mundo em que se encontra. Determinada a conhecer seu passado e explorar suas habilidades surpreendentes de luta, Alita se torna uma poderosa caçadora de recompensas, combatendo forças mortais.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1BA-UGFn8RSxs4VK9O_XJBasmEcKrthIo/preview",
+        duration: "02h 02m",
+        genero: ["Ação", "Ficção Científica", "Aventura"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 54138,
+        title: "Star Trek",
+        subtitle: "Além da Escuridão",
+        description: "Os tripulantes da Enterprise descobrem uma força terrorista dentro da sua própria organização. O capitão Kirk desafia as regras da Frota Estelar e lidera uma missão para capturar uma arma de destruição em massa.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1BENYIMyMrfvo-IuCTyhQDFPD7i-w7FoJ/preview",
+        duration: "02h 12m",
+        genero: ["Ação", "Aventura", "Ficção Científica"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 297802,
+        title: "Aquaman",
+        subtitle: "",
+        description: "A cidade de Atlantis, que já foi lar de uma das mais avançadas civilizações do mundo, agora é um reino submerso dominado pelo ganancioso Rei Orm. Com um vasto exército a seu dispor, Orm planeja conquistar tanto os demais reinos do oceano, quanto o mundo da superfície. Em seu caminho está Aquaman, meio-humano e meio-atlante, e verdadeiro herdeiro do trono. Com a ajuda da princesa Mera, Aquaman precisa recuperar o lendário Tridente de Atlan e aceitar seu destino como protetor das profundezas.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1RcqDwM9e6aEX7p0S46qPbNFh3CAqqODW/preview",
+        duration: "02h 23m",
+        genero: ["Ação", "Aventura", "Fantasia", "Super Herói", "DC", "HBO"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 53182,
+        title: "300",
+        subtitle: "A Ascensão do Império",
+        description: "Após a morte do pai, Xerxes (Rodrigo Santoro) dá início a uma jornada de vingança e ruma em direção à Grécia, com seu exército sendo liderado por Artemisia (Eva Green). Enquanto os 300 espartanos liderados por Leonidas tantam combater o Deus-Rei, os exércitos do resto da Grécia se unem para uma batalha com as tropas de Artemisia no mar. Themistocles (Sullivan Stapleton) é o responsável por liderar os gregos.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1ZPPhcMSVwMQUOXi3KH6QQv95CCqkzDjP/preview",
+        duration: "01h 42m",
+        genero: ["Ação", "Drama", "Guerra"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 1271,
+        title: "300",
+        subtitle: "",
+        description: "Em 480 a.C., Leônidas, o rei de Esparta, comanda seu pequeno batalhão de 300 soldados contra um exército de mais de 1 milhão na Batalha das Termópilas.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1WOyl2phGKBTk-eVrfOmkOH0E2NUznHw4/preview",
+        duration: "01h 56m",
+        genero: ["Ação", "Drama", "Guerra"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 64686,
+        title: "47 Ronins",
+        subtitle: "",
+        description: "Um grupo de samurais banidos deseja reaver sua honra a partir de uma vingança contra o traiçoeiro Lorde Kira, responsável pela morte do mestre deles. O mais incomodado do grupo é Kai, que passa a ser questionado ao se apaixonar pela filha do mestre.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1n918Fg6o63wYO9m5REmjFToIq_8wgh0R/preview",
+        duration: "01h 59m",
+        genero: ["Drama", "Ação", "Fantasia"]
+    },
     {
         background: background,
         overlay: overlay,
