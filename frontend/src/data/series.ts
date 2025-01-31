@@ -3339,7 +3339,7 @@ export const series: SeriesProps[] = [
         genero: ["Drama", "Mistério", "Apple TV"],
         faixa: "A16",
         news: {
-            type: "season"
+            type: "episode"
         },
         season: [
             {
@@ -3406,7 +3406,12 @@ export const series: SeriesProps[] = [
                         ep: 2,
                         src: "https://drive.google.com/file/d/1IFz4PjAAr4CgrTKpQscRdPcjM8euohHF/preview",
                         duration: "46m"
-                    }
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1_NRnNs2QLoTFMH1zIlL4YmNdj_VlQ4lq/preview",
+                        duration: "53m"
+                    },
                 ]
             }
         ]
@@ -5799,7 +5804,12 @@ export const series: SeriesProps[] = [
                         ep: 7,
                         src: "https://drive.google.com/file/d/1_fD_yfmMNQBKg1vPby2YDz4J5cjCJe6e/preview",
                         duration: "48m"
-                    }
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1RBgbqnoimHGSkOE7b0o5KhuHcwMUpIMg/preview",
+                        duration: "52m"
+                    },
                 ]
             },
         ]
