@@ -1,11 +1,13 @@
 import Card from "../Card"
 import { cards } from "@/data/cards";
 import styles from './styles.module.scss'
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { MdNavigateNext } from "react-icons/md";
 import { MdNavigateBefore } from "react-icons/md";
 import { Divide } from "lucide-react";
+import { shuffle } from "@/utils/UtilitiesFunctions";
+import { CardsProps } from "@/@types/Cards";
 
 interface ContainerProps {
     section: string
@@ -16,16 +18,23 @@ interface ContainerProps {
 export default function CardContainer({ section, cardPerContainer }: ContainerProps) {
     const [currentIndex, setCurrentIndex] = useState(0)
     const [cardsPerPage, setCardsPerPage] = useState(cardPerContainer);
-    const filteredCards = cards.filter(card => card.genero.some(gen => gen.toLowerCase() === section?.toLowerCase()))
+    const [shuffledCards, setShuffledCards] = useState<CardsProps[]>([])
 
     useEffect(() => {
         if (cardPerContainer) {
             setCardsPerPage(cardPerContainer)
         }
     }, [cardPerContainer])
+    useEffect(() => {
+        if (!section) return
+        const filter = cards.filter(card => card.genero.some(gen => gen.toLowerCase() === section?.toLowerCase()))
+        if (!filter) return
+        const shuffled = shuffle(filter)
+        setShuffledCards(shuffled)
+    }, [section])
 
     function nextPage() {
-        if (currentIndex + 1 < filteredCards.length) {
+        if (currentIndex + 1 < shuffledCards.length) {
             setCurrentIndex(currentIndex + 1)
         }
     }
@@ -42,12 +51,12 @@ export default function CardContainer({ section, cardPerContainer }: ContainerPr
                 <button className={styles.beforeButton} onClick={prevPage} disabled={currentIndex === 0}>
                     <MdNavigateBefore size={30} />
                 </button>
-                <button className={styles.nextButton} onClick={nextPage} disabled={currentIndex + cardsPerPage >= filteredCards.length}>
+                <button className={styles.nextButton} onClick={nextPage} disabled={currentIndex + cardsPerPage >= shuffledCards.length}>
                     <MdNavigateNext size={30} />
                 </button>
                 <div className={styles.cardContainer}>
                     {
-                        filteredCards.slice(currentIndex, currentIndex + cardsPerPage).map((card) => (
+                        shuffledCards.slice(currentIndex, currentIndex + cardsPerPage).map((card) => (
                             <div className={styles.card} key={card.tmdbId}>
                                 <Card
                                     card={card}

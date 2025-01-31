@@ -84,10 +84,14 @@ export default function Top({ width }: TopProps) {
                         <h3 className={styles.subtitulo_principal}>{card.subtitle}</h3>
                     )}
                     <div className={styles.gen}>
-                        <p>{TMDBMovie ? TMDBMovie.genres.map(genre => genre.name === "Action & Adventure"
-                            ? "Ação e Aventura" : genre.name === "Sci-Fi & Fantasy"
-                                ? "Ficção Científica e Fantasia" : genre.name === "Thriller"
-                                    ? "Suspense" : genre.name).join(', ') : card.genero.join(', ')}</p>
+                        <p>
+                            {TMDBMovie ? TMDBMovie.genres.map(genre => genre.name === "Action & Adventure"
+                                ? "Ação e Aventura" : genre.name === "Sci-Fi & Fantasy"
+                                    ? "Ficção Científica e Fantasia" : genre.name === "Thriller"
+                                        ? "Suspense"
+                                        : genre.name).join(', ')
+                                : card.genero.join(', ')}
+                        </p>
                         <Adult faixa={card.faixa} />
                     </div>
                     <div className={styles.description}>

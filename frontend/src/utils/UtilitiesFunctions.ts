@@ -4,6 +4,9 @@
  * @returns Retorna hora e os minutos formatados
  */
 
+import { CardsProps } from "@/@types/Cards"
+import { SeriesProps } from "@/@types/series"
+
 export function minToHour(min: number = 0): string {
     if (min <= 0) {
         return "--"
@@ -58,4 +61,19 @@ export function capitalize(str: string): string {
 export function normalizing(str: string) {
     if (!str) return ""
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+}
+
+/**
+ * Função para embaralhar a ordem de renderização dos cards nos containers utilizando o método fisher yates, pra garantir randomização sem padrões.
+ * @param array Array de objetos a ser embaralhado
+ * @returns Retorna o array embaralhado
+ */
+
+export function shuffle<T>(array: T[]): T[] {
+    const shuffled = [...array]
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled
 }

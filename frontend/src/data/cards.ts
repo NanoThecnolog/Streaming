@@ -103,7 +103,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/119MrSgPW1LATWgnayXdpxGE6r9ceQ6nI/preview",
         duration: "03h 09m",
-        genero: ["Drama", "Fantasia", "Crime", "HBO"]
+        genero: ["Drama", "Crime", "HBO"]
     },
     {
         background: background,

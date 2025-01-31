@@ -14,6 +14,7 @@ import Filter from "@/components/ui/SearchFilter";
 import Link from "next/link";
 import Spinner from "@/components/ui/Loading/spinner";
 import { normalizing } from "@/utils/UtilitiesFunctions";
+import { matches } from "@/utils/FilterFunctions";
 
 export default function Search() {
     const router = useRouter();
@@ -91,7 +92,7 @@ export default function Search() {
 
             const normalizedInput = normalizing(input).toLowerCase()
             if (input === '' && genre === '' && streaming === '' && faixa === '') return setLoading(false);
-            const matches = (item: CardsProps | SeriesProps): boolean => {
+            /*const matches = (item: CardsProps | SeriesProps): boolean => {
                 const normalizedTitle = normalizing(item.title).toLowerCase()
                 const normalizedSubtitle = normalizing(item.subtitle).toLowerCase()
                 const matchesTitle = !input || normalizedTitle.includes(normalizedInput) || normalizedSubtitle.includes(normalizedInput);
@@ -99,10 +100,10 @@ export default function Search() {
                 const matchesStreaming = !streaming || item.genero.some((g) => g.toLowerCase() === streaming.toLowerCase());
                 const matchesFaixa = !faixa || item.faixa.toLowerCase() === faixa.toLowerCase();
                 return matchesTitle && matchesGenre && matchesStreaming && matchesFaixa;
-            }
+            }*/
 
-            const filteredCard = cards.filter(matches)
-            const filteredSerie = series.filter(matches)
+            const filteredCard = cards.filter((item) => matches(input, genre, streaming, faixa, item))
+            const filteredSerie = series.filter((item) => matches(input, genre, streaming, faixa, item))
             const combined = [...filteredCard, ...filteredSerie]
             setFiltered(combined)
             await new Promise((resolve) => setTimeout(resolve, 1000))

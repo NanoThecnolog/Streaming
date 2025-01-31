@@ -12,6 +12,7 @@ import { apiTMDB } from "@/services/apiTMDB";
 import { MovieTMDB } from "@/@types/Cards";
 import ReleaseContainer from "@/components/ReleaseContainer";
 import Loading from "@/components/ui/Loading";
+import { shuffle } from "@/utils/UtilitiesFunctions";
 
 
 const inter = Inter({ subsets: ["latin"] });
