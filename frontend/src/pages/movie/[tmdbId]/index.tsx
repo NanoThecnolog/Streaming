@@ -25,6 +25,7 @@ import Cast from '@/components/Cast';
 import Crew from '@/components/Crew';
 import { TrailerProps } from '@/@types/trailer';
 import TrailerButton from '@/components/ui/TrailerButton';
+import { getRelatedCards } from '@/utils/CardsManipulation';
 
 interface groupedByDepartment {
     [job: string]: CrewProps[]
@@ -41,7 +42,7 @@ export default function Movie() {
     const [isFav, setIsFavorite] = useState(false)
     const [cast, setCast] = useState<CastProps>()
     const [crewDepartment, setCrewDepartment] = useState<groupedByDepartment>({})
-    const [relatedCards, setRelatedCards] = useState<CardsProps[]>()
+    const [relatedCards, setRelatedCards] = useState<CardsProps[]>([])
     const [trailer, setTrailer] = useState<TrailerProps | null>(null)
 
     useEffect(() => {
@@ -70,34 +71,17 @@ export default function Movie() {
     }
     useEffect(() => {
         if (!tmdbId) return
-        const movie = cards.find(card => card.tmdbId === Number(tmdbId));
-        setMovie(movie)
+        const card = cards.find(card => card.tmdbId === Number(tmdbId));
+        setMovie(card)
         getTMDBData()
         getTMDBCast()
         favorite()
     }, [router, tmdbId])
     useEffect(() => {
-        function getRelatedCards() {
-            if (movie) {
-                const relatedCards = cards
-                    .filter(card => card.tmdbId !== movie.tmdbId)
-                    .map(card => {
-                        const titleMatch = card.title.toLowerCase().includes(movie.title.toLowerCase()) ? 2 : 0;
-                        const commonGenres = card.genero.filter((genre: string) => movie.genero.includes(genre)).length;
-                        const genreScore = commonGenres > 0 ? commonGenres + (commonGenres === movie.genero.length ? 1 : 0) : 0;
-
-                        return {
-                            ...card,
-                            score: titleMatch + genreScore,
-                        };
-                    })
-                    .sort((a, b) => b.score - a.score)
-                    .slice(0, 20)
-                setRelatedCards(relatedCards)
-            }
-        }
+        if (!movie) return
+        const relatedCards = getRelatedCards(movie)
+        if (relatedCards && relatedCards.length > 0) setRelatedCards(relatedCards)
         watchLater()
-        getRelatedCards()
     }, [movie])
     async function getTMDBData() {
         if (loading) return

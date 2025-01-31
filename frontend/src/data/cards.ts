@@ -36,6 +36,42 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 37724,
+        title: "007",
+        subtitle: "Operação Skyfall",
+        description: "Após uma missão mal sucedida de James Bond, a identidade de agentes secretos é revelada e o M16, atacado. Ajudado por um agente de campo, Bond deverá seguir a trilha de Silva, um homem que habita o passado de M e que tem contas a acertar.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1EUNIRT-vbeGXhyljdDtiuQkNb-Q45Ik1/preview",
+        duration: "02h 23m",
+        genero: ["Ação", "Suspense", "Aventura"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 206647,
+        title: "007",
+        subtitle: "Contra Spectre",
+        description: "James Bond chega à Cidade do México e está pronto para eliminar Marco Sciarra sem que o chef M saiba da missão. O caso leva à suspensão temporária do agente, que passa a ser constantemente vigiado pelo governo britânico graças a uma tecnologia implantada em seu corpo por Q. Na tentativa de despistar os inimigos e até mesmo alguns de seus parceiros de trabalho, ele se responsabiliza por ajudar a filha de um desafeto. Toda a situação o leva ao centro de uma temida organização denominada Spectre.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1gxQONxPy81sIQgpRkMHsz1tyWuYx3OuR/preview",
+        duration: "02h 28m",
+        genero: ["Ação", "Suspense", "Aventura"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 370172,
+        title: "007",
+        subtitle: "Sem Tempo Para Morrer",
+        description: "Bond deixou o serviço ativo e está desfrutando de uma vida tranquila na Jamaica. Sua paz é interrompida quando o seu velho amigo Felix Leiter, da CIA, aparece pedindo sua ajuda. A missão de resgatar um cientista sequestrado acaba sendo muito mais difícil do que o esperado, deixando Bond no caminho de um vilão misterioso e armado com uma nova tecnologia perigosa.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1qOYlx0jo_Ba3gb9RCxMYpju_Aia9PINb/preview",
+        duration: "02h 43m",
+        genero: ["Ação", "Suspense", "Aventura"]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 44896,
         title: "Rango",
         subtitle: "",
@@ -716,18 +752,6 @@ export const cards: CardsProps[] = [
         src: "https://drive.google.com/file/d/1-_q5YkOJdipn_-JSC-a37mvaT1wn25uy/preview",
         duration: "01h 52m",
         genero: ["Ficção Científica", "Drama"]
-    },
-    {
-        background: background,
-        overlay: overlay,
-        tmdbId: 370172,
-        title: "007",
-        subtitle: "Sem Tempo Para Morrer",
-        description: "Bond deixou o serviço ativo e está desfrutando de uma vida tranquila na Jamaica. Sua paz é interrompida quando o seu velho amigo Felix Leiter, da CIA, aparece pedindo sua ajuda. A missão de resgatar um cientista sequestrado acaba sendo muito mais difícil do que o esperado, deixando Bond no caminho de um vilão misterioso e armado com uma nova tecnologia perigosa.",
-        faixa: "A14",
-        src: "https://drive.google.com/file/d/1qOYlx0jo_Ba3gb9RCxMYpju_Aia9PINb/preview",
-        duration: "02h 43m",
-        genero: ["Ação", "Suspense"]
     },
     {
         background: background,
