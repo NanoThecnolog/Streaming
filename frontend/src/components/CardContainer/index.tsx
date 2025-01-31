@@ -1,11 +1,9 @@
 import Card from "../Card"
 import { cards } from "@/data/cards";
 import styles from './styles.module.scss'
-import { useEffect, useMemo, useState } from "react";
-
+import { useEffect, useState } from "react";
 import { MdNavigateNext } from "react-icons/md";
 import { MdNavigateBefore } from "react-icons/md";
-import { Divide } from "lucide-react";
 import { shuffle } from "@/utils/UtilitiesFunctions";
 import { CardsProps } from "@/@types/Cards";
 

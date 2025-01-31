@@ -36,6 +36,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 257088,
+        title: "Caçadores de Emoção",
+        subtitle: "Além do Limite",
+        description: "Um jovem agente do FBI tem como missão se infiltrar em meio a atletas de esportes radicais, suspeitos de cometerem uma série de roubos nunca vistos até então. Não demora muito para que ele se aproxime de Bodhi, o líder do grupo, e conquiste sua confiança.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1K4dNxjI8NqNZCbsbl0q9fRONxfuKXLd2/preview",
+        duration: "01h 53m",
+        genero: ["Ação", "Aventura", "Suspense", "Crime"]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 615457,
         title: "Anônimo",
         subtitle: "",
@@ -51,7 +63,7 @@ export const cards: CardsProps[] = [
         tmdbId: 487670,
         title: "A Morte do Superman",
         subtitle: "",
-        description: "Um monstro gigantesco batizado de Doomsday surge do mundo subterrâneo para começar uma destruição em massa na cidade de Metropolis. A Liga da Justiça precisa intervir imediatamente, mas parece que só os poderes do Superman são compatíveis com o do terrível monstro. Em uma luta mortal, o destino do super-herói torna-se incerto.",
+        description: "Um monstro batizado de Doomsday surge do espaço para começar uma destruição em massa na Terra. A Liga da Justiça precisa intervir imediatamente, mas parece que só os poderes do Superman são compatíveis com o do terrível monstro. Em uma luta mortal, o destino do super-herói torna-se incerto.",
         faixa: "A14",
         src: "https://drive.google.com/file/d/1t0evW7rv6uzJAOhHlNwvtGaJtQN8JMV9/preview",
         duration: "01h 21m",
@@ -108,14 +120,14 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
-        tmdbId: 53182,
-        title: "300",
-        subtitle: "A Ascensão do Império",
-        description: "Após a morte do pai, Xerxes (Rodrigo Santoro) dá início a uma jornada de vingança e ruma em direção à Grécia, com seu exército sendo liderado por Artemisia (Eva Green). Enquanto os 300 espartanos liderados por Leonidas tantam combater o Deus-Rei, os exércitos do resto da Grécia se unem para uma batalha com as tropas de Artemisia no mar. Themistocles (Sullivan Stapleton) é o responsável por liderar os gregos.",
-        faixa: "A16",
-        src: "https://drive.google.com/file/d/1ZPPhcMSVwMQUOXi3KH6QQv95CCqkzDjP/preview",
-        duration: "01h 42m",
-        genero: ["Ação", "Drama", "Guerra"]
+        tmdbId: 572802,
+        title: "Aquaman",
+        subtitle: "E o Reino Perdido",
+        description: "Um antigo poder é libertado e o herói Aquaman precisa fazer um perigoso acordo com um aliado improvável para proteger Atlântida e o mundo de uma devastação irreversível.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1h0OyUDXZUrp0p7WWhdyLYpjTYVcP89M_/preview",
+        duration: "Leg - 2h 04m",
+        genero: ["Ação", "Fantasia", "Super Herói", "HBO", "DC"]
     },
     {
         background: background,
@@ -127,6 +139,18 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1WOyl2phGKBTk-eVrfOmkOH0E2NUznHw4/preview",
         duration: "01h 56m",
+        genero: ["Ação", "Drama", "Guerra"]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 53182,
+        title: "300",
+        subtitle: "A Ascensão do Império",
+        description: "Após a morte do pai, Xerxes (Rodrigo Santoro) dá início a uma jornada de vingança e ruma em direção à Grécia, com seu exército sendo liderado por Artemisia (Eva Green). Enquanto os 300 espartanos liderados por Leonidas tantam combater o Deus-Rei, os exércitos do resto da Grécia se unem para uma batalha com as tropas de Artemisia no mar. Themistocles (Sullivan Stapleton) é o responsável por liderar os gregos.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1ZPPhcMSVwMQUOXi3KH6QQv95CCqkzDjP/preview",
+        duration: "01h 42m",
         genero: ["Ação", "Drama", "Guerra"]
     },
     {
@@ -5507,22 +5531,7 @@ export const cards: CardsProps[] = [
             "Aventura"
         ]
     },
-    {
-        background: background,
-        overlay: overlay,
-        tmdbId: 572802,
-        title: "Aquaman 2",
-        subtitle: "E o Reino Perdido",
-        description: "Um antigo poder é libertado e o herói Aquaman precisa fazer um perigoso acordo com um aliado improvável para proteger Atlântida e o mundo de uma devastação irreversível.",
-        faixa: "A12",
-        src: "https://drive.google.com/file/d/1h0OyUDXZUrp0p7WWhdyLYpjTYVcP89M_/preview",
-        duration: "Leg - 2h 04m",
-        genero: ["DC",
-            "Ação",
-            "Fantasia",
-            "Super Herói"
-        ]
-    },
+
     {
         background: background,
         overlay: overlay,
