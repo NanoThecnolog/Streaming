@@ -31,9 +31,57 @@ export const cards: CardsProps[] = [
     faixa: "",
     src: "",
     duration: "",
-    genero: ["", ""]
+    genero: []
     },
     */
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 261392,
+        title: "American Ultra",
+        subtitle: "Armados e Alucinados",
+        description: "Jesse vai interpretar um desmotivado drogado chamado Mike, que mora com sua namorada Phoebe (Stewart), em uma pequena cidade. Uma noite, suas vidas tomam um rumo inesperado quando o passado de Mike volta para assombrá-lo, e ele se torna o alvo de uma operação do governo feita para mata-lo.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1D0ObUQEKaboLAek8p9l4IR4CbcTM604P/preview",
+        duration: "01h 36m",
+        genero: [gen.acao, gen.comedia]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 10528,
+        title: "Sherlock Holmes",
+        subtitle: "",
+        description: "O excêntrico detetive consultor Sherlock Holmes e o doutor John Watson lutam para derrubar um novo inimigo e desvendar um plano mortal que poderia destruir a Inglaterra.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/18PyO1hug8OZq_FygHe6YQLnVmuMKikOH/preview",
+        duration: "02h 09m",
+        genero: [gen.acao, gen.aventura, agp.crime, agp.misterio, stm.prime]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 58574,
+        title: "Sherlock Holmes",
+        subtitle: "O Jogo de Sombras",
+        description: "Watson está prestes a se casar com a sua amada Mary Morstan. Porém, a única coisa com que ele não contava era que seu amigo Holmes apareceria com uma nova teoria conspiratória de que o professor Moriarty estaria por trás de uma série de assassinatos.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/199DX3KyBEOojH5q5CtWFU7OCd8fOrHbp/preview",
+        duration: "02h 09m",
+        genero: [gen.acao, gen.aventura, agp.crime, agp.misterio, stm.prime]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 74,
+        title: "Guerra dos Mundos",
+        subtitle: "",
+        description: "Ray Ferrier é um estivador divorciado, afastado de seus filhos, que vivem com a mãe. Quando sua ex-esposa deixa as crianças para ele cuidar durante alguns dias, o planeta é atacado por alienígenas que surgem do chão conduzindo tripods e destruindo tudo que encontram pelo caminho. Ray tenta proteger os seus filhos e fugir para Boston para se juntar a sua ex-esposa. Durante o trajeto, enfrenta várias adversidades e ataques.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/16K5I_KCKn2hE2-3S_ceuqkZQjsyRGKRu/preview",
+        duration: "01h 57m",
+        genero: [gen.suspense, gen.ficcao]
+    },
     {
         background: background,
         overlay: overlay,
