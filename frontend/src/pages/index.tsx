@@ -13,6 +13,7 @@ import { MovieTMDB } from "@/@types/Cards";
 import ReleaseContainer from "@/components/ReleaseContainer";
 import Loading from "@/components/ui/Loading";
 import { shuffle } from "@/utils/UtilitiesFunctions";
+import { gen } from "@/utils/Genres";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,11 +21,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
   const [width, setWidth] = useState<number>()
-  const divisaoPorGenero = [
-    "ação", "suspense", "aventura", "comédia", "terror",
-    "romance", "super herói", "drama", "ficção científica",
-    "fantasia", "marvel", "dc", "animação"
-  ]
+  const divisaoPorGenero = Object.values(gen);
   const { allData, setAllData } = useTMDB()
   const [loading, setLoading] = useState(false)
   useEffect(() => {

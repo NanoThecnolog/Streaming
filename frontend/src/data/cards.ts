@@ -1,8 +1,9 @@
 import { CardsProps } from "@/@types/Cards";
+import { agp, gen, lang, stm } from "@/utils/Genres";
+
 
 const background = "/fundo-largo.jpg";
 const overlay = "/fundo-alto.jpg";
-
 export const cards: CardsProps[] = [
     /*
     schema genero: primário > secundário > streaming > agrupador
@@ -43,7 +44,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1yYVLjD3zvm_7zSJnvglmWoUe5R7eu9sl/preview",
         duration: "01h 38m",
-        genero: ["Comédia", "Drama", "Família"]
+        genero: [gen.comedia, gen.drama, agp.familia]
     },
     {
         background: background,
@@ -55,7 +56,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1AN7Q75k2M0BSokor2LWMM4jg30VtRShp/preview",
         duration: "01h 29m",
-        genero: ["Suspense", "Ficção Científica", "Mistério", "Disney+"]
+        genero: [gen.suspense, gen.ficcao, agp.misterio, stm.disney]
     },
     {
         background: background,
@@ -67,7 +68,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1PBIZufbg0hPZf9MPMArRnbmMoDrCfkGe/preview",
         duration: "02h 10m",
-        genero: ["Aventura", "Ficção Científica", "Família", "Mistério", "Disney+"]
+        genero: [gen.aventura, gen.ficcao, agp.familia, agp.misterio, stm.disney]
     },
     {
         background: background,
@@ -79,7 +80,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/11_WnUFtqBK_pvQgTLL_wfCZC8LWT3BwL/preview",
         duration: "01h 23m",
-        genero: ["Terror", "Suspense", "Mistério", "Netflix"]
+        genero: [gen.terror, gen.suspense, agp.misterio, stm.netflix]
     },
     {
         background: background,
@@ -91,7 +92,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1BLRIurgoGv-AyI8A8nU1xLmAstgEvyU3/preview",
         duration: "01h 33m",
-        genero: ["Terror", "Suspense", "Mistério"]
+        genero: [gen.terror, gen.suspense, agp.misterio]
     },
     {
         background: background,
@@ -103,7 +104,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1MNeIF-5qIA3U2i_xKcCkbXkKzSdZXhxq/preview",
         duration: "01h 44m",
-        genero: ["Comédia", "Romance"]
+        genero: [gen.comedia, gen.romance]
     },
     {
         background: background,
@@ -115,7 +116,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1g3kIHgzNDJKFUhKNY4z__dyw4QkO5Bxn/preview",
         duration: "01h 25m",
-        genero: ["Ficção Científica", "Suspense", "Mistério"]
+        genero: [gen.ficcao, gen.suspense, agp.misterio]
     },
     {
         background: background,
@@ -127,7 +128,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/17DgjOFKMWN-KfNT4UJHfZxJYsf4BK9Fu/preview",
         duration: "01h 55m",
-        genero: ["Comédia", "Drama", "Crime", "HBO"]
+        genero: [gen.comedia, gen.drama, agp.crime, stm.hbo]
     },
     {
         background: background,
@@ -139,7 +140,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1M6LStJkSJpMmwjDwck7eBntwdstH-h3t/preview",
         duration: "01h 59m",
-        genero: ["Aventura", "Fantasia", "Família", "Disney+"]
+        genero: [gen.aventura, gen.fantasia, agp.familia, stm.disney]
     },
     {
         background: background,
@@ -151,7 +152,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1NnOuP3xa3Inqkp40cjK9LUu-pzh9L_PK/preview",
         duration: "02h 32m",
-        genero: ["Ação", "Suspense", "Ficção Científica", "HBO"]
+        genero: [gen.acao, gen.suspense, gen.ficcao, stm.hbo]
     },
     {
         background: background,
@@ -163,7 +164,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1K4dNxjI8NqNZCbsbl0q9fRONxfuKXLd2/preview",
         duration: "01h 53m",
-        genero: ["Ação", "Aventura", "Suspense", "Crime"]
+        genero: [gen.acao, gen.aventura, gen.suspense, agp.crime]
     },
     {
         background: background,
@@ -175,7 +176,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1LTQZisDLoITnpySaZ6ucvB12oNxocvkO/preview",
         duration: "01h 32m",
-        genero: ["Ação", "Suspense"]
+        genero: [gen.acao, gen.suspense]
     },
     {
         background: background,
@@ -187,7 +188,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1t0evW7rv6uzJAOhHlNwvtGaJtQN8JMV9/preview",
         duration: "01h 21m",
-        genero: ["Animação", "Ação", "Ficção Científica", "Drama", "Super Herói", "DC", "HBO"]
+        genero: [gen.animacao, gen.acao, gen.ficcao, gen.drama, agp.hero, agp.dc, stm.hbo]
     },
     {
         background: background,
@@ -199,7 +200,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1EJFRJuWb8Ykj_6bY8oQlZTLByQJQM-qE/preview",
         duration: "01h 49m",
-        genero: ["Comédia", "Ação", "Aventura", "Netflix"]
+        genero: [gen.comedia, gen.acao, gen.aventura, stm.netflix]
     },
     {
         background: background,
@@ -211,7 +212,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1BA-UGFn8RSxs4VK9O_XJBasmEcKrthIo/preview",
         duration: "02h 02m",
-        genero: ["Ação", "Ficção Científica", "Aventura"]
+        genero: [gen.acao, gen.ficcao, gen.aventura]
     },
     {
         background: background,
@@ -223,7 +224,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1BENYIMyMrfvo-IuCTyhQDFPD7i-w7FoJ/preview",
         duration: "02h 12m",
-        genero: ["Ação", "Aventura", "Ficção Científica"]
+        genero: [gen.acao, gen.aventura, gen.ficcao]
     },
     {
         background: background,
@@ -235,7 +236,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1RcqDwM9e6aEX7p0S46qPbNFh3CAqqODW/preview",
         duration: "02h 23m",
-        genero: ["Ação", "Aventura", "Fantasia", "Super Herói", "DC", "HBO"]
+        genero: [gen.acao, gen.aventura, gen.fantasia, agp.hero, agp.dc, stm.hbo]
     },
     {
         background: background,
@@ -247,7 +248,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1h0OyUDXZUrp0p7WWhdyLYpjTYVcP89M_/preview",
         duration: "Leg - 2h 04m",
-        genero: ["Ação", "Fantasia", "Super Herói", "HBO", "DC"]
+        genero: [gen.acao, gen.fantasia, agp.hero, stm.hbo, agp.dc]
     },
     {
         background: background,
@@ -259,7 +260,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1WOyl2phGKBTk-eVrfOmkOH0E2NUznHw4/preview",
         duration: "01h 56m",
-        genero: ["Ação", "Drama", "Guerra"]
+        genero: [gen.acao, gen.drama, agp.guerra]
     },
     {
         background: background,
@@ -271,7 +272,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1ZPPhcMSVwMQUOXi3KH6QQv95CCqkzDjP/preview",
         duration: "01h 42m",
-        genero: ["Ação", "Drama", "Guerra"]
+        genero: [gen.acao, gen.drama, agp.guerra]
     },
     {
         background: background,
@@ -283,7 +284,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1n918Fg6o63wYO9m5REmjFToIq_8wgh0R/preview",
         duration: "01h 59m",
-        genero: ["Drama", "Ação", "Fantasia"]
+        genero: [gen.drama, gen.acao, gen.fantasia]
     },
     {
         background: background,
@@ -295,7 +296,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1EUNIRT-vbeGXhyljdDtiuQkNb-Q45Ik1/preview",
         duration: "02h 23m",
-        genero: ["Ação", "Suspense", "Aventura"]
+        genero: [gen.acao, gen.suspense, gen.aventura]
     },
     {
         background: background,
@@ -307,7 +308,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1gxQONxPy81sIQgpRkMHsz1tyWuYx3OuR/preview",
         duration: "02h 28m",
-        genero: ["Ação", "Suspense", "Aventura"]
+        genero: [gen.acao, gen.suspense, gen.aventura]
     },
     {
         background: background,
@@ -319,7 +320,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1qOYlx0jo_Ba3gb9RCxMYpju_Aia9PINb/preview",
         duration: "02h 43m",
-        genero: ["Ação", "Suspense", "Aventura"]
+        genero: [gen.acao, gen.suspense, gen.aventura]
     },
     {
         background: background,
@@ -331,7 +332,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1QTUL8enVsD-bqLMa9T_eCW-BoE4yWAOX/preview",
         duration: "01h 51m",
-        genero: ["Animação", "Comédia", "Aventura", "Família", "Faroeste"]
+        genero: [gen.animacao, gen.comedia, gen.aventura, agp.familia, "Faroeste"]
     },
     {
         background: background,
@@ -343,7 +344,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/11OICbTG7d1BovTgP91BR0w0QKu723IRC/preview",
         duration: "02h 21m",
-        genero: ["Terror", "Ficção Científica"]
+        genero: [gen.terror, gen.ficcao]
     },
     {
         background: background,
@@ -355,7 +356,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/115NkIdPlXq5iKluRy8ZkD45Pn8HiIqeg/preview",
         duration: "02h 14m",
-        genero: ["Drama", "Romance", "História"]
+        genero: [gen.drama, gen.romance, agp.historia]
     },
     {
         background: background,
@@ -367,7 +368,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/15qyluXIEvlKM1U4k2tL7yBUyvm7ZoDRl/preview",
         duration: "01h 38m",
-        genero: ["Comédia", "Terror"]
+        genero: [gen.comedia, gen.terror]
     },
     {
         background: background,
@@ -379,7 +380,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/17dvXt3MmoqYmvDeZooyHGgKoEBRDhETQ/preview",
         duration: "02h 02m",
-        genero: ["Ação", "Aventura"]
+        genero: [gen.acao, gen.aventura]
     },
     {
         background: background,
@@ -391,7 +392,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/119MrSgPW1LATWgnayXdpxGE6r9ceQ6nI/preview",
         duration: "03h 09m",
-        genero: ["Drama", "Crime", "HBO"]
+        genero: [gen.drama, agp.crime, stm.hbo]
     },
     {
         background: background,
@@ -403,7 +404,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1qp-RXrA11xN3I4gJKbhGMKW94sK5z-_2/preview",
         duration: "01h 57m",
-        genero: ["Ficção Científica", "Drama", "Suspense"]
+        genero: [gen.ficcao, gen.drama, gen.suspense]
     },
     {
         background: background,
@@ -415,7 +416,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/14McTGoXmdWs9Jb1xg50U177OTENC7ZqE/preview",
         duration: "02h 44m",
-        genero: ["Ficção Científica", "Drama"]
+        genero: [gen.ficcao, gen.drama]
     },
     {
         background: background,
@@ -427,7 +428,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/0B_FHbbV4-iNeMW5HcHNiZWhPV1U/preview?resourcekey=0-Wnj42nvDObqxh_C5_6IdyA",
         duration: "02h 03m",
-        genero: ["Romance", "Drama"]
+        genero: [gen.romance, gen.drama]
     },
     {
         background: background,
@@ -439,7 +440,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/17NTlryRuky7RO63heav7ItRXl207s1q3/preview",
         duration: "01h 49m",
-        genero: ["Comédia", "Drama", "Disney+"]
+        genero: [gen.comedia, gen.drama, stm.disney]
     },
     {
         background: background,
@@ -451,7 +452,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1moS-hQmf68tDQUpQtxbVVhkpqk103g7l/preview",
         duration: "01h 15m",
-        genero: ["Animação", "Fantasia", "Aventura", "Família", "Disney+"]
+        genero: [gen.animacao, gen.fantasia, gen.aventura, agp.familia, stm.disney]
     },
     {
         background: background,
@@ -463,7 +464,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1wLZ5aermqXPp1KqyqaPObsBOgTIFn_2s/preview",
         duration: "01h 35m",
-        genero: ["Comédia", "Ação", "Família", "Disney+"]
+        genero: [gen.comedia, gen.acao, agp.familia, stm.disney]
     },
     {
         background: background,
@@ -475,7 +476,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1vJ26QZVPoYe_2X1H9U7dkZLia6-cMl7Q/preview",
         duration: "02h 04m",
-        genero: ["Ficção Científica", "Terror", "Mistério", "Disney+"]
+        genero: [gen.ficcao, gen.terror, agp.misterio, stm.disney]
     },
     {
         background: background,
@@ -487,7 +488,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1ePN4lUObB15YjT9Gd0DNQ9CNZu4vyRbr/preview",
         duration: "02h 02m",
-        genero: ["Ficção Científica", "Terror", "Suspense", "Disney+"]
+        genero: [gen.ficcao, gen.terror, gen.suspense, stm.disney]
     },
     {
         background: background,
@@ -499,7 +500,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1Jg2zkjdc_VuejxJGAjbYMfIdgGPGKdKv/preview",
         duration: "01h 35m",
-        genero: ["Terror", "Mistério"]
+        genero: [gen.terror, agp.misterio]
     },
     {
         background: background,
@@ -511,7 +512,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1gv-71Y0N53Brk99KmdC5U_hivYgNfbxU/preview",
         duration: "01h 57m",
-        genero: ["Terror", "Ficção Científica", "Suspense", "Disney+"]
+        genero: [gen.terror, gen.ficcao, gen.suspense, stm.disney]
     },
     {
         background: background,
@@ -523,7 +524,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1NIZWqu5NkbVFFUxaBVaOH8nZHP5RgWmS/preview",
         duration: "01h 32m",
-        genero: ["Terror", "Suspense", "Mistério"]
+        genero: [gen.terror, gen.suspense, agp.misterio]
     },
     {
         background: background,
@@ -535,7 +536,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1-7jjD3ZvJKXxTE_F0a9WONLTUMB7PXbA/preview",
         duration: "01h 56m",
-        genero: ["Romance", "Drama"]
+        genero: [gen.romance, gen.drama]
     },
     {
         background: background,
@@ -547,7 +548,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1aN41tR-peC8k2HsOsGYKh2_JhlFHb-bz/preview",
         duration: "01h 51m",
-        genero: ["Ficção Científica", "Terror"]
+        genero: [gen.ficcao, gen.terror]
     },
     {
         background: background,
@@ -559,7 +560,7 @@ export const cards: CardsProps[] = [
         faixa: "A10",
         src: "https://drive.google.com/file/d/17ZTQ4VaUwM_m7immHx4XDWvR_fc1K0Vt/preview",
         duration: "01h 56m",
-        genero: ["Drama", "Ficção Científica", "Mistério"]
+        genero: [gen.drama, gen.ficcao, agp.misterio]
     },
     {
         background: background,
@@ -571,7 +572,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1SBzaSWujUXumw3VBmTwdOrrw3rqD6k67/preview",
         duration: "01h 32m",
-        genero: ["Terror"]
+        genero: [gen.terror]
     },
     {
         background: background,
@@ -583,7 +584,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1mZaHRNKgWwU5EizRwQPUsOCOhVBXFH41/preview",
         duration: "02h 28m",
-        genero: ["Ação", "Ficção Científica", "Aventura"]
+        genero: [gen.acao, gen.ficcao, gen.aventura]
     },
     {
         background: background,
@@ -595,7 +596,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1mO3SicFmzbvb_gTGZTrs7b2Ay6f5bnRw/preview",
         duration: "2h",
-        genero: ["Terror", "Suspense"]
+        genero: [gen.terror, gen.suspense]
     },
     {
         background: background,
@@ -607,7 +608,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/15AKot5AY0prUqEWl9k24jZnESTYjUKX_/preview",
         duration: "01h 54m",
-        genero: ["Suspense", "Drama"]
+        genero: [gen.suspense, gen.drama]
     },
     {
         background: background,
@@ -619,7 +620,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1DusLD_RDZpDfaY9nmM8BUNonfhzDeM_K/preview",
         duration: "01h 29m",
-        genero: ["Comédia", "Romance"]
+        genero: [gen.comedia, gen.romance]
     },
     {
         background: background,
@@ -631,7 +632,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1Qq7s065zqUO8j_XqtizRYpVYtjwzGixT/preview",
         duration: "01h 21m",
-        genero: ["Comédia", "Nacional"]
+        genero: [gen.comedia, agp.nacional]
     },
     {
         background: background,
@@ -643,7 +644,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/15ONExIy9i81JQgRDvKxBrV3D9C0sT65b/preview",
         duration: "01h 28m",
-        genero: ["Comédia", "Nacional"]
+        genero: [gen.comedia, agp.nacional]
     },
     {
         background: background,
@@ -655,7 +656,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1bmaech6GPbchSf4bptciqjwQ5illTB87/preview",
         duration: "01h 51m",
-        genero: ["Comédia", "Nacional"]
+        genero: [gen.comedia, agp.nacional]
     },
     {
         background: background,
@@ -667,7 +668,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1Y3-Luweumbb_j8xFGUkUSPaNHNtfYTl1/preview",
         duration: "01h 24m",
-        genero: ["Animação", "Comédia", "Família", "Netflix"]
+        genero: [gen.animacao, gen.comedia, agp.familia, stm.netflix]
     },
     {
         background: background,
@@ -679,7 +680,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1ZZf2JXiC3vf34dLbLd20D889CG_FRBPx/preview",
         duration: "01h 41m",
-        genero: ["Animação", "Comédia", "Família", "Netflix"]
+        genero: [gen.animacao, gen.comedia, agp.familia, stm.netflix]
     },
     {
         background: background,
@@ -691,7 +692,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1SdOkWpDxECBKJ9hTU3WGl_UPO5wl8eVH/preview",
         duration: "01h 55m",
-        genero: ["Comédia", "Romance", "Drama"]
+        genero: [gen.comedia, gen.romance, gen.drama]
     },
     {
         background: background,
@@ -703,19 +704,19 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1jaWLj1XtXjnv_uVKYXK9O5zZIcx9WaUZ/preview",
         duration: "01h 50m",
-        genero: ["Ação", "Ficção Científica", "Comédia", "Família"]
+        genero: [gen.acao, gen.ficcao, gen.comedia, agp.familia]
     },
     {
         background: background,
         overlay: overlay,
         tmdbId: 11918,
-        title: "Super Herói",
+        title: agp.hero,
         subtitle: "O Filme",
         description: "Rick Riker é um estudante comum do colegial. Porém, ao ser mordido por uma libélula geneticamente modificada ganha superpoderes. Agora sua missão é proteger a cidade das mãos do malvado Hourglass, que suga a vida de suas vítimas.",
         faixa: "A12",
         src: "https://drive.google.com/file/d/1QNz-B6o_zBu22RZhU3A3ZE-Rldz56G5j/preview",
         duration: "01h 22m",
-        genero: ["Comédia", "Ação", "Ficção Científica", "Super Herói"]
+        genero: [gen.comedia, gen.acao, gen.ficcao, agp.hero]
     },
     {
         background: background,
@@ -727,7 +728,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1Ka1Wq2utOTtCA9_ARgKsVnJEPqSHR3jd/preview",
         duration: "01h 49m",
-        genero: ["Ação", "Aventura", "Fantasia"]
+        genero: [gen.acao, gen.aventura, gen.fantasia]
     },
     {
         background: background,
@@ -739,7 +740,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1OkTMmYh9HCSKZmSnSARNc4j3KIfCVi32/preview",
         duration: "01h 56m",
-        genero: ["Drama", "Suspense", "Mistério", "Prime Video"]
+        genero: [gen.drama, gen.suspense, agp.misterio, stm.prime]
     },
     {
         background: background,
@@ -751,7 +752,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1o6KjMnOmfu9HCoQkhg4CAqqAsANIjQAp/preview",
         duration: "01h 38m",
-        genero: ["Ação", "Terror"]
+        genero: [gen.acao, gen.terror]
     },
     {
         background: background,
@@ -763,7 +764,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1Q9qU0906sj9FxuydAedmx_-f0he9uKGB/preview",
         duration: "01h 42m",
-        genero: ["Drama", "Suspense", "Mistério"]
+        genero: [gen.drama, gen.suspense, agp.misterio]
     },
     {
         background: background,
@@ -775,7 +776,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1NY163tIdvWLQg0JVCThZgulxgRROpTeL/preview",
         duration: "02h 12m",
-        genero: ["Fantasia", "Aventura"]
+        genero: [gen.fantasia, gen.aventura]
     },
     {
         background: background,
@@ -787,7 +788,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1TFDXw7SLZ4_KXR-p_4ENiKfSIRCKn2VW/preview",
         duration: "02h 13m",
-        genero: ["Fantasia", "Aventura"]
+        genero: [gen.fantasia, gen.aventura]
     },
     {
         background: background,
@@ -799,7 +800,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1GWg0TDwjNIelrhBDelEmmeWE8j7Uvw4W/preview",
         duration: "02h 22m",
-        genero: ["Fantasia", "Aventura"]
+        genero: [gen.fantasia, gen.aventura]
     },
     {
         background: background,
@@ -811,7 +812,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1gQF7vk6zEJ-s78aN3G2MyrA_KHfNUbk4/preview",
         duration: "01h 32m",
-        genero: ["Drama", "Suspense"]
+        genero: [gen.drama, gen.suspense]
     },
     {
         background: background,
@@ -823,7 +824,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1bIe8SGD_qyT4XsI0aYAcZObe8vDbsffY/preview",
         duration: "01h 29m",
-        genero: ["Terror", "Suspense"]
+        genero: [gen.terror, gen.suspense]
     },
     {
         background: background,
@@ -835,7 +836,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1r36s6d7OACcY2S4iF_tgzeCTDJg0hSwv/preview",
         duration: "01h 54m",
-        genero: ["Drama", "Crime"]
+        genero: [gen.drama, agp.crime]
     },
     {
         background: background,
@@ -847,7 +848,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1sy8lh-DwIFcnNFikQcz0ZHjipsgtxxbz/preview",
         duration: "01h 28m",
-        genero: ["Comédia"]
+        genero: [gen.comedia]
     },
     {
         background: background,
@@ -859,7 +860,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/11xY4g3P1svbF8EGgqyxCC2Z0xi0CGsNU/preview",
         duration: "01h 27m",
-        genero: ["Drama", "Suspense", "Terror"]
+        genero: [gen.drama, gen.suspense, gen.terror]
     },
     {
         background: background,
@@ -871,7 +872,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1fS6dyTW7eRYRHJsZmZROeBQkPBtPj-8f/preview",
         duration: "01h 54m",
-        genero: ["Comédia", "Romance"]
+        genero: [gen.comedia, gen.romance]
     },
     {
         background: background,
@@ -883,7 +884,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1w51y26drRCEaCcjopGCW2V_zLqTs55FI/preview",
         duration: "01h 33m",
-        genero: ["Ação", "Suspense", "Crime"]
+        genero: [gen.acao, gen.suspense, agp.crime]
     },
     {
         background: background,
@@ -895,7 +896,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/12aa-ltgysRQBhuHD-PLLCvp4crPCsBqQ/preview",
         duration: "01h 40m",
-        genero: ["Animação", "Aventura", "Comédia", "Família"]
+        genero: [gen.animacao, gen.aventura, gen.comedia, agp.familia]
     },
     {
         background: background,
@@ -907,7 +908,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1P1OgvS5XlBDWNfOBwv-Mu1Cqy6agRUIX/preview",
         duration: "01h 37m",
-        genero: ["Animação", "Aventura", "Comédia", "Família"]
+        genero: [gen.animacao, gen.aventura, gen.comedia, agp.familia]
     },
     {
         background: background,
@@ -919,7 +920,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/12oH6bbDoTiK6rA0tDzAyT3nOBFEz8QUe/preview",
         duration: "01h 39m",
-        genero: ["Drama"]
+        genero: [gen.drama]
     },
     {
         background: background,
@@ -931,7 +932,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/165ffaAo40rtIXUtS2wqeosjfyxFhrkB5/preview",
         duration: "01h 44m",
-        genero: ["Drama"]
+        genero: [gen.drama]
     },
     {
         background: background,
@@ -943,7 +944,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1aXFSyynKeMzZ_W5Bm9yh1hcpBc7Jvz0U/preview",
         duration: "01h 59m",
-        genero: ["Suspense", "Drama", "Ficção Científica", "Mistério"]
+        genero: [gen.suspense, gen.drama, gen.ficcao, agp.misterio]
     },
     {
         background: background,
@@ -955,7 +956,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1-LIxzJJpgX_S9SnoFbux8-7BL2Kpk3Il/preview",
         duration: "02h 09m",
-        genero: ["Ação", "Comédia", "Aventura", "Crime"]
+        genero: [gen.acao, gen.comedia, gen.aventura, agp.crime]
     },
     {
         background: background,
@@ -967,7 +968,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1YfmoneCvBXvOtXM9PAqtmvmU03oIGlhK/preview",
         duration: "02h 21m",
-        genero: ["Ação", "Comédia", "Aventura", "crime"]
+        genero: [gen.acao, gen.comedia, gen.aventura, agp.crime]
     },
     {
         background: background,
@@ -979,7 +980,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1i8iRcUSJdla5u3IVF9UMbTts9v14zBHq/preview",
         duration: "02h 04m",
-        genero: ["Ação", "Suspense", "Ficção Científica"]
+        genero: [gen.acao, gen.suspense, gen.ficcao]
     },
     {
         background: background,
@@ -991,19 +992,19 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1ysCDRwO3y1OR-Xu9e6o8EAZntQl4UWQT/preview",
         duration: "01h 38m",
-        genero: ["Ação", "Suspense", "Drama", "Crime", "Netflix"]
+        genero: [gen.acao, gen.suspense, gen.drama, agp.crime, stm.netflix]
     },
     {
         background: background,
         overlay: overlay,
         tmdbId: 17654,
         title: "Distrito 9",
-        subtitle: "Legendado",
+        subtitle: lang.leg,
         description: "Há 30 anos alienígenas chegam à Terra em busca de refúgio, pois seu planeta estava morrendo. Eles passam a viver separados dos humanos em uma área chamada Distrito 9, na África do Sul, comandada pela multinacional United, que não se importa com o bem-estar dos alienígenas, mas que está disposta a tudo para dominar a tecnologia que eles possuem. Quando um agente em campo contrai um vírus que altera o seu DNA, o Distrito 9 passa a ser o único lugar em que ele pode se esconder.",
         faixa: "A14",
         src: "https://drive.google.com/file/d/1-_q5YkOJdipn_-JSC-a37mvaT1wn25uy/preview",
         duration: "01h 52m",
-        genero: ["Ficção Científica", "Drama"]
+        genero: [gen.ficcao, gen.drama]
     },
     {
         background: background,
@@ -1015,7 +1016,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1xj6dUQHXoWwv9EhUexAXGUk6em_IUfYg/preview",
         duration: "02h 16m",
-        genero: ["Ação", "Aventura"]
+        genero: [gen.acao, gen.aventura]
     },
     {
         background: background,
@@ -1027,7 +1028,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1JDlcutpEg2Xsf-gX4456fjsmaCQr_6Lu/preview",
         duration: "02h 01m",
-        genero: ["Drama", "Crime"]
+        genero: [gen.drama, agp.crime]
     },
     {
         background: background,
@@ -1039,7 +1040,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1GP5TDrxoIcAnJnXTlUNUvq-VYDmH2KGi/preview",
         duration: "02h 01m",
-        genero: ["Ação", "Suspense", "Prime Video"]
+        genero: [gen.acao, gen.suspense, stm.prime]
     },
     {
         background: background,
@@ -1051,7 +1052,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/188zDF5AqlYqJPDgmfpEwRtnMOQdHCGxb/preview",
         duration: "01h 29m",
-        genero: ["Terror", "Prime Video"]
+        genero: [gen.terror, stm.prime]
     },
     {
         background: background,
@@ -1063,7 +1064,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1hU1kCqwj0KWj5awkhUfh6djZkDiz3G-L/preview",
         duration: "01h 23m",
-        genero: ["Ação", "Terror", "Guerra"]
+        genero: [gen.acao, gen.terror, agp.guerra]
     },
     {
         background: background,
@@ -1075,7 +1076,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/15LVGFactdj_ucAzHA90qRzQi2lu_YZHB/preview",
         duration: "01h 32m",
-        genero: ["Suspense", "Mistério"]
+        genero: [gen.suspense, agp.misterio]
     },
     {
         background: background,
@@ -1087,7 +1088,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1Qk8IfN4n67HPYUbm6qeFGnvEj3X4mF9L/preview",
         duration: "02h 03m",
-        genero: ["Drama"]
+        genero: [gen.drama]
     },
     {
         background: background,
@@ -1099,7 +1100,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1GmKyRIDCad7pVzcLTuXrbrgRtWpWJmbf/preview",
         duration: "01h 43m",
-        genero: ["Ação", "Drama"]
+        genero: [gen.acao, gen.drama]
     },
     {
         background: background,
@@ -1111,7 +1112,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1T7UDrWYZzHGrIPJcXYeWt5sGilFl8Eo8/preview",
         duration: "01h 46m",
-        genero: ["Ação", "Drama", "História"]
+        genero: [gen.acao, gen.drama, agp.historia]
     },
     {
         background: background,
@@ -1123,7 +1124,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1kqBrXZLZl3ivMiBSpuXDzvu3WlKQUmKk/preview",
         duration: "01h 48m",
-        genero: ["Ação", "Drama", "História"]
+        genero: [gen.acao, gen.drama, agp.historia]
     },
     {
         background: background,
@@ -1135,7 +1136,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1QDYDwZUP6lVygupzCW2vlzQAbuLqI8Oq/preview",
         duration: "01h 45m",
-        genero: ["Ação", "Drama", "História"]
+        genero: [gen.acao, gen.drama, agp.historia]
     },
     {
         background: background,
@@ -1147,7 +1148,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1VNaApPPgRSnM0ZMzwKKt2-dW9-puEsjf/preview",
         duration: "01h 47m",
-        genero: ["Ação", "Suspense", "Ficção Científica"]
+        genero: [gen.acao, gen.suspense, gen.ficcao]
     },
     {
         background: background,
@@ -1159,7 +1160,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/17uS2-Ht7uZHQLXJk0TWzr_q_yAYf8teH/preview",
         duration: "01h 48m",
-        genero: ["Ação", "Crime"]
+        genero: [gen.acao, agp.crime]
     },
     {
         background: background,
@@ -1171,7 +1172,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1bobkHdVt-XUJvYAZGcSknNjYxQ_XJ88i/preview",
         duration: "01h 32m",
-        genero: ["Ação", "Aventura", "Fantasia"]
+        genero: [gen.acao, gen.aventura, gen.fantasia]
     },
     {
         background: background,
@@ -1183,7 +1184,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1mghKH0AHFwKEZP4Lh_0kO6A4ALoE_htD/preview",
         duration: "01h 33m",
-        genero: ["Comédia", "Terror", "Crime", "HBO"]
+        genero: [gen.comedia, gen.terror, agp.crime, stm.hbo]
     },
     {
         background: background,
@@ -1195,7 +1196,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/11EmofupuQqFWulKX9f0Y47pgcgOUNWOK/preview",
         duration: "01h 58m",
-        genero: ["Aventura", "Drama"]
+        genero: [gen.aventura, gen.drama]
     },
     {
         background: background,
@@ -1207,7 +1208,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1TQuZY-1xuSwFWFthyTfcgK7HrZCs2M-p/preview",
         duration: "01h 25m",
-        genero: ["Animação", "Fantasia", "Aventura"]
+        genero: [gen.animacao, gen.fantasia, gen.aventura]
     },
     {
         background: background,
@@ -1219,7 +1220,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1wr4mLP1yi4aWkWD0xNgjedAH38nPHHy5/preview",
         duration: "01h 54m",
-        genero: ["Ação", "Comédia", "Netflix"]
+        genero: [gen.acao, gen.comedia, stm.netflix]
     },
     {
         background: background,
@@ -1231,7 +1232,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1m8NCHDLrJwF5id4vA9IQ1OOOrosFhqrN/preview",
         duration: "02h 07m",
-        genero: ["Ação", "Aventura", "Marvel", "Vilão"]
+        genero: [gen.acao, gen.aventura, agp.marvel, agp.vilian]
     },
     {
         background: background,
@@ -1243,7 +1244,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1_nZzMV4OQDjebGaBHJmsDhrMkBM11tFe/preview",
         duration: "01h 44m",
-        genero: ["Romance", "Comédia"]
+        genero: [gen.romance, gen.comedia]
     },
     {
         background: background,
@@ -1255,7 +1256,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/11ZwamcP3TxWCYR1xi4zpzZFb-9FnyhWJ/preview",
         duration: "01h 51m",
-        genero: ["Ação"]
+        genero: [gen.acao]
     },
     {
         background: background,
@@ -1267,7 +1268,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1-KPxkbUq8fvMP4CSTeCy1ORn5ZB_0YM5/preview",
         duration: "01h 31m",
-        genero: ["Terror", "Suspense"]
+        genero: [gen.terror, gen.suspense]
     },
     {
         background: background,
@@ -1279,7 +1280,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1UI67qgfkii2KJH4QpvA-tqaJBkqxdR-o/preview",
         duration: "02h 45m",
-        genero: ["Drama"]
+        genero: [gen.drama]
     },
     {
         background: background,
@@ -1291,7 +1292,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/16hg32ILfZXA_q2SQITpWsYTF2-_U_FaD/preview",
         duration: "01h 44m",
-        genero: ["Fantasia", "Romance", "Comédia"]
+        genero: [gen.fantasia, gen.romance, gen.comedia]
     },
     {
         background: background,
@@ -1303,7 +1304,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1S52ZfD9ukqQ6t7D4Abpp3Ht-8DcAnAMH/preview",
         duration: "01h 39m",
-        genero: ["Terror", "Comédia"]
+        genero: [gen.terror, gen.comedia]
     },
     {
         background: background,
@@ -1315,7 +1316,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1mwcazmg6d7mf3i19iFmdyoRjwGv9Q-g0/preview",
         duration: "01h 43m",
-        genero: ["Terror", "Suspense"]
+        genero: [gen.terror, gen.suspense]
     },
     {
         background: background,
@@ -1327,7 +1328,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/15Y3aYl-hBpDruTeRR58DtnSjJ1bSBfQV/preview",
         duration: "02h 58m",
-        genero: ["Romance", "Drama", "Fantasia"]
+        genero: [gen.romance, gen.drama, gen.fantasia]
     },
     {
         background: background,
@@ -1339,7 +1340,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1iroQJ1CBzdSN0Zondj6fVfwlb-RV7Uqe/preview",
         duration: "02h 32m",
-        genero: ["Drama", "Suspense"]
+        genero: [gen.drama, gen.suspense]
     },
     {
         background: background,
@@ -1351,7 +1352,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1OPFI8onZGhMG7D_SmmCbiiB_dwcS2RlZ/preview",
         duration: "01h 48m",
-        genero: ["Drama", "Romance"]
+        genero: [gen.drama, gen.romance]
     },
     {
         background: background,
@@ -1363,7 +1364,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1NTeLeOJWlHzjounEGHPvuyh6E8_nYGr6/preview",
         duration: "01h 58m",
-        genero: ["Drama", "Suspense"]
+        genero: [gen.drama, gen.suspense]
     },
     {
         background: background,
@@ -1375,7 +1376,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/11bpWmqk0tYiVPHTcLCbyOnLnQjxpVTDs/preview",
         duration: "01h 47m",
-        genero: ["Suspense"]
+        genero: [gen.suspense]
     },
     {
         background: background,
@@ -1387,7 +1388,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1-O9nrMlEJu6OF2QEYzAlf4kZ3bLavBqX/preview",
         duration: "01h 35m",
-        genero: ["Terror"]
+        genero: [gen.terror]
     },
     {
         background: background,
@@ -1399,7 +1400,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1DVwfMIdG1Sv7W0CJB-CwaIPUisqvYT7h/preview",
         duration: "01h 33m",
-        genero: ["Animação", "HBO", "DC", "Super Herói"]
+        genero: [gen.animacao, stm.hbo, agp.dc, agp.hero]
     },
     {
         background: background,
@@ -1411,7 +1412,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1XVlqRlGdppcPgAMdNIuTQODcFSI5Xj4O/preview",
         duration: "01h 34m",
-        genero: ["Animação", "HBO", "DC", "Super Herói"]
+        genero: [gen.animacao, stm.hbo, agp.dc, agp.hero]
     },
     {
         background: background,
@@ -1423,7 +1424,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1pdMFwvEASe1djfAXKVxXA_LhMMLGCa2A/preview",
         duration: "01h 38m",
-        genero: ["Animação", "HBO", "DC", "Super Herói"]
+        genero: [gen.animacao, stm.hbo, agp.dc, agp.hero]
     },
     {
         background: background,
@@ -1435,7 +1436,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1m7nznxVNwk49detO_hBqBTleTOftoA6t/preview",
         duration: "02h 16m",
-        genero: ["Ação", "Aventura", "Marvel", "Super Herói"]
+        genero: [gen.acao, gen.aventura, agp.marvel, agp.hero]
     },
     {
         background: background,
@@ -1447,7 +1448,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1ZpN5chX4RrBNgVqo3prIwkY9MWK0OuIu/preview",
         duration: "02h 21m",
-        genero: ["Ação", "Aventura", "Marvel", "Super Herói"]
+        genero: [gen.acao, gen.aventura, agp.marvel, agp.hero]
     },
     {
         background: background,
@@ -1459,7 +1460,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1ha1AUjf7yjO0H6aNTRXfWQwEyWIsW4F6/preview",
         duration: "01h 49m",
-        genero: ["Ação", "Drama"]
+        genero: [gen.acao, gen.drama]
     },
     {
         background: background,
@@ -1471,7 +1472,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1u7GHVdJTwxJVHgKl_P6NQa4Mlxo993Co/preview",
         duration: "02h 11m",
-        genero: ["Ação", "Drama"]
+        genero: [gen.acao, gen.drama]
     },
     {
         background: background,
@@ -1483,7 +1484,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1xk0-tWwi112PQAPJ8Vif2tyUZTospvAa/preview",
         duration: "02h 01m",
-        genero: ["Ação", "Marvel", "Super Herói"]
+        genero: [gen.acao, agp.marvel, agp.hero]
     },
     {
         background: background,
@@ -1495,7 +1496,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1WjbjmQYn46rMwASlme-xJNfNztqDX7sR/preview",
         duration: "02h 07m",
-        genero: ["Ação", "Marvel", "Super Herói"]
+        genero: [gen.acao, agp.marvel, agp.hero]
     },
     {
         background: background,
@@ -1507,7 +1508,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/17IzoyitCWZXyNX58bSnPdhdD4z9okfPK/preview",
         duration: "02h 19m",
-        genero: ["Ação", "Marvel", "Super Herói"]
+        genero: [gen.acao, agp.marvel, agp.hero]
     },
     {
         background: background,
@@ -1519,7 +1520,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/13Qb0TLPsHpMXK2LBR1GiDQ_XoX6U8G5K/preview",
         duration: "01h 50m",
-        genero: ["Ação", "Fantasia"]
+        genero: [gen.acao, gen.fantasia]
     },
     {
         background: background,
@@ -1531,7 +1532,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1W8yDLVUHjWg5Obygkrh7-fwSvX8zbmii/preview",
         duration: "01h 36m",
-        genero: ["Comédia", "Romance"]
+        genero: [gen.comedia, gen.romance]
     },
     {
         background: background,
@@ -1543,7 +1544,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/12kY1vt9-WRfYvdxdk7jqhCvsoYOHwrU6/preview",
         duration: "01h 55m",
-        genero: ["Drama"]
+        genero: [gen.drama]
     },
     {
         background: background,
@@ -1555,7 +1556,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1KgulYQgfW-ObVvNczFOZlIF1Cp-q17ez/preview",
         duration: "02h 07m",
-        genero: ["Aventura", "Ficção Científica"]
+        genero: [gen.aventura, gen.ficcao]
     },
     {
         background: background,
@@ -1567,7 +1568,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1QKIUMQWOtDqmdh4IjlVko29esGQNn5rK/preview",
         duration: "02h 09m",
-        genero: ["Aventura", "Ficção Científica"]
+        genero: [gen.aventura, gen.ficcao]
     },
     {
         background: background,
@@ -1579,7 +1580,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1GzkQtJp8DdZ_A8mX0JRJhU5tKpk0WO_x/preview",
         duration: "02h 08m",
-        genero: ["Aventura", "Ficção Científica"]
+        genero: [gen.aventura, gen.ficcao]
     },
     {
         background: background,
@@ -1591,7 +1592,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1sSd-Lc_UACdQjD5KG8OYCblhWu6mb7ct/preview",
         duration: "02h 27m",
-        genero: ["Aventura", "Ficção Científica"]
+        genero: [gen.aventura, gen.ficcao]
     },
     {
         background: background,
@@ -1603,7 +1604,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1WZXYpeDLlLuhMdTw9imeEHR1YVST73dj/preview",
         duration: "01h 40m",
-        genero: ["Aventura", "Comédia"]
+        genero: [gen.aventura, gen.comedia]
     },
     {
         background: background,
@@ -1615,7 +1616,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1gcEMadqmMpvzzwpkaEzOqxJEavK14wlv/preview",
         duration: "01h 34m",
-        genero: ["Comédia", "Netflix"]
+        genero: [gen.comedia, stm.netflix]
     },
     {
         background: background,
@@ -1627,7 +1628,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/14Hp1ub_hQDiI3f3g2uf-CKqNQUu7L6z8/preview",
         duration: "01h 39m",
-        genero: ["Drama", "Romance", "Netflix"]
+        genero: [gen.drama, gen.romance, stm.netflix]
     },
     {
         background: background,
@@ -1639,7 +1640,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1RNCS6zwCi--JEdnZe8LF6yeBjgOTwVg5/preview",
         duration: "01h 36m",
-        genero: ["Animação", "Comédia", "Disney+"]
+        genero: [gen.animacao, gen.comedia, stm.disney]
     },
     {
         background: background,
@@ -1651,7 +1652,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1YVfTPpERqPjRjOZwUI28LQ__NtSof1iE/preview",
         duration: "01h 35m",
-        genero: ["Drama", "Suspense"]
+        genero: [gen.drama, gen.suspense]
     },
     {
         background: background,
@@ -1663,7 +1664,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1VbL1k_mcnrvGPowsi2aofEJF1etMLv1a/preview",
         duration: "01h 49m",
-        genero: ["Ação"]
+        genero: [gen.acao]
     },
     {
         background: background,
@@ -1675,7 +1676,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/15jw-WrxslCfafrzeqVAgnucYBndmT-aZ/preview",
         duration: "01h 30m",
-        genero: ["Comédia", "Família"]
+        genero: [gen.comedia, agp.familia]
     },
     {
         background: background,
@@ -1687,7 +1688,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/10FrVH5A4hFXV3180FPIDzfJtE3V1kJY9/preview",
         duration: "03h 28m",
-        genero: ["Drama", "História"]
+        genero: [gen.drama, agp.historia]
     },
     {
         background: background,
@@ -1699,7 +1700,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1CT85Hs-t4qETI8kdcXWBvjybO6FDG32e/preview",
         duration: "01h 36m",
-        genero: ["Suspense"]
+        genero: [gen.suspense]
     },
     {
         background: background,
@@ -1711,7 +1712,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1LaeAbCGQH6lVxekG_kfi9gkzEyVBt0Xw/preview",
         duration: "02h 04m",
-        genero: ["Terror", "Suspense", "Drama"]
+        genero: [gen.terror, gen.suspense, gen.drama]
     },
     {
         background: background,
@@ -1723,7 +1724,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/103-BSC7ql4mHdKCGYWic7KZ7QSsdlRx8/preview",
         duration: "01h 38m",
-        genero: ["Animação", "Aventura"]
+        genero: [gen.animacao, gen.aventura]
     },
     {
         background: background,
@@ -1735,7 +1736,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1Yh1t1gPw9wo8cAYZwUQOJgbS0cZqXs9x/preview",
         duration: "01h 42m",
-        genero: ["Animação", "Aventura"]
+        genero: [gen.animacao, gen.aventura]
     },
     {
         background: background,
@@ -1747,7 +1748,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1dPtzGA7OBObbQmdIqpMuzMpMVGSLF0LZ/preview",
         duration: "01h 45m",
-        genero: ["Animação", "Aventura"]
+        genero: [gen.animacao, gen.aventura]
     },
     {
         background: background,
@@ -1759,7 +1760,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1dCkv-BTXOk23z_CUeIDkkMwaWjfvL4M1/preview",
         duration: "02h 54m",
-        genero: ["Suspense"]
+        genero: [gen.suspense]
     },
     {
         background: background,
@@ -1771,7 +1772,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1GsXKztYfD5VP7H9NB0v-5RqIVpvgYqXF/preview",
         duration: "02h 03m",
-        genero: ["Ação", "Drama"]
+        genero: [gen.acao, gen.drama]
     },
     {
         background: background,
@@ -1783,7 +1784,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1JNWl6jotp1x1tDWXuJwB7E80yEfIbzoS/preview",
         duration: "01h 45m",
-        genero: ["Comédia", "Romance", "Netflix"]
+        genero: [gen.comedia, gen.romance, stm.netflix]
     },
     {
         background: background,
@@ -1795,7 +1796,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1Dnjpj6aLcgU6-w1FFXTiJveDXSDQVtO0/preview",
         duration: "01h 22m",
-        genero: ["Comédia", "Fantasia"]
+        genero: [gen.comedia, gen.fantasia]
     },
     {
         background: background,
@@ -1807,7 +1808,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1SdJFXsH-0HB7s7coTY1p_KDr4NDNVQQv/preview",
         duration: "01h 38m",
-        genero: ["Animação", "COmédia"]
+        genero: [gen.animacao, gen.comedia]
     },
     {
         background: background,
@@ -1819,7 +1820,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1EWOC6pw_tHarnEVGNaHnw5C1ikPZFjhJ/preview",
         duration: "02h 02m",
-        genero: ["Drama", "Suspense"]
+        genero: [gen.drama, gen.suspense]
     },
     {
         background: background,
@@ -1831,7 +1832,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/19qJQm-7pcH8e67cSjH7rM028SrCH61Mb/preview",
         duration: "02h 16m",
-        genero: ["Ação", "Netflix"]
+        genero: [gen.acao, stm.netflix]
     },
     {
         background: background,
@@ -1843,7 +1844,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1HN0FO-0mHP4wZH3DwE6kUgSkKupXfPl9/preview",
         duration: "02h 03m",
-        genero: ["Ação", "Netflix"]
+        genero: [gen.acao, stm.netflix]
     },
     {
         background: background,
@@ -1855,7 +1856,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1h7N6nGximP8L0iGOOHTjqZfQSYzb4ryc/preview",
         duration: "01h 55m",
-        genero: ["Ação", "Aventura", "Ficção Científica"]
+        genero: [gen.acao, gen.aventura, gen.ficcao]
     },
     {
         background: background,
@@ -1867,7 +1868,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/18rEb3XQxfgwM3khF8aTf5lG9lsDu7AlQ/preview",
         duration: "01h 56m",
-        genero: ["Ação", "Aventura", "Fantasia"]
+        genero: [gen.acao, gen.aventura, gen.fantasia]
     },
     {
         background: background,
@@ -1879,7 +1880,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1O63vzykUOyWcMo6UDafjh_ZOi0Yic35r/preview",
         duration: "01h 56m",
-        genero: ["Ação", "Fantasia", "Marvel"]
+        genero: [gen.acao, gen.fantasia, agp.marvel]
     },
     {
         background: background,
@@ -1891,7 +1892,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1cCPP69F-h6P2ezSHrwP-6QtJEj4aC9bP/preview",
         duration: "02h 24m",
-        genero: ["Drama", "História", "Netflix"]
+        genero: [gen.drama, agp.historia, stm.netflix]
     },
     {
         background: background,
@@ -1903,7 +1904,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/112q-4CPrq5tP6eaqYYUa1b7rSJuJTX1S/preview",
         duration: "02h",
-        genero: ["Romance", "Drama", "Prime Video"]
+        genero: [gen.romance, gen.drama, stm.prime]
     },
     {
         background: background,
@@ -1915,7 +1916,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1WWTfp6fCG2pEDoOqn7vx7VK6DRTuGXNG/preview",
         duration: "02h 15m",
-        genero: ["Ação", "Drama", "História"]
+        genero: [gen.acao, gen.drama, agp.historia]
     },
     {
         background: background,
@@ -1927,7 +1928,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/192SCAl6E-QWXczclyXlqn5gtM9me3Y-8/preview",
         duration: "01h 42m",
-        genero: ["Romance", "Drama", "Comédia"]
+        genero: [gen.romance, gen.drama, gen.comedia]
     },
     {
         background: background,
@@ -1939,7 +1940,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1isx5biToHOgoqkR_bYPCzQZ2DhbuNHPb/preview",
         duration: "01h 58m",
-        genero: ["Terror", "Ação", "Suspense"]
+        genero: [gen.terror, gen.acao, gen.suspense]
     },
     {
         background: background,
@@ -1951,7 +1952,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1X8rq4Kx6LhDCfYJHz5W_oT28USYJdvBr/preview",
         duration: "01h 56m",
-        genero: ["Terror", "Ação", "Suspense"]
+        genero: [gen.terror, gen.acao, gen.suspense]
     },
     {
         background: background,
@@ -1963,7 +1964,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1qoOwJ0tdlvqnTNVXNpKCTLMKHeL3EITj/preview",
         duration: "02h 11m",
-        genero: ["Ação", "Ficção Científica", "Marvel", "Super Herói"]
+        genero: [gen.acao, gen.ficcao, agp.marvel, agp.hero]
     },
     {
         background: background,
@@ -1975,7 +1976,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1nM_v53Fa19K2bLhlc0GyDh2o-IhaYFZF/preview",
         duration: "02h 06m",
-        genero: ["Ação", "Ficção Científica", "Marvel", "Super Herói"]
+        genero: [gen.acao, gen.ficcao, agp.marvel, agp.hero]
     },
     {
         background: background,
@@ -1987,7 +1988,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/126ILFIiE1rXzCvwRcx5w_WXB5Hvs7evl/preview",
         duration: "02h 17m",
-        genero: ["Aventura", "Ficção Científica", "Ação"]
+        genero: [gen.aventura, gen.ficcao, gen.acao]
     },
     {
         background: background,
@@ -1999,7 +2000,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/13h9JF_Dzw082_Qz-cDTQtWdaNI2clKFw/preview",
         duration: "02h 30m",
-        genero: ["Ação", "Aventura", "Drama"]
+        genero: [gen.acao, gen.aventura, gen.drama]
     },
     {
         background: background,
@@ -2011,7 +2012,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1uPU11_FZVJ3WSzHk219Y8jB3oZzi8HVK/preview",
         duration: "01h 43m",
-        genero: ["Comédia", "Família"]
+        genero: [gen.comedia, agp.familia]
     },
     {
         background: background,
@@ -2023,7 +2024,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/11IAFVmZPibJ8e0i-y-ccPs3zlgmUsumN/preview",
         duration: "02h",
-        genero: ["Comédia", "Família", "Aventura"]
+        genero: [gen.comedia, agp.familia, gen.aventura]
     },
     {
         background: background,
@@ -2035,7 +2036,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1zJa4YNMVP93B1p4LReFUo-GbqBkDwPER/preview",
         duration: "01h 40m",
-        genero: ["Comédia", "Família", "Drama", "Netflix"]
+        genero: [gen.comedia, agp.familia, gen.drama, stm.netflix]
     },
     {
         background: background,
@@ -2047,7 +2048,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1hZf5v9_4Qun0sK_f9Dn0-72DiYWg-CxI/preview",
         duration: "2h 4m",
-        genero: ["Ação", "Comédia", "Fantasia"]
+        genero: [gen.acao, gen.comedia, gen.fantasia]
     },
     {
         background: background,
@@ -2059,7 +2060,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1ZISJzXKY38p4rmoJfnF1RSJbZb3Qv6Y-/preview",
         duration: "01h 37m",
-        genero: ["Terror", "Drama", "Suspense"]
+        genero: [gen.terror, gen.drama, gen.suspense]
     },
     {
         background: background,
@@ -2071,7 +2072,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1-MaDGaT2AUCi-6s_NDPt3HMLZZyauoT2/preview",
         duration: "1h 50m",
-        genero: ["Ação", "Ficção Científica", "Suspense", "Vilão", "Marvel"]
+        genero: [gen.acao, gen.ficcao, gen.suspense, agp.vilian, agp.marvel]
     },
     {
         background: background,
@@ -2083,7 +2084,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1OptM9vpaaH2vUHKreQRh8SwTPf2oIqcS/preview",
         duration: "01h 49m",
-        genero: ["Ação", "Suspense", "Ficção Científica"]
+        genero: [gen.acao, gen.suspense, gen.ficcao]
     },
     {
         background: background,
@@ -2095,7 +2096,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1EqzHviX68B8V7jA6ysQHbaCrUJ9L4No2/preview",
         duration: "02h 05m",
-        genero: ["Drama", "Romance", "Suspense"]
+        genero: [gen.drama, gen.romance, gen.suspense]
     },
     {
         background: background,
@@ -2107,7 +2108,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1cZ_2Nzn22CKN6XkWCkraMBStar5kvfSW/preview",
         duration: "01h 57m",
-        genero: ["Romance", "Drama", "Prime Video"]
+        genero: [gen.romance, gen.drama, stm.prime]
     },
     {
         background: background,
@@ -2119,7 +2120,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1tuNb0cr8I97Bz9yB1-Y0OUSaPBuaZQQ8/preview",
         duration: "02h 11m",
-        genero: ["Ação", "Aventura", "Ficção Científica"]
+        genero: [gen.acao, gen.aventura, gen.ficcao]
     },
     {
         background: background,
@@ -2131,7 +2132,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1XmKTsogaT9TbHPEm8VFNIt8_VYUuNkFS/preview",
         duration: "01h 32m",
-        genero: ["Comédia", "Terror"]
+        genero: [gen.comedia, gen.terror]
     },
     {
         background: background,
@@ -2143,7 +2144,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1AvesvcIU_OI1yl5f3VicOCpyN6ewpzWW/preview",
         duration: "01h 59m",
-        genero: ["Ação", "Mistério", "Suspense", "Netflix"]
+        genero: [gen.acao, agp.misterio, gen.suspense, stm.netflix]
     },
     {
         background: background,
@@ -2155,7 +2156,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1f1lxnyoV52QlzTB8C04NZJTcEV2u83aj/preview",
         duration: "01h 31m",
-        genero: ["Ficção Científica", "Suspense"]
+        genero: [gen.ficcao, gen.suspense]
     },
     {
         background: background,
@@ -2167,7 +2168,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1H1qcuMbKDqQy7-LFpsKXxjbi5FRGFIIF/preview",
         duration: "01h 24m",
-        genero: ["Ficção Científica", "Drama", "Suspense"]
+        genero: [gen.ficcao, gen.drama, gen.suspense]
     },
     {
         background: background,
@@ -2179,7 +2180,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/156kLJdR7qqLCIDyTFKnz-lWlYu6FFp0i/preview",
         duration: "02h 12m",
-        genero: ["Ação", "Comédia", "Aventura", "DC"]
+        genero: [gen.acao, gen.comedia, gen.aventura, agp.dc]
     },
     {
         background: background,
@@ -2191,7 +2192,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1kqmIEVHIZqcmzDvGAxME4bAqXsb6NCbM/preview",
         duration: "01h 44m",
-        genero: ["Drama", "Romance"]
+        genero: [gen.drama, gen.romance]
     },
     {
         background: background,
@@ -2203,7 +2204,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1g4teBAO__AXsvccEHc7rQzdMS2vNWMIt/preview",
         duration: "01 49m",
-        genero: ["Ação", "Comédia"]
+        genero: [gen.acao, gen.comedia]
     },
     {
         background: background,
@@ -2215,7 +2216,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1rLPtRosFBUXOoiWqR5j-lOiaamXHZS8o/preview",
         duration: "01h 52m",
-        genero: ["Ação", "Comédia"]
+        genero: [gen.acao, gen.comedia]
     },
     {
         background: background,
@@ -2227,7 +2228,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/18K_6YEqCUZ6p74bc7aLglYJdf8rOC8SK/preview",
         duration: "02h 11m",
-        genero: ["Ação", "Ficção Científica", "Aventura"]
+        genero: [gen.acao, gen.ficcao, gen.aventura]
     },
     {
         background: background,
@@ -2239,7 +2240,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1Osz7RdOHk3xHrBqpkWjXlFeCIdk5MUNc/preview",
         duration: "01h 51m",
-        genero: ["Ação", "Ficção Científica", "Aventura"]
+        genero: [gen.acao, gen.ficcao, gen.aventura]
     },
     {
         background: background,
@@ -2251,7 +2252,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1qdNz8Wb32WOyMcjmnj5J0KN65nMfjVH1/preview",
         duration: "01h 56m",
-        genero: ["Comédia", "Ação"]
+        genero: [gen.comedia, gen.acao]
     },
     {
         background: background,
@@ -2263,7 +2264,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1yOjITgGni814GEcwT9ZK5JZSwWa5y3L9/preview",
         duration: "01h 38m",
-        genero: ["Ação", "Comédia", "Romance"]
+        genero: [gen.acao, gen.comedia, gen.romance]
     },
     {
         background: background,
@@ -2275,7 +2276,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1DTYF3980y1leDfDdxdcPBmrPngmCSMLi/preview",
         duration: "01h 39m",
-        genero: ["Comédia"]
+        genero: [gen.comedia]
     },
     {
         background: background,
@@ -2287,7 +2288,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1m9PKJk9EdSNkDRjwe2VokyoJeAHLu-0M/preview",
         duration: "01h 49m",
-        genero: ["Ação", "Comédia"]
+        genero: [gen.acao, gen.comedia]
     },
     {
         background: background,
@@ -2299,7 +2300,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1tyIAlW0tSUJys2nvksu1f6FpIN1xzX3I/preview",
         duration: "01h 44m",
-        genero: ["Música", "Drama", "Romance"]
+        genero: [agp.music, gen.drama, gen.romance]
     },
     {
         background: background,
@@ -2311,7 +2312,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1cPGyDM1d8wNnMIesRTymzCzV8SliJDf9/preview",
         duration: "01h 47m",
-        genero: ["Música", "Drama", "Romance"]
+        genero: [agp.music, gen.drama, gen.romance]
     },
     {
         background: background,
@@ -2323,7 +2324,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1YWowTZ3Na1vlfJJd2FmSADIufRK3zmEm/preview",
         duration: "01h 25m",
-        genero: ["Animação", "Drama"]
+        genero: [gen.animacao, gen.drama]
     },
     {
         background: background,
@@ -2335,7 +2336,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1IV66dZ4VtV3KpM6b2c9Km1vdjSQD_JJf/preview",
         duration: "01h 41m",
-        genero: ["Animação", "Ficção Científica", "Família"]
+        genero: [gen.animacao, gen.ficcao, agp.familia]
     },
     {
         background: background,
@@ -2347,7 +2348,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1Wt-df5-WvRLYe5o9XWCcIwfwCtnaWr-l/preview",
         duration: "02h 02m",
-        genero: ["Drama", "Romance", "Ação", "Fantasia"]
+        genero: [gen.drama, gen.romance, gen.acao, gen.fantasia]
     },
     {
         background: background,
@@ -2359,7 +2360,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1u7M32-1c9CzDAIHIWG1tkEf7V69YoCgn/preview",
         duration: "02h 11m",
-        genero: ["Drama", "Romance", "Ação", "Fantasia"]
+        genero: [gen.drama, gen.romance, gen.acao, gen.fantasia]
     },
     {
         background: background,
@@ -2371,7 +2372,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1MFNeYyahEiN06MoRN5p4nOOdkGR2L38K/preview",
         duration: "02h 03m",
-        genero: ["Drama", "Romance", "Ação", "Fantasia"]
+        genero: [gen.drama, gen.romance, gen.acao, gen.fantasia]
     },
     {
         background: background,
@@ -2383,7 +2384,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1K4ht0Grc-YWx75YBIx93zVGEzM9FkNss/preview",
         duration: "01h 57m",
-        genero: ["Drama", "Romance", "Ação", "Fantasia"]
+        genero: [gen.drama, gen.romance, gen.acao, gen.fantasia]
     },
     {
         background: background,
@@ -2395,7 +2396,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1aOZithdzfij02EbyMFrMsWyD4L1xpXQ-/preview",
         duration: "01h 55m",
-        genero: ["Drama", "Romance", "Ação", "Fantasia"]
+        genero: [gen.drama, gen.romance, gen.acao, gen.fantasia]
     },
     {
         background: background,
@@ -2407,7 +2408,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/14Qh1W-eJKgqd4AIM3C6_F8ksevRC3Wyn/preview",
         duration: "01h 47m",
-        genero: ["Ação", "Suspense", "Ficção Científica"]
+        genero: [gen.acao, gen.suspense, gen.ficcao]
     },
     {
         background: background,
@@ -2419,7 +2420,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/14VTaPADqT5sRTg52lJI4XlQCwYYRc0Kk/preview",
         duration: "02h 16m",
-        genero: ["Ação", "Suspense", "Ficção Científica"]
+        genero: [gen.acao, gen.suspense, gen.ficcao]
     },
     {
         background: background,
@@ -2431,7 +2432,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1hpqA4j6wzcHNWeBVWYlBEXa5sPKWEyZ4/preview",
         duration: "01h 49m",
-        genero: ["Ação", "Suspense", "Ficção Científica"]
+        genero: [gen.acao, gen.suspense, gen.ficcao]
     },
     {
         background: background,
@@ -2443,7 +2444,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1wSN-oI1DfGGgy2PotfGvABuWt63bk-vu/preview",
         duration: "01h 43m",
-        genero: ["Comédia", "Romance"]
+        genero: [gen.comedia, gen.romance]
     },
     {
         background: background,
@@ -2455,7 +2456,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1k1n_m3-61fqFhA-fTWUrU7GocGxMCX_E/preview",
         duration: "1h 28m",
-        genero: ["Animação", "Ação", "DC", "Super Herói"]
+        genero: [gen.animacao, gen.acao, agp.dc, agp.hero]
     },
     {
         background: background,
@@ -2467,7 +2468,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1M6yZrgpig_Jd_4QwayqrPWd3q54OjpVY/preview",
         duration: "01h 15m",
-        genero: ["Animação", "Ação", "DC", "Super Herói"]
+        genero: [gen.animacao, gen.acao, agp.dc, agp.hero]
     },
     {
         background: background,
@@ -2479,7 +2480,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1oVIFQyCc-Eg3xMFNE1tvaoyKDOfEjUIg/preview",
         duration: "02h 23m",
-        genero: ["Ação", "Ficção Científica", "DC", "Super Herói"]
+        genero: [gen.acao, gen.ficcao, agp.dc, agp.hero]
     },
     {
         background: background,
@@ -2491,7 +2492,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1YfL51rZJs0heg3_pa2X9U6SiJc6hzn_A/preview",
         duration: "02h 11m",
-        genero: ["Ação", "Comédia", "Fantasia", "DC", "Super Herói"]
+        genero: [gen.acao, gen.comedia, gen.fantasia, agp.dc, agp.hero]
     },
     {
         background: background,
@@ -2503,7 +2504,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1YqMmWVbDqqOZD8zW0pH84Ig5H4wiTJsA/preview",
         duration: "02h 10m",
-        genero: ["Ação", "Comédia", "Fantasia", "DC", "Super Herói"]
+        genero: [gen.acao, gen.comedia, gen.fantasia, agp.dc, agp.hero]
     },
     {
         background: background,
@@ -2515,7 +2516,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1D50ed4DM8tIXexqT40osxSeQUII0ymAw/preview",
         duration: "02h 12m",
-        genero: ["Ação", "Suspense"]
+        genero: [gen.acao, gen.suspense]
     },
     {
         background: background,
@@ -2527,7 +2528,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1aHVoN-kWxIvdQBi9a6OMSqXws7q674Cr/preview",
         duration: "01h 47m",
-        genero: ["Animação", "Aventura", "Comédia", "Família", "Disney+"]
+        genero: [gen.animacao, gen.aventura, gen.comedia, agp.familia, stm.disney]
     },
     {
         background: background,
@@ -2539,7 +2540,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1APK3Dooc7XKUK8mj50y_KzqBRUeFBc4k/preview",
         duration: "01h 40m",
-        genero: ["Animação", "Aventura", "Comédia", "Família", "Disney+"]
+        genero: [gen.animacao, gen.aventura, gen.comedia, agp.familia, stm.disney]
     },
     {
         background: background,
@@ -2551,7 +2552,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1BYOPD_RkV_iUtaa1fuTbeJl8zX0Bi6_K/preview",
         duration: "02h 2m",
-        genero: ["Ação", "suspense"]
+        genero: [gen.acao, gen.suspense]
     },
     {
         background: background,
@@ -2563,7 +2564,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1hpvwxQPYuqL2cGtUGwQfMTac_Hhq_wfW/preview",
         duration: "01h 46m",
-        genero: ["Ação", "Suspense", "Fantasia"]
+        genero: [gen.acao, gen.suspense, gen.fantasia]
     },
     {
         background: background,
@@ -2575,7 +2576,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1mndP4HmPJetdUHhySmcSaZzKZPB_MSwN/preview",
         duration: "01h 32m",
-        genero: ["Ação", "Suspense", "Fantasia"]
+        genero: [gen.acao, gen.suspense, gen.fantasia]
     },
     {
         background: background,
@@ -2587,7 +2588,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1-XTa7qZbC2_7P93BW0cIPe_WuY1Ffvu7/preview",
         duration: "01h 28m",
-        genero: ["Ação", "Suspense", "Fantasia"]
+        genero: [gen.acao, gen.suspense, gen.fantasia]
     },
     {
         background: background,
@@ -2599,7 +2600,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1mRQeOCScsOPPibZ58dEtLNapujtW3a_G/preview",
         duration: "01h 31m",
-        genero: ["Ação", "Suspense", "Fantasia"]
+        genero: [gen.acao, gen.suspense, gen.fantasia]
     },
     {
         background: background,
@@ -2611,7 +2612,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1i9PdparxdZ7y--cArW3ygmqPGIzvjQb7/preview",
         duration: "01h 27m",
-        genero: ["Romance", "Comédia", "Netflix"]
+        genero: [gen.romance, gen.comedia, stm.netflix]
     },
     {
         background: background,
@@ -2623,7 +2624,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1MwHHRo90n0S9kJgYWVp-ML0klQKFktus/preview",
         duration: "02h 16m",
-        genero: ["Romance", "Comédia"]
+        genero: [gen.romance, gen.comedia]
     },
     {
         background: background,
@@ -2635,7 +2636,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/171g_qMcenVTzJe8fMTmhqpDKqxMJqwDr/preview",
         duration: "01h 45m",
-        genero: ["Romance", "Comédia"]
+        genero: [gen.romance, gen.comedia]
     },
     {
         background: background,
@@ -2647,7 +2648,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1VreVszWD_Fck9sifKg9UBwFhJ15W4llD/preview",
         duration: "01h 40m",
-        genero: ["Aventura", "Família", "Fantasia"]
+        genero: [gen.aventura, agp.familia, gen.fantasia]
     },
     {
         background: background,
@@ -2659,7 +2660,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1xI8m4tiynXDs_MR_cP18Ay4HWsKruCWn/preview",
         duration: "01h 45m",
-        genero: ["Ficção Científica", "Suspense"]
+        genero: [gen.ficcao, gen.suspense]
     },
     {
         background: background,
@@ -2671,7 +2672,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1PNyKuzHZuq5l_j0FcDbDBCZ0PdOiwP7l/preview",
         duration: "02h 24m",
-        genero: ["Ação", "Ficção Científica", "Aventura"]
+        genero: [gen.acao, gen.ficcao, gen.aventura]
     },
     {
         background: background,
@@ -2683,7 +2684,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1V5lsSG168ktOAJt1fJbp2nXKQ8ld3Fwu/preview",
         duration: "02h 30m",
-        genero: ["Ação", "Ficção Científica", "Aventura"]
+        genero: [gen.acao, gen.ficcao, gen.aventura]
     },
     {
         background: background,
@@ -2695,7 +2696,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1V8EO0jLc4bZVUhnM-KcG2ouuBtw1_X41/preview",
         duration: "02h 34m",
-        genero: ["Ação", "Ficção Científica", "Aventura"]
+        genero: [gen.acao, gen.ficcao, gen.aventura]
     },
     {
         background: background,
@@ -2707,7 +2708,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1Cver5wp3r8hlVodu7EQktmLoXEAzfWn1/preview",
         duration: "02h 47m",
-        genero: ["Ação", "Ficção Científica", "Aventura"]
+        genero: [gen.acao, gen.ficcao, gen.aventura]
     },
     {
         background: background,
@@ -2719,7 +2720,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1juDMzSP8wYEOjMKlggalzu8KXpbNHunY/preview",
         duration: "02h 29m",
-        genero: ["Ação", "Ficção Científica"]
+        genero: [gen.acao, gen.ficcao]
     },
     {
         background: background,
@@ -2731,7 +2732,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1N0oQ253pRmygRT91DNS3yXzmsyDJ0tQs/preview",
         duration: "02h 09m",
-        genero: ["Suspense", "Drama", "Ficção Científica"]
+        genero: [gen.suspense, gen.drama, gen.ficcao]
     },
     {
         background: background,
@@ -2743,7 +2744,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/141PZRbvqm2NGItVcGAHcFr_Gjn315At_/preview",
         duration: "01h 43m",
-        genero: ["Suspense", "Drama", "Crime", "Prime Video", "Nacional"]
+        genero: [gen.suspense, gen.drama, agp.crime, stm.prime, agp.nacional]
     },
     {
         background: background,
@@ -2755,7 +2756,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1PMg83KnsyHBnlwO5BedWXbyxgMQYU4kR/preview",
         duration: "01h 57m",
-        genero: ["Drama"]
+        genero: [gen.drama]
     },
     {
         background: background,
@@ -2767,7 +2768,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1nHCBgGBv98Prx0qhet0wMtZuhuAOANJf/preview",
         duration: "02h 26m",
-        genero: ["Terror", "Suspense"]
+        genero: [gen.terror, gen.suspense]
     },
     {
         background: background,
@@ -2779,7 +2780,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1OY4u4D5zOnRDuM42aCqY1W_ELibE5__J/preview",
         duration: "01h 36m",
-        genero: ["Comédia", "Terror"]
+        genero: [gen.comedia, gen.terror]
     },
     {
         background: background,
@@ -2791,7 +2792,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/10LuHLwj9FuUhJRS48OgpcwAgcxvqj_-I/preview",
         duration: "02h 05m",
-        genero: ["Ação", "Aventura", "Ficção Científica", "Vilão", "DC"]
+        genero: [gen.acao, gen.aventura, gen.ficcao, agp.vilian, agp.dc]
     },
     {
         background: background,
@@ -2803,7 +2804,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1ZXfbzyQ_NsC2oJWkUxn4kuRCKkW6q_UL/preview",
         duration: "01h 28m",
-        genero: ["Ação", "Ficção Científica"]
+        genero: [gen.acao, gen.ficcao]
     },
     {
         background: background,
@@ -2815,7 +2816,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1DpZzrI0cfmsuRPo3Ues0yEE2F_1-3GMY/preview",
         duration: "02h 19m",
-        genero: ["Drama"]
+        genero: [gen.drama]
     },
     {
         background: background,
@@ -2827,7 +2828,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1jkKhEUMBcYwvCh4jLM6JyQ_u7GlkhKOq/preview",
         duration: "01h 46m",
-        genero: ["Ficção Científica", "Suspense"]
+        genero: [gen.ficcao, gen.suspense]
     },
     {
         background: background,
@@ -2839,7 +2840,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1cm9iOdc2K-r_RXXZLPPLRiSIpkT_HyV6/preview",
         duration: "02h 46m",
-        genero: ["Ficção Científica", "Aventura"]
+        genero: [gen.ficcao, gen.aventura]
     },
     {
         background: background,
@@ -2851,7 +2852,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1RH8McZfzM-M7qpy9xwf6kHHkx-cPAyrh/preview",
         duration: "01h 45m",
-        genero: ["Drama", "Suspense", "Crime", "Legendado"]
+        genero: [gen.drama, gen.suspense, agp.crime, lang.leg]
     },
     {
         background: background,
@@ -2863,7 +2864,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1ScOq8x81nLl9xq-bp8oFDVvQ2vxHNlXk/preview",
         duration: "01h 47m",
-        genero: ["Ação", "Suspense", "Netflix"]
+        genero: [gen.acao, gen.suspense, stm.netflix]
     },
     {
         background: background,
@@ -2875,7 +2876,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1eWs9e3c10KzBbqB-SEXqIqafAkupOICw/preview",
         duration: "01h 37m",
-        genero: ["Comédia", "Romance"]
+        genero: [gen.comedia, gen.romance]
     },
     {
         background: background,
@@ -2887,7 +2888,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1kVrUqtm3_dKhDlRL2p8QPCvM0OaFd52k/preview",
         duration: "01h 26m",
-        genero: ["Comédia", "Terror"]
+        genero: [gen.comedia, gen.terror]
     },
     {
         background: background,
@@ -2899,7 +2900,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1-6oJixCyZFKuGwW6X7ZphCdlOM0515hu/preview",
         duration: "01h 27m",
-        genero: ["Comédia", "Terror"]
+        genero: [gen.comedia, gen.terror]
     },
     {
         background: background,
@@ -2911,7 +2912,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1DU5PeeLVYtvm56IToYsCt_fqoZt26NCr/preview",
         duration: "02h 06m",
-        genero: ["Ação", "Comédia", "Suspense"]
+        genero: [gen.acao, gen.comedia, gen.suspense]
     },
     {
         background: background,
@@ -2923,7 +2924,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1vUw9uJMFL2KTquIsLNl3NB9h4j05okTh/preview",
         duration: "02h 15m",
-        genero: ["Aventura", "Ação", "Drama"]
+        genero: [gen.aventura, gen.acao, gen.drama]
     },
     {
         background: background,
@@ -2935,7 +2936,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1gE79P_3Iz92ER0rqepB_AdhgH7D-3hh4/preview",
         duration: "01h 42m",
-        genero: ["Suspense", "Drama", "Crime"]
+        genero: [gen.suspense, gen.drama, agp.crime]
     },
     {
         background: background,
@@ -2947,7 +2948,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1pixT3Elg2dM7YrUwf_AtnULs8N6lPWQM/preview",
         duration: "02h 09m",
-        genero: ["Aventura", "Fantasia", "Família", "Disney+"]
+        genero: [gen.aventura, gen.fantasia, agp.familia, stm.disney]
     },
     {
         background: background,
@@ -2959,7 +2960,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1TMmw3r2G8asR2c5W-ThYYRa1pmzdKJSi/preview",
         duration: "02h 08m",
-        genero: ["Ação", "Comédia", "Marvel"]
+        genero: [gen.acao, gen.comedia, agp.marvel]
     },
     {
         background: background,
@@ -2971,7 +2972,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/12N4I3FFT5oci5RKjbsxz6zNwdVSU2FfG/preview",
         duration: "1h 37m",
-        genero: ["Comédia", "Drama"]
+        genero: [gen.comedia, gen.drama]
     },
     {
         background: background,
@@ -2983,7 +2984,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/14OQvZiOiVHGO1WqMHvy3oQTqL73yNiGr/preview",
         duration: "02h 4m",
-        genero: ["Suspense", "Ficção Científica", "Terror"]
+        genero: [gen.suspense, gen.ficcao, gen.terror]
     },
     {
         background: background,
@@ -2995,7 +2996,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1lESCkSNXSDPnEBgZwKuRh_CaLULhKlMg/preview",
         duration: "1h 59m",
-        genero: ["Ação", "Drama", "Terror", "Prime Video"]
+        genero: [gen.acao, gen.drama, gen.terror, stm.prime]
     },
     {
         background: background,
@@ -3007,7 +3008,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1-pwEqettHXrCnQgzLGpCGg2VMLwZ5l2j/preview",
         duration: "01h 50m",
-        genero: ["Terror"]
+        genero: [gen.terror]
     },
     {
         background: background,
@@ -3019,7 +3020,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1-soWYT8rCYC53wbCVFajFUnnw3oOlExE/preview",
         duration: "01h 37m",
-        genero: ["Terror"]
+        genero: [gen.terror]
     },
     {
         background: background,
@@ -3031,7 +3032,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/101gifGYCnr7NGI1EjC4V_v21-3c2dLIL/preview",
         duration: "01h 30m",
-        genero: ["Terror", "Suspense"]
+        genero: [gen.terror, gen.suspense]
     },
     {
         background: background,
@@ -3043,7 +3044,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1QOIM5334sIJPKKCASGntWJ2qKJcljcXv/preview",
         duration: "01h 31m",
-        genero: ["Terror", "Ficção Científica", "Suspense", "Netflix", "Legendado"]
+        genero: [gen.terror, gen.ficcao, gen.suspense, stm.netflix, lang.leg]
     },
     {
         background: background,
@@ -3055,7 +3056,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1TYTeEmBQ567nyTv_6ojuZO4YIKaLUpE0/preview",
         duration: "1h 31m",
-        genero: ["Comédia"]
+        genero: [gen.comedia]
     },
     {
         background: background,
@@ -3067,7 +3068,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1AYZtSyrgH3d6rsZzihr6_rFaLpkSJlco/preview",
         duration: "01h 22m",
-        genero: ["Comédia"]
+        genero: [gen.comedia]
     },
     {
         background: background,
@@ -3079,7 +3080,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1R9yX-tC4M0GeotaSiFh0d_veFNTr4nAW/preview",
         duration: "01h 24m",
-        genero: ["Comédia"]
+        genero: [gen.comedia]
     },
     {
         background: background,
@@ -3091,7 +3092,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/189DJav36HaCQYdy55nCDch9RM6nPkRyJ/preview",
         duration: "01h 23m",
-        genero: ["Comédia"]
+        genero: [gen.comedia]
     },
     {
         background: background,
@@ -3103,7 +3104,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1JhoafsdxauQaZVSZaaYFwrh2pG9MD2wt/preview",
         duration: "01h 26m",
-        genero: ["Comédia"]
+        genero: [gen.comedia]
     },
     {
         background: background,
@@ -3115,7 +3116,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1lkjfXsyWRcl3gErihHBLUUC2nrUSR3a-/preview",
         duration: "1h 55m",
-        genero: ["Comédia", "Família"]
+        genero: [gen.comedia, agp.familia]
     },
     {
         background: background,
@@ -3127,7 +3128,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1pU6uUNM8L8NhZDOPE9yhWCyyEuSwHQE4/preview",
         duration: "1h 48m",
-        genero: ["Comédia", "Romance", "Drama"]
+        genero: [gen.comedia, gen.romance, gen.drama]
     },
     {
         background: background,
@@ -3139,7 +3140,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1-ZFgzI5kUOCFLa0WE_wu0MdWnxO6M7UB/preview",
         duration: "1h 37m",
-        genero: ["Ficção Científica", "Ação", "Marvel", "Vilão"]
+        genero: [gen.ficcao, gen.acao, agp.marvel, agp.vilian]
     },
     {
         background: background,
@@ -3151,7 +3152,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1FsRW_yB9-5nMenvqh0xuvNgkq6Qxw8Ku/preview",
         duration: "1h 45m",
-        genero: ["Comédia", "Romance", "Drama"]
+        genero: [gen.comedia, gen.romance, gen.drama]
     },
     {
         background: background,
@@ -3163,7 +3164,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1-a1KEcZ-A-OyYfphOOZerZMdjzu3szF2/preview",
         duration: "1h 29m",
-        genero: ["Drama", "Suspense", "Crime"]
+        genero: [gen.drama, gen.suspense, agp.crime]
     },
     {
         background: background,
@@ -3175,7 +3176,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/10B3bgA-7mLoPV_ZxrXNl5ZOnPfkyzciC/preview",
         duration: "02h 07m",
-        genero: ["Ação", "Ficção Científica", "Aventura", "DC", "Super Herói"]
+        genero: [gen.acao, gen.ficcao, gen.aventura, agp.dc, agp.hero]
     },
     {
         background: background,
@@ -3187,7 +3188,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1ERuwNyxxJvJkuvfaoM2FkB13EYvBRzkM/preview",
         duration: "01h 31m",
-        genero: ["Romance", "Comédia"]
+        genero: [gen.romance, gen.comedia]
     },
     {
         background: background,
@@ -3199,7 +3200,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1-OUqhNOcup2R_RAa6a1CFPkSZoN9oap2/preview",
         duration: "02h 02m",
-        genero: ["Romance", "Drama"]
+        genero: [gen.romance, gen.drama]
     },
     {
         background: background,
@@ -3211,7 +3212,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1HLe1OarpmfR0y845F-Zk_hMHpCSQiEpb/preview",
         duration: "02h 03m",
-        genero: ["Drama"]
+        genero: [gen.drama]
     },
     {
         background: background,
@@ -3223,7 +3224,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1-2EJiiDPM3Rd2FgJhG_o7PLiTfOaQ-K5/preview",
         duration: "01h 03m",
-        genero: ["Animação", "Fantasia"]
+        genero: [gen.animacao, gen.fantasia]
     },
     {
         background: background,
@@ -3235,7 +3236,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1-CwuYkNt3wqr8DJbGCyHJtgsHr4_DkYS/preview",
         duration: "01h 55m",
-        genero: ["Terror", "Mistério"]
+        genero: [gen.terror, agp.misterio]
     },
     {
         background: background,
@@ -3247,7 +3248,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1cQV5girPp5eRR7PvbFBjSGjUNRjJKla5/preview",
         duration: "01h 45m",
-        genero: ["Ação", "Suspense"]
+        genero: [gen.acao, gen.suspense]
     },
     {
         background: background,
@@ -3259,7 +3260,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1ZekuxgvqrRadOnbOXmiFBoampxnbjooO/preview",
         duration: "02h 3m",
-        genero: ["Ação", "Suspense"]
+        genero: [gen.acao, gen.suspense]
     },
     {
         background: background,
@@ -3271,7 +3272,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1lxEwEhCcNoYcMjaKYwZIQz7hMAJz7cKR/preview",
         duration: "02h 06m",
-        genero: ["Ação", "Suspense"]
+        genero: [gen.acao, gen.suspense]
     },
     {
         background: background,
@@ -3283,7 +3284,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/12T-5BbxVs-mIa2jaV3EvQApAXYoR2D-c/preview",
         duration: "02h 13m",
-        genero: ["Ação", "Suspense"]
+        genero: [gen.acao, gen.suspense]
     },
     {
         background: background,
@@ -3295,7 +3296,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1bpZL-uyqCa0JbP9_S4gRycsMokegIdc_/preview",
         duration: "02h 11m",
-        genero: ["Ação", "Suspense"]
+        genero: [gen.acao, gen.suspense]
     },
     {
         background: background,
@@ -3307,7 +3308,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1CkwxZBw1afdvc9mAPY4wcYdPFM5vMDwl/preview",
         duration: "02h 27m",
-        genero: ["Ação", "Suspense"]
+        genero: [gen.acao, gen.suspense]
     },
     {
         background: background,
@@ -3319,7 +3320,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1rZk9_kOnvW1xBkhQ7_hXr2SKCgIY8cbN/preview",
         duration: "2h 43m",
-        genero: ["Ação", "Suspense"]
+        genero: [gen.acao, gen.suspense]
     },
     {
         background: background,
@@ -3331,7 +3332,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1-NRs0n39k6JqyIZqhOF3BrhSYz9SEbXL/preview",
         duration: "1h 42m",
-        genero: ["Mistério", "Suspense", "Terror"]
+        genero: [agp.misterio, gen.suspense, gen.terror]
     },
     {
         background: background,
@@ -3343,7 +3344,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1x_ZzPvpBcX8tfl5DWsXA7wC-8RZNXo4P/preview",
         duration: "01h 45m",
-        genero: ["Comédia", "Terror", "Fantasia"]
+        genero: [gen.comedia, gen.terror, gen.fantasia]
     },
     {
         background: background,
@@ -3355,7 +3356,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1SN9O_qNaOOPUe2X-4-tTq-bE1wvpUZ7h/preview",
         duration: "01h 44m",
-        genero: ["Suspense", "Mistério", "Terror"]
+        genero: [gen.suspense, agp.misterio, gen.terror]
     },
     {
         background: background,
@@ -3367,7 +3368,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1Vaet3DZ5FEvZilLBH2A842csdpTNSEs6/preview",
         duration: "01h 53m",
-        genero: ["Ação", "Aventura", "Drama"]
+        genero: [gen.acao, gen.aventura, gen.drama]
     },
     {
         background: background,
@@ -3379,7 +3380,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1pyYz0er2ICNoiNe3ouvRrrBwImRnuarj/preview",
         duration: "01h 43m",
-        genero: ["Terror", "Mistério", "Ficção Científica"]
+        genero: [gen.terror, agp.misterio, gen.ficcao]
     },
     {
         background: background,
@@ -3391,7 +3392,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1-A3FL_qpOmjbQqrJg4XhuQS_zjuIhDJC/preview",
         duration: "01h 59m",
-        genero: ["Ficção Científica", "Terror", "Ação", "Legendado"]
+        genero: [gen.ficcao, gen.terror, gen.acao, lang.leg]
     },
     {
         background: background,
@@ -3403,7 +3404,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1ljWSfpekibV4TA9NvbJvtPGxEGPn4Hmm/preview",
         duration: "01h 38m",
-        genero: ["Ação", "Comédia", "Crime", "Netflix"]
+        genero: [gen.acao, gen.comedia, agp.crime, stm.netflix]
     },
     {
         background: background,
@@ -3415,7 +3416,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1y3S46xyxHjmStGH0sgY77g1IRQM0P3uD/preview",
         duration: "02h 21m",
-        genero: ["Ação", "Aventura", "DC", "Super Herói"]
+        genero: [gen.acao, gen.aventura, agp.dc, agp.hero]
     },
     {
         background: background,
@@ -3427,7 +3428,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1vviFXYhmA7aYO9WMVmZkwHbMYhmNCgeV/preview",
         duration: "01h 53m",
-        genero: ["Terror", "Suspense"]
+        genero: [gen.terror, gen.suspense]
     },
     {
         background: background,
@@ -3439,7 +3440,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1ceY14I9bymYsrVg6GzvboBX4JKWRZae_/preview",
         duration: "02h 12m",
-        genero: ["Suspense", "Fantasia"]
+        genero: [gen.suspense, gen.fantasia]
     },
     {
         background: background,
@@ -3451,7 +3452,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1T4GtgKxnX9NVSh0hRoAafIL1sSYlymTV/preview",
         duration: "01h 44m",
-        genero: ["Terror", "Ficção Científica", "Netflix"]
+        genero: [gen.terror, gen.ficcao, stm.netflix]
     },
     {
         background: background,
@@ -3463,7 +3464,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/19Q7i42OS3osU7zN8MV7rKlZSWRfE3bzW/preview",
         duration: "02h 22m",
-        genero: ["Ação", "Aventura", "Ficção Científica", "Marvel", "Super Herói"]
+        genero: [gen.acao, gen.aventura, gen.ficcao, agp.marvel, agp.hero]
     },
     {
         background: background,
@@ -3475,7 +3476,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/15Qlug1QCcNTIVVeCWNQt307h7r55DqaA/preview",
         duration: "02h 21m",
-        genero: ["Ação", "Ficção Científica", "Marvel", "Super Herói"]
+        genero: [gen.acao, gen.ficcao, agp.marvel, agp.hero]
     },
     {
         background: background,
@@ -3487,7 +3488,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1qcY6kW-GOUtATg03Xv4BpFhRg-xoQsvr/preview",
         duration: "02h 27m",
-        genero: ["Ação", "Aventura", "Marvel", "Super Herói"]
+        genero: [gen.acao, gen.aventura, agp.marvel, agp.hero]
     },
     {
         background: background,
@@ -3499,7 +3500,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/17CYGqHXnGhl6f2qFleWdYVR9v-9TUwMO/preview",
         duration: "02h 16m",
-        genero: ["Ação", "Aventura", "Ficção Científica", "Marvel", "Super Herói"]
+        genero: [gen.acao, gen.aventura, gen.ficcao, agp.marvel, agp.hero]
     },
     {
         background: background,
@@ -3511,7 +3512,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1uMSu3oOJB6bmGVLQk8ZDeTf7uhgL1vtA/preview",
         duration: "02h 10m",
-        genero: ["Ação", "Ficção Científica", "Fantasia", "Marvel", "Super Herói"]
+        genero: [gen.acao, gen.ficcao, gen.fantasia, agp.marvel, agp.hero]
     },
     {
         background: background,
@@ -3523,7 +3524,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1lezsWVyBagXi2lNlqNuRMrIpUu0ZiA-e/preview",
         duration: "01h 52m",
-        genero: ["Ação", "Fantasia", "Marvel", "Super Herói"]
+        genero: [gen.acao, gen.fantasia, agp.marvel, agp.hero]
     },
     {
         background: background,
@@ -3535,7 +3536,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1OON3LmVgkfSeVA71aoK5jjSiaHBQ0-FY/preview",
         duration: "01h 54m",
-        genero: ["Ação", "Fantasia", "Marvel", "Super Herói"]
+        genero: [gen.acao, gen.fantasia, agp.marvel, agp.hero]
     },
     {
         background: background,
@@ -3547,7 +3548,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1oldqmxAHWOwfQl9EcGZLWebWLWf19JP5/preview",
         duration: "02h 13m",
-        genero: ["Ação", "Ficção Científica", "Marvel", "Super Herói"]
+        genero: [gen.acao, gen.ficcao, agp.marvel, agp.hero]
     },
     {
         background: background,
@@ -3559,7 +3560,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1FEsFOIZ1dVugdYIiSOXjloR5s7YzY_-7/preview",
         duration: "02h 06m",
-        genero: ["Ação", "Ficção Científica", "Marvel", "Super Herói"]
+        genero: [gen.acao, gen.ficcao, agp.marvel, agp.hero]
     },
     {
         background: background,
@@ -3571,7 +3572,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1jpdZy3b-lHbDVfokFYSUdjD-NBwMv4vy/preview",
         duration: "02h 04m",
-        genero: ["Ação", "Ficção Científica", "Marvel", "Super Herói"]
+        genero: [gen.acao, gen.ficcao, agp.marvel, agp.hero]
     },
     {
         background: background,
@@ -3583,7 +3584,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1DZZ4XcPivPBR1n1A17TKRvPqJphTJzW9/preview",
         duration: "01h 30m",
-        genero: ["Terror", "Ficção Científica"]
+        genero: [gen.terror, gen.ficcao]
     },
     {
         background: background,
@@ -3595,7 +3596,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/17DKJDbEUCRDBwoJOll1ZcVM_KuDrkyIq/preview",
         duration: "01h 37m",
-        genero: ["Terror", "Ficção Científica"]
+        genero: [gen.terror, gen.ficcao]
     },
     {
         background: background,
@@ -3607,7 +3608,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1hGmcy3UrDxPZfFGjz6Lm7jl99rQYSXXs/preview",
         duration: "01h 45m",
-        genero: ["Terror", "Comédia"]
+        genero: [gen.terror, gen.comedia]
     },
     {
         background: background,
@@ -3619,7 +3620,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/10ngjgH6kyW1C6dvdTTM7WRSTyjKN3TBx/preview",
         duration: "01h 54m",
-        genero: ["Comédia", "Romance", "Netflix"]
+        genero: [gen.comedia, gen.romance, stm.netflix]
     },
     {
         background: background,
@@ -3631,7 +3632,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1ImjejDm9l9F1yWNPRkyJIOSgK9TCDRGa/preview",
         duration: "02h 49m",
-        genero: ["Aventura", "Fantasia"]
+        genero: [gen.aventura, gen.fantasia]
     },
     {
         background: background,
@@ -3643,7 +3644,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1uGNKxhPzjT7FoCaadrFZqhsBeFOkXYIW/preview",
         duration: "02h 41m",
-        genero: ["Aventura", "Fantasia"]
+        genero: [gen.aventura, gen.fantasia]
     },
     {
         background: background,
@@ -3655,7 +3656,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1rvqS0MeJG6ds0sPg7rNec6BZpUusez8l/preview",
         duration: "02h 44m",
-        genero: ["Aventura", "Fantasia"]
+        genero: [gen.aventura, gen.fantasia]
     },
     {
         background: background,
@@ -3667,7 +3668,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1M1cgddnHlxlcCVLCldFhNMilxT6WhnRa/preview",
         duration: "01h 48m",
-        genero: ["Ação", "Comédia"]
+        genero: [gen.acao, gen.comedia]
     },
     {
         background: background,
@@ -3679,7 +3680,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/18z2ON2BghIBQUGcjg76ULe1E7im0NFsI/preview",
         duration: "02h 00m",
-        genero: ["Ação", "Comédia"]
+        genero: [gen.acao, gen.comedia]
     },
     {
         background: background,
@@ -3691,7 +3692,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/10MQmGB0gAT74vnXQwWNoPBGIeFEbYBgu/preview",
         duration: "01h 41m",
-        genero: ["Ação", "Suspense"]
+        genero: [gen.acao, gen.suspense]
     },
     {
         background: background,
@@ -3703,7 +3704,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1LAqvPxsbvB4RKcK1HjDc6n4FqvCBhVO6/preview",
         duration: "02h 02m",
-        genero: ["Ação", "Suspense"]
+        genero: [gen.acao, gen.suspense]
     },
     {
         background: background,
@@ -3715,7 +3716,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1LZ0L3eH6xG7Nj5wd4bJFbx9krpmQxQd3/preview",
         duration: "02h 11m",
-        genero: ["Ação", "Suspense"]
+        genero: [gen.acao, gen.suspense]
     },
     {
         background: background,
@@ -3727,7 +3728,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1EsiyP8gQYyfmxyrqac7Ymd0vVVfAqjG8/preview",
         duration: "01h 55m",
-        genero: ["Comédia", "Ação"]
+        genero: [gen.comedia, gen.acao]
     },
     {
         background: background,
@@ -3739,7 +3740,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1lx5BlScuTpTNFV4uZxLR-8hWZQdDm40B/preview",
         duration: "02h 12m",
-        genero: ["Comédia", "Romance"]
+        genero: [gen.comedia, gen.romance]
     },
     {
         background: background,
@@ -3751,7 +3752,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/16-IXZMzfdZfxV8yQWYNB4xOgz6JDkABn/preview",
         duration: "1h 43m",
-        genero: ["Comédia", "Legendado"]
+        genero: [gen.comedia, lang.leg]
     },
     {
         background: background,
@@ -3763,7 +3764,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1L2PNGMm3Z98falfv9S00rdLP3sZ4Cbqr/view",
         duration: "1h 53m",
-        genero: ["Suspense", "Crime", "Legendado"]
+        genero: [gen.suspense, agp.crime, lang.leg]
     },
     {
         background: background,
@@ -3775,7 +3776,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1t59UOjaDniPboqDj0i5N4jc-cgM9TuZi/preview",
         duration: "1h 41m",
-        genero: ["Comédia"]
+        genero: [gen.comedia]
     },
     {
         background: background,
@@ -3787,7 +3788,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1CGXPvs418c-aNRyf05U551YZ8na4yKim/preview",
         duration: "1h 44m",
-        genero: ["Terror", "Mistério"]
+        genero: [gen.terror, agp.misterio]
     },
     {
         background: background,
@@ -3799,7 +3800,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1-LUFQgeYsuBA-4aFr8eJOR9W2lh0Uwke/preview",
         duration: "01h 49m",
-        genero: ["Ação", "Netflix", "Coreano"]
+        genero: [gen.acao, stm.netflix, agp.korean]
     },
     {
         background: background,
@@ -3811,7 +3812,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1-Xo3DU8KR4zJ5rWTcdVPLbBpT8epXyiz/preview",
         duration: "01h 42m",
-        genero: ["Drama", "Ficção Científica", "Netflix"]
+        genero: [gen.drama, gen.ficcao, stm.netflix]
     },
     {
         background: background,
@@ -3823,7 +3824,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1cEt2SPaF31P_CKuKTys5PLwwYQI6gZq9/preview",
         duration: "02h 00m",
-        genero: ["Ficção Científica", "Ação"]
+        genero: [gen.ficcao, gen.acao]
     },
     {
         background: background,
@@ -3835,7 +3836,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1uZYXQHQYAAzN7ZljYmoCAtTRtY35esEP/preview",
         duration: "01h 42m",
-        genero: ["Ação", "Comédia"]
+        genero: [gen.acao, gen.comedia]
     },
     {
         background: background,
@@ -3847,7 +3848,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/127dY1RSHczO1YvXYPMUoOnp3QbQjlTT8/preview",
         duration: "01h 52m",
-        genero: ["Fição Científica", "Ação"]
+        genero: [gen.ficcao, gen.acao]
     },
     {
         background: background,
@@ -3859,7 +3860,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1m1Xf0iozOYTroWaJq-KyxCMqXfwEBBNz/preview",
         duration: "02h 11m",
-        genero: ["Romance", "Drama"]
+        genero: [gen.romance, gen.drama]
     },
     {
         background: background,
@@ -3871,7 +3872,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/11OwfI3aNMUnKnk1P59ZcksMbGqj7ZdyU/preview",
         duration: "01h 38m",
-        genero: ["Terror"]
+        genero: [gen.terror]
     },
     {
         background: background,
@@ -3883,7 +3884,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1jyEdo6odqjw_NdbiUsX22P5LWWYy3lnG/preview",
         duration: "01h 30m",
-        genero: ["Terror"]
+        genero: [gen.terror]
     },
     {
         background: background,
@@ -3895,7 +3896,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1RUnXFxdUtheV8xLrEaYtzoxjA0Y7I-Lp/preview",
         duration: "01h 33m",
-        genero: ["Terror"]
+        genero: [gen.terror]
     },
     {
         background: background,
@@ -3907,7 +3908,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1OpC6ItJzhNcGuvTaegZ0H9qWwDghPcgp/preview",
         duration: "01h 22m",
-        genero: ["Terror"]
+        genero: [gen.terror]
     },
     {
         background: background,
@@ -3919,7 +3920,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1QOs-MkAhceUuTr-TqOKqsbzkd_JEzDk2/preview",
         duration: "01h 32m",
-        genero: ["Terror"]
+        genero: [gen.terror]
     },
     {
         background: background,
@@ -3931,7 +3932,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/16D6ZZQZHwU9mMTVCLUw2nSbjaM8__Yqx/preview",
         duration: "02h 04m",
-        genero: ["Aventura", "Ação"]
+        genero: [gen.aventura, gen.acao]
     },
     {
         background: background,
@@ -3943,7 +3944,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1YHYbrTiEYn7pVkSYGi_LlYkf9Jmey_YG/preview",
         duration: "02h 10m",
-        genero: ["Aventura", "Ação"]
+        genero: [gen.aventura, gen.acao]
     },
     {
         background: background,
@@ -3955,7 +3956,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1FqqcErgr4DWqX58aZimYkKE7i85Ar-oy/preview",
         duration: "01h 31m",
-        genero: ["Comédia", "Netflix"]
+        genero: [gen.comedia, stm.netflix]
     },
     {
         background: background,
@@ -3967,7 +3968,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1nt7dvQwtVXjiK9DW1g9H3ay4aUuztFs4/preview",
         duration: "02h 23m",
-        genero: ["Ação", "Aventura"]
+        genero: [gen.acao, gen.aventura]
     },
     {
         background: background,
@@ -3979,7 +3980,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1vmpscwysseSKXbVG2mKsYCSIx8_dm7Yd/preview",
         duration: "02h 31m",
-        genero: ["Ação", "Aventura"]
+        genero: [gen.acao, gen.aventura]
     },
     {
         background: background,
@@ -3991,7 +3992,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1Kd5sRRXe1EFQPYfHMBHgPW0W0pl1-uIL/preview",
         duration: "02h 48m",
-        genero: ["Ação", "Aventura"]
+        genero: [gen.acao, gen.aventura]
     },
     {
         background: background,
@@ -4003,7 +4004,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1xM4mp0Bib3ryZxDAhVatfgcJsvj4WOhB/preview",
         duration: "02h 21m",
-        genero: ["Ação", "Aventura"]
+        genero: [gen.acao, gen.aventura]
     },
     {
         background: background,
@@ -4015,7 +4016,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1HgPKDWQsj_8W9p5rbKwkHZFhLLE1jl8r/preview",
         duration: "02h 09m",
-        genero: ["Ação", "Aventura"]
+        genero: [gen.acao, gen.aventura]
     },
     {
         background: background,
@@ -4027,7 +4028,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/12lkec1U0W3zYPdNmGr6MbX5QWMIX-lGt/preview",
         duration: "01h 36m",
-        genero: ["Infantil", "Comédia"]
+        genero: [gen.animacao, gen.comedia,]
     },
     {
         background: background,
@@ -4039,7 +4040,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1JQ1onYJ6mCg0gJR7j0RTw9aLEtb27D1m/preview",
         duration: "01h 50m",
-        genero: ["Comédia", "Romance"]
+        genero: [gen.comedia, gen.romance]
     },
     {
         background: background,
@@ -4051,7 +4052,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1p0XrNZh9qmkzwb5cTUvY7pQwGUAocoIz/preview",
         duration: "01h 43m",
-        genero: ["Comédia", "Ficção Científica"]
+        genero: [gen.comedia, gen.ficcao]
     },
     {
         background: background,
@@ -4063,7 +4064,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1J0WH36RSu42jwcF8UQ5FZUmVnfM0PH8L/preview",
         duration: "01h 34m",
-        genero: ["Suspense", "Ficção Científica", "Netflix"]
+        genero: [gen.suspense, gen.ficcao, stm.netflix]
     },
     {
         background: background,
@@ -4075,7 +4076,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1roFG4JGXnHhfot3Bd3hMEmnoZyno_l36/preview",
         duration: "02h 32m",
-        genero: ["Ação", "Drama"]
+        genero: [gen.acao, gen.drama]
     },
     {
         background: background,
@@ -4087,7 +4088,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1xicRGBnEcTh0ucw3Yla6k465PBaDq2NN/preview",
         duration: "1h 57m",
-        genero: ["Terror", "Mistério"]
+        genero: [gen.terror, agp.misterio]
     },
     {
         background: background,
@@ -4099,7 +4100,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/14Vix8ndHmrM5YGcPBp2dP-BBFq78khlP/preview",
         duration: "02h 15m",
-        genero: ["Ficção Científica", "Ação"]
+        genero: [gen.ficcao, gen.acao]
     },
     {
         background: background,
@@ -4111,7 +4112,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1P6M8SRN7pHXSxdxaeNYgFJY369A9NA3c/preview",
         duration: "02h 32m",
-        genero: ["Ficção Científica", "Ação"]
+        genero: [gen.ficcao, gen.acao]
     },
     {
         background: background,
@@ -4123,7 +4124,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1KulsQ-llsGijNAWe5Cj_0slfmYh7Qt9j/preview",
         duration: "02h 16m",
-        genero: ["Ficção Científica", "Ação"]
+        genero: [gen.ficcao, gen.acao]
     },
     {
         background: background,
@@ -4135,7 +4136,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1-aR8Srm6dZbsQw1wb1GNkB8sdBG--P7u/preview",
         duration: "01h 55m",
-        genero: ["Ação", "Fantasia", "Super Herói"]
+        genero: [gen.acao, gen.fantasia, agp.hero]
     },
     {
         background: background,
@@ -4147,7 +4148,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/10v7cR7KaDuKNnQEBzvJo2MW3oCXFDHzK/preview",
         duration: "02h 06m",
-        genero: ["Ação", "Terror", "Fantasia", "Super Herói"]
+        genero: [gen.acao, gen.terror, gen.fantasia, agp.hero]
     },
     {
         background: background,
@@ -4159,7 +4160,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1W3AhIu67xyeif_O2GYNR2OcPRGof-n_2/preview",
         duration: "02h 06m",
-        genero: ["Infantil", "Ação", "Disney+"]
+        genero: [gen.animacao, gen.acao, stm.disney]
     },
     {
         background: background,
@@ -4171,7 +4172,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/13NKsZNAE_IECSMpYK_fU8X9D2wwaP36X/preview",
         duration: "01h 55m",
-        genero: ["Infantil", "Ação", "Disney+"]
+        genero: [gen.animacao, gen.acao, stm.disney]
     },
     {
         background: background,
@@ -4183,7 +4184,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/15FkG8zb21FuZim31g458nusoD5As9muN/preview",
         duration: "01h 46m",
-        genero: ["Comédia", "Fantasia"]
+        genero: [gen.comedia, gen.fantasia]
     },
     {
         background: background,
@@ -4195,7 +4196,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/16nr7kLnln8zOo46nzcOGoSih0xj4MjeV/preview",
         duration: "01h 56m",
-        genero: ["Comédia", "Fantasia"]
+        genero: [gen.comedia, gen.fantasia]
     },
     {
         background: background,
@@ -4207,7 +4208,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1fSdVMaqnauVF_YofqJyPN0s2lkiUcv49/preview",
         duration: "01h 36m",
-        genero: ["Comédia", "Romance"]
+        genero: [gen.comedia, gen.romance]
     },
     {
         background: background,
@@ -4219,7 +4220,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1LEIvQoSm0VynY35QT1bg_iaGnbfclP6a/preview",
         duration: "01h 36m",
-        genero: ["Comédia", "Romance"]
+        genero: [gen.comedia, gen.romance]
     },
     {
         background: background,
@@ -4231,7 +4232,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1eLYuT52iDrRAwM7dr2Vjuziw8A9zI0uv/preview",
         duration: "01h 35m",
-        genero: ["Terror", "Comédia"]
+        genero: [gen.terror, gen.comedia]
     },
     {
         background: background,
@@ -4243,7 +4244,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1sLGOcMJ583vLoJI1tN7v_YO07m0-6Rlq/preview",
         duration: "02h 12m",
-        genero: ["Suspense", "Comédia"]
+        genero: [gen.suspense, gen.comedia]
     },
     {
         background: background,
@@ -4255,7 +4256,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/0B6YDeOkBf2TUU3l1YzAtZ1ltdm8/preview?resourcekey=0-99IlX_REL2prE0W3RIqByg",
         duration: "02h",
-        genero: ["Drama"]
+        genero: [gen.drama]
     },
     {
         background: background,
@@ -4267,7 +4268,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1G4Pl6JZNIOEFXiDUczTsxAcI7ay-mS13/preview",
         duration: "2h 20m",
-        genero: ["Ação", "Crime", "DC", "Super Herói"]
+        genero: [gen.acao, agp.crime, agp.dc, agp.hero]
     },
     {
         background: background,
@@ -4279,7 +4280,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1MY4mGqqnxBrs_PYHTadekFQIp9iTEp9W/preview",
         duration: "02h 44m",
-        genero: ["Ação", "Suspense", "DC", "Super Herói"]
+        genero: [gen.acao, gen.suspense, agp.dc, agp.hero]
     },
     {
         background: background,
@@ -4291,7 +4292,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1yrH4AQR3pY-0Y1hwdzpgGKyRxXJ1Zw8S/preview",
         duration: "01h 14m",
-        genero: ["Animação", "DC", "Super Herói"]
+        genero: [gen.animacao, agp.dc, agp.hero]
     },
     {
         background: background,
@@ -4303,7 +4304,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1LWi_wuKFd25M7Yw3yuwVHXGkYwyXOkLb/preview",
         duration: "01h 55m",
-        genero: ["Ação", "Aventura"]
+        genero: [gen.acao, gen.aventura]
     },
     {
         background: background,
@@ -4315,7 +4316,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1N4hqt6tB7Kw30sx4Gly6Qcozc6x71i1N/preview",
         duration: "02h 32m",
-        genero: ["Fantasia", "Infantil"]
+        genero: [gen.fantasia, gen.aventura]
     },
     {
         background: background,
@@ -4327,7 +4328,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1LPSusfXklFMJy6ktbfyMbdvBOrvO2_sf/preview",
         duration: "02h 41m",
-        genero: ["Fantasia", "Infantil"]
+        genero: [gen.fantasia, gen.aventura]
     },
     {
         background: background,
@@ -4339,7 +4340,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/12dTLG4_zY6sMm9lbj-k0UVzKTDGVIdcQ/preview",
         duration: "02h 22m",
-        genero: ["Fantasia", "Infantil"]
+        genero: [gen.fantasia, gen.aventura]
     },
     {
         background: background,
@@ -4351,7 +4352,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1b1ycw4qD2aReyXKCpEFc-7-RVj9BIkka/preview",
         duration: "02h 37m",
-        genero: ["Fantasia", "Infantil"]
+        genero: [gen.fantasia, gen.aventura]
     },
     {
         background: background,
@@ -4363,7 +4364,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/10mc8TJ-VK8XLeqI3R-q0q-zG7cg1VBRk/preview",
         duration: "02h 18m",
-        genero: ["Fantasia", "Infantil"]
+        genero: [gen.fantasia, gen.aventura]
     },
     {
         background: background,
@@ -4375,7 +4376,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/14Cb40xmm2EXr7udbpsAv--jNipiuYrah/preview",
         duration: "02h 33m",
-        genero: ["Fantasia", "Infantil"]
+        genero: [gen.fantasia, gen.aventura]
     },
     {
         background: background,
@@ -4387,7 +4388,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1bi_wX5B10SpP-oZ9Op8johPLD521Jvk8/preview",
         duration: "02h 26m",
-        genero: ["Fantasia", "Infantil"]
+        genero: [gen.fantasia, gen.aventura]
     },
     {
         background: background,
@@ -4399,7 +4400,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1NkMghEbIcOSfPKBPRY4hZkTC4RY5f2kP/preview",
         duration: "02h 10m",
-        genero: ["Fantasia", "Infantil"]
+        genero: [gen.fantasia, gen.aventura]
     },
     {
         background: background,
@@ -4411,7 +4412,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1J8s4HTLSYd5cOTZjX6V0fVcmW9YwhiHj/preview",
         duration: "02h 13m",
-        genero: ["Ação", "Ficção Científica", "Marvel", "Super Herói"]
+        genero: [gen.acao, gen.ficcao, agp.marvel, agp.hero]
     },
     {
         background: background,
@@ -4423,7 +4424,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/16oIbq26ccGfWxWMc7InaQq0J1AG8BXLc/preview",
         duration: "02h 10m",
-        genero: ["Ação", "Ficção Científica", "Marvel", "Super Herói"]
+        genero: [gen.acao, gen.ficcao, agp.marvel, agp.hero]
     },
     {
         background: background,
@@ -4435,7 +4436,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/17QX-0Hi8LBfnqy--1AfK8aEjCUibHou-/preview",
         duration: "03h 12m",
-        genero: ["Ficção Científica", "Ação"]
+        genero: [gen.ficcao, gen.acao]
     },
     {
         background: background,
@@ -4447,7 +4448,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1-R8d15thm7Ne_ZZs4ibTmq8diEvDRvH0/preview",
         duration: "02h 58m",
-        genero: ["Ficção Científica", "Ação"]
+        genero: [gen.ficcao, gen.acao]
     },
     {
         background: background,
@@ -4459,7 +4460,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1Cm9jnKnfriHbFzDDMld3TXTXkZ1PgMjg/preview",
         duration: "02h 56m",
-        genero: ["Ação", "DC", "Crime", "Super Herói"]
+        genero: [gen.acao, agp.dc, agp.crime, agp.hero]
     },
     {
         background: background,
@@ -4471,7 +4472,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/12IJ-BqXoYlkUx_r3IFBhbgEQTBj7fsKJ/preview",
         duration: "01h 41m",
-        genero: ["Ação", "Ficção Científica"]
+        genero: [gen.acao, gen.ficcao]
     },
     {
         background: background,
@@ -4483,7 +4484,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1nj5tpLsG-sBiPps_mMI0xmy0kXKFPl0H/preview",
         duration: "01h 50m",
-        genero: ["Comédia", "Ação", "Romance"]
+        genero: [gen.comedia, gen.acao, gen.romance]
     },
     {
         background: background,
@@ -4495,7 +4496,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1zc4c-wb3VgAtX5OufT3GbH5Ti35x0iLj/preview",
         duration: "02h 07m",
-        genero: ["Romance", "Comédia"]
+        genero: [gen.romance, gen.comedia]
     },
 
     {
@@ -4508,7 +4509,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/12-dMBXQZql8RvQFkmAeapH4GGxmenED5/preview",
         duration: "01h 51m",
-        genero: ["Ação", "Fantasia"]
+        genero: [gen.acao, gen.fantasia]
     },
     {
         background: background,
@@ -4520,7 +4521,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1nZl5FpWzhE5zlw8sGChziRoI_ZiVKMKx/preview",
         duration: "02h 31m",
-        genero: ["Ação", "DC", "Ficção Científica", "Super Herói"]
+        genero: [gen.acao, agp.dc, gen.ficcao, agp.hero]
     },
 
     {
@@ -4533,7 +4534,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1Ffx2nq5lLMcgGjlDXB3r-knf3iwGqGwZ/preview",
         duration: "02h 16m",
-        genero: ["Ação", "Ficção Científica"]
+        genero: [gen.acao, gen.ficcao]
     },
     {
         background: background,
@@ -4545,7 +4546,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1qYiZt-JKCJBCrR0G3y9AxY1lBqtJBSFv/preview",
         duration: "02h 18m",
-        genero: ["Ação", "Ficção Científica"]
+        genero: [gen.acao, gen.ficcao]
     },
     {
         background: background,
@@ -4557,7 +4558,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1cUBYcc5noLTgyr1PAwgI0DVobAwnjx7h/preview",
         duration: "02h 09m",
-        genero: ["Ação", "Ficção Científica"]
+        genero: [gen.acao, gen.ficcao]
     },
     {
         background: background,
@@ -4569,7 +4570,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1-7MAlM13mL-I47wGhOD90vppWxyPsD5a/preview",
         duration: "02h 04m",
-        genero: ["Comédia", "Aventura", "Fantasia"]
+        genero: [gen.comedia, gen.aventura, gen.fantasia]
     },
     {
         background: background,
@@ -4581,7 +4582,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1eV0qyTnfZlg5lVvT2glHP7TN8ui7KXS9/preview",
         duration: "01h 54m",
-        genero: ["Comédia", "Prime Video"]
+        genero: [gen.comedia, stm.prime]
     },
     {
         background: background,
@@ -4593,7 +4594,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1dynuM5hIgh4OGY0m1kKWixTZjFmPGHKv/preview",
         duration: "01h 34m",
-        genero: ["Aventura", "Suspense"]
+        genero: [gen.aventura, gen.suspense]
     },
     {
         background: background,
@@ -4605,7 +4606,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1JOcPcDDm29TcMaPT952jMHFx1HrJzWd-/preview",
         duration: "02h 01m",
-        genero: ["Ação", "Comédia"]
+        genero: [gen.acao, gen.comedia]
     },
     {
         background: background,
@@ -4617,7 +4618,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1HdYNkRSbUpOwTUvI5Egr0Qm0_fDDShEC/preview",
         duration: "01h 41m",
-        genero: ["Ação", "Suspense"]
+        genero: [gen.acao, gen.suspense]
     },
     {
         background: background,
@@ -4629,7 +4630,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1cIn12Q4t3Xaiaqf54dVB2kxbUnSG6VOt/preview",
         duration: "01h 56m",
-        genero: ["Animação", "Marvel", "Super Herói"]
+        genero: [gen.animacao, agp.marvel, agp.hero]
     },
     {
         background: background,
@@ -4641,7 +4642,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1SgxSsNXm_cq6wmQdQwuxQXjtbAX-FPrc/preview",
         duration: "02h 14m",
-        genero: ["Animação", "Marvel", "Super Herói"]
+        genero: [gen.animacao, agp.marvel, agp.hero]
     },
     {
         background: background,
@@ -4653,7 +4654,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1suaHMDw-J_3tL77OcEyAzqH5nfwLlY3b/preview",
         duration: "01h 54m",
-        genero: ["Comédia", "Fantasia"]
+        genero: [gen.comedia, gen.fantasia]
     },
     {
         background: background,
@@ -4665,7 +4666,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/132j8HSZC-wW6viLjeNAjVIw0xAh-RDm-/preview",
         duration: "01h 53m",
-        genero: ["Aventura", "Ação"]
+        genero: [gen.aventura, gen.acao]
     },
     {
         background: background,
@@ -4677,7 +4678,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1-7d0_24vWN_jdnz1iNWc0M1M1ed_lBYF/preview",
         duration: "01h 47m",
-        genero: ["Ação", "Aventura", "Netflix"]
+        genero: [gen.acao, gen.aventura, stm.netflix]
     },
     {
         background: background,
@@ -4689,7 +4690,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1dF09H9_pt33hjlPZ-p1uesblK_iIcciu/preview",
         duration: "01h 45m",
-        genero: ["Ação", "Suspense"]
+        genero: [gen.acao, gen.suspense]
     },
     {
         background: background,
@@ -4701,7 +4702,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1fmK0Nb0xlO65i-JohN-ILTilA9a_y18X/preview",
         duration: "01h 44m",
-        genero: ["Comédia"]
+        genero: [gen.comedia]
     },
     {
         background: background,
@@ -4713,7 +4714,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1VzmeF-DlG-MAigii3_v7xxu_PxspF2Lq/preview",
         duration: "01h 37m",
-        genero: ["Comédia"]
+        genero: [gen.comedia]
     },
     {
         background: background,
@@ -4725,7 +4726,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1LXqbSWzbuD8XN83xzsOH_xjAUb8H5FoG/preview",
         duration: "01h 50m",
-        genero: ["Terror", "Suspense"]
+        genero: [gen.terror, gen.suspense]
     },
     {
         background: background,
@@ -4737,7 +4738,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1N8wB63dpoKUjU006pkMwoHl53bkB7s71/preview",
         duration: "02h 00m",
-        genero: ["Terror", "Suspense"]
+        genero: [gen.terror, gen.suspense]
     },
     {
         background: background,
@@ -4749,7 +4750,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1NSSzGFuc0Ph_dbDULPbtF8IU666GMIlr/preview",
         duration: "01h 56m",
-        genero: ["Terror", "Suspense"]
+        genero: [gen.terror, gen.suspense]
     },
     {
         background: background,
@@ -4761,7 +4762,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1PVGcjQTBnnyFYA7Uqo-O0AhT9mDYQ0Ux/preview",
         duration: "01h 50m",
-        genero: ["Terror", "Suspense"]
+        genero: [gen.terror, gen.suspense]
     },
     {
         background: background,
@@ -4773,7 +4774,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1-ZaR88SATR7-Ij2KtNl_tul2mbSQ8ocy/preview",
         duration: "01h 52m",
-        genero: ["Terror", "Suspense"]
+        genero: [gen.terror, gen.suspense]
     },
     {
         background: background,
@@ -4785,7 +4786,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1--T-Vn5BFjsVkpG5_15_pKwYmUEahUAu/preview",
         duration: "02h 05m",
-        genero: ["Terror", "Suspense"]
+        genero: [gen.terror, gen.suspense]
     },
     {
         background: background,
@@ -4797,7 +4798,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/143CZ8stsx0bZ-D1TSXug2Gqv_E6M4aoP/preview",
         duration: "02h 14m",
-        genero: ["Aventura", "Ação"]
+        genero: [gen.aventura, gen.acao]
     },
     {
         background: background,
@@ -4809,7 +4810,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/12JmKWBDZysngiIAS3gKJLjBaVui2bgrN/preview",
         duration: "01h 39m",
-        genero: ["Terror", "Suspense", "Ficção Científica"]
+        genero: [gen.terror, gen.suspense, gen.ficcao]
     },
     {
         background: background,
@@ -4821,7 +4822,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1rUTXl_ltpWNdSaZgZlktBDeRQbUZBncs/preview",
         duration: "02h 02m",
-        genero: ["Ação", "Suspense", "Drama"]
+        genero: [gen.acao, gen.suspense, gen.drama]
     },
     {
         background: background,
@@ -4833,7 +4834,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/11NTrnOSHb6cqaZKUR-6pHeKCZdssWXSE/preview",
         duration: "01h 45m",
-        genero: ["Suspense", "Mistério"]
+        genero: [gen.suspense, agp.misterio]
     },
     {
         background: background,
@@ -4845,7 +4846,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1-22kFxe8TSAkWWtA9dDI7SQs0uAZBqeP/preview",
         duration: "02h 11m",
-        genero: ["Suspense", "Ação"]
+        genero: [gen.suspense, gen.acao]
     },
     {
         background: background,
@@ -4857,7 +4858,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1E-Ogjp-bM3DwEZCN-grrqBVLoVNp04B8/preview",
         duration: "03h 00m",
-        genero: ["Suspense", "Drama"]
+        genero: [gen.suspense, gen.drama]
     },
     {
         background: background,
@@ -4869,7 +4870,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1tMwP8k3avVdbYss69eFtn68jCiGRH59r/preview",
         duration: "2h 2m",
-        genero: ["Drama", "Crime"]
+        genero: [gen.drama, agp.crime]
     },
     {
         background: background,
@@ -4881,7 +4882,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1bJsB7wjvU7WWuFSJzwcz0VKQ6vz2UMlA/preview",
         duration: "1h 59m",
-        genero: ["Ação", "Romance", "Comédia"]
+        genero: [gen.acao, gen.romance, gen.comedia]
     }, {
         background: background,
         overlay: overlay,
@@ -4892,7 +4893,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1mWnDcsfr7EysUhrQE1gLKL7-ngUU_Pga/preview",
         duration: "2h 35m",
-        genero: ["Ação", "Drama"]
+        genero: [gen.acao, gen.drama]
     },
     {
         background: background,
@@ -4904,7 +4905,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1loRP8o2o3rPMPQ8Iii-ICyIaHhsgIrld/preview",
         duration: "2h 11m",
-        genero: ["Ficção Científica", "Ação"]
+        genero: [gen.ficcao, gen.acao]
     },
     {
         background: background,
@@ -4916,8 +4917,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1YY5yLfAntg-aHblpgGiLYvKmnVnhKU5J/preview",
         duration: "2h 22m",
-        genero: ["Ficção Científica",
-            "Ação"]
+        genero: [gen.ficcao, gen.acao]
     },
     {
         background: background,
@@ -4929,7 +4929,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1hkS7jNa0pb0brLyopsP22qlgJvECyIka/preview",
         duration: "02h 20m",
-        genero: ["Ficção Científica", "Ação"]
+        genero: [gen.ficcao, gen.acao]
     },
     {
         background: background,
@@ -4941,7 +4941,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1vZDRk35V-NbMKFXvH7ps5SsUKB3xJr48/preview",
         duration: "2h 01m",
-        genero: ["Ficção Científica", "Ação"]
+        genero: [gen.ficcao, gen.acao]
     }, {
         background: background,
         overlay: overlay,
@@ -4952,7 +4952,7 @@ export const cards: CardsProps[] = [
         faixa: "",
         src: "https://drive.google.com/file/d/1fgV62Bx6e3jhk-SjyU9LiY5aJZUxZFAJ/preview",
         duration: "2h 4m",
-        genero: ["Ficção Científica", "Ação"]
+        genero: [gen.ficcao, gen.acao]
     },
     {
         background: background,
@@ -4964,7 +4964,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1EBOyldegcJk4Xh2dVyCyuBz4QRsRP6hH/preview",
         duration: "2h 5m",
-        genero: ["Ação", "Fantasia"]
+        genero: [gen.acao, gen.fantasia]
     },
     {
         background: background,
@@ -4976,10 +4976,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1Zi4GcLlnPwlnWiOmtL1HkDi2czK9uEhj/preview",
         duration: "2h 4m",
-        genero: ["Ação",
-            "Super Herói",
-            "Marvel"
-        ]
+        genero: [gen.acao, agp.hero, agp.marvel]
 
     }, {
         background: background,
@@ -4991,7 +4988,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1NESARf5orL9bHF8j-fSMyAXhFsTmCsNG/preview",
         duration: "2h 5m",
-        genero: ["Ação", "Super Herói", "Marvel"]
+        genero: [gen.acao, agp.hero, agp.marvel]
     },
     {
         background: background,
@@ -5003,7 +5000,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1F6CTOYdqIjAM7KkVwxJpm7ljWLTU3H3m/preview",
         duration: "2h 10m",
-        genero: ["Ação", "Super Herói", "Marvel"]
+        genero: [gen.acao, agp.hero, agp.marvel]
     },
     {
         background: background,
@@ -5015,7 +5012,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1--I4LM6zwHpQGkoooD29-MghhTDw6Gj-/preview",
         duration: "1h 57m",
-        genero: ["Comédia", "Romance"]
+        genero: [gen.comedia, gen.romance]
     },
     {
         background: background,
@@ -5027,7 +5024,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1-1n95EkY7mwplqUPNfsO6B-BsU0V7lqG/preview",
         duration: "1h 39m",
-        genero: ["Comédia", "Romance"]
+        genero: [gen.comedia, gen.romance]
     },
     {
         background: background,
@@ -5039,7 +5036,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1OjlaP1AzngmeP9MXU2OwuHMih5XCLwlQ/preview",
         duration: "1h 40m",
-        genero: ["Comédia", "Ação", "Romance"]
+        genero: [gen.comedia, gen.acao, gen.romance]
     },
     {
         background: background,
@@ -5051,7 +5048,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1_rf2oh6ZQLZvWpQ-FNjWE8xnn0fI_q8t/preview",
         duration: "2h 20m",
-        genero: ["Suspense", "Ação"]
+        genero: [gen.suspense, gen.acao]
     },
     {
         background: background,
@@ -5063,7 +5060,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1j5puYj2JzBgDcH0QKIR__UY1o1Zvs022/preview",
         duration: "1h 59m",
-        genero: ["Aventura", "Ação", "Comédia"]
+        genero: [gen.aventura, gen.acao, gen.comedia]
     },
     {
         background: background,
@@ -5075,10 +5072,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1USqKAwKU6-JRGLVUDv2gDilJPKvRRk5F/preview",
         duration: "2h 2m",
-        genero: ["Suspense",
-            "Drama",
-            "Aventura"
-        ]
+        genero: [gen.suspense, gen.drama, gen.aventura]
     }, {
         background: background,
         overlay: overlay,
@@ -5089,9 +5083,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1NVAm9qplZ6frGCfb-rO-Y5lov_ztZhJE/preview",
         duration: "1h 54m",
-        genero: ["Fantasia",
-            "Aventura"
-        ]
+        genero: [gen.fantasia, gen.aventura]
     }, {
         background: background,
         overlay: overlay,
@@ -5102,9 +5094,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1a4o5nOSOgtVip1rmoi3gbOf82NsnrmhO/preview",
         duration: "1h 37m",
-        genero: ["Drama",
-            "Romance"
-        ]
+        genero: [gen.drama, gen.romance]
     }, {
         background: background,
         overlay: overlay,
@@ -5115,9 +5105,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1yfawrjalXd6g7OPg258P_SfYHSlCYtCm/preview",
         duration: "2h 30m",
-        genero: ["Fantasia",
-            "Aventura"
-        ]
+        genero: [gen.fantasia, gen.aventura]
     }, {
         background: background,
         overlay: overlay,
@@ -5128,9 +5116,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1QTuiHDqlaez2Zgeyr4zQE5__jMBU_DTx/preview",
         duration: "2h 30m",
-        genero: ["Fantasia",
-            "Aventura"
-        ]
+        genero: [gen.fantasia, gen.aventura]
     }, {
         background: background,
         overlay: overlay,
@@ -5141,9 +5127,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/18Vf0d5dsP0QNFwfirjtzKnoE6rSLIj2B/preview",
         duration: "1h 53m",
-        genero: ["Fantasia",
-            "Aventura"
-        ]
+        genero: [gen.fantasia, gen.aventura]
     }, {
         background: background,
         overlay: overlay,
@@ -5154,11 +5138,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/101Dn13FS0PJ93wkPDfpfSbz-WtRsLDbi/preview",
         duration: "1h 38m",
-        genero: ["Ação",
-            "Comédia"
-
-
-        ]
+        genero: [gen.acao, gen.comedia]
     }, {
         background: background,
         overlay: overlay,
@@ -5169,9 +5149,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1LNZuQzTj5lciJRdOVIqT0dH-JBmK6VrP/preview",
         duration: "1h 52m",
-        genero: ["Ação",
-            "Comédia"
-        ]
+        genero: [gen.acao, gen.comedia]
     }, {
         background: background,
         overlay: overlay,
@@ -5182,9 +5160,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1ot-xsUBc77ZXbJm7H5kzrg_YEArWMad4/preview",
         duration: "2h 19m",
-        genero: ["Ação",
-            "Ficção Científica"
-        ]
+        genero: [gen.acao, gen.ficcao]
     }, {
         background: background,
         overlay: overlay,
@@ -5195,9 +5171,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1dLKEn0wrt_NebffGm3mAv12ORavpwC1d/preview",
         duration: "1h 59m",
-        genero: ["Ação",
-            "Ficção Científica"
-        ]
+        genero: [gen.acao, gen.ficcao]
     },
     {
         background: background,
@@ -5209,7 +5183,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1JATQcvLXsydWE6vX22PYIXzQULq_-beR/preview",
         duration: "02h 00m",
-        genero: ["Ação", "Ficção Científica"]
+        genero: [gen.acao, gen.ficcao]
     },
     {
         background: background,
@@ -5221,10 +5195,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1146J0pg5alhED9xfYS4g1vynWA_VMt6E/preview",
         duration: "2h 32m",
-        genero: ["Ação",
-            "Suspense",
-            "DC", "Super Herói"
-        ]
+        genero: [gen.acao, gen.suspense, agp.dc, agp.hero]
     }, {
         background: background,
         overlay: overlay,
@@ -5235,9 +5206,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1avm4yXd2tg1lZKy00yZRknboNv2Dxqpi/preview",
         duration: "1h 49m",
-        genero: ["Comédia",
-            "Ação"
-        ]
+        genero: [gen.comedia, gen.acao]
     },
     {
         background: background,
@@ -5249,9 +5218,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/12cnRyPwcXDTbbU26MF7wXhz9cnotdEoX/preview",
         duration: "1h 45m",
-        genero: ["Drama",
-            "Romance"
-        ]
+        genero: [gen.drama, gen.romance]
     },
     {
         background: background,
@@ -5263,9 +5230,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1fCLpDLk_U1_OFzGcYxR_UZMtAUoS4CZJ/preview",
         duration: "1h 32m",
-        genero: ["Comédia",
-            "Romance"
-        ]
+        genero: [gen.comedia, gen.romance]
     },
     {
         background: background,
@@ -5277,9 +5242,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1SVH0UjmeRTKi4KEHu7PDJ_clFxY7CRXG/preview",
         duration: "1h 53m",
-        genero: ["Comédia",
-            "Musical"
-        ]
+        genero: [gen.comedia, agp.music]
     }, {
         background: background,
         overlay: overlay,
@@ -5290,9 +5253,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1Odx1C3GCjfO0SqGu_BYmu4hfWxGGtH47/preview",
         duration: "2h 03m",
-        genero: ["Ficção Científica",
-            "Aventura"
-        ]
+        genero: [gen.ficcao, gen.aventura]
     }, {
         background: background,
         overlay: overlay,
@@ -5303,9 +5264,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1Okor9Fep2PI8F0dfaoGwI875bYPqVRTy/preview",
         duration: "1h 42",
-        genero: ["Comédia",
-            "Terror"
-        ]
+        genero: [gen.comedia, gen.terror]
     }, {
         background: background,
         overlay: overlay,
@@ -5316,9 +5275,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1aE2DlzYcggiBH41rG-ZfU_oAtzGUBEyo/preview",
         duration: "1h 59m",
-        genero: ["Suspense",
-            "Ficção Científica"
-        ]
+        genero: [gen.suspense, gen.ficcao]
     }, {
         background: background,
         overlay: overlay,
@@ -5329,9 +5286,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1jjYvUOIhnyhNkO4ulbKWI8U82rXerPxC/preview",
         duration: "1h 58m",
-        genero: ["Ação",
-            "Aventura"
-        ]
+        genero: [gen.acao, gen.aventura]
     }, {
         background: background,
         overlay: overlay,
@@ -5342,9 +5297,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1fHasj8EbVXToBIth-YxiiWBJDc4MBMyv/preview",
         duration: "2h 03m",
-        genero: ["Ação",
-            "Ficção Científica"
-        ]
+        genero: [gen.acao, gen.ficcao]
     }, {
         background: background,
         overlay: overlay,
@@ -5355,9 +5308,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1bFkzQ7AuB_A_ySyX7JB9v3G8QTuna0MV/preview",
         duration: "2h 37m",
-        genero: ["Ação",
-            "Suspense"
-        ]
+        genero: [gen.acao, gen.suspense]
     },
     {
         background: background,
@@ -5369,10 +5320,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1BMXk1Z3oSvJyLmVM4Lc_pEQph6oa-Kt-/preview",
         duration: "2h 22m",
-        genero: ["Ação",
-            "Suspense",
-            "Ficção Científica"
-        ]
+        genero: [gen.acao, gen.suspense, gen.ficcao]
     },
     {
         background: background,
@@ -5384,10 +5332,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/16o3licpSEwrWlQDuAgEHLmLmXR_UYbGf/preview",
         duration: "2h 26m",
-        genero: ["Ação",
-            "Ficção Científica",
-            "Suspense"
-        ]
+        genero: [gen.acao, gen.ficcao, gen.suspense]
     },
     {
         background: background,
@@ -5399,10 +5344,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1yOHRP2ZT6nr5HjoThQQAkLYuaCCpKa0j/preview",
         duration: "2h 02m",
-        genero: ["Ação",
-            "Ficção Científica",
-            "Suspense"
-        ]
+        genero: [gen.acao, gen.ficcao, gen.suspense]
     },
     {
         background: background,
@@ -5414,10 +5356,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1UquFsUSu4iJAu75FqxPiZzsTkTvjWvTE/preview",
         duration: "2h 16m",
-        genero: ["Ação",
-            "Suspense",
-            "Ficção Científica"
-        ]
+        genero: [gen.acao, gen.suspense, gen.ficcao]
     },
     {
         background: background,
@@ -5429,9 +5368,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1jksPTMGdFNiN7Dm3bFgpn_p9qnuhD8Q1/preview",
         duration: "1h 33m",
-        genero: ["Romance",
-            "Suspense"
-        ]
+        genero: [gen.romance, gen.suspense]
     }, {
         background: background,
         overlay: overlay,
@@ -5442,8 +5379,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1z5dHSZXyRmtxLo3l8EKwvmTRR3k0643F/preview",
         duration: "1h 56m",
-        genero: ["Drama"
-        ]
+        genero: [gen.drama]
     },
     {
         background: background,
@@ -5455,9 +5391,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1CiXc7BVMOQVCtXe71Hr3979C18qo7Adk/preview",
         duration: "2h 12m",
-        genero: ["Ação",
-            "Suspense"
-        ]
+        genero: [gen.acao, gen.suspense]
     },
     {
         background: background,
@@ -5469,9 +5403,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1OKbHkwocijzOwUv11v712z5tL0bsbRgM/preview",
         duration: "2h 1m",
-        genero: ["Ação",
-            "Suspense"
-        ]
+        genero: [gen.acao, gen.suspense]
     },
     {
         background: background,
@@ -5483,9 +5415,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1VkhYc45C26xISAja7s6KsYEuFMhexw-7/preview",
         duration: "1h 35m",
-        genero: ["Animação",
-            "Comédia"
-        ]
+        genero: [gen.animacao, gen.comedia]
     },
     {
         background: background,
@@ -5497,9 +5427,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1Oo-IWDlqhbLatMUaWGD203nuR9jBreG-/preview",
         duration: "1h 25m",
-        genero: ["Animação",
-            "Comédia"
-        ]
+        genero: [gen.animacao, gen.comedia]
     },
     {
         background: background,
@@ -5511,7 +5439,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1tpDCk2AQ1Vqxg-N-BQdVfWZ1Lj146wLa/preview",
         duration: "2h 07m",
-        genero: ["Suspense", "Crime", "Mistério"]
+        genero: [gen.suspense, agp.crime, agp.misterio]
     },
     {
         background: background,
@@ -5523,7 +5451,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1JCiiYuVCrN7_4SJXf5ue9EMoxwZoqOa2/preview",
         duration: "1h 38m",
-        genero: ["Ação", "Suspense", "Ficção Científica"]
+        genero: [gen.acao, gen.suspense, gen.ficcao]
     },
     {
         background: background,
@@ -5535,7 +5463,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1KlI6MA-cUTT2thodBQstKk8i1ezuNVfs/preview",
         duration: "1h 40m",
-        genero: ["Ação", "Suspense", "Ficção Científica"]
+        genero: [gen.acao, gen.suspense, gen.ficcao]
     },
     {
         background: background,
@@ -5547,10 +5475,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1xNVtrMddYTOia21OOxN1opSdxH9hVdyV/preview",
         duration: "1h 45m",
-        genero: ["Terror",
-            "Suspense",
-            "Slasher"
-        ]
+        genero: [gen.terror, gen.suspense, agp.slasher]
     },
     {
         background: background,
@@ -5562,9 +5487,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1q_YilO701nCgPzGdBoc8qWw7eHU4BQWr/preview",
         duration: "1h 49m",
-        genero: ["Ação",
-            "Aventura"
-        ]
+        genero: [gen.acao, gen.aventura]
     },
     {
         background: background,
@@ -5576,9 +5499,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1nWX9odS5E-xQn2HRJDiqL7ggJUzBbLeZ/preview",
         duration: "1h 53m",
-        genero: ["Ficção Científica",
-            "Ação"
-        ]
+        genero: [gen.ficcao, gen.acao]
     },
     {
         background: background,
@@ -5590,9 +5511,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1jLmSmAyDNsRtAh8O9uGC3U3ninLl15LS/preview",
         duration: "2h 11m",
-        genero: ["Ficção Científica",
-            "Ação"
-        ]
+        genero: [gen.ficcao, gen.acao]
     },
     {
         background: background,
@@ -5604,9 +5523,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1SxL-7m1TI-iG2O-S9oTeadhay7Gqjc4F/preview",
         duration: "2h 23m",
-        genero: ["Ficção Científica",
-            "Ação"
-        ]
+        genero: [gen.ficcao, gen.acao]
     },
     {
         background: background,
@@ -5618,9 +5535,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1lj1JXn2bTsvGbapCjobeCuj82Zyu-EbZ/preview",
         duration: "1h 43m",
-        genero: ["Comédia",
-            "Romance"
-        ]
+        genero: [gen.comedia, gen.romance]
     },
     {
         background: background,
@@ -5632,9 +5547,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1L1JdL_izynjLRqqHEWenFkjkbCW3Efox/preview",
         duration: "2h 18m",
-        genero: ["Suspense",
-            "Ação"
-        ]
+        genero: [gen.suspense, gen.acao]
     },
     {
         background: background,
@@ -5646,12 +5559,8 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1dbNMU0Fnru8yixXGQbZyHch4A7DVJhuW/preview",
         duration: "2h 34m",
-        genero: ["Ficção Científica",
-            "Ação",
-            "Aventura"
-        ]
+        genero: [gen.ficcao, gen.acao, gen.aventura]
     },
-
     {
         background: background,
         overlay: overlay,
@@ -5662,7 +5571,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1asYDH3uOd0XOXECJC_LrkW1yMgU-BN13/preview",
         duration: "1h 45m",
-        genero: ["Romance", "Comédia", "Prime Video"]
+        genero: [gen.romance, gen.comedia, stm.prime]
     },
     {
         background: background,
@@ -5674,7 +5583,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1ogehUC8CXWagoPDKANzBZFT4KqxTu_TW/preview",
         duration: "2h 20m",
-        genero: ["Ficção Científica", "Ação"]
+        genero: [gen.ficcao, gen.acao]
     },
     {
         background: background,
@@ -5686,9 +5595,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1xwE81U7TF1VYCZoXew_y_nmBphJvm8zr/preview",
         duration: "1h 56m",
-        genero: ["Fantasia",
-            "Musical"
-        ]
+        genero: [gen.fantasia, agp.music]
     },
     {
         background: background,
@@ -5700,11 +5607,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1hdBaMOEc-9DmaRYQVxvxr8Efa2bFFQVf/preview",
         duration: "1h 46m",
-        genero: ["Marvel",
-            "Super Herói",
-            "Ação",
-            "Aventura"
-        ]
+        genero: [agp.marvel, agp.hero, gen.acao, gen.aventura]
     },
     {
         background: background,
@@ -5716,7 +5619,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1V4bw4FKcRQcRwrr_W8WoLLpZH0JgNqKl/preview",
         duration: "4h 02m",
-        genero: ["Ação", "Super Herói", "DC"]
+        genero: [gen.acao, agp.hero, agp.dc]
     },
     {
         background: background,
@@ -5728,11 +5631,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1-8aB2F3DILZLHOXBaYQJlitJsyOUBow7/preview",
         duration: "2h 28m",
-        genero: ["Marvel",
-            "Ação",
-            "Ficção Científica",
-            "Super Heroi"
-        ]
+        genero: [agp.marvel, gen.acao, gen.ficcao, agp.hero]
     },
     {
         background: background,
@@ -5744,9 +5643,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/17POcLiptxNITJe0vuYgQFQ0NVTnI0BUW/preview",
         duration: "2h 06m",
-        genero: ["Ação",
-            "Comédia"
-        ]
+        genero: [gen.acao, gen.comedia]
     },
     {
         background: background,
@@ -5758,9 +5655,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1hFctLD5GqlaG4uaZFeSxr3ufCimrSnIo/preview",
         duration: "1h 43m",
-        genero: ["Comédia",
-            "Romance"
-        ]
+        genero: [gen.comedia, gen.romance]
     },
     {
         background: background,
@@ -5772,7 +5667,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1AENYKs3RgjwsMi0Y5-tv57DFNfnnAOJ_/preview",
         duration: "2h 50m",
-        genero: ["Ação", "Drama", "Ficção científica", "Espaço"]
+        genero: [gen.aventura, gen.drama, gen.ficcao]
     },
     {
         background: background,
@@ -5784,7 +5679,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/14e0ij22Ekbj44qMQFh0-7NEtBH-zqVAG/preview",
         duration: "1h 30m",
-        genero: ["DC", "Animação", "Ação", "Super Heroi"]
+        genero: [agp.dc, gen.animacao, gen.acao, agp.hero]
     },
     {
         background: background,
@@ -5796,7 +5691,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1kOzLxs0czJH75RUqMlTRzMdJ9ia6o1jh/preview",
         duration: "3h 00m",
-        genero: ["Marvel", "Ação", "Super Heroi"]
+        genero: [agp.marvel, gen.acao, agp.hero]
     },
     {
         background: background,
@@ -5808,7 +5703,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/143wpGC0L8IF6M9NlK-qz9EnYb27Evng_/preview",
         duration: "1h 52m",
-        genero: ["Marvel", "Ação", "Vilão"]
+        genero: [agp.marvel, gen.acao, agp.vilian]
     },
     {
         background: background,
@@ -5820,7 +5715,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1yaDcuysNUZUWa5mVnhsgVLMvF0vGdugp/preview",
         duration: "02h 59m",
-        genero: ["Fantasia", "Aventura"]
+        genero: [gen.fantasia, gen.aventura]
     },
     {
         background: background,
@@ -5832,7 +5727,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1I3HOyzouUFnJkdX1jAnchCoMZEM7YBlKVQ/preview",
         duration: "3h 55m",
-        genero: ["Fantasia", "Aventura"]
+        genero: [gen.fantasia, gen.aventura]
     },
     {
         background: background,
@@ -5844,7 +5739,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1rPmACNblk0C1nuTJu9cGX6zmNxrL0VYA/preview",
         duration: "03h 22m",
-        genero: ["Fantasia", "Aventura"]
+        genero: [gen.fantasia, gen.aventura]
     },
     {
         background: background,
@@ -5856,7 +5751,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1cTsvQoeIvZhYxDgaewOdDJV2J4HciCQP/preview",
         duration: "2h 30m",
-        genero: ["Marvel", "Ação", "Super Heroi"]
+        genero: [agp.marvel, gen.acao, agp.hero]
     },
     {
         background: background,
@@ -5868,7 +5763,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/0B_h5c5Md422hYnRsMDB3bXBsN3M/preview?resourcekey=0-AsTC4uGN7s6WUOaqTL_BTQ",
         duration: "1h 32m",
-        genero: ["Ação", "Terror"]
+        genero: [gen.acao, gen.terror]
     },
     {
         background: background,
@@ -5880,7 +5775,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/0B_4lGDbhNmrDeXpuWlFMckVxcVk/preview?resourcekey=0-V-2JJYKmeQAc9m8E6402pA",
         duration: "1h 55m",
-        genero: ["Ação", "Suspense", "Legendado"]
+        genero: [gen.acao, gen.suspense, lang.leg]
     },
     {
         background: background,
@@ -5892,7 +5787,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1ve34N2EvgvffaDei7JkWcIAWPmSjtzWc/preview",
         duration: "1h 48m",
-        genero: ["Suspense", "Terror"]
+        genero: [gen.suspense, gen.terror]
     },
     {
         background: background,
@@ -5904,7 +5799,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1lGNHpX5XUBGWArq0eP-kMAwUTZdM0fSy/preview",
         duration: "1h 36m",
-        genero: ["Fantasia", "Infântil", "Drama"]
+        genero: [gen.fantasia, agp.familia, gen.drama]
     },
     {
         background: background,
@@ -5916,6 +5811,6 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1KM4lBk8iCXTTBSHnV3z4vqbMV4zn9vNP/preview",
         duration: "1h 40m",
-        genero: ["Suspense", "Terror", "Mistério"]
+        genero: [gen.suspense, gen.terror, agp.misterio]
     }
 ]

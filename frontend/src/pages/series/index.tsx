@@ -10,13 +10,19 @@ import { useTMDB } from "@/contexts/TMDBContext";
 import { apiTMDB } from "@/services/apiTMDB";
 import { TMDBSeries } from "@/@types/series";
 import Loading from "@/components/ui/Loading";
+import { gen, stm } from "@/utils/Genres";
 
 export default function Series() {
     //refatorar
     const [cardPerContainer, setCardPerContainer] = useState<number>(5)
     const [width, setWidth] = useState<number>()
+    const genres = Object.values(gen)
+    const streamings = Object.values(stm)
+    const combined = [...streamings, ...genres]
+    const removedSections = ["Romance", "Terror", "Globo Play", "Paramount", "StarZ", "SKY"]
+    const divisaoPorGenero = combined.filter(item => !removedSections.includes(item))
 
-    const divisaoPorGenero = [
+    /*const divisaoPorGenero = [
         "Netflix",
         "Hbo",
         "Disney+",
@@ -31,7 +37,7 @@ export default function Series() {
         "Drama",
         "Fantasia",
         "Animação",
-    ]
+    ]*/
     const [loading, setLoading] = useState(false)
     const { serieData, setSerieData } = useTMDB()
 

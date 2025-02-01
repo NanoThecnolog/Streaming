@@ -1,4 +1,5 @@
 import { SeriesProps } from "@/@types/series";
+import { agp, gen, lang, stm } from "@/utils/Genres";
 
 const background = "/fundo-largo.jpg";
 const overlay = "/fundo-alto.jpg";
@@ -44,7 +45,7 @@ export const series: SeriesProps[] = [
         title: "The Expanse",
         subtitle: "",
         description: "Duzentos anos no futuro, um detetive interespacial, o capitão de uma nave e uma diplomata antiguerra cruzam seus caminhos após uma jovem desaparecer misteriosamente.",
-        genero: ["Drama", "Ficção Científica", "Mistério"],
+        genero: [gen.drama, gen.ficcao, agp.misterio],
         faixa: "A16",
         season: [
             {
@@ -178,7 +179,7 @@ export const series: SeriesProps[] = [
         title: "Agente Noturno",
         subtitle: "",
         description: "A série acompanha um agente de baixo escalão do FBI que trabalha no porão da Casa Branca, a postos para atender um telefone que nunca toca. Até que um dia, ele recebe uma ligação que acaba revelando uma perigosa conspiração contra o governo dos Estados Unidos.",
-        genero: ["Ação", "Suspense", "Netflix"],
+        genero: [gen.acao, gen.suspense, stm.netflix],
         faixa: "A16",
         news: {
             type: "season"
@@ -305,7 +306,7 @@ export const series: SeriesProps[] = [
         title: "Invasão",
         subtitle: "",
         description: "Uma visita extraterrestre ameaça a existência humana. Os impactos a dessa chegada são acompanhados em tempo real por cinco pessoas comuns. Em cantos diferentes do planeta, elas tentam encontrar sentido em meio ao caos.",
-        genero: ["Drama", "Ficção Científica", "Apple TV"],
+        genero: [gen.drama, gen.ficcao, stm.apple],
         faixa: "A16",
         season: [
             {
@@ -373,7 +374,7 @@ export const series: SeriesProps[] = [
         title: "Grey's Anatomy",
         subtitle: "",
         description: "Os médicos do Grey Sloan Memorial Hospital lidam diariamente com casos e consequências de vida ou morte. É um no outro que eles encontram apoio, conforto, amizade e, às vezes, até mais que amizade... Juntos, eles descobrem o quanto a vida profissional e a pessoal podem ser complicadas e se misturarem no meio do caminho.",
-        genero: ["Drama"],
+        genero: [gen.drama],
         faixa: "A14",
         season: [
             {
@@ -1545,7 +1546,7 @@ export const series: SeriesProps[] = [
         title: "The End of The F***ing World",
         subtitle: "",
         description: "Nesta comédia de humor negro, um adolescente psicopata e uma rebelde louca por aventuras caem na estrada em uma malfadada viagem.",
-        genero: ["Comédia", "Drama", "Crime", "Netflix"],
+        genero: [gen.comedia, gen.drama, agp.crime, stm.netflix],
         faixa: "A16",
         season: [
             {
@@ -1649,7 +1650,7 @@ export const series: SeriesProps[] = [
         title: "The Last Of Us",
         subtitle: "",
         description: "Situado duas décadas após a implosão de nossa sociedade, o drama seguirá Joel, um sobrevivente difícil, que é contratado para contrabandear uma garota de 14 anos chamada Ellie para fora de uma zona de quarentena opressiva. O que começa como um pequeno trabalho logo se torna uma jornada brutal e de partir o coração, já que os dois precisam atravessar os Estados Unidos e dependem um do outro para sobreviver.",
-        genero: ["Drama", "HBO"],
+        genero: [gen.drama, stm.hbo],
         faixa: "A16",
         season: [
             {
@@ -1712,7 +1713,7 @@ export const series: SeriesProps[] = [
         title: "The Pitt",
         subtitle: "",
         description: "A equipe do Centro Médico de Emergência de Pittsburgh trabalha para salvar vidas em um departamento de emergência superlotado e carente de recursos.",
-        genero: ["Drama", "HBO"],
+        genero: [gen.drama, stm.hbo],
         faixa: "A14",
         news: {
             type: "episode"
@@ -1748,7 +1749,7 @@ export const series: SeriesProps[] = [
         title: "Castlevânia",
         subtitle: "Noturno",
         description: "Enquanto a revolução assola a França, Richter Belmont luta para manter o legado da família e impedir a ascensão de uma vampira brutal e gananciosa.",
-        genero: ["Animação", "Drama", "Netflix"],
+        genero: [gen.animacao, gen.drama, stm.netflix],
         faixa: "A16",
         news: {
             type: "season"
@@ -1855,7 +1856,7 @@ export const series: SeriesProps[] = [
         title: "Demolidor",
         subtitle: "",
         description: 'Cego desde pequeno, Matt Murdock luta contra a injustiça durante o dia como advogado e à noite nas ruas de Hell’s Kitchen, Nova York.',
-        genero: ["Ação", "Drama", "Marvel", "Disney+"],
+        genero: [gen.acao, gen.drama, agp.marvel, stm.disney],
         faixa: "18",
         season: [
             {
@@ -2080,7 +2081,7 @@ export const series: SeriesProps[] = [
         title: "What If...?",
         subtitle: "",
         description: '"What If…?" reinventa os acontecimentos do UCM, mudando a história de forma surpreendente.',
-        genero: ["Animação", "Marvel", "Disney+"],
+        genero: [gen.animacao, agp.marvel, stm.disney],
         faixa: "A14",
         news: {
             type: "season"
@@ -2243,7 +2244,7 @@ export const series: SeriesProps[] = [
         title: "Everything Sucks!",
         subtitle: "",
         description: "Em 1996, na cidade de Boring, alunos dos clubes de teatro e vídeo encaram os altos e baixos da vida adolescente nos tempos do vídeo-cassete.",
-        genero: ["Comédia", "Netflix"],
+        genero: [gen.comedia, stm.netflix],
         faixa: "A12",
         season: [
             {
@@ -2311,12 +2312,12 @@ export const series: SeriesProps[] = [
         title: "Nossa Bandeira é a Morte",
         subtitle: "",
         description: 'Uma comédia de época escandalosamente engraçada e vagamente baseada nas aventuras reais de Stede Bonnet, um aristocrata mimado do século XVIII que abandonou sua vida cheia de privilégios para virar o "Pirata Cavalheiro".',
-        genero: ["Ação", "Aventura", "Comédia", "HBO"],
+        genero: [gen.acao, gen.aventura, gen.comedia, stm.hbo],
         faixa: "A16",
         season: [
             {
                 s: 1,
-                lang: "Legendado",
+                lang: lang.leg,
                 episodes: [
                     {
                         ep: 1,
@@ -2425,7 +2426,7 @@ export const series: SeriesProps[] = [
         title: "Xógum",
         subtitle: "A Gloriosa Saga do Japão",
         description: "Ambientada no Japão de 1600, o Senhor Yoshii Toranaga está lutando pela sua vida à medida que seus inimigos no Conselho dos Regentes se unem contra ele, quando um navio europeu misterioso é encontrado encalhado em um vilarejo de pescadores próximo.",
-        genero: ["Drama", "Disney+"],
+        genero: [gen.drama, stm.disney],
         faixa: "A16",
         season: [
             {
@@ -2493,7 +2494,7 @@ export const series: SeriesProps[] = [
         title: "Titãs",
         subtitle: "",
         description: "Uma equipe de jovens super-heróis liderada por Asa Noturna (anteriormente Robin de Batman) formada para combater o mal e outros perigos.",
-        genero: ["Ação", "DC", "Netflix"],
+        genero: [gen.acao, agp.dc, stm.netflix],
         faixa: "18",
         season: [
             {
@@ -2759,7 +2760,7 @@ export const series: SeriesProps[] = [
         title: "Universos Paralelos",
         subtitle: "",
         description: "As vidas dos quatro amigos de infância, Bilal, Romane, Sam e Victor, são afetadas quando um misterioso evento os separa, enviando-os para dimensões paralelas. Eles tentam entender o que aconteceu e se esforçam para retroceder o tempo, a fim de retornar ao seu mundo anterior.",
-        genero: ["Ficção Científica", "Disney+"],
+        genero: [gen.ficcao, stm.disney],
         faixa: "A12",
         season: [
             {
@@ -2807,7 +2808,7 @@ export const series: SeriesProps[] = [
         title: "Bebê Rena",
         subtitle: "",
         description: "Um comediante é gentil com uma mulher vulnerável, despertando uma obsessão sufocante que pode acabar com as vidas dos dois.",
-        genero: ["Drama", "Netflix"],
+        genero: [gen.drama, stm.netflix],
         faixa: "18",
         season: [
             {
@@ -2860,7 +2861,7 @@ export const series: SeriesProps[] = [
         title: "X-men ’97",
         subtitle: "",
         description: "X-Men ’97 revisita a era icônica dos anos 1990, quando os X-Men, um grupo de mutantes que usam seus dons extraordinários para proteger um mundo que os odeia e teme, são desafiados como nunca antes, forçados a enfrentar um novo futuro perigoso e inesperado.",
-        genero: ["Animação", "Marvel", "Disney+"],
+        genero: [gen.animacao, agp.marvel, stm.disney],
         faixa: "A14",
         season: [
             {
@@ -2928,7 +2929,7 @@ export const series: SeriesProps[] = [
         title: "Eco",
         subtitle: "",
         description: "Perseguida pelo criminoso Fisk, Maya volta para casa, onde confrontará sua família e seu legado.",
-        genero: ["Ação", "Marvel", "Disney+"],
+        genero: [gen.acao, agp.marvel, stm.disney],
         faixa: "A16",
         season: [
             {
@@ -2971,7 +2972,7 @@ export const series: SeriesProps[] = [
         title: "Invencível",
         subtitle: "",
         description: "Uma animação de super-heróis para adultos e conta a história de Mark Grayson, de 17 anos, um cara como qualquer outro de sua idade, exceto que seu pai é o super-herói mais poderoso do planeta, Omni-Man. Porém, à medida que Mark desenvolve seus próprios poderes, ele descobre que o legado de seu pai pode não ser tão heroico quanto parece.",
-        genero: ["Animação", "Ação", "Prime Video"],
+        genero: [gen.animacao, gen.acao, stm.prime],
         faixa: "18",
         season: [
             {
@@ -3075,7 +3076,7 @@ export const series: SeriesProps[] = [
         title: "Comando das Criaturas",
         subtitle: "",
         description: "Acompanha uma equipe secreta de monstros encarcerados, recrutados para missões consideradas perigosas demais para humanos.",
-        genero: ["Animação", "DC", "HBO"],
+        genero: [gen.animacao, agp.dc, stm.hbo],
         faixa: "A16",
         news: {
             type: "episode"
@@ -3131,7 +3132,7 @@ export const series: SeriesProps[] = [
         title: "Loki",
         subtitle: "",
         description: "Começando imediatamente depois que Loki rouba o Tesseract (de novo), ele se encontra diante da Autoridade de Variação Temporal, uma organização burocrática que existe fora do tempo e espaço. Forçado a responder por seus crimes contra a linha do tempo, ele recebe uma escolha: Ser deletado da realidade ou ajudar a capturar uma ameaça ainda maior.",
-        genero: ["Drama", "Ficção Científica", "Marvel", "Disney+"],
+        genero: [gen.drama, gen.ficcao, agp.marvel, stm.disney],
         faixa: "A14",
         season: [
             {
@@ -3215,7 +3216,7 @@ export const series: SeriesProps[] = [
         title: "Avatar",
         subtitle: "O Ultimo Mestre do Ar",
         description: "Água. Terra. Fogo. Ar. As quatro nações viviam em harmonia, com o Avatar, mestre de todos os elementos, mantendo a paz entre eles. Mas tudo mudou quando a Nação do Fogo atacou e exterminou os Nômades do Ar, o primeiro passo dos mestres do fogo para conquistarem o mundo. Com a próxima encarnação do Avatar ainda por vir, o mundo perdeu a esperança. Mas como uma luz na escuridão, a esperança floresce quando Aang, um jovem Nômade do Ar — e o último de seu grupo — desperta para tomar seu lugar por direito como o próximo Avatar. Junto com seus novos amigos Sokka e Katara, irmãos e membros da Tribo da Água do Sul, Aang embarca em uma busca fantástica e cheia de ação para salvar o mundo e lutar contra o terrível ataque do Senhor do Fogo Ozai. Mas com o Príncipe Zuko determinado a capturá-los, não será uma tarefa fácil. Eles vão precisar da ajuda de muitos aliados e personagens coloridos que encontrarem ao longo do caminho.",
-        genero: ["Ação", "Fantasia", "Aventura", "Netflix"],
+        genero: [gen.acao, gen.fantasia, gen.aventura, stm.netflix],
         faixa: "A12",
         season: [
             {
@@ -3273,7 +3274,7 @@ export const series: SeriesProps[] = [
         title: "WandaVision",
         subtitle: "",
         description: "Wanda Maximoff e Visão, um casal de super-heróis com uma vida perfeita, que começa a suspeitar que nem tudo é o que parece.",
-        genero: ["Drama", "Mistério", "Disney+"],
+        genero: [gen.drama, agp.misterio, stm.disney],
         faixa: "A12",
         season: [
             {
@@ -3336,7 +3337,7 @@ export const series: SeriesProps[] = [
         title: "Ruptura",
         subtitle: "",
         description: "Mark lidera uma equipe de funcionários de escritório cujas memórias foram divididas cirurgicamente entre a vida no trabalho e a vida pessoal. Quando um colega de trabalho misterioso aparece fora do escritório, ele começa uma jornada para descobrir a verdade sobre seu trabalho.",
-        genero: ["Drama", "Mistério", "Apple TV"],
+        genero: [gen.drama, agp.misterio, stm.apple],
         faixa: "A16",
         news: {
             type: "episode"
@@ -3423,7 +3424,7 @@ export const series: SeriesProps[] = [
         title: "Reacher",
         subtitle: "",
         description: "Quando o policial militar aposentado Jack Reacher é preso por um assassinato que não cometeu, ele se vê no meio de uma trama mortal cheia de policiais corruptos, empresários obscuros e políticos conspiradores. Só com sua inteligência, ele precisa descobrir o que está havendo em Margrave, Geórgia.",
-        genero: ["Ação", "Crime", "Suspense", "Prime Video"],
+        genero: [gen.acao, agp.crime, gen.suspense, stm.prime],
         faixa: "A16",
         season: [
             {
@@ -3527,7 +3528,7 @@ export const series: SeriesProps[] = [
         title: "Lioness",
         subtitle: "",
         description: "Inspirado por um programa militar americano, Operação: Lioness segue as agentes Joe, Kaitlyn e Cruz enquanto elas embarcam em uma perigosa missão secreta para impedir o próximo 11 de setembro.",
-        genero: ["Drama", "Ação", "Guerra", "Paramount"],
+        genero: [gen.drama, gen.acao, agp.guerra, stm.paramount],
         faixa: "A16",
         season: [
             {
@@ -3631,12 +3632,12 @@ export const series: SeriesProps[] = [
         title: "Lucifer",
         subtitle: "",
         description: "Entediado com a vida nas trevas, o diabo se muda para Los Angeles, abre um piano-bar e empresta sua sabedoria a uma investigadora de assassinatos.",
-        genero: ["Crime", "Fantasia", "Netflix", "DC"],
+        genero: [gen.fantasia, agp.crime, agp.dc, stm.netflix],
         faixa: "A16",
         season: [
             {
                 s: 1,
-                lang: "Legendado",
+                lang: lang.leg,
                 episodes: [
                     {
                         ep: 1,
@@ -3707,7 +3708,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 2,
-                lang: "Legendado",
+                lang: lang.leg,
                 episodes: [
                     {
                         ep: 1,
@@ -3803,7 +3804,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 3,
-                lang: "Legendado",
+                lang: lang.leg,
                 episodes: [
                     {
                         ep: 1,
@@ -3939,7 +3940,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 4,
-                lang: "Legendado",
+                lang: lang.leg,
                 episodes: [
                     {
                         ep: 1,
@@ -3995,7 +3996,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 5,
-                lang: "Legendado",
+                lang: lang.leg,
                 episodes: [
                     {
                         ep: 1,
@@ -4082,7 +4083,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 6,
-                lang: "Legendado",
+                lang: lang.leg,
                 episodes: [
                     {
                         ep: 1,
@@ -4145,7 +4146,7 @@ export const series: SeriesProps[] = [
         title: "The Sandman",
         subtitle: "",
         description: "Após anos aprisionado, Morpheus, o Rei dos Sonhos, embarca em uma jornada entre mundos para recuperar o que lhe foi roubado e restaurar seu poder.",
-        genero: ["Aventura", "Drama", "Fantasia", "DC", "Netflix"],
+        genero: [gen.aventura, gen.drama, gen.fantasia, agp.dc, stm.netflix],
         faixa: "18",
         season: [
             {
@@ -4213,7 +4214,7 @@ export const series: SeriesProps[] = [
         title: "Cavaleiro da Lua",
         subtitle: "",
         description: "A série acompanha Steven Grant, um gentil e educado funcionário de uma loja de souvenir, que é atormentado com apagões e memórias de outra vida. Steven descobre que tem transtorno dissociativo de identidade e divide o corpo com o mercenário Marc Spector. À medida que os inimigos de Steven/Marc se voltam para eles, ambos devem navegar em suas complexas identidades enquanto mergulham em um mistério mortal entre os poderosos deuses do Egito.",
-        genero: ["Ação", "Aventura", "Marvel", "Disney+"],
+        genero: [gen.acao, gen.aventura, agp.marvel, stm.disney],
         faixa: "A14",
         season: [
             {
@@ -4261,7 +4262,7 @@ export const series: SeriesProps[] = [
         title: "Ms. Marvel",
         subtitle: "",
         description: "Kamala Khan é uma adolescente muçulmana de Jersey City. Ela adora jogar videogames e escrever fanfictions, além de ser fã de super-heróis e ter uma imaginação sem limites – especialmente quando se trata da Capitã Marvel. Kamala sente que não se encaixa na escola e, às vezes, nem mesmo em casa. Mas um dia ela descobre que tem superpoderes como os heróis que sempre admirou... e a vida fica bem melhor com superpoderes, não é?",
-        genero: ["Ficção Científica", "Fantasia", "Ação", "Disney+", "Marvel", "Comédia"],
+        genero: [gen.ficcao, gen.fantasia, gen.acao, stm.disney, agp.marvel, gen.comedia],
         faixa: "A14",
         season: [
             {
@@ -4309,7 +4310,7 @@ export const series: SeriesProps[] = [
         title: "O Dia do Chacal",
         subtitle: "",
         description: "Um atirador de elite, um mestre dos disfarces, um assassino treinado – Chacal é um assassino que mata friamente mediante um pagamento. Após o ataque contra um político famoso e importante, Chacal recebe o trabalho mais arriscado de todos, mas que pagará o suficiente para que ele largue essa vida de vez. Só que seu trabalho atraiu a atenção de Bianca, uma policial da inteligência britânica tenaz e com uma grande experiência em armas de fogo, o que faz dela a candidata perfeita para buscá-lo. O que se segue é uma perseguição emocionante pela Europa, com Chacal tentando terminar sua missão enquanto é perseguido por Bianca. Quando a vida pessoal de Bianca e de Chacal entra em conflito com seu trabalho, eles arriscam tudo por essa caçada e vão até o limite, com consequências desastrosas.",
-        genero: ["Drama", "Ação", "Mistério", "Disney+"],
+        genero: [gen.drama, gen.acao, agp.misterio, stm.disney],
         faixa: "A14",
         season: [
             {
@@ -4377,7 +4378,7 @@ export const series: SeriesProps[] = [
         title: "Smallville",
         subtitle: "As Aventuras do Superboy",
         description: "Antes da vida como Super-Homem, o jovem Clark Kent encara os problemas da adolescência enquanto aprende a controlar seus poderes e usá-los para proteger a cidade de Smallville.",
-        genero: ["Ficção Científica", "Fantasia", "Ação", "Aventura", "DC"],
+        genero: [gen.ficcao, gen.fantasia, gen.acao, gen.aventura, agp.dc],
         faixa: "L",
         season: [
             {
@@ -5193,7 +5194,7 @@ export const series: SeriesProps[] = [
         title: "Nivel Secreto",
         subtitle: "",
         description: "Nível Secreto é uma nova série animada de antologia para adultos, apresentando histórias originais nos mundos de alguns dos videogames mais adorados no mundo todo. Das mentes criativas por trás de LOVE, DEATH + ROBOTS, cada um dos 15 episódios é uma celebração de jogos e jogadores.",
-        genero: ["Animação", "Ficção Científica", "Ação", "Aventura", "Prime Video"],
+        genero: [gen.animacao, gen.ficcao, gen.acao, gen.aventura, stm.prime],
         faixa: "A16",
         season: [
             {
@@ -5286,7 +5287,7 @@ export const series: SeriesProps[] = [
         title: "Dexter",
         subtitle: "",
         description: "Renomado funcionário da Polícia de Miami, Dexter esconde de todos uma segunda identidade: ele é um assassino em série que mata os criminosos que a polícia não consegue prender.",
-        genero: ["Crime", "Drama", "Mistério"],
+        genero: [agp.crime, gen.drama, agp.misterio],
         faixa: "18",
         season: [
             {
@@ -5760,7 +5761,7 @@ export const series: SeriesProps[] = [
         title: "Dexter",
         subtitle: "Pecado Original",
         description: "Miami, 1991. Quando sua sede de sangue não pode mais ser ignorada, o jovem Dexter Morgan precisa aprender a canalizar sua escuridão interna conforme ele passa de estudante para assassino em série com a orientação de seu pai, Harry.",
-        genero: ["Drama", "Crime", "Paramount"],
+        genero: [gen.drama, agp.crime, stm.paramount],
         faixa: "18",
         news: {
             type: 'episode'
@@ -5821,7 +5822,7 @@ export const series: SeriesProps[] = [
         title: "Silo",
         subtitle: "",
         description: "Em um futuro destruído e tóxico, existe uma comunidade que vive dentro de um gigantesco silo subterrâneo com centenas de andares de profundidade. Lá, homens e mulheres vivem numa sociedade cheia de regras que acreditam existir para protegê-los.",
-        genero: ["Ficção Científica", "Drama", "Apple TV"],
+        genero: [gen.ficcao, gen.drama, stm.apple],
         faixa: "A14",
         news: {
             type: "episode"
@@ -5948,12 +5949,12 @@ export const series: SeriesProps[] = [
         title: "Sweetpea",
         subtitle: "",
         description: "Ela é continuamente esquecida para uma promoção no trabalho, o cara de quem ela gosta não se compromete, e seu pai está muito, muito doente. Então, tudo em sua vida vira de cabeça para baixo. Rhiannon é levada ao limite e perde o controle.",
-        genero: ["Comédia", "Drama", "SKY", "StarZ"],
+        genero: [gen.comedia, gen.drama, stm.sky, stm.starz],
         faixa: "18",
         season: [
             {
                 s: 1,
-                lang: "Legendado",
+                lang: lang.leg,
                 episodes: [
                     {
                         ep: 1,
@@ -5996,7 +5997,7 @@ export const series: SeriesProps[] = [
         title: "Stranger Things",
         subtitle: "",
         description: "Quando um garoto desaparece, um grupo de crianças participa nas buscas. Mas o que encontram são segredos, forças sobrenaturais e uma menina.",
-        genero: ["Ficção Científica", "Terror", "Ação", "Mistério", "Netflix"],
+        genero: [gen.ficcao, gen.terror, gen.acao, agp.misterio, stm.netflix],
         faixa: "A16",
         season: [
             {
@@ -6192,7 +6193,7 @@ export const series: SeriesProps[] = [
         title: "Solo Leveling",
         subtitle: "",
         description: 'Há mais de uma década, surgiu uma misteriosa passagem chamada "portal", que conecta este mundo a uma dimensão diferente, o que fez com que pessoas despertassem poderes únicos… e essas pessoas são chamadas de "caçadores". Os caçadores usam seus poderes sobre-humanos para conquistar masmorras dentro dos portais e assim ganhar a vida. Sung Jinwoo, um caçador de nível baixo, é considerado o caçador mais fraco de toda a humanidade. Certo dia, ele se depara com uma "masmorra dupla", que tem uma masmorra de nível alto escondida dentro de uma masmorra de nível baixo. Diante de um Jinwoo gravemente ferido, surge uma misteriosa missão! À beira da morte, Jinwoo decide aceitar essa missão, tornando-se assim a única pessoa capaz de subir de nível!',
-        genero: ["Animação", "Ação", "Aventura", "Fantasia"],
+        genero: [gen.animacao, gen.acao, gen.aventura, gen.fantasia],
         faixa: "A16",
         news: {
             type: "episode"
@@ -6293,7 +6294,7 @@ export const series: SeriesProps[] = [
         title: "Arrow",
         subtitle: "",
         description: "Após um violento naufrágio, o playboy milionário Oliver Queen é dado como morto. Cinco anos depois, é resgatado de uma ilha do Pacífico e enviado de volta para Starling City, onde passa a agir como vigilante secreto.",
-        genero: ["Ação", "Drama", "Crime", "DC"],
+        genero: [gen.acao, gen.drama, agp.crime, agp.dc],
         faixa: "A14",
         season: [
             {
@@ -7202,7 +7203,7 @@ export const series: SeriesProps[] = [
         title: "Eu, a Patroa e as Crianças",
         subtitle: "",
         description: "Jay Kyle precisa se dedicar exclusivamente a carreira na contabilidade, porém Michael acredita que esse não é o melhor caminho para Jay, pois acredita que a mesma usa do trabalho para desvirtuar-se de sua família. A menina Kady está sob os cuidados da babá Rosa, uma mulher mexicana que nunca caiu aos encantos do patrão. Claire vive o período da pré-adolescência e costuma ser um pouco arrogante em suas atitudes. Júnior demonstra seu gosto pelo Hip-Hop, porém é desvirtuado da ideia pelo seu pai, que costuma extrapolar, quando o quesito é disciplina.",
-        genero: ["Comédia", "Família"],
+        genero: [gen.comedia, agp.familia],
         faixa: "10",
         season: [
             {
@@ -7860,7 +7861,7 @@ export const series: SeriesProps[] = [
         title: "Locke & Key",
         subtitle: "",
         description: "Após o assassinato do pai, três irmãos se mudam com a mãe para uma casa antiga onde descobrem chaves mágicas que revelam poderes e segredos.",
-        genero: ["Fantasia", "Mistério", "Drama", "Netflix"],
+        genero: [gen.fantasia, agp.misterio, gen.drama, stm.netflix],
         faixa: "A16",
         season: [
             {
@@ -8030,7 +8031,7 @@ export const series: SeriesProps[] = [
         title: "Gotham Knights",
         subtitle: "",
         description: "No rescaldo do assassinato de Bruce Wayne, seu filho adotivo rebelde forja uma aliança improvável com os filhos dos inimigos de Batman quando todos eles são enquadrados por matar o Cruzado Encapuzado.",
-        genero: ["Ação", "Aventura", "DC", "Super Herói", "HBO"],
+        genero: [gen.acao, gen.aventura, agp.dc, agp.hero, stm.hbo],
         faixa: "A14",
         season: [
             {
@@ -8113,7 +8114,7 @@ export const series: SeriesProps[] = [
         title: "Tá Tudo Certo",
         subtitle: "",
         description: "Esta é a história de Pedro, um jovem estudante de direito que sonha em ser uma estrela da música e que, por acaso, conhece Ana. Com ela, o caminho do sucesso parece possível, mas logo ele se encontra com o dilema de perseguir seu sonho de sucesso ou ter uma vida cheia de música e boas vibrações ao lado de Ana.",
-        genero: ["Comédia", "Drama", "Romance", "Disney+"],
+        genero: [gen.comedia, gen.drama, gen.romance, stm.disney],
         faixa: "A12",
         season: [
             {
@@ -8151,7 +8152,7 @@ export const series: SeriesProps[] = [
         title: "Dickinson",
         subtitle: "",
         description: "Poetisa. Filha. Completa rebelde. Ela está determinada a tornar-se a maior poetisa do mundo e superar os limites impostos pela sociedade e por sua família.",
-        genero: ["Comédia", "Drama", "Apple TV"],
+        genero: [gen.comedia, gen.drama, stm.apple],
         faixa: "A16",
         season: [
             {
@@ -8331,7 +8332,7 @@ export const series: SeriesProps[] = [
         title: "Fubar",
         subtitle: "",
         description: "Um agente da CIA prestes a se aposentar descobre um segredo de família e precisa desempenhar uma última (e inesperada) missão.",
-        genero: ["Ação", "Aventura", "Comédia", "Netflix"],
+        genero: [gen.acao, gen.aventura, gen.comedia, stm.netflix],
         faixa: "A16",
         season: [
             {
@@ -8389,7 +8390,7 @@ export const series: SeriesProps[] = [
         title: "Cães de Caça",
         subtitle: "",
         description: "Dois jovens boxeadores se juntam a um agiota bonzinho para derrotar um concorrente que se aproveita das pessoas mais vulneráveis.",
-        genero: ["Drama", "Ação", "Coreano", "Netflix"],
+        genero: [gen.drama, gen.acao, agp.korean, stm.netflix],
         faixa: "A16",
         season: [
             {
@@ -8447,7 +8448,7 @@ export const series: SeriesProps[] = [
         title: "Fallout",
         subtitle: "",
         description: "Baseada em um dos maiores jogos de video game de todos os tempos, Fallout é uma história que demonstra os abastados e os desprivilegiados em um mundo em que praticamente não sobrou mais nada. 200 anos após o apocalipse, os nobres residentes de abrigos de luxo são forçados a retornar ao universo incrivelmente complexo, alegremente estranho e altamente violento que os aguarda na superfície.",
-        genero: ["Ação", "Ficção Científica", "Prime Video"],
+        genero: [gen.acao, gen.ficcao, stm.prime],
         faixa: "18",
         season: [
             {
@@ -8505,7 +8506,7 @@ export const series: SeriesProps[] = [
         title: "O Problema dos 3 Corpos",
         subtitle: "",
         description: "Um grupo de cientistas faz descobertas revolucionárias ao longo das décadas. Ao mesmo tempo, as leis da ciência começam a cair por terra.",
-        genero: ["Drama", "Mistério", "Ficção Científica", "Netflix"],
+        genero: [gen.drama, agp.misterio, gen.ficcao, stm.netflix],
         faixa: "A16",
         season: [
             {
@@ -8563,7 +8564,7 @@ export const series: SeriesProps[] = [
         title: "Amor e Morte",
         subtitle: "",
         description: "A história real de Candy e Pat Montgomery e Betty e Allan Gore, dois casais que frequentam a igreja e vivem uma vida simples no Texas… até que uma traição faz alguém pegar um machado.",
-        genero: ["Crime", "Drama", "HBO"],
+        genero: [agp.crime, gen.drama, stm.hbo],
         faixa: "A16",
         season: [
             {
@@ -8616,12 +8617,12 @@ export const series: SeriesProps[] = [
         title: "Ninja Kamui",
         subtitle: "",
         description: "Um ex-membro de um clã ninja desistiu para viver uma vida tranquila com sua esposa e filho. Uma noite, sua família morre após ser atacada por uma organização misteriosa. O homem é torturado pelas consequências.",
-        genero: ["Animação", "Ação", "HBO"],
+        genero: [gen.animacao, gen.acao, stm.hbo],
         faixa: "A14",
         season: [
             {
                 s: 1,
-                lang: "Legendado",
+                lang: lang.leg,
                 episodes: [
                     {
                         ep: 1,
@@ -8699,7 +8700,7 @@ export const series: SeriesProps[] = [
         title: "Percy Jackson e Os Olimpianos",
         subtitle: "",
         description: "Percy Jackson terá uma missão perigosa. Enquanto enfrenta monstros e engana deuses!",
-        genero: ["Aventura", "Fantasia", "Drama"],
+        genero: [gen.aventura, gen.fantasia, gen.drama],
         faixa: "A12",
         season: [
             {
@@ -8757,7 +8758,7 @@ export const series: SeriesProps[] = [
         title: "O Justiceiro",
         subtitle: "",
         description: "O ex-marine Frank Castle só quer punir os criminosos responsáveis pela morte da sua família, mas torna-se alvo de uma conspiração militar.",
-        genero: ["Ação", "Drama", "Crime", "Marvel", "Netflix"],
+        genero: [gen.acao, gen.drama, agp.crime, agp.marvel, stm.netflix],
         faixa: "18",
         season: [
             {
@@ -8840,7 +8841,7 @@ export const series: SeriesProps[] = [
         title: "Invasão Secreta",
         subtitle: "",
         description: "Nick Fury descobre que uma facção de metamorfos Skrulls pretende invadir a Terra. Fury se junta a aliados incluindo Everett Ross, Maria Hill e o Skrull Talos, que estava vivendo na Terra. Juntos eles correm contra o tempo para impedir a invasão Skrull iminente e salvar a humanidade.",
-        genero: ["Ação", "Drama", "Ficção Científica", "Marvel"],
+        genero: [gen.acao, gen.drama, gen.ficcao, agp.marvel],
         faixa: "A14",
         season: [
             {
@@ -8888,7 +8889,7 @@ export const series: SeriesProps[] = [
         title: "Lost",
         subtitle: "",
         description: "Os sobreviventes de um voo que estava milhas fora do curso caem em uma ilha que abriga um sistema de segurança monstruoso, uma série de abrigos subterrâneos e um grupo de sobrevivencialistas violentos escondidos nas sombras.",
-        genero: ["Suspense", "Drama", "Mistério"],
+        genero: [gen.suspense, gen.drama, agp.misterio],
         faixa: "A16",
         season: [
             {
@@ -9543,7 +9544,7 @@ export const series: SeriesProps[] = [
         title: "O Gambito da Rainha",
         subtitle: "",
         description: "Durante a Guerra Fria, em um orfanato do Kentucky, uma garota prodígio do xadrez luta contra o vício para se tornar a número um do mundo.",
-        genero: ["Drama", "Netflix"],
+        genero: [gen.drama, stm.netflix],
         faixa: "A16",
         season: [
             {
@@ -9596,7 +9597,7 @@ export const series: SeriesProps[] = [
         title: "Brooklyn Nine Nine",
         subtitle: "",
         description: "O brilhante e imaturo detetive Jake Peralta precisa aprender a seguir as regras e trabalhar em equipe quando um capitão exigente assume o comando de seu esquadrão.",
-        genero: ["Comédia", "Crime"],
+        genero: [gen.comedia, agp.crime],
         faixa: "A14",
         season: [
             {
@@ -10426,7 +10427,7 @@ export const series: SeriesProps[] = [
         title: "Todo Mundo Odeia o Chris",
         subtitle: "",
         description: "Para Chris, fazer 13 anos não tem nada de maravilhoso. Ele é o único negro da turma do ensino médio, onde tem uma educação medíocre. É amigo de Greg, e é frequentemente abusado por Joey Caruso. Ambos os pais trabalham e ele cuida de seus dois irmãos. Parece trágico, mas é hilário.",
-        genero: ["Comédia", "Família"],
+        genero: [gen.comedia, agp.familia],
         faixa: "L",
         season: [
             {
@@ -10901,7 +10902,7 @@ export const series: SeriesProps[] = [
         title: "Amor da Minha Vida",
         subtitle: "",
         description: "Bia e Victor são melhores amigos e grandes confidentes um do outro. Enquanto ele vive um relacionamento antigo que caiu no tédio, ela coleciona namoros curtos, dos mais diferentes tipos, sem nunca acreditar no amor.",
-        genero: ["Drama", "Romance", "Comédia", "Disney+"],
+        genero: [gen.drama, gen.romance, gen.comedia, stm.disney],
         faixa: "18",
         season: [
             {
@@ -10969,7 +10970,7 @@ export const series: SeriesProps[] = [
         title: "Wandinha",
         subtitle: "",
         description: "Inteligente, sarcástica e apática, Wandinha Addams pode estar meio morta por dentro, mas na Escola Nunca Mais ela vai fazer amigos, inimigos e investigar assassinatos.",
-        genero: ["Fantasia", "Comédia", "Netflix"],
+        genero: [gen.fantasia, gen.comedia, stm.netflix],
         faixa: "A16",
         season: [
             {
@@ -11027,7 +11028,7 @@ export const series: SeriesProps[] = [
         title: "La Casa de Papel",
         subtitle: "",
         description: "Um homem misterioso que atende pelo nome de El Profesor, está planejando o maior assalto do século. A fim de realizar o ambicioso plano ele recruta uma gangue de oito pessoas com certas habilidades que não tem nada a perder. O objetivo é infiltrar na Casa da Moeda, de modo que eles possam imprimir 2,4 bilhões de euros. Para fazer isso eles precisam de onze dias de reclusão, durante o qual eles vão ter que lidar com sessenta e sete reféns e as forças da Polícia de Elite, com cenas de muita ação e planos brilhantes de El Profesor.",
-        genero: ["Ação", "Crime", "Drama", "Netflix"],
+        genero: [gen.acao, agp.crime, gen.drama, stm.netflix],
         faixa: "A16",
         season: [
             {
@@ -11309,7 +11310,7 @@ export const series: SeriesProps[] = [
         title: "Round 6",
         subtitle: "",
         description: "Centenas de jogadores falidos aceitam um estranho convite para um jogo de sobrevivência. Um prêmio milionário aguarda, mas as apostas são altas e mortais.",
-        genero: ["Ação", "Mistério", "Drama", "Netflix"],
+        genero: [gen.acao, agp.misterio, gen.drama, stm.netflix],
         faixa: "18",
         news: {
             type: "season"
@@ -11416,12 +11417,12 @@ export const series: SeriesProps[] = [
         title: "Sex Education",
         subtitle: "",
         description: "Graças à mãe terapeuta, Otis sabe tudo de sexo. Para aproveitar isso, a rebelde Maeve propõe abrir uma clínica de terapia sexual na escola.",
-        genero: ["Comédia", "Drama", "Netflix"],
+        genero: [gen.comedia, gen.drama, stm.netflix],
         faixa: "A16",
         season: [
             {
                 s: 1,
-                lang: "Legendado",
+                lang: lang.leg,
                 episodes: [
                     {
                         ep: 1,
@@ -11467,7 +11468,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 2,
-                lang: "Legendado",
+                lang: lang.leg,
                 episodes: [
                     {
                         ep: 1,
@@ -11514,7 +11515,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 3,
-                lang: "Legendado",
+                lang: lang.leg,
                 episodes: [
                     {
                         ep: 1,
@@ -11560,7 +11561,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 4,
-                lang: "Legendado",
+                lang: lang.leg,
                 episodes: [
                     {
                         ep: 1,
@@ -11614,7 +11615,7 @@ export const series: SeriesProps[] = [
         title: "Duna",
         subtitle: "A Profecia",
         description: "Dez mil anos antes da ascensão de Paul Atreides, as irmãs Valya e Tula Harkonnen estabeleceram a lendária seita e ordem feminina que se tornaria conhecida como Bene Gesserit para controlar o futuro da humanidade.",
-        genero: ["Ficção Científica", "Drama", "HBO"],
+        genero: [gen.ficcao, gen.drama, stm.hbo],
         faixa: "A16",
         season: [
             {
@@ -11662,7 +11663,7 @@ export const series: SeriesProps[] = [
         title: "Breaking Bad",
         subtitle: "A Química do Mal",
         description: "Ao saber que tem câncer, um professor passa a fabricar metanfetamina pelo futuro da família, mudando o destino de todos.",
-        genero: ["Drama", "Crime"],
+        genero: [gen.drama, agp.crime],
         faixa: "A16",
         season: [
             {
@@ -12014,12 +12015,12 @@ export const series: SeriesProps[] = [
         title: "Sombra e Ossos",
         subtitle: "",
         description: "Em um mundo destruído pela guerra, a órfã Alina Starkov descobre que tem poderes extraordinários e vira alvo de forças sombrias.",
-        genero: ["Drama", "Fantasia", "Netflix"],
+        genero: [gen.drama, gen.fantasia, stm.netflix],
         faixa: "A16",
         season: [
             {
                 s: 1,
-                lang: "Legendado",
+                lang: lang.leg,
                 episodes: [
                     {
                         ep: 1,
@@ -12065,7 +12066,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 2,
-                lang: "Legendado",
+                lang: lang.leg,
                 episodes: [
                     {
                         ep: 1,
@@ -12113,7 +12114,7 @@ export const series: SeriesProps[] = [
         title: "The Boys",
         subtitle: "",
         description: "Na trama, conhecemos um mundo em que super-heróis são as maiores celebridades do planeta, e rotineiramente abusam dos seus poderes ao invés de os usarem para o bem.",
-        genero: ["Ação", "Aventura", "Ficção Científica", "Prime Video"],
+        genero: [gen.acao, gen.aventura, gen.ficcao, stm.prime],
         faixa: "18",
         season: [
             {
@@ -12304,7 +12305,7 @@ export const series: SeriesProps[] = [
         title: "Cobra kai",
         subtitle: "",
         description: "Nesta aclamada série que é continuação dos filmes Karatê Kid, Daniel e Johnny retomam a rivalidade dos tempos de escola.",
-        genero: ["Ação", "Aventura", "Comédia", "Netflix"],
+        genero: [gen.acao, gen.aventura, gen.comedia, stm.netflix],
         faixa: "A14",
         season: [
             {
@@ -12423,7 +12424,7 @@ export const series: SeriesProps[] = [
         title: "Dan Da Dan",
         subtitle: "",
         description: "Esta é uma história sobre Momo, uma garota do ensino médio que vem de uma família de médiuns espirituais, e seu colega de classe Okarun, um garoto fanático pelo ocultismo. Depois que Momo resgata Okarun de uns valentões, eles começam a conversar... No entanto, surge uma discussão entre eles, já que Momo acredita em fantasmas, mas nega a existência de alienígenas, e Okarun acredita em alienígenas, mas nega a existência de fantasmas. Visando provar que o que acreditam é real, Momo vai a um hospital abandonado onde um OVNI foi avistado e Okarun vai a um túnel que dizem ser assombrado. Para surpresa deles, cada um se depara com atividades paranormais avassaladoras que transcendem a compreensão. Em meio a isso tudo, Momo desperta seu poder oculto e Okarun ganha o poder de uma maldição para superar esses novos perigos! Será que o amor deles destinado também começa aqui!?",
-        genero: ["Animação", "Aventura", "Comédia", "Netflix"],
+        genero: [gen.animacao, gen.aventura, gen.comedia, stm.netflix],
         faixa: "A16",
         season: [
             {
@@ -12501,7 +12502,7 @@ export const series: SeriesProps[] = [
         title: "Scream",
         subtitle: "",
         description: "Nesta série baseada na clássica franquia de terror, um incidente de bullying por rede social leva a um assassinato que traz o passado à tona.",
-        genero: ["Terror", "Suspense", "Mistério", "Netflix"],
+        genero: [gen.terror, gen.suspense, agp.misterio, stm.netflix],
         faixa: "A14",
         season: [
             {
@@ -12633,7 +12634,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 3,
-                lang: "Legendado",
+                lang: lang.leg,
                 episodes: [
                     {
                         ep: 1,
@@ -12676,12 +12677,12 @@ export const series: SeriesProps[] = [
         title: "O Amor Mora Ao Lado",
         subtitle: "",
         description: "Na tentativa de recomeçar a vida, uma mulher retorna à Coreia e se envolve com alguém do passado. O problema é que existe uma história complicada entre os dois.",
-        genero: ["Drama", "Comédia", "Coreano", "Netflix", "Legendado"],
+        genero: [gen.drama, gen.comedia, agp.korean, stm.netflix, lang.leg],
         faixa: "A12",
         season: [
             {
                 s: 1,
-                lang: "Legendado",
+                lang: lang.leg,
                 episodes: [
                     {
                         ep: 1,
@@ -12743,7 +12744,7 @@ export const series: SeriesProps[] = [
         title: "Agatha Desde Sempre",
         subtitle: "",
         description: "A infame Agatha Harkness encontra-se sem poderes depois de um jovem gótico suspeito ajudá-la a se libertar de um feitiço distorcido. Ela se mostra interessada quando ele pede que seja levado ao lendário Caminho das Bruxas, um caminho mágico de provações que recompensará a bruxa sobrevivente com o que lhe falta. Juntos, Agatha e esse misterioso Jovem reúnem um coven desesperado e partem para o Caminho...",
-        genero: ["Fantasia", "Mistério", "Marvel", "Disney+"],
+        genero: [gen.fantasia, agp.misterio, agp.marvel, stm.disney],
         faixa: "A14",
         season: [
             {
@@ -12806,7 +12807,7 @@ export const series: SeriesProps[] = [
         title: "Citadel",
         subtitle: "",
         description: "Há oito anos, a Citadel, uma agência de espionagem global independente, foi destruída por um novo grupo, a Mantícora. Com as memórias apagadas, os agentes de elite Mason Kane e Nadia Singh escaparam com vida. Oito anos depois, o ex-colega de Mason, Bernard Orlick, pede ajuda para impedir que a Mantícora estabeleça uma nova ordem mundial.",
-        genero: ["Ação", "Suspense", "Prime Video"],
+        genero: [gen.acao, gen.suspense, stm.prime],
         faixa: "A16",
         season: [
             {
@@ -12854,7 +12855,7 @@ export const series: SeriesProps[] = [
         title: "Black Mirror",
         subtitle: "",
         description: "Esta série antológica de ficção científica explora um futuro próximo onde a natureza humana e a tecnologia de ponta entram em um perigoso conflito.",
-        genero: ["Fantasia", "Ficção Científica", "Drama", "Mistério", "Netflix"],
+        genero: [gen.fantasia, gen.ficcao, gen.drama, agp.misterio, stm.netflix],
         faixa: "18",
         season: [
             {
@@ -13037,7 +13038,7 @@ export const series: SeriesProps[] = [
         title: "Tulsa King",
         subtitle: "",
         description: "Depois de cumprir 25 anos de prisão, Dwight Manfredi é exilado sem cerimônia por seu chefe da máfia para se estabelecer em Oklahoma. Dwight lentamente constrói um novo império criminoso em Tulsa.",
-        genero: ["Ação", "Drama", "Crime"],
+        genero: [gen.acao, gen.drama, agp.crime],
         faixa: "A14",
         season: [
             {
@@ -13132,7 +13133,7 @@ export const series: SeriesProps[] = [
         title: "Acima de Qualquer Suspeita",
         subtitle: "",
         description: "Um assassinato hediondo deixa o escritório da Promotoria de Justiça de Chicago de cabeça para baixo quando um dos funcionários é suspeito do crime, o que deixa o acusado lutando para manter sua família unida.",
-        genero: ["Drama", "Mistério", "Apple TV"],
+        genero: [gen.drama, agp.misterio, stm.apple],
         faixa: "A16",
         season: [
             {
@@ -13190,7 +13191,7 @@ export const series: SeriesProps[] = [
         title: "Origem",
         subtitle: "",
         description: "Desvende o mistério de uma cidade no centro dos EUA. Enquanto os moradores lutam para manter um senso de normalidade, eles também devem sobreviver às ameaças da floresta ao redor, incluindo as criaturas aterrorizantes que surgem quando o sol se põe.",
-        genero: ["Terror", "Globo Play"],
+        genero: [gen.terror, stm.gplay],
         faixa: "A16",
         season: [
             {
@@ -13314,7 +13315,7 @@ export const series: SeriesProps[] = [
         title: "Warrior Nun",
         subtitle: "",
         description: "Warrior Nun é uma série de ação e aventura da Netflix que conta a história de Ava Silva (Alba Baptista), uma jovem que acorda em um necrotério e descobre que tem superpoderes e faz parte de uma seita secreta de freiras guerreiras",
-        genero: ["Ação", "Netflix", "Legendado"],
+        genero: [gen.acao, stm.netflix, lang.leg],
         faixa: "A14",
         season: [
             {
@@ -13375,7 +13376,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 2,
-                lang: "Legendado",
+                lang: lang.leg,
                 episodes: [
                     {
                         ep: 1,
@@ -13428,7 +13429,7 @@ export const series: SeriesProps[] = [
         title: "Batman",
         subtitle: "Cruzado Encapuzado",
         description: "A série se passa em Gotham City, uma cidade onde os criminosos dominam e os cidadãos vivem em medo. O socialite Bruce Wayne se torna o Batman após uma tragédia pessoal. O Batman luta contra o crime sozinho, mas atrai aliados do Departamento de Polícia e da Prefeitura.",
-        genero: ["Animação", "DC", "Super Herói", "Prime Vídeo"],
+        genero: [gen.animacao, agp.dc, agp.hero, stm.prime],
         faixa: "A14",
         season: [
             {
@@ -13496,7 +13497,7 @@ export const series: SeriesProps[] = [
         title: "Outer Banks",
         subtitle: "",
         description: "O jovem John convoca seus melhores amigos para procurarem por um tesouro ligado ao desaparecimento de seu pai. Aos poucos, o grupo vai entrando em uma perigosa trama de segredos e perigos.",
-        genero: ["Drama", "Netflix"],
+        genero: [gen.drama, stm.netflix],
         faixa: "A16",
         season: [
             {
@@ -13734,7 +13735,7 @@ export const series: SeriesProps[] = [
         title: "Death Note",
         subtitle: "",
         description: "Um inteligente estudante do ensino médio embarca em uma cruzada secreta para eliminar os criminosos do mundo depois de descobrir um caderno capaz de matar qualquer pessoa cujo nome está escrito nele.",
-        genero: ["Animação", "Japonês"],
+        genero: [gen.animacao, agp.manga],
         faixa: "18",
         season: [
             {
@@ -13937,7 +13938,7 @@ export const series: SeriesProps[] = [
         title: "A Casa do Dragão",
         subtitle: "",
         description: "A Casa do Dragão é uma série de TV norte-americana que conta a história de uma guerra civil entre a Casa Targaryen, que se passa 200 anos antes dos eventos de Game of Thrones",
-        genero: ["Fantasia", "Ficção Científica", "HBO"],
+        genero: [gen.fantasia, gen.ficcao, stm.hbo],
         faixa: "18",
         season: [
             {
@@ -14042,7 +14043,7 @@ export const series: SeriesProps[] = [
         title: "Dahmer",
         subtitle: "Um Canibal Americano",
         description: "Por mais de uma década, Jeffrey Dahmer conseguiu matar 17 jovens rapazes sem levantar suspeitas da polícia. Como ele conseguiu evitar a prisão por tanto tempo? Assista o quanto quiser. Evan Peters, Richard Jenkins e Niecy Nash estrelam esta série policial com produção executiva de Peters e Ryan Murphy.",
-        genero: ["Drama", "Terror", "Netflix"],
+        genero: [gen.drama, gen.terror, stm.netflix],
         faixa: "18",
         season: [
             {
@@ -14101,7 +14102,7 @@ export const series: SeriesProps[] = [
         title: "O Exterminador do Futuro",
         subtitle: "Zero",
         description: "Em 1997, um cientista atormentado deixa a família de lado por um projeto. Em 2022, uma guerreira rebelde luta contra um poderoso robô por conta de dados vitais.",
-        genero: ["Violento", "Animação", "Ficção Científica", "Ação", "Japonês", "Netflix"],
+        genero: [agp.violent, gen.animacao, gen.ficcao, gen.acao, agp.manga, stm.netflix],
         faixa: "A16",
         season: [
             {
@@ -14153,7 +14154,7 @@ export const series: SeriesProps[] = [
         title: "Manual de Assassinato para Boas Garotas",
         subtitle: "",
         description: "Cinco anos após o assassinato de uma adolescente de 17 anos em uma cidadezinha inglesa pacata, uma estudante decide investigar o caso.",
-        genero: ["Suspense", "Drama", "Mistério", "Netflix"],
+        genero: [gen.suspense, gen.drama, agp.misterio, stm.netflix],
         faixa: "A16",
         season: [
             {
@@ -14202,7 +14203,7 @@ export const series: SeriesProps[] = [
         title: "The Umbrella Academy",
         subtitle: "",
         description: "Irmãos com poderes extraordinários se reúnem depois de passar muito tempo afastados e descobrem surpreendentes segredos de família. A família enfrenta viagens no tempo, assassinos e o fim do mundo.",
-        genero: ["Drama", "Comédia", "Ficção Científica", "ação", "Netflix"],
+        genero: [gen.drama, gen.comedia, gen.ficcao, gen.acao, stm.netflix],
         faixa: "A16",
         season: [
             {
@@ -14420,7 +14421,7 @@ export const series: SeriesProps[] = [
         title: "Arcane",
         subtitle: "League of Legends",
         description: "Em meio ao conflito entre as cidades-gêmeas de Piltover e Zaun, duas irmãs lutam em lados opostos de uma guerra entre tecnologias mágicas e convicções incompatíveis.",
-        genero: ["Ação", "Netflix", "Animação", "Fantasia"],
+        genero: [gen.acao, stm.netflix, gen.animacao, gen.fantasia],
         faixa: "A16",
         season: [
             {
@@ -14505,7 +14506,7 @@ export const series: SeriesProps[] = [
         title: "Pinguim",
         subtitle: "",
         description: "Colin Farrell retorna como Oswald 'Oz' Cobb, O Pinguim, para conquistar Gotham neste novo capítulo da saga Batman de Matt Reeves.",
-        genero: ["Suspense", "DC", "Crime", "Vilão", "HBO"],
+        genero: [gen.suspense, agp.dc, agp.crime, agp.vilian, stm.hbo],
         faixa: "A16",
         season: [
             {
@@ -14565,7 +14566,7 @@ export const series: SeriesProps[] = [
         title: "O Senhor dos Anéis",
         subtitle: "Os Aneis de Poder",
         description: "Antes da jornada de Frodo pela Terra-Média, a Segunda Era foi palco de diversas lendas heróicas. O drama épico que se passa milhares de anos antes de A Sociedade do Anel, tem foco em um momento da história em que grandes poderes foram forjados, reinos ascenderam e também ruíram, ao mesmo tempo em que heróis foram testados e tiveram a esperança quase aniquilada pelo grande vilão do universo de Senhor dos Anéis. A série começa em um momento de paz, quando o elenco de novos e antigos personagens precisam enfrentar o ressurgimento do mal, vindo das profundezas mais escuras das Montanhas Sombrias. Os reinos e personagens irão esculpir legados que viverão por muito tempo depois que eles se forem.",
-        genero: ["Drama", "Fantasia", "Prime Video"],
+        genero: [gen.drama, gen.fantasia, stm.prime],
         faixa: "A14",
         season: [
             {
