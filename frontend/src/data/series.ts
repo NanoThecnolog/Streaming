@@ -4082,57 +4082,57 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 6,
-                lang: "",
+                lang: "Legendado",
                 episodes: [
                     {
                         ep: 1,
-                        src: "",
-                        duration: ""
+                        src: "https://drive.google.com/file/d/1PJMuDu_bmklKGRWkOGRe-GpXWt3Y3OTs/preview",
+                        duration: "48m"
                     },
                     {
                         ep: 2,
-                        src: "",
-                        duration: ""
+                        src: "https://drive.google.com/file/d/1MsoOxbE3aQh3T0i5BDMBEqlQ3kv2czP1/preview",
+                        duration: "55m"
                     },
                     {
                         ep: 3,
-                        src: "",
-                        duration: ""
+                        src: "https://drive.google.com/file/d/1T2ZgVbioiOiIOR8RM2NTVF2isQnJbMv6/preview",
+                        duration: "45m"
                     },
                     {
                         ep: 4,
-                        src: "",
-                        duration: ""
+                        src: "https://drive.google.com/file/d/1T9yl-UaCJ0LFWDHgvdsln85T241XRLNx/preview",
+                        duration: "44m"
                     },
                     {
                         ep: 5,
-                        src: "",
-                        duration: ""
+                        src: "https://drive.google.com/file/d/1Vad99pZ2J9ZtynR0azQ3PyAYdq1HHxvT/preview",
+                        duration: "47m"
                     },
                     {
                         ep: 6,
-                        src: "",
-                        duration: ""
+                        src: "https://drive.google.com/file/d/1FVCZP29l2gfYjVIxu4PegG0dlElNZgcK/preview",
+                        duration: "54m"
                     },
                     {
                         ep: 7,
-                        src: "",
-                        duration: ""
+                        src: "https://drive.google.com/file/d/1CqMsHqXiCpUnGrecH5xjIvIAj2Pq9lDc/preview",
+                        duration: "58m"
                     },
                     {
                         ep: 8,
-                        src: "",
-                        duration: ""
+                        src: "https://drive.google.com/file/d/1ZrToYeF8heiCENjz_6e79pZPepvmLKsc/preview",
+                        duration: "55m"
                     },
                     {
                         ep: 9,
-                        src: "",
-                        duration: ""
+                        src: "https://drive.google.com/file/d/1rlvUt4pZorIELHzJXCSpFducBscSNaO4/preview",
+                        duration: "01h 05m"
                     },
                     {
                         ep: 10,
-                        src: "",
-                        duration: ""
+                        src: "https://drive.google.com/file/d/1MF_SJiMrkXL1Wn8CkYlJp-CZ8ln_3T8B/preview",
+                        duration: "53m"
                     },
                 ]
             },
