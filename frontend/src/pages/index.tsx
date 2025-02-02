@@ -12,8 +12,8 @@ import { apiTMDB } from "@/services/apiTMDB";
 import { MovieTMDB } from "@/@types/Cards";
 import ReleaseContainer from "@/components/ReleaseContainer";
 import Loading from "@/components/ui/Loading";
-import { shuffle } from "@/utils/UtilitiesFunctions";
 import { gen } from "@/utils/Genres";
+import Head from "next/head";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -71,6 +71,13 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7266476713162775"
+          crossOrigin="anonymous"
+        />
+      </Head>
       <SEO title="FlixNext - Início" description="Um Streaming nunca antes visto porque é novo." />
       {
         allData.length > 0 ?

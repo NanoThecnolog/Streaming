@@ -11,6 +11,7 @@ import { apiTMDB } from "@/services/apiTMDB";
 import { TMDBSeries } from "@/@types/series";
 import Loading from "@/components/ui/Loading";
 import { gen, stm } from "@/utils/Genres";
+import Head from "next/head";
 
 export default function Series() {
     //refatorar
@@ -113,6 +114,13 @@ export default function Series() {
 
     return (
         <>
+            <Head>
+                <script
+                    async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7266476713162775"
+                    crossOrigin="anonymous"
+                />
+            </Head>
             <SEO title="Series | FlixNext" description="Várias séries para maratonar!" />
             {
                 serieData.length > 0 ?
