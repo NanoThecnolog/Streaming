@@ -12,7 +12,7 @@ import { apiTMDB } from "@/services/apiTMDB";
 import { MovieTMDB } from "@/@types/Cards";
 import ReleaseContainer from "@/components/ReleaseContainer";
 import Loading from "@/components/ui/Loading";
-import { gen } from "@/utils/Genres";
+import { agp, gen } from "@/utils/Genres";
 import Head from "next/head";
 
 
@@ -21,7 +21,11 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
   const [width, setWidth] = useState<number>()
-  const divisaoPorGenero = Object.values(gen);
+  const removedSections = [agp.dc, agp.marvel, agp.hero]
+  const generos = Object.values(gen);
+  const agrupadores = Object.values(agp);
+  const combined = [...generos, ...agrupadores.filter(item => removedSections.includes(item))];
+  const divisaoPorGenero = combined
   const { allData, setAllData } = useTMDB()
   const [loading, setLoading] = useState(false)
   useEffect(() => {
