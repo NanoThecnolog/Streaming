@@ -37,6 +37,42 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 274870,
+        title: "Passageiros",
+        subtitle: "",
+        description: "Uma nave espacial viajando para uma colônia em um distante planeta e transportando milhares de pessoas tem um mau funcionamento em suas câmaras do sono. Como resultado, dois passageiros são despertados 90 anos antes.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/10ZH27SXIzb_lCXyA1SvYm10dagpDZU6K/preview",
+        duration: "01h 56m",
+        genero: [gen.ficcao, gen.drama, gen.romance]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 190859,
+        title: "Sniper Americano",
+        subtitle: "",
+        description: "Chris Kyle é um atirador de elite das forças especiais da marinha dos Estados Unidos. Durante a Guerra do Iraque, sua missão é proteger seus companheiros e seu dever faz dele um dos maiores atiradores da história norte-americana. Sua precisão salva inúmeras vidas, mas também o torna um alvo preferencial. Quando Kyle finalmente volta para casa, ele descobre que não tem como deixar a guerra para trás.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1S1zeCU3EZJTvxTz-PVjWXgEuQsaDZ94x/preview",
+        duration: "02h 12m",
+        genero: [gen.drama, gen.acao, agp.guerra]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 51876,
+        title: "Sem Limites",
+        subtitle: "",
+        description: "Há anos o escritor Eddie Morra está sofrendo um bloqueio criativo. Quando um velho amigo lhe apresenta um remédio revolucionário, sua vida muda instantaneamente. Com o remédio, Eddie passa a usar 100% do seu cérebro. Ele consegue lembrar de tudo que já leu, ouviu ou viu em toda sua vida. Aprende línguas, faz cálculos, consegue ler e escrever muito rapidamente. Porém, para que tudo isto ocorra, ele precisa tomar o remédio todo dia. Em poucas semanas Eddie vira o rei de Wall Street chamando a atenção do mega empresário Carl Van Loon que o contrata para fechar um dos maiores negócios da história. Tendo se tornado uma pessoa perfeita, ele agora passará a viver sem limites.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1q9lJHVHHxVgDAITPyddv9ZDM74ervJVF/preview",
+        duration: "01h 45m",
+        genero: [gen.ficcao, gen.suspense, agp.misterio, stm.prime]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 75656,
         title: "Truque de Mestre",
         subtitle: "",
