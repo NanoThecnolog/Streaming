@@ -3289,6 +3289,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 512196,
+        title: "A Morte Te Dá Parabéns 2",
+        subtitle: "",
+        description: "A Colegial Tree Gelbman acorda horrorizada ao saber que está presa em um universo paralelo. Seu namorado Carter está agora com outra pessoa, e seus amigos e colegas parecem ser versões completamente diferentes de si mesmos. Quando Tree descobre que o colega de quarto de Carter está alterando o tempo, ela se vê mais uma vez como alvo de um matador mascarado. Quando o psicopata começa a ir atrás de seu círculo íntimo, Tree logo percebe que ela deve morrer repetidamente para salvar a todos.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/11A5L08w_XuOwcCPon8cWxa9nxoR_Bp69/preview",
+        duration: "01h 40m",
+        genero: [gen.comedia, gen.terror, gen.ficcao]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 436270,
         title: "Adão Negro",
         subtitle: "",
