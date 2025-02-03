@@ -37,6 +37,30 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 75656,
+        title: "Truque de Mestre",
+        subtitle: "",
+        description: "Um agente do F.B.I. e uma detetive da Interpol rastreiam uma equipe de ilusionistas que realizam assaltos a bancos durante suas apresentações e recompensam seu público com o dinheiro.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1cSv2pEU1gJ4VyQrjm6YAoO3wUf1DoYEn/preview",
+        duration: "01h 56m",
+        genero: [gen.acao, gen.suspense, agp.misterio, agp.crime]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 291805,
+        title: "Truque de Mestre",
+        subtitle: "O 2º Ato",
+        description: "Após enganarem o FBI, os cavaleiros Daniel Atlas, Merritt McKinney e Jack Wilder estão foragidos. Eles seguem as ordens de Dylan Rhodes, que segue trabalhando no FBI de forma a impedir os avanços na procura dos próprios cavaleiros. Paralelamente, o grupo planeja seu novo ato: desmascarar um jovem gênio da informática, cujo novo lançamento coleta dados pessoais dos usuários.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1MImpAsIFSU-EWNcC2-csAKRorqJvc4Ps/preview",
+        duration: "01h 55m",
+        genero: [gen.acao, gen.suspense, agp.misterio, agp.crime]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 253412,
         title: "Everest",
         subtitle: "",
