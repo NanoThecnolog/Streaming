@@ -104,7 +104,6 @@ export default function Movie() {
         try {
             const cast = await fetchTMDBMovieCast(Number(tmdbId));
             if (!cast) return console.warn("Nenhum dado ao buscar elenco do filme.")
-            //console.log("crew: ", cast.crew)
             const crewData = Array.isArray(cast.crew) && cast.crew.length
                 ? cast.crew
                 : [];
@@ -184,7 +183,7 @@ export default function Movie() {
                         <div className={`${styles.content} ${loading ? styles.loading : ""}`}>
                             <div className={styles.titleContainer}>
                                 <h1 className={`${movie.title.toLowerCase() === 'harry potter' && styles.harryFont}`}>{movie.title}</h1>
-                                <h3>{movie.subtitle != '' && `${movie.subtitle}`}</h3>
+                                <h3 className={`${movie.title.toLowerCase() === 'harry potter' && styles.subHarryFont}`}>{movie.subtitle != '' && `${movie.subtitle}`}</h3>
                             </div>
                             {tmdbData && (
                                 <>
