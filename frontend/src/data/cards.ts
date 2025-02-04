@@ -37,6 +37,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 284427,
+        title: "Invasores",
+        subtitle: "Nenhum Sistema Está à Salvo",
+        description: "Benjamin, um jovem gênio da informática é convidado para se integrar a um subversivo grupo de hackers que procura a atenção por todo o mundo.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1mymJ04OF3FvYyXUbJU22wKWcYa5yYXW5/preview",
+        duration: "01h 45m",
+        genero: [gen.suspense, agp.crime]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 45162,
         title: "Superman & Batman",
         subtitle: "Apocalipse",
