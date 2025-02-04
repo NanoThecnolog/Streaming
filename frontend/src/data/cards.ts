@@ -37,6 +37,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 45162,
+        title: "Superman & Batman",
+        subtitle: "Apocalipse",
+        description: "Semanas depois dos eventos que levaram à prisão de Lex Luthor após o Impeachment na presidência dos Estados Unidos, e do sucesso de Batman em salvar o mundo do impacto de um meteoro, uma nave espacial cai na Baía de Gotham City. Estava a bordo uma jovem de aparência adolescente e que manifesta super-poderes idênticos ao do Superman ao ser perseguida por policiais e assustar a população.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1IBERecWB_ujocWQDmkk5YPbNYjKtANzG/preview",
+        duration: "01h 15m",
+        genero: [gen.animacao, gen.acao, gen.aventura, gen.ficcao, agp.hero, agp.dc, stm.hbo]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 6435,
         title: "Da Magia à Sedução",
         subtitle: "",

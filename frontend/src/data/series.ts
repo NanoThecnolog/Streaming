@@ -21,7 +21,7 @@ export const series: SeriesProps[] = [
         title: "",
         subtitle: "",
         description: "",
-        genero: ["",""],
+        genero: [],
         faixa: "",        
         season: [
             {
@@ -38,6 +38,134 @@ export const series: SeriesProps[] = [
         ]
     },
     */
+    {
+        background: background,
+        overlay: overlay,
+        tmdbID: 62687,
+        title: "Limitless",
+        subtitle: "",
+        description: "Brian Finch (Jake McDorman) é mais um rapaz comum de 28 anos, tentando encontrar algo em que realmente seja bom na vida. Ele encontra a solução de seus problemas quando é apresentado ao NZR, uma droga misteriosa que atua em sua cognição e libera a possibilidade de ele usar 100% da capacidade de seu cérebro. Ele então começa a trabalhar como consultor para o FBI, junto à Agente Rebecca Harris (Jennifer Carpenter), ajudando a resolver casos misteriosos com suas novas habilidades. Porém, ele também tem contatos clandestinos com o Senador Edward Morra (Bradley Cooper), que também é usuário de NZT e tem seus próprios planos para o protegido. ",
+        genero: [gen.ficcao, gen.drama, gen.acao, gen.aventura, gen.comedia],
+        faixa: "A14",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1dJRorH5r1NWTRAWzC06UuPD2PgKc3RIn/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1i8AOyXvRBzqEX2ZxDkqvkZumYYJvs2Af/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1V3W--y76FvV6vVZQ9qaQICVdATEyz9wE/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1st2gDdJcnQLSF_7T5xXNx5kRPFnw9W1-/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/12rfkhV2-iNm4xOtrOUN98A9wP0unHZun/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1mwLN0DhGSps1_XTwNlvaA9z4Oayh6k_f/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/15abPyLdM-4eLrAiAgPFNwe1HcnVOHI2u/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1dc4hk13sipaBccnoLU7fRZBlC_4XkUUb/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1VE8WtrkM1uPXloVd9RcNsI1dfddz6158/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 10,
+                        src: "",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 11,
+                        src: "https://drive.google.com/file/d/1DQpjbQge33M24xlG2u6JuVCZctLrAmTb/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 12,
+                        src: "https://drive.google.com/file/d/12WnfE_pMD6jixnG__3ljblhMIXGAKuHm/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 13,
+                        src: "https://drive.google.com/file/d/1jSOwdH25a8iFIPyVfp6uQ3njbfE5EKCM/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 14,
+                        src: "https://drive.google.com/file/d/1GtbuxnIICzB34YbH3-cIETk1azXMJ6M2/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 15,
+                        src: "https://drive.google.com/file/d/1suPqRUE5F07pV-ZY0GsSXSBNkFRR7EK4/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 16,
+                        src: "https://drive.google.com/file/d/144FldVxOWniVIkIaAhNQiSzAuY7GDHvo/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 17,
+                        src: "https://drive.google.com/file/d/1j3glC2x6x6Lmr8TrFFeQDVX2TtWCRP0y/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 18,
+                        src: "",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 19,
+                        src: "https://drive.google.com/file/d/13Qm1WjEZW41WTViZxRrs-_COyM_jfXcM/preview",
+                        duration: "43"
+                    },
+                    {
+                        ep: 20,
+                        src: "https://drive.google.com/file/d/1JyE9YQXnzMCm43MKNz8n9e1ovY8MD-xf/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 21,
+                        src: "https://drive.google.com/file/d/1ZP3KaHqItHlQW9CF7RnXa28W2tKWLB7J/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 22,
+                        src: "https://drive.google.com/file/d/1FlLs-s6Xt30TQQtJ7U1Hk_kiCdIGOqN8/preview",
+                        duration: "42m"
+                    },
+                ]
+            },
+        ]
+    },
     {
         background: background,
         overlay: overlay,
