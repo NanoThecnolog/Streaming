@@ -99,7 +99,7 @@ export const series: SeriesProps[] = [
                     },
                     {
                         ep: 10,
-                        src: "",
+                        src: "https://drive.google.com/file/d/1g_CuZhHApQQG-skdGyQQBEUZBvqzsGOu/preview",
                         duration: "42m"
                     },
                     {
@@ -139,7 +139,7 @@ export const series: SeriesProps[] = [
                     },
                     {
                         ep: 18,
-                        src: "",
+                        src: "https://drive.google.com/file/d/1FxHXbrX16PPJiEBAVT_HTAqmvT0JUku6/preview",
                         duration: "42m"
                     },
                     {
