@@ -1,43 +1,51 @@
 import { cards } from "@/data/cards";
 import { series } from "@/data/series";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
 const max_tentativas = 3;
 
-const fetchCardData = async (cardId: number, retries: number = max_tentativas, type: string = 'movie'): Promise<any> => {
-    try {
-        const response = await axios.get(
-            `https://api.themoviedb.org/3/${type}/${cardId}`,
-            {
-                headers: {
-                    Authorization: `Bearer ${tmdbToken}`,
-                },
-                params: {
-                    language: "pt-BR",
-                },
+async function fetchCardData(cardId: number, retries: number = max_tentativas, type: string = 'movie'): Promise<any> {
+    let attempts = 0;
+    while (attempts <= retries) {
+        try {
+            const response = await axios.get(
+                `https://api.themoviedb.org/3/${type}/${cardId}`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${tmdbToken}`,
+                    },
+                    params: {
+                        language: "pt-BR",
+                    },
+                }
+            );
+            return {
+                success: true,
+                data: response.data,
+                cardId
+            };
+        } catch (err: any) {
+            console.error(`Erro na tentativa ${attempts + 1} para o card ${cardId}: `, err.message)
+
+            if (err.code === 'ECONNABORTED') {
+                console.log(`Timeout na request para o card ${cardId}, tentando novamente em 2s...`)
+            } else if (err.response) {
+                console.log(`Erro HTTP ${err.response.status} para o card ${cardId}, tentando novamente...`)
             }
-        );
-        return {
-            success: true,
-            data: response.data,
-            cardId
-        };
-    } catch (err: any) {
-        if (retries > 0) {
-            console.log(`Tentativa falha para o card ${cardId}, tentando novamente...`);
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            return fetchCardData(cardId, retries - 1, type);
+            attempts++;
+            if (attempts > retries) {
+                return {
+                    success: true,
+                    error: err.response?.data || err.message,
+                    cardId,
+                }
+            }
+            await new Promise((resolve) => setTimeout(resolve, 2000))
         }
-        return {
-            success: false,
-            error: err.response?.data || err.message,
-            cardId
-        };
     }
 }
-
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const { type } = req.query;
 
@@ -51,6 +59,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             type === "tv" ?
                 series.map(async card => fetchCardData(card.tmdbID, undefined, type as string))
                 : cards.map(async card => fetchCardData(card.tmdbId, undefined, type as string)))
+
         const successFulData = cardData.filter((result) => result.success).map((result) => result.data)
         res.status(200).json({
             success: true,
