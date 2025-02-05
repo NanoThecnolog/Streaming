@@ -2060,7 +2060,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1NTeLeOJWlHzjounEGHPvuyh6E8_nYGr6/preview",
         duration: "01h 58m",
-        genero: [gen.drama, gen.suspense]
+        genero: [gen.drama, gen.suspense, agp.psico, stm.apple]
     },
     {
         background: background,
@@ -3644,7 +3644,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1gE79P_3Iz92ER0rqepB_AdhgH7D-3hh4/preview",
         duration: "01h 42m",
-        genero: [gen.suspense, gen.drama, agp.crime]
+        genero: [gen.suspense, gen.drama, agp.crime, agp.psico, stm.gplay]
     },
     {
         background: background,
@@ -3872,7 +3872,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1-a1KEcZ-A-OyYfphOOZerZMdjzu3szF2/preview",
         duration: "1h 29m",
-        genero: [gen.drama, gen.suspense, agp.crime]
+        genero: [gen.drama, gen.suspense, agp.crime, agp.psico, stm.prime]
     },
     {
         background: background,
@@ -5554,7 +5554,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/11NTrnOSHb6cqaZKUR-6pHeKCZdssWXSE/preview",
         duration: "01h 45m",
-        genero: [gen.suspense, agp.misterio]
+        genero: [gen.suspense, agp.misterio, agp.psico, stm.hbo]
     },
     {
         background: background,
@@ -5590,7 +5590,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1tMwP8k3avVdbYss69eFtn68jCiGRH59r/preview",
         duration: "2h 2m",
-        genero: [gen.drama, agp.crime]
+        genero: [gen.drama, agp.crime, agp.psico, stm.hbo]
     },
     {
         background: background,
