@@ -2,7 +2,7 @@ import { Inter } from "next/font/google";
 import Header from "@/components/Header";
 import CardContainer from "@/components/CardContainer";
 import Footer from "@/components/Footer";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Top from "@/components/Top";
 import styles from "@/styles/Home.module.scss";
 import Search from "@/components/Searching";
@@ -14,6 +14,9 @@ import ReleaseContainer from "@/components/ReleaseContainer";
 import Loading from "@/components/ui/Loading";
 import { agp, gen } from "@/utils/Genres";
 import Head from "next/head";
+import Script from "next/script";
+import BackTopButton from "@/components/ui/BackToTop";
+import debounce from "lodash.debounce";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -28,6 +31,7 @@ export default function Home() {
   const divisaoPorGenero = combined
   const { allData, setAllData } = useTMDB()
   const [loading, setLoading] = useState(false)
+  const [visible, setvisible] = useState(false)
   useEffect(() => {
     /**
      * Realiza a busca dos dados no TMDB e salva no context.
@@ -72,11 +76,28 @@ export default function Home() {
     handleResize()
     return () => window.removeEventListener('resize', handleResize)
   }, [])
+  const handleScroll = useCallback(
+    debounce(() => {
+      if (window.scrollY > 1500) {
+        setvisible(true)
+      } else {
+        setvisible(false)
+      }
+    }, 200),
+    []
+  );
+  useEffect(() => {
+
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   return (
     <>
       <Head>
-        <script
+        <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7266476713162775"
           crossOrigin="anonymous"
@@ -104,6 +125,7 @@ export default function Home() {
                     ))}
                 </div>
               </div>
+              <BackTopButton link="/#inicio" visible={visible} />
             </main>
             <Footer />
           </> :

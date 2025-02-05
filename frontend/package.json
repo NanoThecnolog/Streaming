@@ -19,6 +19,7 @@
     "@vercel/speed-insights": "^1.0.14",
     "axios": "^1.7.7",
     "cookies-next": "^4.2.1",
+    "lodash.debounce": "^4.0.8",
     "lucide-react": "^0.441.0",
     "mjml": "^4.15.3",
     "next": "14.2.5",
@@ -33,6 +34,7 @@
     "sass": "^1.77.8"
   },
   "devDependencies": {
+    "@types/lodash.debounce": "^4.0.9",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

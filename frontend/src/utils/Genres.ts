@@ -25,7 +25,8 @@ export const agp = {
     manga: "Mangá",
     violent: "Violento",
     music: "Música",
-    nacional: "Nacional"
+    nacional: "Nacional",
+    space: "Espaço",
 }
 export const stm = {
     netflix: "Netflix",

@@ -16,6 +16,7 @@ export default function CardContainerSerie({ section, cardPerContainer }: Contai
     const [currentIndex, setCurrentIndex] = useState(0)
     const [cardsPerPage, setCardsPerPage] = useState(cardPerContainer);
     const [shuffledCards, setShuffledCards] = useState<SeriesProps[]>([])
+    const cardsInContainer = shuffledCards.slice(currentIndex, currentIndex + cardsPerPage)
 
     useEffect(() => {
         if (cardPerContainer) {
@@ -52,7 +53,7 @@ export default function CardContainerSerie({ section, cardPerContainer }: Contai
                     <MdNavigateNext size={30} />
                 </button>
                 <div className={styles.cardContainer}>
-                    {shuffledCards.slice(currentIndex, currentIndex + cardsPerPage).map((serie, index) => (
+                    {cardsInContainer.map((serie, index) => (
                         <div className={styles.card} key={index}>
                             <Card
                                 key={index}

@@ -93,7 +93,6 @@
             .bolinha {
                 width: 10px;
                 height: 10px;
-                //background-color: red;
                 border-radius: 50%;
             }
 
@@ -127,7 +126,6 @@
         }
 
         .avatarLetter {
-            background-color: var(--white);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -139,7 +137,14 @@
             span {
                 font-size: 1.8rem;
                 font-family: var(--font-Anton);
-                color: var(--black);
+                color: var(--white);
+                border: 4px solid white;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
             }
 
         }
@@ -248,7 +253,6 @@
                 .dropdownAvatarImage {
                     overflow: hidden;
                     transition: all .2s;
-                    //border-radius: 2rem;                    
                     cursor: pointer;
 
                     img {
@@ -257,6 +261,22 @@
 
                     &:hover {
                         transform: scale(1.2);
+                    }
+                }
+
+                .avatarLetter {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 45px;
+                    width: 45px;
+                    border-radius: 2rem;
+                    cursor: pointer;
+
+                    span {
+                        font-size: 1.8rem;
+                        font-family: var(--font-Anton);
+                        color: var(--black);
                     }
                 }
 
@@ -302,14 +322,9 @@
                 border-radius: 2rem;
                 background-color: #242424;
             }
-
         }
     }
-
 }
-
-
-
 
 //telas smartphone maiores
 @media (min-width: 375.1px) and (max-width: 560px) {
@@ -383,7 +398,6 @@
                 .dropdownAvatarImage {
                     overflow: hidden;
                     transition: all .2s;
-                    //border-radius: 2rem;
 
                     cursor: pointer;
 
@@ -396,6 +410,22 @@
                     }
                 }
 
+                .avatarLetter {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 45px;
+                    width: 45px;
+                    border-radius: 2rem;
+                    cursor: pointer;
+
+                    span {
+                        font-size: 1.8rem;
+                        font-family: var(--font-Anton);
+                        color: var(--black);
+                    }
+                }
+
                 .request {
                     position: absolute;
                     padding: 8px 25px;
@@ -405,7 +435,6 @@
                     top: -80px;
                     font-family: var(--font-Roboto);
                     font-weight: 900;
-
                 }
 
                 .searchInputModal {
@@ -414,7 +443,6 @@
                     justify-content: center;
                     position: absolute;
                     top: -40px;
-                    //left: -70%;
                     width: 280px;
                     border-radius: 0.4rem;
                     padding: 0 1rem;
@@ -524,6 +552,22 @@
 
                     &:hover {
                         transform: scale(1.2);
+                    }
+                }
+
+                .avatarLetter {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 45px;
+                    width: 45px;
+                    border-radius: 2rem;
+                    cursor: pointer;
+
+                    span {
+                        font-size: 1.8rem;
+                        font-family: var(--font-Anton);
+                        color: var(--black);
                     }
                 }
 
@@ -654,6 +698,22 @@
 
                     &:hover {
                         transform: scale(1.2);
+                    }
+                }
+
+                .avatarLetter {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 45px;
+                    width: 45px;
+                    border-radius: 2rem;
+                    cursor: pointer;
+
+                    span {
+                        font-size: 1.8rem;
+                        font-family: var(--font-Anton);
+                        color: var(--black);
                     }
                 }
 

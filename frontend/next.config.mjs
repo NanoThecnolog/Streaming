@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   images: {
     remotePatterns: [
       {
@@ -22,8 +22,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'images6.fanpop.com',
         port: '',
-      }
-    ]
+      },
+
+    ],
+    minimumCacheTTL: 60 * 60 * 24
   },
   compress: true
 

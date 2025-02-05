@@ -26,13 +26,13 @@ export default function Card({ card }: CardProps) {
                 } else {
                     const data = serieData.find(data => data.id === card.tmdbID)
                     if (data) {
-                        const url = `https://image.tmdb.org/t/p/original${data.poster_path}`;
+                        const url = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
                         setTMDBImage({ poster: url })
                         setCachedImage(card.tmdbID, url)
                     } else {
                         const url = await fetchTMDBSeries(card.tmdbID)
                         if (url) {
-                            const posterImage = `https://image.tmdb.org/t/p/original${url.poster_path}`
+                            const posterImage = `https://image.tmdb.org/t/p/w500${url.poster_path}`
                             setTMDBImage({ poster: posterImage })
                             setCachedImage(card.tmdbID, posterImage)
                         }
@@ -44,26 +44,6 @@ export default function Card({ card }: CardProps) {
         }
         getImage()
     }, [card, serieData, cachedImages, setCachedImage])
-
-    /**useEffect(() => {
-        async function getImage() {
-            const data = serieData.find(data => data.id === card.tmdbID)
-            if (data) {
-                const posterUrl = `https://image.tmdb.org/t/p/original${data.poster_path}`;
-                setTMDBImage({ poster: posterUrl })
-            } else {
-                try {
-                    const serie = await fetchTMDBSeries(card.tmdbID)
-                    if (!serie) return
-                    const posterUrl = `https://image.tmdb.org/t/p/original${serie.poster_path}`
-                    setTMDBImage({ poster: posterUrl })
-                } catch (err) {
-                    console.log("Erro na busca da série: ", err)
-                }
-            }
-        }
-        getImage()
-    }, [card, serieData])*/
 
     function handleClick() {
         router.push(`/series/serie/${card.tmdbID}`)
@@ -77,7 +57,7 @@ export default function Card({ card }: CardProps) {
                     fill
                     placeholder="blur"
                     blurDataURL="/blurImage.png"
-                    quality={35}
+                    quality={90}
                     className={styles.backgroundImage}
                     priority
                     sizes="100%"

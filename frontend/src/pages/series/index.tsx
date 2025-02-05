@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import TopSerie from "@/components/seriesComponents/Top serie";
 import styles from './styles.module.scss'
 import CardSerieContainer from "@/components/seriesComponents/CardSerieContainer";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Search from "@/components/Searching";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -12,6 +12,11 @@ import { TMDBSeries } from "@/@types/series";
 import Loading from "@/components/ui/Loading";
 import { gen, stm } from "@/utils/Genres";
 import Head from "next/head";
+import Link from "next/link";
+import debounce from "lodash.debounce";
+import { BiSolidUpvote } from "react-icons/bi";
+import BackTopButton from "@/components/ui/BackToTop";
+
 
 export default function Series() {
     //refatorar
@@ -22,25 +27,9 @@ export default function Series() {
     const combined = [...streamings, ...genres]
     const removedSections = ["Romance", "Terror", "Globo Play", "Paramount", "StarZ", "SKY"]
     const divisaoPorGenero = combined.filter(item => !removedSections.includes(item))
-
-    /*const divisaoPorGenero = [
-        "Netflix",
-        "Hbo",
-        "Disney+",
-        "Prime video",
-        "Apple tv",
-        "DC",
-        "Marvel",
-        "Ação",
-        "Suspense",
-        "Comédia",
-        "Ficção científica",
-        "Drama",
-        "Fantasia",
-        "Animação",
-    ]*/
     const [loading, setLoading] = useState(false)
     const { serieData, setSerieData } = useTMDB()
+    const [visible, setvisible] = useState(false)
 
     useEffect(() => {
         /**
@@ -111,6 +100,23 @@ export default function Series() {
             document.removeEventListener('keydown', openConsoleBlock);
         }
     }, [])
+    const handleScroll = useCallback(
+        debounce(() => {
+            if (window.scrollY > 1500) {
+                setvisible(true)
+            } else {
+                setvisible(false)
+            }
+        }, 200),
+        []
+    );
+    useEffect(() => {
+
+        window.addEventListener('scroll', handleScroll)
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [])
 
     return (
         <>
@@ -126,7 +132,7 @@ export default function Series() {
                 serieData.length > 0 ?
                     <>
                         <Header />
-                        <main className={styles.main}>
+                        <main className={styles.main} id="series">
                             <div className={styles.content}>
                                 <TopSerie width={width} />
                                 <div className={styles.mid}>
@@ -136,11 +142,12 @@ export default function Series() {
                                                 section={sec}
                                                 cardPerContainer={cardPerContainer}
                                             />
-                                            {index === 1 && cardPerContainer >= 2 && <Search />}
+                                            {index === 4 && cardPerContainer >= 2 && <Search />}
                                         </div>
                                     ))}
                                 </div>
                             </div>
+                            <BackTopButton visible={visible} link="/series/#series" />
                         </main>
                         <Footer />
                     </> : <div className={styles.loading}><Loading /></div>

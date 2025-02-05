@@ -74,7 +74,9 @@ export default function Top({ width }: TopProps) {
 
     return (
         <div className={`${styles.top_container} ${styles[fade]}`}
-            style={{ backgroundImage: `url(${getBackgroundImage()})` }}>
+            style={{ backgroundImage: `url(${getBackgroundImage()})` }}
+            id="inicio"
+        >
             <div className={styles.image_container} id="inicio">
                 <div className={styles.left_side}>
                     <h1 className={styles.titulo_principal}>

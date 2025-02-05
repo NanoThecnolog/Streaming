@@ -24,7 +24,7 @@ export default function Header() {
     }, [])
     useEffect(() => {
         if (!user) return
-        const inicial = user.name[0]
+        const inicial = user.name[0].toUpperCase()
         setInitial(inicial)
     }, [user])
     useEffect(() => {
@@ -163,7 +163,7 @@ export default function Header() {
                             <div className={styles.avatarLetter} onClick={handleUserClick}>
                                 <span>{initial}</span>
                             </div> :
-                            <FaUserCircle size={35} color="#fff" className={styles.loginIcon} onClick={handleUserClick} />
+                            <FaUserCircle size={35} className={styles.loginIcon} onClick={handleUserClick} />
                     }
                 </div>
             </div>
