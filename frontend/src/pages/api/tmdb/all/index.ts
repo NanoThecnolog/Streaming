@@ -33,11 +33,17 @@ async function fetchCardData(cardId: number, retries: number = max_tentativas, t
                 console.log(`Timeout na request para o card ${cardId}, tentando novamente em 2s...`)
             } else if (err.response) {
                 console.log(`Erro HTTP ${err.response.status} para o card ${cardId}, tentando novamente...`)
+
+                /*if (err.response.data.error.code === 504) {
+                    console.log(`Erro 504 durante a chamada da função, refazendo a requisição`)
+                    await new Promise((resolve) => setTimeout(resolve, 2000))
+                    return fetchCardData(cardId, retries - attempts, type)
+                }*/
             }
             attempts++;
             if (attempts > retries) {
                 return {
-                    success: true,
+                    success: false,
                     error: err.response?.data || err.message,
                     cardId,
                 }
@@ -50,8 +56,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { type } = req.query;
 
     if (!tmdbToken) {
-        res.status(500).json({ error: "TMDB token is missing" });
-        return;
+        return res.status(500).json({ error: "TMDB token is missing" });
     }
 
     try {
@@ -61,10 +66,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 : cards.map(async card => fetchCardData(card.tmdbId, undefined, type as string)))
 
         const successFulData = cardData.filter((result) => result.success).map((result) => result.data)
-        res.status(200).json({
+        const errorData = cardData.filter((result) => !result.success)
+        return res.status(200).json({
             success: true,
             data: successFulData,
-            errors: cardData.filter((result) => !result.success)
+            errors: errorData
         });
     } catch (err) {
         console.error("Erro ao buscar dados do TMDB:", err);

@@ -1,0 +1,98 @@
+.content_area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+
+
+    .content_title {
+        font-family: var(--font-bebas);
+        color: white;
+        font-size: 35px;
+        letter-spacing: 5px;
+        padding-left: 40px;
+
+    }
+
+    .card_carousel {
+        display: flex;
+        //overflow: hidden;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        margin: 25px 0px;
+        transition: all .5s;
+        position: relative;
+        gap: 8px;
+
+        .cardContainer {
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            width: 100%;
+            gap: 8px;
+            //z-index: 2;
+
+            .card {
+                width: 400px;
+                height: 200px;
+            }
+        }
+
+
+        button {
+            background-color: transparent;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+
+
+            &:disabled {
+                background-color: transparent;
+                cursor: not-allowed;
+
+                &:hover {
+                    background-color: transparent;
+                }
+            }
+        }
+
+        .beforeButton {
+            position: absolute;
+            top: 0;
+            right: 99%;
+            color: white;
+            height: 600px;
+            margin: 0 0.4rem;
+            transition: all 0.2s;
+
+            &:hover {
+                background-color: #c0c0c0;
+                color: #000;
+            }
+        }
+
+        .nextButton {
+            position: absolute;
+            color: white;
+            top: 0;
+            left: 99%;
+            border-radius: 4px;
+            height: 600px;
+            margin: 0 0.2rem;
+            transition: all 0.2s;
+
+
+            &:hover {
+                background-color: #c0c0c0;
+                color: #000;
+            }
+        }
+    }
+
+    .controls {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+}
