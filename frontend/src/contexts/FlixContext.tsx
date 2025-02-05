@@ -1,12 +1,12 @@
 import { ContextProps, ContextProviderProps, SignInProps } from "@/@types/contexts/flixContext";
 import { UserProps } from "@/@types/user";
 import { api } from "@/services/api";
-import { useRouter } from "next/router";
+import Router from "next/router";
 import { destroyCookie, setCookie } from "nookies";
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify";
 
-const router = useRouter()
+
 
 export const FlixContext = createContext({} as ContextProps)
 
@@ -63,7 +63,7 @@ export function FlixProvider({ children }: ContextProviderProps) {
             setUser(null)
             setFavorites([])
             setWatchLater([])
-            router.push('/login')
+            Router.push('/login')
         } catch (err) {
             toast.error("Erro ao deslogar.")
             console.log('Erro ao deslogar', err)

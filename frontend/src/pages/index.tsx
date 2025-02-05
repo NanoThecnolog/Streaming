@@ -13,7 +13,6 @@ import { MovieTMDB } from "@/@types/Cards";
 import ReleaseContainer from "@/components/ReleaseContainer";
 import Loading from "@/components/ui/Loading";
 import { agp, gen } from "@/utils/Genres";
-import Head from "next/head";
 import Script from "next/script";
 import BackTopButton from "@/components/ui/BackToTop";
 import debounce from "lodash.debounce";
@@ -96,13 +95,11 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7266476713162775"
-          crossOrigin="anonymous"
-        />
-      </Head>
+      <Script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7266476713162775"
+        crossOrigin="anonymous"
+      />
       <SEO title="FlixNext - Início" description="Um Streaming nunca antes visto porque é novo." />
       {
         allData.length > 0 ?
