@@ -15,7 +15,7 @@ import { RemoveWatchLaterController } from "./Controllers/User/RemoveWatchLaterC
 import { DetailUserController } from "./Controllers/User/DetailUserController";
 import { GenerateRecoverTokenController } from "./Controllers/User/GenerateRecoverTokenController";
 import { RecoverController } from "./Controllers/User/RecoverController";
-import { FavoriteController } from "./Controllers/User/FavoriteControlle";
+import { FavoriteController } from "./Controllers/User/FavoriteController";
 import { ListFavoriteController } from "./Controllers/User/ListFavoriteController";
 import { RemoveFavoriteController } from "./Controllers/User/RemoveFavoriteController";
 import { ProblemNotificationController } from "./Controllers/Email/ProblemNotificationController";

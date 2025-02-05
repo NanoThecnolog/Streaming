@@ -1,6 +1,7 @@
 import { compare } from "bcrypt";
 import prismaClient from "../../prisma";
 import { sign } from "jsonwebtoken";
+import { ListFavoriteService } from "./ListFavoriteService";
 
 class AuthUserService {
     async execute(email: string, password: string) {
@@ -31,6 +32,9 @@ class AuthUserService {
                 userId: userExiste.id
             }
         })
+        const favoriteService = new ListFavoriteService();
+        const favoriteList = await favoriteService.execute(userExiste.id)
+
         return {
             id: userExiste.id,
             name: userExiste.name,
@@ -39,6 +43,7 @@ class AuthUserService {
             verified: userExiste.verified,
             birthday: userExiste.birthday,
             myList: watchLaterList,
+            favoritos: favoriteList,
             news: userExiste.news,
             token: token
         }
