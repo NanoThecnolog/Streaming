@@ -130,7 +130,8 @@ export default function Home() {
               <div className={styles.content}>
                 <Top width={width} />
                 <div className={styles.mid} id="filmes">
-                  <WatchHistory section="Assistidos" cardPerContainer={cardPerContainer + 2} />
+                  {//<WatchHistory section="Assistidos" cardPerContainer={cardPerContainer + 2} />
+                  }
                   <ReleaseContainer section="lançamentos" cardPerContainer={cardPerContainer} />
                   {
                     divisaoPorGenero.map((sec, index) => (
