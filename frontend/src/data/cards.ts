@@ -6613,7 +6613,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "O talentoso motorista de fuga Baby confia nas batidas de sua própria trilha sonora para ser o melhor que existe. A música silencia um zumbido que o perturba desde um acidente na infância. Após conhecer a mulher dos seus sonhos, ele reconhece uma oportunidade de se livrar do estilo de vida questionável e recomeçar do zero. Obrigado a trabalhar para um chefão do crime, Baby lida com a música ao mesmo tempo em que um golpe fadado ao fracasso ameaça sua vida, seu amor e sua liberdade.",
         faixa: "A14",
-        src: "",
+        src: "https://drive.google.com/file/d/1mylAauV0Hy309j-gQK_HfkO-X3Zzwtz6/preview",
         duration: "1h 55m",
         genero: [gen.acao, gen.suspense, agp.crime, stm.netflix]
     },
