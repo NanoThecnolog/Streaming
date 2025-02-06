@@ -37,6 +37,66 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 602,
+        title: "Independence Day",
+        subtitle: "Versão Extendida",
+        description: "Perto do Dia da Independência dos Estados Unidos, o país fica em pânico com uma invasão alienígena. Preparados para um ataque iminente dos extraterrestres, a humanidade precisa se unir antes que uma catástrofe mundial ocorra.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1YVuYW_EX-_h3QaAP0-pXBcodmwPnzKz5/preview",
+        duration: "02h 33m",
+        genero: [gen.acao, gen.aventura, gen.ficcao, stm.disney]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 47933,
+        title: "Independence Day",
+        subtitle: "O Ressurgimento",
+        description: "Duas décadas depois do devastador ataque alienígena do Dia da Independência, a Terra enfrenta uma nova ameaça que vem diretamente do espaço. Uma nova geração de pilotos é convocada para combater os inimigos e garantir a liberdade da humanidade.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1N3qo4U2XArJVn6YP872-xFFG-76QMC9Y/preview",
+        duration: "02h 09m",
+        genero: [gen.acao, gen.aventura, gen.ficcao, stm.disney]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 550988,
+        title: "Free Guy",
+        subtitle: "Assumindo o Controle",
+        description: "Um caixa de banco preso a uma entediante rotina tem sua vida virada de cabeça para baixo quando ele descobre que é personagem em um brutalmente realista vídeo game de mundo aberto. Agora ele precisa aceitar sua realidade e lidar com o fato de que é o único que pode salvar o mundo.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1jLt-QSo7reuMZPjr7tgAi_kOL2XvhNaX/preview",
+        duration: "01h 54m",
+        genero: [gen.comedia, gen.aventura, gen.ficcao, stm.disney]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 2048,
+        title: "Eu, Robô",
+        subtitle: "",
+        description: "Em 2035, é comum robôs serem usados como empregados e assistentes dos humanos. Para manter a ordem , esses robôs possuem um código de programação que impede a violência contra humanos, a Lei dos Robóticos. Quando Dr. Miles aparece morto e o principal suspeito é justamente um robô, acredita-se na possibilidade de que os robôs tenham encontrado um meio de desativar a Lei dos Robóticos.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1PuUUGLZAKuDjGMJgHu8-ukK2snNpg4Yb/preview",
+        duration: "01h 54m",
+        genero: [gen.acao, gen.ficcao, stm.disney]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 2486,
+        title: "Eragon",
+        subtitle: "",
+        description: "O Reino de Alagaësia é governado pelo maligno rei Galbatorix, um antigo Cavaleiro de Dragão que traiu seu povo e seus companheiros em busca de poder. Quando Eragon, um garoto órfão que vive em uma pequena fazenda, encontra uma pedra azul, seu destino muda, pois o objeto na verdade era um ovo de dragão do último sobrevivente da raça. A dragão fêmea Saphira nasce do ovo e Eragon se torna um Cavaleiro, que luta contra o Espectro Durza e o exército de Galbatorix, cumprindo uma antiga profecia.",
+        faixa: "10",
+        src: "https://drive.google.com/file/d/1fLM-yMyFdpNxwT1VDRZupBXc8O3HxsfT/preview",
+        duration: "01h 44m",
+        genero: [gen.fantasia, gen.acao, gen.aventura, agp.familia, stm.disney]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 284427,
         title: "Invasores",
         subtitle: "Nenhum Sistema Está à Salvo",
@@ -3522,9 +3582,9 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Um homem deprimido que sofre de insônia conhece um estranho vendedor de sabonetes chamado Tyler Durden. Eles formam um clube clandestino com regras rígidas onde lutam com outros homens cansados de suas vidas mundanas. Mas sua parceria perfeita é comprometida quando Marla chama a atenção de Tyler.",
         faixa: "18",
-        src: "https://drive.google.com/file/d/1DpZzrI0cfmsuRPo3Ues0yEE2F_1-3GMY/preview",
+        src: "https://drive.google.com/file/d/1tO_TgE6Hr37iLrhqhq3xCGv1WhCJdcKw/preview",
         duration: "02h 19m",
-        genero: [gen.drama]
+        genero: [gen.drama, stm.disney]
     },
     {
         background: background,
@@ -4136,7 +4196,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1y3S46xyxHjmStGH0sgY77g1IRQM0P3uD/preview",
         duration: "02h 21m",
-        genero: [gen.acao, gen.aventura, agp.dc, agp.hero]
+        genero: [gen.acao, gen.aventura, agp.dc, agp.hero, stm.hbo]
     },
     {
         background: background,
@@ -4148,7 +4208,7 @@ export const cards: CardsProps[] = [
         faixa: "18",
         src: "https://drive.google.com/file/d/1vviFXYhmA7aYO9WMVmZkwHbMYhmNCgeV/preview",
         duration: "01h 53m",
-        genero: [gen.terror, gen.suspense]
+        genero: [gen.terror, gen.suspense, stm.prime]
     },
     {
         background: background,
@@ -4160,7 +4220,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1ceY14I9bymYsrVg6GzvboBX4JKWRZae_/preview",
         duration: "02h 12m",
-        genero: [gen.suspense, gen.fantasia]
+        genero: [gen.suspense, gen.fantasia, stm.netflix]
     },
     {
         background: background,
@@ -4184,7 +4244,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/19Q7i42OS3osU7zN8MV7rKlZSWRfE3bzW/preview",
         duration: "02h 22m",
-        genero: [gen.acao, gen.aventura, gen.ficcao, agp.marvel, agp.hero]
+        genero: [gen.acao, gen.aventura, gen.ficcao, agp.marvel, agp.hero, stm.disney]
     },
     {
         background: background,
@@ -4196,19 +4256,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/15Qlug1QCcNTIVVeCWNQt307h7r55DqaA/preview",
         duration: "02h 21m",
-        genero: [gen.acao, gen.ficcao, agp.marvel, agp.hero]
-    },
-    {
-        background: background,
-        overlay: overlay,
-        tmdbId: 271110,
-        title: "Capitão América",
-        subtitle: "Guerra Civil",
-        description: "Depois do ataque de Ultron, os políticos decidem controlar os Vingadores, já que suas ações afetam toda a humanidade. A decisão coloca o Capitão América em rota de colisão com o Homem de Ferro.",
-        faixa: "A12",
-        src: "https://drive.google.com/file/d/1qcY6kW-GOUtATg03Xv4BpFhRg-xoQsvr/preview",
-        duration: "02h 27m",
-        genero: [gen.acao, gen.aventura, agp.marvel, agp.hero]
+        genero: [gen.acao, gen.ficcao, agp.marvel, agp.hero, stm.disney]
     },
     {
         background: background,
@@ -4220,31 +4268,19 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/17CYGqHXnGhl6f2qFleWdYVR9v-9TUwMO/preview",
         duration: "02h 16m",
-        genero: [gen.acao, gen.aventura, gen.ficcao, agp.marvel, agp.hero]
+        genero: [gen.acao, gen.aventura, gen.ficcao, agp.marvel, agp.hero, stm.disney]
     },
     {
         background: background,
         overlay: overlay,
-        tmdbId: 284053,
-        title: "Thor",
-        subtitle: "Ragnarok",
-        description: "Após anos afastado, Thor retorna para casa e descobre que seu pai, Odin, rei de Asgard, está desaparecido. Após encontrá-lo, ele toma conhecimento de sua irmã mais velha, Hela, a poderosa e implacável deusa da morte. Com o auxílio de Loki, ele enfrenta Hela, mas durante a batalha, Thor acaba preso em Sakaar, um planeta do outro lado do universo. Agora, ele precisa correr contra o tempo para voltar a Asgard e impedir o Ragnarok, a destruição de seu mundo.",
+        tmdbId: 271110,
+        title: "Capitão América",
+        subtitle: "Guerra Civil",
+        description: "Depois do ataque de Ultron, os políticos decidem controlar os Vingadores, já que suas ações afetam toda a humanidade. A decisão coloca o Capitão América em rota de colisão com o Homem de Ferro.",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/1uMSu3oOJB6bmGVLQk8ZDeTf7uhgL1vtA/preview",
-        duration: "02h 10m",
-        genero: [gen.acao, gen.ficcao, gen.fantasia, agp.marvel, agp.hero]
-    },
-    {
-        background: background,
-        overlay: overlay,
-        tmdbId: 76338,
-        title: "Thor",
-        subtitle: "O Mundo Sombrio",
-        description: "Thor precisa contar com a ajuda de seus companheiros e até de seu traiçoeiro irmão Loki em um plano audacioso para salvar o universo. Entretanto, os caminhos de Thor se cruzam com Jane Foster e, dessa vez, a vida dela está realmente em perigo.",
-        faixa: "10",
-        src: "https://drive.google.com/file/d/1lezsWVyBagXi2lNlqNuRMrIpUu0ZiA-e/preview",
-        duration: "01h 52m",
-        genero: [gen.acao, gen.fantasia, agp.marvel, agp.hero]
+        src: "",
+        duration: "02h 27m",
+        genero: [gen.acao, gen.aventura, agp.marvel, agp.hero, stm.disney]
     },
     {
         background: background,
@@ -4256,7 +4292,31 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1OON3LmVgkfSeVA71aoK5jjSiaHBQ0-FY/preview",
         duration: "01h 54m",
-        genero: [gen.acao, gen.fantasia, agp.marvel, agp.hero]
+        genero: [gen.acao, gen.ficcao, gen.fantasia, agp.marvel, agp.hero, stm.disney]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 76338,
+        title: "Thor",
+        subtitle: "O Mundo Sombrio",
+        description: "Thor precisa contar com a ajuda de seus companheiros e até de seu traiçoeiro irmão Loki em um plano audacioso para salvar o universo. Entretanto, os caminhos de Thor se cruzam com Jane Foster e, dessa vez, a vida dela está realmente em perigo.",
+        faixa: "10",
+        src: "https://drive.google.com/file/d/1Bz5S_IjQIIMydKs9hr9b0r7-RNhlRzM5/preview",
+        duration: "01h 52m",
+        genero: [gen.acao, gen.ficcao, gen.fantasia, agp.marvel, agp.hero, stm.disney]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 284053,
+        title: "Thor",
+        subtitle: "Ragnarok",
+        description: "Após anos afastado, Thor retorna para casa e descobre que seu pai, Odin, rei de Asgard, está desaparecido. Após encontrá-lo, ele toma conhecimento de sua irmã mais velha, Hela, a poderosa e implacável deusa da morte. Com o auxílio de Loki, ele enfrenta Hela, mas durante a batalha, Thor acaba preso em Sakaar, um planeta do outro lado do universo. Agora, ele precisa correr contra o tempo para voltar a Asgard e impedir o Ragnarok, a destruição de seu mundo.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1uMSu3oOJB6bmGVLQk8ZDeTf7uhgL1vtA/preview",
+        duration: "02h 10m",
+        genero: [gen.acao, gen.ficcao, gen.fantasia, agp.marvel, agp.hero, stm.disney]
     },
     {
         background: background,
@@ -5336,9 +5396,9 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Robert Neville é um brilhante cientista e o único sobrevivente de uma epidemia que transformou os humanos em mutantes sedentos por sangue. Andando pela cidade de Nova York, ele procura por outros possíveis sobreviventes e tenta achar a cura da praga usando seu próprio sangue, que é imune.",
         faixa: "A14",
-        src: "https://drive.google.com/file/d/1HdYNkRSbUpOwTUvI5Egr0Qm0_fDDShEC/preview",
+        src: "https://drive.google.com/file/d/1zaJT1av0fZW_eC1xAce9GCRMv_zDJlaQ/preview",
         duration: "01h 41m",
-        genero: [gen.acao, gen.suspense]
+        genero: [gen.acao, gen.suspense, gen.ficcao, stm.hbo]
     },
     {
         background: background,

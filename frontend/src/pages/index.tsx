@@ -16,7 +16,6 @@ import { agp, gen } from "@/utils/Genres";
 import Script from "next/script";
 import BackTopButton from "@/components/ui/BackToTop";
 import debounce from "lodash.debounce";
-import WatchHistory from "@/components/WatchHistory";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -54,7 +53,6 @@ export default function Home() {
             console.log("Max attempts reached")
             setLoading(false)
           }
-          return
         }
         const cardData = response.data.data as MovieTMDB[]
         setAllData(cardData)
@@ -156,16 +154,3 @@ export default function Home() {
     </>
   );
 }
-/*export const getServerSideProps: GetServerSideProps = async () => {
-  async function fetchServerStatus() {
-    const status = await serverStatus();
-    return status
-  }
-  const status = await fetchServerStatus()
-  return {
-    props: {
-      status,
-    }
-  }
-}
-*/
