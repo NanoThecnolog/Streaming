@@ -37,6 +37,66 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 1250,
+        title: "Motoqueiro Fantasma",
+        subtitle: "",
+        description: "Johnny Blaze trabalha como dublê e piloto de motocicleta. Há muito tempo, ele fez um pacto com Mefisto para proteger as duas pessoas que mais amava: seu pai, Barton, e sua namorada de adolescência, Roxanne Simpson. Em troca, Johnny se transforma no Motoqueiro Fantasma, o justiceiro de alguns demônios bastante cruéis. Forçado a obedecer Mefisto, Johnny decide enfrentá-lo de forma a usar sua maldição para proteger pessoas inocentes.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1BVdhBelu7FkU026wf3BDG4-sdTq-KOfm/preview",
+        duration: "02h 03m",
+        genero: [gen.acao, gen.suspense, gen.fantasia, agp.marvel, agp.hero, stm.netflix, lang.leg]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 71676,
+        title: "Motoqueiro Fantasma",
+        subtitle: "Espírito de Vingança",
+        description: "Depois de um período recluso na Europa, Johnny Blaze embarca em uma nova missão para se livrar da maldição de ser um motoqueiro fantasma. Desta vez, ele precisa impedir que o próprio demônio encarnado sequestre um garoto de dez anos que pode ser a única esperança da humanidade contra as trevas.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1Ptm-RgZjywoPNHFkQ9MC1YPvPXREycGv/preview",
+        duration: "01h 36m",
+        genero: [gen.acao, gen.suspense, gen.fantasia, agp.marvel, agp.hero, stm.prime, lang.leg]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 868759,
+        title: "Ghosted",
+        subtitle: "Sem Resposta",
+        description: "O corretíssimo Cole se apaixona pela enigmática Sadie, mas logo enfrenta a chocante descoberta de que ela é uma agente secreta. Antes que eles possam decidir se terão ou não um segundo encontro, Cole e Sadie são arrastados para uma aventura internacional para salvar o mundo.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1N9vnFKhUzraO7nRPpF98v9BSODom4ni6/preview",
+        duration: "01h 57m",
+        genero: [gen.acao, gen.romance, gen.comedia, stm.apple]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 80274,
+        title: "Ender's Game",
+        subtitle: "O Jogo do Exterminador",
+        description: "Para impedir um novo ataque da força alienígena que quase acabou com a raça humana, o jovem Ender Wiggin é recrutado pelo corpo militar internacional. Ele treina para se transformar no melhor jogador, e sua missão é acabar com a guerra.",
+        faixa: "10",
+        src: "https://drive.google.com/file/d/1V3gBbtZmBWK1xvBC2jBJMAHvz6h-2k33/preview",
+        duration: "01h 55m",
+        genero: [gen.acao, gen.ficcao, gen.aventura, stm.hbo]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 49529,
+        title: "John Carter",
+        subtitle: "Entre Dois Mundos",
+        description: "O soldado americano John Carter, para a tristeza de seus parentes, faleceu no planeta Terra. Contudo, para a alegria de outros, ressuscitou em Marte. Agora, em meio a uma guerra civil no planeta vermelho, habitado por seres de cor verde e criaturas gigantescas, ele é visto como a única esperança de ajudar a princesa Deja Thoris, a salvar o seu mundo, numa batalha que mudará para sempre o seu destino.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1-bd128zA6l0qelCiUbZQxWLckL05eN13/preview",
+        duration: "02h 12m",
+        genero: [gen.acao, gen.aventura, gen.ficcao, stm.disney]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 602,
         title: "Independence Day",
         subtitle: "Versão Extendida",
@@ -4266,7 +4326,7 @@ export const cards: CardsProps[] = [
         subtitle: "O Soldado Invernal",
         description: "Após os eventos catastróficos em Nova York com Os Vingadores, Steve Rogers, também conhecido como Capitão América, segue tentando se ajustar ao mundo moderno. Porém, quando um colega da agência S.H.I.E.L.D. é atacado, Steve se vê preso em uma rede de intrigas que ameaça colocar o mundo em risco. Em parceria com a Viúva Negra e Falcão, seu novo aliado, o Capitão América tem que enfrentar um misterioso e inesperado inimigo, o Soldado Invernal.",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/17CYGqHXnGhl6f2qFleWdYVR9v-9TUwMO/preview",
+        src: "https://drive.google.com/file/d/1RN4rlJe9UBW7G6zFPPWYvXZoi7AaWjXu/preview",
         duration: "02h 16m",
         genero: [gen.acao, gen.aventura, gen.ficcao, agp.marvel, agp.hero, stm.disney]
     },
@@ -4278,7 +4338,7 @@ export const cards: CardsProps[] = [
         subtitle: "Guerra Civil",
         description: "Depois do ataque de Ultron, os políticos decidem controlar os Vingadores, já que suas ações afetam toda a humanidade. A decisão coloca o Capitão América em rota de colisão com o Homem de Ferro.",
         faixa: "A12",
-        src: "",
+        src: "https://drive.google.com/file/d/1a55DTwNKOmiDYbm4hnSfgg0ulfCR4Hts/preview",
         duration: "02h 27m",
         genero: [gen.acao, gen.aventura, agp.marvel, agp.hero, stm.disney]
     },
@@ -6375,7 +6435,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1xwE81U7TF1VYCZoXew_y_nmBphJvm8zr/preview",
         duration: "1h 56m",
-        genero: [gen.fantasia, agp.music]
+        genero: [gen.fantasia, gen.comedia, agp.familia, agp.music, stm.hbo]
     },
     {
         background: background,
@@ -6387,7 +6447,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1hdBaMOEc-9DmaRYQVxvxr8Efa2bFFQVf/preview",
         duration: "1h 46m",
-        genero: [agp.marvel, agp.hero, gen.acao, gen.aventura]
+        genero: [agp.marvel, agp.hero, gen.acao, gen.aventura, stm.disney]
     },
     {
         background: background,
@@ -6399,7 +6459,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1V4bw4FKcRQcRwrr_W8WoLLpZH0JgNqKl/preview",
         duration: "4h 02m",
-        genero: [gen.acao, agp.hero, agp.dc]
+        genero: [gen.acao, gen.aventura, gen.fantasia, gen.ficcao, agp.hero, agp.dc, stm.hbo]
     },
     {
         background: background,
@@ -6411,7 +6471,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1-8aB2F3DILZLHOXBaYQJlitJsyOUBow7/preview",
         duration: "2h 28m",
-        genero: [agp.marvel, gen.acao, gen.ficcao, agp.hero]
+        genero: [agp.marvel, gen.acao, gen.ficcao, agp.hero, stm.netflix]
     },
     {
         background: background,
@@ -6423,7 +6483,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/17POcLiptxNITJe0vuYgQFQ0NVTnI0BUW/preview",
         duration: "2h 06m",
-        genero: [gen.acao, gen.comedia]
+        genero: [gen.acao, gen.comedia, stm.prime]
     },
     {
         background: background,
@@ -6435,7 +6495,7 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1hFctLD5GqlaG4uaZFeSxr3ufCimrSnIo/preview",
         duration: "1h 43m",
-        genero: [gen.comedia, gen.romance]
+        genero: [gen.comedia, gen.romance, stm.prime]
     },
     {
         background: background,
@@ -6447,7 +6507,7 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1AENYKs3RgjwsMi0Y5-tv57DFNfnnAOJ_/preview",
         duration: "2h 50m",
-        genero: [gen.aventura, gen.drama, gen.ficcao]
+        genero: [gen.aventura, gen.drama, gen.ficcao, stm.prime]
     },
     {
         background: background,
@@ -6459,7 +6519,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/14e0ij22Ekbj44qMQFh0-7NEtBH-zqVAG/preview",
         duration: "1h 30m",
-        genero: [agp.dc, gen.animacao, gen.acao, agp.hero]
+        genero: [agp.dc, gen.animacao, gen.acao, agp.hero, stm.hbo]
     },
     {
         background: background,
@@ -6471,7 +6531,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1kOzLxs0czJH75RUqMlTRzMdJ9ia6o1jh/preview",
         duration: "3h 00m",
-        genero: [agp.marvel, gen.acao, agp.hero]
+        genero: [agp.marvel, gen.acao, agp.hero, gen.ficcao, stm.disney]
     },
     {
         background: background,
@@ -6483,7 +6543,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/143wpGC0L8IF6M9NlK-qz9EnYb27Evng_/preview",
         duration: "1h 52m",
-        genero: [agp.marvel, gen.acao, agp.vilian]
+        genero: [agp.marvel, gen.acao, agp.vilian, gen.ficcao]
     },
     {
         background: background,
@@ -6495,7 +6555,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1yaDcuysNUZUWa5mVnhsgVLMvF0vGdugp/preview",
         duration: "02h 59m",
-        genero: [gen.fantasia, gen.aventura]
+        genero: [gen.fantasia, gen.aventura, gen.acao, stm.prime]
     },
     {
         background: background,
@@ -6507,7 +6567,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1I3HOyzouUFnJkdX1jAnchCoMZEM7YBlKVQ/preview",
         duration: "3h 55m",
-        genero: [gen.fantasia, gen.aventura]
+        genero: [gen.fantasia, gen.aventura, gen.acao, stm.prime]
     },
     {
         background: background,
@@ -6519,7 +6579,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1rPmACNblk0C1nuTJu9cGX6zmNxrL0VYA/preview",
         duration: "03h 22m",
-        genero: [gen.fantasia, gen.aventura]
+        genero: [gen.fantasia, gen.aventura, gen.acao, stm.prime]
     },
     {
         background: background,
@@ -6531,7 +6591,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1cTsvQoeIvZhYxDgaewOdDJV2J4HciCQP/preview",
         duration: "2h 30m",
-        genero: [agp.marvel, gen.acao, agp.hero]
+        genero: [agp.marvel, gen.acao, gen.aventura, agp.hero, stm.disney]
     },
     {
         background: background,
@@ -6543,7 +6603,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/0B_h5c5Md422hYnRsMDB3bXBsN3M/preview?resourcekey=0-AsTC4uGN7s6WUOaqTL_BTQ",
         duration: "1h 32m",
-        genero: [gen.acao, gen.terror]
+        genero: [gen.acao, gen.terror, gen.fantasia, stm.gplay]
     },
     {
         background: background,
@@ -6553,9 +6613,9 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "O talentoso motorista de fuga Baby confia nas batidas de sua própria trilha sonora para ser o melhor que existe. A música silencia um zumbido que o perturba desde um acidente na infância. Após conhecer a mulher dos seus sonhos, ele reconhece uma oportunidade de se livrar do estilo de vida questionável e recomeçar do zero. Obrigado a trabalhar para um chefão do crime, Baby lida com a música ao mesmo tempo em que um golpe fadado ao fracasso ameaça sua vida, seu amor e sua liberdade.",
         faixa: "A14",
-        src: "https://drive.google.com/file/d/0B_4lGDbhNmrDeXpuWlFMckVxcVk/preview?resourcekey=0-V-2JJYKmeQAc9m8E6402pA",
+        src: "",
         duration: "1h 55m",
-        genero: [gen.acao, gen.suspense, lang.leg]
+        genero: [gen.acao, gen.suspense, agp.crime, stm.netflix]
     },
     {
         background: background,
@@ -6567,7 +6627,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1ve34N2EvgvffaDei7JkWcIAWPmSjtzWc/preview",
         duration: "1h 48m",
-        genero: [gen.suspense, gen.terror]
+        genero: [gen.suspense, gen.terror, agp.misterio]
     },
     {
         background: background,
