@@ -25,7 +25,6 @@ const nextConfig = {
       },
 
     ],
-    minimumCacheTTL: 60 * 60 * 24
   },
   compress: true
 
