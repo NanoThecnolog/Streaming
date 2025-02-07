@@ -9,6 +9,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (!tmdbToken) {
         return res.status(400).json({ error: "TMDB Token is missing." })
     }
+    //res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate=300')
+    //res.setHeader('Vary', 'id');
     try {
         const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}/credits`, {
             headers: {

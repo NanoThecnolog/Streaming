@@ -46,6 +46,7 @@ export default function Series() {
                     }
                 })
                 const cardData = response.data.data as TMDBSeries[]
+                console.log(cardData)
                 setSerieData(cardData)
             } catch (err) {
                 console.log(err)
