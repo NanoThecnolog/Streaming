@@ -39,18 +39,18 @@ async function fetchCardData(cardId: number, retries: number = max_tentativas, t
     }
 }
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate')
     const { type } = req.query;
-
     if (!tmdbToken) {
         return res.status(500).json({ error: "TMDB token is missing" });
     }
+    res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate=300')
+    res.setHeader('Vary', 'type');
 
     try {
         const cardData = await Promise.all(
             type === "tv" ?
-                series.map(async card => fetchCardData(card.tmdbID, undefined, type as string))
-                : cards.map(async card => fetchCardData(card.tmdbId, undefined, type as string)))
+                series.map(async card => fetchCardData(card.tmdbID, max_tentativas, type as string))
+                : cards.map(async card => fetchCardData(card.tmdbId, max_tentativas, type as string)))
 
         const successFulData = cardData.filter((result) => result.success).map((result) => result.data)
         const errorData = cardData.filter((result) => !result.success)
@@ -61,6 +61,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         });
     } catch (err) {
         console.error("Erro ao buscar dados do TMDB:", err);
-        res.status(500).json({ error: "Error fetching data from TMDB", details: err });
+        return res.status(500).json({ error: "Error fetching data from TMDB", details: err });
     }
 }
