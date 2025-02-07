@@ -30,8 +30,6 @@ export default function Top({ width }: TopProps) {
     const { allData } = useTMDB()
     const [TMDBMovie, setTMDBMovie] = useState<MovieTMDB | null>(null)
 
-    console.log("allData no top filmes", allData)
-
     useEffect(() => {
         const interval = setInterval(() => {
             setFade('fadeOut')
@@ -53,15 +51,12 @@ export default function Top({ width }: TopProps) {
     useEffect(() => {
         const getImages = async () => {
             const data = allData.find(data => data.id === card.tmdbId)
-            //const data = allData.find(data => data.id === 0)
-            console.log("data no top filmes", data)
             if (data) {
                 const backdropUrl = `https://image.tmdb.org/t/p/original${data.backdrop_path}`;
                 const posterUrl = `https://image.tmdb.org/t/p/original${data.poster_path}`;
                 setTMDBMovie(data)
                 setTMDBImages({ backdrop: backdropUrl, poster: posterUrl })
             } else {
-                console.log("chamando else")
                 const movie = await fetchTMDBMovie(card.tmdbId)
                 const backdropUrl = await fetchTMDBBackDrop(card.tmdbId)
                 const posterUrl = await fetchTMDBPoster(card.tmdbId)
