@@ -120,13 +120,16 @@ export default function Series() {
 
     return (
         <>
+            {
+                /*
             <Head>
                 <script
                     async
                     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7266476713162775"
                     crossOrigin="anonymous"
                 />
-            </Head>
+            </Head>*/
+            }
             <SEO title="Series | FlixNext" description="Várias séries para maratonar!" />
             {
                 serieData.length > 0 ?

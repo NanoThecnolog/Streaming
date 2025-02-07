@@ -24,7 +24,7 @@ export default function Card({ card }: CardProps) {
                 setTMDBImages({ poster: cachedImages[card.tmdbId] })
             } else {
                 const data = allData.find(data => data.id === card.tmdbId)
-                const url = data ? `https://image.tmdb.org/t/p/w500${data.poster_path}` : await fetchTMDBPoster(card.tmdbId)
+                const url = data ? `https://image.tmdb.org/t/p/original${data.poster_path}` : await fetchTMDBPoster(card.tmdbId)
 
                 if (url) {
                     setTMDBImages({ poster: url })
@@ -50,7 +50,7 @@ export default function Card({ card }: CardProps) {
                     fill
                     placeholder="blur"
                     blurDataURL="/blurImage.png"
-                    quality={90}
+                    quality={30}
                     priority
                     className={styles.backgroundImage}
                     sizes="100%"
