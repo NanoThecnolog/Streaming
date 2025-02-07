@@ -52,8 +52,8 @@ export default function Top({ width }: TopProps) {
     }, [])
     useEffect(() => {
         const getImages = async () => {
-            //const data = allData.find(data => data.id === card.tmdbId)
-            const data = allData.find(data => data.id === 0)
+            const data = allData.find(data => data.id === card.tmdbId)
+            //const data = allData.find(data => data.id === 0)
             console.log("data no top filmes", data)
             if (data) {
                 const backdropUrl = `https://image.tmdb.org/t/p/original${data.backdrop_path}`;
