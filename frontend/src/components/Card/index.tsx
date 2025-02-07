@@ -1,4 +1,4 @@
-import { CardsProps } from "@/@types/Cards";
+import { CardsProps, MovieTMDB } from "@/@types/Cards";
 import styles from './styles.module.scss'
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -15,8 +15,10 @@ interface TMDBImagesProps {
 
 export default function Card({ card }: CardProps) {
     const router = useRouter();
+    const [movie, setMovie] = useState<MovieTMDB>()
     const { allData, cachedImages, setCachedImage } = useTMDB()
     const [TMDBImages, setTMDBImages] = useState<TMDBImagesProps>()
+    //const [TMDBMovie, setTMDBMovie] = useState<MovieTMDB | null>(null)
 
     useEffect(() => {
         async function getImage() {
@@ -36,6 +38,23 @@ export default function Card({ card }: CardProps) {
     }, [card, allData, cachedImages, setCachedImage])
 
 
+    /*useEffect(() => {
+        async function getImage() {
+            const data = allData.find(data => data.id === card.tmdbId)
+            if (data) {
+                const posterUrl = `https://image.tmdb.org/t/p/original${data.poster_path}`;
+                setTMDBImages({ poster: posterUrl })
+            } else {
+                const posterUrl = await fetchTMDBPoster(card.tmdbId)
+                if (!posterUrl) return
+                setTMDBImages({ poster: posterUrl })
+            }
+        }
+        getImage()
+
+    }, [card, allData])*/
+
+
 
     function handleClick() {
         router.push(`/movie/${card.tmdbId}`)
@@ -50,9 +69,9 @@ export default function Card({ card }: CardProps) {
                     fill
                     placeholder="blur"
                     blurDataURL="/blurImage.png"
-                    quality={30}
-                    priority
+                    quality={35}
                     className={styles.backgroundImage}
+                    priority
                     sizes="100%"
                     onClick={() => handleClick()}
                 />
