@@ -10,7 +10,7 @@ export default function Active() {
     const router = useRouter()
     const { id } = router.query;
     const [user, setUser] = useState<{ id: string, name: string } | null>(null)
-    const loginLink = `${process.env.NEXT_PUBLIC_WEBSITE_LINK}/login`
+    const loginLink = `/login`
     const containerStyles = {
         backgroundImage: 'url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F4321344.jpg&f=1&nofb=1&ipt=e561bcf964fd269c74214638aaa624daf5819fa9a9458a1033209e52c3d2ab80&ipo=images)',
         backgroundPosition: 'center',
@@ -37,7 +37,7 @@ export default function Active() {
                     <div className={styles.cardContainer}>
                         <div className={styles.contentContainer}>
                             <h2>Olá, {user?.name || "usuario"}! Sua conta foi ativada com sucesso!</h2>
-                            <p>Obrigado por ativar sua conta na FlixNext =D</p>
+                            <p>Obrigado por utilizar nossa plataforma!</p>
                             <div style={{ padding: 10 }}>
                                 <Link href={loginLink}>
                                     <button type="button" className={styles.button}>Fazer Login</button>
