@@ -45,6 +45,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
     res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate=300')
     res.setHeader('Vary', 'type');
+    res.setHeader('Netlify-Vary', 'type');
 
     try {
         const cardData = await Promise.all(
