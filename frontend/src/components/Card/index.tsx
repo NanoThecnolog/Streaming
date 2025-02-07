@@ -16,26 +16,27 @@ interface TMDBImagesProps {
 export default function Card({ card }: CardProps) {
     const router = useRouter();
     const [movie, setMovie] = useState<MovieTMDB>()
-    const { allData, cachedImages, setCachedImage } = useTMDB()
+    const { allData } = useTMDB()
     const [TMDBImages, setTMDBImages] = useState<TMDBImagesProps>()
     //const [TMDBMovie, setTMDBMovie] = useState<MovieTMDB | null>(null)
 
     useEffect(() => {
         async function getImage() {
-            if (cachedImages[card.tmdbId]) {
-                setTMDBImages({ poster: cachedImages[card.tmdbId] })
-            } else {
-                const data = allData.find(data => data.id === card.tmdbId)
-                const url = data ? `https://image.tmdb.org/t/p/original${data.poster_path}` : await fetchTMDBPoster(card.tmdbId)
 
-                if (url) {
-                    setTMDBImages({ poster: url })
-                    setCachedImage(card.tmdbId, url)
-                }
+            /*if (cachedImages[card.tmdbId]) {
+                setTMDBImages({ poster: cachedImages[card.tmdbId] })
+            } else {*/
+            const data = allData.find(data => data.id === card.tmdbId)
+            const url = data ? `https://image.tmdb.org/t/p/w500${data.poster_path}` : await fetchTMDBPoster(card.tmdbId)
+
+            if (url) {
+                setTMDBImages({ poster: url })
+                //setCachedImage(card.tmdbId, url)
             }
+
         }
         getImage()
-    }, [card, allData, cachedImages, setCachedImage])
+    }, [card, allData])
 
 
     /*useEffect(() => {
@@ -69,7 +70,7 @@ export default function Card({ card }: CardProps) {
                     fill
                     placeholder="blur"
                     blurDataURL="/blurImage.png"
-                    quality={35}
+                    quality={85}
                     className={styles.backgroundImage}
                     priority
                     sizes="100%"

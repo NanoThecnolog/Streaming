@@ -23,11 +23,10 @@ const nextConfig = {
         hostname: 'images6.fanpop.com',
         port: '',
       },
-
     ],
+    minimumCacheTTL: 86400
   },
   compress: true
-
 };
 
 export default nextConfig;

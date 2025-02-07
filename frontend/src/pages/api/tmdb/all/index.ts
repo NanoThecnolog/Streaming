@@ -7,6 +7,7 @@ const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
 const max_tentativas = 3;
 
 async function fetchCardData(cardId: number, retries: number = max_tentativas, type: string = 'movie'): Promise<any> {
+
     try {
         const response = await axios.get(
             `https://api.themoviedb.org/3/${type}/${cardId}`,
@@ -38,6 +39,7 @@ async function fetchCardData(cardId: number, retries: number = max_tentativas, t
     }
 }
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate')
     const { type } = req.query;
 
     if (!tmdbToken) {

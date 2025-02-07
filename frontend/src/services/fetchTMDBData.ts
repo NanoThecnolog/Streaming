@@ -44,7 +44,7 @@ async function fetchTMDBData<T>(tmdbID: number, type: 'movie' | 'tv', imageType:
             if (imageType === 'backdrop') {
                 return `https://image.tmdb.org/t/p/original${response.data.backdrop_path}` as unknown as T
             } else if (imageType === 'poster') {
-                return `https://image.tmdb.org/t/p/original${response.data.poster_path}` as unknown as T
+                return `https://image.tmdb.org/t/p/w500${response.data.poster_path}` as unknown as T
             } else {
                 return response.data; // Retorna dados do filme
             }
