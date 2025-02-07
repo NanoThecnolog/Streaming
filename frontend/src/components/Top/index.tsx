@@ -9,6 +9,7 @@ import { MovieTMDB } from '@/@types/Cards';
 import Adult from '../ui/Adult';
 import { releaseCards } from '@/data/release';
 import { useTMDB } from '@/contexts/TMDBContext';
+import { fetchTMDBBackDrop, fetchTMDBMovie, fetchTMDBPoster } from '@/services/fetchTMDBData';
 
 interface TopProps {
     width?: number;
@@ -29,6 +30,8 @@ export default function Top({ width }: TopProps) {
     const { allData } = useTMDB()
     const [TMDBMovie, setTMDBMovie] = useState<MovieTMDB | null>(null)
 
+    console.log("allData no top filmes", allData)
+
     useEffect(() => {
         const interval = setInterval(() => {
             setFade('fadeOut')
@@ -48,13 +51,25 @@ export default function Top({ width }: TopProps) {
         fetchUserData()
     }, [])
     useEffect(() => {
-        const data = allData.find(data => data.id === card.tmdbId)
-        if (data) {
-            const backdropUrl = `https://image.tmdb.org/t/p/original${data.backdrop_path}`;
-            const posterUrl = `https://image.tmdb.org/t/p/original${data.poster_path}`;
-            setTMDBMovie(data)
-            setTMDBImages({ backdrop: backdropUrl, poster: posterUrl })
+        const getImages = async () => {
+            //const data = allData.find(data => data.id === card.tmdbId)
+            const data = allData.find(data => data.id === 0)
+            console.log("data no top filmes", data)
+            if (data) {
+                const backdropUrl = `https://image.tmdb.org/t/p/original${data.backdrop_path}`;
+                const posterUrl = `https://image.tmdb.org/t/p/original${data.poster_path}`;
+                setTMDBMovie(data)
+                setTMDBImages({ backdrop: backdropUrl, poster: posterUrl })
+            } else {
+                console.log("chamando else")
+                const movie = await fetchTMDBMovie(card.tmdbId)
+                const backdropUrl = await fetchTMDBBackDrop(card.tmdbId)
+                const posterUrl = await fetchTMDBPoster(card.tmdbId)
+                setTMDBMovie(movie)
+                setTMDBImages({ backdrop: backdropUrl, poster: posterUrl })
+            }
         }
+        getImages()
     }, [allData, cardOn, card.tmdbId])
 
     const getBackgroundImage = () => {
