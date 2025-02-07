@@ -7,49 +7,34 @@ const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
 const max_tentativas = 3;
 
 async function fetchCardData(cardId: number, retries: number = max_tentativas, type: string = 'movie'): Promise<any> {
-    let attempts = 0;
-    while (attempts <= retries) {
-        try {
-            const response = await axios.get(
-                `https://api.themoviedb.org/3/${type}/${cardId}`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${tmdbToken}`,
-                    },
-                    params: {
-                        language: "pt-BR",
-                    },
-                }
-            );
-            return {
-                success: true,
-                data: response.data,
-                cardId
-            };
-        } catch (err: any) {
-            console.error(`Erro na tentativa ${attempts + 1} para o card ${cardId}: `, err.message)
-
-            if (err.code === 'ECONNABORTED') {
-                console.log(`Timeout na request para o card ${cardId}, tentando novamente em 2s...`)
-            } else if (err.response) {
-                console.log(`Erro HTTP ${err.response.status} para o card ${cardId}, tentando novamente...`)
-
-                /*if (err.response.data.error.code === 504) {
-                    console.log(`Erro 504 durante a chamada da função, refazendo a requisição`)
-                    await new Promise((resolve) => setTimeout(resolve, 2000))
-                    return fetchCardData(cardId, retries - attempts, type)
-                }*/
+    try {
+        const response = await axios.get(
+            `https://api.themoviedb.org/3/${type}/${cardId}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${tmdbToken}`,
+                },
+                params: {
+                    language: "pt-BR",
+                },
             }
-            attempts++;
-            if (attempts > retries) {
-                return {
-                    success: false,
-                    error: err.response?.data || err.message,
-                    cardId,
-                }
-            }
-            await new Promise((resolve) => setTimeout(resolve, 2000))
+        );
+        return {
+            success: true,
+            data: response.data,
+            cardId
+        };
+    } catch (err: any) {
+        if (retries > 0) {
+            console.log(`Tentativa falha para o card ${cardId}, tentando novamente...`);
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            return fetchCardData(cardId, retries - 1, type);
         }
+        return {
+            success: false,
+            error: err.response?.data || err.message,
+            cardId
+        };
     }
 }
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

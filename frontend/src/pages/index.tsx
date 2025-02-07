@@ -41,7 +41,7 @@ export default function Home() {
     */
     if (loading || allData.length > 0) return
     setLoading(true)
-    const fetchData = async (attempt = 1) => {
+    /*const fetchData = async (attempt = 1) => {
       try {
         const response = await apiTMDB.get('/all')
 
@@ -64,6 +64,19 @@ export default function Home() {
         } else {
           console.log("Max Attempts reached")
         }
+      } finally {
+        setLoading(false)
+      }
+    }*/
+    const fetchData = async () => {
+      if (loading || allData.length > 0) return
+      setLoading(true)
+      try {
+        const response = await apiTMDB.get('/all')
+        const cardData = response.data.data as MovieTMDB[]
+        setAllData(cardData)
+      } catch (err) {
+        console.log(err)
       } finally {
         setLoading(false)
       }
