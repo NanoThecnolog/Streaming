@@ -5,10 +5,12 @@ import { ToastContainer } from "react-toastify";
 import { TMDBProvider } from "@/contexts/TMDBContext";
 import { useEffect } from "react";
 import ErrorBoundary from "@/components/Errors/ErrorBoundary";
+import { FlixProvider } from "@/contexts/FlixContext";
 //import { SpeedInsights } from '@vercel/speed-insights/next';
 //import { Analytics } from '@vercel/analytics/next';
 
 export default function App({ Component, pageProps }: AppProps) {
+
   useEffect(() => {
     function rightClickBlock(event: MouseEvent) { event.preventDefault(); }
 
@@ -35,10 +37,12 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <ErrorBoundary>
-      <TMDBProvider>
-        <Component {...pageProps} />
-        <ToastContainer autoClose={3000} />
-      </TMDBProvider>
+      <FlixProvider>
+        <TMDBProvider>
+          <Component {...pageProps} />
+          <ToastContainer autoClose={3000} />
+        </TMDBProvider>
+      </FlixProvider>
     </ErrorBoundary>
   )
 }

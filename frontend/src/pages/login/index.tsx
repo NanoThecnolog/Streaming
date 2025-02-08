@@ -8,6 +8,8 @@ import { FaSpinner } from 'react-icons/fa';
 import ForgetPass from '@/components/modals/ForgetPassword';
 import setData from '@/services/setDataOnStorage';
 import SEO from '@/components/SEO';
+import { useFlix } from '@/contexts/FlixContext';
+import { useTMDB } from '@/contexts/TMDBContext';
 
 export default function Login() {
     //refatorar esse componente
@@ -16,6 +18,7 @@ export default function Login() {
     const [loading, setLoading] = useState<boolean>(false)
     const [modalVisible, setModalVisible] = useState<boolean>(false)
     const newAccount = "/signup";
+    const { signIn } = useFlix()
 
     useEffect(() => {
         async function wakeUpServer() {
@@ -36,7 +39,21 @@ export default function Login() {
         return () => clearInterval(manterAcordado)
     }, [])
 
-    async function handleLogin(event: FormEvent) {
+    async function handleLogin(e: FormEvent) {
+        e.preventDefault()
+        if (loading) return
+        try {
+            setLoading(true)
+            const credentials = { email, password }
+            await signIn(credentials)
+        } catch (err) {
+            console.log(err)
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    /*async function handleLogin(event: FormEvent) {
         event.preventDefault();
 
         try {
@@ -83,8 +100,7 @@ export default function Login() {
         } finally {
             setLoading(false)
         }
-
-    }
+    }*/
     function handleOpen() {
         setModalVisible(true)
     }

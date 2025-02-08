@@ -2,9 +2,8 @@ import Header from "@/components/Header";
 import styles from './styles.module.scss'
 import Footer from "@/components/Footer";
 import { useEffect, useState } from "react";
-import { getUserCookieData, updateUserCookie } from "@/services/cookieClient";
-import Router from "next/router";
-import { UserProps } from "@/@types/user";
+import { getCookieData, getUserCookieData, updateUserCookie } from "@/services/cookieClient";
+import { UserContext, UserProps } from "@/@types/user";
 import Image from "next/image";
 import { BiSolidEditAlt } from "react-icons/bi";
 import Qrcode from "@/components/Qrcode";
@@ -16,23 +15,40 @@ import { CardsProps } from "@/@types/Cards";
 import EditarDados from "@/components/modals/EditarDados";
 import { deleteCookies } from "@/services/cookieClient";
 import { X } from "lucide-react";
-import { removeWatchLater } from "@/services/handleWatchLater";
 import { FaUserCircle } from "react-icons/fa";
 import { WatchLaterProps } from "@/@types/watchLater";
 import SEO from "@/components/SEO";
 import Switch from "@/components/ui/Switch";
 import { toast } from "react-toastify";
 import { api } from "@/services/api";
+import { useFlix } from "@/contexts/FlixContext";
+import { destroyCookie, parseCookies, setCookie } from "nookies";
+import { useRouter } from "next/router";
+import { cookieOptions } from "@/utils/Variaveis";
+import { addWatchLater } from "@/services/handleWatchLater";
 
 export default function Me() {
-    const [user, setUser] = useState<UserProps | null>(null)
+    //const [user, setUser] = useState<UserProps | null>(null)
+    const router = useRouter()
+    const { user, setUser, signOut } = useFlix()
     const [modalVisible, setModalVisible] = useState(false)
     const [editarDados, setEditarDados] = useState(false)
     const [loading, setLoading] = useState<boolean>(false)
     const [watchLaterList, setWatchLaterList] = useState<WatchLaterProps[]>([])
     //console.log("user: ", user)
-
     useEffect(() => {
+        if (!user) {
+            const { 'flix-user': userCookie } = parseCookies()
+            if (!userCookie) {
+                router.push('/login')
+                return
+            }
+            setUser(JSON.parse(userCookie))
+
+        }
+    }, [])
+
+    /*useEffect(() => {
         getUserData()
 
     }, [modalVisible, editarDados])
@@ -44,9 +60,14 @@ export default function Me() {
         }
         setUser(userData)
         handleWatchLater(userData)
-    }
+    }*/
+    /*useEffect(() => {
+        if (!user) {
+            
+        }
+    },[])*/
 
-    function handleWatchLater(user: UserProps) {
+    function handleWatchLater(user: UserContext) {//mudar
         //const lista = await fetchWatchLater(user)
         const watchLaterOnStorage = localStorage.getItem('watchLaterList')
         setWatchLaterList(JSON.parse(watchLaterOnStorage as string))
@@ -62,7 +83,7 @@ export default function Me() {
     function handleWatch(watch: SeriesProps | CardsProps) {
         if ('src' in watch) {
             const play: string = `/watch/${watch.tmdbId}`
-            Router.push(play);
+            router.push(play);
         } else if (watch.season?.[0]?.episodes?.[0]) {
             const ep = watch.season[0].episodes[0]
             const episode = new URLSearchParams({
@@ -73,7 +94,7 @@ export default function Me() {
                 season: `${watch.season[0].s}`
             })
             const play: string = `/watch/serie?${episode}`
-            Router.push(play)
+            router.push(play)
         } else {
             console.log("Filme, Episódio ou temporada não encontrados")
         }
@@ -83,12 +104,16 @@ export default function Me() {
     }
     async function closeEditarDados() {
         setEditarDados(false)
-        if (!user) return Router.push('/login')
+        if (!user) return router.push('/login')
         //setCookieClient(user.id);
-        await updateUserCookie();
+        //await updateUserCookie();
     }
 
     function handleLogout() {
+        signOut()
+    }
+
+    /*function handleLogout() {
         deleteCookies('flixnext');
         document.cookie = `userData=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
         localStorage.removeItem('flixnext');
@@ -96,47 +121,48 @@ export default function Me() {
         localStorage.removeItem('watchLaterList');
         //deleteCookies('userData');
         Router.push('/login');
-    }
+    }*/
 
-    async function handleRemove(title: string, subtitle?: string) {
+    async function handleRemoveWatchLater(tmdbId: number) {
 
-        if (!user) return Router.push('/login')
+        if (!user) return router.push('/login')
 
-        await removeWatchLater(user.id, title, subtitle)
+        await addWatchLater(tmdbId)
         await updateUserCookie()
         handleWatchLater(user)
-        await getUserData()
-
+        //await getUserData()
     }
     async function handleNews(newsletter: boolean) {
+        if (loading) return
         try {
             setLoading(true)
-            const user = await getUserCookieData();
             if (!user) {
-                toast.error("Erro ao tentar editar dados do usuario.")
+                toast.error("Erro ao tentar atualizar newsLetter do usuario.")
                 return
             }
-            const userData: Record<string, any> = {
+            const userData = {
                 id: user.id,
                 news: newsletter
             }
 
             const response = await api.put('/user', userData)
-            const data = response.data;
-            await updateUserCookie()
-
+            const data: UserContext = response.data;
+            destroyCookie(null, 'flix-user')
+            setCookie(null, 'flix-user', JSON.stringify(data), cookieOptions)
+            setUser(data)
         } catch (err) {
-            console.log("Erro ao alterar dados", err)
-            toast.error("Erro ao alterar seus dados.")
+            console.log("Erro ao alterar newsletter", err)
+            toast.error("Erro ao configurar o recebimento de newsletters. Tente novamente mais tarde.")
         } finally {
             setLoading(false)
         }
     }
+
+
     return (
         <>
             <SEO title="Minha Conta | FlixNext" description="Minha Conta. Altere seus dados e seu avatar!" />
             <Header />
-
             <article className={styles.container}>
                 {
                     user ?
@@ -151,13 +177,11 @@ export default function Me() {
                                     </div>
                                 </div>
                                 <div className={styles.asideInfo}>
-                                    <h2>{user.name}</h2>
-                                    <h3>{user.email}</h3>
-                                    <h3>Aniversário
-                                        <p>{user?.birthday && new Date(user.birthday).toLocaleDateString('pt-br', {
-                                            timeZone: 'UTC'
-                                        })}</p>
-                                    </h3>
+                                    <h2>Nome: {user.name}</h2>
+                                    <h3>Email: {user.email}</h3>
+                                    <h3>Aniversário: <span>{user?.birthday && new Date(user.birthday).toLocaleDateString('pt-br', {
+                                        timeZone: 'UTC'
+                                    })}</span></h3>
                                 </div>
                                 <div className={styles.button}>
                                     <button type="button" onClick={openEditarDados}>Editar dados</button>
@@ -187,7 +211,7 @@ export default function Me() {
                                                             <span onClick={() => handleWatch(filme)}>
                                                                 {filme.title}{filme.subtitle && <span> - {filme.subtitle}</span>}
                                                             </span>
-                                                            <X onClick={() => handleRemove(filme.title, filme.subtitle)} /></div>
+                                                            <X onClick={() => handleRemoveWatchLater(filme.tmdbId)} /></div>
                                                     ))
                                                 }
                                             </div>
@@ -203,7 +227,7 @@ export default function Me() {
                                                             <span onClick={() => handleWatch(serie)}>
                                                                 {serie.title} {serie.subtitle && <span>- {serie.subtitle}</span>}
                                                             </span>
-                                                            <X onClick={() => handleRemove(serie.title, serie.subtitle)} /></div>
+                                                            <X onClick={() => handleRemoveWatchLater(serie.tmdbID)} /></div>
                                                     ))
                                                 }
                                             </div>

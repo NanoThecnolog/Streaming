@@ -13,6 +13,16 @@ export interface UserProps {
     favoritos: ListaFavoritos[]
 }
 
+export interface UserContext {
+    id: string,
+    name: string,
+    email: string,
+    avatar: string,
+    birthday: Date,
+    news: boolean,
+    verified: boolean,
+}
+
 export interface MyListPorps {
     id: string,
     title: string,
@@ -20,4 +30,5 @@ export interface MyListPorps {
     userId: string,
     created_at: string,
     updated_at: string
+    tmdbid: number
 }

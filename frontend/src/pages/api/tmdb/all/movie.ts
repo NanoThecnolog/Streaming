@@ -6,11 +6,11 @@ import type { NextApiRequest, NextApiResponse } from "next";
 const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
 const max_tentativas = 3;
 
-async function fetchCardData(cardId: number, retries: number = max_tentativas, type: string = 'movie'): Promise<any> {
+async function fetchCardData(cardId: number, retries: number = max_tentativas): Promise<any> {
 
     try {
         const response = await axios.get(
-            `https://api.themoviedb.org/3/${type}/${cardId}`,
+            `https://api.themoviedb.org/3/movie/${cardId}`,
             {
                 headers: {
                     Authorization: `Bearer ${tmdbToken}`,
@@ -29,7 +29,7 @@ async function fetchCardData(cardId: number, retries: number = max_tentativas, t
         if (retries > 0) {
             console.log(`Tentativa falha para o card ${cardId}, tentando novamente...`);
             await new Promise(resolve => setTimeout(resolve, 2000));
-            return fetchCardData(cardId, retries - 1, type);
+            return fetchCardData(cardId, retries - 1);
         }
         return {
             success: false,
@@ -39,19 +39,13 @@ async function fetchCardData(cardId: number, retries: number = max_tentativas, t
     }
 }
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const { type } = req.query;
     if (!tmdbToken) {
         return res.status(500).json({ error: "TMDB token is missing" });
     }
-    //res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate=300')
-    //res.setHeader('Vary', 'type');
-    //res.setHeader('Netlify-Vary', 'type');
+    res.setHeader('Cache-Control', 's-maxage=18000, stale-while-revalidate=300')
 
     try {
-        const cardData = await Promise.all(
-            type === "tv" ?
-                series.map(async card => fetchCardData(card.tmdbID, max_tentativas, type as string))
-                : cards.map(async card => fetchCardData(card.tmdbId, max_tentativas, type as string)))
+        const cardData = await Promise.all(cards.map(async card => fetchCardData(card.tmdbId, max_tentativas)))
 
         const successFulData = cardData.filter((result) => result.success).map((result) => result.data)
         const errorData = cardData.filter((result) => !result.success)

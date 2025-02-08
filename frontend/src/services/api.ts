@@ -1,5 +1,6 @@
 import axios from "axios";
 import { getUserCookieData } from "./cookieClient";
+import { parseCookies } from "nookies";
 
 const url = process.env.NEXT_PUBLIC_RENDER;
 if (!url) console.log("variável de ambiente não configurada.")
@@ -8,9 +9,8 @@ export const api = axios.create({
 });
 
 api.interceptors.request.use(async (config) => {
-    const user = await getUserCookieData()
-
-    if (user) config.headers.Authorization = `Bearer ${user.token}`
+    const { 'flix-token': token } = parseCookies()
+    if (token) config.headers.Authorization = `Bearer ${token}`
     return config;
 }, (error) => {
     return Promise.reject(error)

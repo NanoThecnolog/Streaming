@@ -1,10 +1,22 @@
 import { toast } from "react-toastify"
-import { UserProps } from "@/@types/user";
+import { UserContext, UserProps } from "@/@types/user";
 import { api } from "./api";
 import { WatchLaterProps } from "@/@types/watchLater";
-import setData from "./setDataOnStorage";
-import { getCookie } from "cookies-next";
 import { updateUserCookie } from "./cookieClient";
+import { destroyCookie, parseCookies, setCookie } from "nookies";
+import { WatchLaterContext } from "@/@types/contexts/flixContext";
+import { cards } from "@/data/cards";
+import { cookieOptions } from "@/utils/Variaveis";
+import { series } from "@/data/series";
+import { CardsProps } from "@/@types/Cards";
+import { SeriesProps } from "@/@types/series";
+
+interface TestProps {
+    title: string,
+    subtitle: string,
+    tmdbId?: number,
+    tmdbID?: number
+}
 
 /**
  * Essa função adiciona ou remove o filme da lista no banco de dados. Avisa com toast o resultado. 
@@ -16,29 +28,59 @@ import { updateUserCookie } from "./cookieClient";
  * @returns void
  */
 
-export async function addWatchLater(userid: string, title: string, tmdbid: number, subtitle?: string) {
+export async function addWatchLater(tmdbid: number) {
     let isLoading = false;
     try {
         if (isLoading) return;
         isLoading = true;
+        const { 'flix-user': userCookie } = parseCookies()
+        if (!userCookie) return console.log("user cookie on function addWatchLater not found. UserCookie: ", userCookie)
+        const user: UserContext = JSON.parse(userCookie)
 
-        const { data: filmes } = await api.get<WatchLaterProps[]>(`/watchLater?id=${userid}`);
+        // Busca a lista no banco de dados pelo user
+        const { data: filmes } = await api.get<WatchLaterProps[]>(`/watchLater?id=${user.id}`);
 
         // Verifica se o filme já está na lista
-        const filmeExiste = filmes.find((filme) => compareTitles(filme, title, subtitle));
+        const filmeExiste = filmes.find((filme) => filme.tmdbid === tmdbid);
 
         // Se o filme existe, remove-o
         if (filmeExiste) {
-            await removeWatchLater(userid, filmeExiste.title, filmeExiste.subtitle);
+            await removeWatchLater(filmeExiste)
+            //await api.delete(`/watchLater/${filmeExiste.id}`)
             return;
         }
 
         // Adiciona o novo filme à lista e atualiza as listas no localStorage
+        const cardExiste = (): TestProps | null => {
+            return cards.find(card => card.tmdbId === tmdbid)
+                ?? series.find(card => card.tmdbID === tmdbid)
+                ?? null
+        }
+        const movie = cardExiste()
+        //const card = movie ? movie : series.find(card => card.tmdbID === tmdbid)
+        if (!movie) {
+            return console.error("título não encontrado em cards", movie)
+        }
 
-        await api.post(`/watchLater/`, { userid, title, subtitle: subtitle || '', tmdbid }),
-            await updateUserCookie(),//atualiza o cookie userData
-            await setData() //Atualiza as listas watchlater e favorite do localstorage
-        toast.success("Filme adicionado à lista de assistir mais tarde!");
+        const data = {
+            userid: user.id,
+            title: movie.title,
+            subtitle: movie.subtitle,
+            tmdbid: movie.tmdbId ?? movie.tmdbID
+        }
+        await api.post(`/watchLater/`, data)
+        const { 'flix-watch': watchCookie } = parseCookies()
+        if (!watchCookie) {
+            toast.warning("tenta relogar, ta dando erro...")
+            return console.error("Cookie flix-watch não encontrado")
+        }
+        const watchList: WatchLaterContext[] = JSON.parse(watchCookie)
+        watchList.push({ id: tmdbid })
+        destroyCookie(null, 'flix-watch')
+        setCookie(null, 'flix-watch', JSON.stringify(watchList), cookieOptions)
+        //await updateUserCookie(),//atualiza o cookie userData
+        //await setData() //Atualiza as listas watchlater e favorite do localstorage
+        toast.success(`${movie.title} ${movie.subtitle != '' ? `- ${movie.subtitle}` : ''} adicionado à lista de assistir mais tarde!`);
     } catch (err: any) {
         toast.error(err.response?.data?.message || "Erro ao adicionar filme à lista.");
         console.error("Erro ao adicionar filme:", err);
@@ -55,20 +97,29 @@ export async function addWatchLater(userid: string, title: string, tmdbid: numbe
  * @returns Retorna mensagem toast para o usuário informando se o filme foi removido ou não
  */
 
-export async function removeWatchLater(userID: string, title: string, subtitle?: string) {
+export async function removeWatchLater(filme: WatchLaterProps) {
     try {
-        const { data: listData } = await api.get<WatchLaterProps[]>(`/watchLater?id=${userID}`);
+        //const { data: listData } = await api.get<WatchLaterProps[]>(`/watchLater?id=${userID}`);
 
         // Busca o filme a ser removido
-        const filme = listData.find(filme => compareTitles(filme, title, subtitle));
-        if (!filme) return toast.error("Filme não encontrado na lista para assistir mais tarde.");
+        //const filme = listData.find(filme => compareTitles(filme, title, subtitle));
+        //if (!filme) return toast.error("Filme não encontrado na lista para assistir mais tarde.");
 
         // Remove o filme e atualiza as listas do localStorage
 
         await api.delete(`/watchLater/${filme.id}`)
-        await updateUserCookie()
-        await setData()
-        toast.warning("Filme removido da lista para assistir mais tarde!");
+        const { 'flix-watch': watchCookie } = parseCookies()
+        if (!watchCookie) {
+            toast.warning("tenta relogar, ta dando erro...")
+            return console.error("Cookie flix-watch não encontrado")
+        }
+        const watchList: WatchLaterContext[] = JSON.parse(watchCookie)
+        const newWatchList = watchList.filter(item => item.id !== filme.tmdbid)
+        destroyCookie(null, 'flix-watch')
+        setCookie(null, 'flix-watch', JSON.stringify(newWatchList), cookieOptions)
+        //await updateUserCookie()
+        //await setData()
+        toast.warning(`${filme.title} ${filme.subtitle != '' ? `- ${filme.subtitle}` : ''} removido da lista para assistir mais tarde!`);
     } catch (err) {
         console.error("Erro ao remover título:", err);
         toast.error("Erro ao remover título.");
@@ -88,26 +139,13 @@ function compareTitles(item: WatchLaterProps, title: string, subtitle?: string):
 }
 
 /**
- * Verifica se um título ou série está na lista de assistir mais tarde do banco de dados.
- * @param title Título do filme ou série
- * @param subtitle Subtítulo do filme ou série (opcional)
- * @param tmdbid ID do TMDB (opcional)
+ * Verifica se um título ou série está na lista de assistir mais tarde do cookie flix-watch.
+ * @param tmdbid ID do TMDB
  * @returns Verdadeiro se estiver na lista, falso caso contrário
  */
-export async function isOnTheList(title: string, subtitle?: string, tmdbid?: number): Promise<boolean> {
-    const userCookie = await getCookie('userData');
-    if (!userCookie) return false;
-
-    const user: UserProps = JSON.parse(userCookie);
-    try {
-        const { data } = await api.get<WatchLaterProps[]>(`/watchLater?id=${user.id}`);
-        if (!Array.isArray(data)) return false;
-
-        return tmdbid
-            ? data.some(item => item.tmdbid === tmdbid)
-            : data.some(item => compareTitles(item, title, subtitle));
-    } catch (err: any) {
-        console.error("Erro na função isOnTheList:", err?.response?.data?.error);
-        return false;
-    }
+export async function isOnTheList(tmdbid: number): Promise<boolean> {
+    const { 'flix-watch': watchLaterList } = parseCookies()
+    if (!watchLaterList) return false;
+    const watchLater: WatchLaterContext[] = JSON.parse(watchLaterList)
+    return watchLater.some(item => item.id === tmdbid)
 }

@@ -5,6 +5,10 @@ import { toast } from 'react-toastify'
 import { api } from '@/services/api'
 import { X } from 'lucide-react'
 import { getUserCookieData, updateUserCookie } from '@/services/cookieClient'
+import { useFlix } from '@/contexts/FlixContext'
+import { destroyCookie, setCookie } from 'nookies'
+import { cookieOptions } from '@/utils/Variaveis'
+import { UserContext } from '@/@types/user'
 
 interface EditarDadosProps {
     handleClose: () => void;
@@ -17,9 +21,11 @@ export default function EditarDados({ handleClose }: EditarDadosProps) {
     const [password, setPassword] = useState<string>('')
     const [confirmPassword, setConfirmPassword] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
+    const { user, setUser } = useFlix()
 
     async function handleDados(event: FormEvent) {
         event.preventDefault();
+        if (loading) return
 
         if (password && password !== confirmPassword) {
             toast.warning("As senhas não são iguais.")
@@ -27,9 +33,8 @@ export default function EditarDados({ handleClose }: EditarDadosProps) {
         }
         try {
             setLoading(true)
-            const user = await getUserCookieData();
             if (!user) {
-                toast.error("Erro ao tentar editar dados do usuario.")
+                toast.error("Dados do usuário indisponíveis.")
                 return
             }
             const userData: Record<string, any> = {
@@ -38,13 +43,13 @@ export default function EditarDados({ handleClose }: EditarDadosProps) {
                 ...(birthday && { birthday: birthday?.toISOString() }),
                 ...(password && { password })
             }
-
             const response = await api.put('/user', userData)
-            const data = response.data;
-            await updateUserCookie()
+            const data: UserContext = response.data;
+            destroyCookie(null, 'flix-user')
+            setCookie(null, 'flix-user', JSON.stringify(data), cookieOptions)
+            setUser(data)
             toast.success("Dados alterados com sucesso.")
             console.log("Dados alterados com sucesso", data)
-
         } catch (err) {
             console.log("Erro ao alterar dados", err)
             toast.error("Erro ao alterar seus dados.")

@@ -18,7 +18,6 @@ import { toast } from 'react-toastify';
 import { CastProps, CrewProps } from '@/@types/cast';
 import Footer from '@/components/Footer';
 import { minToHour, translate } from '@/utils/UtilitiesFunctions';
-import { addFavorite, isFavorite } from '@/services/handleFavorite';
 import Card from '@/components/Card';
 import Spinner from '@/components/ui/Loading/spinner';
 import Cast from '@/components/Cast';
@@ -27,6 +26,8 @@ import { TrailerProps } from '@/@types/trailer';
 import TrailerButton from '@/components/ui/TrailerButton';
 import { getRelatedCards } from '@/utils/CardsManipulation';
 import { useTMDB } from '@/contexts/TMDBContext';
+import { useFlix } from '@/contexts/FlixContext';
+import { parseCookies } from 'nookies';
 
 interface groupedByDepartment {
     [job: string]: CrewProps[]
@@ -36,21 +37,32 @@ export default function Movie() {
     const router = useRouter()
     const { tmdbId } = router.query;
     const { allData } = useTMDB()
-    const [user, setUser] = useState<UserProps>()
+    const { user, setUser } = useFlix()
+    //const [user, setUser] = useState<UserProps>()
     const [movie, setMovie] = useState<CardsProps>()
     const [tmdbData, setTmdbData] = useState<MovieTMDB>()
     const [loading, setLoading] = useState(false)
     const [onWatchLater, setOnWatchLater] = useState(false)
-    const [isFav, setIsFavorite] = useState(false)
+    //const [isFav, setIsFavorite] = useState(false)
     const [cast, setCast] = useState<CastProps>()
     const [crewDepartment, setCrewDepartment] = useState<groupedByDepartment>({})
     const [relatedCards, setRelatedCards] = useState<CardsProps[]>([])
     const [trailer, setTrailer] = useState<TrailerProps | null>(null)
 
-    useEffect(() => {
+    //testar componente sem esse useEffect pra ver se da erro se não tiver o contexto setado
+    /*useEffect(() => {
+        if (!user) {
+            const { 'flix-user': userCookie } = parseCookies()
+            if (!userCookie) return
+            setUser(JSON.parse(userCookie))
+        }
+    }, [])*/
+
+    /*useEffect(() => {
         const getUserData = async () => {
             try {
-                const user = await getUserCookieData();
+
+                const user= await getUserCookieData();
                 if (!user) {
                     return
                 }
@@ -60,24 +72,24 @@ export default function Movie() {
             }
         }
         getUserData()
-    }, [])
+    }, [])*/
 
-    const watchLater = async () => {
+    const watchLater = async () => {//ok
         if (!movie) return
-        const onList = await isOnTheList(movie.title, movie.subtitle, movie.tmdbId)
+        const onList = await isOnTheList(movie.tmdbId)
         setOnWatchLater(onList)
     }
-    const favorite = async () => {
+    /***const favorite = async () => {//ok
         const favorito = await isFavorite(Number(tmdbId))
         setIsFavorite(favorito)
-    }
+    }*/
     useEffect(() => {
         if (!tmdbId) return
         const card = cards.find(card => card.tmdbId === Number(tmdbId));
         setMovie(card)
         getTMDBData()
         getTMDBCast()
-        favorite()
+        //favorite()
     }, [router, tmdbId])
     useEffect(() => {
         if (!movie) return
@@ -90,10 +102,10 @@ export default function Movie() {
         setLoading(true)
         try {
             const tmdbData = await fetchTMDBMovie(Number(tmdbId));
-            if (!tmdbData) return console.warn("Nenhum dado retornado durante a busca dos dados do filme no TMDB.")
+            if (!tmdbData) return console.warn("Nenhum dado retornado durante a busca pelo filme no TMDB.")
             setTmdbData(tmdbData)
         } catch (err) {
-            console.error("Erro ao buscar dados do filme no TMDB!")
+            console.error("Erro na busca pelo filme no TMDB!")
         } finally {
             setLoading(false)
         }
@@ -126,11 +138,15 @@ export default function Movie() {
         }
     }
     async function handleWatchLater() {
-        if (!user) return router.push('/login')
+        if (!user) {
+            const { 'flix-user': userCookie } = parseCookies()
+            if (!userCookie) return router.push('/login')
+            else setUser(JSON.parse(userCookie))
+        }
         if (!movie) return console.warn("Erro ao adicionar filme a lista de assistir mais tarde.")
 
         try {
-            await addWatchLater(user.id, movie.title, movie.tmdbId, movie.subtitle)
+            await addWatchLater(movie.tmdbId)
             await watchLater()
         } catch (err: any) {
             console.log(err)
@@ -138,17 +154,17 @@ export default function Movie() {
             return toast.error("Erro inesperado ao adicionar filme à lista! Tente novamente mais tarde.")
         }
     }
-    async function handleFavorite() {
-        if (!movie) return
+    /*async function handleFavorite() {
         if (!user) return router.push('/login')
+        if (!movie) return console.warn("Erro ao adicionar filme aos favoritos. Movie não definido.", movie)
         try {
-            await addFavorite(movie?.tmdbId, movie.title, movie.subtitle || "", user.id)
+            //await addFavorite(movie?.tmdbId, movie.title, movie.subtitle || "", user.id)
             await favorite()
         } catch (err) {
             console.error(err)
             toast.error("Erro ao favoritar seu filme. Tente novamente mais tarde.")
         }
-    }
+    }*/
     useEffect(() => {
         if (!tmdbId || isNaN(Number(tmdbId))) return;
         getTrailer()
@@ -218,7 +234,9 @@ export default function Movie() {
                                                 )}
                                             </button>
                                         </div>
-                                        <div className={styles.buttonFavorite}>
+                                        {
+                                            /*
+                                            <div className={styles.buttonFavorite}>
                                             <button type='button' onClick={handleFavorite}>
                                                 {isFav ? (
                                                     <>
@@ -233,6 +251,8 @@ export default function Movie() {
                                                 )}
                                             </button>
                                         </div>
+                                            */
+                                        }
                                         {
                                             trailer && trailer.results.length > 0 &&
                                             <TrailerButton trailer={trailer} />
@@ -299,7 +319,6 @@ export default function Movie() {
                     </section>
                 ) : <div><Spinner /></div>
             }
-
             <Footer />
         </>
     )

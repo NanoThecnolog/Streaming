@@ -1,27 +1,34 @@
 import { FaUserCircle } from "react-icons/fa";
 import Link from "next/link";
 import { CiSearch } from "react-icons/ci";
-import Router from "next/router";
+import Router, { useRouter } from "next/router";
 import styles from './styles.module.scss'
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { AlignJustify, Search } from "lucide-react";
 import { api } from "@/services/api";
-import { getUserCookieData } from "@/services/cookieClient";
 import { UserProps } from "@/@types/user";
+import { useFlix } from "@/contexts/FlixContext";
+import { parseCookies } from "nookies";
 
 export default function Header() {
     //refatorar esse componente
+    const router = useRouter()
     const [searchInput, setSearchInput] = useState<string>('')
     const [menuvisible, setMenuVisible] = useState<boolean>(false)
     const [searchMobileVisible, setSearchMobileVisible] = useState<boolean>(false)
     const [serverWake, setServerWake] = useState<boolean>(false)
-    const [user, setUser] = useState<UserProps>()
+    //const [user, setUser] = useState<UserProps>()
+    const { user, setUser } = useFlix()
     const [initial, setInitial] = useState("-")
 
     useEffect(() => {
-        getUser()
+        if (!user) {
+            const { 'flix-user': userCookie } = parseCookies()
+            if (userCookie) setUser(JSON.parse(userCookie))
+        }
     }, [])
+
     useEffect(() => {
         if (!user) return
         const inicial = user.name[0].toUpperCase()
@@ -47,11 +54,14 @@ export default function Header() {
         return () => clearInterval(manterAcordado)
     }, [])
 
-    async function getUser() {
+    /*useEffect(() => {
+        getUser()
+    }, [])*/
+    /*async function getUser() {
         const data = await getUserCookieData()
         if (!data) return
         setUser(data)
-    }
+    }*/
 
     function handleSearch(input: string) {
         const search = new URLSearchParams({ input: input });

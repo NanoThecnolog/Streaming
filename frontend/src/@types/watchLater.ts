@@ -3,4 +3,7 @@ export interface WatchLaterProps {
     title: string,
     subtitle: string,
     tmdbid: number,
+    userId: string,
+    created_at: string,
+    updated_at: string
 }

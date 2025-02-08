@@ -12,6 +12,8 @@ import HelpFlag from "@/components/Helpflag"
 import HelpModal from "@/components/modals/HelpModal/index "
 import { UserProps } from "@/@types/user"
 import { SeriesProps } from "@/@types/series"
+import { useFlix } from "@/contexts/FlixContext"
+import { parseCookies } from "nookies"
 
 
 export default function WatchSerie() {
@@ -19,8 +21,29 @@ export default function WatchSerie() {
     const { title, subtitle, episode, src, season } = router.query
     const [episodio, setEpisodio] = useState({ title: "", subtitle: "", episode: 0, src: "", season: 0 })
     const [serie, setSerie] = useState<SeriesProps>()
-    const [user, setUser] = useState<UserProps>()
+    //const [user, setUser] = useState<UserProps>()
+    const { user, setUser } = useFlix()
     const [visible, setVisible] = useState(false)
+
+    useEffect(() => {
+        if (!user) {
+            const { 'flix-user': userCookie } = parseCookies()
+            if (!userCookie) {
+                router.push('/login')
+                return
+            }
+            setUser(JSON.parse(userCookie))
+        }
+    }, [])
+
+    /*useEffect(() => {
+        const userData = async () => {
+            const user = await getUserCookieData();
+            if (!user) return Router.push('/login');
+            setUser(user)
+        }
+        userData()
+    }, [])*/
 
     useEffect(() => {
         async function acordarServidor() {
@@ -54,14 +77,7 @@ export default function WatchSerie() {
         }
     }, [router, title, subtitle, src, episode, season])
 
-    useEffect(() => {
-        const userData = async () => {
-            const user = await getUserCookieData();
-            if (!user) return Router.push('/login');
-            setUser(user)
-        }
-        userData()
-    }, [])
+
 
     function handleBack() {
         const serie = series.find(serie => serie.title === title && serie.subtitle === subtitle)

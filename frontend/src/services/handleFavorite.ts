@@ -3,8 +3,10 @@ import setData, { fetchFavorites } from "./setDataOnStorage";
 import { api } from "./api";
 import { ListaFavoritos } from "@/@types/favoritos";
 import { getCookie } from "cookies-next";
-import { UserProps } from "@/@types/user";
+import { UserContext, UserProps } from "@/@types/user";
 import { updateUserCookie } from "./cookieClient";
+import { parseCookies } from "nookies";
+import { FavoritesContext } from "@/@types/contexts/flixContext";
 
 /**
  * Função Assíncrona. Adiciona ou remove um filme / série aos favoritos no banco de dados e atualiza as listas.
@@ -16,23 +18,23 @@ import { updateUserCookie } from "./cookieClient";
  */
 
 
-export async function addFavorite(tmdbid: number, title: string, subtitle: string, userId: string) {
-
+/*export async function addFavorite(tmdbid: number) {
     let isLoading;
     try {
         if (isLoading) return null;
         isLoading = true;
 
-        const userCookie = await getCookie('userData')
-        if (!userCookie) return null;
+        const { 'flix-user': userCookie } = parseCookies()
+        if (!userCookie) return console.log("user cookie on function addFavorite not found. UserCookie: ", userCookie)
+        //const userCookie = await getCookie('userData')        
 
-        const userData: UserProps = JSON.parse(userCookie as string)
+        const userData: UserContext = JSON.parse(userCookie as string)
         const favoriteList: ListaFavoritos[] = await fetchFavorites(userData)
         const favoritoExiste = favoriteList.find(favorito => favorito.tmdbid === tmdbid)
 
         if (favoritoExiste) {
             // Remove dos favoritos e atualiza listas
-            await removeFavorite(favoritoExiste.id)
+            await api.delete(`/favorite/${favoritoExiste.id}`)
             await updateUserCookie()
             await setData()
 
@@ -54,7 +56,7 @@ export async function addFavorite(tmdbid: number, title: string, subtitle: strin
     } finally {
         isLoading = false;
     }
-}
+}*/
 
 /**
  * Função Assíncrona
@@ -79,15 +81,8 @@ export async function removeFavorite(id: string) {
  */
 
 export async function isFavorite(tmdbid: number): Promise<boolean> {
-
-
-    try {
-        const favoriteCookie = localStorage.getItem('favoriteList')
-        if (!favoriteCookie) return false
-        const favoriteList: ListaFavoritos[] = JSON.parse(favoriteCookie)
-        return favoriteList.some(favorito => favorito.tmdbid === tmdbid);
-    } catch (err) {
-        console.error("Erro na função isFavorite: ", err);
-        return false;
-    }
+    const { 'flix-favorites': favoriteCookie } = parseCookies()
+    if (!favoriteCookie) return false
+    const favoriteList: FavoritesContext[] = JSON.parse(favoriteCookie)
+    return favoriteList.some(item => item.id === tmdbid);
 }

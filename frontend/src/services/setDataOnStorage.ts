@@ -1,6 +1,6 @@
 import { getCookie } from "cookies-next"
 import { api } from "./api"
-import { UserProps } from "@/@types/user";
+import { UserContext, UserProps } from "@/@types/user";
 import { WatchLaterProps } from "@/@types/watchLater";
 import { ListaFavoritos } from "@/@types/favoritos";
 
@@ -42,7 +42,7 @@ export async function fetchWatchLater(user: UserProps): Promise<WatchLaterProps[
  * @param user Dados do usuário (id, name, email, avatar, etc)
  * @returns Lista de Favoritos (id, title, subtitle, tmdbid, userId)
  */
-export async function fetchFavorites(user: UserProps): Promise<ListaFavoritos[]> {
+export async function fetchFavorites(user: UserContext): Promise<ListaFavoritos[]> {
     return fetchList(`/favorites?user=${user.id}`, "Erro ao buscar lista de favoritos")
 }
 

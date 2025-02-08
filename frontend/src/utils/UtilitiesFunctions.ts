@@ -1,12 +1,11 @@
+import { CardsProps } from "@/@types/Cards"
+import { SeriesProps } from "@/@types/series"
+
 /**
  * Função que transforma minutos em horas
  * @param min Minutos
  * @returns Retorna hora e os minutos formatados
  */
-
-import { CardsProps } from "@/@types/Cards"
-import { SeriesProps } from "@/@types/series"
-
 export function minToHour(min: number = 0): string {
     if (min <= 0) {
         return "--"

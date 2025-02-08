@@ -16,6 +16,8 @@ import { agp, gen } from "@/utils/Genres";
 import Script from "next/script";
 import BackTopButton from "@/components/ui/BackToTop";
 import debounce from "lodash.debounce";
+import { useFlix } from "@/contexts/FlixContext";
+import { parseCookies } from "nookies";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -32,7 +34,10 @@ export default function Home() {
   const [loading, setLoading] = useState(false)
   const [visible, setvisible] = useState(false)
 
-  const MAX_RETRIES = 5
+  //const { 'flix-watch': watch } = parseCookies()
+  //console.log(JSON.parse(watch))
+
+
 
   useEffect(() => {
     /**
@@ -42,37 +47,38 @@ export default function Home() {
     if (loading || allData.length > 0) return
     setLoading(true)
     /*const fetchData = async (attempt = 1) => {
-      try {
-        const response = await apiTMDB.get('/all')
+          const MAX_RETRIES = 5
+          try {
+            const response = await apiTMDB.get('/all')
 
-        if (response.status === 504 || !response.data) {
-          if (attempt < MAX_RETRIES) {
-            console.log(`Erro durante a requisição. Tentando novamente (${attempt}/${MAX_RETRIES})...`)
-            setTimeout(() => fetchData(attempt + 1), 4000)
-          } else {
-            console.log("Max attempts reached")
+            if (response.status === 504 || !response.data) {
+              if (attempt < MAX_RETRIES) {
+                console.log(`Erro durante a requisição. Tentando novamente (${attempt}/${MAX_RETRIES})...`)
+                setTimeout(() => fetchData(attempt + 1), 4000)
+              } else {
+                console.log("Max attempts reached")
+                setLoading(false)
+              }
+            }
+            const cardData = response.data.data as MovieTMDB[]
+            setAllData(cardData)
+          } catch (err) {
+            console.log(`Erro na tentativa ${attempt}`, err)
+            if (attempt < MAX_RETRIES) {
+              console.log(`Tentando novamente (${attempt}/${MAX_RETRIES}) em 4s...`)
+              setTimeout(() => fetchData(attempt + 1), 4000)
+            } else {
+              console.log("Max Attempts reached")
+            }
+          } finally {
             setLoading(false)
           }
-        }
-        const cardData = response.data.data as MovieTMDB[]
-        setAllData(cardData)
-      } catch (err) {
-        console.log(`Erro na tentativa ${attempt}`, err)
-        if (attempt < MAX_RETRIES) {
-          console.log(`Tentando novamente (${attempt}/${MAX_RETRIES}) em 4s...`)
-          setTimeout(() => fetchData(attempt + 1), 4000)
-        } else {
-          console.log("Max Attempts reached")
-        }
-      } finally {
-        setLoading(false)
-      }
     }*/
     const fetchData = async () => {
       if (loading || allData.length > 0) return
       setLoading(true)
       try {
-        const response = await apiTMDB.get('/all')
+        const response = await apiTMDB.get('/all/movie')
         const cardData = response.data.data as MovieTMDB[]
         setAllData(cardData)
       } catch (err) {

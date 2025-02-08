@@ -46,7 +46,7 @@ export class DetailUserService {
                     subtitle: true,
                     tmdbid: true,
                     userId: true,
-                    created_at: true
+                    created_at: true,
                 }
             })
         ])

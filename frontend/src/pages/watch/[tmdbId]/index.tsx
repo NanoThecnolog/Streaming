@@ -10,13 +10,27 @@ import { UserProps } from "@/@types/user";
 import SEO from "@/components/SEO";
 import { cards } from '@/data/cards';
 import { CardsProps } from '@/@types/Cards';
+import { parseCookies } from 'nookies';
+import { useFlix } from '@/contexts/FlixContext';
 
 export default function Watch() {
     const router = useRouter()
     const { tmdbId } = router.query;
     const [movieData, setMovieData] = useState({ title: '', subtitle: '', src: '', tmdbId: 0 });
-    const [user, setUser] = useState<UserProps>()
+    //const [user, setUser] = useState<UserProps>()
+    const { user, setUser } = useFlix()
     const [visible, setVisible] = useState(false)
+
+    useEffect(() => {
+        if (!user) {
+            const { 'flix-user': userCookie } = parseCookies()
+            if (!userCookie) {
+                router.push('/login')
+                return
+            }
+            setUser(JSON.parse(userCookie))
+        }
+    }, [])
 
     const acordarServidor = useCallback(async () => {
         try {
@@ -32,7 +46,7 @@ export default function Watch() {
     }, [acordarServidor])
 
 
-    const userData = useCallback(async () => {
+    /*const userData = useCallback(async () => {
         const user = await getUserCookieData();
         if (!user) return router.push('/login');
         setUser(user)
@@ -40,7 +54,7 @@ export default function Watch() {
 
     useEffect(() => {
         userData()
-    }, [userData])
+    }, [userData])*/
 
     useEffect(() => {
         if (tmdbId) {

@@ -22,6 +22,7 @@ export default function Favorite() {
             <SEO title='Favoritos - FlixNext' description='Página vazia' />
             <Header />
             <main>
+
             </main>
         </>
     )

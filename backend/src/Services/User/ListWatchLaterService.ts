@@ -13,7 +13,9 @@ class ListWatchLaterService {
                 title: true,
                 subtitle: true,
                 tmdbid: true,
-                created_at: true
+                userId: true,
+                created_at: true,
+                updated_at: true,
             }
         })
         return lista

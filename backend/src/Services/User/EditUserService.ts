@@ -34,9 +34,11 @@ class EditUserService {
             }, select: {
                 id: true,
                 name: true,
+                email: true,
                 avatar: true,
                 birthday: true,
-                news: true
+                news: true,
+                verified: true
             }
         })
         return editUser;

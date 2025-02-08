@@ -11,10 +11,7 @@ import { apiTMDB } from "@/services/apiTMDB";
 import { TMDBSeries } from "@/@types/series";
 import Loading from "@/components/ui/Loading";
 import { gen, stm } from "@/utils/Genres";
-import Head from "next/head";
-import Link from "next/link";
 import debounce from "lodash.debounce";
-import { BiSolidUpvote } from "react-icons/bi";
 import BackTopButton from "@/components/ui/BackToTop";
 
 
@@ -40,13 +37,8 @@ export default function Series() {
             if (loading || serieData.length > 0) return
             setLoading(true)
             try {
-                const response = await apiTMDB.get('/all', {
-                    params: {
-                        type: 'tv'
-                    }
-                })
+                const response = await apiTMDB.get('/all/tv')
                 const cardData = response.data.data as TMDBSeries[]
-                console.log(cardData)
                 setSerieData(cardData)
             } catch (err) {
                 console.log(err)

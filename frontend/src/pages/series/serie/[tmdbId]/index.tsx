@@ -27,6 +27,7 @@ import Crew from "@/components/Crew";
 import Card from "@/components/seriesComponents/Card";
 import { TrailerProps } from "@/@types/trailer";
 import TrailerButton from "@/components/ui/TrailerButton";
+import { useFlix } from "@/contexts/FlixContext";
 
 interface TMDBImagesProps {
     backdrop: string,
@@ -46,7 +47,8 @@ export default function Serie() {
     const [seasonToShow, setSeasonToShow] = useState<number>(1)
     const [episodesToShow, setEpisodesToShow] = useState<Episodes[]>([])
     const [episodesData, setEpisodesData] = useState<(TMDBEpisodes[] | null)[]>([])
-    const [user, setUser] = useState<UserProps>()
+    //const [user, setUser] = useState<UserProps>()
+    const { user } = useFlix()
     const [onWatchLater, setOnWatchLater] = useState<boolean>(false)
     const [headTitle, setHeadTitle] = useState<string>(' ')
     const [TMDBImage, setTMDBImage] = useState<TMDBImagesProps>()
@@ -58,7 +60,16 @@ export default function Serie() {
     const [trailer, setTrailer] = useState<TrailerProps | null>(null)
 
 
-    useEffect(() => {
+    //testar componente sem esse useEffect pra ver se da erro se não tiver o contexto setado
+    /*useEffect(() => {
+        if (!user) {
+            const { 'flix-user': userCookie } = parseCookies()
+            if (!userCookie) return
+            setUser(JSON.parse(userCookie))
+        }
+    }, [])*/
+
+    /*useEffect(() => {
         const getUserData = async () => {
             try {
                 const user = await getUserCookieData();
@@ -69,7 +80,7 @@ export default function Serie() {
             }
         }
         getUserData()
-    }, [])
+    }, [])*/
 
     useEffect(() => {
         if (tmdbId) {
@@ -89,7 +100,7 @@ export default function Serie() {
         }
         fetchEpisodes()
 
-        const onList: Promise<boolean> = isOnTheList(serie.title, serie.subtitle, serie.tmdbID)
+        const onList: Promise<boolean> = isOnTheList(serie.tmdbID)
         onList.then(result => {
             if (!result) {
                 setOnWatchLater(false)
@@ -228,15 +239,16 @@ export default function Serie() {
     }
 
 
-    async function handleAddUserList(title: string, tmdbid: number, subtitle?: string) {
+    async function handleAddUserList(tmdbid: number) {
         //toast.warning("A função Assistir mais tarde está temporariamente desativada")
         if (!user) {
             Router.push('/login')
             return
         }
         try {
-            await addWatchLater(user.id, title, tmdbid, subtitle);
-            const onList: Promise<boolean> = isOnTheList(title, subtitle)
+            console.log(tmdbid)
+            await addWatchLater(tmdbid);
+            const onList: Promise<boolean> = isOnTheList(tmdbid)
             onList.then(result => {
                 if (!result) {
                     setOnWatchLater(false)
@@ -319,7 +331,7 @@ export default function Serie() {
                                     </div>
                                     <div className={styles.buttonContainer}>
                                         <div className={styles.watchLater}>
-                                            <button type="button" onClick={() => handleAddUserList(serie.title, serie.tmdbID, serie.subtitle)}>
+                                            <button type="button" onClick={() => handleAddUserList(serie.tmdbID)}>
                                                 {onWatchLater ? (
                                                     <>
                                                         <p><FaCheck /></p>
