@@ -37,6 +37,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 967847,
+        title: "Ghostbusters",
+        subtitle: "Apocalipse de Gelo",
+        description: "Nesta sequência da franquia Ghostbusters, a família Spengler retorna para onde tudo começou: a famosa estação de bombeiros em Nova York. Eles pretendem se unir com os caça-fantasmas originais que desenvolveram um laboratório ultra secreto de pesquisa para levar a caça aos fantasmas a outro nível, mas quando a descoberta de um artefato antigo libera uma grande força do mal, os Ghostbusters das duas gerações precisam juntar as forças para proteger suas casas e salvar o mundo de uma segunda Era do Gelo.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1-rl3Y588XOsk59l0UPJtB4xULSD3fb6_/preview",
+        duration: "01h 55m",
+        genero: [gen.aventura, gen.comedia, gen.fantasia, stm.hbo]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 1250,
         title: "Motoqueiro Fantasma",
         subtitle: "",
