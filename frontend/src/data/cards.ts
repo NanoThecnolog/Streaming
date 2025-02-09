@@ -19,6 +19,7 @@ export const cards: CardsProps[] = [
     https://image.tmdb.org/t/p/ + (opção de tamanho: original, w500, etc)/ + poster.file_path
     fundo preto largo: /fundo-largo.jpg
     fundo preto alto: /fundo-alto.jpg
+    lang: "Dub" ou "Leg"
     */
     /*
     {
@@ -104,7 +105,8 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1BVdhBelu7FkU026wf3BDG4-sdTq-KOfm/preview",
         duration: "02h 03m",
-        genero: [gen.acao, gen.suspense, gen.fantasia, agp.marvel, agp.hero, stm.netflix, lang.leg]
+        genero: [gen.acao, gen.suspense, gen.fantasia, agp.marvel, agp.hero, stm.netflix, lang.leg],
+        lang: "Leg",
     },
     {
         background: background,
@@ -116,7 +118,8 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1Ptm-RgZjywoPNHFkQ9MC1YPvPXREycGv/preview",
         duration: "01h 36m",
-        genero: [gen.acao, gen.suspense, gen.fantasia, agp.marvel, agp.hero, stm.prime, lang.leg]
+        genero: [gen.acao, gen.suspense, gen.fantasia, agp.marvel, agp.hero, stm.prime, lang.leg],
+        lang: "Leg",
     },
     {
         background: background,
@@ -1880,7 +1883,8 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1-_q5YkOJdipn_-JSC-a37mvaT1wn25uy/preview",
         duration: "01h 52m",
-        genero: [gen.ficcao, gen.drama, lang.leg]
+        genero: [gen.ficcao, gen.drama, lang.leg],
+        lang: "Leg",
     },
     {
         background: background,
@@ -3740,7 +3744,8 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1RH8McZfzM-M7qpy9xwf6kHHkx-cPAyrh/preview",
         duration: "01h 45m",
-        genero: [gen.drama, gen.suspense, agp.crime, lang.leg]
+        genero: [gen.drama, gen.suspense, agp.crime, lang.leg],
+        lang: "Leg",
     },
     {
         background: background,
@@ -3932,7 +3937,8 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1QOIM5334sIJPKKCASGntWJ2qKJcljcXv/preview",
         duration: "01h 31m",
-        genero: [gen.terror, gen.ficcao, gen.suspense, stm.netflix, lang.leg]
+        genero: [gen.terror, gen.ficcao, gen.suspense, stm.netflix, lang.leg],
+        lang: "Leg",
     },
     {
         background: background,
@@ -4292,7 +4298,8 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1-A3FL_qpOmjbQqrJg4XhuQS_zjuIhDJC/preview",
         duration: "01h 59m",
-        genero: [gen.ficcao, gen.terror, gen.acao, lang.leg]
+        genero: [gen.ficcao, gen.terror, gen.acao, lang.leg],
+        lang: "Leg",
     },
     {
         background: background,
@@ -4652,7 +4659,8 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/16-IXZMzfdZfxV8yQWYNB4xOgz6JDkABn/preview",
         duration: "1h 43m",
-        genero: [gen.comedia, lang.leg]
+        genero: [gen.comedia, lang.leg],
+        lang: "Leg",
     },
     {
         background: background,
@@ -4664,7 +4672,8 @@ export const cards: CardsProps[] = [
         faixa: "A16",
         src: "https://drive.google.com/file/d/1L2PNGMm3Z98falfv9S00rdLP3sZ4Cbqr/view",
         duration: "1h 53m",
-        genero: [gen.suspense, agp.crime, lang.leg]
+        genero: [gen.suspense, agp.crime, lang.leg],
+        lang: "Leg",
     },
     {
         background: background,

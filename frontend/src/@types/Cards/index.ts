@@ -9,6 +9,7 @@ export interface CardsProps {
     src: string;
     duration: string;
     genero: string[];
+    lang?: "Dub" | "Leg",
 }
 
 export interface MovieTMDB {

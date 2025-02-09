@@ -205,7 +205,7 @@ export default function Movie() {
                                 <>
                                     <div>
                                         <div className={styles.movieDetail}>
-                                            <h4>{minToHour(tmdbData.runtime)} - {new Date(tmdbData.release_date).getFullYear()}</h4>
+                                            <h4>{minToHour(tmdbData.runtime)} - {new Date(tmdbData.release_date).getFullYear()} - {movie.lang && movie.lang === "Leg" ? "Legendado" : "Dublado"}</h4>
                                         </div>
                                         <div className={styles.generoContainer}>
                                             <h4>{tmdbData.genres ? tmdbData.genres.map(genre => genre.name === "Action & Adventure" ? "Ação e Aventura" : genre.name === "Sci-Fi & Fantasy" ? "Ficção Científica e Fantasia" : genre.name === "Thriller" ? "Suspense" : genre.name).join(', ') : movie && movie.genero.join(', ')}</h4>
