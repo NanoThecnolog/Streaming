@@ -15,7 +15,7 @@ import { CardsProps } from "@/@types/Cards";
 import EditarDados from "@/components/modals/EditarDados";
 import { deleteCookies } from "@/services/cookieClient";
 import { X } from "lucide-react";
-import { FaUserCircle } from "react-icons/fa";
+import { FaChevronRight, FaUserCircle } from "react-icons/fa";
 import { WatchLaterProps } from "@/@types/watchLater";
 import SEO from "@/components/SEO";
 import Switch from "@/components/ui/Switch";
@@ -197,40 +197,23 @@ export default function Me() {
                                 </div>
                             </aside>
                             <section className={styles.sectionContainer}>
-                                <div className={styles.infoContainer}>
-                                    <h2 style={{ textAlign: 'center' }}>Sua Lista para assistir mais tarde</h2>
-                                    <div className={styles.watchLater}>
-                                        <div className={styles.filmes}>
-                                            <h4>Filmes</h4>
-                                            <div className={styles.watchContainer}>
-                                                {
-                                                    cards.filter(filme => watchLaterList &&
-                                                        watchLaterList.length > 0 && watchLaterList.some(titulo => titulo.tmdbid === filme.tmdbId)
-                                                    ).map((filme, index) => (
-                                                        <div title={`Assistir ${filme.title}`} key={index} className={styles.watch}>
-                                                            <span onClick={() => handleWatch(filme)}>
-                                                                {filme.title}{filme.subtitle && <span> - {filme.subtitle}</span>}
-                                                            </span>
-                                                            <X onClick={() => handleRemoveWatchLater(filme.tmdbId)} /></div>
-                                                    ))
-                                                }
-                                            </div>
+                                <div className={styles.accountContainer}>
+                                    <div className={styles.headContainer}>
+                                        <h1>Conta</h1>
+                                        <p>Detalhes da assinatura</p>
+                                    </div>
+                                    <div className={styles.subscriptionContainer}>
+                                        <div className={styles.subSince}>
+                                            <p>Assinante desde...</p>
                                         </div>
-                                        <div className={styles.series}>
-                                            <h4>Series</h4>
-                                            <div className={styles.watchContainer}>
-                                                {
-                                                    series.filter(serie => watchLaterList &&
-                                                        watchLaterList.length && watchLaterList.some(titulo => titulo.tmdbid === serie.tmdbID)
-                                                    ).map((serie, index) => (
-                                                        <div title={`Assistir ${serie.title}`} key={index} className={styles.watch}>
-                                                            <span onClick={() => handleWatch(serie)}>
-                                                                {serie.title} {serie.subtitle && <span>- {serie.subtitle}</span>}
-                                                            </span>
-                                                            <X onClick={() => handleRemoveWatchLater(serie.tmdbID)} /></div>
-                                                    ))
-                                                }
-                                            </div>
+                                        <div className={styles.subInfo}>
+                                            <h2>Plano Free</h2>
+                                            <h4>Próximo pagamento: -</h4>
+                                            <p>-Tipo de pagamento (cartão ou boleto)-</p>
+                                        </div>
+                                        <div className={styles.subConfig}>
+                                            <p>Gerenciar assinatura</p>
+                                            <FaChevronRight />
                                         </div>
                                     </div>
                                 </div>

@@ -1,25 +1,26 @@
-import { FaUserCircle } from "react-icons/fa";
+import { FaListUl, FaSignInAlt, FaUserCircle } from "react-icons/fa";
 import Link from "next/link";
 import { CiSearch } from "react-icons/ci";
 import Router, { useRouter } from "next/router";
 import styles from './styles.module.scss'
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { AlignJustify, Search } from "lucide-react";
+import { AlignJustify, LucideLogOut, Search } from "lucide-react";
 import { api } from "@/services/api";
-import { UserProps } from "@/@types/user";
 import { useFlix } from "@/contexts/FlixContext";
 import { parseCookies } from "nookies";
+import { IoCreate } from "react-icons/io5";
 
 export default function Header() {
     //refatorar esse componente
     const router = useRouter()
     const [searchInput, setSearchInput] = useState<string>('')
     const [menuvisible, setMenuVisible] = useState<boolean>(false)
+    const [modal, setModal] = useState<boolean>(false)
     const [searchMobileVisible, setSearchMobileVisible] = useState<boolean>(false)
     const [serverWake, setServerWake] = useState<boolean>(false)
     //const [user, setUser] = useState<UserProps>()
-    const { user, setUser } = useFlix()
+    const { user, setUser, signOut } = useFlix()
     const [initial, setInitial] = useState("-")
 
     useEffect(() => {
@@ -68,7 +69,8 @@ export default function Header() {
         Router.push(`/search?${search.toString()}`);
     }
     function handleUserClick() {
-        Router.push('/me');
+        setModal(!modal)
+        //Router.push('/me');
     }
     function handleClickHome(id: number) {
         if (id === 1) {
@@ -116,20 +118,38 @@ export default function Header() {
                     ></div>
                     <p>status</p>
                 </div>
-
-                {
-                    user?.avatar ? (
-                        <div className={styles.avatarImage} title="Meu Perfil">
-                            <Image src={user.avatar} alt="avatar" width={45} height={45} onClick={handleUserClick} />
-                        </div>
-                    ) : user ?
-                        <div className={styles.avatarLetter} onClick={handleUserClick}>
-                            <span>{initial}</span>
-                        </div> :
-                        <FaUserCircle size={35} color="#fff" className={styles.loginIcon} onClick={handleUserClick} />
-                }
+                <div onClick={handleUserClick}>
+                    {
+                        user?.avatar ? (
+                            <div className={styles.avatarImage} title="Meu Perfil">
+                                <Image src={user.avatar} alt="avatar" width={45} height={45} />
+                            </div>
+                        ) : user ?
+                            <div className={styles.avatarLetter}>
+                                <span>{initial}</span>
+                            </div> :
+                            <FaUserCircle size={35} color="#fff" className={styles.loginIcon} />
+                    }
+                </div>
 
             </div>
+            {
+                modal &&
+                <div className={styles.dropdownModal}>
+                    {user ?
+                        <ul>
+                            <Link href="/me"><li><FaUserCircle size={20} />Minha Conta</li></Link>
+                            <Link href="/watchlater"><li><FaListUl size={20} />Minha Lista</li></Link>
+                            <li onClick={signOut}><LucideLogOut size={20} />Sair</li>
+                        </ul>
+                        :
+                        <ul>
+                            <Link href="/login"><li><FaSignInAlt size={20} />Entrar</li></Link>
+                            <Link href="/signup"><li><IoCreate size={20} />Criar Conta</li></Link>
+                        </ul>
+                    }
+                </div>
+            }
             <div className={styles.dropdown}>
                 <div className={styles.dropdownIcon} onClick={() => handleClickHome(1)}>
                     <AlignJustify />
@@ -163,17 +183,17 @@ export default function Header() {
                     }
                 </div>
                 <div className={styles.divider}></div>
-                <div className={styles.dropdownIcon}>
+                <div className={styles.dropdownIcon} onClick={handleUserClick}>
                     {
                         user?.avatar ? (
                             <div className={styles.dropdownAvatarImage} title="Meu Perfil">
-                                <Image src={user.avatar} alt="avatar" width={35} height={35} onClick={handleUserClick} />
+                                <Image src={user.avatar} alt="avatar" width={35} height={35} />
                             </div>
                         ) : user ?
-                            <div className={styles.avatarLetter} onClick={handleUserClick}>
+                            <div className={styles.avatarLetter}>
                                 <span>{initial}</span>
                             </div> :
-                            <FaUserCircle size={35} className={styles.loginIcon} onClick={handleUserClick} />
+                            <FaUserCircle size={35} className={styles.loginIcon} />
                     }
                 </div>
             </div>
