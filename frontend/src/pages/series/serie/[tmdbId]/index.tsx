@@ -47,7 +47,6 @@ export default function Serie() {
     const [seasonToShow, setSeasonToShow] = useState<number>(1)
     const [episodesToShow, setEpisodesToShow] = useState<Episodes[]>([])
     const [episodesData, setEpisodesData] = useState<(TMDBEpisodes[] | null)[]>([])
-    //const [user, setUser] = useState<UserProps>()
     const { user } = useFlix()
     const [onWatchLater, setOnWatchLater] = useState<boolean>(false)
     const [headTitle, setHeadTitle] = useState<string>(' ')
@@ -59,39 +58,12 @@ export default function Serie() {
     const [loading, setLoading] = useState(false);
     const [trailer, setTrailer] = useState<TrailerProps | null>(null)
 
-
-    //testar componente sem esse useEffect pra ver se da erro se não tiver o contexto setado
-    /*useEffect(() => {
-        if (!user) {
-            const { 'flix-user': userCookie } = parseCookies()
-            if (!userCookie) return
-            setUser(JSON.parse(userCookie))
-        }
-    }, [])*/
-
-    /*useEffect(() => {
-        const getUserData = async () => {
-            try {
-                const user = await getUserCookieData();
-                if (!user) return
-                setUser(user)
-            } catch (err) {
-                console.log("Erro ao buscar dados do usuário no cookie", err)
-            }
-        }
-        getUserData()
-    }, [])*/
-
     useEffect(() => {
-        if (tmdbId) {
-            const findSerie = series.find((serie) => serie.tmdbID === Number(tmdbId))
-            //console.log(findSerie)
-            setSerie(findSerie)
-        } else {
-            return console.log("tmdbId não está presente")
-        }
-
-    }, [tmdbId])
+        if (!tmdbId) return
+        const findSerie = series.find((serie) => serie.tmdbID === Number(tmdbId))
+        //console.log(findSerie)
+        setSerie(findSerie)
+    }, [tmdbId, router])
     useEffect(() => {
         if (!serie) return;
         if (seasonToShow > 0) {
@@ -162,7 +134,6 @@ export default function Serie() {
             if (seriesCast.length <= 0) return console.warn("Nenhum dado sobre o elenco das temporadas")
             const casting = seriesCast.filter((cast): cast is CastProps => cast !== undefined)
 
-
             const crewData = Array.isArray(mainCast.crew) && mainCast.crew.length > 0
                 ? mainCast.crew
                 : casting.flatMap(team => team.crew)
@@ -217,10 +188,11 @@ export default function Serie() {
     }, [serie])
 
 
-    function handleChangeSeason(value: string) {
-        const season = parseInt(value)
-        if (season > 0) {
-            setSeasonToShow(season)
+    function handleChangeSeason(value: number) {
+        //const season = parseInt(value)
+        if (!serie) return
+        if (value > 0 && value > serie.season.length) {
+            setSeasonToShow(value)
         } else return;
     }
 
@@ -264,33 +236,10 @@ export default function Serie() {
     }
 
     useEffect(() => {
-        function rightClickBlock(event: MouseEvent) { event.preventDefault(); }
-
-        // Impede atalhos de ferramentas de desenvolvedor
-        function openConsoleBlock(event: KeyboardEvent) {
-            const blockedKeys = ['F12', 'I', 'C', 'J', 'U']
-            if (
-                blockedKeys.includes(event.key) ||
-                (event.ctrlKey && event.shiftKey && blockedKeys.includes(event.key)) ||
-                (event.ctrlKey && event.key === 'U')
-            ) {
-                event.preventDefault();
-            }
-        };
-
-        document.addEventListener('contextmenu', rightClickBlock);
-        document.addEventListener('keydown', openConsoleBlock);
-
-        return () => {
-            document.removeEventListener('contextmenu', rightClickBlock);
-            document.removeEventListener('keydown', openConsoleBlock);
-        };
-    }, []);
-
-    useEffect(() => {
         getTrailer()
     }, [router, tmdbId])
     async function getTrailer() {
+        if (!tmdbId) return
         const trailer = await fetchTMDBTrailer(Number(tmdbId), 'tv')
         if (!trailer) return setTrailer(null)
         return setTrailer(trailer)
@@ -359,7 +308,7 @@ export default function Serie() {
                                     </div>
                                     <div className={styles.selectSeasonContainer}>
                                         <select
-                                            onChange={(e) => handleChangeSeason(e.target.value)}
+                                            onChange={(e) => handleChangeSeason(Number(e.target.value))}
                                         >
                                             {serie.season.map((s, index) => (
                                                 <option key={index} value={s.s}>Temporada {s.s} - {s.lang}</option>
