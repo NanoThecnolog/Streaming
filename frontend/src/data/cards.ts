@@ -38,6 +38,67 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 232672,
+        title: "Juntos e Misturados",
+        subtitle: "",
+        description: "Após um encontro desastroso, os pais solteiros Lauren e Jim concordam apenas com uma coisa, eles nunca vão querer se encontrar de novo. Mas quando ambos, separadamente, têm a oportunidade de viajar com suas famílias para as férias dos seus sonhos, acabam tendo que dividir a mesma suíte em um luxuoso resort safari africano por uma semana inteira...",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1VzFddS-C9gB4_fiqIPZu83focSTajdpa/preview",
+        duration: "01h 57m",
+        genero: [gen.comedia, gen.romance, stm.prime]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 18785,
+        title: "Se Beber Não Case",
+        subtitle: "",
+        description: "Dois dias antes de seu casamento, Doug e três amigos vão de carro até Las Vegas para uma louca e memorável despedida de solteiro. Quando os três padrinhos acordam na manhã seguinte, eles não conseguem se lembrar de nada e notam que Doug desapareceu. Com pouco tempo de sobra, os amigos tentam refazer a noite anterior e encontrar Doug para que possam levá-lo de volta a Los Angeles a tempo de chegar ao altar.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/17F-hoPRCRHGCZQlwlXkafs9kXQf80zBA/preview",
+        duration: "01h 39m",
+        genero: [gen.comedia, stm.hbo]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 45243,
+        title: "Se Beber Não Case",
+        subtitle: "Parte 2",
+        description: "Phil, Stu, Alan e Doug viajam à exótica Tailândia para o casamento de Stu. O que poderia dar errado? Dois anos depois da desastrosa despedida de solteiro de Doug em Las Vegas, agora é a vez de Stu. Ele decide se casar na Tailândia, país de sua futura mulher. Com medo de que os incidentes da despedida de solteiro em Las Vegas se repitam, Stu organiza muito bem a comemoração, mas nada sai como o esperado, e as confusões prometem ser inimagináveis.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1deOBYJklzOrNF5_SyC5rnM9CaDG1qmqj/preview",
+        duration: "01h 41m",
+        genero: [gen.comedia, stm.hbo]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 109439,
+        title: "Se Beber Não Case",
+        subtitle: "Parte 3",
+        description: "Faz dois anos desde que o quarteto, conhecido como Wolfpack, quase escapou de um desastre em Bangkok. Agora, Phil, Stu e Doug vivem felizes em casa, mas Alan não. Ainda sem rumo na vida, Alan não tem tomado seus remédios e está vivendo sob impulsos naturais. Está nas mãos dos amigos ajudá-lo com sua crise pessoal, embarcando em uma viagem para o lugar onde tudo começou: Las Vegas.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1SezNPa1pTfp3_1TEOrCArjGGYUa7fzRv/preview",
+        duration: "01h 40m",
+        genero: [gen.comedia, stm.hbo]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 10200,
+        title: "O Dia Em Que A Terra Parou",
+        subtitle: "",
+        description: "Helen Benson é uma cientista que mantém contato com Klaatu, um alienígena que veio à Terra para alertar sobre uma crise global. Ele deseja conversar com os líderes globais, mas por ser considerado hostil, passa a ser ameaçado pela humanidade.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/13p4nsuqacAT87egsISdUr4hIHNugsfEt/preview",
+        duration: "01h 43m",
+        genero: [gen.drama, gen.ficcao, gen.suspense, stm.disney]
+    },
+
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 943919,
         title: "Quem Quer Ser Famoso",
         subtitle: "",
