@@ -5413,10 +5413,10 @@ export const cards: CardsProps[] = [
         overlay: overlay,
         tmdbId: 957452,
         title: "O Corvo",
-        subtitle: "2024 - Legendado",
+        subtitle: "",
         description: "As almas gêmeas Eric Draven e Shelly Webster são brutalmente assassinadas quando os demônios de seu passado sombrio os alcançam. Atravessando os mundos dos vivos e dos mortos, Draven retorna em busca de vingança sangrenta contra os assassinos.",
         faixa: "18",
-        src: "https://drive.google.com/file/d/12-dMBXQZql8RvQFkmAeapH4GGxmenED5/preview",
+        src: "https://drive.google.com/file/d/10XUEPo82mkhjp0_qJVXgOoC2jPcFzM-Y/preview",
         duration: "01h 51m",
         genero: [gen.acao, gen.fantasia]
     },
