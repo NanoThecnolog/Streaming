@@ -117,27 +117,27 @@ export const series: SeriesProps[] = [
                     },
                     {
                         ep: 13,
-                        src: "https://drive.google.com/file/d/17gN05EE_OscKH0VdB_Y3tg8AsWfGYwzJ/preview",
+                        src: "https://drive.google.com/file/d/1ZlDccRlh98d2is9hAcRdnS4cvRguY6pp/preview",
                         duration: "23m"
                     },
                     {
                         ep: 14,
-                        src: "https://drive.google.com/file/d/13P4FJjZKPsK1f0GRDAOn-IHIo46rSmn5/preview",
+                        src: "https://drive.google.com/file/d/1k_M0rUeU0VwUnJpkO8YO-yOfxaC5VOgF/preview",
                         duration: "23m"
                     },
                     {
                         ep: 15,
-                        src: "https://drive.google.com/file/d/1KCXWriVw0o55IVcsW5kpy8TOEWvZ8C8z/preview",
+                        src: "https://drive.google.com/file/d/1UBcvxUdwdfhdsg7TkJf8WTrw-QW4TSqN/preview",
                         duration: "23m"
                     },
                     {
                         ep: 16,
-                        src: "https://drive.google.com/file/d/1TUL5tM0fjke3z_wKtaPelgTl49WZqov2/preview",
+                        src: "https://drive.google.com/file/d/1iPCfHZouYfuNqd82rJi-49b28ure8JXB/preview",
                         duration: "23m"
                     },
                     {
                         ep: 17,
-                        src: "https://drive.google.com/file/d/1kgZyTvEloEHjXMPqKYiCkL4W4qtCqAJp/preview",
+                        src: "https://drive.google.com/file/d/164fWwbIkxgz13LeJu3gwaD2hmGx1D8ui/preview",
                         duration: "23m"
                     },
                     {
