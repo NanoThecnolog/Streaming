@@ -12,6 +12,7 @@ import { CardsProps } from '@/@types/Cards';
 import { SeriesProps } from '@/@types/series';
 import Card from '@/components/Card';
 import CardSerie from "@/components/seriesComponents/Card";
+import Footer from '@/components/Footer';
 
 interface ListsProps {
     cards: CardsProps[]
@@ -48,8 +49,6 @@ export default function WatchLater() {
             cards: movies,
             series: serie
         })
-        console.log(movies)
-        console.log("series", serie)
 
     }, [watchListIds])
 
@@ -80,8 +79,8 @@ export default function WatchLater() {
                         </div>
                     </div>
                 </article>
-
             </main>
+            <Footer />
         </>
     )
 }
