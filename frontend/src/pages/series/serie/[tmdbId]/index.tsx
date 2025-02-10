@@ -21,7 +21,7 @@ import EpisodeCard from "@/components/seriesComponents/EpisodeCard";
 import Spinner from "@/components/ui/Loading/spinner";
 import { useTMDB } from "@/contexts/TMDBContext";
 import { CastProps, CrewProps } from "@/@types/cast";
-import { translate } from "@/utils/UtilitiesFunctions";
+import { debuglog, translate } from "@/utils/UtilitiesFunctions";
 import Cast from "@/components/Cast";
 import Crew from "@/components/Crew";
 import Card from "@/components/seriesComponents/Card";
@@ -42,7 +42,7 @@ export default function Serie() {
     //refatorar
     const router = useRouter()
     const { tmdbId } = router.query;
-    const [serie, setSerie] = useState<SeriesProps>()
+    const [serie, setSerie] = useState<SeriesProps | null>()
     const [TMDBSerie, setTMDBSerie] = useState<TMDBSeries>()
     const [seasonToShow, setSeasonToShow] = useState<number>(1)
     const [episodesToShow, setEpisodesToShow] = useState<Episodes[]>([])
@@ -60,8 +60,9 @@ export default function Serie() {
 
     useEffect(() => {
         if (!tmdbId) return
+        setSerie(null)
         const findSerie = series.find((serie) => serie.tmdbID === Number(tmdbId))
-        //console.log(findSerie)
+        //debuglog(findSerie)
         setSerie(findSerie)
     }, [tmdbId, router])
     useEffect(() => {
@@ -85,21 +86,19 @@ export default function Serie() {
     }, [serie, seasonToShow])
     useEffect(() => {
         fetchSerieData()
-        if (serie) getTMDBCast()
-    }, [tmdbId, serie, serieData])
+    }, [serie, serieData])
     async function fetchSerieData() {
         try {
             if (!serie) return //console.warn("Serie ou serieData faltando..")
             let serieInfo: TMDBSeries | null | undefined
             if (!serieData || serieData.length <= 0) {
                 serieInfo = await fetchTMDBSeries(serie.tmdbID)
-                //console.log("SerieInfo: ", serieInfo)
             } else {
-                //console.log("Serie data", serieData)
+                //debuglog("Serie data", serieData)
                 serieInfo = serieData.find(data => data.id === serie.tmdbID)
             }
             if (!serieInfo) return
-            //console.log("serie Info filtrado", serieInfo)
+            //debuglog("serie Info filtrado", serieInfo)
             setTMDBSerie(serieInfo)
             const backdropURL = `https://image.tmdb.org/t/p/original${serieInfo.backdrop_path}`
             const posterURL = `https://image.tmdb.org/t/p/original${serieInfo.poster_path}`
@@ -108,6 +107,10 @@ export default function Serie() {
             console.log(err)
         }
     }
+
+    useEffect(() => {
+        if (serie && tmdbId) getTMDBCast()
+    }, [serie])
     /**
      * Função assíncrona que busca informações sobre atores e equipe técnica da série.
      * @param mainCast - atores principais
@@ -121,12 +124,15 @@ export default function Serie() {
         if (loading) return
         setLoading(true)
         try {
+            if (!tmdbId || isNaN(Number(tmdbId))) return debuglog("tmdbId", tmdbId, "tipo: ", typeof (tmdbId))
             const mainCast = await fetchTMDBSerieCast(Number(tmdbId));
 
             if (!mainCast) return console.warn("Nenhum dado sobre o elenco principal da série.")
             const seriesCast: CastProps[] = []
             if (!serie) return console.warn("Dados da Série não estão presentes");
+            //debuglog("length de série.season: ", serie.season.length)
             for (let i = 0; i < serie.season.length; i++) {
+                //debuglog("valor de i no for: ", i + 1)
                 const castSeason = await fetchTMDBSerieCastBySeason(Number(tmdbId), i + 1)
                 if (!castSeason) return
                 seriesCast.push(mainCast, castSeason)
@@ -189,14 +195,11 @@ export default function Serie() {
 
 
     function handleChangeSeason(value: number) {
-        //const season = parseInt(value)
         if (!serie) return
         if (value > 0 && value > serie.season.length) {
             setSeasonToShow(value)
         } else return;
     }
-
-
 
     function handlePlayEpisode(ep: Episodes, season?: number) {
         const epNumber = ep.ep
@@ -218,7 +221,6 @@ export default function Serie() {
             return
         }
         try {
-            console.log(tmdbid)
             await addWatchLater(tmdbid);
             const onList: Promise<boolean> = isOnTheList(tmdbid)
             onList.then(result => {
@@ -230,7 +232,7 @@ export default function Serie() {
             })
         } catch (err: any) {
             if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
-            console.log(err)
+            console.log("Erro na function handleAddUserList", err)
             return toast.error("Erro inesperado ao adicionar série à lista!")
         }
     }

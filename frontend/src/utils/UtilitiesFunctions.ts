@@ -76,3 +76,14 @@ export function shuffle<T>(array: T[]): T[] {
     }
     return shuffled
 }
+
+/**
+ * Função para debug no console.log em desenvolvimento
+ * @param args Argumentos para debugar no console
+ */
+
+export function debuglog(...args: any[]) {
+    if (process.env.NEXT_PUBLIC_DEBUG === "development") {
+        console.log(...args)
+    }
+}

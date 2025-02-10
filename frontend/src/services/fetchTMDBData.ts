@@ -6,6 +6,7 @@ import { apiTMDB } from "./apiTMDB";
 import { CollectionProps, ResultsProps } from "@/@types/collection";
 import { CastProps } from "@/@types/cast";
 import { TrailerProps } from "@/@types/trailer";
+import { debuglog } from "@/utils/UtilitiesFunctions";
 
 const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
 
@@ -52,7 +53,7 @@ async function fetchTMDBData<T>(tmdbID: number, type: 'movie' | 'tv', imageType:
             return response.data;
         }
     } catch (err: any) {
-        console.error(`Erro ao buscar ${type === 'movie' ? (imageType === 'details' ? 'dados do filme' : `${imageType} do filme`) : 'dados da série'}`, err?.response?.data?.error);
+        console.error(`Erro ao buscar ${type === 'movie' ? (imageType === 'details' ? 'dados do filme' : `${imageType} do filme`) : 'dados da série'}`, err);
         return null;
     }
 }

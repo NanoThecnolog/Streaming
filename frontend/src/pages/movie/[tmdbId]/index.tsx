@@ -49,31 +49,6 @@ export default function Movie() {
     const [relatedCards, setRelatedCards] = useState<CardsProps[]>([])
     const [trailer, setTrailer] = useState<TrailerProps | null>(null)
 
-    //testar componente sem esse useEffect pra ver se da erro se não tiver o contexto setado
-    /*useEffect(() => {
-        if (!user) {
-            const { 'flix-user': userCookie } = parseCookies()
-            if (!userCookie) return
-            setUser(JSON.parse(userCookie))
-        }
-    }, [])*/
-
-    /*useEffect(() => {
-        const getUserData = async () => {
-            try {
-
-                const user= await getUserCookieData();
-                if (!user) {
-                    return
-                }
-                setUser(user)
-            } catch (err) {
-                console.log("Erro ao buscar dados do usuário no cookie", err)
-            }
-        }
-        getUserData()
-    }, [])*/
-
     const watchLater = async () => {//ok
         if (!movie) return
         const onList = await isOnTheList(movie.tmdbId)
@@ -89,7 +64,6 @@ export default function Movie() {
         setMovie(card)
         getTMDBData()
         getTMDBCast()
-        //favorite()
     }, [router, tmdbId])
     useEffect(() => {
         if (!movie) return
@@ -101,6 +75,7 @@ export default function Movie() {
         if (loading) return
         setLoading(true)
         try {
+
             const tmdbData = await fetchTMDBMovie(Number(tmdbId));
             if (!tmdbData) return console.warn("Nenhum dado retornado durante a busca pelo filme no TMDB.")
             setTmdbData(tmdbData)
@@ -154,17 +129,7 @@ export default function Movie() {
             return toast.error("Erro inesperado ao adicionar filme à lista! Tente novamente mais tarde.")
         }
     }
-    /*async function handleFavorite() {
-        if (!user) return router.push('/login')
-        if (!movie) return console.warn("Erro ao adicionar filme aos favoritos. Movie não definido.", movie)
-        try {
-            //await addFavorite(movie?.tmdbId, movie.title, movie.subtitle || "", user.id)
-            await favorite()
-        } catch (err) {
-            console.error(err)
-            toast.error("Erro ao favoritar seu filme. Tente novamente mais tarde.")
-        }
-    }*/
+
     useEffect(() => {
         if (!tmdbId || isNaN(Number(tmdbId))) return;
         getTrailer()
