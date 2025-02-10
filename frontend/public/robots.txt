@@ -4,10 +4,18 @@ Allow: /
 
 # *
 User-agent: *
+Allow: /series
+
+# *
+User-agent: *
 Disallow: /watch
 
+# *
+User-agent: *
+Disallow: /recover
+
 # Host
-Host: https://flixnext.vercel.app
+Host: https://flixnext.netflify.app
 
 # Sitemaps
-Sitemap: https://flixnext.vercel.app/sitemap.xml
+Sitemap: https://flixnext.netflify.app/sitemap.xml
