@@ -41,6 +41,64 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 207863,
+        title: "As Bruxas Mayfair de Anne Rice",
+        subtitle: "",
+        description: "Rowan Fielding, uma jovem neurocirurgiã intuitiva, descobre que ela é a improvável herdeira de uma família de bruxas. Enquanto ela lida com seus novos poderes, ela deve lidar com uma presença sinistra que assombra sua família há gerações.",
+        genero: [gen.drama, gen.fantasia, gen.ficcao, stm.prime],
+        faixa: "A14",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1w2BnG2UjTDb5A7J-0J6vMwTCJ3DZnK8j/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1_tTWfMnHC_6ZnvaV8gvmibM0LHX1YxCK/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1ty-MrmdQ-aKmbNBkiO7IC_k4EhZlruA8/preview",
+                        duration: "40m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1G01m47VObE5DjnbRN8k5EP_gKuQi8WrG/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/10dKL56qLcIFtka4_qs58tFeiCmUF3gI5/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1pKQX-3dMetRYRM_klQmO-V6TE3GIPlnQ/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1GsxumxfJadPic3kJmZW0Adm_gW6sWD5S/preview",
+                        duration: "40m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1btMzrx_3kCZsK4rIRfRR6EwmtiQWvC4J/preview",
+                        duration: "42m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 95057,
         title: "Superman & Lois",
         subtitle: "",
