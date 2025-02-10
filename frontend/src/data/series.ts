@@ -41,6 +41,130 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 93740,
+        title: "Fundação",
+        subtitle: "",
+        description: "Inspirada nas obras de romance de Isaac Asimov, Foundation retrata a épica jornada espacial de um grupo de exilados tentando salvar a humanidade durante a queda do Império Galáctico.",
+        genero: [gen.ficcao, gen.fantasia, gen.drama, agp.space, stm.apple],
+        faixa: "A16",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1U9jGoB2UwGF2M-P2IA6Vd252sFolTjRs/preview",
+                        duration: "01h 09m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/11mTpyehBF9KNaDjXTJqFjE3siN2gwyAk/preview",
+                        duration: "01h 03m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/15bPFOWq3jlhWf2AeVLyTndxROegYjAIp/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1ObjBxe82AITH4qRLJJ47hgvJWO9dBA7t/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1iUaV1G-UM6_soniBn3sOdh-NuKs0KhE0/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1-zwqk8brdyTuhSid-djOpmaRIiJeZ-B-/preview",
+                        duration: "55m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1YJGN8GmWFwRgZeoclB4jox3ytJkbhL5r/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/10rQF_hnXZzRa_o9FBcaXrOovbKlZd5sD/preview",
+                        duration: "56m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1GEMlJ_xQMhEo6CrXGq5NV-YcF_E1unl-/preview",
+                        duration: "57m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1j2ZrEY03WdqNmqhtIoTV61u-z2QtRLC7/preview",
+                        duration: "59m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1sMRrNMhvO9lMQRrpD8I9BQu5qrVzY4kt/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1OB7mwu_XqNKZVx5VXkXa3biOVFgRourV/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1HHvrpoze_89k-4clyFklc963JSJ2N6mZ/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1bg28EQq9uTL7thZHaH1KMDC2p4s1DNnQ/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1ybhzx5FSvoMKZgjJNThwGv01yS5Ae5Pn/preview",
+                        duration: "47m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1kgbOBmJThjETmgkU2tV2BFsItwiSdCmC/preview",
+                        duration: "58m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/121ZP0VkiibXAqbhn3WKejLFi2MnaVEDh/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1JbZMAlGX7MpqDOryNXys17AN9D5pPVdZ/preview",
+                        duration: "01h"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/120pfroF0tAmITgPa9c5ZDA78w_Uzm5XN/preview",
+                        duration: "01h 01m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1Tam6PuoEbp1xWsW38f7es-Qhwig4nTAC/preview",
+                        duration: "53m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 207863,
         title: "As Bruxas Mayfair de Anne Rice",
         subtitle: "",
