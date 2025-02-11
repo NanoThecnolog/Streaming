@@ -46,35 +46,27 @@ export default function Home() {
     */
     if (loading || allData.length > 0) return
     setLoading(true)
-    /*const fetchData = async (attempt = 1) => {
-          const MAX_RETRIES = 5
-          try {
-            const response = await apiTMDB.get('/all')
-
-            if (response.status === 504 || !response.data) {
-              if (attempt < MAX_RETRIES) {
-                console.log(`Erro durante a requisição. Tentando novamente (${attempt}/${MAX_RETRIES})...`)
-                setTimeout(() => fetchData(attempt + 1), 4000)
-              } else {
-                console.log("Max attempts reached")
-                setLoading(false)
-              }
-            }
-            const cardData = response.data.data as MovieTMDB[]
-            setAllData(cardData)
-          } catch (err) {
-            console.log(`Erro na tentativa ${attempt}`, err)
-            if (attempt < MAX_RETRIES) {
-              console.log(`Tentando novamente (${attempt}/${MAX_RETRIES}) em 4s...`)
-              setTimeout(() => fetchData(attempt + 1), 4000)
-            } else {
-              console.log("Max Attempts reached")
-            }
-          } finally {
-            setLoading(false)
+    const fetchData = async (attempt = 1) => {
+      const MAX_RETRIES = 5
+      try {
+        const response = await apiTMDB.get('/all/movie')
+        if (response.status === 504 || !response.data) {
+          if (attempt < MAX_RETRIES) {
+            console.log(`Erro durante a requisição. Tentando novamente (${attempt}/${MAX_RETRIES})...`)
+            setTimeout(() => fetchData(attempt + 1), 4000)
+          } else {
+            console.log("Max attempts reached")
           }
-    }*/
-    const fetchData = async () => {
+        }
+        const cardData = response.data.data as MovieTMDB[]
+        setAllData(cardData)
+      } catch (err) {
+        console.error(`Erro na tentativa ${attempt}`, err)
+      } finally {
+        setLoading(false)
+      }
+    }
+    /*const fetchData = async () => {
       if (loading || allData.length > 0) return
       setLoading(true)
       try {
@@ -86,7 +78,7 @@ export default function Home() {
       } finally {
         setLoading(false)
       }
-    }
+    }*/
     fetchData()
   }, [allData.length, setAllData])
 
