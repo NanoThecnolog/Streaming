@@ -134,12 +134,11 @@ export default function Home() {
   return (
     <>
       {
-        /*
-      <Script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7266476713162775"
-        strategy="afterInteractive"
-      />*/
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7266476713162775"
+          strategy="afterInteractive"
+        />
       }
       <SEO title="FlixNext - Início" description="Um Streaming nunca antes visto porque é novo." />
       {
