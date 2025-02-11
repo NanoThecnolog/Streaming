@@ -16,11 +16,11 @@ export default function App({ Component, pageProps }: AppProps) {
 
     // Impede atalhos de ferramentas de desenvolvedor
     function openConsoleBlock(event: KeyboardEvent) {
-      const blockedKeys = ['F12', 'I', 'C', 'J', 'U']
+      const blockedKeys = ['F12']
       if (
         blockedKeys.includes(event.key) ||
-        (event.ctrlKey && event.shiftKey && blockedKeys.includes(event.key)) ||
-        (event.ctrlKey && event.key === 'U')
+        (event.ctrlKey && event.shiftKey && ['I', 'J', 'C'].includes(event.key)) ||
+        (event.ctrlKey && event.key === 'u')
       ) {
         event.preventDefault();
       }

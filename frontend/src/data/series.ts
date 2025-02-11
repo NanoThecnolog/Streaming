@@ -54,7 +54,7 @@ export const series: SeriesProps[] = [
                 episodes: [
                     {
                         ep: 1,
-                        src: "https://drive.google.com/file/d/1U9jGoB2UwGF2M-P2IA6Vd252sFolTjRs/preview",
+                        src: "",
                         duration: "01h 09m"
                     },
                     {
@@ -74,7 +74,7 @@ export const series: SeriesProps[] = [
                     },
                     {
                         ep: 5,
-                        src: "https://drive.google.com/file/d/1iUaV1G-UM6_soniBn3sOdh-NuKs0KhE0/preview",
+                        src: "",
                         duration: "53m"
                     },
                     {

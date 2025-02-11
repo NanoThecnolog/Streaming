@@ -9,6 +9,7 @@ export default function SubConfig() {
 
     const { 'flix-user': userCookies } = parseCookies()
     debuglog(JSON.parse(userCookies))
+    console.log(JSON.parse(userCookies))
     return (
         <section className={styles.sectionContainer}>
             <div className={styles.accountContainer}>
@@ -18,7 +19,7 @@ export default function SubConfig() {
                 </div>
                 <div className={styles.subscriptionContainer}>
                     <div className={styles.subSince}>
-                        <p>Assinante desde {user && formatedDate(user.createdAt)}</p>
+                        <p>Assinante desde {user?.createdAt && formatedDate(user.createdAt)}</p>
                     </div>
                     <div className={styles.subInfo}>
                         <h2>Plano Free</h2>
