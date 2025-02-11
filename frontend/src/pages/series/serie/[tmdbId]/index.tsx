@@ -7,11 +7,9 @@ import Header from "@/components/Header";
 import styles from './styles.module.scss'
 import { Play } from "lucide-react";
 import { toast } from "react-toastify";
-import { UserProps } from "@/@types/user";
 import { FaCheck } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
 import { fetchEpisodeData, fetchTMDBSerieCast, fetchTMDBSerieCastBySeason, fetchTMDBSeries, fetchTMDBTrailer } from "@/services/fetchTMDBData";
-import { getUserCookieData } from "@/services/cookieClient";
 import { addWatchLater, isOnTheList } from "@/services/handleWatchLater";
 import Stars from "@/components/ui/StarAverage";
 import Image from "next/image";
@@ -61,12 +59,15 @@ export default function Serie() {
     useEffect(() => {
         if (!tmdbId) return
         setSerie(null)
+        setSeasonToShow(1)
+        debuglog("chamando", seasonToShow)
         const findSerie = series.find((serie) => serie.tmdbID === Number(tmdbId))
         //debuglog(findSerie)
         setSerie(findSerie)
     }, [tmdbId, router])
     useEffect(() => {
         if (!serie) return;
+        debuglog("seasonToShow:", seasonToShow)
         if (seasonToShow > 0) {
             const episodes = serie.season[seasonToShow - 1]?.episodes
             setEpisodesToShow(episodes)
@@ -195,8 +196,10 @@ export default function Serie() {
 
 
     function handleChangeSeason(value: number) {
+        debuglog(serie)
         if (!serie) return
-        if (value > 0 && value > serie.season.length) {
+        if (value > 0 && value <= serie.season.length) {
+            debuglog(value)
             setSeasonToShow(value)
         } else return;
     }
@@ -310,6 +313,7 @@ export default function Serie() {
                                     </div>
                                     <div className={styles.selectSeasonContainer}>
                                         <select
+                                            value={seasonToShow}
                                             onChange={(e) => handleChangeSeason(Number(e.target.value))}
                                         >
                                             {serie.season.map((s, index) => (
