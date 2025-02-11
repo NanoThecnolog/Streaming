@@ -20,16 +20,9 @@ interface ListsProps {
 }
 
 export default function WatchLater() {
-    const router = useRouter()
-    const { user } = useFlix()
     const { 'flix-watch': watchCookies } = parseCookies()
     const [watchListIds, setWatchListIds] = useState<WatchLaterContext[]>()
     const [list, setList] = useState<ListsProps>()
-
-    useEffect(() => {
-        if (!user) router.push('/login')
-        return
-    }, [])
 
 
     useEffect(() => {

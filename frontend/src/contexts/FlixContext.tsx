@@ -35,7 +35,7 @@ export function FlixProvider({ children }: ContextProviderProps) {
                 password
             })
 
-            const { avatar, birthday, id, name, token, news, verified, myList, favoritos } = response.data
+            const { avatar, birthday, id, name, token, news, verified, myList, favoritos, createdAt } = response.data
 
             if (!response.data.verified) {
                 alert(
@@ -70,7 +70,8 @@ export function FlixProvider({ children }: ContextProviderProps) {
                 avatar,
                 birthday,
                 news,
-                verified
+                verified,
+                createdAt
             }
             destroyCookie(null, 'flix-user')
             setCookie(null, 'flix-user', JSON.stringify(user), cookieOptions)

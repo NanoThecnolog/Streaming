@@ -114,88 +114,6 @@
                 gap: 10px;
             }
         }
-
-        .sectionContainer {
-            //background-color: green;
-            padding: 5px;
-
-            .accountContainer {
-                //background-color: #771085;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-start;
-                gap: 20px;
-
-                .headContainer {
-                    h1 {
-                        font-size: 3rem;
-                        letter-spacing: 3px;
-                    }
-
-                    p {
-                        font-weight: 700;
-                    }
-
-                }
-
-                .subscriptionContainer {
-                    padding: 10px;
-                    border: 1px solid var(--grey);
-                    background-color: var(--black);
-                    border-radius: .5rem;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    height: 200px;
-                    width: 100%;
-
-                    .subSince {
-                        margin: 15px 0 0 -10px;
-                        background-color: var(--red-selected);
-                        display: flex;
-                        justify-content: flex-start;
-                        align-items: center;
-                        width: 80%;
-                        height: 40px;
-                        border-radius: 0 2rem 2rem 0;
-
-                        p {
-                            padding-left: 10px;
-                        }
-                    }
-
-                    .subInfo {
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: space-around;
-                        letter-spacing: 1.3px;
-                        height: 100px;
-                        border-bottom: 1px solid rgba(255, 255, 255, .1);
-                    }
-
-                    .subConfig {
-                        display: flex;
-                        justify-content: space-between;
-                        border-radius: .2rem;
-                        padding: 0 7px;
-                        align-items: center;
-                        cursor: pointer;
-                        height: 40px;
-                        transition: .4s;
-
-                        p {
-                            font-weight: 700;
-                        }
-
-                        &:hover {
-                            background-color: var(--background-gray-light);
-                        }
-                    }
-                }
-            }
-
-        }
     }
 }
 
@@ -211,11 +129,6 @@
             .asideContainer {
                 align-items: center;
             }
-
-            .sectionContainer {
-                width: 100%;
-                align-items: center;
-            }
         }
     }
 }
@@ -228,12 +141,6 @@
             .asideContainer {
                 align-items: center;
             }
-
-            .sectionContainer {
-                width: 100%;
-                align-items: center;
-                justify-content: center;
-            }
         }
     }
 }
@@ -245,12 +152,6 @@
 
             .asideContainer {
                 padding-left: 30px;
-            }
-
-            .sectionContainer {
-                width: 100%;
-                align-items: center;
-                justify-content: center;
             }
         }
     }

@@ -26,6 +26,8 @@ import { destroyCookie, parseCookies, setCookie } from "nookies";
 import { useRouter } from "next/router";
 import { cookieOptions } from "@/utils/Variaveis";
 import { addWatchLater } from "@/services/handleWatchLater";
+import SubConfig from "@/components/ui/SubConfig";
+import { formatedDate } from "@/utils/UtilitiesFunctions";
 
 export default function Me() {
     //const [user, setUser] = useState<UserProps | null>(null)
@@ -179,9 +181,7 @@ export default function Me() {
                                 <div className={styles.asideInfo}>
                                     <h2>Nome: {user.name}</h2>
                                     <h3>Email: {user.email}</h3>
-                                    <h3>Aniversário: <span>{user?.birthday && new Date(user.birthday).toLocaleDateString('pt-br', {
-                                        timeZone: 'UTC'
-                                    })}</span></h3>
+                                    <h3>Aniversário: <span>{user?.birthday && formatedDate(user.birthday)}</span></h3>
                                 </div>
                                 <div className={styles.button}>
                                     <button type="button" onClick={openEditarDados}>Editar dados</button>
@@ -196,28 +196,7 @@ export default function Me() {
                                     <h3>Receber Newsletters</h3>
                                 </div>
                             </aside>
-                            <section className={styles.sectionContainer}>
-                                <div className={styles.accountContainer}>
-                                    <div className={styles.headContainer}>
-                                        <h1>Conta</h1>
-                                        <p>Detalhes da assinatura</p>
-                                    </div>
-                                    <div className={styles.subscriptionContainer}>
-                                        <div className={styles.subSince}>
-                                            <p>Assinante desde...</p>
-                                        </div>
-                                        <div className={styles.subInfo}>
-                                            <h2>Plano Free</h2>
-                                            <h4>Próximo pagamento: -</h4>
-                                            <p>-Tipo de pagamento (cartão ou boleto)-</p>
-                                        </div>
-                                        <div className={styles.subConfig}>
-                                            <p>Gerenciar assinatura</p>
-                                            <FaChevronRight />
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
+                            <SubConfig />
                         </div>)
                         : "Carregando..."}
             </article>

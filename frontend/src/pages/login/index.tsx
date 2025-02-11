@@ -24,11 +24,10 @@ export default function Login() {
         async function wakeUpServer() {
             try {
                 const acordar = await api.get('/acordar');
-                //console.log(acordar.data.status)
 
                 return acordar
             } catch (err) {
-                //console.log(err)             
+                //console.log(err)
                 return err
             }
         }
@@ -52,55 +51,6 @@ export default function Login() {
             setLoading(false)
         }
     }
-
-    /*async function handleLogin(event: FormEvent) {
-        event.preventDefault();
-
-        try {
-            setLoading(true)
-            const response = await api.post('/login', {
-                email: email,
-                password: password
-            })
-            if (!response.data.token) return;
-            //console.log(response.data)
-            if (!response.data.verified) {
-                alert(
-                    "Sua conta ainda não foi ativada.\n\n" +
-                    "Um link de ativação foi enviado para o seu e-mail durante o cadastro.\n\n" +
-                    "Por favor, verifique sua caixa de entrada ou a pasta de spam e clique no link de ativação " +
-                    "para liberar o acesso ao conteúdo."
-                );
-                return;
-            }
-            //salvar a resposta Data nos cookies e localStorage
-            const expressTime = 15 * 24 * 60 * 60 * 1000;
-            const userData = JSON.stringify(response.data)
-            const user = JSON.stringify({
-                id: response.data.id,
-                name: response.data.name,
-                avatar: response.data.avatar,
-                Verified: response.data.verified,
-                birthday: response.data.birthday,
-                token: response.data.token,
-                news: response.data.news
-            })
-            localStorage.setItem('flixnext', userData)
-            await setData();
-            document.cookie = `flixnext=${userData}; path=/; max-age=${expressTime}`
-            document.cookie = `userData=${user}; path=/; max-age=${expressTime}`
-            toast.success("Bem vindo!")
-            Router.push('/');
-        } catch (err) {
-            if (err instanceof ErrorEvent) {
-                return toast.error(err.message)
-            }
-            console.log(err)
-            return toast.error("Erro ao tentar realizar login. Verifique seu email e sua senha e tente novamente")
-        } finally {
-            setLoading(false)
-        }
-    }*/
     function handleOpen() {
         setModalVisible(true)
     }

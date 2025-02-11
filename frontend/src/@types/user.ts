@@ -11,6 +11,7 @@ export interface UserProps {
     news: boolean,
     myList: MyListPorps[]
     favoritos: ListaFavoritos[]
+    createdAt: Date
 }
 
 export interface UserContext {
@@ -21,6 +22,7 @@ export interface UserContext {
     birthday: Date,
     news: boolean,
     verified: boolean,
+    createdAt: Date
 }
 
 export interface MyListPorps {
