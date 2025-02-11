@@ -38,6 +38,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 426063,
+        title: "Nosferatu",
+        subtitle: "",
+        description: "Um conto gótico de obsessão entre uma jovem assombrada na Alemanha do século XIX e o antigo vampiro da Transilvânia que a persegue, trazendo consigo um horror incalculável.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1nro-ekzYEz3AHi1stGNFalJyKPU02yZr/preview",
+        duration: "02h 13m",
+        genero: [gen.terror, gen.fantasia]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 9798,
         title: "Inimigo do Estado",
         subtitle: "",

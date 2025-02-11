@@ -9,6 +9,10 @@ export const releaseCards: ReleaseProps[] = [
     },
      */
     {
+        tmdbId: 426063,
+        name: "nosferatu",
+    },
+    {
         tmdbId: 1097549,
         name: "babygirl",
     },
@@ -40,13 +44,4 @@ export const releaseCards: ReleaseProps[] = [
         tmdbId: 558449,
         name: "gladiador 2",
     },
-    {
-        tmdbId: 755339,
-        name: "Tudo bem no natal q vem"
-    },
-    {
-        tmdbId: 845781,
-        name: "Operação natal"
-    },
-
 ]
