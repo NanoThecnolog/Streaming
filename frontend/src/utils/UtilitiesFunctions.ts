@@ -96,6 +96,7 @@ export function debuglog(...args: any[]) {
 
 export function formatedDate(date: string | Date) {
     if (typeof date === 'string') date = new Date(date)
+    console.log(date)
 
     if (isNaN(date.getTime()) || !(date instanceof Date)) return
     return date.toLocaleDateString('pt-br', {
