@@ -38,6 +38,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 9798,
+        title: "Inimigo do Estado",
+        subtitle: "",
+        description: "Robert Clayton Dean, um advogado bem-sucedido em Washington, recebe um vídeo que mostra a ligação entre um oficial do alto escalão da Agência Nacional de Segurança a um assassinato político. A partir daí, Dean se transforma em um alvo constante para a mais perigosa e treinada equipe do governo. Utilizando todos os meios para arruinar sua carreira e conseguir o vídeo de volta, a equipe inicia uma caçada sem tréguas. Dean terá de lutar para salvar sua vida e provar sua inocência.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1z2zpEHcutwR1EOjN4Mj1rKHB1DG-xXGY/preview",
+        duration: "02h 12m",
+        genero: [gen.acao, gen.drama, gen.suspense, stm.disney]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 1216191,
         title: "Oddity",
         subtitle: "Objetos Obscuros",

@@ -133,7 +133,6 @@ export default function Home() {
 
   return (
     <>
-
       <SEO title="FlixNext - Início" description="Um Streaming nunca antes visto porque é novo." />
       {
         allData.length > 0 ?

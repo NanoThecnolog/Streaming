@@ -17,6 +17,10 @@ export const releaseCards: ReleaseProps[] = [
         name: "sonic 3"
     },
     {
+        tmdbId: 1241982,
+        name: "Moana 2"
+    },
+    {
         tmdbId: 823219,
         name: "flow"
     },
@@ -31,10 +35,6 @@ export const releaseCards: ReleaseProps[] = [
     {
         tmdbId: 1156593,
         name: "sua culpa",
-    },
-    {
-        tmdbId: 1241982,
-        name: "Moana 2"
     },
     {
         tmdbId: 558449,
