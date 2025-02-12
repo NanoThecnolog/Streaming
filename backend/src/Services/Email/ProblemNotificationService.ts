@@ -1,17 +1,10 @@
 import prismaClient from '../../prisma';
 import nodemailer from 'nodemailer';
+import { createTransporter } from '../../Utils/CreateTransporter';
 
 export class ProblemNotificationService {
     async execute(title: string, description: string, tmdbId: number, userId: string, season?: number, episode?: number) {
-        const transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST,
-            port: Number(process.env.SMTP_PORT),
-            secure: true,
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
-            }
-        });
+        const transporter = createTransporter();
 
         try {
             await transporter.sendMail({
