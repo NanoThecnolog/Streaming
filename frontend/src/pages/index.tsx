@@ -50,7 +50,7 @@ export default function Home() {
       const MAX_RETRIES = 5
       try {
         const response = await apiTMDB.get('/all/movie')
-        if (response.status === 504 || !response.data) {
+        if (response.status === 502 || !response.data) {
           if (attempt < MAX_RETRIES) {
             console.log(`Erro durante a requisição. Tentando novamente (${attempt}/${MAX_RETRIES})...`)
             setTimeout(() => fetchData(attempt + 1), 4000)
