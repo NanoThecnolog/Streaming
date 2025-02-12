@@ -35,7 +35,7 @@ export default function Home() {
   const [visible, setvisible] = useState(false)
 
   //const { 'flix-watch': watch } = parseCookies()
-  //console.log(JSON.parse(watch))
+  //console.log(JSON.parse(watch))  
 
 
 
@@ -57,11 +57,18 @@ export default function Home() {
           } else {
             console.log("Max attempts reached")
           }
+          return
         }
         const cardData = response.data.data as MovieTMDB[]
         setAllData(cardData)
       } catch (err) {
         console.error(`Erro na tentativa ${attempt}`, err)
+        if (attempt < MAX_RETRIES) {
+          console.log(`Tentando novamente (${attempt}/${MAX_RETRIES}) em 4 segundos...`)
+          setTimeout(() => fetchData(attempt + 1), 4000)
+        } else {
+          console.log("Max attempts reached.")
+        }
       } finally {
         setLoading(false)
       }
@@ -134,8 +141,6 @@ export default function Home() {
               <div className={styles.content}>
                 <Top width={width} />
                 <div className={styles.mid} id="filmes">
-                  {//<WatchHistory section="Assistidos" cardPerContainer={cardPerContainer + 2} />
-                  }
                   <ReleaseContainer section="lançamentos" cardPerContainer={cardPerContainer} />
                   {
                     divisaoPorGenero.map((sec, index) => (

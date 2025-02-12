@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import styles from './styles.module.scss'
 import { useRouter } from 'next/router'
 import { api } from '@/services/api';
@@ -66,7 +66,6 @@ export default function RecoverPage() {
                                     </button>
                                 </>
                         }
-
                     </div>
                 </div>
             </div>

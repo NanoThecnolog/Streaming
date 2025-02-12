@@ -12,6 +12,7 @@ import { FlixProvider } from "@/contexts/FlixContext";
 export default function App({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
+    if (process.env.NEXT_PUBLIC_DEBUG === "development") return
     function rightClickBlock(event: MouseEvent) { event.preventDefault(); }
 
     // Impede atalhos de ferramentas de desenvolvedor

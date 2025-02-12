@@ -7,8 +7,47 @@ const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
 const max_tentativas = 3;
 
 async function fetchCardData(cardId: number, retries: number = max_tentativas): Promise<any> {
+    let attempts = 0;
+    while (attempts <= retries) {
+        try {
+            const response = await axios.get(
+                `https://api.themoviedb.org/3/movie/${cardId}`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${tmdbToken}`,
+                    },
+                    params: {
+                        language: "pt-BR",
+                    },
+                }
+            );
+            return {
+                success: true,
+                data: response.data,
+                cardId
+            };
+        } catch (err: any) {
+            console.log(`Erro na tentativa ${attempts + 1}, card ${cardId}.`)
 
-    try {
+            if (err.code === 'ECONNABORTED') {
+                console.log(`Timeout na request para o card ${cardId}, tentando novamente em 2s...`)
+            } else if (err.response) {
+                console.log(`Erro HTTP ${err.response.status} para o card ${cardId}, tentando novamente...`)
+            }
+            attempts++;
+            if (attempts > retries) {
+                return {
+                    success: false,
+                    error: err.response.data || err.message,
+                    cardId
+                }
+            }
+            await new Promise((resolve) => setTimeout(resolve, 2000))
+        }
+
+    }
+
+    /*try {
         const response = await axios.get(
             `https://api.themoviedb.org/3/movie/${cardId}`,
             {
@@ -36,7 +75,7 @@ async function fetchCardData(cardId: number, retries: number = max_tentativas): 
             error: err.response?.data || err.message,
             cardId
         };
-    }
+    }*/
 }
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (!tmdbToken) {
