@@ -9,10 +9,8 @@ import Header from '@/components/Header';
 import Image from 'next/image';
 import Stars from '@/components/ui/StarAverage';
 import Adult from '@/components/ui/Adult';
-import { FaCheck, FaPlay, FaRegStar, FaStar } from 'react-icons/fa';
+import { FaCheck, FaPlay } from 'react-icons/fa';
 import { FiPlus } from 'react-icons/fi';
-import { getUserCookieData } from '@/services/cookieClient';
-import { UserProps } from '@/@types/user';
 import { addWatchLater, isOnTheList } from '@/services/handleWatchLater';
 import { toast } from 'react-toastify';
 import { CastProps, CrewProps } from '@/@types/cast';
@@ -164,7 +162,7 @@ export default function Movie() {
                         <div className={`${styles.content} ${loading ? styles.loading : ""}`}>
                             <div className={styles.titleContainer}>
                                 <h1 className={`${movie.title.toLowerCase() === 'harry potter' && styles.harryFont}`}>{movie.title}</h1>
-                                <h3 className={`${movie.title.toLowerCase() === 'harry potter' && styles.subHarryFont}`}>{movie.subtitle != '' && `${movie.subtitle}`}</h3>
+                                <h3 className={`${movie.title.toLowerCase() === 'harry potter' && styles.subHarryFont}`}>{movie.subtitle != '' && `${movie.subtitle}`}{movie.tmdbId === 597 && user && user.id === "3ed15ea3-4c54-478d-908f-e19e06d1c1f9" && "Thais cara de Nariz, coloca o filme em 1 hora e 24 minutos 😏...."}</h3>
                             </div>
                             {tmdbData && (
                                 <>

@@ -38,6 +38,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 597,
+        title: "Titanic",
+        subtitle: "",
+        description: "Um artista pobre e uma jovem rica se conhecem e se apaixonam na fatídica jornada do Titanic, em 1912. Embora esteja noiva do arrogante herdeiro de uma siderúrgica, a jovem desafia sua família e amigos em busca do verdadeiro amor.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1Neh7JK_zSMJWxAwKnYgwh0kJhFTmplFO/preview",
+        duration: "03h 14m",
+        genero: [gen.romance, gen.drama, stm.disney]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 426063,
         title: "Nosferatu",
         subtitle: "",
