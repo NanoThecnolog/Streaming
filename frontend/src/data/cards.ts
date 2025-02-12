@@ -2348,9 +2348,10 @@ export const cards: CardsProps[] = [
         overlay: overlay,
         tmdbId: 1010600,
         title: "Os Estranhos",
-        subtitle: "Capítulo 1 - Legendado",
+        subtitle: "Capítulo 1",
         description: "A jovem Maya viaja para o campo com seu namorado para começar uma nova vida. Quando seu carro quebra, o casal é forçado a passar a noite em um Airbnb isolado na floresta, onde o casal é aterrorizado até o amanhecer por três estranhos mascarados.",
         faixa: "A16",
+        lang: "Leg",
         src: "https://drive.google.com/file/d/1-KPxkbUq8fvMP4CSTeCy1ORn5ZB_0YM5/preview",
         duration: "01h 31m",
         genero: [gen.terror, gen.suspense]
@@ -2504,9 +2505,10 @@ export const cards: CardsProps[] = [
         overlay: overlay,
         tmdbId: 1209290,
         title: "Liga da Justiça",
-        subtitle: "Crise nas Infinitas Terras - Parte 3 - Legendado",
+        subtitle: "Crise nas Infinitas Terras - Parte 3",
         description: "Após se revelar como a derradeira ameaça à existência, o ANTIMONITOR lança um ataque implacável às Terras que ainda lutam pela sobrevivência em um universo de bolso. Um por um, esses mundos e todos os seus habitantes são vaporizados! Até o próprio tempo é destruído nos planetas restantes, e heróis do passado juntam-se à Liga da Justiça e a aliados inusitados na resistência contra o ser nefasto. Mas será que o sacrifício dos super-heróis nessa batalha final será o suficiente para salvar a humanidade?",
         faixa: "A12",
+        lang: "Leg",
         src: "https://drive.google.com/file/d/1pdMFwvEASe1djfAXKVxXA_LhMMLGCa2A/preview",
         duration: "01h 38m",
         genero: [gen.animacao, stm.hbo, agp.dc, agp.hero]
