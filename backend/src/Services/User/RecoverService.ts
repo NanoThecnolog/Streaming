@@ -23,22 +23,12 @@ export class RecoverService {
             where: { id: userId },
             data: {
                 password: passwordHash
-            }, select: {
-                id: true,
-                name: true,
-                email: true,
-                avatar: true,
-                verified: true,
-                birthday: true,
-                donator: true,
-                watchLater: true
             }
         })
         return {
-            id: userExiste.id,
-            name: userExiste.name,
-            email: userExiste.email,
-
+            id: updateUser.id,
+            name: updateUser.name,
+            email: updateUser.email,
         }
     }
 }
