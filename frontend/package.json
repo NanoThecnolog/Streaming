@@ -19,6 +19,7 @@
     "@vercel/speed-insights": "^1.0.14",
     "axios": "^1.7.7",
     "cookies-next": "^4.2.1",
+    "fuse.js": "^7.1.0",
     "lodash.debounce": "^4.0.8",
     "lucide-react": "^0.441.0",
     "mjml": "^4.15.3",

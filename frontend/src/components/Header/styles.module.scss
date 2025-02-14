@@ -66,12 +66,49 @@
         .formContainer {
             display: flex;
             height: 35px;
+            position: relative;
 
             .searchInput {
                 border: none;
                 padding: 0.5rem;
                 border-radius: 0.4rem;
                 font-family: var(--font-Roboto);
+            }
+
+            .relatedUi {
+                position: absolute;
+                top: 110%;
+                left: -2%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                padding: 12px;
+                flex-direction: column;
+                max-height: 600px;
+                width: 320px;
+                overflow-x: hidden;
+                background-color: var(--black);
+                border-radius: .4rem;
+                color: var(--white);
+                gap: 2px;
+                scrollbar-color: var(--grey) var(--background-gray-light);
+                font-family: var(--font-Roboto);
+
+                li {
+                    list-style: none;
+                    display: flex;
+                    gap: 8px;
+                    align-items: center;
+                    width: 100%;
+                    padding: 4px 10px;
+                    //border-radius: .2rem;
+                    transition: .2s;
+
+                    &:hover {
+                        background-color: var(--background-gray-light);
+                        color: var(--white);
+                    }
+                }
             }
         }
 
@@ -100,7 +137,6 @@
                 font-family: var(--font-Anton);
             }
         }
-
 
         .loginIcon {
             cursor: pointer;
@@ -356,6 +392,37 @@
                         padding: 0.4rem;
                         font-family: var(--font-Roboto);
                     }
+
+                    .relatedUiModal {
+                        position: absolute;
+                        bottom: 100%;
+                        right: -15%;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        padding: 12px;
+                        flex-direction: column;
+                        max-height: 600px;
+                        width: 270px;
+                        overflow-x: hidden;
+                        background-color: var(--black);
+                        border-radius: .4rem;
+                        color: var(--white);
+                        gap: 2px;
+                        scrollbar-color: var(--grey) var(--background-gray-light);
+                        font-size: 1.3rem;
+                        font-family: var(--font-Roboto);
+
+                        li {
+                            list-style: none;
+                            display: flex;
+                            gap: 8px;
+                            align-items: center;
+                            width: 100%;
+                            padding: 4px 10px;
+                            transition: .2s;
+                        }
+                    }
                 }
             }
 
@@ -503,6 +570,37 @@
                         height: 30px;
                         width: 250px;
                         padding: 0.4rem;
+                    }
+
+                    .relatedUiModal {
+                        position: absolute;
+                        bottom: 100%;
+                        left: -2%;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        padding: 12px;
+                        flex-direction: column;
+                        max-height: 600px;
+                        width: 370px;
+                        overflow-x: hidden;
+                        background-color: var(--black);
+                        border-radius: .4rem;
+                        color: var(--white);
+                        gap: 2px;
+                        scrollbar-color: var(--grey) var(--background-gray-light);
+                        font-size: 1.3rem;
+                        font-family: var(--font-Roboto);
+
+                        li {
+                            list-style: none;
+                            display: flex;
+                            gap: 8px;
+                            align-items: center;
+                            width: 100%;
+                            padding: 4px 10px;
+                            transition: .2s;
+                        }
                     }
                 }
             }
@@ -656,6 +754,37 @@
                         width: 250px;
                         padding: 0.4rem;
                     }
+
+                    .relatedUiModal {
+                        position: absolute;
+                        bottom: 100%;
+                        left: -2%;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        padding: 12px;
+                        flex-direction: column;
+                        max-height: 600px;
+                        width: 370px;
+                        overflow-x: hidden;
+                        background-color: var(--black);
+                        border-radius: .4rem;
+                        color: var(--white);
+                        gap: 2px;
+                        scrollbar-color: var(--grey) var(--background-gray-light);
+                        font-size: 1.3rem;
+                        font-family: var(--font-Roboto);
+
+                        li {
+                            list-style: none;
+                            display: flex;
+                            gap: 8px;
+                            align-items: center;
+                            width: 100%;
+                            padding: 4px 10px;
+                            transition: .2s;
+                        }
+                    }
                 }
             }
 
@@ -806,6 +935,37 @@
                         height: 30px;
                         width: 250px;
                         padding: 0.4rem;
+                    }
+
+                    .relatedUiModal {
+                        position: absolute;
+                        bottom: 100%;
+                        left: -2%;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        padding: 12px;
+                        flex-direction: column;
+                        max-height: 600px;
+                        width: 370px;
+                        overflow-x: hidden;
+                        background-color: var(--black);
+                        border-radius: .4rem;
+                        color: var(--white);
+                        gap: 2px;
+                        scrollbar-color: var(--grey) var(--background-gray-light);
+                        font-size: 1.3rem;
+                        font-family: var(--font-Roboto);
+
+                        li {
+                            list-style: none;
+                            display: flex;
+                            gap: 8px;
+                            align-items: center;
+                            width: 100%;
+                            padding: 4px 10px;
+                            transition: .2s;
+                        }
                     }
                 }
             }

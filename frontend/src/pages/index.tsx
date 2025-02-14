@@ -33,12 +33,6 @@ export default function Home() {
   const [loading, setLoading] = useState(false)
   const [visible, setvisible] = useState(false)
 
-  //const { 'flix-watch': watch } = parseCookies()
-  //console.log(JSON.parse(watch))
-
-
-
-
 
   useEffect(() => {
     /**

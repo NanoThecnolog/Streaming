@@ -14,10 +14,10 @@
     .episodeImage {
         width: 350px;
         height: 180px;
-        background-repeat: no-repeat;
         background-position: center;
+        background-repeat: no-repeat;
         background-size: cover;
-        background-color: #141414;
+        background-color: var(--background-gray);
         position: relative;
 
         svg {

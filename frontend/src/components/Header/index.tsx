@@ -3,23 +3,31 @@ import Link from "next/link";
 import { CiSearch } from "react-icons/ci";
 import Router, { useRouter } from "next/router";
 import styles from './styles.module.scss'
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { AlignJustify, LucideLogOut, Search } from "lucide-react";
 import { api } from "@/services/api";
 import { useFlix } from "@/contexts/FlixContext";
 import { parseCookies } from "nookies";
 import { IoCreate } from "react-icons/io5";
+import Fuse from 'fuse.js'
+import { cards } from "@/data/cards";
+import { CardsProps } from "@/@types/Cards";
+import debounce from "lodash.debounce";
+import { debuglog } from "@/utils/UtilitiesFunctions";
+import { SeriesProps } from "@/@types/series";
+import { series } from "@/data/series";
 
 export default function Header() {
     //refatorar esse componente
     const router = useRouter()
     const [searchInput, setSearchInput] = useState<string>('')
+    const [relatedSearch, setRelatedSearch] = useState<(CardsProps | SeriesProps)[]>([])
+    const [loading, setLoading] = useState(false)
     const [menuvisible, setMenuVisible] = useState<boolean>(false)
     const [modal, setModal] = useState<boolean>(false)
     const [searchMobileVisible, setSearchMobileVisible] = useState<boolean>(false)
     const [serverWake, setServerWake] = useState<boolean>(false)
-    //const [user, setUser] = useState<UserProps>()
     const { user, setUser, signOut } = useFlix()
     const [initial, setInitial] = useState("-")
 
@@ -55,14 +63,43 @@ export default function Header() {
         return () => clearInterval(manterAcordado)
     }, [])
 
-    /*useEffect(() => {
-        getUser()
-    }, [])*/
-    /*async function getUser() {
-        const data = await getUserCookieData()
-        if (!data) return
-        setUser(data)
-    }*/
+    useEffect(() => {
+        if (loading) document.body.style.cursor = "progress"
+        else document.body.style.cursor = "default"
+        return () => {
+            document.body.style.cursor = "default"
+        }
+    }, [loading])
+
+
+    const fuse = useMemo(() =>
+        new Fuse([...cards, ...series], {
+            keys: ["title"],
+            threshold: 0.3
+        }), [])
+
+    const handleSearchRelated = useMemo(() =>
+        debounce((text: string) => {
+            if (text.length > 0) {
+                const related = fuse.search(text).map((result) => result.item)
+                setRelatedSearch(related)
+            } else {
+                setRelatedSearch([])
+            }
+        }, 200), [fuse]
+    )
+    async function handleRelatedSearchClick(card: CardsProps | SeriesProps) {
+        debuglog("chamando")
+        setLoading(true)
+        try {
+            setSearchInput("")
+            setRelatedSearch([])
+            if ("season" in card) await router.push(`/series/serie/${card.tmdbID}`)
+            else await router.push(`/movie/${card.tmdbId}`)
+        } finally {
+            setLoading(false)
+        }
+    }
 
     function handleSearch(input: string) {
         const search = new URLSearchParams({ input: input });
@@ -72,6 +109,7 @@ export default function Header() {
         setModal(!modal)
         //Router.push('/me');
     }
+
     function handleClickHome(id: number) {
         if (id === 1) {
             setMenuVisible(!menuvisible)
@@ -99,10 +137,15 @@ export default function Header() {
                 <form className={styles.formContainer} onSubmit={(e) => { e.preventDefault(); handleSearch(searchInput); }}>
                     <input
                         value={searchInput}
-                        onChange={(e) => setSearchInput(e.target.value)}
+                        onChange={(e) => { setSearchInput(e.target.value), handleSearchRelated(e.target.value) }}
                         placeholder="buscar filme ou série"
                         className={styles.searchInput}
                     />
+                    {relatedSearch.length > 0 &&
+                        <ul className={styles.relatedUi}>
+                            {relatedSearch.map((card, index) => <li style={{ cursor: loading ? "progress" : "pointer" }} key={index} onClick={() => handleRelatedSearchClick(card)}><CiSearch size={20} /> {card.title} {card.subtitle ? `- ${card.subtitle}` : ""}</li>)}
+                        </ul>
+                    }
 
                     <div className={styles.button_container} onClick={() => handleSearch(searchInput)}>
                         <h2><CiSearch size={35} color="#fff" /></h2>
@@ -170,7 +213,7 @@ export default function Header() {
                                 <div>
                                     <input
                                         value={searchInput}
-                                        onChange={(e) => setSearchInput(e.target.value)}
+                                        onChange={(e) => { setSearchInput(e.target.value), handleSearchRelated(e.target.value) }}
                                         placeholder="Procure seu filme"
                                         className={styles.searchInput}
                                     />
@@ -178,6 +221,11 @@ export default function Header() {
                                 <div>
                                     <Search onClick={() => handleSearch(searchInput)} />
                                 </div>
+                                {relatedSearch.length > 0 &&
+                                    <ul className={styles.relatedUiModal}>
+                                        {relatedSearch.map((card, index) => <li style={{ cursor: loading ? "progress" : "pointer" }} key={index} onClick={() => handleRelatedSearchClick(card)}><CiSearch size={20} /> {card.title} {card.subtitle ? `- ${card.subtitle}` : ""}</li>)}
+                                    </ul>
+                                }
                             </form>
                         </>
                     }

@@ -147,16 +147,24 @@ export default function Movie() {
             {
                 movie ? (
                     <section className={styles.container}>
-                        <div className={styles.imageContainer}>
-                            {!loading ? <Image
-                                className={styles.img}
-                                alt='backdrop'
-                                fill
-                                quality={100}
-                                sizes="100%"
-                                src={tmdbData ? `https://image.tmdb.org/t/p/original/${tmdbData.backdrop_path}` : movie ? movie.background : "/fundo-largo.jpg"}
-                            /> : <div><Spinner /></div>}
-                        </div>
+
+                        {!loading ?
+                            /*
+                            <Image
+                            className={styles.img}
+                            alt='backdrop'
+                            priority
+                            fill
+                            quality={80}
+                            sizes="100%"
+                            src={tmdbData ? `https://image.tmdb.org/t/p/original/${tmdbData.backdrop_path}` : movie ? movie.background : "/fundo-largo.jpg"}
+                        />
+                            */
+                            <div
+                                className={styles.imageContainer}
+                                style={{ backgroundImage: `url(${tmdbData ? `https://image.tmdb.org/t/p/original/${tmdbData.backdrop_path}` : movie ? movie.background : "/fundo-largo.jpg"})` }}
+                            ></div> : <div><Spinner /></div>}
+
                         <div className={styles.coverContainer}>
                         </div>
                         <div className={`${styles.content} ${loading ? styles.loading : ""}`}>

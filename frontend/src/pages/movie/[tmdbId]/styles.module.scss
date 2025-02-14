@@ -21,6 +21,9 @@ $scrollbar-thumb-border: 2px solid #ddd;
         top: 0;
         left: 0;
         width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
 
         min-height: 100vh;
         overflow: hidden;

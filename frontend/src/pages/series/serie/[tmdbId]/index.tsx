@@ -258,8 +258,21 @@ export default function Serie() {
                 {serie ?
                     (
                         <div className={styles.serieContainer}>
-                            <div className={styles.imageContainer}>
-                                <Image className={styles.img} src={TMDBImage?.backdrop ? TMDBImage.backdrop : serie?.background} fill quality={100} alt={serie.title} />
+                            <div className={styles.imageContainer}
+                                style={{ backgroundImage: `url(${TMDBImage?.backdrop ? TMDBImage.backdrop : serie?.background})` }}
+                            >
+                                {
+                                    /*
+                                    <Image
+                                    className={styles.img}
+                                    src={TMDBImage?.backdrop ? TMDBImage.backdrop : serie?.background}
+                                    fill
+                                    priority
+                                    quality={80}
+                                    alt={serie.title}
+                                />
+                                    */
+                                }
                             </div>
                             <div className={styles.imageBackground}>
                                 <div className={styles.desc_top}>
@@ -336,6 +349,7 @@ export default function Serie() {
                                             episode: episode,
                                             data: ep
                                         }
+                                        debuglog("chamando no episode")
                                         return (
                                             <div key={index} className={styles.episodeContainer}>
                                                 <EpisodeCard episodeData={episodeInfo} handlePlay={handlePlayEpisode} />

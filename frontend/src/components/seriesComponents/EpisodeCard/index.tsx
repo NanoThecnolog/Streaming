@@ -2,6 +2,7 @@ import { PlayIcon } from 'lucide-react'
 import styles from './styles.module.scss'
 import { Episodes, TMDBEpisodes } from '@/@types/series'
 import { minToHour } from '@/utils/UtilitiesFunctions'
+import Image from 'next/image'
 
 interface EpisodeProps {
     episodeData: {
@@ -20,7 +21,9 @@ export default function EpisodeCard({ episodeData, handlePlay }: EpisodeProps) {
             <div
                 className={styles.episodeImage}
                 style={{ backgroundImage: `url(${episodeData.image})` }}
-            ><PlayIcon size={35} /></div>
+            >
+                <PlayIcon size={35} />
+            </div>
             <div className={styles.epiInfo}>
                 <h3>Ep.{episodeData.data.ep}: {episodeData.episode?.name}</h3>
                 <p>Duração: {episodeData.episode ? minToHour(episodeData.episode.runtime) : episodeData.data.duration ? episodeData.data.duration : "--"}</p>
