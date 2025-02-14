@@ -198,25 +198,6 @@ export default function Movie() {
                                             </button>
                                         </div>
                                         {
-                                            /*
-                                            <div className={styles.buttonFavorite}>
-                                            <button type='button' onClick={handleFavorite}>
-                                                {isFav ? (
-                                                    <>
-                                                        <p><FaStar color='#e0bf29' size={25} /></p>
-                                                        <p>Favorito</p>
-                                                    </>
-                                                ) : (
-                                                    <>
-                                                        <p><FaRegStar size={25} /></p>
-                                                        <p>Favoritar</p>
-                                                    </>
-                                                )}
-                                            </button>
-                                        </div>
-                                            */
-                                        }
-                                        {
                                             trailer && trailer.results.length > 0 &&
                                             <TrailerButton trailer={trailer} />
                                         }

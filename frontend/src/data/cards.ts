@@ -38,6 +38,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 536437,
+        title: "Hypnotic",
+        subtitle: "Ameaça Invisível",
+        description: "Um detetive se envolve em um mistério envolvendo sua filha desaparecida e um programa secreto do governo enquanto investiga uma série de crimes que distorcem a realidade.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1DBVFe52E5x4T1NvnxdWA9CNX2deA02-l/preview",
+        duration: "01h 33m",
+        genero: [gen.suspense, gen.acao, gen.ficcao, agp.misterio]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 597,
         title: "Titanic",
         subtitle: "",
