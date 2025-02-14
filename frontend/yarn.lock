@@ -3167,10 +3167,10 @@ path-type@^4.0.0:
   resolved "https://registry.npmjs.org/path-type/-/path-type-4.0.0.tgz"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
-payment-token-efi@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/payment-token-efi/-/payment-token-efi-3.1.0.tgz#5e1969c06134a6d1a451150c19ee44b393e8eb85"
-  integrity sha512-DpEeuhVLw8iZlZYW8+DyW3Ohd5uwqmEy2/2vJu+eiHyNn8p6eoQOzw8fZ3P9/+Hp3vyma2bgcDQwpvxei/Gg2w==
+payment-token-efi@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/payment-token-efi/-/payment-token-efi-3.1.1.tgz#e1b799b76459bac771b49b462e207a69fc6561e8"
+  integrity sha512-bDrgDsM6I+vAR+c1HNtkslbgGcwcARCWQig6WqT5TmJt+4cbKCAeLLVP9PcZ6tNsuKTKngwZUU5DDCKnW0Q4sg==
 
 picocolors@^1.0.0:
   version "1.0.1"

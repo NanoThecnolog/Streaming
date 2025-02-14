@@ -41,6 +41,134 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 60726,
+        title: "Forever",
+        subtitle: "Uma Vida Eterna",
+        description: "O médico Henry Morgan, médico-legista da cidade de Nova York, tem um segredo. Ele não estuda apenas os mortos para resolver casos criminais, ele faz isso para solucionar o mistério que o ilude há 200 anos - a resposta para sua inexplicável imortalidade. Essa vida longa deu a Henry notáveis habilidades de observação que impressionam seu novo parceiro, o detetive Jo Martinez. A cada semana, um novo caso e sua amizade florescente revelarão camadas do passado longo e colorido de Henry. Apenas seu melhor amigo e confidente, Abe conhece o segredo de Henry.",
+        genero: [gen.drama, gen.ficcao, gen.fantasia, agp.crime, agp.misterio],
+        faixa: "A14",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/12z2DYSDmAPi6yp-M9BywYel_aBwjzR2z/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1dKDgWA3cx6UkvmDWg3Mb1gAQVdA1HX7c/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1zQp6sNs8wC8UegYqsE5TsG1uiZSYHtnn/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1iviXP_pXLSdgrLgekAGulPhDtQTT-kIu/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1yo1I5itS9-B7qnE1H2Q8OvbYHSsbtn4d/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1BOFEEiMNeWJ_07wFonbF_W6HBOh2Ll5Y/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1MXRFxIepNqJVbC9WIuhxU582ck3KcC6z/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1MJA6LpDJNOeHuHCshPwMzJ17XYf0wvpp/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1olrYs8tV819W6eRqHlh60wCyjsqm5Edc/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1qUAQ9ZBbPF6tboA8VvF3Dt4suT2uG8MS/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 11,
+                        src: "https://drive.google.com/file/d/1lUPlyMHJQnQPjfiOihO61OxJGVKfBH06/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 12,
+                        src: "https://drive.google.com/file/d/1WYApLC4UbWVWRzNQO8DPSE7gThwv6VfR/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 13,
+                        src: "https://drive.google.com/file/d/1HrjaqCxNeYuYRG9CeDtYNCcFmpRMepz2/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 14,
+                        src: "https://drive.google.com/file/d/1-9PqSlr5UAXgsMqyDNHSUaAF4VIvqfwC/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 15,
+                        src: "https://drive.google.com/file/d/1y2npOdC0phfin901_KrcExgBYBxssmNv/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 16,
+                        src: "https://drive.google.com/file/d/12ci23FqvXt4zmWMjIYc6k_MfExdaRamQ/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 17,
+                        src: "https://drive.google.com/file/d/1EuBhvFdzcwcsN8pjdSljDpBADHXjbW1T/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 18,
+                        src: "https://drive.google.com/file/d/1HNlYN3dmkGCeymrvLodAx8obhUSZom0G/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 19,
+                        src: "https://drive.google.com/file/d/1nrvXApNxeFAbqJ3bnfnyVK4SCbArSIna/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 20,
+                        src: "https://drive.google.com/file/d/1Slwkw8F6vmxf6VyZhZzosBjmQGaaZoS4/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 21,
+                        src: "https://drive.google.com/file/d/1McFehCv4zUdmQnbzseJ_fin99Bb6EdOh/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 22,
+                        src: "https://drive.google.com/file/d/1b6jYkDNPsGHBqV6-0jS3LJhj-FJ8VIiU/preview",
+                        duration: "43m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 131927,
         title: "Dexter",
         subtitle: "New Blood",

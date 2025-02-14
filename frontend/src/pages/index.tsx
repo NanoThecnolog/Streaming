@@ -13,11 +13,10 @@ import { MovieTMDB } from "@/@types/Cards";
 import ReleaseContainer from "@/components/ReleaseContainer";
 import Loading from "@/components/ui/Loading";
 import { agp, gen } from "@/utils/Genres";
-import Script from "next/script";
 import BackTopButton from "@/components/ui/BackToTop";
 import debounce from "lodash.debounce";
-import { useFlix } from "@/contexts/FlixContext";
-import { parseCookies } from "nookies";
+import { debuglog } from "@/utils/UtilitiesFunctions";
+import EfiPay from "payment-token-efi";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -35,7 +34,9 @@ export default function Home() {
   const [visible, setvisible] = useState(false)
 
   //const { 'flix-watch': watch } = parseCookies()
-  //console.log(JSON.parse(watch))  
+  //console.log(JSON.parse(watch))
+
+
 
 
 
