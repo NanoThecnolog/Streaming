@@ -1,5 +1,4 @@
 import axios from "axios";
-import { getUserCookieData } from "./cookieClient";
 import { parseCookies } from "nookies";
 
 const url = process.env.NEXT_PUBLIC_RENDER;

@@ -38,6 +38,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 810693,
+        title: "Jujutsu Kaisen Zero",
+        subtitle: "O Filme",
+        description: "O jovem Yuta Okkotsu ganha o controle de um espírito extremamente poderoso, então um grupo de feiticeiros o matriculam na Tokyo Prefectural Jujutsu High School, para ajudá-lo a controlar esse poder e também para ficar de olho nele.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1YyR8rMaGvsdAFus8cTW0F8H14Y0W3Nim/preview",
+        duration: "01h 45m",
+        genero: [gen.animacao, gen.acao, gen.fantasia, stm.netflix]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 536437,
         title: "Hypnotic",
         subtitle: "Ameaça Invisível",
