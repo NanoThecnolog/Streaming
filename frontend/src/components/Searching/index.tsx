@@ -25,7 +25,7 @@ export default function Search({ handleOpenModal }: SearchProps) {
                 alt="FlixNext Busca"
                 quality={35}
                 sizes="100%"
-                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F4839516.jpg&f=1&nofb=1&ipt=2e79e5199ed621f753a3ae7976946a4b8e950b904d2c0bf12ee1eb70107c8c0c&ipo=images"
+                src="/fundo-filmes.jpg"
             />
             <div className={styles.overlay_image}></div>
             <div className={styles.search_area_content}>
