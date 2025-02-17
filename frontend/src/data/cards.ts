@@ -45,7 +45,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/13uGFCKP8-JleL9kD7RRf2GB7nW0OUMqG/preview",
         duration: "02h 07m",
-        genero: [gen.suspense, gen.romance, gen.ficcao, agp.misterio, stm.apple]
+        genero: [gen.suspense, gen.romance, gen.acao, gen.ficcao, agp.misterio, stm.apple]
     },
     {
         background: background,
