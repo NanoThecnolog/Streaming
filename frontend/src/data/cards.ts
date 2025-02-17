@@ -38,6 +38,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 1294203,
+        title: "Minha Culpa",
+        subtitle: "Londres",
+        description: "Noah, de 18 anos, se muda dos EUA para Londres com a mãe, que recentemente se apaixonou por William, um rico empresário britânico. Noah conhece o filho de William, o bad boy Nick, e logo descobre uma atração que nenhum dos dois consegue evitar. Enquanto Noah passa o verão tentando se ajustar à nova vida, seu passado devastador a atingirá em cheio justo quando se apaixona pela primeira vez.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1hoUUliM2jMsJdfuPA6d5MyRBnZLwGB1x/preview",
+        duration: "01h 59m",
+        genero: [gen.romance, gen.drama, stm.prime]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 950396,
         title: "Entre Montanhas",
         subtitle: "",

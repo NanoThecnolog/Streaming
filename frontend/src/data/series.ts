@@ -265,7 +265,6 @@ export const series: SeriesProps[] = [
                 s: 4,
                 lang: "Dublado",
                 episodes: [
-
                     {
                         ep: 1,
                         src: "https://drive.google.com/file/d/1mpoET4u0TJweUJ9otFPofmFJPjoFWwt5/preview",
@@ -337,7 +336,6 @@ export const series: SeriesProps[] = [
                 s: 5,
                 lang: "Dublado",
                 episodes: [
-
                     {
                         ep: 1,
                         src: "https://drive.google.com/file/d/1biKOVNUmj7EuCRcEo6wYjDPCKc46IIIy/preview",
@@ -480,7 +478,6 @@ export const series: SeriesProps[] = [
                 s: 7,
                 lang: "Dublado",
                 episodes: [
-
                     {
                         ep: 1,
                         src: "https://drive.google.com/file/d/19KUrHwhB42u9NHDjhxETz8Iokg7j8KAq/preview",
@@ -1582,6 +1579,11 @@ export const series: SeriesProps[] = [
                     {
                         ep: 18,
                         src: "https://drive.google.com/file/d/1vMPqtB7ICE29fjYEmkzZZAnkCqSflbnb/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 19,
+                        src: "https://drive.google.com/file/d/1Y_7sAHDclbvhtNHku1pyTJVRUa3YYre6/preview",
                         duration: "23m"
                     }
                 ]
