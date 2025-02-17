@@ -38,6 +38,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 950396,
+        title: "Entre Montanhas",
+        subtitle: "",
+        description: "Dois agentes altamente treinados se aproximam à distância após serem enviados para proteger lados opostos de um desfiladeiro misterioso. Quando um mal emerge, eles precisam trabalhar juntos para sobreviver ao que está lá dentro.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/13uGFCKP8-JleL9kD7RRf2GB7nW0OUMqG/preview",
+        duration: "02h 07m",
+        genero: [gen.suspense, gen.romance, gen.ficcao, agp.misterio, stm.apple]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 810693,
         title: "Jujutsu Kaisen Zero",
         subtitle: "O Filme",
