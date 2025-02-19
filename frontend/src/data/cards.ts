@@ -38,6 +38,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 848187,
+        title: "O Jogo do Disfarce",
+        subtitle: "",
+        description: "Emma e Dave apimentam seu aniversário de casamento com uma noite disfarçados em Nova York. Mas as coisas se tornam perigosas quando a vida secreta de Emma como assassina de aluguel, que Dave desconhece, é exposta por Bob, colocando sua família em risco. Emma terá que contar com suas habilidades letais e determinação para proteger a família a todo custo.",
+        faixa: "18",
+        src: "https://drive.google.com/file/d/1Iu7PMAY8wP4fKl1i8saMgMtRkpMXdcnP/preview",
+        duration: "01h 41m",
+        genero: [gen.acao, gen.comedia, gen.romance]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 1294203,
         title: "Minha Culpa",
         subtitle: "Londres",
@@ -5437,6 +5449,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 155,
+        title: "Batman",
+        subtitle: "O Cavaleiro das Trevas",
+        description: "Batman tem conseguido manter a ordem em Gotham com a ajuda de Jim Gordon e Harvey Dent. No entanto, um jovem e anárquico criminoso, conhecido apenas como Coringa, pretende testar o Cavaleiro das Trevas e mergulhar a cidade em um verdadeiro caos.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1zn6564_OwoaAJtMQsahKRhFsffX47z_g/preview",
+        duration: "2h 32m",
+        genero: [gen.acao, gen.suspense, agp.dc, agp.hero]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 49026,
         title: "Batman",
         subtitle: "O Cavaleiro das Trevas Ressurge",
@@ -6350,17 +6374,6 @@ export const cards: CardsProps[] = [
         genero: [gen.acao, gen.ficcao]
     },
     {
-        background: background,
-        overlay: overlay,
-        tmdbId: 155,
-        title: "Batman",
-        subtitle: "O Cavaleiro das Trevas",
-        description: "Batman tem conseguido manter a ordem em Gotham com a ajuda de Jim Gordon e Harvey Dent. No entanto, um jovem e anárquico criminoso, conhecido apenas como Coringa, pretende testar o Cavaleiro das Trevas e mergulhar a cidade em um verdadeiro caos.",
-        faixa: "A12",
-        src: "https://drive.google.com/file/d/1146J0pg5alhED9xfYS4g1vynWA_VMt6E/preview",
-        duration: "2h 32m",
-        genero: [gen.acao, gen.suspense, agp.dc, agp.hero]
-    }, {
         background: background,
         overlay: overlay,
         tmdbId: 12153,

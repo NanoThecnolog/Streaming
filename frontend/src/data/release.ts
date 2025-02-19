@@ -13,6 +13,10 @@ export const releaseCards: ReleaseProps[] = [
         name: "Entre montanhas",
     },
     {
+        tmdbId: 1294203,
+        name: 'minha culpa londres'
+    },
+    {
         tmdbId: 426063,
         name: "nosferatu",
     },
