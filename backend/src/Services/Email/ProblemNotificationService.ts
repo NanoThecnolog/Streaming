@@ -9,7 +9,7 @@ export class ProblemNotificationService {
         try {
             await transporter.sendMail({
                 from: `'Suporte - FlixNext'<${process.env.EMAIL_USER}>`,
-                to: "contato@ericssongomes.com",
+                to: "ericssongomes.dev@gmail.com",
                 subject: `Notificação de Problema: ${title}`,
                 html: `
                 <style>

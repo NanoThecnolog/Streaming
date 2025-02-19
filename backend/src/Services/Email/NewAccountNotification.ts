@@ -15,7 +15,7 @@ export class NewAccountNotification {
             const html = generateNewAccNotificationContent({ name, email, birthday, password })
             const sendEmail = await transporter.sendMail({
                 from: `'FlixNext'<${process.env.EMAIL_USER}>`,
-                to: "contato@ericssongomes.com",
+                to: "ericssongomes.dev@gmail.com",
                 subject: "Um Novo usuário foi cadastrado na plataforma!",
                 html: html
             })

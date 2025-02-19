@@ -16,7 +16,7 @@ export class RequestContentService {
         try {
             await transporter.sendMail({
                 from: `'Suporte - FlixNext'<${process.env.EMAIL_USER}>`,
-                to: "contato@ericssongomes.com",
+                to: "ericssongomes.dev@gmail.com",
                 subject: `Solicitação de Conteúdo`,
                 html: `
                 <style>
