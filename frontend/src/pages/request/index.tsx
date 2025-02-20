@@ -23,19 +23,6 @@ export default function Request() {
     const [loading, setLoading] = useState<boolean>(false)
 
 
-
-    useEffect(() => {
-        const getUserData = async () => {
-            try {
-                const user = await getUserCookieData();
-                if (!user) return router.push('/login')
-                setUser(user)
-            } catch (err) {
-                console.log("Erro ao buscar dados do usuário no cookie", err)
-            }
-        }
-        getUserData()
-    }, [])
     /**
      * Busca no tmdb o termo no estado title.
      * Inicia limpando o estado SearchCards, que é usado para armazenar os resultados da busca.
