@@ -35,6 +35,7 @@ export const cards: CardsProps[] = [
     genero: []
     },
     */
+
     {
         background: background,
         overlay: overlay,
@@ -94,6 +95,18 @@ export const cards: CardsProps[] = [
         src: "https://drive.google.com/file/d/1TRBrGqc4JOgVaaxKHFAkjTpy5Li0gcsE/preview",
         duration: "02h 15m",
         genero: [gen.acao, gen.drama, gen.suspense, agp.misterio, stm.prime]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 324668,
+        title: "Jason Bourne",
+        subtitle: "",
+        description: "Afastado da CIA há 10 anos, o agente Jason Bourne retorna ao campo de batalha para enfrentar uma rede sinistra que utiliza tecnologia e terror para se manter no poder.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1gSbqGr6o-HWZTG20DOdH9Q6HlmT73pMc/preview",
+        duration: "02h 03m",
+        genero: [gen.acao, gen.suspense, stm.prime]
     },
     {
         background: background,

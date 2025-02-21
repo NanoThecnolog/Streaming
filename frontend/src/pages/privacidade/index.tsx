@@ -1,23 +1,9 @@
 import Header from '@/components/Header'
 import styles from './styles.module.scss'
 import Footer from '@/components/Footer'
-import { useEffect, useState } from 'react'
-import { UserProps } from '@/@types/user'
-import Router from 'next/router'
-import { getUserCookieData } from '@/services/cookieClient'
 import SEO from '@/components/SEO'
 
 export default function Privacy() {
-    const [user, setUser] = useState<UserProps | null>()
-
-    useEffect(() => {
-        const userData = async () => {
-            const user = await getUserCookieData();
-            if (!user) return Router.push('/login');
-            setUser(user)
-        }
-        userData()
-    }, [])
     return (
         <>
             <SEO title="Política de Privacidade | FlixNext" description='Políticas de Privacidade da plataforma' />
@@ -105,9 +91,7 @@ export default function Privacy() {
                     <div>
                         <h4>Esta Política de Privacidade entra em vigor a partir de 24/07/2024.</h4>
                     </div>
-
                 </div>
-
             </section>
             <Footer />
         </>

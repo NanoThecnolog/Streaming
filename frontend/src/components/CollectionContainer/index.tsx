@@ -1,7 +1,7 @@
 import { fetchCollection } from '@/services/fetchTMDBData'
 import styles from './styles.module.scss'
 import { ResultsProps } from '@/@types/collection'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import CardCollection from './CardCollection'
 import { collections } from '@/data/collections'
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md'
@@ -17,6 +17,7 @@ export default function CollectionContainer({ cardPerContainer }: CollectionProp
     const [cardsPerPage, setCardsPerPage] = useState(cardPerContainer)
     const [currentIndex, setCurrentIndex] = useState(0)
     const collectionsName: string[] = [
+        'bourne',
         'harry potter',
         'missão impossível',
         'pânico',
@@ -33,11 +34,6 @@ export default function CollectionContainer({ cardPerContainer }: CollectionProp
         }
     }, [cardPerContainer])
 
-
-    useEffect(() => {
-        fetchCollectionData()
-    }, [fetchCollectionData])
-
     /**
  * Faz a requisição de dados das coleções, realizando as seguintes etapas:
  * 
@@ -50,7 +46,7 @@ export default function CollectionContainer({ cardPerContainer }: CollectionProp
  * Em caso de erro, a função captura e exibe o erro no console.
  */
 
-    async function fetchCollectionData() {
+    const fetchCollectionData = useCallback(async () => {
         try {
             const resultados = (await Promise.all(collectionsName.map(fetchCollection)))
                 .flat()
@@ -61,7 +57,14 @@ export default function CollectionContainer({ cardPerContainer }: CollectionProp
         } catch (err) {
             console.error(err)
         }
-    }
+    }, [])
+
+
+    useEffect(() => {
+        fetchCollectionData()
+    }, [fetchCollectionData])
+
+
     function nextPage() {
         if (currentIndex + 1 < resultados.length) {
 

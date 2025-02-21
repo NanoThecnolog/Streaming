@@ -1,8 +1,6 @@
 import Header from '@/components/Header'
 import styles from './styles.module.scss'
-import { useEffect, useState } from 'react';
-import { getUserCookieData } from '@/services/cookieClient';
-import { UserProps } from '@/@types/user';
+import { useState } from 'react';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
 import { apiTMDB } from '@/services/apiTMDB';
@@ -12,12 +10,9 @@ import { CardsProps } from '@/@types/Cards';
 import { cards } from '@/data/cards';
 import { series } from '@/data/series';
 import { SeriesProps } from '@/@types/series';
-import { useRouter } from 'next/router';
 import Spinner from '@/components/ui/Loading/spinner';
 
 export default function Request() {
-    const router = useRouter()
-    const [user, setUser] = useState<UserProps>()
     const [title, setTitle] = useState<string>('')
     const [searchCards, setSearchCards] = useState<RequestCardProps[]>([])
     const [loading, setLoading] = useState<boolean>(false)

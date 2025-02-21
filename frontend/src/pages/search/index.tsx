@@ -90,17 +90,9 @@ export default function Search() {
             if (loading) return
             setLoading(true)
 
-            const normalizedInput = normalizing(input).toLowerCase()
+            //const normalizedInput = normalizing(input).toLowerCase()
             if (input === '' && genre === '' && streaming === '' && faixa === '') return setLoading(false);
-            /*const matches = (item: CardsProps | SeriesProps): boolean => {
-                const normalizedTitle = normalizing(item.title).toLowerCase()
-                const normalizedSubtitle = normalizing(item.subtitle).toLowerCase()
-                const matchesTitle = !input || normalizedTitle.includes(normalizedInput) || normalizedSubtitle.includes(normalizedInput);
-                const matchesGenre = !genre || item.genero.some((g) => g.toLowerCase() === genre.toLowerCase());
-                const matchesStreaming = !streaming || item.genero.some((g) => g.toLowerCase() === streaming.toLowerCase());
-                const matchesFaixa = !faixa || item.faixa.toLowerCase() === faixa.toLowerCase();
-                return matchesTitle && matchesGenre && matchesStreaming && matchesFaixa;
-            }*/
+
 
             const filteredCard = cards.filter((item) => matches(input, genre, streaming, faixa, item))
             const filteredSerie = series.filter((item) => matches(input, genre, streaming, faixa, item))

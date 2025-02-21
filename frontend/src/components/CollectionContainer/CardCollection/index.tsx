@@ -7,7 +7,7 @@ interface CardProps {
 }
 
 export default function CardCollection({ card }: CardProps) {
-    const poster = `https://image.tmdb.org/t/p/original/${card.poster_path}`
+    const poster = `https://image.tmdb.org/t/p/w500/${card.poster_path}`
 
 
     return (
