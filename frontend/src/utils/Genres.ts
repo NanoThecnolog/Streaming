@@ -27,7 +27,8 @@ export const agp = {
     music: "Música",
     nacional: "Nacional",
     space: "Espaço",
-    psico: "Psicopata"
+    psico: "Psicopata",
+    politics: "Política"
 }
 export const stm = {
     netflix: "Netflix",

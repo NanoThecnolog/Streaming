@@ -41,6 +41,320 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 216082,
+        title: "Dia Zero",
+        subtitle: "",
+        description: "Um ex-presidente dos Estados Unidos volta à ativa para investigar a origem de um ataque cibernético letal e descobre uma rede de mentiras e conspirações.",
+        genero: [gen.drama, agp.guerra, agp.politics, stm.netflix],
+        faixa: "A16",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1MFwE1ZEor4bM9OmmU3NSwnUanAB13D75/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1RGxXKTO6Yl_69iUdYASiG9w0CRGw7BZg/preview",
+                        duration: "58m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1SehTcV0mvlxmPnlerCuWlzErBgPQxiUc/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1J-BsKFJykyFOgRwASuxOpwOHpF9LE543/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/172iMCzpCdvtZ7PybYdHUtK8ViSmIkqQG/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1R995gRuzpIdFQnItKL_njXVuYOO7CnkS/preview",
+                        duration: "53m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbID: 108978,
+        title: "Reacher",
+        subtitle: "",
+        description: "Quando o policial militar aposentado Jack Reacher é preso por um assassinato que não cometeu, ele se vê no meio de uma trama mortal cheia de policiais corruptos, empresários obscuros e políticos conspiradores. Só com sua inteligência, ele precisa descobrir o que está havendo em Margrave, Geórgia.",
+        genero: [gen.acao, agp.crime, gen.suspense, stm.prime],
+        faixa: "A16",
+        news: {
+            type: 'episode'
+        },
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1h4s2S5s46SUbtGRgW9NYop9U0A6yj6Qr/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1leHMhV6UbG-hB8zJfzhV2nuyZZLK44bT/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/15qEq0TICQ7s6GMwEvvni7BNec4yBSPLj/preview",
+                        duration: "47m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1yZ65P14eUnGlo8E7VDVi3QSNJc6VFU_V/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1hK-vFpUKncfa1E0Ayb537JWjBilfVw59/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1glegWNiMdmQrs98qQ5DKCXmhIyn3BImD/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/177fnUyhrun-oirYUkeh5YxTHRN1sKyyI/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/19hSs2gTsdVgxfnRnXJsjT0ervWXJqDxS/preview",
+                        duration: "52m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1wDI467_uWp0GS3DrTVp-2IedI0JzWJT9/preview",
+                        duration: "55m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/120TJKTa4NKqDbgJVhC2lIEAuvvNZH_2c/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1t34Tp-NFbnpckKtt-pcHDFhr6tzouIFc/preview",
+                        duration: "47m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1jBj6Xr-PNSCEUQ5unC-3sZxZC_3QP24z/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1Ou9rt1TwXDwcI_Xlwp_oqcR4sqEElGMO/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/10uc2FzkUCcRbUNmnuSVULlEOUod57oTQ/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/110zGgRVuWXkzbxAvA4VjpjtdbyQ9LsdP/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1lIrFJW0C4YXcSRkbFzwt7aZq8wbyBn0P/preview",
+                        duration: "42m"
+                    },
+                ]
+            },
+            {
+                s: 3,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/17JLWY97G7vzNSdA41UfkS7BYD1uF_KWH/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1HLdL0gwN3hiAi0WR6Om2EhaBucHZ77_F/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1LgG0j8d2F6XuJxHSs3z3bvRTRRY9CNa_/preview",
+                        duration: "54m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbID: 95557,
+        title: "Invencível",
+        subtitle: "",
+        description: "Uma animação de super-heróis para adultos e conta a história de Mark Grayson, de 17 anos, um cara como qualquer outro de sua idade, exceto que seu pai é o super-herói mais poderoso do planeta, Omni-Man. Porém, à medida que Mark desenvolve seus próprios poderes, ele descobre que o legado de seu pai pode não ser tão heroico quanto parece.",
+        genero: [gen.animacao, gen.acao, stm.prime],
+        faixa: "18",
+        news: {
+            type: "episode"
+        },
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1xvWoi-mJAFzTLQ3Dhnw0V_7fr8cf0U73/preview",
+                        duration: "47m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/17ZmjPw088QzNdwQSi4wKJIVL_gFNJ0d4/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1ZprSAqRdOB9wulKAPHNaUd-qkTHy-OLZ/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1bmaogKzDM_bnC2e2qvCV8VVzwJjD7Z6a/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1opz2x3S9Lqwbde9UUuhS8jvDPEjSiMWA/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1mn4qAjKw-EdULui1_afftGupUJyEKOGo/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/18QpxjSdGfjBff8Tce6MgF6DvVFicohy1/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1l-x724VJF4WKlb4kOVu3euFK4n7ngiPx/preview",
+                        duration: "44m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1U6K3QNgy2BqujAAPFkzsoncN060qph_e/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1BtzaCFvl_--uXGAJULOEoH6NAIVnzvV7/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1ZzTSnGFj4v7oTR8kkCZKGdVMBssloRTS/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/15bItupk0uu0fzCDf_PYdgrirByOTv29u/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1whENcY-e9Ur4Pa897de0loftWDn5jqIU/preview",
+                        duration: "35m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/17Un82m3ZRSJylv_KxIVkkHhPb4t_ydk_/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/13F78n252dM7iLcCxLxvBbsZtGDlrzJd3/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1Q1CBqjns0bpl7du7vpDKX6ioQ1K-Wz0R/preview",
+                        duration: "53m"
+                    },
+                ]
+            },
+            {
+                s: 3,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/12nnnnLd4QA2gBqJLLEzQL9XvK9l2I1LI/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1Hpr3REd227KoSVhZWYVlezXn-9-uaRhB/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1O36MRo7AWVRAWlDWAE14ibA29oJgoAAT/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1LZHtZdJdmXMeaNZ9bv6ff5E9RqsaVBT8/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1cpVe9b1Ul7UHHp0CvIh0LG9-jUzcvlWG/preview",
+                        duration: "48m"
+                    },
+                ]
+            }
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 95396,
         title: "Ruptura",
         subtitle: "",
@@ -1685,140 +1999,6 @@ export const series: SeriesProps[] = [
                     }
                 ]
             },
-        ]
-    },
-
-    {
-        background: background,
-        overlay: overlay,
-        tmdbID: 95557,
-        title: "Invencível",
-        subtitle: "",
-        description: "Uma animação de super-heróis para adultos e conta a história de Mark Grayson, de 17 anos, um cara como qualquer outro de sua idade, exceto que seu pai é o super-herói mais poderoso do planeta, Omni-Man. Porém, à medida que Mark desenvolve seus próprios poderes, ele descobre que o legado de seu pai pode não ser tão heroico quanto parece.",
-        genero: [gen.animacao, gen.acao, stm.prime],
-        faixa: "18",
-        news: {
-            type: "episode"
-        },
-        season: [
-            {
-                s: 1,
-                lang: "Dublado",
-                episodes: [
-                    {
-                        ep: 1,
-                        src: "https://drive.google.com/file/d/1xvWoi-mJAFzTLQ3Dhnw0V_7fr8cf0U73/preview",
-                        duration: "47m"
-                    },
-                    {
-                        ep: 2,
-                        src: "https://drive.google.com/file/d/17ZmjPw088QzNdwQSi4wKJIVL_gFNJ0d4/preview",
-                        duration: "44m"
-                    },
-                    {
-                        ep: 3,
-                        src: "https://drive.google.com/file/d/1ZprSAqRdOB9wulKAPHNaUd-qkTHy-OLZ/preview",
-                        duration: "42m"
-                    },
-                    {
-                        ep: 4,
-                        src: "https://drive.google.com/file/d/1bmaogKzDM_bnC2e2qvCV8VVzwJjD7Z6a/preview",
-                        duration: "44m"
-                    },
-                    {
-                        ep: 5,
-                        src: "https://drive.google.com/file/d/1opz2x3S9Lqwbde9UUuhS8jvDPEjSiMWA/preview",
-                        duration: "46m"
-                    },
-                    {
-                        ep: 6,
-                        src: "https://drive.google.com/file/d/1mn4qAjKw-EdULui1_afftGupUJyEKOGo/preview",
-                        duration: "44m"
-                    },
-                    {
-                        ep: 7,
-                        src: "https://drive.google.com/file/d/18QpxjSdGfjBff8Tce6MgF6DvVFicohy1/preview",
-                        duration: "48m"
-                    },
-                    {
-                        ep: 8,
-                        src: "https://drive.google.com/file/d/1l-x724VJF4WKlb4kOVu3euFK4n7ngiPx/preview",
-                        duration: "44m"
-                    },
-                ]
-            },
-            {
-                s: 2,
-                lang: "Dublado",
-                episodes: [
-                    {
-                        ep: 1,
-                        src: "https://drive.google.com/file/d/1U6K3QNgy2BqujAAPFkzsoncN060qph_e/preview",
-                        duration: "48m"
-                    },
-                    {
-                        ep: 2,
-                        src: "https://drive.google.com/file/d/1BtzaCFvl_--uXGAJULOEoH6NAIVnzvV7/preview",
-                        duration: "49m"
-                    },
-                    {
-                        ep: 3,
-                        src: "https://drive.google.com/file/d/1ZzTSnGFj4v7oTR8kkCZKGdVMBssloRTS/preview",
-                        duration: "49m"
-                    },
-                    {
-                        ep: 4,
-                        src: "https://drive.google.com/file/d/15bItupk0uu0fzCDf_PYdgrirByOTv29u/preview",
-                        duration: "46m"
-                    },
-                    {
-                        ep: 5,
-                        src: "https://drive.google.com/file/d/1whENcY-e9Ur4Pa897de0loftWDn5jqIU/preview",
-                        duration: "35m"
-                    },
-                    {
-                        ep: 6,
-                        src: "https://drive.google.com/file/d/17Un82m3ZRSJylv_KxIVkkHhPb4t_ydk_/preview",
-                        duration: "50m"
-                    },
-                    {
-                        ep: 7,
-                        src: "https://drive.google.com/file/d/13F78n252dM7iLcCxLxvBbsZtGDlrzJd3/preview",
-                        duration: "51m"
-                    },
-                    {
-                        ep: 8,
-                        src: "https://drive.google.com/file/d/1Q1CBqjns0bpl7du7vpDKX6ioQ1K-Wz0R/preview",
-                        duration: "53m"
-                    },
-                ]
-            },
-            {
-                s: 3,
-                lang: "Dublado",
-                episodes: [
-                    {
-                        ep: 1,
-                        src: "https://drive.google.com/file/d/12nnnnLd4QA2gBqJLLEzQL9XvK9l2I1LI/preview",
-                        duration: "48m"
-                    },
-                    {
-                        ep: 2,
-                        src: "https://drive.google.com/file/d/1Hpr3REd227KoSVhZWYVlezXn-9-uaRhB/preview",
-                        duration: "48m"
-                    },
-                    {
-                        ep: 3,
-                        src: "https://drive.google.com/file/d/1O36MRo7AWVRAWlDWAE14ibA29oJgoAAT/preview",
-                        duration: "50m"
-                    },
-                    {
-                        ep: 4,
-                        src: "https://drive.google.com/file/d/1LZHtZdJdmXMeaNZ9bv6ff5E9RqsaVBT8/preview",
-                        duration: "50m"
-                    }
-                ]
-            }
         ]
     },
     {
@@ -5140,110 +5320,7 @@ export const series: SeriesProps[] = [
         ]
     },
 
-    {
-        background: background,
-        overlay: overlay,
-        tmdbID: 108978,
-        title: "Reacher",
-        subtitle: "",
-        description: "Quando o policial militar aposentado Jack Reacher é preso por um assassinato que não cometeu, ele se vê no meio de uma trama mortal cheia de policiais corruptos, empresários obscuros e políticos conspiradores. Só com sua inteligência, ele precisa descobrir o que está havendo em Margrave, Geórgia.",
-        genero: [gen.acao, agp.crime, gen.suspense, stm.prime],
-        faixa: "A16",
-        season: [
-            {
-                s: 1,
-                lang: "Dublado",
-                episodes: [
-                    {
-                        ep: 1,
-                        src: "https://drive.google.com/file/d/1h4s2S5s46SUbtGRgW9NYop9U0A6yj6Qr/preview",
-                        duration: "54m"
-                    },
-                    {
-                        ep: 2,
-                        src: "https://drive.google.com/file/d/1leHMhV6UbG-hB8zJfzhV2nuyZZLK44bT/preview",
-                        duration: "52m"
-                    },
-                    {
-                        ep: 3,
-                        src: "https://drive.google.com/file/d/15qEq0TICQ7s6GMwEvvni7BNec4yBSPLj/preview",
-                        duration: "47m"
-                    },
-                    {
-                        ep: 4,
-                        src: "https://drive.google.com/file/d/1yZ65P14eUnGlo8E7VDVi3QSNJc6VFU_V/preview",
-                        duration: "46m"
-                    },
-                    {
-                        ep: 5,
-                        src: "https://drive.google.com/file/d/1hK-vFpUKncfa1E0Ayb537JWjBilfVw59/preview",
-                        duration: "48m"
-                    },
-                    {
-                        ep: 6,
-                        src: "https://drive.google.com/file/d/1glegWNiMdmQrs98qQ5DKCXmhIyn3BImD/preview",
-                        duration: "48m"
-                    },
-                    {
-                        ep: 7,
-                        src: "https://drive.google.com/file/d/177fnUyhrun-oirYUkeh5YxTHRN1sKyyI/preview",
-                        duration: "41m"
-                    },
-                    {
-                        ep: 8,
-                        src: "https://drive.google.com/file/d/19hSs2gTsdVgxfnRnXJsjT0ervWXJqDxS/preview",
-                        duration: "52m"
-                    },
-                ]
-            },
-            {
-                s: 2,
-                lang: "Dublado",
-                episodes: [
-                    {
-                        ep: 1,
-                        src: "https://drive.google.com/file/d/1wDI467_uWp0GS3DrTVp-2IedI0JzWJT9/preview",
-                        duration: "55m"
-                    },
-                    {
-                        ep: 2,
-                        src: "https://drive.google.com/file/d/120TJKTa4NKqDbgJVhC2lIEAuvvNZH_2c/preview",
-                        duration: "49m"
-                    },
-                    {
-                        ep: 3,
-                        src: "https://drive.google.com/file/d/1t34Tp-NFbnpckKtt-pcHDFhr6tzouIFc/preview",
-                        duration: "47m"
-                    },
-                    {
-                        ep: 4,
-                        src: "https://drive.google.com/file/d/1jBj6Xr-PNSCEUQ5unC-3sZxZC_3QP24z/preview",
-                        duration: "45m"
-                    },
-                    {
-                        ep: 5,
-                        src: "https://drive.google.com/file/d/1Ou9rt1TwXDwcI_Xlwp_oqcR4sqEElGMO/preview",
-                        duration: "43m"
-                    },
-                    {
-                        ep: 6,
-                        src: "https://drive.google.com/file/d/10uc2FzkUCcRbUNmnuSVULlEOUod57oTQ/preview",
-                        duration: "45m"
-                    },
-                    {
-                        ep: 7,
-                        src: "https://drive.google.com/file/d/110zGgRVuWXkzbxAvA4VjpjtdbyQ9LsdP/preview",
-                        duration: "45m"
-                    },
-                    {
-                        ep: 8,
-                        src: "https://drive.google.com/file/d/1lIrFJW0C4YXcSRkbFzwt7aZq8wbyBn0P/preview",
-                        duration: "42m"
-                    },
-                ]
-            },
-        ]
-    },
+
     {
         background: background,
         overlay: overlay,
