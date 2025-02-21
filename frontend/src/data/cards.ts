@@ -38,6 +38,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 302946,
+        title: "O Contador",
+        subtitle: "",
+        description: "O matemático Christian Wolff sente-se muito mais à vontade lidando com números do que com pessoas. Atualmente, trabalha como contador autônomo para uma das maiores organizações criminosas do mundo. Com a receita federal no encalço, ele resolve mudar de ares e atender um novo cliente, uma empresa de equipamentos robóticos onde um dos funcionários descobriu um desvio gigantesco de recursos. À medida que Christian se aprofunda nos registros da empresa e se aproxima da verdade, o número de cadáveres começa a crescer rapidamente.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1nknMUBTcGCtbWN9MKKBbVMlqs5M8RZBB/preview",
+        duration: "02h 07m",
+        genero: [gen.suspense, gen.drama, agp.crime]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 2501,
         title: "A Identidade Bourne",
         subtitle: "",
