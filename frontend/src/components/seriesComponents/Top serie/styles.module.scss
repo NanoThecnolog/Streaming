@@ -306,9 +306,10 @@
         justify-content: flex-end;
 
         .image_container {
+            height: 100vh;
             background: rgb(24, 24, 24);
             background: linear-gradient(0deg,
-                    rgba(20, 20, 20, 1) 40%,
+                    rgba(20, 20, 20, 1) 25%,
                     rgba(255, 255, 255, 0) 53%);
 
             .left_side {
