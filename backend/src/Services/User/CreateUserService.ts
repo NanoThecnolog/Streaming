@@ -35,7 +35,7 @@ class CreateUserService {
                 email: true
             }
         })
-        const transporter = nodemailer.createTransport({
+        /*const transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
             port: Number(process.env.SMTP_PORT),
             secure: true,
@@ -93,7 +93,7 @@ class CreateUserService {
             //console.log("mensagem enviada")
         } catch (err) {
             throw new Error(`Erro com o envio do email, ${err}`)
-        }
+        }*/
         return user
     }
 }

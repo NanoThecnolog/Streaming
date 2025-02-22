@@ -13,10 +13,17 @@ export class RequestContentService {
         })
         if (!userExiste) throw new Error("Usuário não existe!")
         const transporter = createTransporter();
+        transporter.verify((error, success) => {
+            if (error) {
+                console.log("Erro ao conectar", error)
+            } else {
+                console.log("Conexão SMTP rodando...")
+            }
+        })
         try {
             await transporter.sendMail({
                 from: `'Suporte - FlixNext'<${process.env.EMAIL_USER}>`,
-                to: "ericssongomes.dev@gmail.com",
+                to: "ericssongomes.fotografia@gmail.com",
                 subject: `Solicitação de Conteúdo`,
                 html: `
                 <style>
