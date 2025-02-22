@@ -28,7 +28,8 @@ class CreateUserService {
                 name,
                 email,
                 birthday,
-                password: passwordHash
+                password: passwordHash,
+                verified: true
             }, select: {
                 id: true,
                 name: true,
