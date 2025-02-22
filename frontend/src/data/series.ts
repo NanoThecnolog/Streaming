@@ -41,6 +41,242 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 78191,
+        title: "Você",
+        subtitle: "",
+        description: "Obsessivo e perigosamente charmoso, ele vai ao extremo para entrar na vida de quem o fascina. Você pode acabar fisgada sem nem perceber. Aí, pode ser tarde demais.",
+        genero: [gen.drama, agp.psico, stm.netflix],
+        faixa: "18",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/167uid-I8EhMx4OOjncaIXX5SGNyoK66i/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1kq9wbUSctcoStF2V6Xt4D6isDRed0vIF/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/15CWd7IUXRct5bRHMO0G6embvKBfHQQ49/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1KJ0MxM0YX9np9Lh45KyUm_SL6vT83mY0/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1WRlcI5c0JPSAnw6bFN-0i0WwM6kULOIy/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1JCy-99AvFviKIRW8KU5lhmUcMMYx4TI1/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1FeFWxYt1h7LfGnSWJjTlsabzFpOclAJL/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1glLgMP1MH5lyXIhudKA2fCIxMHJpSYRh/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1u51YgbCGO8TRLXvbtQAcziz-_m_qKxcm/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/18yMsqEvTJj24I_KHaacF-mXQmcIg863K/preview",
+                        duration: "49m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/10z1PY3L0mIq9TalfCmju5c4rfuybt18i/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1ZJR5fngtcTUZKsGgpr3K1-5N2qdMPFMR/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1XBu9iPZQgm21bXYcdWrOMRkCMe2i2r3k/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1mJNndnIJ_dIFix6rzpn04wUAuGZwrleU/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1fRb9w2Vf7vsi06zqNV5sTIyD6sed4xWP/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1r7b19czsYNVJHqPaw6G2gRnZx0OIdJhw/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1zM_OD2Z8Y-ygghyJuWiL60-i7-i_OfPz/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1as5-6vEcOd5jbPWMG_cWu_5KSXuNw6IB/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1onYY7yrwn1nuOwO9nVrgCRkNeLPcbejv/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1l8kD15TgPNoHxLoeeZMR5r9ZpehOZeN2/preview",
+                        duration: "50m"
+                    },
+                ]
+            },
+            {
+                s: 3,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1MQ6EpnyXT9KZvQXMwTYAJol5nFdZ6nST/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1t60SwQSSBf6tkXItsrjUPbIdNCWf0XT7/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1CwKDkf7AuXAazac_u_zo_Ez6iQ8U6KT4/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1dFN7KW2CAQP66RpZvkpDreDjqFP0mqFR/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1l1c0ahNOBG8M25x_Y_AgwyzGyouMhAvb/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1sWtLgxjPISlxXzywbV_L4XRlnFtPBEjm/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1oTNm61BU110xozNZIGXbw2_LaLuVcB8H/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1rcFnjxvwg717ywiE8o_bQ5KbyrXd3jxL/preview",
+                        duration: "49m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1TsW3Wr9LqmQhAgoCCiIzuWRwn85web61/preview",
+                        duration: "47m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1MwxvMOMpWzhua-_nr1d6Ou3UfNFlRQAw/preview",
+                        duration: "58m"
+                    },
+                ]
+            },
+            {
+                s: 4,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1d9ttbLIHHqYOLqr0UUMzxAy_HpgDz0ze/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1fbfNRbFjuscp3F17lpovdljY6jjj_G0A/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1mZ_jVmh07mrT4L5zDmCgVq_C7zmzImtS/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1pGAVfRdH1v-GSc-OJ-S9apx9qCWYp-2K/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/13qZ_4crFkkdptXFuAAXCpLs2VZyMPH7K/preview",
+                        duration: "48m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1bGei9zdvVkt3FId0Q0YhyRE4D8itmpQX/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1zNypcTQhu4CbXSPpAel4AfZqc4aEM98o/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1wHmeUYyTkP2elXCZMAIHAsyH-WNhmtFn/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/17uzaByGxEuPxYOEmQGs-GBlKx-HHyw4S/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1Qlf0BQVDhd9kfjELoZI7VIQodZXGp9dl/preview",
+                        duration: "53m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 216082,
         title: "Dia Zero",
         subtitle: "",
