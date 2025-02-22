@@ -116,6 +116,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Está tudo pronto para a viagem inaugural da nave espacial mais moderna já criada: a USS Enterprise. Sua jovem tripulação tem uma missão importante: encontrar uma maneira de deter o malvado Nero que, motivado pela vingança, ameaça toda a humanidade. Mas o destino da galáxia está nas mãos de dois jovens rivais, que nasceram em mundos diferentes. Um deles, Tiberius James Kirk, é humano, em busca de emoções e um líder nato. O outro, Spock, meio humano e meio vulcano, é desprezado pelos vulcanos por suas emoções humanas.",
         faixa: "A12",
+        lang: "Leg",
         src: "https://drive.google.com/file/d/13cktD0nE8G2kf0rlv5sdv1-gnzz7tJdh/preview",
         duration: "02h 07m",
         genero: [gen.acao, gen.ficcao, gen.aventura, stm.netflix]
