@@ -26,6 +26,7 @@ import Card from "@/components/seriesComponents/Card";
 import { TrailerProps } from "@/@types/trailer";
 import TrailerButton from "@/components/ui/TrailerButton";
 import { useFlix } from "@/contexts/FlixContext";
+import NewContent from "@/components/ui/NewContent";
 
 interface TMDBImagesProps {
     backdrop: string,
@@ -280,6 +281,7 @@ export default function Serie() {
                                         <h1>{serie.title} {serie.subtitle !== '' && `- ${serie.subtitle}`}</h1>
                                     </div>
                                     <div className={styles.tmdbInfo}>
+                                        {serie.news && <NewContent type={serie.news.type} />}
                                         <Stars average={TMDBSerie?.vote_average ?? 0} />
                                         <Adult faixa={serie.faixa} />
                                     </div>

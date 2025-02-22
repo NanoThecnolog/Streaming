@@ -44,38 +44,7 @@ async function fetchCardData(cardId: number, retries: number = max_tentativas): 
             }
             await new Promise((resolve) => setTimeout(resolve, 2000))
         }
-
     }
-
-    /*try {
-        const response = await axios.get(
-            `https://api.themoviedb.org/3/movie/${cardId}`,
-            {
-                headers: {
-                    Authorization: `Bearer ${tmdbToken}`,
-                },
-                params: {
-                    language: "pt-BR",
-                },
-            }
-        );
-        return {
-            success: true,
-            data: response.data,
-            cardId
-        };
-    } catch (err: any) {
-        if (retries > 0) {
-            console.log(`Tentativa falha para o card ${cardId}, tentando novamente...`);
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            return fetchCardData(cardId, retries - 1);
-        }
-        return {
-            success: false,
-            error: err.response?.data || err.message,
-            cardId
-        };
-    }*/
 }
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (!tmdbToken) {

@@ -7,7 +7,7 @@ export interface SeriesProps {
     description: string;
     genero: string[]
     faixa: string
-    news?: { type: "season" | "episode" }
+    news?: { type: "season" | "episode" | "news" }
     season: Seasons[]
 }
 

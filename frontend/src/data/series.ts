@@ -47,6 +47,9 @@ export const series: SeriesProps[] = [
         description: "Um ex-presidente dos Estados Unidos volta à ativa para investigar a origem de um ataque cibernético letal e descobre uma rede de mentiras e conspirações.",
         genero: [gen.drama, agp.guerra, agp.politics, stm.netflix],
         faixa: "A16",
+        news: {
+            type: "news"
+        },
         season: [
             {
                 s: 1,
