@@ -26,6 +26,7 @@ export default function Search({ handleOpenModal }: SearchProps) {
                 quality={35}
                 sizes="100%"
                 src="/fundo-filmes.jpg"
+                priority
             />
             <div className={styles.overlay_image}></div>
             <div className={styles.search_area_content}>

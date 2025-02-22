@@ -44,7 +44,8 @@ export default function Card({ card }: CardProps) {
     return (
         <>
             <div className={styles.card} id={card.genero[0].toLowerCase()}>
-                <Image
+                {
+                    /*<Image
                     src={TMDBImages ? TMDBImages.poster : card.overlay}
                     alt={card.title}
                     fill
@@ -54,6 +55,13 @@ export default function Card({ card }: CardProps) {
                     className={styles.backgroundImage}
                     priority
                     sizes="100%"
+                    onClick={() => handleClick()}
+                />*/
+                }
+                <img
+                    src={TMDBImages ? TMDBImages.poster : card.overlay}
+                    alt={card.title}
+                    className={styles.backgroundImage}
                     onClick={() => handleClick()}
                 />
             </div>

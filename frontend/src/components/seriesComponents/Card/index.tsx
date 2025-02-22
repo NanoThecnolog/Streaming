@@ -51,7 +51,9 @@ export default function Card({ card }: CardProps) {
     return (
         <>
             <div key={card.tmdbID} className={styles.card} id={card.genero[0].toLowerCase()}>
-                <Image
+                {
+                    /*
+                    <Image
                     src={TMDBImage ? TMDBImage.poster : card.overlay}
                     alt={card.title}
                     fill
@@ -61,6 +63,14 @@ export default function Card({ card }: CardProps) {
                     className={styles.backgroundImage}
                     priority
                     sizes="100%"
+                    onClick={() => handleClick()}
+                />
+                    */
+                }
+                <img
+                    src={TMDBImage ? TMDBImage.poster : card.overlay}
+                    alt={card.title}
+                    className={styles.backgroundImage}
                     onClick={() => handleClick()}
                 />
                 {card.news &&
