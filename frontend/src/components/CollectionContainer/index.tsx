@@ -17,7 +17,6 @@ export default function CollectionContainer({ cardPerContainer }: CollectionProp
     const [cardsPerPage, setCardsPerPage] = useState(cardPerContainer)
     const [currentIndex, setCurrentIndex] = useState(0)
     const collectionsName: string[] = [
-        'bourne',
         'harry potter',
         'missão impossível',
         'pânico',
