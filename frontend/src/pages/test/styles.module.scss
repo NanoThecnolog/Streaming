@@ -1,0 +1,15 @@
+.container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+        color: var(--white);
+        width: 100%;
+        background-color: blueviolet;
+        padding: 10px 5px;
+        border-radius: .4rem;
+    }
+}

@@ -3,23 +3,25 @@ import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { ChevronLeft } from 'lucide-react';
 import { api } from "@/services/api";
-import { getUserCookieData } from "@/services/cookieClient";
 import HelpFlag from "@/components/Helpflag";
 import HelpModal from "@/components/modals/HelpModal/index ";
-import { UserProps } from "@/@types/user";
 import SEO from "@/components/SEO";
 import { cards } from '@/data/cards';
 import { CardsProps } from '@/@types/Cards';
 import { parseCookies } from 'nookies';
 import { useFlix } from '@/contexts/FlixContext';
+import { apiGoogle } from '@/services/apiGoogle';
+import { MdArrowOutward } from 'react-icons/md';
+import NoFile from '@/components/ui/NoFile';
+import { CheckFileProps } from '@/@types/googleRequest';
 
 export default function Watch() {
     const router = useRouter()
     const { tmdbId } = router.query;
     const [movieData, setMovieData] = useState({ title: '', subtitle: '', src: '', tmdbId: 0 });
-    //const [user, setUser] = useState<UserProps>()
     const { user, setUser } = useFlix()
     const [visible, setVisible] = useState(false)
+    const [shared, setShared] = useState(false)
 
     useEffect(() => {
         if (!user) {
@@ -45,17 +47,6 @@ export default function Watch() {
         return () => clearInterval(manterAcordado)
     }, [acordarServidor])
 
-
-    /*const userData = useCallback(async () => {
-        const user = await getUserCookieData();
-        if (!user) return router.push('/login');
-        setUser(user)
-    }, [router])
-
-    useEffect(() => {
-        userData()
-    }, [userData])*/
-
     useEffect(() => {
         if (tmdbId) {
             const movie: CardsProps | undefined = cards.find(card => card.tmdbId === Number(tmdbId))
@@ -66,6 +57,7 @@ export default function Watch() {
                 src: movie.src,
                 tmdbId: movie.tmdbId
             })
+            shareVerify(movie.src)
         }
     }, [router, tmdbId])
 
@@ -73,34 +65,21 @@ export default function Watch() {
         router.back()
     }, [router])
 
-    useEffect(() => {
-        function rightClickBlock(event: MouseEvent) { event.preventDefault(); }
-
-
-        // Impede atalhos de ferramentas de desenvolvedor
-        function openConsoleBlock(event: KeyboardEvent) {
-
-            const blockedKeys = ['F12', 'I', 'C', 'J', 'U']
-            if (
-                blockedKeys.includes(event.key) ||
-                (event.ctrlKey && event.shiftKey && blockedKeys.includes(event.key)) ||
-                (event.ctrlKey && event.key === 'U')
-            ) {
-                event.preventDefault();
-            }
-        };
-
-        document.addEventListener('contextmenu', rightClickBlock);
-        document.addEventListener('keydown', openConsoleBlock);
-
-        return () => {
-            document.removeEventListener('contextmenu', rightClickBlock);
-            document.removeEventListener('keydown', openConsoleBlock);
-        };
-    }, []);
 
     function handleHelpModal() {
         setVisible(!visible)
+    }
+
+
+    async function shareVerify(link: string) {
+        try {
+            const encodedLink = encodeURIComponent(link)
+            const info = await apiGoogle.get(`/${encodedLink}`)
+            const fileCheck: CheckFileProps = info.data.response
+            setShared(fileCheck.shared)
+        } catch (err) {
+            console.error("Erro ao verificar arquivo", err)
+        }
     }
 
     return (
@@ -118,13 +97,15 @@ export default function Watch() {
                         <HelpFlag modalVisible={handleHelpModal} />
                     </div>
                     <div className={styles.iframe} id="iframe">
-                        <iframe
+                        {shared ? <iframe
                             title={movieData.title}
                             allowFullScreen
                             width="100%"
                             height="100%"
                             src={movieData.src}
-                        />
+                        /> :
+                            <NoFile type="movie" />
+                        }
                     </div>
                     {visible && (
                         <HelpModal

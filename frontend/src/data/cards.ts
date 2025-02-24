@@ -33,7 +33,7 @@ export const cards: CardsProps[] = [
     src: "",
     duration: "",
     genero: []
-    },
+    },https://drive.google.com/file/d/1nknMUBTcGCtbWN9MKKBbVMlqs5M8RZBB/preview
     */
 
     {

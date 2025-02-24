@@ -20,6 +20,7 @@
     "axios": "^1.7.7",
     "cookies-next": "^4.2.1",
     "fuse.js": "^7.1.0",
+    "googleapis": "^144.0.0",
     "lodash.debounce": "^4.0.8",
     "lucide-react": "^0.441.0",
     "mjml": "^4.15.3",
@@ -32,7 +33,8 @@
     "react-icons": "^5.2.1",
     "react-player": "^2.16.0",
     "react-toastify": "^10.0.5",
-    "sass": "^1.77.8"
+    "sass": "^1.77.8",
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
     "@types/lodash.debounce": "^4.0.9",
