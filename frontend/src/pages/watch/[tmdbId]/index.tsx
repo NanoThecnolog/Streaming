@@ -14,6 +14,7 @@ import { apiGoogle } from '@/services/apiGoogle';
 import { MdArrowOutward } from 'react-icons/md';
 import NoFile from '@/components/ui/NoFile';
 import { CheckFileProps } from '@/@types/googleRequest';
+import Spinner from '@/components/ui/Loading/spinner';
 
 export default function Watch() {
     const router = useRouter()
@@ -21,7 +22,8 @@ export default function Watch() {
     const [movieData, setMovieData] = useState({ title: '', subtitle: '', src: '', tmdbId: 0 });
     const { user, setUser } = useFlix()
     const [visible, setVisible] = useState(false)
-    const [shared, setShared] = useState(false)
+    const [shared, setShared] = useState(true)
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         if (!user) {
@@ -72,6 +74,8 @@ export default function Watch() {
 
 
     async function shareVerify(link: string) {
+        if (loading) return
+        setLoading(true)
         try {
             const encodedLink = encodeURIComponent(link)
             const info = await apiGoogle.get(`/${encodedLink}`)
@@ -79,6 +83,8 @@ export default function Watch() {
             setShared(fileCheck.shared)
         } catch (err) {
             console.error("Erro ao verificar arquivo", err)
+        } finally {
+            setLoading(false)
         }
     }
 
@@ -97,14 +103,15 @@ export default function Watch() {
                         <HelpFlag modalVisible={handleHelpModal} />
                     </div>
                     <div className={styles.iframe} id="iframe">
-                        {shared ? <iframe
-                            title={movieData.title}
-                            allowFullScreen
-                            width="100%"
-                            height="100%"
-                            src={movieData.src}
-                        /> :
-                            <NoFile type="movie" />
+                        {loading ? <Spinner />
+                            : shared ? <iframe
+                                title={movieData.title}
+                                allowFullScreen
+                                width="100%"
+                                height="100%"
+                                src={movieData.src}
+                            /> :
+                                <NoFile type="movie" />
                         }
                     </div>
                     {visible && (

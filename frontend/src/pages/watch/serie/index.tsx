@@ -15,6 +15,7 @@ import { parseCookies } from "nookies"
 import NoFile from "@/components/ui/NoFile"
 import { apiGoogle } from "@/services/apiGoogle"
 import { CheckFileProps } from "@/@types/googleRequest"
+import Spinner from "@/components/ui/Loading/spinner"
 
 interface EpisodeProps {
     title: string,
@@ -32,7 +33,8 @@ export default function WatchSerie() {
     const [serie, setSerie] = useState<SeriesProps>()
     const { user, setUser } = useFlix()
     const [visible, setVisible] = useState(false)
-    const [shared, setShared] = useState(false)
+    const [shared, setShared] = useState(true)
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         if (!user) {
@@ -88,13 +90,21 @@ export default function WatchSerie() {
     }
 
     async function shareVerify(link: string) {
+        if (loading) return
+        console.log("loading no inicio", loading)
+        setLoading(true)
         try {
             const encodedLink = encodeURIComponent(link)
+            console.log("loading no momento de setar shared", loading)
             const info = await apiGoogle.get(`/${encodedLink}`)
             const fileCheck: CheckFileProps = info.data.response
             setShared(fileCheck.shared)
+
         } catch (err) {
             console.error("Erro ao verificar arquivo", err)
+        } finally {
+            console.log("loading no final", loading)
+            setLoading(false)
         }
     }
 
@@ -102,6 +112,7 @@ export default function WatchSerie() {
         <>
             <SEO title={`Episódio ${episode} - ${title} ${subtitle != '' && `- ${subtitle}`} | FlixNext`} description=" " />
             <div className={styles.container}>
+
                 <div className={styles.movie}>
                     <div className={styles.movieName}>
                         <button onClick={handleBack} title="Voltar ao início" className={styles.buttonPreview}>
@@ -117,40 +128,41 @@ export default function WatchSerie() {
                         <HelpFlag modalVisible={handleHelpModal} />
                     </div>
                     {
-                        shared ?
-                            episodio &&
-                            <>
-                                <div className={styles.iframe}>
-                                    <iframe
-                                        title={episodio.title}
-                                        allowFullScreen
-                                        width="100%"
-                                        height="100%"
-                                        src={episodio.src}
-                                    />
-                                </div>
-                                <div className={styles.buttonContainer}>
-                                    <PrevEpisode
-                                        title={episodio.title}
-                                        subtitle={episodio.subtitle}
-                                        season={episodio.season}
-                                        episode={episodio.episode}
-                                    />
-                                    <NextEpisode
-                                        title={episodio.title}
-                                        subtitle={episodio.subtitle}
-                                        season={episodio.season}
-                                        episode={episodio.episode}
-                                    />
-                                </div>
-
-                            </> :
+                        loading ?
                             <div className={styles.iframe}>
-                                <NoFile type="serie" />
-                            </div>
+                                <Spinner />
+                            </div> : shared ?
+                                episodio &&
+                                <>
+                                    <div className={styles.iframe}>
+                                        <iframe
+                                            title={episodio.title}
+                                            allowFullScreen
+                                            width="100%"
+                                            height="100%"
+                                            src={episodio.src}
+                                        />
+                                    </div>
+                                    <div className={styles.buttonContainer}>
+                                        <PrevEpisode
+                                            title={episodio.title}
+                                            subtitle={episodio.subtitle}
+                                            season={episodio.season}
+                                            episode={episodio.episode}
+                                        />
+                                        <NextEpisode
+                                            title={episodio.title}
+                                            subtitle={episodio.subtitle}
+                                            season={episodio.season}
+                                            episode={episodio.episode}
+                                        />
+                                    </div>
+
+                                </> :
+                                <div className={styles.iframe}>
+                                    <NoFile type="serie" />
+                                </div>
                     }
-
-
                     {visible && (
                         <HelpModal
                             handleHelpModal={handleHelpModal}
@@ -162,6 +174,8 @@ export default function WatchSerie() {
                         />
                     )}
                 </div>
+
+
             </div>
         </>
     )
