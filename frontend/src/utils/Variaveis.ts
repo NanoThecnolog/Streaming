@@ -1,3 +1,6 @@
+import { cards } from "@/data/cards"
+import { series } from "@/data/series"
+
 export const cookieOptions = {
     maxAge: 15 * 24 * 60 * 60 * 1000,
     path: '/'
@@ -22,3 +25,11 @@ export const avatares = [
     "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F019%2F494%2F963%2Fnon_2x%2Fman-boy-avatar-user-person-people-curly-hair-black-colored-outline-style-vector.jpg&f=1&nofb=1&ipt=7bba4bf362237dae90fe104070b7789adf4f51a16313b84c53e6ee94c2269c06&ipo=images",
     "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fd0%2F6b%2F43%2Fd06b43ef4fc9ed6d78ac7a925923b303.jpg&f=1&nofb=1&ipt=0d226e44feaa2d58f84ed2d37d01244f226b56cf4d9ee5d1953961db640fbe3d&ipo=images",
 ]
+/**
+ * config do fuse
+ */
+export const fuseConfig = {
+    dados: [...cards, ...series], // array de objetos para a busca
+    chaves: ["title", "subtitle"], // propriedades a serem comparadas
+    taxa: 0.3 // taxa de comparação
+}

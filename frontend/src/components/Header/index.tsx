@@ -11,12 +11,11 @@ import { useFlix } from "@/contexts/FlixContext";
 import { parseCookies } from "nookies";
 import { IoCreate } from "react-icons/io5";
 import Fuse from 'fuse.js'
-import { cards } from "@/data/cards";
 import { CardsProps } from "@/@types/Cards";
 import debounce from "lodash.debounce";
 import { debuglog } from "@/utils/UtilitiesFunctions";
 import { SeriesProps } from "@/@types/series";
-import { series } from "@/data/series";
+import { fuseConfig } from "@/utils/Variaveis";
 
 export default function Header() {
     //refatorar esse componente
@@ -30,6 +29,12 @@ export default function Header() {
     const [serverWake, setServerWake] = useState<boolean>(false)
     const { user, setUser, signOut } = useFlix()
     const [initial, setInitial] = useState("-")
+
+    const fuse = useMemo(() =>
+        new Fuse(fuseConfig.dados, {
+            keys: fuseConfig.chaves,
+            threshold: fuseConfig.taxa
+        }), [])
 
     useEffect(() => {
         if (!user) {
@@ -72,11 +77,7 @@ export default function Header() {
     }, [loading])
 
 
-    const fuse = useMemo(() =>
-        new Fuse([...cards, ...series], {
-            keys: ["title"],
-            threshold: 0.3
-        }), [])
+
 
     const handleSearchRelated = useMemo(() =>
         debounce((text: string) => {
