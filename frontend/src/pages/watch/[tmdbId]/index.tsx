@@ -83,6 +83,7 @@ export default function Watch() {
             setShared(fileCheck.shared)
         } catch (err) {
             console.error("Erro ao verificar arquivo", err)
+            setShared(false)
         } finally {
             setLoading(false)
         }

@@ -102,6 +102,7 @@ export default function WatchSerie() {
 
         } catch (err) {
             console.error("Erro ao verificar arquivo", err)
+            setShared(false)
         } finally {
             console.log("loading no final", loading)
             setLoading(false)
