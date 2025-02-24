@@ -15,9 +15,6 @@ import Loading from "@/components/ui/Loading";
 import { agp, gen } from "@/utils/Genres";
 import BackTopButton from "@/components/ui/BackToTop";
 import debounce from "lodash.debounce";
-import { debuglog } from "@/utils/UtilitiesFunctions";
-import EfiPay from "payment-token-efi";
-import CollectionContainer from "@/components/CollectionContainer";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -138,7 +135,6 @@ export default function Home() {
                 <Top width={width} />
                 <div className={styles.mid} id="filmes">
                   <ReleaseContainer section="lançamentos" cardPerContainer={cardPerContainer} />
-                  <CollectionContainer cardPerContainer={cardPerContainer} />
                   {
                     divisaoPorGenero.map((sec, index) => (
                       <div key={index}>
