@@ -41,6 +41,64 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 110492,
+        title: "Pacificador",
+        subtitle: "",
+        description: "A série explorará as origens do Pacificador, um homem que acredita na paz a qualquer custo - não importa quantas pessoas ele tenha que matar para obtê-la",
+        genero: [gen.acao, gen.aventura, gen.fantasia, gen.ficcao, stm.hbo],
+        faixa: "A16",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1r3xhEZkpcATQnPiGImc_guRay6tnfdTr/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1VTNlVXstMJk7aqWjwOIf8hNlLDFj3-JL/preview",
+                        duration: "40m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1Z_4oCKiSLvZJW82tQFKW90g2mVdPq4zS/preview",
+                        duration: "39m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1N6-WiUNZWTT81mgUjQI8IlQyfZn1Uavu/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1SyhaJlSwIb3NV7keet0WTCurox5pO6nQ/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1Iw9VUdyzDhyFGtQEWltrCVLahesi1L6n/preview",
+                        duration: "46m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1fFND9UDeLMuvtJwxI7VMGRMrkhNe6C29/preview",
+                        duration: "39m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1CrNzmQwCymXSpZCRjFEN0B0-_QLKbPqM/preview",
+                        duration: "44m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 127532,
         title: "Solo Leveling",
         subtitle: "",
