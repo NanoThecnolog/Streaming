@@ -33,8 +33,20 @@ export const cards: CardsProps[] = [
     src: "",
     duration: "",
     genero: []
-    },https://drive.google.com/file/d/1nknMUBTcGCtbWN9MKKBbVMlqs5M8RZBB/preview
+    },
     */
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 1126166,
+        title: "Ameaça no Ar",
+        subtitle: "",
+        description: "Um piloto de avião transporta um agente federal e um fugitivo para julgamento através das montanhas do Alasca. A tensão aumenta quando verdades são reveladas e ninguém a bordo parecem ser quem realmente são.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1hs407HW-3FVr-BF-Ch05QfsSEbsYwjp9/preview",
+        duration: "01h 31m",
+        genero: [gen.acao, gen.suspense, agp.crime]
+    },
 
     {
         background: background,

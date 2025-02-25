@@ -5375,9 +5375,6 @@ export const series: SeriesProps[] = [
         description: "Acompanha uma equipe secreta de monstros encarcerados, recrutados para missões consideradas perigosas demais para humanos.",
         genero: [gen.animacao, agp.dc, stm.hbo],
         faixa: "A16",
-        news: {
-            type: "episode"
-        },
         season: [
             {
                 s: 1,
@@ -5385,37 +5382,37 @@ export const series: SeriesProps[] = [
                 episodes: [
                     {
                         ep: 1,
-                        src: "https://drive.google.com/file/d/1fm6OJZwjUhW6UOXPrb26j1x7o0klFBxm/preview",
+                        src: "https://drive.google.com/file/d/1SOjlzTXnU2kVo-gCk3qiBNp9E43IHpNv/preview",
                         duration: "22m"
                     },
                     {
                         ep: 2,
-                        src: "https://drive.google.com/file/d/1zGzfIjagpUUEVS7RXAiOho6nhw0AJ2mX/preview",
+                        src: "https://drive.google.com/file/d/1CfVoUv02a2_xrzORfdJPKR3NbV-huVWY/preview",
                         duration: "22m"
                     },
                     {
                         ep: 3,
-                        src: "https://drive.google.com/file/d/1zrKIZwV1IEsdnnm55LnNAKwC2dJsPOtV/preview",
+                        src: "https://drive.google.com/file/d/1baWdKcGDWA7QSyBhgYYt4FnX3lIWlkYF/preview",
                         duration: "21m"
                     },
                     {
                         ep: 4,
-                        src: "https://drive.google.com/file/d/1PfW-cZX0UzpsxIV1qjBlMqQQYbUto0EA/preview",
+                        src: "https://drive.google.com/file/d/1AvIB-1Afc4v0GZFrDdyT7Y96beY4eUnh/preview",
                         duration: "25m"
                     },
                     {
                         ep: 5,
-                        src: "https://drive.google.com/file/d/1X49hajNR-eKh-f-Z9Qpd0aT4bt5gTebN/preview",
+                        src: "https://drive.google.com/file/d/1tXG9F7sACIuvBsYXWEHt5UWKneMMUJqO/preview",
                         duration: "21m"
                     },
                     {
                         ep: 6,
-                        src: "https://drive.google.com/file/d/1YFBW0dH3iQVHSYjZAgZlGDoOB2Ro_rSH/preview",
+                        src: "https://drive.google.com/file/d/11ayqKl66SFWhc7waqhzi_7RYYDrxxK5V/preview",
                         duration: "24m"
                     },
                     {
                         ep: 7,
-                        src: "https://drive.google.com/file/d/1LwLDPvK40D7zyryuKNluH-UqzHT2FSmw/preview",
+                        src: "https://drive.google.com/file/d/1tbFJNBMkVCg5mYO9Ecu0SAOXQOJ7SaIW/preview",
                         duration: "28m"
                     }
                 ]

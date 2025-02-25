@@ -9,6 +9,10 @@ export const releaseCards: ReleaseProps[] = [
     },
      */
     {
+        tmdbId: 1126166,
+        name: "Ameaça no ar"
+    },
+    {
         tmdbId: 950396,
         name: "Entre montanhas",
     },
