@@ -3,7 +3,7 @@ import cors from 'cors'
 import { router } from './router';
 
 const app = express();
-const port = 3333;
+const port = process.env.PORT || 3333;
 
 app.use(express.json({ limit: '40mb' }));
 app.use(express.urlencoded({ limit: '40mb', extended: true }));
@@ -22,6 +22,6 @@ app.get("*", (req, res) => {
     res.status(200).send("O servidor está rodando!");
 });
 
-app.listen(port, () => {
+app.listen(Number(port), "0.0.0.0", () => {
     console.log(`Servidor rodando na porta ${port}`);
 })
