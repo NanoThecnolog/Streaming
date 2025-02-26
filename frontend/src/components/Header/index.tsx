@@ -9,7 +9,7 @@ import { AlignJustify, LucideLogOut, Search } from "lucide-react";
 import { api } from "@/services/api";
 import { useFlix } from "@/contexts/FlixContext";
 import { parseCookies } from "nookies";
-import { IoCreate } from "react-icons/io5";
+import { IoAddCircle, IoCreate } from "react-icons/io5";
 import Fuse from 'fuse.js'
 import { CardsProps } from "@/@types/Cards";
 import debounce from "lodash.debounce";
@@ -184,6 +184,7 @@ export default function Header() {
                         <ul>
                             <Link href="/me"><li><FaUserCircle size={20} />Minha Conta</li></Link>
                             <Link href="/watchlater"><li><FaListUl size={20} />Minha Lista</li></Link>
+                            <Link href="/request"><li><IoAddCircle size={20} />Solicitar Filme/Série</li></Link>
                             <li onClick={signOut}><LucideLogOut size={20} />Sair</li>
                         </ul>
                         :

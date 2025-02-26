@@ -137,8 +137,8 @@ export default function Search() {
                                     })
                                         :
                                         <div className={styles.noResultsContainer}>
-                                            <h2>Não achou o que procurava? Talvez ele ainda não esteja no catálogo. Mas deixa esse trabalho com a gente!</h2>
-                                            <p><Link href={`/request`}>Clique aqui</Link> para selecionar e pedir o filme ou série que você quer ver!</p>
+                                            <h2>Não achou o que procurava? Deixa com a gente!</h2>
+                                            <p><Link href={`/request`}>Clique aqui</Link> para buscar e pedir o filme ou série que você quer ver!</p>
                                         </div>
                                 }
                             </div>
