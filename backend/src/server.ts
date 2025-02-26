@@ -18,6 +18,9 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     }
     return res.status(500).json({ status: "error", message: 'Erro interno do servidor..' });
 });
+app.get("*", (req, res) => {
+    res.status(200).send("O servidor está rodando!");
+});
 
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
