@@ -50,14 +50,14 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
-        tmdbId: 0,
+        tmdbId: 980489,
         title: "Gran Turismo",
         subtitle: "De Jogador a Corredor",
-        description: "",
-        faixa: "",
+        description: "Baseado na história de Jann Mardenborough, e relata a trajetória de um jogador de videogame que utilizou suas habilidades nos simuladores para se tornar um piloto profissional de verdade.",
+        faixa: "A12",
         src: "https://drive.google.com/file/d/1CF5CD7u7vvnT7az-FIAmlYFBTzTnVqoL/preview",
-        duration: "",
-        genero: []
+        duration: "02h 15m",
+        genero: [gen.aventura, gen.acao, gen.drama, stm.hbo]
     },
     {
         background: background,
