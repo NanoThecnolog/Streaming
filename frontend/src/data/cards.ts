@@ -38,6 +38,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 10865,
+        title: "Atlantis",
+        subtitle: "O Reino Perdido",
+        description: "A equipa de arqueólogos e exploradores mais qualificada do mundo é liderada pelo historiador Milo Thatch e embarca no incrível submarino de 1000 pés Ulysses para mergulhar nos mistérios do mar. A expedição subaquática sofre uma reviravolta inesperada quando a missão da equipe tem de passar de exploração do reino de Atlantis para a sua proteção.",
+        faixa: "L",
+        src: "https://drive.google.com/file/d/1LqO49lCE4Y4qgDgJJPArt45SLmlFxvvb/preview",
+        duration: "01h 35m",
+        genero: [gen.animacao, gen.aventura, gen.ficcao, agp.familia, stm.disney]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 746036,
         title: "O Dublê",
         subtitle: "",
@@ -1585,7 +1597,7 @@ export const cards: CardsProps[] = [
         subtitle: "E o Reino Perdido",
         description: "Um antigo poder é libertado e o herói Aquaman precisa fazer um perigoso acordo com um aliado improvável para proteger Atlântida e o mundo de uma devastação irreversível.",
         faixa: "A12",
-        src: "",
+        src: "https://drive.google.com/file/d/1vYQsCH8zbpChXNj52q5hpgQqJ3-58zg5/preview",
         duration: "Leg - 2h 04m",
         genero: [gen.acao, gen.fantasia, agp.hero, stm.hbo, agp.dc]
     },
@@ -2005,7 +2017,7 @@ export const cards: CardsProps[] = [
         subtitle: "O Filme",
         description: "Sonic, Knuckles e Tails se reúnem contra um novo e poderoso adversário, Shadow, um vilão misterioso com poderes diferentes de tudo que eles já enfrentaram antes. Com suas habilidades superadas em todos os sentidos, a Equipe Sonic deve buscar uma aliança improvável na esperança de parar Shadow e proteger o planeta.",
         faixa: "10",
-        src: "",
+        src: "https://drive.google.com/file/d/1dCXdnBPrzkj0ACC94pBfwnd7KDKuSseX/preview",
         duration: "01h 50m",
         genero: [gen.acao, gen.ficcao, gen.comedia, agp.familia]
     },
@@ -5975,9 +5987,9 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Depois de ser expulsa da Barbieland por ser uma boneca de aparência menos do que perfeita, Barbie parte para o mundo humano em busca da verdadeira felicidade.",
         faixa: "A12",
-        src: "",
+        src: "https://drive.google.com/file/d/1YsUfWjtEouFRO6-Jkwu5fSiUXcSVBkkZ/preview",
         duration: "01h 54m",
-        genero: [gen.comedia, gen.fantasia]
+        genero: [gen.comedia, gen.fantasia, gen.aventura, stm.hbo]
     },
     {
         background: background,
@@ -6802,7 +6814,7 @@ export const cards: CardsProps[] = [
         subtitle: "Renegados - Parte 2",
         description: "Em uma cidade onde pessoas com superpoderes são vigiadas e oprimidas, um ex-criminoso se une a um traficante para proteger uma adolescente de um policial corrupto.",
         faixa: "A14",
-        src: "",
+        src: "https://drive.google.com/file/d/1eUwb7xvNa6kj2jiomMzUzOT7qIo0SJ8b/preview",
         duration: "1h 40m",
         genero: [gen.acao, gen.suspense, gen.ficcao]
     },
@@ -6810,11 +6822,11 @@ export const cards: CardsProps[] = [
         background: background,
         overlay: overlay,
         tmdbId: 760104,
-        title: "X - A Marca da Morte",
-        subtitle: "",
+        title: "X",
+        subtitle: "A Marca da Morte",
         description: "Em 1979, um grupo de jovens cineastas partiu para fazer um filme adulto na zona rural do Texas, mas quando seus anfitriões os pegam em flagrante, o elenco logo se vê em uma luta desesperada por suas vidas.",
         faixa: "18",
-        src: "",
+        src: "https://drive.google.com/file/d/12pE_MIU__KdElevPRrNS2yiKNgLVQfWa/preview",
         duration: "1h 45m",
         genero: [gen.terror, gen.suspense, agp.slasher]
     },
