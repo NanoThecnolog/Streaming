@@ -38,6 +38,30 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 746036,
+        title: "O Dublê",
+        subtitle: "",
+        description: "Colt é um dublê que tem uma tremenda queda pela diretora do filme que está filmando. As coisas começam a dar errado quando o ator principal do filme desaparece.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1X8kBokkb3r_TSIl6YSaejbIu6TttcV_2/preview",
+        duration: "02h 07m",
+        genero: [gen.acao, gen.comedia, gen.romance, stm.prime]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 0,
+        title: "Gran Turismo",
+        subtitle: "De Jogador a Corredor",
+        description: "",
+        faixa: "",
+        src: "https://drive.google.com/file/d/1CF5CD7u7vvnT7az-FIAmlYFBTzTnVqoL/preview",
+        duration: "",
+        genero: []
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 1126166,
         title: "Ameaça no Ar",
         subtitle: "",
@@ -1308,7 +1332,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Elphaba é uma jovem como outra qualquer do Reino de Oz, mas incompreendida por causa de sua pele verde incomum e por ainda não ter descoberto seu verdadeiro poder. Sua rotina é tranquila e pouco interessante, mas ao iniciar seus estudos na Universidade de Shiz, seu destino encontra Glinda, uma jovem popular e ambiciosa, nascida em berço de ouro, que só quer garantir seus privilégios e ainda não conhece sua verdadeira alma. As duas iniciam uma inesperada amizade; no entanto, suas diferenças, como o desejo de Glinda pela popularidade e poder, e a determinação de Elphaba em permanecer fiel a si mesma, entram no caminho, o que pode perpetuar no futuro de cada uma e em como as pessoas de Oz as enxergam.",
         faixa: "10",
-        src: "https://drive.google.com/file/d/1rx9eZnUeobupYauAXTt9Q-gwBewrgylS/preview",
+        src: "",
         duration: "02h 41m",
         genero: [gen.fantasia, gen.drama, gen.romance]
     },
@@ -1561,7 +1585,7 @@ export const cards: CardsProps[] = [
         subtitle: "E o Reino Perdido",
         description: "Um antigo poder é libertado e o herói Aquaman precisa fazer um perigoso acordo com um aliado improvável para proteger Atlântida e o mundo de uma devastação irreversível.",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/1h0OyUDXZUrp0p7WWhdyLYpjTYVcP89M_/preview",
+        src: "",
         duration: "Leg - 2h 04m",
         genero: [gen.acao, gen.fantasia, agp.hero, stm.hbo, agp.dc]
     },
@@ -1981,7 +2005,7 @@ export const cards: CardsProps[] = [
         subtitle: "O Filme",
         description: "Sonic, Knuckles e Tails se reúnem contra um novo e poderoso adversário, Shadow, um vilão misterioso com poderes diferentes de tudo que eles já enfrentaram antes. Com suas habilidades superadas em todos os sentidos, a Equipe Sonic deve buscar uma aliança improvável na esperança de parar Shadow e proteger o planeta.",
         faixa: "10",
-        src: "https://drive.google.com/file/d/1jaWLj1XtXjnv_uVKYXK9O5zZIcx9WaUZ/preview",
+        src: "",
         duration: "01h 50m",
         genero: [gen.acao, gen.ficcao, gen.comedia, agp.familia]
     },
@@ -1989,7 +2013,7 @@ export const cards: CardsProps[] = [
         background: background,
         overlay: overlay,
         tmdbId: 11918,
-        title: agp.hero,
+        title: "Super Herói",
         subtitle: "O Filme",
         description: "Rick Riker é um estudante comum do colegial. Porém, ao ser mordido por uma libélula geneticamente modificada ganha superpoderes. Agora sua missão é proteger a cidade das mãos do malvado Hourglass, que suga a vida de suas vítimas.",
         faixa: "A12",
@@ -2269,7 +2293,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Quando ele e a esposa grávida são atacados em casa, um ex-agente de elite se envolve em uma caçada perigosa ligada ao seu passado complicado.",
         faixa: "A16",
-        src: "https://drive.google.com/file/d/1ysCDRwO3y1OR-Xu9e6o8EAZntQl4UWQT/preview",
+        src: "",
         duration: "01h 38m",
         genero: [gen.acao, gen.suspense, gen.drama, agp.crime, stm.netflix]
     },
@@ -2872,7 +2896,7 @@ export const cards: CardsProps[] = [
         subtitle: "Domínio",
         description: "Quatro anos após a destruição da Ilha Nublar, os dinossauros agora vivem – e caçam – ao lado de humanos em todo o mundo. Esse frágil equilíbrio remodelará o futuro e determinará, de uma vez por todas, se os seres humanos continuarão sendo os principais predadores em um planeta que agora compartilham com as criaturas mais temíveis da história.",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/1sSd-Lc_UACdQjD5KG8OYCblhWu6mb7ct/preview",
+        src: "",
         duration: "02h 27m",
         genero: [gen.aventura, gen.ficcao]
     },
@@ -3004,7 +3028,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Soluço é um jovem viking que desafia a tradição, quando fica amigo de um dos mais mortais inimigos — um feroz dragão que ele chama de Banguela.",
         faixa: "L",
-        src: "https://drive.google.com/file/d/103-BSC7ql4mHdKCGYWic7KZ7QSsdlRx8/preview",
+        src: "",
         duration: "01h 38m",
         genero: [gen.animacao, gen.aventura]
     },
@@ -3331,18 +3355,6 @@ export const cards: CardsProps[] = [
         src: "https://drive.google.com/file/d/1hZf5v9_4Qun0sK_f9Dn0-72DiYWg-CxI/preview",
         duration: "2h 4m",
         genero: [gen.acao, gen.comedia, gen.fantasia]
-    },
-    {
-        background: background,
-        overlay: overlay,
-        tmdbId: 1300962,
-        title: "A Fera Interior",
-        subtitle: "",
-        description: "Willow, de dez anos, segue seus pais em uma de suas caminhadas secretas noturnas até o coração de uma floresta antiga. Depois de testemunhar o pai passar por uma terrível transformação, ela também se torna presa do sombrio segredo ancestral que eles tentaram desesperadamente esconder.",
-        faixa: "A16",
-        src: "https://drive.google.com/file/d/1ZISJzXKY38p4rmoJfnF1RSJbZb3Qv6Y-/preview",
-        duration: "01h 37m",
-        genero: [gen.terror, gen.drama, gen.suspense]
     },
     {
         background: background,
@@ -3736,7 +3748,7 @@ export const cards: CardsProps[] = [
         subtitle: "Cuidado Com Meu Poder",
         description: "O franco-atirador da Marinha John Stewart está em uma encruzilhada em sua vida, que só é complicada por receber um anel extraterrestre que lhe concede os poderes do Lanterna Verde da Terra. Infelizmente, o anel não vem com instruções, mas vem com bagagem, como uma horda de assassinos interplanetários (Tropa Sinestro) empenhados em eliminar todos os Lanternas Verdes do universo. Agora, com a ajuda do Arqueiro Verde, Adam Strange e Mulher-Gavião, este soldado deve viajar para o coração de uma guerra galáctica Rann/Thanagar e de alguma forma ter sucesso onde todos os outros Lanternas Verdes falharam.",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/1k1n_m3-61fqFhA-fTWUrU7GocGxMCX_E/preview",
+        src: "",
         duration: "1h 28m",
         genero: [gen.animacao, gen.acao, agp.dc, agp.hero]
     },
@@ -3808,7 +3820,7 @@ export const cards: CardsProps[] = [
         subtitle: "Um Mar de Aventuras",
         description: "Moana Waialiki é uma corajosa jovem, filha do chefe de uma tribo na Oceania, vinda de uma longa linhagem de navegadores. Querendo descobrir mais sobre seu passado e ajudar a família, ela resolve partir em busca de seus ancestrais, habitantes de uma ilha mítica que ninguém sabe onde é. Acompanhada pelo lendário semideus Maui, Moana começa sua jornada em mar aberto, onde enfrenta terríveis criaturas marinhas e descobre histórias do submundo.",
         faixa: "L",
-        src: "https://drive.google.com/file/d/1aHVoN-kWxIvdQBi9a6OMSqXws7q674Cr/preview",
+        src: "",
         duration: "01h 47m",
         genero: [gen.animacao, gen.aventura, gen.comedia, agp.familia, stm.disney]
     },
@@ -3820,7 +3832,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Depois de receber um chamado inesperado de seus ancestrais navegadores, Moana vai viajar para mares distantes da Oceania, em águas perdidas em uma aventura perigosa.",
         faixa: "L",
-        src: "https://drive.google.com/file/d/1APK3Dooc7XKUK8mj50y_KzqBRUeFBc4k/preview",
+        src: "",
         duration: "01h 40m",
         genero: [gen.animacao, gen.aventura, gen.comedia, agp.familia, stm.disney]
     },
@@ -3940,7 +3952,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Um pai de família compra uma robô com inteligência artificial para auxiliar nos afazeres domésticos. No entanto, todos seus planos mudam quando a ferramenta acaba adquirindo consciência, com consequências devastadoras.",
         faixa: "A16",
-        src: "https://drive.google.com/file/d/1xI8m4tiynXDs_MR_cP18Ay4HWsKruCWn/preview",
+        src: "",
         duration: "01h 45m",
         genero: [gen.ficcao, gen.suspense]
     },
@@ -4253,9 +4265,9 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Um apático Wade Wilson trabalha duro na vida civil. Seus dias como mercenário moralmente flexível, Deadpool, ficaram para trás. Quando seu planeta enfrenta uma ameaça, Wade deve relutantemente vestir-se novamente com um ainda mais relutante... relutante? Mais relutante? Ele deve convencer um Wolverine relutante em... Porra. As sinopses são tão estúpidas.",
         faixa: "18",
-        src: "https://drive.google.com/file/d/1TMmw3r2G8asR2c5W-ThYYRa1pmzdKJSi/preview",
+        src: "https://drive.google.com/file/d/1VuExY-kxN49sSuAypnwnK8MRVJtmIlaE/preview",
         duration: "02h 08m",
-        genero: [gen.acao, gen.comedia, agp.marvel]
+        genero: [gen.acao, gen.comedia, agp.marvel, stm.disney]
     },
     {
         background: background,
@@ -4530,7 +4542,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Após testemunhar um acidente traumático e bizarro envolvendo um paciente, a Dra. Rose Cotter começa a vivenciar eventos assustadores que ela não consegue explicar.",
         faixa: "A16",
-        src: "https://drive.google.com/file/d/1-CwuYkNt3wqr8DJbGCyHJtgsHr4_DkYS/preview",
+        src: "",
         duration: "01h 55m",
         genero: [gen.terror, agp.misterio]
     },
@@ -4650,7 +4662,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Depois de uma tragédia familiar inesperada, três gerações da família Deetz voltam para casa em Winter River. Ainda assombrada por Beetlejuice, a vida de Lydia vira de cabeça para baixo quando sua filha adolescente rebelde, Astrid, descobre a misteriosa maquete da cidade no sótão, e o portal para a vida após a morte é acidentalmente aberto. Com problemas em ambos os reinos, é apenas uma questão de tempo até que alguém diga o nome de Beetlejuice três vezes, e o demônio travesso volte para levar ao mundo seu próprio estilo de caos.",
         faixa: "A14",
-        src: "https://drive.google.com/file/d/1x_ZzPvpBcX8tfl5DWsXA7wC-8RZNXo4P/preview",
+        src: "",
         duration: "01h 45m",
         genero: [gen.comedia, gen.terror, gen.fantasia]
     },
@@ -4686,7 +4698,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Relutantemente, aos 17 anos, Gretchen deixa sua casa nos Estados Unidos para morar na Alemanha com seu pai Luis, que se casou com Beth, uma mulher mais nova. Juntos, eles se mudam para um resort nos Alpes. Ao chegarem à sua nova casa, eles são recebidos pelo Sr. König, o chefe do pai de Gretchen, que demonstra um interesse inexplicável por Alma, a meia-irmã muda da garota. Com o passar do tempo, Gretchen começa a ser assombrada por estranhos barulhos e visões sangrentas, até que descobre um segredo chocante que também envolve sua própria família, revelando algo de errado no local aparentemente tranquilo.",
         faixa: "A16",
-        src: "https://drive.google.com/file/d/1pyYz0er2ICNoiNe3ouvRrrBwImRnuarj/preview",
+        src: "",
         duration: "01h 43m",
         genero: [gen.terror, agp.misterio, gen.ficcao]
     },
@@ -4698,7 +4710,7 @@ export const cards: CardsProps[] = [
         subtitle: "Romulus",
         description: "Enquanto vasculham as profundezas de uma estação espacial abandonada, um grupo de jovens colonizadores espaciais se depara com a forma de vida mais aterrorizante do universo.",
         faixa: "A16",
-        src: "https://drive.google.com/file/d/1-A3FL_qpOmjbQqrJg4XhuQS_zjuIhDJC/preview",
+        src: "",
         duration: "01h 59m",
         genero: [gen.ficcao, gen.terror, gen.acao, lang.leg],
         lang: "Leg",
@@ -5097,7 +5109,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Na década de 1980, em Hollywood, a estrela do cinema pornográfico Maxine Minx tem sua grande chance de atingir o estrelato. No entanto, um misterioso assassino em série persegue as celebridades de Los Angeles e um rastro de sangue ameaça revelar o passado sinistro de Maxine.",
         faixa: "18",
-        src: "https://drive.google.com/file/d/1CGXPvs418c-aNRyf05U551YZ8na4yKim/preview",
+        src: "https://drive.google.com/file/d/1O4QRNLoE7FuDfc7XoUGxC01PF2jarS28/preview",
         duration: "1h 44m",
         genero: [gen.terror, agp.misterio]
     },
@@ -5344,18 +5356,6 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
-        tmdbId: 1019411,
-        title: "Uma Astronauta Quase Perfeita",
-        subtitle: "",
-        description: "Tiffany sempre nutriu o sonho de explorar o espaço, mas a vida não seguiu o roteiro que era esperado por ela. Determinada a mudar sua trajetória, ela faz de tudo para conquistar uma vaga na NASA.",
-        faixa: "A12",
-        src: "https://drive.google.com/file/d/1JQ1onYJ6mCg0gJR7j0RTw9aLEtb27D1m/preview",
-        duration: "01h 50m",
-        genero: [gen.comedia, gen.romance]
-    },
-    {
-        background: background,
-        overlay: overlay,
         tmdbId: 37165,
         title: "O Show de Truman",
         subtitle: "O Show da Vida",
@@ -5464,18 +5464,6 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
-        tmdbId: 260513,
-        title: "Os Incríveis 2",
-        subtitle: "",
-        description: "A Mulher Elástica entra em ação para salvar o dia, enquanto o Sr. Incrível enfrenta seu maior desafio até agora: cuidar dos problemas de seus três filhos.",
-        faixa: "L",
-        src: "https://drive.google.com/file/d/1W3AhIu67xyeif_O2GYNR2OcPRGof-n_2/preview",
-        duration: "02h 06m",
-        genero: [gen.animacao, gen.acao, stm.disney]
-    },
-    {
-        background: background,
-        overlay: overlay,
         tmdbId: 9806,
         title: "Os Incríveis",
         subtitle: "",
@@ -5483,6 +5471,18 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/13NKsZNAE_IECSMpYK_fU8X9D2wwaP36X/preview",
         duration: "01h 55m",
+        genero: [gen.animacao, gen.acao, stm.disney]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 260513,
+        title: "Os Incríveis 2",
+        subtitle: "",
+        description: "A Mulher Elástica entra em ação para salvar o dia, enquanto o Sr. Incrível enfrenta seu maior desafio até agora: cuidar dos problemas de seus três filhos.",
+        faixa: "L",
+        src: "https://drive.google.com/file/d/1W3AhIu67xyeif_O2GYNR2OcPRGof-n_2/preview",
+        duration: "02h 06m",
         genero: [gen.animacao, gen.acao, stm.disney]
     },
     {
@@ -5752,18 +5752,6 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
-        tmdbId: 76600,
-        title: "Avatar",
-        subtitle: "O Caminho da Água",
-        description: "Após formar uma família, Jake Sully e Ney'tiri fazem de tudo para ficarem juntos. No entanto, eles devem sair de casa e explorar as regiões de Pandora quando uma antiga ameaça ressurge, e Jake deve travar uma guerra difícil contra os humanos.",
-        faixa: "A14",
-        src: "https://drive.google.com/file/d/17QX-0Hi8LBfnqy--1AfK8aEjCUibHou-/preview",
-        duration: "03h 12m",
-        genero: [gen.ficcao, gen.acao]
-    },
-    {
-        background: background,
-        overlay: overlay,
         tmdbId: 19995,
         title: "Avatar",
         subtitle: "Versão Estendida",
@@ -5771,6 +5759,18 @@ export const cards: CardsProps[] = [
         faixa: "10",
         src: "https://drive.google.com/file/d/1-R8d15thm7Ne_ZZs4ibTmq8diEvDRvH0/preview",
         duration: "02h 58m",
+        genero: [gen.ficcao, gen.acao]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 76600,
+        title: "Avatar",
+        subtitle: "O Caminho da Água",
+        description: "Após formar uma família, Jake Sully e Ney'tiri fazem de tudo para ficarem juntos. No entanto, eles devem sair de casa e explorar as regiões de Pandora quando uma antiga ameaça ressurge, e Jake deve travar uma guerra difícil contra os humanos.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/17QX-0Hi8LBfnqy--1AfK8aEjCUibHou-/preview",
+        duration: "03h 12m",
         genero: [gen.ficcao, gen.acao]
     },
     {
@@ -5891,7 +5891,7 @@ export const cards: CardsProps[] = [
         subtitle: "Mais Além",
         description: "Uma mãe solo e seus dois filhos se mudam para uma nova cidade e descobrem que têm uma conexão com os Caça-Fantasmas originais e o legado secreto de seu avô.",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/1-7MAlM13mL-I47wGhOD90vppWxyPsD5a/preview",
+        src: "",
         duration: "02h 04m",
         genero: [gen.comedia, gen.aventura, gen.fantasia]
     },
@@ -5975,7 +5975,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Depois de ser expulsa da Barbieland por ser uma boneca de aparência menos do que perfeita, Barbie parte para o mundo humano em busca da verdadeira felicidade.",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/1suaHMDw-J_3tL77OcEyAzqH5nfwLlY3b/preview",
+        src: "",
         duration: "01h 54m",
         genero: [gen.comedia, gen.fantasia]
     },
@@ -6143,7 +6143,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Dois caçadores de tempestades arriscam suas vidas na tentativa de testar um sistema experimental de alerta meteorológico.",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/1rUTXl_ltpWNdSaZgZlktBDeRQbUZBncs/preview",
+        src: "",
         duration: "02h 02m",
         genero: [gen.acao, gen.suspense, gen.drama]
     },
@@ -6155,7 +6155,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: 'Cooper (Josh Hartnett) e sua filha Riley (Ariel Donoghue) estão prontos para uma noite inesquecível no show da maior popstar do momento. No entanto, a atmosfera de diversão rapidamente se transforma em tensão quando Cooper percebe uma presença anormal de policiais no local. Em um jogo de olhares e desconfiança, ele logo compreende que a polícia está em busca de um serial killer extremamente perigoso. À medida que o cerco se fecha, Cooper percebe uma aterrorizante verdade: ele é o alvo da caçada. O que deveria ser uma noite de alegria entre pai e filha se transforma em uma desesperada e silenciosa fuga pela sobrevivência, enquanto Cooper tenta proteger Riley e escapar da captura iminente, tudo enquanto esconde de todos – e até de si mesmo – os segredos obscuros que o levaram a essa situação. Em "Armadilha", a linha entre herói e vilão se desmancha, e a maior ameaça pode estar mais perto do que parece.',
         faixa: "A14",
-        src: "https://drive.google.com/file/d/11NTrnOSHb6cqaZKUR-6pHeKCZdssWXSE/preview",
+        src: "https://drive.google.com/file/d/14ofGaNq5Ma8NcV7AdlMx5YiTp2kCl1d5/preview",
         duration: "01h 45m",
         genero: [gen.suspense, agp.misterio, agp.psico, stm.hbo]
     },
@@ -6321,7 +6321,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Depois de um inimigo reduzir o mundo de Tony Stark a destroços, o Homem de Ferro precisa aprender a confiar em seus instintos para proteger aqueles que ama, especialmente sua namorada, e lutar contra seu maior medo: o fracasso.",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/1F6CTOYdqIjAM7KkVwxJpm7ljWLTU3H3m/preview",
+        src: "https://drive.google.com/file/d/13QDFKfTteUPFrq1iTHJCLfuTZJTN6nWl/preview",
         duration: "2h 10m",
         genero: [gen.acao, agp.hero, agp.marvel]
     },
@@ -6550,9 +6550,9 @@ export const cards: CardsProps[] = [
         tmdbId: 673593,
         title: "Meninas Malvadas",
         subtitle: "",
-        description: "Uma nova aluna do ensino médio enfrenta a ira de uma garota popular e de seus amigos.",
+        description: "A adolescente Cady Heron foi educada na África pelos seus pais cientistas. Quando sua família se muda para o subúrbio, nos Estados Unidos, Cady começa a frequentar a escola pública e recebe uma rápida introdução às leis de popularidade que dividem seus colegas. Sem querer, ela acaba no meio de um grupo de elite de estudantes apelidadas “as poderosas”.",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/1SVH0UjmeRTKi4KEHu7PDJ_clFxY7CRXG/preview",
+        src: "https://drive.google.com/file/d/1SPzGUB7nkO0urSZwAbGF7XlW8Wr4fgfB/preview",
         duration: "1h 53m",
         genero: [gen.comedia, agp.music]
     }, {
@@ -6563,7 +6563,7 @@ export const cards: CardsProps[] = [
         subtitle: "Rumo às Estrelas",
         description: "Um homem viaja pelo interior de um sistema solar sem lei para encontrar seu pai desaparecido, um cientista renegado que representa uma ameaça à humanidade.",
         faixa: "A14",
-        src: "https://drive.google.com/file/d/1Odx1C3GCjfO0SqGu_BYmu4hfWxGGtH47/preview",
+        src: "https://drive.google.com/file/d/1NqTPMzD4YkX1DBQ0_krHhKYpRida5Ty9/preview",
         duration: "2h 03m",
         genero: [gen.ficcao, gen.aventura]
     }, {
@@ -6577,18 +6577,8 @@ export const cards: CardsProps[] = [
         src: "https://drive.google.com/file/d/1Okor9Fep2PI8F0dfaoGwI875bYPqVRTy/preview",
         duration: "1h 42",
         genero: [gen.comedia, gen.terror]
-    }, {
-        background: background,
-        overlay: overlay,
-        tmdbId: 1954,
-        title: "Efeito Borboleta",
-        subtitle: "",
-        description: "O estudante universitário Evan Treborn está aflito com dores de cabeça tão fortes que frequentemente desmaia. Enquanto está inconsciente, Evan pode viajar de volta no tempo para momentos de dificuldades na infância. Ele também pode alterar o passado para os amigos, como Kayleigh, que foi molestada pelo pai. Porém ao mudar o passado, ele pode alterar o presente, o que leva Evan a se encontrar em um pesadelo de realidades alternativas, incluindo uma onde ele está preso.",
-        faixa: "A16",
-        src: "https://drive.google.com/file/d/1aE2DlzYcggiBH41rG-ZfU_oAtzGUBEyo/preview",
-        duration: "1h 59m",
-        genero: [gen.suspense, gen.ficcao]
-    }, {
+    },
+    {
         background: background,
         overlay: overlay,
         tmdbId: 293167,
@@ -6599,18 +6589,8 @@ export const cards: CardsProps[] = [
         src: "https://drive.google.com/file/d/1jjYvUOIhnyhNkO4ulbKWI8U82rXerPxC/preview",
         duration: "1h 58m",
         genero: [gen.acao, gen.aventura]
-    }, {
-        background: background,
-        overlay: overlay,
-        tmdbId: 124905,
-        title: "Godzilla",
-        subtitle: "",
-        description: "Um especialista em bombas da marinha norte-americana acaba de se reunir com a família em São Francisco, Estados Unidos, quando é forçado a ir para o Japão para ajudar seu pai. Logo, os dois se deparam com um grande acontecimento: Godzilla, o rei dos monstros, surge do mar para combater criaturas inimigas. Em uma luta pela supremacia, os monstros ameaçam a sobrevivência da humanidade. Por onde passam, deixam um rastro de destruição, rumo ao local da batalha final: São Francisco.",
-        faixa: "A12",
-        src: "https://drive.google.com/file/d/1fHasj8EbVXToBIth-YxiiWBJDc4MBMyv/preview",
-        duration: "2h 03m",
-        genero: [gen.acao, gen.ficcao]
-    }, {
+    },
+    {
         background: background,
         overlay: overlay,
         tmdbId: 695721,
@@ -6618,7 +6598,7 @@ export const cards: CardsProps[] = [
         subtitle: "A Cantiga dos Passaros e das Serpentes",
         description: "Anos antes de se tornar o presidente tirânico de Panem, Coriolanus Snow, de 18 anos, vê uma chance de mudar sua sorte quando se torna o mentor de Lucy Gray Baird, o tributo feminino do Distrito 12.",
         faixa: "A14",
-        src: "https://drive.google.com/file/d/1bFkzQ7AuB_A_ySyX7JB9v3G8QTuna0MV/preview",
+        src: "https://drive.google.com/file/d/1NlKvbsxG8tkJM_2NqeYWghqxTUQ2J4Up/preview",
         duration: "2h 37m",
         genero: [gen.acao, gen.suspense]
     },
@@ -6630,7 +6610,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Na região antigamente conhecida como América do Norte, a Capital de Panem controla 12 distritos e os força a escolher um garoto e uma garota, conhecidos como tributos, para competir em um evento anual televisionado. Todos os cidadãos assistem aos temidos jogos, no qual os jovens lutam até a morte, de modo que apenas um saia vitorioso. A jovem Katniss Everdeen, do Distrito 12, confia na habilidade de caça e na destreza com o arco, além dos instintos aguçados, nesta competição mortal.",
         faixa: "A14",
-        src: "https://drive.google.com/file/d/1BMXk1Z3oSvJyLmVM4Lc_pEQph6oa-Kt-/preview",
+        src: "https://drive.google.com/file/d/17Vne5GyHakflYS2MXRIe6ND541a-OJ2q/preview",
         duration: "2h 22m",
         genero: [gen.acao, gen.suspense, gen.ficcao]
     },
@@ -6642,7 +6622,7 @@ export const cards: CardsProps[] = [
         subtitle: "Em Chamas",
         description: "Após saírem vencedores da última edição dos Jogos Vorazes, as atitudes desafiadoras de Katniss e Peeta acabam inspirando uma rebelião contra a opressiva Capital. No entanto, os dois são obrigados a participarem de uma edição especial do torneio, o Massacre Quaternário, que acontece apenas a cada 25 anos, e reúne vencedores das edições anteriores.",
         faixa: "A14",
-        src: "https://drive.google.com/file/d/16o3licpSEwrWlQDuAgEHLmLmXR_UYbGf/preview",
+        src: "https://drive.google.com/file/d/1-xb2UUG5wuu8jc9Y0ZGA55BjGbKP6YOO/preview",
         duration: "2h 26m",
         genero: [gen.acao, gen.ficcao, gen.suspense]
     },
@@ -6654,7 +6634,7 @@ export const cards: CardsProps[] = [
         subtitle: "A Esperança - parte 1",
         description: 'Após sobreviver à temível arena dos Jogos Vorazes, Katniss Everdeen está desanimada e destruída. Depois que a Capital reduziu o Distrito 12 a destroços, ela se refugiou no Distrito 13. Peeta Mellark foi submetido a uma lavagem cerebral, e agora está sob o domínio de Snow. Então, a presidência quer que Katniss lidere uma "resistência" e mobilize a população em uma empreitada que irá colocá-la no centro da trama para desmascarar Snow.',
         faixa: "A14",
-        src: "https://drive.google.com/file/d/1yOHRP2ZT6nr5HjoThQQAkLYuaCCpKa0j/preview",
+        src: "",
         duration: "2h 02m",
         genero: [gen.acao, gen.ficcao, gen.suspense]
     },
@@ -6666,9 +6646,57 @@ export const cards: CardsProps[] = [
         subtitle: "A Esperança - parte 2",
         description: "Katniss e seus amigos Peeta, Gale e Finnick embarcam em sua última missão: organizar uma resistência contra o presidente e libertar o povo de Panem. A coragem de Katniss faz renascer a esperança em um país disposto a se livrar da opressão.",
         faixa: "A14",
-        src: "https://drive.google.com/file/d/1UquFsUSu4iJAu75FqxPiZzsTkTvjWvTE/preview",
+        src: "https://drive.google.com/file/d/11yW1fG9oSRbaf-yTDJDdizEo3qzbKt8P/preview",
         duration: "2h 16m",
         genero: [gen.acao, gen.suspense, gen.ficcao]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 537915,
+        title: "After",
+        subtitle: "",
+        description: "Tessa Young é uma jovem com uma vida simples, ótimas notas na escola, muitos amigos e um bom namorado. Todos os próximos passos de sua vida já estão planejados, mas as coisas mudam quando ela conhece um homem atraente e cheio de segredos sombrios.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1bidvVOKL_wOwvK-scXpylF609qo1GQRQ/preview",
+        duration: "01h 46m",
+        genero: [gen.romance, gen.drama, stm.prime]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 744275,
+        title: "After",
+        subtitle: "Depois do desencontro",
+        description: "Embora a história de amor entre Tessa Young e Hardin Scott tenha passado por muitas complicações, desta vez o problema é mais complexo do que nunca. Agora que Tessa tomou uma das decisões mais importantes de sua vida, tudo mudou completamente. Os segredos que vêm à tona sobre suas famílias colocam em risco seu relacionamento e seu futuro juntos. Embora a jovem saiba que Hardin a ama, os dois estão cercados de ciúme, ódio e perdão. Será que o amor entre os dois será o suficiente para manter seu relacionamento?",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1AupVoZMyOi_UclIPetcHYeWFpCzK6YWu/preview",
+        duration: "01h 39m",
+        genero: [gen.romance, gen.drama, stm.prime]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 613504,
+        title: "After",
+        subtitle: "Depois da Verdade",
+        description: "Após descobrir sobre a aposta, Tessa (Josephine Langford) tenta esquecer Hardin (Hero Fiennes Tiffin), o jovem caótico e revoltado que partiu seu coração. Porém, ela está prestes a descobrir que alguns amores não podem ser superados. Hardin sabe que cometeu o pior erro de sua vida ao ter magoado a jovem tão profundamente, mas vai lutar com toda a sua força para reconquistar o grande amor da sua vida.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1EZ4uYsHTInJ5HfCrMK9M9XneoBrNzSZH/preview",
+        duration: "01h 45m",
+        genero: [gen.romance, gen.drama, stm.prime]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 744276,
+        title: "After",
+        subtitle: "Depois da Promessa",
+        description: "A relação entre Tessa Young (Josephine Langford) e Hardin Scott (Hero Fiennes-Tiffin) passou por muitas dificuldades, fortalecendo sua união, e quando a verdade sobre suas famílias veio à tona, os dois descobriram que não são tão diferentes quanto pensavam. Tessa não é mais aquela menina doce e inocente que chegou à faculdade, e Hardin não é mais o garoto cruel por quem ela se apaixonou.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1KCqk-7KkHGnzo6OQkTZGa14VlbqBgwwc/preview",
+        duration: "01h 35m",
+        genero: [gen.romance, gen.drama, stm.prime]
     },
     {
         background: background,
@@ -6678,20 +6706,9 @@ export const cards: CardsProps[] = [
         subtitle: "Para Sempre",
         description: "Hardin precisa terminar seu livro, mas está sofrendo com um bloqueio criativo total. Ainda ligado ao passado, ele descobre que Tessa está em Portugal e parte para encontrá-la. Mas ele logo percebe que deve mudar de atitude se quiser recuperá-la.",
         faixa: "A14",
-        src: "https://drive.google.com/file/d/1jksPTMGdFNiN7Dm3bFgpn_p9qnuhD8Q1/preview",
+        src: "https://drive.google.com/file/d/16IijtSgvyCwScOFyGRTvYQbejLiGbfGM/preview",
         duration: "1h 33m",
-        genero: [gen.romance, gen.suspense]
-    }, {
-        background: background,
-        overlay: overlay,
-        tmdbId: 785084,
-        title: "A Baleia",
-        subtitle: "",
-        description: "Homem obeso e solitário busca se reconectar com filha adolescente em uma última chance de redenção.",
-        faixa: "A16",
-        src: "https://drive.google.com/file/d/1z5dHSZXyRmtxLo3l8EKwvmTRR3k0643F/preview",
-        duration: "1h 56m",
-        genero: [gen.drama]
+        genero: [gen.romance, gen.drama]
     },
     {
         background: background,
@@ -6701,21 +6718,33 @@ export const cards: CardsProps[] = [
         subtitle: "Sem Misericórdia",
         description: "O ex-agente secreto Robert McCall acredita que seu passado ficou para trás e tenta viver uma nova vida. Ele conhece Alina, uma jovem que está sob poder de uma quadrilha russa, e simplesmente não consegue ignorá-la. Munido de suas extraordinárias habilidades, ele ressurge como um verdadeiro anjo vingador. Longe da aposentadoria e com um novo desejo de fazer justiça, McCall decide ajudar quem foi brutalizado e oprimido.",
         faixa: "A16",
-        src: "https://drive.google.com/file/d/1CiXc7BVMOQVCtXe71Hr3979C18qo7Adk/preview",
+        src: "",
         duration: "2h 12m",
-        genero: [gen.acao, gen.suspense]
+        genero: [gen.acao, gen.suspense, agp.crime, stm.hbo]
     },
     {
         background: background,
         overlay: overlay,
         tmdbId: 345887,
-        title: "O Protetor 2",
+        title: "O Protetor",
         subtitle: "A Vingança",
         description: "Criminosos assassinam Susan Plummer, a melhor amiga de Robert McCall e sua ex-colega de trabalho. Obcecado, Robert pensa apenas em eliminar o bando de assassinos profissionais que destruiu sua vida.",
         faixa: "A16",
-        src: "https://drive.google.com/file/d/1OKbHkwocijzOwUv11v712z5tL0bsbRgM/preview",
+        src: "https://drive.google.com/file/d/19QRoRYNpBeRZl2XPw-PN7PpOmDpkuvN-/preview",
         duration: "2h 1m",
-        genero: [gen.acao, gen.suspense]
+        genero: [gen.acao, gen.suspense, agp.crime, stm.hbo]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 926393,
+        title: "O Protetor",
+        subtitle: "Capítulo Final",
+        description: "Sentindo-se em casa no sul da Itália, o ex-agente Robert McCall logo descobre que seus novos amigos estão sob o controle dos chefes do crime local. À medida que os acontecimentos se tornam mortais, McCall sabe o que tem de fazer: tornar-se o protetor dos seus amigos, enfrentando a máfia.",
+        faixa: "18",
+        src: "https://drive.google.com/file/d/1PIil6afzQSJjVI4fa8giL4SCajVMmNIX/preview",
+        duration: "01h 43m",
+        genero: [gen.acao, gen.suspense, agp.crime, stm.hbo],
     },
     {
         background: background,
@@ -6749,9 +6778,9 @@ export const cards: CardsProps[] = [
         subtitle: "Os sete crimes capitais",
         description: "A ponto de se aposentar, o detetive William Somerset pega um último caso, com a ajuda do recém-transferido David Mills. Juntos, descobrem uma série de assassinatos e logo percebem que estão lidando com um assassino que tem como alvo pessoas que ele acredita representar os sete pecados capitais.",
         faixa: "A14",
-        src: "https://drive.google.com/file/d/1tpDCk2AQ1Vqxg-N-BQdVfWZ1Lj146wLa/preview",
+        src: "https://drive.google.com/file/d/1HNHkwPsxahKUxaFLZqwM2taR3rVHW1PG/preview",
         duration: "2h 07m",
-        genero: [gen.suspense, agp.crime, agp.misterio]
+        genero: [gen.suspense, agp.crime, agp.misterio, stm.hbo]
     },
     {
         background: background,
@@ -6761,7 +6790,7 @@ export const cards: CardsProps[] = [
         subtitle: "Renegados",
         description: "Em um mundo em que 4% da população nasce com poderes sobrenaturais, um jovem usa seu dom para cometer uma série de pequenos crimes, mas é caçado por uma força policial militarizada.",
         faixa: "A14",
-        src: "https://drive.google.com/file/d/1JCiiYuVCrN7_4SJXf5ue9EMoxwZoqOa2/preview",
+        src: "https://drive.google.com/file/d/1EAcVxSOjWa5j9bIpc5mwklhh-gtBqnNF/preview",
         duration: "1h 38m",
         genero: [gen.acao, gen.suspense, gen.ficcao]
     },
@@ -6773,7 +6802,7 @@ export const cards: CardsProps[] = [
         subtitle: "Renegados - Parte 2",
         description: "Em uma cidade onde pessoas com superpoderes são vigiadas e oprimidas, um ex-criminoso se une a um traficante para proteger uma adolescente de um policial corrupto.",
         faixa: "A14",
-        src: "https://drive.google.com/file/d/1KlI6MA-cUTT2thodBQstKk8i1ezuNVfs/preview",
+        src: "",
         duration: "1h 40m",
         genero: [gen.acao, gen.suspense, gen.ficcao]
     },
@@ -6785,7 +6814,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Em 1979, um grupo de jovens cineastas partiu para fazer um filme adulto na zona rural do Texas, mas quando seus anfitriões os pegam em flagrante, o elenco logo se vê em uma luta desesperada por suas vidas.",
         faixa: "18",
-        src: "https://drive.google.com/file/d/1xNVtrMddYTOia21OOxN1opSdxH9hVdyV/preview",
+        src: "",
         duration: "1h 45m",
         genero: [gen.terror, gen.suspense, agp.slasher]
     },
@@ -6797,9 +6826,9 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "O casamento de uma jovem com um príncipe encantado se transforma em uma luta por sobrevivência quando ela é oferecida em sacrifício a um dragão",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/1q_YilO701nCgPzGdBoc8qWw7eHU4BQWr/preview",
+        src: "https://drive.google.com/file/d/1HOVFXPxR2ge3qOVnkV7PojhJakko8hTQ/preview",
         duration: "1h 49m",
-        genero: [gen.acao, gen.aventura]
+        genero: [gen.fantasia, gen.acao, gen.aventura, stm.netflix]
     },
     {
         background: background,
@@ -6821,7 +6850,7 @@ export const cards: CardsProps[] = [
         subtitle: "Prova de Fogo",
         description: "Depois de escapar do labirinto, Thomas e os garotos que o acompanharam em sua fuga encontram uma realidade bem diferente: a superfície da Terra foi queimada pelo Sol e eles precisam lidar com criaturas disformes chamadas Cranks.",
         faixa: "A14",
-        src: "https://drive.google.com/file/d/1jLmSmAyDNsRtAh8O9uGC3U3ninLl15LS/preview",
+        src: "",
         duration: "2h 11m",
         genero: [gen.ficcao, gen.acao]
     },
@@ -6833,7 +6862,7 @@ export const cards: CardsProps[] = [
         subtitle: "A Cura Mortal",
         description: "Thomas parte em uma missão para encontrar a cura de uma doença mortal e descobre que os planos da C.R.U.E.L podem trazer consequências catastróficas para a humanidade.",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/1SxL-7m1TI-iG2O-S9oTeadhay7Gqjc4F/preview",
+        src: "https://drive.google.com/file/d/1RIvZfHITS95AbjUtDRhWSvYQe9-ilPVY/preview",
         duration: "2h 23m",
         genero: [gen.ficcao, gen.acao]
     },
@@ -6849,7 +6878,7 @@ export const cards: CardsProps[] = [
         duration: "1h 43m",
         genero: [gen.comedia, gen.romance]
     },
-    {
+    /*{ procurar filme
         background: background,
         overlay: overlay,
         tmdbId: 848538,
@@ -6857,10 +6886,10 @@ export const cards: CardsProps[] = [
         subtitle: "O Superespião",
         description: "Uma autora reclusa que escreve romances de espionagem sobre um agente secreto e um sindicato global de espiões percebe que o enredo do novo livro que ela está escrevendo começa a espelhar eventos do mundo real, em tempo real.",
         faixa: "A14",
-        src: "https://drive.google.com/file/d/1L1JdL_izynjLRqqHEWenFkjkbCW3Efox/preview",
+        src: "",
         duration: "2h 18m",
         genero: [gen.suspense, gen.acao]
-    },
+    },*/
     {
         background: background,
         overlay: overlay,
@@ -6881,7 +6910,7 @@ export const cards: CardsProps[] = [
         subtitle: "As cores do amor",
         description: "Ana, uma aspirante a estagiária de arte que é convidada para uma viagem de trabalho de última hora a Londres por seu chefe e acaba conhecendo o belo e rico William no avião.",
         faixa: "18",
-        src: "https://drive.google.com/file/d/1asYDH3uOd0XOXECJC_LrkW1yMgU-BN13/preview",
+        src: "https://drive.google.com/file/d/1U-SPahVNbNrv3mDc7Jz1vXzdJLltEZ1z/preview",
         duration: "1h 45m",
         genero: [gen.romance, gen.comedia, stm.prime]
     },
@@ -6893,7 +6922,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Em 2045, Wade Watts, assim como o resto da humanidade, prefere a realidade virtual do jogo OASIS ao mundo real. James Halliday, o excêntrico criador do jogo, morre e deixa sua fortuna inestimável para a primeira pessoa que descobrir a chave de um quebra-cabeça diabólico que ele arquitetou. Para vencer, Watts precisa abandonar a existência virtual e experimentar o amor e a realidade.",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/1ogehUC8CXWagoPDKANzBZFT4KqxTu_TW/preview",
+        src: "",
         duration: "2h 20m",
         genero: [gen.ficcao, gen.acao]
     },
@@ -6944,18 +6973,6 @@ export const cards: CardsProps[] = [
         src: "https://drive.google.com/file/d/1-8aB2F3DILZLHOXBaYQJlitJsyOUBow7/preview",
         duration: "2h 28m",
         genero: [agp.marvel, gen.acao, gen.ficcao, agp.hero, stm.netflix]
-    },
-    {
-        background: background,
-        overlay: overlay,
-        tmdbId: 718930,
-        title: "Trem-Bala",
-        subtitle: "",
-        description: "Em um trem-bala indo rapidamente de Tóquio a Morioka, cinco assassinos profissionais descobrem que possuem o mesmo objetivo",
-        faixa: "A16",
-        src: "https://drive.google.com/file/d/17POcLiptxNITJe0vuYgQFQ0NVTnI0BUW/preview",
-        duration: "2h 06m",
-        genero: [gen.acao, gen.comedia, stm.prime]
     },
     {
         background: background,
@@ -7100,18 +7117,6 @@ export const cards: CardsProps[] = [
         src: "https://drive.google.com/file/d/1ve34N2EvgvffaDei7JkWcIAWPmSjtzWc/preview",
         duration: "1h 48m",
         genero: [gen.suspense, gen.terror, agp.misterio]
-    },
-    {
-        background: background,
-        overlay: overlay,
-        tmdbId: 1265,
-        title: "Ponte para Terabítia",
-        subtitle: "",
-        description: "Jess sente-se um estranho na escola e até mesmo em sua família. Durante todo o verão ele treinou para ser o garoto mais rápido da escola, mas seus planos são ameaçados por Leslie, que vence uma corrida que deveria ser apenas para garotos.",
-        faixa: "L",
-        src: "https://drive.google.com/file/d/1lGNHpX5XUBGWArq0eP-kMAwUTZdM0fSy/preview",
-        duration: "1h 36m",
-        genero: [gen.fantasia, agp.familia, gen.drama]
     },
     {
         background: background,
