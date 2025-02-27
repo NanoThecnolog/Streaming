@@ -38,6 +38,42 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 44912,
+        title: "Lanterna Verde",
+        subtitle: "",
+        description: "Hal Jordan, um vaidoso piloto de testes, recebe um poderoso anel e é recrutado por um esquadrão intergaláctico chamado Lanterna Verde para lutar contra um feroz inimigo que ameaça acabar com o equilíbrio do universo.",
+        faixa: "10",
+        src: "https://drive.google.com/file/d/1QxnZbN9jM__yg7aV0-X5tnOOX0S7u2Qr/preview",
+        duration: "01h 54m",
+        genero: [gen.aventura, gen.acao, gen.suspense, gen.ficcao, agp.dc, agp.hero, stm.apple]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 618353,
+        title: "Batman",
+        subtitle: "Morte em Família",
+        description: "Baseado na HQ “Batman: Morte em Família”, o longa conta a história da relação do Batman com seu pupilo Jason Todd, o segundo Robin. Após a relação entre os dois ficar abalada por conta do comportamento extremo de Jason em suas rondas, o Coringa o mata, levando o Batman ao limite.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1x-ZkGN3NCFE351s4QHhUYU0rTS-J3NLn/preview",
+        duration: "31m",
+        genero: [gen.animacao, gen.acao, agp.misterio, agp.dc, agp.hero, stm.hbo]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 536554,
+        title: "M3gan",
+        subtitle: "",
+        description: "Uma brilhante roboticista de uma empresa de brinquedos usa inteligência artificial para desenvolver M3GAN, uma boneca realista programada para se relacionar emocionalmente com sua sobrinha recém-órfã. Mas quando a programação da boneca funciona muito bem, ela se torna superprotetora de sua nova amiga... com resultados aterrorizantes.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1Uyr6PjG94c099t85FLBEIbkLqou0Ftm3/preview",
+        duration: "01h 42m",
+        genero: [gen.terror, gen.ficcao, stm.prime]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 10865,
         title: "Atlantis",
         subtitle: "O Reino Perdido",
@@ -2305,7 +2341,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Quando ele e a esposa grávida são atacados em casa, um ex-agente de elite se envolve em uma caçada perigosa ligada ao seu passado complicado.",
         faixa: "A16",
-        src: "",
+        src: "https://drive.google.com/file/d/1WnoUKbfZoYjcsru8R1Q11HPwTOjfYOGt/preview",
         duration: "01h 38m",
         genero: [gen.acao, gen.suspense, gen.drama, agp.crime, stm.netflix]
     },
@@ -2874,7 +2910,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1KgulYQgfW-ObVvNczFOZlIF1Cp-q17ez/preview",
         duration: "02h 07m",
-        genero: [gen.aventura, gen.ficcao]
+        genero: [gen.aventura, gen.ficcao, stm.prime]
     },
     {
         background: background,
@@ -2886,7 +2922,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1QKIUMQWOtDqmdh4IjlVko29esGQNn5rK/preview",
         duration: "02h 09m",
-        genero: [gen.aventura, gen.ficcao]
+        genero: [gen.aventura, gen.ficcao, gen.acao, stm.prime]
     },
     {
         background: background,
@@ -2898,7 +2934,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1GzkQtJp8DdZ_A8mX0JRJhU5tKpk0WO_x/preview",
         duration: "02h 08m",
-        genero: [gen.aventura, gen.ficcao]
+        genero: [gen.aventura, gen.ficcao, gen.acao, gen.suspense, stm.prime]
     },
     {
         background: background,
@@ -2908,9 +2944,9 @@ export const cards: CardsProps[] = [
         subtitle: "Domínio",
         description: "Quatro anos após a destruição da Ilha Nublar, os dinossauros agora vivem – e caçam – ao lado de humanos em todo o mundo. Esse frágil equilíbrio remodelará o futuro e determinará, de uma vez por todas, se os seres humanos continuarão sendo os principais predadores em um planeta que agora compartilham com as criaturas mais temíveis da história.",
         faixa: "A12",
-        src: "",
+        src: "https://drive.google.com/file/d/1BHuWpdqdG7eDRC6Boz1_aCsWon-nKeIT/preview",
         duration: "02h 27m",
-        genero: [gen.aventura, gen.ficcao]
+        genero: [gen.aventura, gen.ficcao, gen.acao, stm.netflix]
     },
     {
         background: background,
@@ -3040,7 +3076,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Soluço é um jovem viking que desafia a tradição, quando fica amigo de um dos mais mortais inimigos — um feroz dragão que ele chama de Banguela.",
         faixa: "L",
-        src: "",
+        src: "https://drive.google.com/file/d/1_Z1LaucGKCAPDFOx-pr-dF2iXIXqVZST/preview",
         duration: "01h 38m",
         genero: [gen.animacao, gen.aventura]
     },
@@ -3760,9 +3796,9 @@ export const cards: CardsProps[] = [
         subtitle: "Cuidado Com Meu Poder",
         description: "O franco-atirador da Marinha John Stewart está em uma encruzilhada em sua vida, que só é complicada por receber um anel extraterrestre que lhe concede os poderes do Lanterna Verde da Terra. Infelizmente, o anel não vem com instruções, mas vem com bagagem, como uma horda de assassinos interplanetários (Tropa Sinestro) empenhados em eliminar todos os Lanternas Verdes do universo. Agora, com a ajuda do Arqueiro Verde, Adam Strange e Mulher-Gavião, este soldado deve viajar para o coração de uma guerra galáctica Rann/Thanagar e de alguma forma ter sucesso onde todos os outros Lanternas Verdes falharam.",
         faixa: "A12",
-        src: "",
+        src: "https://drive.google.com/file/d/19jQGqnw061tcZH7nxb9PBnyC9LyuOaJK/preview",
         duration: "1h 28m",
-        genero: [gen.animacao, gen.acao, agp.dc, agp.hero]
+        genero: [gen.animacao, gen.acao, agp.dc, agp.hero, stm.hbo]
     },
     {
         background: background,
@@ -6730,7 +6766,7 @@ export const cards: CardsProps[] = [
         subtitle: "Sem Misericórdia",
         description: "O ex-agente secreto Robert McCall acredita que seu passado ficou para trás e tenta viver uma nova vida. Ele conhece Alina, uma jovem que está sob poder de uma quadrilha russa, e simplesmente não consegue ignorá-la. Munido de suas extraordinárias habilidades, ele ressurge como um verdadeiro anjo vingador. Longe da aposentadoria e com um novo desejo de fazer justiça, McCall decide ajudar quem foi brutalizado e oprimido.",
         faixa: "A16",
-        src: "",
+        src: "https://drive.google.com/file/d/1DREG2iGaVZa9KVRSJ2uDS7jBaIaL8M2e/preview",
         duration: "2h 12m",
         genero: [gen.acao, gen.suspense, agp.crime, stm.hbo]
     },
@@ -6852,7 +6888,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1nWX9odS5E-xQn2HRJDiqL7ggJUzBbLeZ/preview",
         duration: "1h 53m",
-        genero: [gen.ficcao, gen.acao]
+        genero: [gen.ficcao, gen.acao, gen.suspense, agp.misterio, stm.disney]
     },
     {
         background: background,
@@ -6862,9 +6898,9 @@ export const cards: CardsProps[] = [
         subtitle: "Prova de Fogo",
         description: "Depois de escapar do labirinto, Thomas e os garotos que o acompanharam em sua fuga encontram uma realidade bem diferente: a superfície da Terra foi queimada pelo Sol e eles precisam lidar com criaturas disformes chamadas Cranks.",
         faixa: "A14",
-        src: "",
+        src: "https://drive.google.com/file/d/1w7fKLtze9gjst59i1ynULZATs2yOrjsJ/preview",
         duration: "2h 11m",
-        genero: [gen.ficcao, gen.acao]
+        genero: [gen.ficcao, gen.acao, gen.aventura, gen.suspense, stm.disney]
     },
     {
         background: background,
@@ -6876,7 +6912,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1RIvZfHITS95AbjUtDRhWSvYQe9-ilPVY/preview",
         duration: "2h 23m",
-        genero: [gen.ficcao, gen.acao]
+        genero: [gen.ficcao, gen.acao, gen.aventura, gen.suspense, stm.disney]
     },
     {
         background: background,
@@ -6934,9 +6970,9 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Em 2045, Wade Watts, assim como o resto da humanidade, prefere a realidade virtual do jogo OASIS ao mundo real. James Halliday, o excêntrico criador do jogo, morre e deixa sua fortuna inestimável para a primeira pessoa que descobrir a chave de um quebra-cabeça diabólico que ele arquitetou. Para vencer, Watts precisa abandonar a existência virtual e experimentar o amor e a realidade.",
         faixa: "A12",
-        src: "",
+        src: "https://drive.google.com/file/d/19YB3RuuHMzfgzL5nFF1L3JernS39C8t_/preview",
         duration: "2h 20m",
-        genero: [gen.ficcao, gen.acao]
+        genero: [gen.ficcao, gen.acao, gen.aventura, stm.prime]
     },
     {
         background: background,
