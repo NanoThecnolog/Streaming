@@ -3952,7 +3952,7 @@ export const cards: CardsProps[] = [
         subtitle: "Um Mar de Aventuras",
         description: "Moana Waialiki é uma corajosa jovem, filha do chefe de uma tribo na Oceania, vinda de uma longa linhagem de navegadores. Querendo descobrir mais sobre seu passado e ajudar a família, ela resolve partir em busca de seus ancestrais, habitantes de uma ilha mítica que ninguém sabe onde é. Acompanhada pelo lendário semideus Maui, Moana começa sua jornada em mar aberto, onde enfrenta terríveis criaturas marinhas e descobre histórias do submundo.",
         faixa: "L",
-        src: "",
+        src: "https://drive.google.com/file/d/133X_6XimG1jSgrmtZc3mewC1TkBxUz93/preview",
         duration: "01h 47m",
         genero: [gen.animacao, gen.aventura, gen.comedia, agp.familia, stm.disney]
     },
@@ -4080,13 +4080,13 @@ export const cards: CardsProps[] = [
         background: background,
         overlay: overlay,
         tmdbId: 1064028,
-        title: "Subservience",
-        subtitle: "",
+        title: "Alice",
+        subtitle: "Subservience",
         description: "Um pai de família compra uma robô com inteligência artificial para auxiliar nos afazeres domésticos. No entanto, todos seus planos mudam quando a ferramenta acaba adquirindo consciência, com consequências devastadoras.",
         faixa: "A16",
-        src: "",
+        src: "https://drive.google.com/file/d/1PW9qs8Kcav7ggqp31HnC1FriFnCIPC-E/preview",
         duration: "01h 45m",
-        genero: [gen.ficcao, gen.suspense]
+        genero: [gen.ficcao, gen.suspense, stm.prime]
     },
     {
         background: background,
@@ -4674,7 +4674,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Após testemunhar um acidente traumático e bizarro envolvendo um paciente, a Dra. Rose Cotter começa a vivenciar eventos assustadores que ela não consegue explicar.",
         faixa: "A16",
-        src: "",
+        src: "https://drive.google.com/file/d/1_PjeMIljcLYqmPGX1cGz5qYtDKhQP93y/preview",
         duration: "01h 55m",
         genero: [gen.terror, agp.misterio]
     },
@@ -4791,12 +4791,12 @@ export const cards: CardsProps[] = [
         overlay: overlay,
         tmdbId: 917496,
         title: "Os Fantasmas Ainda se Divertem",
-        subtitle: "",
+        subtitle: "Beetlejuice Beetlejuice",
         description: "Depois de uma tragédia familiar inesperada, três gerações da família Deetz voltam para casa em Winter River. Ainda assombrada por Beetlejuice, a vida de Lydia vira de cabeça para baixo quando sua filha adolescente rebelde, Astrid, descobre a misteriosa maquete da cidade no sótão, e o portal para a vida após a morte é acidentalmente aberto. Com problemas em ambos os reinos, é apenas uma questão de tempo até que alguém diga o nome de Beetlejuice três vezes, e o demônio travesso volte para levar ao mundo seu próprio estilo de caos.",
         faixa: "A14",
-        src: "",
+        src: "https://drive.google.com/file/d/1A517r9xtE6v4x-3XgmVaY5NpRBSEvSW0/preview",
         duration: "01h 45m",
-        genero: [gen.comedia, gen.terror, gen.fantasia]
+        genero: [gen.comedia, gen.terror, gen.fantasia, stm.hbo]
     },
     {
         background: background,
@@ -4842,10 +4842,9 @@ export const cards: CardsProps[] = [
         subtitle: "Romulus",
         description: "Enquanto vasculham as profundezas de uma estação espacial abandonada, um grupo de jovens colonizadores espaciais se depara com a forma de vida mais aterrorizante do universo.",
         faixa: "A16",
-        src: "",
+        src: "https://drive.google.com/file/d/156dSFinYK6WJi5KVjZgq_SO6MTzofNpb/preview",
         duration: "01h 59m",
-        genero: [gen.ficcao, gen.terror, gen.acao, lang.leg],
-        lang: "Leg",
+        genero: [gen.ficcao, gen.terror, gen.acao, stm.disney],
     },
     {
         background: background,
