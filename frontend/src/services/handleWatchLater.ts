@@ -1,15 +1,12 @@
 import { toast } from "react-toastify"
-import { UserContext, UserProps } from "@/@types/user";
+import { UserContext } from "@/@types/user";
 import { api } from "./api";
 import { WatchLaterProps } from "@/@types/watchLater";
-import { updateUserCookie } from "./cookieClient";
 import { destroyCookie, parseCookies, setCookie } from "nookies";
 import { WatchLaterContext } from "@/@types/contexts/flixContext";
 import { cards } from "@/data/cards";
 import { cookieOptions } from "@/utils/Variaveis";
 import { series } from "@/data/series";
-import { CardsProps } from "@/@types/Cards";
-import { SeriesProps } from "@/@types/series";
 
 interface TestProps {
     title: string,

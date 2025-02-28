@@ -47,6 +47,9 @@ export const series: SeriesProps[] = [
         description: "Conta a história da ascensão do ícone bíblico Davi, que se torna o mais famoso rei de Israel. O outrora poderoso rei Saul é vítima de seu próprio orgulho. Seguindo as ordens de Deus, o profeta Samuel unge um pária adolescente como o novo rei.",
         genero: [gen.drama, stm.prime],
         faixa: "A16",
+        news: {
+            type: "news"
+        },
         season: [
             {
                 s: 1,
