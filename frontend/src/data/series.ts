@@ -41,6 +41,39 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 243881,
+        title: "Casa de Davi",
+        subtitle: "",
+        description: "Conta a história da ascensão do ícone bíblico Davi, que se torna o mais famoso rei de Israel. O outrora poderoso rei Saul é vítima de seu próprio orgulho. Seguindo as ordens de Deus, o profeta Samuel unge um pária adolescente como o novo rei.",
+        genero: [gen.drama, stm.prime],
+        faixa: "A16",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1XkG615RNdnYJAZcZzsvhiQcc4DthkVyb/preview",
+                        duration: "57m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1C0u2FnWR3Mi_BN1-z4DqDMWh2JRiuaZ3/preview",
+                        duration: "57m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1sjuQCMfJTVnBC7AsE9sU69LDB2qYk_ug/preview",
+                        duration: "52m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 110492,
         title: "Pacificador",
         subtitle: "",

@@ -3964,9 +3964,10 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Depois de receber um chamado inesperado de seus ancestrais navegadores, Moana vai viajar para mares distantes da Oceania, em águas perdidas em uma aventura perigosa.",
         faixa: "L",
-        src: "",
+        src: "https://drive.google.com/file/d/1uIs01TuDf6ZE-BI55fBOX_fA-Kyf6LJa/preview",
         duration: "01h 40m",
-        genero: [gen.animacao, gen.aventura, gen.comedia, agp.familia, stm.disney]
+        genero: [gen.animacao, gen.aventura, gen.comedia, agp.familia, stm.disney],
+        lang: "Leg"
     },
     {
         background: background,
@@ -4830,9 +4831,9 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Relutantemente, aos 17 anos, Gretchen deixa sua casa nos Estados Unidos para morar na Alemanha com seu pai Luis, que se casou com Beth, uma mulher mais nova. Juntos, eles se mudam para um resort nos Alpes. Ao chegarem à sua nova casa, eles são recebidos pelo Sr. König, o chefe do pai de Gretchen, que demonstra um interesse inexplicável por Alma, a meia-irmã muda da garota. Com o passar do tempo, Gretchen começa a ser assombrada por estranhos barulhos e visões sangrentas, até que descobre um segredo chocante que também envolve sua própria família, revelando algo de errado no local aparentemente tranquilo.",
         faixa: "A16",
-        src: "",
+        src: "https://drive.google.com/file/d/1Kxh5nK-IAjC9aCBcDtFvRjYDNxkjmv2x/preview",
         duration: "01h 43m",
-        genero: [gen.terror, agp.misterio, gen.ficcao]
+        genero: [gen.terror, agp.misterio, gen.suspense]
     },
     {
         background: background,
@@ -6274,9 +6275,9 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Dois caçadores de tempestades arriscam suas vidas na tentativa de testar um sistema experimental de alerta meteorológico.",
         faixa: "A12",
-        src: "",
+        src: "https://drive.google.com/file/d/1Ev8cDNvHKF5ZUXlQH73WodMeqo4vw3Lt/preview",
         duration: "02h 02m",
-        genero: [gen.acao, gen.suspense, gen.drama]
+        genero: [gen.acao, gen.suspense, gen.drama, stm.hbo]
     },
     {
         background: background,
