@@ -38,6 +38,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 539681,
+        title: "Liga dos Superpets",
+        subtitle: "",
+        description: "Krypto, o Supercão, precisa convencer um grupo excêntrico de animais a dominar seus novos poderes para ajudá-lo no resgate da Liga da Justiça.",
+        faixa: "L",
+        src: "https://drive.google.com/file/d/1CMoki5B61KVe7Po9TxEmd-815h31v7mq/preview",
+        duration: "01h 45m",
+        genero: [gen.animacao, gen.acao, gen.comedia, gen.ficcao, agp.familia, stm.prime]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 736073,
         title: "Batman",
         subtitle: "O Longo Dia das Bruxas - Parte 1",
@@ -6021,11 +6033,11 @@ export const cards: CardsProps[] = [
         tmdbId: 425909,
         title: "Ghostbusters",
         subtitle: "Mais Além",
-        description: "Uma mãe solo e seus dois filhos se mudam para uma nova cidade e descobrem que têm uma conexão com os Caça-Fantasmas originais e o legado secreto de seu avô.",
+        description: "Uma mãe solteira resolve se mudar para uma pequena cidade do interior com seus filhos, e acaba descobrindo uma conexão com os Caça-Fantasmas originais e o que o seu avô deixou para trás como legado.",
         faixa: "A12",
-        src: "",
+        src: "https://drive.google.com/file/d/1XtIiXPgGroeYnqRgx8dhDZWBA1P-7vI7/preview",
         duration: "02h 04m",
-        genero: [gen.comedia, gen.aventura, gen.fantasia]
+        genero: [gen.comedia, gen.aventura, gen.fantasia, gen.ficcao, agp.familia, stm.netflix]
     },
     {
         background: background,
