@@ -38,6 +38,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 382322,
+        title: "Batman",
+        subtitle: "A Piada Mortal",
+        description: "Do produtor executivo Bruce Timm e baseado na aclamada graphic novel da DC Comics, “Batman: A Piada Mortal” é uma jornada adentro da sombria psique do Príncipe Palhaço do Crime. Acompanhando desde o seu humilde começo, quando era um comediante esforçado, até seu fatídico encontro com o Cavaleiro das Trevas, que mudou tudo. Agora fugitivo do Asilo Arkham, o Coringa planeja provar para todos que um dia ruim é capaz de tornar qualquer um tão insano quanto ele.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1qHg7R7RlbiidX8M6sTZLIgYKZAYmYoZ-/preview",
+        duration: "01h 12m",
+        genero: [gen.animacao, gen.acao, agp.crime, gen.drama, agp.dc, stm.hbo]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 539681,
         title: "Liga dos Superpets",
         subtitle: "",
@@ -45,7 +57,7 @@ export const cards: CardsProps[] = [
         faixa: "L",
         src: "https://drive.google.com/file/d/1CMoki5B61KVe7Po9TxEmd-815h31v7mq/preview",
         duration: "01h 45m",
-        genero: [gen.animacao, gen.acao, gen.comedia, gen.ficcao, agp.familia, stm.prime]
+        genero: [gen.animacao, gen.acao, gen.comedia, gen.ficcao, agp.familia, agp.dc, stm.prime]
     },
     {
         background: background,
@@ -1476,7 +1488,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Elphaba é uma jovem como outra qualquer do Reino de Oz, mas incompreendida por causa de sua pele verde incomum e por ainda não ter descoberto seu verdadeiro poder. Sua rotina é tranquila e pouco interessante, mas ao iniciar seus estudos na Universidade de Shiz, seu destino encontra Glinda, uma jovem popular e ambiciosa, nascida em berço de ouro, que só quer garantir seus privilégios e ainda não conhece sua verdadeira alma. As duas iniciam uma inesperada amizade; no entanto, suas diferenças, como o desejo de Glinda pela popularidade e poder, e a determinação de Elphaba em permanecer fiel a si mesma, entram no caminho, o que pode perpetuar no futuro de cada uma e em como as pessoas de Oz as enxergam.",
         faixa: "10",
-        src: "",
+        src: "https://drive.google.com/file/d/1Z-TMM7TPQ7CFUPMHi6PB2h6blWuvfB1O/preview",
         duration: "02h 41m",
         genero: [gen.fantasia, gen.drama, gen.romance]
     },
