@@ -38,6 +38,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 7450,
+        title: "Titan A.E.",
+        subtitle: "",
+        description: "Um jovem descobre que precisa encontrar uma nave oculta da Terra antes que uma espécie alienígena inimiga o faça, a fim de garantir a sobrevivência da humanidade.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1zP9o-LSUNV3bKJZAjdPHQwT0DFfgMDds/preview",
+        duration: "01h 34m",
+        genero: [gen.animacao, gen.acao, gen.ficcao, gen.aventura, agp.familia]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 382322,
         title: "Batman",
         subtitle: "A Piada Mortal",
@@ -6756,7 +6768,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1NlKvbsxG8tkJM_2NqeYWghqxTUQ2J4Up/preview",
         duration: "2h 37m",
-        genero: [gen.acao, gen.suspense]
+        genero: [gen.acao, gen.suspense, gen.drama, gen.ficcao, gen.aventura, agp.guerra]
     },
     {
         background: background,
@@ -6768,7 +6780,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/17Vne5GyHakflYS2MXRIe6ND541a-OJ2q/preview",
         duration: "2h 22m",
-        genero: [gen.acao, gen.suspense, gen.ficcao]
+        genero: [gen.acao, gen.suspense, gen.ficcao, gen.aventura, gen.drama]
     },
     {
         background: background,
@@ -6780,7 +6792,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/1-xb2UUG5wuu8jc9Y0ZGA55BjGbKP6YOO/preview",
         duration: "2h 26m",
-        genero: [gen.acao, gen.ficcao, gen.suspense]
+        genero: [gen.acao, gen.ficcao, gen.suspense, gen.aventura, gen.drama]
     },
     {
         background: background,
@@ -6790,9 +6802,9 @@ export const cards: CardsProps[] = [
         subtitle: "A Esperança - parte 1",
         description: 'Após sobreviver à temível arena dos Jogos Vorazes, Katniss Everdeen está desanimada e destruída. Depois que a Capital reduziu o Distrito 12 a destroços, ela se refugiou no Distrito 13. Peeta Mellark foi submetido a uma lavagem cerebral, e agora está sob o domínio de Snow. Então, a presidência quer que Katniss lidere uma "resistência" e mobilize a população em uma empreitada que irá colocá-la no centro da trama para desmascarar Snow.',
         faixa: "A14",
-        src: "",
+        src: "https://drive.google.com/file/d/1S9Zp05nHIxbdmZZGttpLaosxtlXsPSWA/preview",
         duration: "2h 02m",
-        genero: [gen.acao, gen.ficcao, gen.suspense]
+        genero: [gen.acao, gen.ficcao, gen.suspense, gen.aventura, gen.drama]
     },
     {
         background: background,
@@ -6804,7 +6816,7 @@ export const cards: CardsProps[] = [
         faixa: "A14",
         src: "https://drive.google.com/file/d/11yW1fG9oSRbaf-yTDJDdizEo3qzbKt8P/preview",
         duration: "2h 16m",
-        genero: [gen.acao, gen.suspense, gen.ficcao]
+        genero: [gen.acao, gen.suspense, gen.ficcao, gen.drama, gen.aventura]
     },
     {
         background: background,
@@ -7034,18 +7046,18 @@ export const cards: CardsProps[] = [
         duration: "1h 43m",
         genero: [gen.comedia, gen.romance]
     },
-    /*{ procurar filme
+    {
         background: background,
         overlay: overlay,
         tmdbId: 848538,
         title: "Argylle",
         subtitle: "O Superespião",
-        description: "Uma autora reclusa que escreve romances de espionagem sobre um agente secreto e um sindicato global de espiões percebe que o enredo do novo livro que ela está escrevendo começa a espelhar eventos do mundo real, em tempo real.",
+        description: "Quando os enredos dos romances de espionagem da reclusa autora Elly Conway começam a refletir as ações secretas de uma organização de espionagem da vida real, as noites tranquilas em casa tornam-se uma coisa do passado. Acompanhada por seu gato Alfie e Aiden, um espião alérgico a gatos, Elly corre pelo mundo para ficar um passo à frente dos assassinos enquanto a linha entre o mundo fictício de Conway e o mundo real começa a se confundir.",
         faixa: "A14",
-        src: "",
+        src: "https://drive.google.com/file/d/1ksXEzz0Qx9FXxsYL9psRL4jd2KBz5tAf/preview",
         duration: "2h 18m",
-        genero: [gen.suspense, gen.acao]
-    },*/
+        genero: [gen.suspense, gen.acao, gen.comedia, gen.aventura, stm.apple]
+    },
     {
         background: background,
         overlay: overlay,
