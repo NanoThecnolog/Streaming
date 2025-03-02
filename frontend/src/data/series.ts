@@ -41,6 +41,132 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 127532,
+        title: "Solo Leveling",
+        subtitle: "",
+        description: 'Há mais de uma década, surgiu uma misteriosa passagem chamada "portal", que conecta este mundo a uma dimensão diferente, o que fez com que pessoas despertassem poderes únicos… e essas pessoas são chamadas de "caçadores". Os caçadores usam seus poderes sobre-humanos para conquistar masmorras dentro dos portais e assim ganhar a vida. Sung Jinwoo, um caçador de nível baixo, é considerado o caçador mais fraco de toda a humanidade. Certo dia, ele se depara com uma "masmorra dupla", que tem uma masmorra de nível alto escondida dentro de uma masmorra de nível baixo. Diante de um Jinwoo gravemente ferido, surge uma misteriosa missão! À beira da morte, Jinwoo decide aceitar essa missão, tornando-se assim a única pessoa capaz de subir de nível!',
+        genero: [gen.animacao, gen.acao, gen.aventura, gen.fantasia],
+        faixa: "A16",
+        news: {
+            type: "episode"
+        },
+        season: [
+            {
+                s: 1,
+                lang: "Dublado & Legendado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1OJt8mGa4AyX4FjecZehvA1P_SZ4jlXmv/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1ArsYO0NJ34qPiQ_YmmqFHDdGBNrDVyUN/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1V8x9LF0xtmsFxaeuiuWo5JWbmJSuTRdb/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1XxLGXcjYkcl4gvUNwqDiVBi23C0YlUKF/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1hpBYjnW-3OF1OShdJXhLzJGW60vR3wBf/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1szUygNiWfssBrXfcMMsck6P3Necg-boz/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1d0kXhBClsiAmmOifHF3MFSBN05vbhzlZ/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1omEGYOqaxB0bPXdAsHhXRv8Bc2837PDe/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1kiO5BoyXY2kfhBX8vsCR0X0FOd6Ut0gL/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1NxlGVA07iNVxdi_FRcp7H9gTceyIk4fu/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 11,
+                        src: "https://drive.google.com/file/d/185na25gVF4cAC4dyF1FsTL4IQf9Sl7wU/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 12,
+                        src: "https://drive.google.com/file/d/1JaZDUXClsjgcfQ4WzLLNAjBz5uQZwbGw/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 13,
+                        src: "https://drive.google.com/file/d/1ZlDccRlh98d2is9hAcRdnS4cvRguY6pp/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 14,
+                        src: "https://drive.google.com/file/d/1k_M0rUeU0VwUnJpkO8YO-yOfxaC5VOgF/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 15,
+                        src: "https://drive.google.com/file/d/1UBcvxUdwdfhdsg7TkJf8WTrw-QW4TSqN/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 16,
+                        src: "https://drive.google.com/file/d/1iPCfHZouYfuNqd82rJi-49b28ure8JXB/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 17,
+                        src: "https://drive.google.com/file/d/164fWwbIkxgz13LeJu3gwaD2hmGx1D8ui/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 18,
+                        src: "https://drive.google.com/file/d/1vMPqtB7ICE29fjYEmkzZZAnkCqSflbnb/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 19,
+                        src: "https://drive.google.com/file/d/1Y_7sAHDclbvhtNHku1pyTJVRUa3YYre6/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 20,
+                        src: "https://drive.google.com/file/d/1mdNSo3YhpHissiQZckxlVyaGmUb8OQUf/preview",
+                        duration: "23m"
+                    },
+                    {
+                        ep: 21,
+                        src: "https://drive.google.com/file/d/10CKCvoaox5ZKFloy2ggqo8Vuc9CCyGwO/preview",
+                        duration: "23m"
+                    }
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 108978,
         title: "Reacher",
         subtitle: "",
@@ -515,127 +641,7 @@ export const series: SeriesProps[] = [
             },
         ]
     },
-    {
-        background: background,
-        overlay: overlay,
-        tmdbID: 127532,
-        title: "Solo Leveling",
-        subtitle: "",
-        description: 'Há mais de uma década, surgiu uma misteriosa passagem chamada "portal", que conecta este mundo a uma dimensão diferente, o que fez com que pessoas despertassem poderes únicos… e essas pessoas são chamadas de "caçadores". Os caçadores usam seus poderes sobre-humanos para conquistar masmorras dentro dos portais e assim ganhar a vida. Sung Jinwoo, um caçador de nível baixo, é considerado o caçador mais fraco de toda a humanidade. Certo dia, ele se depara com uma "masmorra dupla", que tem uma masmorra de nível alto escondida dentro de uma masmorra de nível baixo. Diante de um Jinwoo gravemente ferido, surge uma misteriosa missão! À beira da morte, Jinwoo decide aceitar essa missão, tornando-se assim a única pessoa capaz de subir de nível!',
-        genero: [gen.animacao, gen.acao, gen.aventura, gen.fantasia],
-        faixa: "A16",
-        news: {
-            type: "episode"
-        },
-        season: [
-            {
-                s: 1,
-                lang: "Dublado & Legendado",
-                episodes: [
-                    {
-                        ep: 1,
-                        src: "https://drive.google.com/file/d/1OJt8mGa4AyX4FjecZehvA1P_SZ4jlXmv/preview",
-                        duration: "23m"
-                    },
-                    {
-                        ep: 2,
-                        src: "https://drive.google.com/file/d/1ArsYO0NJ34qPiQ_YmmqFHDdGBNrDVyUN/preview",
-                        duration: "23m"
-                    },
-                    {
-                        ep: 3,
-                        src: "https://drive.google.com/file/d/1V8x9LF0xtmsFxaeuiuWo5JWbmJSuTRdb/preview",
-                        duration: "23m"
-                    },
-                    {
-                        ep: 4,
-                        src: "https://drive.google.com/file/d/1XxLGXcjYkcl4gvUNwqDiVBi23C0YlUKF/preview",
-                        duration: "23m"
-                    },
-                    {
-                        ep: 5,
-                        src: "https://drive.google.com/file/d/1hpBYjnW-3OF1OShdJXhLzJGW60vR3wBf/preview",
-                        duration: "23m"
-                    },
-                    {
-                        ep: 6,
-                        src: "https://drive.google.com/file/d/1szUygNiWfssBrXfcMMsck6P3Necg-boz/preview",
-                        duration: "23m"
-                    },
-                    {
-                        ep: 7,
-                        src: "https://drive.google.com/file/d/1d0kXhBClsiAmmOifHF3MFSBN05vbhzlZ/preview",
-                        duration: "23m"
-                    },
-                    {
-                        ep: 8,
-                        src: "https://drive.google.com/file/d/1omEGYOqaxB0bPXdAsHhXRv8Bc2837PDe/preview",
-                        duration: "23m"
-                    },
-                    {
-                        ep: 9,
-                        src: "https://drive.google.com/file/d/1kiO5BoyXY2kfhBX8vsCR0X0FOd6Ut0gL/preview",
-                        duration: "23m"
-                    },
-                    {
-                        ep: 10,
-                        src: "https://drive.google.com/file/d/1NxlGVA07iNVxdi_FRcp7H9gTceyIk4fu/preview",
-                        duration: "23m"
-                    },
-                    {
-                        ep: 11,
-                        src: "https://drive.google.com/file/d/185na25gVF4cAC4dyF1FsTL4IQf9Sl7wU/preview",
-                        duration: "23m"
-                    },
-                    {
-                        ep: 12,
-                        src: "https://drive.google.com/file/d/1JaZDUXClsjgcfQ4WzLLNAjBz5uQZwbGw/preview",
-                        duration: "23m"
-                    },
-                    {
-                        ep: 13,
-                        src: "https://drive.google.com/file/d/1ZlDccRlh98d2is9hAcRdnS4cvRguY6pp/preview",
-                        duration: "23m"
-                    },
-                    {
-                        ep: 14,
-                        src: "https://drive.google.com/file/d/1k_M0rUeU0VwUnJpkO8YO-yOfxaC5VOgF/preview",
-                        duration: "23m"
-                    },
-                    {
-                        ep: 15,
-                        src: "https://drive.google.com/file/d/1UBcvxUdwdfhdsg7TkJf8WTrw-QW4TSqN/preview",
-                        duration: "23m"
-                    },
-                    {
-                        ep: 16,
-                        src: "https://drive.google.com/file/d/1iPCfHZouYfuNqd82rJi-49b28ure8JXB/preview",
-                        duration: "23m"
-                    },
-                    {
-                        ep: 17,
-                        src: "https://drive.google.com/file/d/164fWwbIkxgz13LeJu3gwaD2hmGx1D8ui/preview",
-                        duration: "23m"
-                    },
-                    {
-                        ep: 18,
-                        src: "https://drive.google.com/file/d/1vMPqtB7ICE29fjYEmkzZZAnkCqSflbnb/preview",
-                        duration: "23m"
-                    },
-                    {
-                        ep: 19,
-                        src: "https://drive.google.com/file/d/1Y_7sAHDclbvhtNHku1pyTJVRUa3YYre6/preview",
-                        duration: "23m"
-                    },
-                    {
-                        ep: 20,
-                        src: "https://drive.google.com/file/d/1mdNSo3YhpHissiQZckxlVyaGmUb8OQUf/preview",
-                        duration: "23m"
-                    }
-                ]
-            },
-        ]
-    },
+
     {
         background: background,
         overlay: overlay,
@@ -2818,7 +2824,7 @@ export const series: SeriesProps[] = [
             },
         ]
     },
-    {
+    /*{
         background: background,
         overlay: overlay,
         tmdbID: 1416,
@@ -3989,7 +3995,7 @@ export const series: SeriesProps[] = [
                 ]
             }
         ]
-    },
+    },*/
     {
         background: background,
         overlay: overlay,
@@ -14963,7 +14969,7 @@ export const series: SeriesProps[] = [
                     },
                     {
                         ep: 4,
-                        src: "https://drive.google.com/file/d/10V6duFJTQmuda484ydPFa0ZRzTmaZZ_Q/preview",
+                        src: "https://drive.google.com/file/d/1ieQ4ePbMkCI3spB96u1KMkjgwJHHlApn/preview",
                         duration: "39m"
                     },
                     {
@@ -16752,7 +16758,7 @@ export const series: SeriesProps[] = [
         overlay: overlay,
         tmdbID: 84773,
         title: "O Senhor dos Anéis",
-        subtitle: "Os Aneis de Poder",
+        subtitle: "Os Anéis de Poder",
         description: "Antes da jornada de Frodo pela Terra-Média, a Segunda Era foi palco de diversas lendas heróicas. O drama épico que se passa milhares de anos antes de A Sociedade do Anel, tem foco em um momento da história em que grandes poderes foram forjados, reinos ascenderam e também ruíram, ao mesmo tempo em que heróis foram testados e tiveram a esperança quase aniquilada pelo grande vilão do universo de Senhor dos Anéis. A série começa em um momento de paz, quando o elenco de novos e antigos personagens precisam enfrentar o ressurgimento do mal, vindo das profundezas mais escuras das Montanhas Sombrias. Os reinos e personagens irão esculpir legados que viverão por muito tempo depois que eles se forem.",
         genero: [gen.drama, gen.fantasia, stm.prime],
         faixa: "A14",
@@ -16763,42 +16769,42 @@ export const series: SeriesProps[] = [
                 episodes: [
                     {
                         ep: 1,
-                        src: "https://drive.google.com/file/d/1-Lf6EZp3cVDXWfDe_uG1AoRB46RbXtu1/preview",
+                        src: "https://drive.google.com/file/d/1RA7cfXeUlM4GsvB8biEEesa6EW9uNTwn/preview",
                         duration: "01h 05m"
                     },
                     {
                         ep: 2,
-                        src: "https://drive.google.com/file/d/1-SnsnE6lLjoy94KOGlXIpvWywtnyZHUn/preview",
+                        src: "https://drive.google.com/file/d/1f0l5oBpES9_wXHsq-Y5xHkW_DCqNdVYO/preview",
                         duration: "01h 07m"
                     },
                     {
                         ep: 3,
-                        src: "https://drive.google.com/file/d/1-hI8kf1rLAevU-EQPZIcFTD444uOPv_-/preview",
+                        src: "",
                         duration: "01h 09m"
                     },
                     {
                         ep: 4,
-                        src: "https://drive.google.com/file/d/1-nMuTuwD8ikrN9wDQSXz7C12MrAZXt8J/preview",
+                        src: "https://drive.google.com/file/d/13GdygQAbuYhYRJagBEInDj9bDS14IEZb/preview",
                         duration: "01h 11m"
                     },
                     {
                         ep: 5,
-                        src: "https://drive.google.com/file/d/1-pFzOvi2UeL8hXimy88e6g5fEPiA0M6W/preview",
+                        src: "https://drive.google.com/file/d/15eMlHxQgHcv9jKnFDVUQXyJ0rRyOofyo/preview",
                         duration: "01h 12m"
                     },
                     {
                         ep: 6,
-                        src: "https://drive.google.com/file/d/1-pKqAWAhoA2eaIDSICBRNtzrwkv4MA9M/preview",
+                        src: "https://drive.google.com/file/d/13ROLf9XY-eYhqW97NuXa7WOFDNEW03GB/preview",
                         duration: "01h 09m"
                     },
                     {
                         ep: 7,
-                        src: "https://drive.google.com/file/d/1-wSRKgX7BDQHNxO8oqTRvqUR48feCX8g/preview",
+                        src: "https://drive.google.com/file/d/1ldl8anEqDJSuKHTmirZ95c8H-XU_XF08/preview",
                         duration: "01h 12m"
                     },
                     {
                         ep: 8,
-                        src: "https://drive.google.com/file/d/1-wVqWDXFzBs3oKKtQkTOZfo2oqn_HJQ1/preview",
+                        src: "https://drive.google.com/file/d/1XLWWLY_P92OyKe40apfau7IiIOoXkb63/preview",
                         duration: "01h 12m"
                     }
 
@@ -16810,42 +16816,42 @@ export const series: SeriesProps[] = [
                 episodes: [
                     {
                         ep: 1,
-                        src: "https://drive.google.com/file/d/1--P0EvlLrCmXIlIAeHXV_DX6QeSEDH7L/preview",
+                        src: "https://drive.google.com/file/d/1w69ggc20sgPJxyRrDxOAF5pbKAm3aMu3/preview",
                         duration: "01h 16m"
                     },
                     {
                         ep: 2,
-                        src: "https://drive.google.com/file/d/1-22tUCC-rI-tUbW0QnSrZZ5H_Tds0tpM/preview",
+                        src: "https://drive.google.com/file/d/1bLmD641mGFB-tLIhjhNBe9SS6N0hyjVu/preview",
                         duration: "01h 02m"
                     },
                     {
                         ep: 3,
-                        src: "https://drive.google.com/file/d/1-D_I4rvjOIWYziFmHK5F2perj4EEaczC/preview",
+                        src: "https://drive.google.com/file/d/10f-mSbAIGH7SK-IDY0LaP9SeNHlYJhYZ/preview",
                         duration: "01h 06m"
                     },
                     {
                         ep: 4,
-                        src: "https://drive.google.com/file/d/1Vqonz2q2vbukaGzyNG45i1kyv21y807V/preview",
+                        src: "https://drive.google.com/file/d/16K0l5ijw5u4pZ1uI1BkNjpWtNLnRHW3h/preview",
                         duration: "01h 05m"
                     },
                     {
                         ep: 5,
-                        src: "https://drive.google.com/file/d/1H8JSMWxSjnmBOZV-3IW_HHhnQZFUcerc/preview",
+                        src: "https://drive.google.com/file/d/1S-mIPXJTIxf-HX6C1pck6BZ7c_gZ5A34/preview",
                         duration: "01h 01m"
                     },
                     {
                         ep: 6,
-                        src: "https://drive.google.com/file/d/1MqI7q6fvahPSMQsc7fFJjEEn0_Tj0vUN/preview",
+                        src: "https://drive.google.com/file/d/1z8q0Dva56t16WQZ-SC6ry9u548YuLLY_/preview",
                         duration: "01h 06m"
                     },
                     {
                         ep: 7,
-                        src: "https://drive.google.com/file/d/1-iZfqvvbkwNqZh8jF4j0NSaNBxa93eL8/preview",
+                        src: "https://drive.google.com/file/d/1yJM2XWN6ZcANTU4MyVnjVIUe8AA35ysV/preview",
                         duration: "01h 12m"
                     },
                     {
                         ep: 8,
-                        src: "https://drive.google.com/file/d/1oXwtGm4FaxgIEqhDLSlGMPC7IK7dJBCV/preview",
+                        src: "https://drive.google.com/file/d/1hwDX39Eok8Qc6Q5yEWZM2m6hErTY87Ta/preview",
                         duration: "01h 17m"
                     }
                 ]
