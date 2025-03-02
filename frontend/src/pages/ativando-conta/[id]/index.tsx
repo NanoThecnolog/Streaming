@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import styles from './styles.module.scss'
 import { useEffect, useState } from "react";
-import { api } from "@/services/api";
 import Link from "next/link";
 import axios from "axios";
 import Spinner from "@/components/ui/Loading/spinner";

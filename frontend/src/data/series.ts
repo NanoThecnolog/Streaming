@@ -41,6 +41,156 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 82856,
+        title: "The Mandalorian",
+        subtitle: "",
+        description: "A saga de um guerreiro solitário, que também é um mercenário e pistoleiro, viajando pelos territórios esquecidos e marginais do espaço, logo após a queda do Império e antes da criação da temida Primeira Ordem.",
+        genero: [gen.ficcao, gen.fantasia, gen.acao, gen.drama, stm.disney],
+        faixa: "A14",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1p8aT1NHh_ek7tR8D8oYv2UnyGeAlm9Al/preview",
+                        duration: "38m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/11f4yiGFn1yHsmQxUm71KIPiXMoUGqdzD/preview",
+                        duration: "29m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1XUnBnvEZKFxQtYkfwwVjsIoc0gs4r_5z/preview",
+                        duration: "37m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1gJIyoode4NreiHOlTrc09j1MHwjPPLOh/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/19OSSnWDRNUEg9uO7uI-l24E39j4zkeDv/preview",
+                        duration: "35m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1zFIVI08iG2ucnLvIDDCXEBTlwbKtPi8B/preview",
+                        duration: "40m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/17DpI70zOj_kUFBsiqFsK7LerbU8ZUQ3W/preview",
+                        duration: "36m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1a25_hf_RnbnP_u5TEps1X7kjonyolVOa/preview",
+                        duration: "48m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1g-AAvSH9TmCVEhHrbmBelyf13yvjHfiG/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1FbZZCiGY7HjXAey322RCrIjv86U-EcDK/preview",
+                        duration: "39m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1hK4FAJhzxLVvJzsRR9d9irI1pqjc5otg/preview",
+                        duration: "33m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1v8SIzfPROxAy9fFKBXNAUI2hnfdHB5XQ/preview",
+                        duration: "37m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1DleJNbgwpW5bFVPuaoMApZPi7N_CU2x1/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 6,
+                        src: "",
+                        duration: ""
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1x48vihHioO6OYcPla_k2SMKaMUMxlzE1/preview",
+                        duration: "36m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1368AnN2GIwV1Uxp0CaD8reUakzbDjFij/preview",
+                        duration: "44m"
+                    },
+                ]
+            },
+            {
+                s: 3,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1qkgIhmNGWtbw5o6jmUTexKAVPjrANutw/preview",
+                        duration: "35m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1GS5A2b88cmMjB9zm7BQFAJIWTp2Y4ar6/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1RWN30q2_BH0RdEhs9YhvakySbHUnmPxi/preview",
+                        duration: "56m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1NQTADny1AblXkpkTHCmWfIGr3YevQN0Z/preview",
+                        duration: "30m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1uyCd9DL_505UvHsYeya1Bn_V9gjNeq5H/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1AmrvWaMVXGyhOUXsi3ogXZeQzMnYnFH3/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1guStaoXuyOGlegMPZjMTtcR8VQyFNb7Y/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1Q5cgttipzYwWasi7mMDLpZa7Fsa1ytC_/preview",
+                        duration: "38m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 127532,
         title: "Solo Leveling",
         subtitle: "",
@@ -16779,7 +16929,7 @@ export const series: SeriesProps[] = [
                     },
                     {
                         ep: 3,
-                        src: "",
+                        src: "https://drive.google.com/file/d/1D-lb7nEonMhnvzHviE_8jABCwYw002TT/preview",
                         duration: "01h 09m"
                     },
                     {
