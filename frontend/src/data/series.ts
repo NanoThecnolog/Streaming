@@ -4700,47 +4700,47 @@ export const series: SeriesProps[] = [
                 episodes: [
                     {
                         ep: 1,
-                        src: "https://drive.google.com/file/d/1csJAtkVsuEsQxuSV3FhMbBdsZKYV2v4B/preview",
+                        src: "",
                         duration: "33m"
                     },
                     {
                         ep: 2,
-                        src: "https://drive.google.com/file/d/17t9riJl3fBzvsq5y6j_LxUONTr3UVe6X/preview",
+                        src: "",
                         duration: "34m"
                     },
                     {
                         ep: 3,
-                        src: "https://drive.google.com/file/d/1UY4BiowJSMvqPpDyC8pY_l9wmoBxS5iB/preview",
+                        src: "",
                         duration: "30m"
                     },
                     {
                         ep: 4,
-                        src: "https://drive.google.com/file/d/12AhBvehuLutGsAfpEAgR3IJQYG5_F2mm/preview",
+                        src: "",
                         duration: "34m"
                     },
                     {
                         ep: 5,
-                        src: "https://drive.google.com/file/d/1dpfBTy7zLC8clzwgzrJefzdleO4Ztg8j/preview",
+                        src: "",
                         duration: "29m"
                     },
                     {
                         ep: 6,
-                        src: "https://drive.google.com/file/d/1j0r3R4gl5sfPYWCtxNzrj_H5vXPjICrV/preview",
+                        src: "",
                         duration: "31m"
                     },
                     {
                         ep: 7,
-                        src: "https://drive.google.com/file/d/1L6Pn0m13NfO7pLhQ_2O7ZoHzXpJ1s_yc/preview",
+                        src: "",
                         duration: "31m"
                     },
                     {
                         ep: 8,
-                        src: "https://drive.google.com/file/d/1FmEKO3ScG1SjSB9ZehdYiYlzSl5Lu4UA/preview",
+                        src: "",
                         duration: "29m"
                     },
                     {
                         ep: 9,
-                        src: "https://drive.google.com/file/d/1e0wtajSafjdJ08DGXgyGwiajP5TavTBl/preview",
+                        src: "",
                         duration: "33m"
                     }
                 ]
@@ -4751,47 +4751,47 @@ export const series: SeriesProps[] = [
                 episodes: [
                     {
                         ep: 1,
-                        src: "https://drive.google.com/file/d/1FpRrzk0aPM4A-T2JYzb1J-gLVyvwL2LZ/preview",
+                        src: "",
                         duration: "28m"
                     },
                     {
                         ep: 2,
-                        src: "https://drive.google.com/file/d/1YTBKy9DQ_jlRgZOKMNoL5wykCZOBCBor/preview",
+                        src: "",
                         duration: "29m"
                     },
                     {
                         ep: 3,
-                        src: "https://drive.google.com/file/d/1hDwuBlJJ8VkA7DXyb6AbzPoxUGczOM02/preview",
+                        src: "",
                         duration: "26m"
                     },
                     {
                         ep: 4,
-                        src: "https://drive.google.com/file/d/11sZi667zeXihXpv86gkh9juPm1vm64Ve/preview",
+                        src: "",
                         duration: "31m"
                     },
                     {
                         ep: 5,
-                        src: "https://drive.google.com/file/d/1sSaxWgCuDfre4xMBoV7yLv1A-ZDIZB5-/preview",
+                        src: "",
                         duration: "30m"
                     },
                     {
                         ep: 6,
-                        src: "https://drive.google.com/file/d/1ZjkUlcoURY6QSCztZFXwmovQwvDAeMul/preview",
+                        src: "",
                         duration: "32m"
                     },
                     {
                         ep: 7,
-                        src: "https://drive.google.com/file/d/1g0hD83ppK5VH6NxNgo1mJYqHOyJblVU-/preview",
+                        src: "",
                         duration: "28m"
                     },
                     {
                         ep: 8,
-                        src: "https://drive.google.com/file/d/11MOXqifZmzef0Ltwv2s-e3sowIayAbIz/preview",
+                        src: "",
                         duration: "29m"
                     },
                     {
                         ep: 9,
-                        src: "https://drive.google.com/file/d/1zJ90sdYELiGStxHTsrUySA-8p6zZ8P4R/preview",
+                        src: "",
                         duration: "31m"
                     }
                 ]
@@ -4802,42 +4802,42 @@ export const series: SeriesProps[] = [
                 episodes: [
                     {
                         ep: 1,
-                        src: "https://drive.google.com/file/d/18iTCOrw_mfPFmPhidgCA9tY5tW2rviOh/preview",
+                        src: "",
                         duration: "28m"
                     },
                     {
                         ep: 2,
-                        src: "https://drive.google.com/file/d/1ApG8Hre5ugQ360PcYyA3BU-UrLtSZ6aT/preview",
+                        src: "",
                         duration: "28m"
                     },
                     {
                         ep: 3,
-                        src: "https://drive.google.com/file/d/1BquRGvESfvDclAGqDxdPRxuyhddqISCQ/preview",
+                        src: "",
                         duration: "30m"
                     },
                     {
                         ep: 4,
-                        src: "https://drive.google.com/file/d/1DrBhlVZKfDgHUN_7vEXBbWhN8AQqXwTW/preview",
+                        src: "",
                         duration: "29m"
                     },
                     {
                         ep: 5,
-                        src: "https://drive.google.com/file/d/1GpHcPniexihU3i2NuRK_WX31Wfw77DaK/preview",
+                        src: "",
                         duration: "30m"
                     },
                     {
                         ep: 6,
-                        src: "https://drive.google.com/file/d/1IWkrcmDszslVkhubPzXFuDKxamQTNaRk/preview",
+                        src: "",
                         duration: "30m"
                     },
                     {
                         ep: 7,
-                        src: "https://drive.google.com/file/d/1JptIvpLT9XXsvNRGRtMVMA2C6SvsN0lJ/preview",
+                        src: "",
                         duration: "25m"
                     },
                     {
                         ep: 8,
-                        src: "https://drive.google.com/file/d/1KAHZBqwnmUbJsy69Slp1RYccbKi5dlLj/preview",
+                        src: "",
                         duration: "32m"
                     },
                 ]
@@ -15104,17 +15104,17 @@ export const series: SeriesProps[] = [
                 episodes: [
                     {
                         ep: 1,
-                        src: "https://drive.google.com/file/d/10MXNW5SlHVD-lGEYUq4o08f1LhnvGzL4/preview",
+                        src: "https://drive.google.com/file/d/1xUHTQposw1t5UWyFrcl_Wm7l6l2w888J/preview",
                         duration: "41m"
                     },
                     {
                         ep: 2,
-                        src: "https://drive.google.com/file/d/10QN5ytT-rCK17xUHcdEPaYa9g-jK4251/preview",
+                        src: "https://drive.google.com/file/d/1zGbh_hyyxBwnJyCQLi_ufrb4yxhNKISG/preview",
                         duration: "40m"
                     },
                     {
                         ep: 3,
-                        src: "https://drive.google.com/file/d/10TXRAam5tS1gL14aONu6vMT3u2eFSOlc/preview",
+                        src: "https://drive.google.com/file/d/1DO8GTrlt4UYh_Xa05wdmOyp6qvKXFz39/preview",
                         duration: "42m"
                     },
                     {
@@ -15124,12 +15124,12 @@ export const series: SeriesProps[] = [
                     },
                     {
                         ep: 5,
-                        src: "https://drive.google.com/file/d/10WryTKJyV5hQo38uAlt9pg7WrWiyLKFx/preview",
+                        src: "https://drive.google.com/file/d/1jVK3X2Kw0kU63XSCgbypkGefqTIGa1Gx/preview",
                         duration: "38m"
                     },
                     {
                         ep: 6,
-                        src: "https://drive.google.com/file/d/10c4xY69IbovJxKtgNkNejbimmk5RRmFD/preview",
+                        src: "https://drive.google.com/file/d/1apUOnZrPSYpEkIyBNfv1A2BoDy3jheRL/preview",
                         duration: "49m"
                     },
                 ]
