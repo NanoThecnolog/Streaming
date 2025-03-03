@@ -8346,32 +8346,32 @@ export const series: SeriesProps[] = [
                 episodes: [
                     {
                         ep: 1,
-                        src: "https://drive.google.com/file/d/1IsUssEdgucl-OibrH2B2MsePhJQIku45/preview",
+                        src: "https://drive.google.com/file/d/1rB_wgnQ4YEYfKJ0Re-qwo4VzN2BzAOyL/preview",
                         duration: "42m"
                     },
                     {
                         ep: 2,
-                        src: "https://drive.google.com/file/d/1QF1YncIIIinritJrVGlySv-Jp984g0s4/preview",
+                        src: "https://drive.google.com/file/d/1gszJr0z4YjTDa2rHnQTPSU_Tk4xPDZgs/preview",
                         duration: "42m"
                     },
                     {
                         ep: 3,
-                        src: "https://drive.google.com/file/d/1Clc5FqWQb0A18UrUPIO_CuUUamI7OhXo/preview",
+                        src: "https://drive.google.com/file/d/1iDWMw4bHxx2AV2iQ7jjsUKZySvbUg3Ug/preview",
                         duration: "41m"
                     },
                     {
                         ep: 4,
-                        src: "https://drive.google.com/file/d/1sKwwMMao8j8jANdKL80WB0Vmwqn1RF-G/preview",
+                        src: "https://drive.google.com/file/d/1TlQ73oXvcExToZQ4d4_UatqGQ8z3mAOP/preview",
                         duration: "42m"
                     },
                     {
                         ep: 5,
-                        src: "https://drive.google.com/file/d/12nhVU4d9JHLBpqkI7VtAFRmAVa9WeXfu/preview",
+                        src: "https://drive.google.com/file/d/1NlrPuougmuWniVRKRqCje-8tVDMDE2ZF/preview",
                         duration: "43m"
                     },
                     {
                         ep: 6,
-                        src: "https://drive.google.com/file/d/1Xfn7xnGTamLS4Lb9_txZmcV_HLdsrlWR/preview",
+                        src: "https://drive.google.com/file/d/1nvEIFvzj7HYpmtzpAlaf6NSiT7vakryy/preview",
                         duration: "49m"
                     },
                 ]
@@ -15902,7 +15902,7 @@ export const series: SeriesProps[] = [
             },
             {
                 s: 2,
-                lang: "Legendado",
+                lang: lang.leg,
                 episodes: [
                     {
                         ep: 1,
