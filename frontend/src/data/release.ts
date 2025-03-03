@@ -9,6 +9,14 @@ export const releaseCards: ReleaseProps[] = [
     },
      */
     {
+        tmdbId: 1000837,
+        name: "Ainda Estou Aqui",
+    },
+    {
+        tmdbId: 1084199,
+        name: "Acompanhante Perfeita",
+    },
+    {
         tmdbId: 1126166,
         name: "Ameaça no ar"
     },
@@ -29,31 +37,11 @@ export const releaseCards: ReleaseProps[] = [
         name: "babygirl",
     },
     {
-        tmdbId: 939243,
-        name: "sonic 3"
-    },
-    {
-        tmdbId: 1241982,
-        name: "Moana 2"
-    },
-    {
         tmdbId: 823219,
         name: "flow"
     },
     {
         tmdbId: 993710,
         name: "de volta a ação"
-    },
-    {
-        tmdbId: 539972,
-        name: "kraven"
-    },
-    {
-        tmdbId: 1156593,
-        name: "sua culpa",
-    },
-    {
-        tmdbId: 558449,
-        name: "gladiador 2",
     },
 ]

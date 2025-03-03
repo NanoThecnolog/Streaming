@@ -38,6 +38,30 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 1000837,
+        title: "Ainda Estou Aqui",
+        subtitle: "",
+        description: "No início da década de 1970, o Brasil enfrenta o endurecimento da ditadura militar. No Rio de Janeiro, a família Paiva – Rubens, Eunice e seus cinco filhos – vive à beira da praia em uma casa de portas abertas para os amigos. Um dia, Rubens Paiva é levado por militares à paisana e desaparece.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1a8fBl72WQC9Kbds8Tn74M6a4-UT1tAIp/preview",
+        duration: "02h 15m",
+        genero: [gen.drama, agp.historia, agp.nacional]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 1084199,
+        title: "Acompanhante Perfeita",
+        subtitle: "",
+        description: "Essa não é a sua história de amor convencional. Acompanhante Perfeita segue o casal Iris e Josh num final de semana entre amigos numa casa de campo luxuosa e tranquila. Apaixonados, os dois vivem um romance de cinema. Mas nem tudo é o que parece: Iris é um robô. A viagem toma, então, um rumo inesperado, com perseguições, sangue e revelações estrondosas. Será que o casal sairá vivo desse pesadelo?",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1nwYkDP1lPOO55LTqX8vTM3fz-GQ5BF9_/preview",
+        duration: "01h 37m",
+        genero: [gen.terror, gen.ficcao, gen.suspense]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 7450,
         title: "Titan A.E.",
         subtitle: "",
