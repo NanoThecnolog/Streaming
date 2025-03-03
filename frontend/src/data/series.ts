@@ -15841,7 +15841,7 @@ export const series: SeriesProps[] = [
         title: "Outer Banks",
         subtitle: "",
         description: "O jovem John convoca seus melhores amigos para procurarem por um tesouro ligado ao desaparecimento de seu pai. Aos poucos, o grupo vai entrando em uma perigosa trama de segredos e perigos.",
-        genero: [gen.drama, stm.netflix],
+        genero: [gen.drama, gen.aventura, agp.misterio, gen.acao, stm.netflix],
         faixa: "A16",
         season: [
             {
@@ -16078,7 +16078,7 @@ export const series: SeriesProps[] = [
         title: "Death Note",
         subtitle: "",
         description: "Um inteligente estudante do ensino médio embarca em uma cruzada secreta para eliminar os criminosos do mundo depois de descobrir um caderno capaz de matar qualquer pessoa cujo nome está escrito nele.",
-        genero: [gen.animacao, agp.manga],
+        genero: [gen.animacao, gen.ficcao, gen.fantasia, agp.misterio, agp.manga],
         faixa: "18",
         season: [
             {
@@ -16281,7 +16281,7 @@ export const series: SeriesProps[] = [
         title: "A Casa do Dragão",
         subtitle: "",
         description: "A Casa do Dragão é uma série de TV norte-americana que conta a história de uma guerra civil entre a Casa Targaryen, que se passa 200 anos antes dos eventos de Game of Thrones",
-        genero: [gen.fantasia, gen.ficcao, stm.hbo],
+        genero: [gen.fantasia, gen.ficcao, gen.drama, gen.aventura, stm.hbo],
         faixa: "18",
         season: [
             {
