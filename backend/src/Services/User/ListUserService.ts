@@ -13,7 +13,6 @@ class ListUserService {
                 donator: true,
                 avatar: true,
                 verified: true,
-
             }
         });
 

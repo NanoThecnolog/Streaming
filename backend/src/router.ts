@@ -54,16 +54,16 @@ router.post('/plan/subscription/create', Authenticate, new CreateBilletSubContro
 router.post('/plan/subscription/detail/:id', Authenticate, new DetailSubController().handle)
 router.put('/plan/subscription/cancel/:id', Authenticate, new CancelSubController().handle)
 
-router.post('/user', new CreateUserController().handle);
-router.post('/login', new AuthUserController().handle);
+router.post('/user', new CreateUserController().handle);//ok
+router.post('/login', new AuthUserController().handle);//ok
 router.put('/user', Authenticate, new EditUserController().handle)
 router.get('/users', ADMAuth, new ListUserController().handle)
 router.delete('/user', new DeleteUserController().handle)
 router.get('/user', Authenticate, new DetailUserController().handle);
 router.post('/recovertoken', new GenerateRecoverTokenController().handle);
-router.put('/recover', new RecoverController().handle);
+router.put('/recover', new RecoverController().handle);//ok
 
-router.post('/ativar', new ActiveUserController().handle);
+router.post('/ativar', new ActiveUserController().handle);//ok
 
 router.post('/movie/adicionar/varios', new CreateManyMovieController().handle)
 router.post('/movie/adicionar', new CreateMovieController().handle)
@@ -78,9 +78,9 @@ router.get('/favorites', new ListFavoriteController().handle)
 router.delete('/favorite/:favoriteid', new RemoveFavoriteController().handle)
 
 //emails
-router.post('/send', Authenticate, new ProblemNotificationController().handle)
-router.post('/promotional', Authenticate, new PromotionalEmailController().handle)
+router.post('/send', Authenticate, new ProblemNotificationController().handle) // ok
+router.post('/promotional', Authenticate, new PromotionalEmailController().handle)//ok
 router.post('/info', Authenticate, new EmailInfoController().handle)
-router.post('/request/content', Authenticate, new RequestContentController().handle)
+router.post('/request/content', Authenticate, new RequestContentController().handle)//ok
 
 export { router }

@@ -1,5 +1,5 @@
 import { createTransporter } from '../../Utils/CreateTransporter';
-import { generateEmailContent, generateNewAccNotificationContent } from '../../Utils/GenerateEmailTemplates';
+import { generateNewAccNotificationContent } from '../../Utils/GenerateEmailTemplates';
 
 interface DataProps {
     name: string,

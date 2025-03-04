@@ -7,6 +7,7 @@ export class ActiveUserController {
         try {
             const activeUserService = new ActiveUserService();
             const { id } = req.query;
+            //console.log("Chamando ativação", id)
             if (!id) {
                 throw new Error("ID não recebido no controller.")
             }
