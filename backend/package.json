@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@prisma/client": "^5.19.1",
+    "@types/validator": "^13.12.2",
     "axios": "^1.8.1",
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
@@ -20,7 +21,8 @@
     "pix-payload": "^1.0.4",
     "prisma": "^5.19.1",
     "qrcode": "^1.5.4",
-    "sdk-node-apis-efi": "^1.2.14"
+    "sdk-node-apis-efi": "^1.2.14",
+    "validator": "^13.12.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",

@@ -40,9 +40,25 @@ model subscription {
   user   user   @relation(fields: [userId], references: [id], onDelete: Cascade)
   subId  Int
   status String
+
+  planId String
+  plan   plan   @relation(fields: [planId], references: [id])
   //antes de continuar, quero ver o que retorna na busca pela subscrição, pra decidir quais campos guardar aqui
   //posso guardar informações de pagamento pra mostrar na página do usuário, data de vencimento, status da assinatura, quais já foram pagas, etc....
   //preciso abranger todos os cenários: pagamento por boleto, por cartão de crédito, solicitação de cancelamento de sub, mudança de plano, etc...
+}
+
+model plan {
+  id     String @id @default(uuid())
+  name   String @unique
+  price  Int
+  type   String //mensal, anual, trimestral, semestral
+  planId Int    @unique //id do plano na EFI
+
+  sub subscription[]
+
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
 }
 
 model watchLater {
