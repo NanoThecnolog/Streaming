@@ -6,6 +6,9 @@ import Spinner from '../ui/Loading/spinner';
 import { useRouter } from 'next/router';
 import { api } from '@/services/api';
 import { toast } from 'react-toastify';
+import { apiEmail } from '@/services/apiMessenger';
+import { useFlix } from '@/contexts/FlixContext';
+import { debuglog } from '@/utils/UtilitiesFunctions';
 interface RequestCard {
     card: RequestCardProps;
 }
@@ -13,6 +16,7 @@ export default function RequestCard({ card }: RequestCard) {
     const router = useRouter()
     const [poster, setPoster] = useState<string | null>(null)
     const [loading, setLoading] = useState(false)
+    const { user } = useFlix()
     useEffect(() => {
         if (card.poster_path) {
             const urlPoster = `https://image.tmdb.org/t/p/original${card.poster_path}`
@@ -23,11 +27,16 @@ export default function RequestCard({ card }: RequestCard) {
         if (loading) return
         setLoading(true)
         try {
-            const response = await api.post('/request/content', {
-                tmdbId
+            //const response = await apiEmail.get('/')
+            const response = await apiEmail.post('/system/request', {
+                tmdbId,
+                title: card.title,
+                subtitle: card.subtitle ?? "",
+                userId: user?.id,
+                userName: user?.name
             })
-            const data = response.data;
-            console.log(data)
+            const data = response;
+            debuglog(data)
             toast.success("Conteúdo Solicitado!")
         } catch (err) {
             console.log(err)

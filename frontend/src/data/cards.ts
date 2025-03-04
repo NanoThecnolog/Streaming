@@ -38,6 +38,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 34544,
+        title: "Esquadrão Classe A",
+        subtitle: "",
+        description: "O Coronel Hannibal Smith (Liam Neeson) e seus amigos mercenários são acionados para fazer um serviço secreto para um agente do Governo americano, mas uma militar de alta patente, a Tenente Sosa (Jessica Biel), antigo caso de Cara de Pau (Bradley Cooper), os proíbe de prosseguir na missão, que envolve falsificação de dólares em Bagdá e uma provável conspiração.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1L41jajHQ0FY9slwcxGCM0lzDQsIKx52E/preview",
+        duration: "01h 58m",
+        genero: [gen.acao, gen.comedia, agp.crime, stm.disney]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 72190,
         title: "Guerra Mundial Z",
         subtitle: "",

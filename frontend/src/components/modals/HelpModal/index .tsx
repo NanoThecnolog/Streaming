@@ -3,6 +3,8 @@ import styles from './styles.module.scss'
 import { toast } from 'react-toastify'
 import { useState } from 'react'
 import { SeriesProps } from '@/@types/series'
+import { apiEmail } from '@/services/apiMessenger'
+import { debuglog } from '@/utils/UtilitiesFunctions'
 
 interface HelpProps {
     handleHelpModal: () => void
@@ -53,7 +55,7 @@ export default function HelpModal({ handleHelpModal, userId, tmdbId, serie, seas
 
         try {
             setLoading(true)
-            await api.post('/send', {
+            const response = await apiEmail.post('/system/problem', {
                 title,
                 description,
                 userId: userId === undefined ? 'Indefinido' : userId,
@@ -61,7 +63,8 @@ export default function HelpModal({ handleHelpModal, userId, tmdbId, serie, seas
                 season: season ? season : 0,
                 episode: episode ? episode : 0
             })
-            toast.success("Obrigado! Vamos cuidar do problema. Sua notificação ajuda a tornar a nossa plataforma ainda melhor!")
+            debuglog(response.data)
+            toast.success("Obrigado! Vamos cuidar do problema.")
         } catch (err) {
             console.error(err)
             toast.warning("Relatório não enviado. Tente novamente mais tarde.")
