@@ -86,14 +86,14 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
-        tmdbId: 124305,
+        tmdbId: 618355,
         title: "Superman",
-        subtitle: "Red Son",
-        description: `In Red Son, Superman's rocket ship lands on a Ukrainian collective farm rather than in Kansas, an implied reason being a small time difference (a handful of hours) from the original timeline, meaning Earth's rotation placed the Ukraine in the ship's path instead of Kansas. Instead of fighting for "...truth, justice, and the American Way", Superman is described in Soviet radio broadcasts "...as the Champion of the common worker who fights a never-ending battle for Stalin, socialism, and the international expansion of the Warsaw Pact." His "secret identity" (i.e. the name his adoptive parents gave him) is a state secret.`,
+        subtitle: "Entre a Foice e o Martelo",
+        description: 'Quando o último filho de Krypton cai na Rússia, na época da Guerra Fria, em vez do bucólico Kansas, uma realidade alternativa se desdobra. Aqui, nós encontramos o Superman liderando uma campanha comunista para avançar as ideologias do estado soviético. Enquanto isso, do outro lado do Atlântico, Lex Luthor, um brilhante cientista americano, cria um plano para dominar e, por fim, destruir a ameaça alienígena soviética. O que vem a seguir é uma perseguição emocionante que colocará em risco toda a humanidade.',
         faixa: "A12",
         src: "https://drive.google.com/file/d/1kGnpSqIYLUSYSHDINh2-Bt6kE_lrrFPU/preview",
-        duration: "01h 02m",
-        genero: [gen.animacao, agp.dc, agp.hero, stm.hbo]
+        duration: "01h 24m",
+        genero: [gen.animacao, gen.ficcao, gen.acao, agp.dc, agp.hero, stm.hbo]
     },
     {
         background: background,
