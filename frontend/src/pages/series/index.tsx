@@ -13,6 +13,8 @@ import Loading from "@/components/ui/Loading";
 import { gen, stm } from "@/utils/Genres";
 import debounce from "lodash.debounce";
 import BackTopButton from "@/components/ui/BackToTop";
+import Carousel from "@/components/Carousel";
+import { breakpoints } from "@/utils/Variaveis";
 
 
 export default function Series() {
@@ -50,21 +52,12 @@ export default function Series() {
     }, [serieData.length, setSerieData])
 
     useEffect(() => {
-        function handleResize() {
-            const width = window.innerWidth;
-            setWidth(width)
 
-            if (width < 780) {
-                setCardPerContainer(1)
-            } else if (width < 1100) {
-                setCardPerContainer(2)
-            } else if (width < 1480) {
-                setCardPerContainer(3)
-            } else if (width < 1650) {
-                setCardPerContainer(4)
-            } else {
-                setCardPerContainer(5)
-            }
+        function handleResize() {
+            const windowWidth = window.innerWidth;
+            setWidth(windowWidth)
+            const { cards } = breakpoints.find(b => windowWidth < b.width) || { cards: 5 }
+            setCardPerContainer(cards)
         }
         window.addEventListener('resize', handleResize)
         handleResize()
@@ -124,11 +117,15 @@ export default function Series() {
                                 <div className={styles.mid}>
                                     {divisaoPorGenero.map((sec, index) => (
                                         <div key={sec}>
-                                            <CardSerieContainer
+                                            {
+                                                /*<CardSerieContainer
                                                 section={sec}
                                                 cardPerContainer={cardPerContainer}
-                                            />
-                                            {index === 4 && cardPerContainer >= 2 && <Search />}
+                                            />*/}
+                                            {
+                                                index === 4 && cardPerContainer >= 2 && <Search />
+                                            }
+                                            <Carousel type="tv" section={sec} cardPerContainer={cardPerContainer} />
                                         </div>
                                     ))}
                                 </div>

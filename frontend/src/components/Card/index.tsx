@@ -2,12 +2,13 @@ import { CardsProps, MovieTMDB } from "@/@types/Cards";
 import styles from './styles.module.scss'
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { fetchTMDBPoster } from "@/services/fetchTMDBData";
+import { fetchTMDBPoster, fetchTMDBSeries } from "@/services/fetchTMDBData";
 import { useRouter } from "next/router";
 import { useTMDB } from "@/contexts/TMDBContext";
+import { SeriesProps } from "@/@types/series";
 
 interface CardProps {
-    card: CardsProps;
+    card: CardsProps | SeriesProps;
 }
 interface TMDBImagesProps {
     poster: string
@@ -15,7 +16,7 @@ interface TMDBImagesProps {
 
 export default function Card({ card }: CardProps) {
     const router = useRouter();
-    const { allData } = useTMDB()
+    const { allData, serieData } = useTMDB()
     const [TMDBImages, setTMDBImages] = useState<TMDBImagesProps>()
     //const [TMDBMovie, setTMDBMovie] = useState<MovieTMDB | null>(null)
 
@@ -25,20 +26,59 @@ export default function Card({ card }: CardProps) {
             /*if (cachedImages[card.tmdbId]) {
                 setTMDBImages({ poster: cachedImages[card.tmdbId] })
             } else {*/
-            const data = allData.find(data => data.id === card.tmdbId)
-            const url = data ? `https://image.tmdb.org/t/p/w500${data.poster_path}` : await fetchTMDBPoster(card.tmdbId)
+            if ('season' in card) {
+                /*if (cachedImages[card.tmdbID]) {
+                    setTMDBImage({ poster: cachedImages[card.tmdbID] })
+                } else {
+                    const data = serieData.find(data => data.id === card.tmdbID)
+                    if (data) {
+                        const url = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
+                        setTMDBImage({ poster: url })
+                        setCachedImage(card.tmdbID, url)
+                    } else {
+                        const url = await fetchTMDBSeries(card.tmdbID)
+                        if (url) {
+                            const posterImage = `https://image.tmdb.org/t/p/w500${url.poster_path}`
+                            setTMDBImage({ poster: posterImage })
+                            setCachedImage(card.tmdbID, posterImage)
+                        }
+                    }
+                }*/
+                const data = serieData.find(data => data.id === card.tmdbID)
+                const url = data ? `https://image.tmdb.org/t/p/w500${data.poster_path}` : await fetchTMDBSeries(card.tmdbID)
 
-            if (url) {
-                setTMDBImages({ poster: url })
-                //setCachedImage(card.tmdbId, url)
+                if (url) {
+                    if (typeof url === 'string') {
+                        setTMDBImages({ poster: url })
+                        //setCachedImage(card.tmdbId, url)
+                    } else if ('poster_path' in url) {
+                        const posterImage = `https://image.tmdb.org/t/p/w500${url.poster_path}`
+                        setTMDBImages({ poster: posterImage })
+                    }
+                }
+
+
+            } else {
+                const data = allData.find(data => data.id === card.tmdbId)
+                const url = data ? `https://image.tmdb.org/t/p/w500${data.poster_path}` : await fetchTMDBPoster(card.tmdbId)
+
+                if (url) {
+                    setTMDBImages({ poster: url })
+                    //setCachedImage(card.tmdbId, url)
+                }
             }
+
 
         }
         getImage()
     }, [card, allData])
 
     function handleClick() {
-        router.push(`/movie/${card.tmdbId}`)
+        if ('season' in card) {
+            router.push(`/series/serie/${card.tmdbID}`)
+        } else {
+            router.push(`/movie/${card.tmdbId}`)
+        }
     }
 
     return (

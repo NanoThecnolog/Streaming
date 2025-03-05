@@ -33,3 +33,11 @@ export const fuseConfig = {
     chaves: ["title", "subtitle"], // propriedades a serem comparadas
     taxa: 0.3 // taxa de comparação
 }
+
+export const breakpoints = [
+    { width: 780, cards: 1 },
+    { width: 1160, cards: 2 },
+    { width: 1500, cards: 3 },
+    { width: 1855, cards: 4 },
+    { width: Infinity, cards: 5 },
+]

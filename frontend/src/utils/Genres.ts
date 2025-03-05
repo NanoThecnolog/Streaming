@@ -33,7 +33,7 @@ export const agp = {
 export const stm = {
     netflix: "Netflix",
     hbo: "HBO",
-    disney: "Disney+",
+    disney: "Disney Plus",
     prime: "Prime Video",
     apple: "Apple TV",
     sky: "SKY",

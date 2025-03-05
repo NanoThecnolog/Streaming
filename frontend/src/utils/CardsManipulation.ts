@@ -1,4 +1,5 @@
 import { CardsProps, MovieTMDB } from "@/@types/Cards";
+import { SeriesProps } from "@/@types/series";
 import { useTMDB } from "@/contexts/TMDBContext";
 import { cards } from "@/data/cards";
 
@@ -52,4 +53,9 @@ export function getRelatedCards(movie: CardsProps, allData: MovieTMDB[]) {
         .sort((a, b) => b.score - a.score)
         .slice(0, 20)
     return relatedCards
+}
+
+
+export function filterCards<T extends CardsProps | SeriesProps>(items: T[], section: string): T[] {
+    return items.filter(item => item.genero.some(gen => gen.toLowerCase() === section.toLowerCase()))
 }

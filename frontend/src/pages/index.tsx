@@ -15,6 +15,10 @@ import Loading from "@/components/ui/Loading";
 import { agp, gen } from "@/utils/Genres";
 import BackTopButton from "@/components/ui/BackToTop";
 import debounce from "lodash.debounce";
+import Carousel from "@/components/Carousel";
+import { cards } from "@/data/cards";
+import { shuffle } from "@/utils/UtilitiesFunctions";
+import { breakpoints } from "@/utils/Variaveis";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -85,13 +89,6 @@ export default function Home() {
 
   useEffect(() => {
     // Breakpoints ajustados
-    const breakpoints = [
-      { width: 780, cards: 1 },
-      { width: 1100, cards: 2 },
-      { width: 1500, cards: 3 },
-      { width: 1650, cards: 4 },
-      { width: Infinity, cards: 5 },
-    ]
     /**
      * Define a quantidade de cards por container baseado na largura da página
      */
@@ -136,15 +133,21 @@ export default function Home() {
                 <div className={styles.mid} id="filmes">
                   <ReleaseContainer section="lançamentos" cardPerContainer={cardPerContainer} />
                   {
-                    divisaoPorGenero.map((sec, index) => (
-                      <div key={index}>
-                        <CardContainer
-                          section={sec}
-                          cardPerContainer={cardPerContainer}
-                        />
-                        {index === 1 && cardPerContainer >= 2 && <Search />}
-                      </div>
-                    ))}
+                    divisaoPorGenero.map((sec, index) => {
+                      return (
+                        <div key={index}>
+                          {/*<CardContainer
+                            section={sec}
+                            cardPerContainer={cardPerContainer}
+                          />*/}
+                          {
+                            index === 1 && cardPerContainer >= 2 && <Search />
+                          }
+                          <Carousel type="movie" section={sec} cardPerContainer={cardPerContainer} />
+                        </div>
+                      )
+                    })}
+
                 </div>
               </div>
               <BackTopButton link="/#inicio" visible={visible} />

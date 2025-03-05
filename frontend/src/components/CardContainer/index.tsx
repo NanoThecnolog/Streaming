@@ -26,7 +26,7 @@ export default function CardContainer({ section, cardPerContainer }: ContainerPr
     useEffect(() => {
         if (!section) return
         const filter = cards.filter(card => card.genero.some(gen => gen.toLowerCase() === section?.toLowerCase()))
-        if (!filter) return
+        if (!filter.length || filter.length === 0) return
         const shuffled = shuffle(filter)
         setShuffledCards(shuffled)
     }, [section])
