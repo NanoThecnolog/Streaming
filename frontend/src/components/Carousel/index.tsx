@@ -79,8 +79,10 @@ export default function Carousel({ type, section, cardPerContainer }: CarouselPr
 
                 })}
             </Swiper>
-            <button ref={prevRef} className={`${styles['swiper-button-prev']} before-${section.replace(/\s+/g, '-')}`}><MdNavigateBefore size={40} /></button>
-            <button ref={nextRef} className={`${styles['swiper-button-next']} next-${section.replace(/\s+/g, '-')}`}><MdNavigateNext size={40} /></button>
+            <div className={styles.buttonContainer}>
+                <button ref={prevRef} className={`${styles['swiper-button-prev']} before-${section.replace(/\s+/g, '-')}`}><MdNavigateBefore size={40} /></button>
+                <button ref={nextRef} className={`${styles['swiper-button-next']} next-${section.replace(/\s+/g, '-')}`}><MdNavigateNext size={40} /></button>
+            </div>
         </div>
     );
 };
