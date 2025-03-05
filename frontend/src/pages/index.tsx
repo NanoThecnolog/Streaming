@@ -1,6 +1,5 @@
 import { Inter } from "next/font/google";
 import Header from "@/components/Header";
-import CardContainer from "@/components/CardContainer";
 import Footer from "@/components/Footer";
 import { useCallback, useEffect, useState } from "react";
 import Top from "@/components/Top";
@@ -16,8 +15,6 @@ import { agp, gen } from "@/utils/Genres";
 import BackTopButton from "@/components/ui/BackToTop";
 import debounce from "lodash.debounce";
 import Carousel from "@/components/Carousel";
-import { cards } from "@/data/cards";
-import { shuffle } from "@/utils/UtilitiesFunctions";
 import { breakpoints } from "@/utils/Variaveis";
 
 
@@ -131,7 +128,9 @@ export default function Home() {
               <div className={styles.content}>
                 <Top width={width} />
                 <div className={styles.mid} id="filmes">
-                  <ReleaseContainer section="lançamentos" cardPerContainer={cardPerContainer} />
+                  {
+                    //<ReleaseContainer section="lançamentos" cardPerContainer={cardPerContainer} />
+                  }
                   {
                     divisaoPorGenero.map((sec, index) => {
                       return (
