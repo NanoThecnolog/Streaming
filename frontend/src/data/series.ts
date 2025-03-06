@@ -41,6 +41,37 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 202555,
+        title: "Demolidor",
+        subtitle: "Renascido",
+        description: "Matt Murdock, um advogado cego com habilidades fantásticas, luta por justiça através de seu agitado escritório de advocacia, enquanto o ex-chefe do crime Wilson Fisk busca seus próprios empreendimentos políticos em Nova Iorque. Quando suas identidades passadas começam a emergir, seus caminhos se cruzam perigosamente.",
+        genero: [gen.drama, agp.crime, agp.marvel, agp.hero, stm.disney],
+        faixa: "18",
+        news: {
+            type: "news",
+        },
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1CdL-lVr6nyQd0Pvu2kSSo_c5CpUaejpa/preview",
+                        duration: "58m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/16uc7lbdNXyvF0ex37JyAdsu74yFbhTlO/preview",
+                        duration: "46m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 82856,
         title: "The Mandalorian",
         subtitle: "",

@@ -31,7 +31,7 @@ export default function RequestCard({ card }: RequestCard) {
             const response = await apiEmail.post('/system/request', {
                 tmdbId: card.id,
                 title: card.title ?? card.name ?? card.original_name,
-                subtitle: card.subtitle ?? "",
+                subtitle: card.subtitle ?? "---",
                 userId: user?.id,
                 userName: user?.name
             })
