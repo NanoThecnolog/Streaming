@@ -23,14 +23,14 @@ export default function RequestCard({ card }: RequestCard) {
             setPoster(urlPoster)
         }
     }, [card])
-    async function handleClick(tmdbId: number) {
+    async function handleClick(card: RequestCardProps) {
         if (loading) return
         setLoading(true)
         try {
             //const response = await apiEmail.get('/')
             const response = await apiEmail.post('/system/request', {
-                tmdbId,
-                title: card.title,
+                tmdbId: card.id,
+                title: card.title ?? card.name ?? card.original_name,
                 subtitle: card.subtitle ?? "",
                 userId: user?.id,
                 userName: user?.name
@@ -64,7 +64,7 @@ export default function RequestCard({ card }: RequestCard) {
                 <div className={`${styles.buttonContainer} ${loading && styles.loading}`}>
                     <div>
                         {
-                            loading ? <Spinner /> : <button onClick={() => handleClick(card.id)}>Solicitar</button>
+                            loading ? <Spinner /> : <button onClick={() => handleClick(card)}>Solicitar</button>
                         }
                     </div>
                 </div>
