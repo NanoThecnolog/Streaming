@@ -25,7 +25,7 @@ export default function Footer() {
                     <h4 onClick={() => redirectToPage("suporte")}>Suporte</h4>
                 </div>
                 <div className={styles.btn_row}>
-                    <h4 onClick={() => redirectToPage("donate")}>Faça uma doação</h4>
+                    <h4 onClick={() => redirectToPage("planos")}>Planos de Assinatura</h4>
                     <h4 onClick={() => redirectToPage("catalogo")}>Catálogo Completo</h4>
                 </div>
             </div>

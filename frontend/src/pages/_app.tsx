@@ -6,8 +6,10 @@ import { TMDBProvider } from "@/contexts/TMDBContext";
 import { useEffect } from "react";
 import ErrorBoundary from "@/components/Errors/ErrorBoundary";
 import { FlixProvider } from "@/contexts/FlixContext";
-//import { SpeedInsights } from '@vercel/speed-insights/next';
-//import { Analytics } from '@vercel/analytics/next';
+import Router from "next/router";
+import NProgress from "nprogress"
+import "nprogress/nprogress.css";
+
 
 export default function App({ Component, pageProps }: AppProps) {
 
@@ -15,7 +17,6 @@ export default function App({ Component, pageProps }: AppProps) {
     if (process.env.NEXT_PUBLIC_DEBUG === "development") return
     function rightClickBlock(event: MouseEvent) { event.preventDefault(); }
 
-    // Impede atalhos de ferramentas de desenvolvedor
     function openConsoleBlock(event: KeyboardEvent) {
       const blockedKeys = ['F12']
       if (
@@ -34,6 +35,13 @@ export default function App({ Component, pageProps }: AppProps) {
       document.removeEventListener('contextmenu', rightClickBlock);
       document.removeEventListener('keydown', openConsoleBlock);
     };
+  }, [])
+
+  useEffect(() => {
+    Router.events.on("routeChangeStart", () => NProgress.start())
+    Router.events.on("routeChangeComplete", () => NProgress.done())
+    Router.events.on("routeChangeError", () => NProgress.done())
+
   }, [])
 
   return (

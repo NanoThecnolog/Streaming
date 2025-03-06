@@ -14,43 +14,39 @@ export default function FAQ() {
     const faq: FAQ[] = [
         {
             question: "O que é o Projeto FlixNext?",
-            answer: "O projeto FlixNext foi criado com o proposito de facilitar e permitir o acesso a filmes e séries por pessoas que não possuem condições de pagar os valores cobrados pelos streamings polulares. A ideia era criar algo que pudesse ser compartilhado entre família e amigos."
+            answer: "O projeto FlixNext foi criado com o proposito de facilitar e permitir o acesso a filmes e séries. A ideia inicial era criar algo que pudesse ser compartilhado entre família e amigos. </br></br> Hoje, o propósito é facilitar o acesso para aqueles que não possuem condições financeiras para manter os planos caríssimos de outras plataformas de streamings, ou alugar filmes e séries por aí. Além de evitar que o usuário se exponha a ataques na internet, entrando em sites maliciosos, a procura do filme ou série para baixar, a plataforma entrega de forma segura os conteúdos."
         },
         {
-            question: "Como faço para assistir um filme ou série?",
-            answer: "Para assistir é preciso estar logado na sua conta. Ao escolher seu filme e clicar no botão de play, você será redirecionado para tela de login, basta fazer o login ou, se não tiver uma conta, se cadastrar na plataforma. </br></br> É rápido e fácil, só precisa colocar seu nome, sua data de nascimento, um email válido e criar uma senha para sua conta. Após criar sua conta no nosso site, você receberá um email com um link para ativação da conta, ative e pronto, é só fazer o login na plataforma e clicar em play novamente!"
+            question: "Como faço para criar uma conta?",
+            answer: "Para criar sua conta é preciso se cadastrar na plataforma. </br></br> É rápido e fácil, só precisa preencher seus dados e usar um email válido. Após criar sua conta no nosso site, você receberá um email com um link para ativação da conta. Após ativar sua conta, basta fazer o login na plataforma e aproveitar!"
         },
         {
             question: "Por que preciso ativar minha conta?",
-            answer: "Precisamos validar seu email para que sua conta se torne ativa. Essa validação é um meio de segurança tanto para a plataforma quanto para o usuário, para que outros não utilizem seu email para criar contas sem o seu conhecimento."
+            answer: "Precisamos validar seu email para que sua conta fique ativa. Essa validação é um meio de segurança para que o uso não autorizado do seu email seja evitado."
         },
         {
             question: "Não consigo assistir ao filme/série, o que faço?",
-            answer: "Caso não consiga assistir um filme ou série por alguma razão, peço que entre em contato conosco através do email: contato@ericssongomes.com com o nome do filme ou episódio da série em questão e tentaremos te ajudar."
-        },
-        {
-            question: "Uma autorização é solicitada ao tentar assistir ao filme/série, ou o filme/série está bloqueado por algum motivo. O que faço?",
-            answer: "Tentamos sempre manter atualizados e disponíveis os filmes e séries da plataforma. Como não temos controle sobre os arquivos de filmes e séries incorporados na nossa plataforma, erros como esse podem ocorrer. Nesses casos pedimos que entre em contato conosco através do email: contato@ericssongomes.com informando o problema. Avisaremos quando o problema for resolvido assim que possível."
+            answer: `Caso esteja enfrentando problemas, entre em contato conosco através do email: <a href="mailto:contato@ericssongomes.com" style="color: red;">contato@ericssongomes.com</a> . Nosso suporte é 24h, todos os dias.`
         },
         {
             question: "De onde vêm os filmes e séries que assisto?",
-            answer: "Os arquivos dos filmes são disponibilizados através da plataforma Google Drive por terceiros. Por esse motivo, não possuímos controle ou responsabilidade sobre os arquivos incorporados à plataforma."
+            answer: "Os arquivos dos filmes são disponibilizados principalmente por terceiros. Por esse motivo, não possuímos controle total ou responsabilidade sobre os arquivos incorporados à plataforma. Porém, a nossa equipe analisa e verifica todos os arquivos que disponibilizamos, garantindo o máximo de segurança e disponibilidade."
         },
         {
             question: "Nos filmes e séries legendados, como ativar a legenda?",
-            answer: "Na maioria dos filmes e séries legendados, a legenda já vem embutida e não é necessário ativá-la. Porém, nos casos em que a legenda não está ativa, pode ativá-la nos controles do vídeo."
+            answer: "Na maioria dos filmes e séries legendados, a legenda já vem embutida e não é necessário ativá-la. Porém, nos casos em que a legenda não está ativa, pode ativá-la nos controles, abaixo da linha de duração do vídeo. Se tiver problemas, entre em contato conosco."
         },
         {
             question: "Posso pedir ou indicar que acrescente algum filme ou série específico ao catálogo?",
-            answer: "Sim, você pode! Envie um email para contato@ericssongomes.com com as informações do filme/série (nome e ano de lançamento) e tentaremos adicioná-lo ao catálogo."
+            answer: "Sim, você pode! Primeiro busque na plataforma para ter certeza que não tem no catálogo. Com sua conta ativa, clique no seu avatar no menu superior para abrir o menu da conta, depois clique em Solicitar Filme/Série. Busque pelo nome do filme ou série que você gostaria de ver aqui na plataforma, localize nos resultados e clique no botão de solicitar! Caso não encontre o que procura, Envie um email para contato@ericssongomes.com com as informações do filme/série (nome e ano de lançamento) e tentaremos adicioná-lo ao catálogo."
         },
         {
             question: "A plataforma é paga?",
-            answer: "Não! Não realizamos cobranças, nem exigimos pagamentos para criar sua conta. Como os filmes e séries são disponibilizados por terceiros, não possuímos responsabilidade pelos mesmos e não temos direitos ou licenças comerciais para tal. </br> </br> O propósito é justamente facilitar o acesso a conteúdos para aqueles que não possuem condições financeiras para manter tantos streamings ou alugar filmes e séries por aí. Ao invés de se expor a ataques na internet entrando em sites maliciosos, procurando o filme ou série para baixar, a plataforma entrega de forma gratuita, segura e livre os conteúdos para que todos possam assistir."
+            answer: "Sim! Você paga pelo acesso a plataforma. O valor é simbólico se comparado a tudo que você pode usurfrir na plataforma. </br></br>Por apenas <strong style='color: green'>R$10,99</strong> você tem acesso ao conteúdo que só encontramos em plataformas de streaming (as vezes nem lá...). Muitos dos filmes e séries presentes aqui não são encontrados em nenhum outro lugar, e esse é o nosso diferencial!</br></br> Temos 3 modalidades de planos (mensal, trimestral, anual). Para saber mais sobre nossos planos, <a href=''>clique aqui</a>."
         },
         {
             question: "Como posso ajudar o projeto?",
-            answer: "Você pode ajudar realizando uma doação ao projeto! As chaves PIX disponíveis são: <ul><li>email: <strong>dev@ericssongomes.com</strong></li> <li>chave-aleatória: <strong>69d28ddb-5447-44ec-997a-71be04038409</strong></li></ul> Qualquer valor é bem vindo, sinta-se livre para contribuir como quiser. Você estará me ajudando e ajudando com os custos de hospedagem do projeto."
+            answer: "Você pode ajudar enviando sugestões ou reclamações para nós através do email <a href='mailto:contato@ericssongomes.com'> contato@ericssongomes.com</a >. Sua opinião ajuda, e muito, o nosso trabalho."
         },
     ]
     return (

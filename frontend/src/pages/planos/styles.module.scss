@@ -1,4 +1,4 @@
-.container {
+.sectionContainer {
     display: flex;
     //padding: 120px;
     justify-content: center;
@@ -8,7 +8,7 @@
     font-family: var(--font-Roboto);
 
 
-    .donateContainer {
+    .contentContainer {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -41,38 +41,13 @@
             }
         }
 
-        .donate {
+        .plans {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
             justify-content: space-between;
             align-items: center;
             width: 100%;
             margin-bottom: 20px;
-
-
-            .qrcodeContainer {
-                display: flex;
-                flex-direction: column;
-                gap: 8px;
-                align-items: center;
-            }
-
-            .keyContainer {
-                display: flex;
-                flex-direction: column;
-                gap: 3rem;
-                justify-content: center;
-                align-items: center;
-
-                p {
-                    text-align: center;
-                }
-
-                .key {
-                    font-weight: 900;
-                    font-size: 1.4rem;
-                }
-            }
         }
     }
 }
@@ -81,12 +56,12 @@
     .container {
         height: 100%;
 
-        .donateContainer {
+        .contentContainer {
             .title {
                 padding-top: 100px;
             }
 
-            .donate {
+            .plans {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
         }
@@ -97,12 +72,12 @@
     .container {
         height: 100%;
 
-        .donateContainer {
+        .contentContainer {
             .title {
                 padding-top: 100px;
             }
 
-            .donate {
+            .plans {
                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
         }
@@ -111,8 +86,8 @@
 
 @media (min-width: 560.1px) and (max-width: 768px) {
     .container {
-        .donateContainer {
-            .donate {
+        .contentContainer {
+            .plans {
                 grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
             }
         }
@@ -121,11 +96,7 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {}
 
-@media (max-width: 1280px) {
-    .keyContainer {
-        padding-top: 3rem;
-    }
-}
+@media (max-width: 1280px) {}
 
 @media (max-width: 1440px) {}
 
