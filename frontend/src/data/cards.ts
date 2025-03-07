@@ -38,6 +38,42 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 23483,
+        title: "Kick Ass",
+        subtitle: "Quebrando Tudo",
+        description: 'Usando sua paixão por histórias em quadrinhos, o adolescente Dave Lizewski decide se reinventar como super-herói, apesar da total falta de poderes especiais. O adolescente arruma uma fantasia, batiza-se de "Kick-Ass" e começa a combater o crime com a ajuda de amigos justiceiros.',
+        faixa: "18",
+        src: "https://drive.google.com/file/d/1V7Aljqf3FMCFlnehK2JoWUzgEYQ6gtiL/preview",
+        duration: "01h 57m",
+        genero: [gen.acao, gen.aventura, agp.crime]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 59859,
+        title: "Kick Ass 2",
+        subtitle: "",
+        description: "Kick-Ass se junta a um grupo de pessoas que se fantasia de super heróis para combater o crime. Enquanto isso, seu inimigo Red Mist planeja uma vingança que afetará a todos.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1g9tQwrvMxpjIQWCOy445ZsmD4-swJlPg/preview",
+        duration: "01h 53m",
+        genero: [gen.acao, gen.aventura, agp.crime]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 305470,
+        title: "Power Rangers",
+        subtitle: "",
+        description: "A jornada de cinco adolescentes que devem buscar algo extraordinário quando eles tomam consciência que a sua pequena cidade Angel Grove - e o mundo - estão à beira de sofrer um ataque alienígena. Escolhidos pelo destino, eles irão descobrir que são os únicos que poderão salvar o planeta. Mas para isso, eles devem superar seus problemas pessoais e juntarem sua forças, antes que seja tarde demais.",
+        faixa: "10",
+        src: "https://drive.google.com/file/d/1AKMTraInK7QnLj9XTZMCASnNa0f2rgLX/preview",
+        duration: "02h 04m",
+        genero: [gen.acao, gen.aventura, gen.ficcao, agp.hero]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 34544,
         title: "Esquadrão Classe A",
         subtitle: "",
@@ -704,7 +740,7 @@ export const cards: CardsProps[] = [
         title: "Observadores",
         subtitle: "",
         description: "Depois de se mudarem para um lindo apartamento no centro de Montreal, um jovem casal começa a se interessar cada vez mais pela vida sexual de seus vizinhos excêntricos do outro lado da rua. O que começa como uma curiosidade inocente aos poucos se transforma em uma obsessão doentia, depois que descobrem que um dos vizinhos está traindo o outro. A tentação e o desejo fazem com que suas vidas se enredem de maneiras inesperadas, levando a consequências mortais.",
-        faixa: "A16",
+        faixa: "18",
         src: "https://drive.google.com/file/d/1-Otpl6kjRGmqAuCKYUe0lJTdhyMd7LuB/preview",
         duration: "01h 57m",
         genero: [gen.suspense, agp.misterio, stm.prime]
