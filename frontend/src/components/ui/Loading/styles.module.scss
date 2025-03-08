@@ -63,3 +63,11 @@
         transform: rotate(360deg);
     }
 }
+
+@media(max-width: 915px) {
+    .loadingContainer {
+        h2 {
+            font-size: 1rem;
+        }
+    }
+}

@@ -43,7 +43,8 @@ export const breakpoints = [
 ]
 
 
-export const text = ["Carregando filmes...",
+export const text = [
+    "Carregando filmes...",
     "...Sincronizando som e imagem...",
     "...Ajustando qualidade...",
     "...Gerando lista de episódios das séries...",
