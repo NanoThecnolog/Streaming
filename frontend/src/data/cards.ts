@@ -38,6 +38,42 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 1104845,
+        title: "Plankton",
+        subtitle: "O Filme",
+        description: "A emaranhada história de amor de Plankton e sua esposa-computador vira um desastre quando ela decide destruir o mundo sem ele.",
+        faixa: "L",
+        src: "https://drive.google.com/file/d/1S7DjC189I1mSRsk3KTnPLYy5OtWNU6ME/preview",
+        duration: "01h 27m",
+        genero: [gen.animacao, gen.aventura, gen.comedia, gen.fantasia, agp.familia, stm.netflix]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 1064213,
+        title: "Anora",
+        subtitle: "",
+        description: "Anora, uma jovem profissional do sexo que trabalha nas noites do Brooklyn, pode se tornar a Cinderela da sua própria história quando encontra e casa, por impulso, com o filho de um oligarca russo. Mas quando a notícia chega à Rússia, seu conto de fadas fica ameaçado com a chegada dos pais dele a Nova York para cancelar o casamento.",
+        faixa: "18",
+        src: "https://drive.google.com/file/d/1pHD0-t1BWT83-cIhwclYBOQgnZoYvTG-/preview",
+        duration: "02h 19m",
+        genero: [gen.drama, gen.romance]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 76285,
+        title: "Percy Jackson",
+        subtitle: "E O Mar de Monstros",
+        description: "Percy e seus amigos estão na busca pelo Velocino de Ouro, o único artefato mágico capaz de proteger o Acampamento Meio-Sangue da destruição. É com essa missão que ele e outros campistas partem para uma eletrizante viagem pelo Mar de Monstros, onde deparam com seres fantásticos, perigos e situações inusitadas, que põem à prova seu heroísmo e sua herança. Está em jogo a existência de seu refúgio predileto e, até então, o lugar mais seguro do mundo para eles.",
+        faixa: "10",
+        src: "https://drive.google.com/file/d/1PcIF03pvgFFQPjw4l2wVd_0lGMQCTRCy/preview",
+        duration: "01h 46m",
+        genero: [gen.acao, gen.aventura, gen.fantasia, agp.familia, stm.disney]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 23483,
         title: "Kick Ass",
         subtitle: "Quebrando Tudo",
