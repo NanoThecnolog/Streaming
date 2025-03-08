@@ -6,7 +6,6 @@ import { apiTMDB } from "./apiTMDB";
 import { CollectionProps, ResultsProps } from "@/@types/collection";
 import { CastProps } from "@/@types/cast";
 import { TrailerProps } from "@/@types/trailer";
-import { debuglog } from "@/utils/UtilitiesFunctions";
 
 const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
 

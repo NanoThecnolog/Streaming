@@ -1,10 +1,11 @@
+import { debuglog } from "@/utils/UtilitiesFunctions"
 import axios from "axios"
 
 const url = process.env.NEXT_PUBLIC_MENSAGERIA
 const apiKey = process.env.NEXT_PUBLIC_API_KEY
 if (!url) console.log('Url não definida')
 
-console.log('url', url)
+debuglog('url', url)
 export const apiEmail = axios.create({
     baseURL: url
 })

@@ -40,7 +40,7 @@ export default function Loading() {
     return (
         <div className={styles.loadingContainer}>
             <div>
-                <h1>Flix<span>Next</span></h1>
+                <h1><span>Flix</span>Next</h1>
             </div>
             <div className={styles.spinner}></div>
             <div>
