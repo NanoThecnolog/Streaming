@@ -83,8 +83,6 @@ export default function Movie() {
     useEffect(() => {
         window.addEventListener('resize', handleWidth)
         handleWidth()
-        console.log("mundando")
-
         return () => window.removeEventListener('resize', handleWidth)
 
     }, [handleWidth])

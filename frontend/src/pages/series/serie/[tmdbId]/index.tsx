@@ -280,18 +280,6 @@ export default function Serie() {
                             <div className={styles.imageContainer}
                                 style={{ backgroundImage: `url(${showPoster ? TMDBImage?.poster : TMDBImage?.backdrop ? TMDBImage.backdrop : serie?.background})` }}
                             >
-                                {
-                                    /*
-                                    <Image
-                                    className={styles.img}
-                                    src={TMDBImage?.backdrop ? TMDBImage.backdrop : serie?.background}
-                                    fill
-                                    priority
-                                    quality={80}
-                                    alt={serie.title}
-                                />
-                                    */
-                                }
                             </div>
                             <div className={styles.imageBackground}>
                                 <div className={styles.desc_top}>
