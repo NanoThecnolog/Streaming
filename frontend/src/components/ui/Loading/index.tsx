@@ -4,7 +4,7 @@ import { text } from '@/utils/Variaveis'
 
 export default function Loading() {
     const [randomText, setRandomText] = useState<string>("")
-    const [shuffledTexts, setShuffledTexts] = useState<string[]>([])
+    //const [shuffledTexts, setShuffledTexts] = useState<string[]>([])
     const [index, setIndex] = useState<number>(0)
 
     const shuffleArray = (arr: string[]) => {
@@ -16,16 +16,15 @@ export default function Loading() {
 
     useEffect(() => {
         let current = shuffleArray(text)
-        setShuffledTexts(current)
+        //setShuffledTexts(current)
         setRandomText(current[0])
-
         const timer = setInterval(() => {
             setIndex((prevIndex) => {
                 let newIndex = prevIndex + 1;
 
                 if (newIndex >= text.length) {
                     current = shuffleArray(text)
-                    setShuffledTexts(current)
+                    //setShuffledTexts(current)
                     newIndex = 0
                 }
                 setRandomText(current[newIndex])

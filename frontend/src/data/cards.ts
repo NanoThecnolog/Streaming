@@ -38,6 +38,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 114,
+        title: "Uma Linda Mulher",
+        subtitle: "",
+        description: 'Um magnata perdido pede ajuda à uma prostituta que "trabalha" no Hollywood Boulevard e acaba contratando-a por uma semana. Neste período, ela se transforma em uma elegante jovem para poder acompanhá-lo em seus compromissos sociais, mas os dois começam a se envolver e a relação patrão/empregada se modifica para um relacionamento entre homem e mulher.',
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1-N9pfr44_hL2gvW3ZTyeLTmeV74DFKCw/preview",
+        duration: "01h 59m",
+        genero: [gen.romance, gen.comedia, stm.disney]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 1104845,
         title: "Plankton",
         subtitle: "O Filme",
