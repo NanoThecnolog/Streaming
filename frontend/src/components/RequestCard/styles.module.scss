@@ -64,3 +64,25 @@
         opacity: 1;
     }
 }
+
+@media(max-width: 915px) {
+    .card {
+
+
+        .buttonContainer {
+            //width: 200px;
+            //height: 100px;
+            //top: 500px;
+
+            background-color: transparent;
+            opacity: 1;
+            outline: 2px solid red;
+
+            button {
+                position: absolute;
+                top: 500px;
+                left: 20px;
+            }
+        }
+    }
+}
