@@ -15,6 +15,7 @@ import debounce from "lodash.debounce";
 import BackTopButton from "@/components/ui/BackToTop";
 import Carousel from "@/components/Carousel";
 import { breakpoints } from "@/utils/Variaveis";
+import { debuglog } from "@/utils/UtilitiesFunctions";
 
 
 export default function Series() {
@@ -29,6 +30,7 @@ export default function Series() {
     const [loading, setLoading] = useState(false)
     const { serieData, setSerieData } = useTMDB()
     const [visible, setvisible] = useState(false)
+
 
     useEffect(() => {
         /**
@@ -86,6 +88,7 @@ export default function Series() {
             document.removeEventListener('keydown', openConsoleBlock);
         }
     }, [])
+
     const handleScroll = useCallback(
         debounce(() => {
             if (window.scrollY > 1500) {

@@ -27,6 +27,7 @@ import { TrailerProps } from "@/@types/trailer";
 import TrailerButton from "@/components/ui/TrailerButton";
 import { useFlix } from "@/contexts/FlixContext";
 import NewContent from "@/components/ui/NewContent";
+import debounce from "lodash.debounce";
 
 interface TMDBImagesProps {
     backdrop: string,
@@ -56,6 +57,7 @@ export default function Serie() {
     const [crewDepartment, setCrewDepartment] = useState<groupedByDepartment>({})
     const [loading, setLoading] = useState(false);
     const [trailer, setTrailer] = useState<TrailerProps | null>(null)
+    const [showPoster, setShowPoster] = useState(false)
 
     useEffect(() => {
         if (!tmdbId) return
@@ -251,6 +253,22 @@ export default function Serie() {
         return setTrailer(trailer)
     }
 
+    const handleWidth = debounce(() => {
+        if (window.innerWidth <= 915) {
+            debuglog(window.innerWidth)
+            setShowPoster(true)
+        } else {
+            setShowPoster(false)
+        }
+    }, 300)
+
+    useEffect(() => {
+        window.addEventListener('resize', handleWidth)
+        handleWidth()
+        return () => window.removeEventListener('resize', handleWidth)
+
+    }, [handleWidth])
+
     return (
         <>
             <SEO title={`${headTitle} | FlixNext`} description={serie?.description || "Descrição indisponível"} />
@@ -260,7 +278,7 @@ export default function Serie() {
                     (
                         <div className={styles.serieContainer}>
                             <div className={styles.imageContainer}
-                                style={{ backgroundImage: `url(${TMDBImage?.backdrop ? TMDBImage.backdrop : serie?.background})` }}
+                                style={{ backgroundImage: `url(${showPoster ? TMDBImage?.poster : TMDBImage?.backdrop ? TMDBImage.backdrop : serie?.background})` }}
                             >
                                 {
                                     /*

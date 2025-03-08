@@ -44,7 +44,7 @@ export default function Loading() {
             </div>
             <div className={styles.spinner}></div>
             <div>
-                <h2>{randomText}</h2>
+                <h2 className={styles.randomText}>{randomText}</h2>
             </div>
         </div>
     )

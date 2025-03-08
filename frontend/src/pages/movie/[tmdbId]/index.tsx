@@ -6,7 +6,6 @@ import { cards } from '@/data/cards';
 import { fetchTMDBMovie, fetchTMDBMovieCast, fetchTMDBTrailer } from '@/services/fetchTMDBData';
 import SEO from '@/components/SEO';
 import Header from '@/components/Header';
-import Image from 'next/image';
 import Stars from '@/components/ui/StarAverage';
 import Adult from '@/components/ui/Adult';
 import { FaCheck, FaPlay } from 'react-icons/fa';
@@ -15,7 +14,7 @@ import { addWatchLater, isOnTheList } from '@/services/handleWatchLater';
 import { toast } from 'react-toastify';
 import { CastProps, CrewProps } from '@/@types/cast';
 import Footer from '@/components/Footer';
-import { minToHour, translate } from '@/utils/UtilitiesFunctions';
+import { debuglog, minToHour, translate } from '@/utils/UtilitiesFunctions';
 import Card from '@/components/Card';
 import Spinner from '@/components/ui/Loading/spinner';
 import Cast from '@/components/Cast';
@@ -26,6 +25,7 @@ import { getRelatedCards } from '@/utils/CardsManipulation';
 import { useTMDB } from '@/contexts/TMDBContext';
 import { useFlix } from '@/contexts/FlixContext';
 import { parseCookies } from 'nookies';
+import debounce from 'lodash.debounce';
 
 interface groupedByDepartment {
     [job: string]: CrewProps[]
@@ -33,6 +33,7 @@ interface groupedByDepartment {
 
 export default function Movie() {
     const router = useRouter()
+    const [showPoster, setShowPoster] = useState(false)
     const { tmdbId } = router.query;
     const { allData } = useTMDB()
     const { user, setUser } = useFlix()
@@ -69,6 +70,25 @@ export default function Movie() {
         if (relatedCards && relatedCards.length > 0) setRelatedCards(relatedCards)
         watchLater()
     }, [movie])
+
+    const handleWidth = debounce(() => {
+        if (window.innerWidth <= 915) {
+            debuglog(window.innerWidth)
+            setShowPoster(true)
+        } else {
+            setShowPoster(false)
+        }
+    }, 300)
+
+    useEffect(() => {
+        window.addEventListener('resize', handleWidth)
+        handleWidth()
+        console.log("mundando")
+
+        return () => window.removeEventListener('resize', handleWidth)
+
+    }, [handleWidth])
+
     async function getTMDBData() {
         if (loading) return
         setLoading(true)
@@ -162,7 +182,7 @@ export default function Movie() {
                             */
                             <div
                                 className={styles.imageContainer}
-                                style={{ backgroundImage: `url(${tmdbData ? `https://image.tmdb.org/t/p/original/${tmdbData.backdrop_path}` : movie ? movie.background : "/fundo-largo.jpg"})` }}
+                                style={{ backgroundImage: `url(${tmdbData ? `https://image.tmdb.org/t/p/original/${showPoster ? tmdbData.poster_path : tmdbData.backdrop_path}` : movie ? movie.background : "/fundo-largo.jpg"})` }}
                             ></div> : <div><Spinner /></div>}
 
                         <div className={styles.coverContainer}>

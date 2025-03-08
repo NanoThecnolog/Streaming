@@ -2,7 +2,6 @@ import { PlayIcon } from 'lucide-react'
 import styles from './styles.module.scss'
 import { Episodes, TMDBEpisodes } from '@/@types/series'
 import { minToHour } from '@/utils/UtilitiesFunctions'
-import Image from 'next/image'
 
 interface EpisodeProps {
     episodeData: {
