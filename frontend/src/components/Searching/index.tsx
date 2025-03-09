@@ -30,7 +30,7 @@ export default function Search({ handleOpenModal }: SearchProps) {
             />
             <div className={styles.overlay_image}></div>
             <div className={styles.search_area_content}>
-                <h2>Não achou o que procura?</h2>
+                <h2>Não achou o que procurava?</h2>
                 <p>Busque entre centenas de filmes e series a partir do nosso catálogo!</p>
                 <form onSubmit={(e) => { e.preventDefault(); handleSearch(inputSearch) }} className={styles.input_area}>
                     <input
