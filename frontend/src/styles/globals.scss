@@ -13,8 +13,8 @@
   --grey: #686868;
   --grey-transparent: rgba(104, 104, 104, 0.856);
   --grey-selected: #a29f9f;
-  --red: #E91E63;
-  --red-selected: #C2185B;
+  --red: #E91E63; //cor original: d42c2c
+  --red-selected: #C2185B; //cor original: aa2323
   --white: #e6e6e6;
   --green: #007714;
   --black: #242424;
@@ -59,7 +59,6 @@ input {
     border: none;
     outline: none;
   }
-
 }
 
 button {

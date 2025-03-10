@@ -38,6 +38,42 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 8681,
+        title: "Busca Implacável",
+        subtitle: "",
+        description: "Bryan Mills é um ex-agente do governo, que deixou o emprego para que pudesse passar mais tempo com Kim, a filha que teve com sua ex-esposa Lenore. Ele passa então a trabalhar com antigos colegas, realizando serviços leves de segurança particular. Um dia Kim pede ao pai autorização para que viaje a Paris com uma amiga, a qual é negada pelo fato de que Bryan sabe bem os perigos que ela correria em um país estranho. Isto não a impede, fazendo a viagem assim mesmo. Só que o temor de Bryan se concretiza, já que logo após a chegada Kim e sua amiga desaparecem.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1hO_xOaqh_DMkHFLVLtN_ca29ke1I9JF0/preview",
+        duration: "01h 34m",
+        genero: [gen.acao, gen.suspense, agp.crime, stm.disney]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 82675,
+        title: "Busca Implacável",
+        subtitle: "",
+        description: "Em busca de vingança, um chefe do crime de Istambul sequestra um ex-agente da CIA e sua ex-esposa, forçando a filha deles a correr contra o tempo pelas ruas da cidade tentando resgatá-los antes que seja tarde demais.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1vrFxQhktDN846WI2jVhc05f3ZIAsx6mf/preview",
+        duration: "01h 31m",
+        genero: [gen.acao, gen.suspense, agp.crime, stm.disney]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 260346,
+        title: "Busca Implacável",
+        subtitle: "",
+        description: "O ex-agente do governo norte-americano Bryan Mills tenta tornar-se um homem família, mas vê tudo ruir quando sua esposa, Lenore, é assassinada. Acusado de ter cometido o crime, ele entra na mira da polícia de Los Angeles. Desolado e caçado, ele tenta encontrar os verdadeiros culpados e proteger a única coisa que lhe resta: a filha Kim.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1ETlfxyQim_q56Cr5WYD5F_iNjy9WnqXw/preview",
+        duration: "01h 31m",
+        genero: [gen.acao, gen.suspense, agp.crime, stm.disney]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 114,
         title: "Uma Linda Mulher",
         subtitle: "",
@@ -6262,9 +6298,9 @@ export const cards: CardsProps[] = [
         subtitle: "A Origem da Justiça",
         description: "O confronto entre Superman e Zod em Metrópolis fez a população mundial se dividir sobre a presença de extraterrestres na Terra. Enquanto muitos consideram Superman um novo deus, há aqueles que entendem ser extremamente perigosa a existência de um ser tão poderoso sem qualquer tipo de controle. Bruce Wayne é um dos que acreditam nesta segunda hipótese. Sob o manto de um Batman violento e obcecado, ele enfrenta Superman enquanto o mundo se pergunta que tipo de herói precisa.",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/1nZl5FpWzhE5zlw8sGChziRoI_ZiVKMKx/preview",
+        src: "https://drive.google.com/file/d/1tlqtj-c7XqsLcFsAUMrOJIFrPvy7epNT/preview",
         duration: "02h 31m",
-        genero: [gen.acao, agp.dc, gen.ficcao, agp.hero]
+        genero: [gen.drama, gen.fantasia, gen.acao, agp.dc, gen.ficcao, agp.hero]
     },
 
     {
@@ -7087,7 +7123,7 @@ export const cards: CardsProps[] = [
         overlay: overlay,
         tmdbId: 744275,
         title: "After",
-        subtitle: "Depois do desencontro",
+        subtitle: "Depois do Desencontro",
         description: "Embora a história de amor entre Tessa Young e Hardin Scott tenha passado por muitas complicações, desta vez o problema é mais complexo do que nunca. Agora que Tessa tomou uma das decisões mais importantes de sua vida, tudo mudou completamente. Os segredos que vêm à tona sobre suas famílias colocam em risco seu relacionamento e seu futuro juntos. Embora a jovem saiba que Hardin a ama, os dois estão cercados de ciúme, ódio e perdão. Será que o amor entre os dois será o suficiente para manter seu relacionamento?",
         faixa: "A16",
         src: "https://drive.google.com/file/d/1AupVoZMyOi_UclIPetcHYeWFpCzK6YWu/preview",
