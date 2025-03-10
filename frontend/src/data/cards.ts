@@ -38,6 +38,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 652,
+        title: "Tróia",
+        subtitle: "Versão do Diretor",
+        description: "Quando Páris, o príncipe de Troia, se apaixona por Helena, rainha de Esparta, o rei inicia uma guerra de anos entre os dois reinos. Para vencer, Esparta conta com Aquiles, um guerreiro lendário que comanda um exército próprio.",
+        faixa: "A14",
+        src: "https://drive.google.com/file/d/1hvlt_dJSGcMsMXbx5Iyu9-YN0YuhH-C0/preview",
+        duration: "02h 42m",
+        genero: [gen.aventura, gen.drama, agp.guerra, agp.historia, stm.hbo]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 8681,
         title: "Busca Implacável",
         subtitle: "",
