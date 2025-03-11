@@ -13,8 +13,8 @@
   --grey: #686868;
   --grey-transparent: rgba(104, 104, 104, 0.856);
   --grey-selected: #a29f9f;
-  --red: #E91E63; //cor original: d42c2c
-  --red-selected: #C2185B; //cor original: aa2323
+  --red: #d42c2c; //cor original: 
+  --red-selected: #aa2323; //cor original: 
   --white: #e6e6e6;
   --green: #007714;
   --black: #242424;
@@ -41,7 +41,6 @@ body {
   scroll-behavior: smooth;
   color: var(--white);
   font-optical-sizing: auto;
-
 }
 
 h1,
