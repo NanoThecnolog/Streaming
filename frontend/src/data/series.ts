@@ -41,6 +41,105 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 194766,
+        title: "O Verão Que Mudou A Minha Vida",
+        subtitle: "",
+        description: "Todo verão, Belly e sua família vão pra casa de praia dos Fishers em Cousins. Todo verão é igual... até Belly completar dezesseis anos. Relacionamentos novos surgirão, verdades dolorosas serão reveladas e Belly mudará para sempre. É um verão de primeiro amor, primeira desilusão amorosa e muito crescimento - é o verão em que ela fica bonita.",
+        genero: [gen.drama, gen.romance, stm.prime],
+        faixa: "A14",
+        season: [
+            {
+                s: 1,
+                lang: "Dublados",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1fIaSsNfADQGZWFVa41FP9-DV9-_ZpjCe/preview",
+                        duration: "45m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1IUDz10lof5PkBCglX9Iw9r7NHv97wmuE/preview",
+                        duration: "39m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/11vbhEgzth3UqnmnORi-gIFUaL21w15AE/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/14iMEJA1GYBP6VPTgODGV7JMb66Q9-9QF/preview",
+                        duration: "44m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1Flaxy7jpYfz56joMbknccuWg9GYh3v7O/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1WBBCRmdAQ57pDdcZX0e_ZydG5JItAE60/preview",
+                        duration: "47m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/16wZHFAyr-gnHToD37JHNQsc3oif3Rpkr/preview",
+                        duration: "44m"
+                    },
+                ]
+            },
+            /*{
+                s: 2,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "",
+                        duration: ""
+                    },
+                    {
+                        ep: 2,
+                        src: "",
+                        duration: ""
+                    },
+                    {
+                        ep: 3,
+                        src: "",
+                        duration: ""
+                    },
+                    {
+                        ep: 4,
+                        src: "",
+                        duration: ""
+                    },
+                    {
+                        ep: 5,
+                        src: "",
+                        duration: ""
+                    },
+                    {
+                        ep: 6,
+                        src: "",
+                        duration: ""
+                    },
+                    {
+                        ep: 7,
+                        src: "",
+                        duration: ""
+                    },
+                    {
+                        ep: 8,
+                        src: "",
+                        duration: ""
+                    },
+                ]
+            }*/
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 245927,
         title: "Paradise",
         subtitle: "",
