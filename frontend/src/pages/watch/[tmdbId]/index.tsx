@@ -11,10 +11,10 @@ import { CardsProps } from '@/@types/Cards';
 import { parseCookies } from 'nookies';
 import { useFlix } from '@/contexts/FlixContext';
 import { apiGoogle } from '@/services/apiGoogle';
-import { MdArrowOutward } from 'react-icons/md';
 import NoFile from '@/components/ui/NoFile';
 import { CheckFileProps } from '@/@types/googleRequest';
 import Spinner from '@/components/ui/Loading/spinner';
+import { debuglog } from '@/utils/UtilitiesFunctions';
 
 export default function Watch() {
     const router = useRouter()
@@ -59,7 +59,7 @@ export default function Watch() {
                 src: movie.src,
                 tmdbId: movie.tmdbId
             })
-            shareVerify(movie.src)
+
         }
     }, [router, tmdbId])
 
@@ -72,6 +72,15 @@ export default function Watch() {
         setVisible(!visible)
     }
 
+    useEffect(() => {
+        debuglog("movie data ao verificar: ", movieData)
+        if (movieData.src) {
+            shareVerify(movieData.src)
+        } else {
+            debuglog("não fazer nada!")
+        }
+    }, [movieData])
+
 
     async function shareVerify(link: string) {
         if (loading) return
@@ -79,8 +88,24 @@ export default function Watch() {
         try {
             const encodedLink = encodeURIComponent(link)
             const info = await apiGoogle.get(`/${encodedLink}`)
-            const fileCheck: CheckFileProps = info.data.response
-            setShared(fileCheck.shared)
+            debuglog("file check: ", info)
+            if (info.data.code && info.data.code === 404) {
+
+                const notificar = await api.post('/system/notification/problem', {
+                    title: movieData.title,
+                    description: 'Problema com arquivo',
+                    tmdbId: movieData.tmdbId,
+                    userId: user?.id
+                })
+                debuglog("depois do envio de email", notificar.data)
+                if (notificar.data.code === 201) debuglog("email enviado!")
+                return setShared(false)
+            }
+            if (info.data.code && info.data.code === 200) {
+                const fileCheck: CheckFileProps = info.data.response
+                return setShared(fileCheck.shared)
+            }
+
         } catch (err) {
             console.error("Erro ao verificar arquivo", err)
             setShared(false)

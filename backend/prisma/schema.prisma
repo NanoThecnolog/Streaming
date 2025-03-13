@@ -100,3 +100,17 @@ model favorito {
   created_at DateTime @default(now())
   updated_at DateTime @default(now()) @updatedAt
 }
+
+model problem {
+  id          String @id @default(uuid())
+  title       String
+  description String
+  tmdbId      Int    @unique
+  season      Int?
+  episode     Int?
+  userId      String
+  status      String
+
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+}

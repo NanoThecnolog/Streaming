@@ -1,3 +1,4 @@
+import { debuglog } from '@/utils/UtilitiesFunctions';
 import { google } from 'googleapis';
 
 export async function checkDriveFile(fileId: string) {
@@ -10,6 +11,7 @@ export async function checkDriveFile(fileId: string) {
             fileId,
             fields: 'id, name, mimeType, shared'
         });
+        debuglog("função checkdrivefile", file)
 
         return {
             code: 200,
@@ -20,12 +22,14 @@ export async function checkDriveFile(fileId: string) {
         if (err.response?.status === 404) {
             return {
                 code: 404,
-                message: '❌ Arquivo não encontrado ou não compartilhado!'
+                message: '❌ Arquivo não encontrado ou não compartilhado!',
+                error: err.response
             };
         } else if (err.response?.status === 403) {
             return {
                 code: 403,
-                message: '🔒 Arquivo privado!'
+                message: '🔒 Arquivo privado!',
+                error: err.response
             }
         } else {
             return {
@@ -41,7 +45,7 @@ export function extractFileId(url: string): string | null {
     const match = url.match(/\/d\/(.*?)(\/|$)/);
     return match ? match[1] : null;
 }
-//testes
+/*testes
 const driveUrl = 'https://drive.google.com/file/d/1r3xhEZkpcATQnPiGImc_guRay6tnfdTr/preview';
 const fileId = extractFileId(driveUrl);
 
@@ -49,4 +53,4 @@ if (fileId) {
     checkDriveFile(fileId);
 } else {
     console.log('❗ ID do arquivo não encontrado no link.');
-}
+}*/

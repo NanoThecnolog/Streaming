@@ -21,16 +21,12 @@ export default function HelpModal({ handleHelpModal, userId, tmdbId, serie, seas
 
     const flags = [
         {
-            title: "O vídeo pediu permissão para acessar",
-            description: "O vídeo solicitou permissão de acesso"
+            title: "Vídeo não reproduziu",
+            description: "Apresentou mensagem informando que há algo de errado com o arquivo do vídeo"
         },
         {
             title: "Número de reproduções excedido",
             description: "O vídeo não reproduziu e apresentou a mensagem dizendo que o número de reproduções foi excedido."
-        },
-        {
-            title: "Vídeo não reproduziu",
-            description: "Apresentou mensagem informando que o arquivo não reproduziu porque ele não existe mais ou viola os termos de serviço do Google Drive"
         },
         {
             title: "Problema com o audio",
@@ -41,7 +37,7 @@ export default function HelpModal({ handleHelpModal, userId, tmdbId, serie, seas
             description: "A imagem do vídeo está com problemas."
         },
         {
-            title: "A legenda está faltando!",
+            title: "Legenda ausente!",
             description: "A legenda não está disponível para o vídeo."
         },
         {

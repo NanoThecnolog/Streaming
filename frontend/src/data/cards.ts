@@ -38,6 +38,30 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 118340,
+        title: "Guardiões da Galáxia",
+        subtitle: "Volume 1",
+        description: 'Abduzido da Terra quando ainda era criança, Peter Quill fez carreira como saqueador e se auto denominou "Senhor das Estrelas". Quando rouba uma esfera, na qual o poderoso vilão Ronan, da raça kree, está interessado, passa a ser procurado por vários caçadores de recompensas. Para escapar do perigo, Quill une forças com quatro personagens fora do sistema: Groot, uma árvore humanóide (Vin Diesel), a sombria e perigosa Gamora, o guaxinim rápido no gatilho Rocket Racoon e o vingativo Drax, o Destruidor. A esfera roubada é capaz de mudar o destino de todo o universo.',
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1zd3JKlvXk123ZvelFVBnun3bx8CTGOt-/preview",
+        duration: "02h",
+        genero: [gen.acao, gen.ficcao, gen.aventura, agp.marvel, stm.disney]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 0,
+        title: "Guardiões da Galáxia",
+        subtitle: "",
+        description: "",
+        faixa: "",
+        src: "",
+        duration: "",
+        genero: []
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 978278,
         title: "Dias de Desejo",
         subtitle: "",
@@ -1272,7 +1296,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "John Constantine (Keanu Reeves) é um experiente ocultista e exorcista, que literalmente chegou ao inferno. Juntamente com Angela Dodson (Rachel Weisz), uma policial cética, ele investiga o misterioso assassinato da irmã gêmea dela, Isabel. As investigações levam a dupla a um mundo sombrio, em que precisam lidar com demônios e anjos malvados.",
         faixa: "A14",
-        src: "https://drive.google.com/file/d/0B95hdk-jrbehX2FLUU1rNGc3YXc/preview",
+        src: "https://drive.google.com/file/d/17R_bkUKUzih8TkH5pQdq4F947maXNEQO/preview",
         duration: "02h 01m",
         genero: [gen.terror, gen.fantasia, gen.acao, agp.dc, stm.hbo]
     },

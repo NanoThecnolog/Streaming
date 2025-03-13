@@ -16,6 +16,7 @@ import NoFile from "@/components/ui/NoFile"
 import { apiGoogle } from "@/services/apiGoogle"
 import { CheckFileProps } from "@/@types/googleRequest"
 import Spinner from "@/components/ui/Loading/spinner"
+import { debuglog } from "@/utils/UtilitiesFunctions"
 
 interface EpisodeProps {
     title: string,
@@ -91,13 +92,15 @@ export default function WatchSerie() {
 
     async function shareVerify(link: string) {
         if (loading) return
-        console.log("loading no inicio", loading)
+        debuglog("loading no inicio", loading)
         setLoading(true)
         try {
             const encodedLink = encodeURIComponent(link)
-            console.log("loading no momento de setar shared", loading)
+            debuglog("loading no momento de setar shared", loading)
             const info = await apiGoogle.get(`/${encodedLink}`)
+
             const fileCheck: CheckFileProps = info.data.response
+
             setShared(fileCheck.shared)
 
         } catch (err) {
