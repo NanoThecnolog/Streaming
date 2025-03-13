@@ -85,3 +85,10 @@ export const text = [
     "...Encarando as bochechas do Ben Affleck como Batman...",
     "...Robert Pattison ficou bom como Batman e ninguém pode negar..."
 ]
+
+export const desconto: Record<string, number> = {
+    mensal: 0,
+    trimestral: 5,
+    semestral: 7,
+    anual: 10,
+}

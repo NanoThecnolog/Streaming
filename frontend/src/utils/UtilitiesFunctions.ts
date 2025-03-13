@@ -105,3 +105,17 @@ export function formatedDate(date: string | Date) {
         timeZone: 'UTC'
     })
 }
+
+export function calculateDiscount(price: number, disc: number) {
+    const discount = (price * disc) / 100
+    return parseFloat((price - discount).toFixed(2))
+}
+
+export function formatPrice(price: number) {
+    if (!price || isNaN(price)) return
+    return Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+        minimumFractionDigits: 2
+    }).format(price / 100)
+}

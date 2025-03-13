@@ -1,0 +1,106 @@
+.mainPage {
+    //background-color: blue;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(300px, 3fr) minmax(200px, 1fr);
+    grid-template-rows: auto;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 150px 40px;
+    font-family: var(--font-Roboto);
+
+
+    .articleContainer {
+        border: 1px solid black;
+        background-color: var(--white);
+        border-radius: .4rem;
+        color: var(--black);
+        height: 80%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        .payOptions {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+
+            .methodButton {
+                width: 150px;
+                height: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 2rem;
+                background-color: var(--green);
+
+                button {
+                    color: var(--white);
+                    font-family: var(--font-Montserrat);
+                    font-weight: 900;
+                }
+            }
+
+        }
+
+        .formContainer {
+            padding: 20px;
+
+            form {
+                display: block;
+
+                .userData {
+                    display: flex;
+                    flex-direction: column;
+
+                    label {
+                        display: flex;
+                        flex-direction: column;
+                        //background-color: red;
+                        width: 250px;
+                    }
+                }
+
+                .userAddress {
+                    background-color: blue;
+
+                    label {
+                        margin: 10px;
+                        display: flex;
+                        flex-direction: column;
+                        background-color: red;
+                    }
+                }
+
+
+            }
+        }
+    }
+
+    .asideContainer {
+        height: 50%;
+        padding: 20px;
+        border: 2px solid var(--white);
+        border-radius: .4rem;
+    }
+}
+
+@media(max-width: 768px) {
+    .mainPage {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        justify-items: center;
+        padding: 50px 20px 100px 20px;
+    }
+
+    .sectionContainer {
+        width: 100%;
+    }
+
+    .asideContainer {
+        width: 100%;
+        height: auto;
+    }
+}

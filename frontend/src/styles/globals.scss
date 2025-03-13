@@ -13,13 +13,14 @@
   --grey: #686868;
   --grey-transparent: rgba(104, 104, 104, 0.856);
   --grey-selected: #a29f9f;
-  --red: #d42c2c; //cor original: 
-  --red-selected: #aa2323; //cor original: 
+  --red: #d42c2c;
+  --red-selected: #aa2323;
   --white: #e6e6e6;
   --green: #007714;
   --black: #242424;
   --yellow: #e0bf29;
   --orange: #e0840c;
+  --background-black: #141414;
 
   --background-gray: #272727;
   --background-gray-light: #343434;
@@ -36,7 +37,7 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  background-color: #141414;
+  background-color: var(--background-black);
   box-sizing: border-box;
   scroll-behavior: smooth;
   color: var(--white);
@@ -54,6 +55,10 @@ p {
 }
 
 input {
+  border: 0;
+  border-radius: .4rem;
+  padding: 5px 10px;
+
   &:focus {
     border: none;
     outline: none;
