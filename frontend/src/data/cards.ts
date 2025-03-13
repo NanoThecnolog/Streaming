@@ -38,6 +38,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 978278,
+        title: "Dias de Desejo",
+        subtitle: "",
+        description: "Isabella é uma jovem e linda mulher, traumatizada pela morte de sua mãe italiana quando ela tinha apenas 13 anos. Após a tragédia, seu bem-sucedido pai britânico, Frank, se afundou no trabalho e se afastou da filha. Quando a nova esposa de seu pai, Claudia, o convence a fazer uma viagem de família para uma remota propriedade rural na Itália, Isabella se vê obrigada a ir, mesmo contra sua vontade. Mas tudo muda quando ela conhece o sedutor Matt e acaba tomada por desejos que não consegue controlar.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1hW_nlnBWvAyVPHdDAgHdLRphPHW0bfJd/preview",
+        duration: "01h 43m",
+        genero: [gen.drama, gen.romance]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 652,
         title: "Tróia",
         subtitle: "Versão do Diretor",

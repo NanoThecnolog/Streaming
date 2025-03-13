@@ -16,7 +16,6 @@ export default function Loading() {
 
     useEffect(() => {
         let current = shuffleArray(text)
-        //setShuffledTexts(current)
         setRandomText(current[0])
         const timer = setInterval(() => {
             setIndex((prevIndex) => {
@@ -30,9 +29,6 @@ export default function Loading() {
                 setRandomText(current[newIndex])
                 return newIndex
             })
-            //const shuffling = text[Math.floor(Math.random() * text.length)]
-            //setRandomText(shuffling)
-
         }, 4000)
 
         return () => clearInterval(timer)
@@ -44,7 +40,9 @@ export default function Loading() {
             </div>
             <div className={styles.spinner}></div>
             <div>
-                <h2 className={styles.randomText}>{randomText}</h2>
+                {randomText &&
+                    <h2 className={styles.randomText}>{randomText}</h2>
+                }
             </div>
         </div>
     )
