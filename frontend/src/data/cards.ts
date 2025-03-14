@@ -38,6 +38,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 39254,
+        title: "Gigantes de Aço",
+        subtitle: "",
+        description: "Em um futuro próximo, as máquinas substituem os seres humanos no ringue. As lutas de boxe, nesse contexto, acontecem entre robôs de alta tecnologia e Charlie, um ex-lutador frustrado, não consegue se adaptar a isso. Quando tudo parece perdido, ele se une ao filho para construir um competidor imbatível.",
+        faixa: "10",
+        src: "",
+        duration: "02h 07m",
+        genero: [gen.acao, gen.ficcao, gen.drama]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 118340,
         title: "Guardiões da Galáxia",
         subtitle: "Volume 1",
@@ -45,19 +57,31 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1zd3JKlvXk123ZvelFVBnun3bx8CTGOt-/preview",
         duration: "02h",
-        genero: [gen.acao, gen.ficcao, gen.aventura, agp.marvel, stm.disney]
+        genero: [gen.acao, gen.ficcao, gen.aventura, gen.comedia, agp.marvel, agp.hero, stm.disney]
     },
     {
         background: background,
         overlay: overlay,
-        tmdbId: 0,
+        tmdbId: 283995,
         title: "Guardiões da Galáxia",
-        subtitle: "",
-        description: "",
-        faixa: "",
+        subtitle: "Volume 2",
+        description: "Os Guardiões precisam lutar para manter sua recém descoberta família unida, enquanto descobrem os mistérios sobre o verdadeiro pai de Peter Quill.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1oay0LLAvRmoG2JuikNnrqLetLMGsASDe/preview",
+        duration: "02h 16m",
+        genero: [gen.ficcao, gen.acao, gen.aventura, gen.comedia, agp.marvel, agp.hero, stm.disney]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 447365,
+        title: "Guardiões da Galáxia",
+        subtitle: "Volume 3",
+        description: "Peter Quill, que ainda está se recuperando da perda de Gamora, tem que reunir a sua equipe para defender o universo e proteger um dos seus. Uma missão que, se não for concluída com sucesso, pode levar ao fim dos Guardiões como os conhecemos.",
+        faixa: "A14",
         src: "",
-        duration: "",
-        genero: []
+        duration: "02h 30m",
+        genero: [gen.ficcao, gen.aventura, gen.acao, gen.comedia, agp.marvel, agp.hero, stm.disney]
     },
     {
         background: background,
@@ -4348,10 +4372,9 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Depois de receber um chamado inesperado de seus ancestrais navegadores, Moana vai viajar para mares distantes da Oceania, em águas perdidas em uma aventura perigosa.",
         faixa: "L",
-        src: "https://drive.google.com/file/d/1uIs01TuDf6ZE-BI55fBOX_fA-Kyf6LJa/preview",
+        src: "https://drive.google.com/file/d/1vYjYrQTjMMIFUcH8sTN9Hibtm88Oj358/preview",
         duration: "01h 40m",
-        genero: [gen.animacao, gen.aventura, gen.comedia, agp.familia, stm.disney],
-        lang: "Leg"
+        genero: [gen.animacao, gen.aventura, gen.comedia, agp.familia, stm.disney]
     },
     {
         background: background,

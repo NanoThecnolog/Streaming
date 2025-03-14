@@ -77,7 +77,7 @@ export default function WatchSerie() {
                 src: src ? src as string : '',
                 season: Array.isArray(season) ? parseInt(season[0]) : parseInt(season),
             })
-            shareVerify(src as string)
+
         }
     }, [router, title, subtitle, src, episode, season])
 
@@ -90,24 +90,42 @@ export default function WatchSerie() {
         setVisible(!visible)
     }
 
+    useEffect(() => {
+        if (episodio?.src) {
+            shareVerify(episodio.src)
+        } else {
+            debuglog("não fazer nada!")
+        }
+    }, [episodio])
+
     async function shareVerify(link: string) {
         if (loading) return
         debuglog("loading no inicio", loading)
         setLoading(true)
         try {
             const encodedLink = encodeURIComponent(link)
-            debuglog("loading no momento de setar shared", loading)
             const info = await apiGoogle.get(`/${encodedLink}`)
-
-            const fileCheck: CheckFileProps = info.data.response
-
-            setShared(fileCheck.shared)
-
+            if (info.data.code && info.data.code === 404) {
+                const notificar = await api.post('/system/notification/problem', {
+                    title: episodio?.title,
+                    description: 'Problema com arquivo',
+                    tmdbId: serie?.tmdbID,
+                    season: episodio?.season,
+                    episode: episodio?.episode,
+                    userId: user?.id
+                })
+                debuglog("depois do envio de email", notificar.data)
+                if (notificar.data.code === 201) debuglog("email enviado!")
+                return setShared(false)
+            }
+            if (info.data.code && info.data.code === 200) {
+                const fileCheck: CheckFileProps = info.data.response
+                return setShared(fileCheck.shared)
+            }
         } catch (err) {
             console.error("Erro ao verificar arquivo", err)
             setShared(false)
         } finally {
-            console.log("loading no final", loading)
             setLoading(false)
         }
     }
