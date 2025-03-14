@@ -43,7 +43,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Em um futuro próximo, as máquinas substituem os seres humanos no ringue. As lutas de boxe, nesse contexto, acontecem entre robôs de alta tecnologia e Charlie, um ex-lutador frustrado, não consegue se adaptar a isso. Quando tudo parece perdido, ele se une ao filho para construir um competidor imbatível.",
         faixa: "10",
-        src: "",
+        src: "https://drive.google.com/file/d/1c2Pjn3zAeI0ObV0eyqF5kQoQ3hvEZmI0/preview",
         duration: "02h 07m",
         genero: [gen.acao, gen.ficcao, gen.drama]
     },
@@ -79,7 +79,7 @@ export const cards: CardsProps[] = [
         subtitle: "Volume 3",
         description: "Peter Quill, que ainda está se recuperando da perda de Gamora, tem que reunir a sua equipe para defender o universo e proteger um dos seus. Uma missão que, se não for concluída com sucesso, pode levar ao fim dos Guardiões como os conhecemos.",
         faixa: "A14",
-        src: "",
+        src: "https://drive.google.com/file/d/1p2Jdlt6znuP9EhEKDepnrWLEu7TN6RYI/preview",
         duration: "02h 30m",
         genero: [gen.ficcao, gen.aventura, gen.acao, gen.comedia, agp.marvel, agp.hero, stm.disney]
     },
@@ -2858,9 +2858,9 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Depois de vinte anos, o lendário Zorro escapa da prisão para vingar o assassinato de sua mulher e o rapto de sua filha Elena, ambos realizados pelas mãos de seu inimigo Don Rafael Montero. Mas primeiro ele deve transformar o jovem ladrão arrogante Alejandro Murrieta no temido herói e lutar pelo povo do qual fez parte um dia.",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/1xj6dUQHXoWwv9EhUexAXGUk6em_IUfYg/preview",
+        src: "https://drive.google.com/file/d/1BBeZpm2ZxF-Edcx7QUGfWz0RQ5CFSYRY/preview",
         duration: "02h 16m",
-        genero: [gen.acao, gen.aventura]
+        genero: [gen.acao, gen.aventura, stm.netflix]
     },
     {
         background: background,

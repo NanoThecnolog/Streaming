@@ -77,6 +77,7 @@ export default function Watch() {
         if (movieData.src) {
             shareVerify(movieData.src)
         } else {
+            setShared(false)
             debuglog("não fazer nada!")
         }
     }, [movieData])
