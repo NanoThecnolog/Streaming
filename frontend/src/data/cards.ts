@@ -38,6 +38,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 777443,
+        title: "The Electric State",
+        subtitle: "",
+        description: "Uma adolescente órfã pega a estrada com um robô misterioso em busca do irmão há muito tempo desaparecido, encontrando no caminho um contrabandista e seu ajudante hilário.",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1qYSjKHvVpzHpTSmVMsDeVXqg6-pZPo7r/preview",
+        duration: "02h 50m",
+        genero: [gen.ficcao, gen.aventura, gen.drama, stm.netflix]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 39254,
         title: "Gigantes de Aço",
         subtitle: "",
