@@ -700,6 +700,11 @@ export const series: SeriesProps[] = [
                         ep: 22,
                         src: "https://drive.google.com/file/d/1PUnXiwMUvgmoLk35M3a_1BvRpEpIT2MX/preview",
                         duration: "23m"
+                    },
+                    {
+                        ep: 23,
+                        src: "https://drive.google.com/file/d/1XghvV8-G_K_Ggb4u1ZCxP9sv_PGrtm-0/preview",
+                        duration: "23m"
                     }
                 ]
             },
@@ -963,6 +968,11 @@ export const series: SeriesProps[] = [
                         ep: 8,
                         src: "https://drive.google.com/file/d/1E_0irWig1xGLzT87T5fJHiof5GCiy93Y/preview",
                         duration: "37m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1ivLAkAOrTz3eGEJe66ba0SmT-BBy87xf/preview",
+                        duration: "44m"
                     }
                 ]
             }

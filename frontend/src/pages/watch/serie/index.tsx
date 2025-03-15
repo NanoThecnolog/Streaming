@@ -132,7 +132,7 @@ export default function WatchSerie() {
 
     return (
         <>
-            <SEO title={`Episódio ${episode} - ${title} ${subtitle != '' && `- ${subtitle}`} | FlixNext`} description=" " />
+            <SEO title={`Episódio ${episode} - ${title} ${subtitle && `- ${subtitle}`} | FlixNext`} description=" " />
             <div className={styles.container}>
 
                 <div className={styles.movie}>
@@ -141,7 +141,7 @@ export default function WatchSerie() {
                             <ChevronLeft size={30} />
                         </button>
                         {
-                            episodio ? <h3>{episodio.title} {episodio.subtitle != "" && `- ${episodio.subtitle}`} - Temporada {episodio.season} Episódio {episodio.episode}</h3>
+                            episodio ? <h3>{episodio.title} {episodio.subtitle && `- ${episodio.subtitle}`} - Temporada {episodio.season} Episódio {episodio.episode}</h3>
                                 : ''
                         }
 
