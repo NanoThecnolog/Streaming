@@ -16,7 +16,7 @@ import NoFile from "@/components/ui/NoFile"
 import { apiGoogle } from "@/services/apiGoogle"
 import { CheckFileProps } from "@/@types/googleRequest"
 import Spinner from "@/components/ui/Loading/spinner"
-import { debuglog } from "@/utils/UtilitiesFunctions"
+import { debug } from "@/classes/DebugLogger"
 
 interface EpisodeProps {
     title: string,
@@ -94,13 +94,13 @@ export default function WatchSerie() {
         if (episodio?.src) {
             shareVerify(episodio.src)
         } else {
-            debuglog("não fazer nada!")
+            debug.log("não fazer nada!")
         }
     }, [episodio])
 
     async function shareVerify(link: string) {
         if (loading) return
-        debuglog("loading no inicio", loading)
+        debug.log("loading no inicio", loading)
         setLoading(true)
         try {
             const encodedLink = encodeURIComponent(link)
@@ -114,8 +114,8 @@ export default function WatchSerie() {
                     episode: episodio?.episode,
                     userId: user?.id
                 })
-                debuglog("depois do envio de email", notificar.data)
-                if (notificar.data.code === 201) debuglog("email enviado!")
+                debug.log("depois do envio de email", notificar.data)
+                if (notificar.data.code === 201) debug.log("email enviado!")
                 return setShared(false)
             }
             if (info.data.code && info.data.code === 200) {

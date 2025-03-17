@@ -5,8 +5,9 @@ import SEO from "@/components/SEO";
 import { useEffect, useState } from "react";
 import { apiSub } from "@/services/apiSubManager";
 import { PlansProps } from "@/@types/plans";
-import { calculateDiscount, debuglog, formatPrice } from "@/utils/UtilitiesFunctions";
+import { calculateDiscount, formatPrice } from "@/utils/UtilitiesFunctions";
 import { useRouter } from "next/router";
+import { debug } from "@/classes/DebugLogger";
 
 
 
@@ -22,7 +23,7 @@ export default function Donate() {
         try {
             const plans = await apiSub.get('/plan/list')
             const data: PlansProps = plans.data
-            debuglog(data)
+            debug.log(data)
             setPlans(data)
         } catch (err) {
             console.log(err)

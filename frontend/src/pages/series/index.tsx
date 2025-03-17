@@ -15,7 +15,6 @@ import debounce from "lodash.debounce";
 import BackTopButton from "@/components/ui/BackToTop";
 import Carousel from "@/components/Carousel";
 import { breakpoints } from "@/utils/Variaveis";
-import { debuglog } from "@/utils/UtilitiesFunctions";
 
 
 export default function Series() {

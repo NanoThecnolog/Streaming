@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 import { useState } from 'react'
 import { SeriesProps } from '@/@types/series'
 import { apiEmail } from '@/services/apiMessenger'
-import { debuglog } from '@/utils/UtilitiesFunctions'
+import { debug } from '@/classes/DebugLogger'
 
 interface HelpProps {
     handleHelpModal: () => void
@@ -59,7 +59,7 @@ export default function HelpModal({ handleHelpModal, userId, tmdbId, serie, seas
                 season: season ? season : 0,
                 episode: episode ? episode : 0
             })
-            debuglog(response.data)
+            debug.log(response.data)
             toast.success("Obrigado! Vamos cuidar do problema.")
         } catch (err) {
             console.error(err)

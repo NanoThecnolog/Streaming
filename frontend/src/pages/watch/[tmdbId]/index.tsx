@@ -14,7 +14,7 @@ import { apiGoogle } from '@/services/apiGoogle';
 import NoFile from '@/components/ui/NoFile';
 import { CheckFileProps } from '@/@types/googleRequest';
 import Spinner from '@/components/ui/Loading/spinner';
-import { debuglog } from '@/utils/UtilitiesFunctions';
+import { debug } from '@/classes/DebugLogger';
 
 export default function Watch() {
     const router = useRouter()
@@ -73,12 +73,12 @@ export default function Watch() {
     }
 
     useEffect(() => {
-        debuglog("movie data ao verificar: ", movieData)
+        debug.log("movie data ao verificar: ", movieData)
         if (movieData.src) {
             shareVerify(movieData.src)
         } else {
             setShared(false)
-            debuglog("não fazer nada!")
+            debug.log("não fazer nada!")
         }
     }, [movieData])
 
@@ -89,7 +89,7 @@ export default function Watch() {
         try {
             const encodedLink = encodeURIComponent(link)
             const info = await apiGoogle.get(`/${encodedLink}`)
-            debuglog("file check: ", info)
+            debug.log("file check: ", info)
             if (info.data.code && info.data.code === 404) {
 
                 const notificar = await api.post('/system/notification/problem', {
@@ -98,8 +98,8 @@ export default function Watch() {
                     tmdbId: movieData.tmdbId,
                     userId: user?.id
                 })
-                debuglog("depois do envio de email", notificar.data)
-                if (notificar.data.code === 201) debuglog("email enviado!")
+                debug.log("depois do envio de email", notificar.data)
+                if (notificar.data.code === 201) debug.log("email enviado!")
                 return setShared(false)
             }
             if (info.data.code && info.data.code === 200) {

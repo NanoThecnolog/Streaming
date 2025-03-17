@@ -8,7 +8,7 @@ import { api } from '@/services/api';
 import { toast } from 'react-toastify';
 import { apiEmail } from '@/services/apiMessenger';
 import { useFlix } from '@/contexts/FlixContext';
-import { debuglog } from '@/utils/UtilitiesFunctions';
+import { debug } from '@/classes/DebugLogger';
 interface RequestCard {
     card: RequestCardProps;
 }
@@ -36,7 +36,7 @@ export default function RequestCard({ card }: RequestCard) {
                 userName: user?.name
             })
             const data = response;
-            debuglog(data)
+            debug.log(data)
             toast.success("Conteúdo Solicitado!")
         } catch (err) {
             console.log(err)

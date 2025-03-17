@@ -1,14 +1,15 @@
 import { FaChevronRight } from 'react-icons/fa6'
 import styles from './styles.module.scss'
 import { parseCookies } from 'nookies'
-import { debuglog, formatedDate } from '@/utils/UtilitiesFunctions'
+import { formatedDate } from '@/utils/UtilitiesFunctions'
 import { useFlix } from '@/contexts/FlixContext'
+import { debug } from '@/classes/DebugLogger'
 
 export default function SubConfig() {
     const { user } = useFlix()
 
     const { 'flix-user': userCookies } = parseCookies()
-    debuglog(JSON.parse(userCookies))
+    debug.log(JSON.parse(userCookies))
     return (
         <section className={styles.sectionContainer}>
             <div className={styles.accountContainer}>

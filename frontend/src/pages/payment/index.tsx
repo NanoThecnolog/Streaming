@@ -3,11 +3,12 @@ import styles from './styles.module.scss'
 import { useEffect, useState } from 'react'
 import { apiSub } from '@/services/apiSubManager'
 import { PlansProps } from '@/@types/plans'
-import { debuglog, formatPrice } from '@/utils/UtilitiesFunctions'
+import { formatPrice } from '@/utils/UtilitiesFunctions'
 import Header from '@/components/Header'
 import SEO from '@/components/SEO'
 import Footer from '@/components/Footer'
 import { desconto } from '@/utils/Variaveis'
+import { debug } from '@/classes/DebugLogger'
 
 export interface PlanProps {
     name: string;
@@ -29,7 +30,7 @@ export default function Payment() {
             console.log("ID recebido", id)
             getPlans()
             if (plan) {
-                debuglog(plan)
+                debug.log(plan)
             }
         }
     }, [id])

@@ -13,9 +13,9 @@ import { IoAddCircle, IoCreate } from "react-icons/io5";
 import Fuse from 'fuse.js'
 import { CardsProps } from "@/@types/Cards";
 import debounce from "lodash.debounce";
-import { debuglog } from "@/utils/UtilitiesFunctions";
 import { SeriesProps } from "@/@types/series";
 import { fuseConfig } from "@/utils/Variaveis";
+import { debug } from "@/classes/DebugLogger";
 
 export default function Header() {
     //refatorar esse componente
@@ -90,7 +90,7 @@ export default function Header() {
         }, 200), [fuse]
     )
     async function handleRelatedSearchClick(card: CardsProps | SeriesProps) {
-        debuglog("chamando")
+        debug.log("chamando")
         setLoading(true)
         try {
             setSearchInput("")
