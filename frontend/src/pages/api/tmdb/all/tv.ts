@@ -1,6 +1,5 @@
-import { cards } from "@/data/cards";
 import { series } from "@/data/series";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;

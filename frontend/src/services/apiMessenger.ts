@@ -1,11 +1,11 @@
-import { debuglog } from "@/utils/UtilitiesFunctions"
+import { debug } from "@/classes/DebugLogger"
 import axios from "axios"
 
 const url = process.env.NEXT_PUBLIC_MENSAGERIA
 const apiKey = process.env.NEXT_PUBLIC_API_KEY
-if (!url) console.log('Url não definida')
+if (!url) debug.error('Url não definida')
 
-debuglog('url', url)
+debug.log('url', url)
 export const apiEmail = axios.create({
     baseURL: url
 })
@@ -15,7 +15,7 @@ apiEmail.interceptors.request.use(
         if (apiKey) {
             config.headers = config.headers ?? {}
             config.headers['key'] = apiKey
-        } else console.log("enviroment variable API_KEY missing")
+        } else debug.error("enviroment variable API_KEY missing")
         return config;
     }, (error) => {
         return Promise.reject(error)

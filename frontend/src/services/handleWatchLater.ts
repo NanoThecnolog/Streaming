@@ -7,6 +7,7 @@ import { WatchLaterContext } from "@/@types/contexts/flixContext";
 import { cards } from "@/data/cards";
 import { cookieOptions } from "@/utils/Variaveis";
 import { series } from "@/data/series";
+import { debug } from "@/classes/DebugLogger";
 
 interface TestProps {
     title: string,
@@ -31,7 +32,7 @@ export async function addWatchLater(tmdbid: number) {
         if (isLoading) return;
         isLoading = true;
         const { 'flix-user': userCookie } = parseCookies()
-        if (!userCookie) return console.log("user cookie on function addWatchLater not found. UserCookie: ", userCookie)
+        if (!userCookie) return debug.warn("user cookie on function addWatchLater not found. UserCookie: ", userCookie)
         const user: UserContext = JSON.parse(userCookie)
 
         // Busca a lista no banco de dados pelo user
@@ -43,7 +44,6 @@ export async function addWatchLater(tmdbid: number) {
         // Se o filme existe, remove-o
         if (filmeExiste) {
             await removeWatchLater(filmeExiste)
-            //await api.delete(`/watchLater/${filmeExiste.id}`)
             return;
         }
 
@@ -56,7 +56,7 @@ export async function addWatchLater(tmdbid: number) {
         const movie = cardExiste()
         //const card = movie ? movie : series.find(card => card.tmdbID === tmdbid)
         if (!movie) {
-            return console.error("título não encontrado em cards", movie)
+            return debug.error("título não encontrado em cards", movie)
         }
 
         const data = {
@@ -69,18 +69,16 @@ export async function addWatchLater(tmdbid: number) {
         const { 'flix-watch': watchCookie } = parseCookies()
         if (!watchCookie) {
             toast.warning("tenta relogar, ta dando erro...")
-            return console.error("Cookie flix-watch não encontrado")
+            return debug.error("Cookie flix-watch não encontrado")
         }
         const watchList: WatchLaterContext[] = JSON.parse(watchCookie)
         watchList.push({ id: tmdbid })
         destroyCookie(null, 'flix-watch')
         setCookie(null, 'flix-watch', JSON.stringify(watchList), cookieOptions)
-        //await updateUserCookie(),//atualiza o cookie userData
-        //await setData() //Atualiza as listas watchlater e favorite do localstorage
         toast.success(`${movie.title} ${movie.subtitle != '' ? `- ${movie.subtitle}` : ''} adicionado à lista de assistir mais tarde!`);
     } catch (err: any) {
-        toast.error(err.response?.data?.message || "Erro ao adicionar filme à lista.");
-        console.error("Erro ao adicionar filme:", err);
+        toast.error(err.response.data.error || "Erro ao adicionar filme à lista.");
+        debug.error("Erro ao adicionar filme:", err.response.data.error);
     } finally {
         isLoading = false;
     }
@@ -108,7 +106,7 @@ export async function removeWatchLater(filme: WatchLaterProps) {
         const { 'flix-watch': watchCookie } = parseCookies()
         if (!watchCookie) {
             toast.warning("tenta relogar, ta dando erro...")
-            return console.error("Cookie flix-watch não encontrado")
+            return debug.error("Cookie flix-watch não encontrado")
         }
         const watchList: WatchLaterContext[] = JSON.parse(watchCookie)
         const newWatchList = watchList.filter(item => item.id !== filme.tmdbid)
@@ -118,7 +116,7 @@ export async function removeWatchLater(filme: WatchLaterProps) {
         //await setData()
         toast.warning(`${filme.title} ${filme.subtitle != '' ? `- ${filme.subtitle}` : ''} removido da lista para assistir mais tarde!`);
     } catch (err) {
-        console.error("Erro ao remover título:", err);
+        debug.error("Erro ao remover título:", err);
         toast.error("Erro ao remover título.");
     }
 }

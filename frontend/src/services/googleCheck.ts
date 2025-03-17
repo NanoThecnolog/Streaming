@@ -1,9 +1,9 @@
-import { debuglog } from '@/utils/UtilitiesFunctions';
+import { debug } from '@/classes/DebugLogger';
 import { google } from 'googleapis';
 
 export async function checkDriveFile(fileId: string) {
     const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
-    if (!API_KEY) return console.log("Variável de ambiente não definida")
+    if (!API_KEY) return debug.error("Variável de ambiente não definida")
     try {
         const drive = google.drive({ version: 'v3', auth: API_KEY });
 
@@ -11,7 +11,7 @@ export async function checkDriveFile(fileId: string) {
             fileId,
             fields: 'id, name, mimeType, shared'
         });
-        debuglog("função checkdrivefile", file)
+        debug.log("função checkdrivefile", file)
 
         return {
             code: 200,

@@ -1,6 +1,5 @@
 import { CardsProps, MovieTMDB } from "@/@types/Cards";
 import { SeriesProps } from "@/@types/series";
-import { useTMDB } from "@/contexts/TMDBContext";
 import { cards } from "@/data/cards";
 
 /**

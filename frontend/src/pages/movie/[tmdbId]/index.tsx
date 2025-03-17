@@ -14,7 +14,7 @@ import { addWatchLater, isOnTheList } from '@/services/handleWatchLater';
 import { toast } from 'react-toastify';
 import { CastProps, CrewProps } from '@/@types/cast';
 import Footer from '@/components/Footer';
-import { debuglog, minToHour, translate } from '@/utils/UtilitiesFunctions';
+import { minToHour, translate } from '@/utils/UtilitiesFunctions';
 import Card from '@/components/Card';
 import Spinner from '@/components/ui/Loading/spinner';
 import Cast from '@/components/Cast';
@@ -26,6 +26,8 @@ import { useTMDB } from '@/contexts/TMDBContext';
 import { useFlix } from '@/contexts/FlixContext';
 import { parseCookies } from 'nookies';
 import debounce from 'lodash.debounce';
+import { debug } from '@/classes/DebugLogger';
+import { tmdb } from '@/classes/TMDB';
 
 interface groupedByDepartment {
     [job: string]: CrewProps[]
@@ -37,26 +39,21 @@ export default function Movie() {
     const { tmdbId } = router.query;
     const { allData } = useTMDB()
     const { user, setUser } = useFlix()
-    //const [user, setUser] = useState<UserProps>()
     const [movie, setMovie] = useState<CardsProps>()
     const [tmdbData, setTmdbData] = useState<MovieTMDB>()
     const [loading, setLoading] = useState(false)
     const [onWatchLater, setOnWatchLater] = useState(false)
-    //const [isFav, setIsFavorite] = useState(false)
     const [cast, setCast] = useState<CastProps>()
     const [crewDepartment, setCrewDepartment] = useState<groupedByDepartment>({})
     const [relatedCards, setRelatedCards] = useState<CardsProps[]>([])
     const [trailer, setTrailer] = useState<TrailerProps | null>(null)
+    const [loadingButton, setLoadingButton] = useState(false)
 
-    const watchLater = async () => {//ok
+    const watchLater = async () => {
         if (!movie) return
         const onList = await isOnTheList(movie.tmdbId)
         setOnWatchLater(onList)
     }
-    /***const favorite = async () => {//ok
-        const favorito = await isFavorite(Number(tmdbId))
-        setIsFavorite(favorito)
-    }*/
     useEffect(() => {
         if (!tmdbId) return
         const card = cards.find(card => card.tmdbId === Number(tmdbId));
@@ -73,7 +70,7 @@ export default function Movie() {
 
     const handleWidth = debounce(() => {
         if (window.innerWidth <= 915) {
-            debuglog(window.innerWidth)
+            debug.log(window.innerWidth)
             setShowPoster(true)
         } else {
             setShowPoster(false)
@@ -91,12 +88,12 @@ export default function Movie() {
         if (loading) return
         setLoading(true)
         try {
-
-            const tmdbData = await fetchTMDBMovie(Number(tmdbId));
-            if (!tmdbData) return console.warn("Nenhum dado retornado durante a busca pelo filme no TMDB.")
+            //const tmdbData = await fetchTMDBMovie(Number(tmdbId));
+            const tmdbData = await tmdb.fetchMovieDetails(Number(tmdbId))
+            if (!tmdbData) return debug.warn("Nenhum dado retornado durante a busca pelo filme no TMDB.")
             setTmdbData(tmdbData)
         } catch (err) {
-            console.error("Erro na busca pelo filme no TMDB!")
+            debug.error("Erro na busca pelo filme no TMDB!")
         } finally {
             setLoading(false)
         }
@@ -106,24 +103,22 @@ export default function Movie() {
         setLoading(true)
         try {
             const cast = await fetchTMDBMovieCast(Number(tmdbId));
-            if (!cast) return console.warn("Nenhum dado ao buscar elenco do filme.")
-            const crewData = Array.isArray(cast.crew) && cast.crew.length
-                ? cast.crew
-                : [];
+            if (!cast) return debug.warn("Nenhum dado ao buscar elenco do filme.")
+
+            const crewData = cast.crew?.length ? cast.crew : [];
+
             const groupedByDepartment = crewData.reduce<groupedByDepartment>((acc, crew) => {
                 if (!crew.department) return acc
                 const department = crew.department || "Outros";
 
-                if (!acc[department]) {
-                    acc[department] = []
-                }
+                acc[department] = acc[department] || []
                 acc[department].push(crew)
                 return acc
             }, {});
             setCrewDepartment(groupedByDepartment)
             setCast(cast)
         } catch (err) {
-            console.error("Erro ao buscar dados sobre o elenco do filme.")
+            debug.error("Erro ao buscar dados sobre o elenco do filme.", err)
         } finally {
             setLoading(false)
         }
@@ -132,29 +127,38 @@ export default function Movie() {
         if (!user) {
             const { 'flix-user': userCookie } = parseCookies()
             if (!userCookie) return router.push('/login')
-            else setUser(JSON.parse(userCookie))
+            setUser(JSON.parse(userCookie))
         }
-        if (!movie) return console.warn("Erro ao adicionar filme a lista de assistir mais tarde.")
+        if (!movie) return debug.warn("Erro ao adicionar filme a lista de assistir mais tarde.")
 
         try {
+            if (loadingButton) return
+            setLoadingButton(true)
             await addWatchLater(movie.tmdbId)
             await watchLater()
         } catch (err: any) {
-            console.log(err)
-            if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista. Tente novamente mais tarde!")
-            return toast.error("Erro inesperado ao adicionar filme à lista! Tente novamente mais tarde.")
+            debug.error("Erro ao adicionar filme", err)
+            const errorMessage = err.response?.data?.message || "Erro ao adicionar filme à lista. Por favor, tente novamente mais tarde!";
+            return toast.error(errorMessage)
+        } finally {
+            setLoadingButton(false)
         }
     }
 
     useEffect(() => {
         if (!tmdbId || isNaN(Number(tmdbId))) return;
+        const getTrailer = async () => {
+            try {
+                const trailer = await fetchTMDBTrailer(Number(tmdbId), 'movie')
+                setTrailer(trailer || null)
+            } catch (err) {
+                debug.error("Erro ao buscar o trailer", err)
+                setTrailer(null)
+            }
+        }
         getTrailer()
     }, [tmdbId])
-    async function getTrailer() {
-        const trailer = await fetchTMDBTrailer(Number(tmdbId), 'movie')
-        if (!trailer) return setTrailer(null)
-        return setTrailer(trailer)
-    }
+
     function handlePlay() {
         router.push(`/watch/${tmdbId}`)
     }
@@ -167,17 +171,6 @@ export default function Movie() {
                     <section className={styles.container}>
 
                         {!loading ?
-                            /*
-                            <Image
-                            className={styles.img}
-                            alt='backdrop'
-                            priority
-                            fill
-                            quality={80}
-                            sizes="100%"
-                            src={tmdbData ? `https://image.tmdb.org/t/p/original/${tmdbData.backdrop_path}` : movie ? movie.background : "/fundo-largo.jpg"}
-                        />
-                            */
                             <div
                                 className={styles.imageContainer}
                                 style={{ backgroundImage: `url(${tmdbData ? `https://image.tmdb.org/t/p/original/${showPoster ? tmdbData.poster_path : tmdbData.backdrop_path}` : movie ? movie.background : "/fundo-largo.jpg"})` }}
@@ -210,7 +203,7 @@ export default function Movie() {
                                     <div className={styles.buttonContainer}>
                                         <div className={styles.buttonWatchLater}>
                                             <button type='button' onClick={handleWatchLater}>
-                                                {onWatchLater ? (
+                                                {loadingButton ? <Spinner /> : onWatchLater ? (
                                                     <>
                                                         <p><FaCheck /></p>
                                                         <p>Adicionado à Lista</p>

@@ -1,6 +1,6 @@
 import { CardsProps } from "@/@types/Cards";
+import { debug } from "@/classes/DebugLogger";
 import { cards } from "@/data/cards";
-import { debuglog } from "@/utils/UtilitiesFunctions";
 import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
 //import {PromiseFulfilledResult} from 'typescript'
@@ -11,9 +11,9 @@ const batchSize = 20
 const cache = new Map<number, any>()
 
 async function fetchCardData(cardId: number, retries: number = maxTentativas): Promise<any> {
-    debuglog("Inciando fetchCardData, cardId", cardId)
+    debug.log("Inciando fetchCardData, cardId", cardId)
     if (cache.has(cardId)) {
-        debuglog("card no cache", cardId)
+        debug.log("card no cache", cardId)
         return cache.get(cardId)
     }
 
@@ -57,7 +57,7 @@ async function fetchCardData(cardId: number, retries: number = maxTentativas): P
 }
 
 async function fetchInBatches(items: CardsProps[], batchSize: number) {
-    debuglog("Iniciando função fetchInBatches")
+    debug.log("Iniciando função fetchInBatches")
     let results: any[] = []
     //debuglog(items)
     const batchPromises = []
@@ -74,7 +74,7 @@ async function fetchInBatches(items: CardsProps[], batchSize: number) {
     } catch (err) {
         console.log("Erro no card", err)
     }
-    debuglog("Fim do FOR em fetchInBatches")
+    debug.log("Fim do FOR em fetchInBatches")
     return results
 }
 
@@ -83,12 +83,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(500).json({ error: "TMDB token is missing" });
     }
     res.setHeader('Cache-Control', 's-maxage=18000, stale-while-revalidate=300')
-    debuglog("Rota sendo chamada")
+    debug.log("Rota sendo chamada")
 
     try {
-        debuglog("Inciando fetch de dados")
+        debug.log("Inciando fetch de dados")
         const cardData = await fetchInBatches(cards, batchSize)
-        debuglog("Fetch de dados concluído")
+        debug.log("Fetch de dados concluído")
 
         const successFulData = cardData
             .filter(result => result.success)

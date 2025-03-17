@@ -2,6 +2,7 @@ import { getCookie, setCookie } from "cookies-next";
 import setData, { fetchUserData } from "./setDataOnStorage";
 import { UserProps } from "@/@types/user";
 import { parseCookies } from "nookies";
+import { debug } from "@/classes/DebugLogger";
 /**
  * Função assíncrona. Retorna os dados do usuário salvos no cookie flix-user. Esse cookie é definido sempre que um novo login é realizado
  * ou quando os dados são atualizados
@@ -38,7 +39,7 @@ export async function updateUserCookie() {
 
     try {
         const response = await fetchUserData(userData)
-        //console.log("response", response)
+        //debug.log("response", response)
         const expressTime = 15 * 24 * 60 * 60 * 1000;
         const user = JSON.stringify({
             id: response.id,
@@ -55,7 +56,7 @@ export async function updateUserCookie() {
         await setData()
         return user
     } catch (err) {
-        console.log("Erro ao atualizar cookie do usuario", err)
+        debug.error("Erro ao atualizar cookie do usuario", err)
         return null
     }
 

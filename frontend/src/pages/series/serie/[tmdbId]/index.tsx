@@ -12,14 +12,13 @@ import { FiPlus } from "react-icons/fi";
 import { fetchEpisodeData, fetchTMDBSerieCast, fetchTMDBSerieCastBySeason, fetchTMDBSeries, fetchTMDBTrailer } from "@/services/fetchTMDBData";
 import { addWatchLater, isOnTheList } from "@/services/handleWatchLater";
 import Stars from "@/components/ui/StarAverage";
-import Image from "next/image";
 import Adult from "@/components/ui/Adult";
 import SEO from "@/components/SEO";
 import EpisodeCard from "@/components/seriesComponents/EpisodeCard";
 import Spinner from "@/components/ui/Loading/spinner";
 import { useTMDB } from "@/contexts/TMDBContext";
 import { CastProps, CrewProps } from "@/@types/cast";
-import { debuglog, translate } from "@/utils/UtilitiesFunctions";
+import { translate } from "@/utils/UtilitiesFunctions";
 import Cast from "@/components/Cast";
 import Crew from "@/components/Crew";
 import Card from "@/components/seriesComponents/Card";
@@ -28,6 +27,7 @@ import TrailerButton from "@/components/ui/TrailerButton";
 import { useFlix } from "@/contexts/FlixContext";
 import NewContent from "@/components/ui/NewContent";
 import debounce from "lodash.debounce";
+import { debug } from "@/classes/DebugLogger";
 
 interface TMDBImagesProps {
     backdrop: string,
@@ -63,14 +63,13 @@ export default function Serie() {
         if (!tmdbId) return
         setSerie(null)
         setSeasonToShow(1)
-        debuglog("chamando", seasonToShow)
+        debug.warn("chamando", seasonToShow)
         const findSerie = series.find((serie) => serie.tmdbID === Number(tmdbId))
-        //debuglog(findSerie)
         setSerie(findSerie)
     }, [tmdbId, router])
     useEffect(() => {
         if (!serie) return;
-        debuglog("seasonToShow:", seasonToShow)
+        debug.log("seasonToShow:", seasonToShow)
         if (seasonToShow > 0) {
             const episodes = serie.season[seasonToShow - 1]?.episodes
             setEpisodesToShow(episodes)
@@ -108,7 +107,7 @@ export default function Serie() {
             const posterURL = `https://image.tmdb.org/t/p/original${serieInfo.poster_path}`
             setTMDBImage({ backdrop: backdropURL, poster: posterURL })
         } catch (err) {
-            console.log(err)
+            debug.error("Erro ao buscar dados da série", err)
         }
     }
 
@@ -128,7 +127,7 @@ export default function Serie() {
         if (loading) return
         setLoading(true)
         try {
-            if (!tmdbId || isNaN(Number(tmdbId))) return debuglog("tmdbId", tmdbId, "tipo: ", typeof (tmdbId))
+            if (!tmdbId || isNaN(Number(tmdbId))) return debug.log("tmdbId", tmdbId, "tipo: ", typeof (tmdbId))
             const mainCast = await fetchTMDBSerieCast(Number(tmdbId));
 
             if (!mainCast) return console.warn("Nenhum dado sobre o elenco principal da série.")
@@ -199,10 +198,10 @@ export default function Serie() {
 
 
     function handleChangeSeason(value: number) {
-        debuglog(serie)
+        debug.log(serie)
         if (!serie) return
         if (value > 0 && value <= serie.season.length) {
-            debuglog(value)
+            debug.log(value)
             setSeasonToShow(value)
         } else return;
     }
@@ -255,7 +254,7 @@ export default function Serie() {
 
     const handleWidth = debounce(() => {
         if (window.innerWidth <= 915) {
-            debuglog(window.innerWidth)
+            debug.log(window.innerWidth)
             setShowPoster(true)
         } else {
             setShowPoster(false)
@@ -357,7 +356,7 @@ export default function Serie() {
                                             episode: episode,
                                             data: ep
                                         }
-                                        debuglog("chamando no episode")
+                                        debug.log("chamando no episode")
                                         return (
                                             <div key={index} className={styles.episodeContainer}>
                                                 <EpisodeCard episodeData={episodeInfo} handlePlay={handlePlayEpisode} />

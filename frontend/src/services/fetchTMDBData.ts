@@ -6,12 +6,13 @@ import { apiTMDB } from "./apiTMDB";
 import { CollectionProps, ResultsProps } from "@/@types/collection";
 import { CastProps } from "@/@types/cast";
 import { TrailerProps } from "@/@types/trailer";
+import { debug } from "@/classes/DebugLogger";
 
 const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
 
 
 if (!tmdbToken) {
-    console.log("Variável de ambiente TMDB não definida")
+    debug.log("Variável de ambiente TMDB não definida")
 }
 
 /**
@@ -52,7 +53,7 @@ async function fetchTMDBData<T>(tmdbID: number, type: 'movie' | 'tv', imageType:
             return response.data;
         }
     } catch (err: any) {
-        console.error(`Erro ao buscar ${type === 'movie' ? (imageType === 'details' ? 'dados do filme' : `${imageType} do filme`) : 'dados da série'}`, err);
+        debug.error(`Erro ao buscar ${type === 'movie' ? (imageType === 'details' ? 'dados do filme' : `${imageType} do filme`) : 'dados da série'}`, err);
         return null;
     }
 }
@@ -131,7 +132,7 @@ export async function fetchTMDBSerieCastBySeason(tmdbID: number, season: number)
 export async function fetchEpisodeData(tmdbID: number, season: number): Promise<TMDBEpisodes[] | null> {
     const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN
     if (!tmdbToken) {
-        console.warn("Variável de ambiente TMDB não definida.")
+        debug.warn("Variável de ambiente TMDB não definida.")
         return null
     }
     if (tmdbID === 0) return null
@@ -147,7 +148,7 @@ export async function fetchEpisodeData(tmdbID: number, season: number): Promise<
         })
         return response.data.episodes
     } catch (err) {
-        console.error("Erro ao buscar imagens dos episódios", err)
+        debug.error("Erro ao buscar imagens dos episódios", err)
         return null
     }
 }
@@ -157,7 +158,7 @@ export async function fetchCollection(name: string): Promise<ResultsProps[] | nu
         const response = await apiTMDB<CollectionProps>(`/collection/${name}`)
         return response.data.results
     } catch (err) {
-        console.error("Erro ao buscar dados da coleção", err)
+        debug.error("Erro ao buscar dados da coleção", err)
         return null
     }
 }
@@ -172,7 +173,7 @@ export async function fetchTMDBTrailer(tmdbId: number, type: 'tv' | 'movie'): Pr
         const response = await apiTMDB<TrailerProps>(`/trailer/${type}/${tmdbId}`)
         return response.data
     } catch (err) {
-        console.error("Erro ao buscar o trailer.", err)
+        debug.error("Erro ao buscar o trailer.", err)
         return null
     }
 }

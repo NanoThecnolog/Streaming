@@ -3,6 +3,7 @@ import { api } from "./api"
 import { UserContext, UserProps } from "@/@types/user";
 import { WatchLaterProps } from "@/@types/watchLater";
 import { ListaFavoritos } from "@/@types/favoritos";
+import { debug } from "@/classes/DebugLogger";
 
 /**
  * Função Assíncrona.
@@ -23,7 +24,7 @@ export default async function setData() {
         localStorage.setItem('watchLaterList', JSON.stringify(watchLater))
         localStorage.setItem('favoriteList', JSON.stringify(favoritos))
     } catch (err) {
-        console.log("Erro ao buscar e salvar listas: ", err)
+        debug.error("Erro ao buscar e salvar listas: ", err)
     }
 }
 
@@ -58,7 +59,7 @@ async function fetchList(endpoit: string, errorMessage: string) {
         const response = await api.get(endpoit, {})
         return response.data
     } catch (err) {
-        console.log(errorMessage, err)
+        debug.error(errorMessage, err)
         return []
     }
 }
