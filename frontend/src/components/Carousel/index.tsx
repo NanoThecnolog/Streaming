@@ -10,7 +10,6 @@ import { cards } from '@/data/cards';
 import { shuffle } from '@/utils/UtilitiesFunctions';
 import { series } from '@/data/series';
 import { SeriesProps } from '@/@types/series';
-import { filterCards } from '@/utils/CardsManipulation';
 
 interface CarouselProps {
     //cards: CardsProps[],
