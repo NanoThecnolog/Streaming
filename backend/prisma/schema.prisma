@@ -18,6 +18,10 @@ model user {
   name             String
   email            String        @unique
   birthday         DateTime
+  cpf              String?
+  phone_number     String?
+  addressId        String?       @unique
+  address          address?      @relation(fields: [addressId], references: [id], onDelete: Cascade)
   password         String
   subscription     subscription?
   watchLater       watchLater[]
@@ -46,6 +50,18 @@ model subscription {
   //antes de continuar, quero ver o que retorna na busca pela subscrição, pra decidir quais campos guardar aqui
   //posso guardar informações de pagamento pra mostrar na página do usuário, data de vencimento, status da assinatura, quais já foram pagas, etc....
   //preciso abranger todos os cenários: pagamento por boleto, por cartão de crédito, solicitação de cancelamento de sub, mudança de plano, etc...
+}
+
+model address {
+  id           String  @id @default(uuid())
+  street       String
+  number       String
+  neighborhood String
+  zipcode      String
+  city         String
+  complement   String?
+  state        String
+  user         user?
 }
 
 model plan {
