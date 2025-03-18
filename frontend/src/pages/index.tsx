@@ -9,13 +9,13 @@ import SEO from "@/components/SEO";
 import { useTMDB } from "@/contexts/TMDBContext";
 import { apiTMDB } from "@/services/apiTMDB";
 import { MovieTMDB } from "@/@types/Cards";
-import ReleaseContainer from "@/components/ReleaseContainer";
 import Loading from "@/components/ui/Loading";
 import { agp, gen } from "@/utils/Genres";
 import BackTopButton from "@/components/ui/BackToTop";
 import debounce from "lodash.debounce";
 import Carousel from "@/components/Carousel";
 import { breakpoints } from "@/utils/Variaveis";
+import { flixFetcher } from "@/classes/Flixclass";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -28,60 +28,17 @@ export default function Home() {
   const agrupadores = Object.values(agp);
   const combined = [...generos, ...agrupadores.filter(item => removedSections.includes(item))];
   const divisaoPorGenero = combined
-  const { allData, setAllData } = useTMDB()
+  const { allData, setAllData, setSerieData } = useTMDB()
   const [loading, setLoading] = useState(false)
   const [visible, setvisible] = useState(false)
 
 
   useEffect(() => {
-    /**
-     * Realiza a busca dos dados no TMDB e salva no context.
-     * @returns não retorna dado nenhum
-    */
-    if (loading || allData.length > 0) return
-    setLoading(true)
-    const fetchData = async (attempt = 1) => {
-      const MAX_RETRIES = 5
-      try {
-        const response = await apiTMDB.get('/all/movie')
-        if (response.status === 502 || !response.data) {
-          if (attempt < MAX_RETRIES) {
-            console.log(`Erro durante a requisição. Tentando novamente (${attempt}/${MAX_RETRIES})...`)
-            setTimeout(() => fetchData(attempt + 1), 4000)
-          } else {
-            console.log("Max attempts reached")
-          }
-          return
-        }
-        const cardData = response.data.data as MovieTMDB[]
-        setAllData(cardData)
-      } catch (err) {
-        console.error(`Erro na tentativa ${attempt}`, err)
-        if (attempt < MAX_RETRIES) {
-          console.log(`Tentando novamente (${attempt}/${MAX_RETRIES}) em 4 segundos...`)
-          setTimeout(() => fetchData(attempt + 1), 4000)
-        } else {
-          console.log("Max attempts reached.")
-        }
-      } finally {
-        setLoading(false)
-      }
-    }
-    /*const fetchData = async () => {
-      if (loading || allData.length > 0) return
-      setLoading(true)
-      try {
-        const response = await apiTMDB.get('/all/movie')
-        const cardData = response.data.data as MovieTMDB[]
-        setAllData(cardData)
-      } catch (err) {
-        console.log(err)
-      } finally {
-        setLoading(false)
-      }
-    }*/
-    fetchData()
-  }, [allData.length, setAllData])
+
+
+    if (allData.length > 0) return
+    flixFetcher.fetchMovieData(setAllData)
+  }, [setAllData])
 
 
   useEffect(() => {

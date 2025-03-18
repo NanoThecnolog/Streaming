@@ -13,6 +13,8 @@ import "nprogress/nprogress.css";
 
 export default function App({ Component, pageProps }: AppProps) {
 
+
+
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_DEBUG === "development") return
     function rightClickBlock(event: MouseEvent) { event.preventDefault(); }

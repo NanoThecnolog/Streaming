@@ -22,11 +22,14 @@ export const TMDBContext = createContext<TMDBContextProps>({
     cachedImages: [],
     setCachedImage: () => { },
 });
+
 export function TMDBProvider({ children }: TMDBProviderProps) {
     const [allData, setAllData] = useState<MovieTMDB[]>([]);
     const [serieData, setSerieData] = useState<TMDBSeries[]>([])
 
     const [cachedImages, setCachedImages] = useState<Record<number, string>>({})
+
+
 
     function setCachedImage(id: number, url: string) {
         setCachedImages((prev) => ({ ...prev, [id]: url }))

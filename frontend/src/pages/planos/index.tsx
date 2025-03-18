@@ -8,7 +8,7 @@ import { PlansProps } from "@/@types/plans";
 import { calculateDiscount, formatPrice } from "@/utils/UtilitiesFunctions";
 import { useRouter } from "next/router";
 import { debug } from "@/classes/DebugLogger";
-import { desconto } from "@/utils/Variaveis";
+import { desconto, swiperBreakpoints } from "@/utils/Variaveis";
 import { useTMDB } from "@/contexts/TMDBContext";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
@@ -24,17 +24,7 @@ export default function Donate() {
     const series = serieData.slice(0, 20)
     const movies = allData.slice(0, 20)
 
-    const breakpoints = {
-        400: { slidesPerView: 2 },
-        568: { slidesPerView: 2 },
-        620: { slidesPerView: 3 },
-        830: { slidesPerView: 4 },
-        1024: { slidesPerView: 5 },
-        1250: { slidesPerView: 6 },
-        1440: { slidesPerView: 7 },
-        1650: { slidesPerView: 8 },
-        1810: { slidesPerView: 9 },
-    }
+
 
     useEffect(() => {
         getPlans()
@@ -101,7 +91,7 @@ export default function Donate() {
                             autoplay={{ delay: 5000, disableOnInteraction: false }}
                             spaceBetween={10}
                             loop={true}
-                            breakpoints={breakpoints}
+                            breakpoints={swiperBreakpoints}
                         >
                             {movies.map(movie => {
                                 const url = `https://image.tmdb.org/t/p/w500${movie.poster_path}`
@@ -123,7 +113,7 @@ export default function Donate() {
                             autoplay={{ delay: 3000, disableOnInteraction: false }}
                             spaceBetween={10}
                             loop={true}
-                            breakpoints={breakpoints}
+                            breakpoints={swiperBreakpoints}
                         >
                             {series.map(serie => {
                                 const url = `https://image.tmdb.org/t/p/w500${serie.poster_path}`

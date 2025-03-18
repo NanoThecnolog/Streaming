@@ -15,6 +15,7 @@ import debounce from "lodash.debounce";
 import BackTopButton from "@/components/ui/BackToTop";
 import Carousel from "@/components/Carousel";
 import { breakpoints } from "@/utils/Variaveis";
+import { flixFetcher } from "@/classes/Flixclass";
 
 
 export default function Series() {
@@ -31,26 +32,31 @@ export default function Series() {
     const [visible, setvisible] = useState(false)
 
 
-    useEffect(() => {
+    /*useEffect(() => {
         /**
          * Realiza a busca dos dados no TMDB e salva no context.
          * @returns não retorna dado nenhum
          */
-        const fetchData = async () => {
-            if (loading || serieData.length > 0) return
-            setLoading(true)
-            try {
-                const response = await apiTMDB.get('/all/tv')
-                const cardData = response.data.data as TMDBSeries[]
-                setSerieData(cardData)
-            } catch (err) {
-                console.log(err)
-            } finally {
-                setLoading(false)
-            }
+    /*const fetchData = async () => {
+        if (loading || serieData.length > 0) return
+        setLoading(true)
+        try {
+            const response = await apiTMDB.get('/all/tv')
+            const cardData = response.data.data as TMDBSeries[]
+            setSerieData(cardData)
+        } catch (err) {
+            console.log(err)
+        } finally {
+            setLoading(false)
         }
-        fetchData()
-    }, [serieData.length, setSerieData])
+    }
+    fetchData()
+}, [serieData.length, setSerieData])*/
+
+    useEffect(() => {
+        if (serieData.length > 0) return
+        flixFetcher.fetchSerieData(setSerieData)
+    }, [setSerieData])
 
     useEffect(() => {
 

@@ -92,3 +92,15 @@ export const desconto: Record<string, number> = {
     semestral: 7,
     anual: 10,
 }
+
+export const swiperBreakpoints = {
+    400: { slidesPerView: 2 },
+    568: { slidesPerView: 2 },
+    620: { slidesPerView: 3 },
+    830: { slidesPerView: 4 },
+    1024: { slidesPerView: 5 },
+    1250: { slidesPerView: 6 },
+    1440: { slidesPerView: 7 },
+    1650: { slidesPerView: 8 },
+    1810: { slidesPerView: 9 },
+}
