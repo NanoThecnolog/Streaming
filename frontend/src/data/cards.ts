@@ -38,6 +38,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 1297763,
+        title: "Batman Ninja",
+        subtitle: "vs Liga Yakusa",
+        description: "Nesta continuação de Batman Ninja, a Família Batman volta ao presente e descobre que o Japão desapareceu, e agora uma ilha gigante chamada “Hinomoto” flutua nos céus de Gotham City. No topo estão os Yakuza, um grupo de indivíduos superpoderosos que reinam sem honra ou humanidade e se parecem estranhamente com a Liga da Justiça. Agora, cabe a Batman e seus aliados salvar Gotham!",
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1jX7QFy-B93cycXPcQlLnI-wXmr4szsrW/preview",
+        duration: "01h 30m",
+        genero: [gen.animacao, gen.acao, agp.dc, agp.hero, stm.hbo]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 777443,
         title: "The Electric State",
         subtitle: "",
@@ -46,6 +58,18 @@ export const cards: CardsProps[] = [
         src: "https://drive.google.com/file/d/1qYSjKHvVpzHpTSmVMsDeVXqg6-pZPo7r/preview",
         duration: "02h 50m",
         genero: [gen.ficcao, gen.aventura, gen.drama, stm.netflix]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 335787,
+        title: "Uncharted",
+        subtitle: "Fora do Mapa",
+        description: 'Nathan Drake e seu parceiro canastrão Victor "Sully" Sullivan embarcam em uma perigosa busca para encontrar o maior tesouro jamais encontrado. Enquanto isso, eles também rastreiam pistas que podem levar ao irmão perdido de Nathan.',
+        faixa: "A12",
+        src: "https://drive.google.com/file/d/1VTkwszsXb-vwXU0Suc_fhJDJO2TSED8m/preview",
+        duration: "01h 56m",
+        genero: [gen.acao, gen.aventura, stm.netflix]
     },
     {
         background: background,
