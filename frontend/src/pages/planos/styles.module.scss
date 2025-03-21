@@ -6,6 +6,8 @@
     width: 100%;
     height: 100%;
     font-family: var(--font-Roboto);
+
+
     background: linear-gradient(180deg, var(--red)0%, var(--background-black) 80%);
 
 
@@ -69,26 +71,42 @@
                 .infoPlan {
                     display: flex;
                     flex-direction: column;
-                    height: 100%;
+                    justify-content: space-between;
                     gap: 10px;
+                    height: 100%;
 
-                    .planName {
-                        font-size: 2rem;
-                        //font-weight: 900;
-                        font-family: var(--font-bebas);
+                    .planDetails {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+
+                        .planName {
+                            font-size: 2rem;
+                            font-family: var(--font-bebas);
+                        }
+
+                        .planPrice {
+                            font-size: 1.8rem;
+                            font-family: var(--font-Anton);
+                        }
+
+                        .priceDiscount {
+                            font-size: 1.2rem;
+                            font-family: var(--font-Roboto);
+                            color: var(--red);
+                            font-weight: bold;
+                        }
+
+                        .planType {
+                            span {
+                                text-transform: capitalize;
+                            }
+                        }
                     }
 
-                    .planPrice {
-                        font-size: 1.8rem;
-                        font-family: var(--font-Anton);
-                    }
 
-                    .priceDiscount {
-                        font-size: 1.2rem;
-                        font-family: var(--font-Roboto);
-                        color: var(--red);
-                        font-weight: bold;
-                    }
+
+
                 }
 
                 .buttonContainer {
@@ -113,14 +131,203 @@
     }
 }
 
-.contentContainer {
+.contentPromoContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        height: 100vh;
+        font-family: var(--font-Roboto);
+
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        .streamBrand {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+            height: 300px;
+
+
+            svg {
+                height: 120px;
+                width: 100%;
+                transition: .4s;
+            }
+
+            p {
+                text-align: center;
+                margin-top: 30px;
+                font-family: var(--font-bebas);
+                font-size: 2.2rem;
+            }
+
+            .netflix {
+                svg {
+                    &:hover {
+                        color: var(--red);
+                        filter: brightness(1.2) drop-shadow(0 0 10px var(--red));
+                    }
+                }
+            }
+
+            .hbo {
+                svg {
+                    &:hover {
+                        color: var(--blue-hbo);
+                        filter: brightness(1.2) drop-shadow(0 0 10px var(--blue-hbo));
+                    }
+                }
+
+                p {
+                    font-family: var(--font-Poppins);
+                    font-weight: 700;
+                    letter-spacing: -2px;
+                }
+            }
+
+            .prime {
+                svg {
+                    &:hover {
+                        color: var(--blue-prime);
+                        filter: brightness(1.2) drop-shadow(0 0 10px var(--blue-prime));
+                    }
+                }
+
+                p {
+                    font-family: var(--font-Noto);
+                    font-weight: 700;
+                    letter-spacing: -2px;
+                }
+            }
+
+            .disney {
+                svg {
+                    &:hover {
+                        color: var(--blue-disney);
+                        filter: brightness(2) drop-shadow(0 0 10px var(--blue-disney));
+                    }
+                }
+
+                p {
+                    font-family: var(--font-Mouse);
+
+                }
+            }
+
+            .sky {
+                svg {
+                    &:hover {
+                        color: var(--red-sky);
+                        filter: brightness(1) drop-shadow(0 0 10px var(--red-sky));
+                    }
+                }
+
+                p {
+                    font-family: var(--font-Nunito);
+                    font-weight: 700;
+                }
+            }
+
+            .apple {
+                svg {
+                    &:hover {
+                        color: white;
+                        filter: brightness(2) drop-shadow(0 0 10px white);
+                    }
+                }
+
+                p {
+                    font-family: var(--font-Inter);
+                    font-weight: 500;
+                }
+            }
+
+            .paramount {
+                svg {
+                    &:hover {
+                        filter: brightness(2) drop-shadow(0 0 30px var(--blue-paramount));
+                    }
+                }
+
+                p {
+                    font-family: var(--font-Poppins);
+                    font-weight: 500;
+                    font-style: italic;
+                }
+            }
+
+            .globo {
+                p {
+                    transition: .4s;
+                    position: relative;
+                    font-family: var(--font-Nunito);
+                    font-weight: 900;
+                    font-size: 4rem;
+                    background: var(--orange-globo-gradient);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+
+                    &:hover {
+                        filter: brightness(1.2) drop-shadow(0 0 10px var(--red-globo));
+                    }
+
+                    span {
+                        position: absolute;
+                        top: 50px;
+                        left: 60px;
+                        background: inherit;
+                    }
+                }
+            }
+
+            .starz {
+                svg {
+                    &:hover {
+                        color: var(--blue-starz-2);
+                        filter: brightness(1.2) drop-shadow(0 0 10px var(--blue-starz-1));
+                    }
+                }
+            }
+
+        }
+    }
+
     .textContent {
-        margin-top: 100px;
+        margin-top: 200px;
+        padding: 0 20px;
         height: 200px;
         width: 100%;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
+        gap: 20px;
+        font-family: var(--font-Roboto);
+
+        h2 {
+            font-size: 2.2rem;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+        }
     }
 
     .cardContainer {
@@ -157,6 +364,7 @@
 @media (min-width: 375.1px) and (max-width: 560px) {
     .sectionContainer {
         padding-top: 50px;
+
 
         .contentContainer {
             .title {

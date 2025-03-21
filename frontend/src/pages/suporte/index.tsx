@@ -3,6 +3,7 @@ import styles from './styles.module.scss'
 import Footer from '@/components/Footer'
 import SEO from '@/components/SEO'
 import { useEffect } from 'react'
+import { debug } from '@/classes/DebugLogger'
 
 const loadingEfiPay = async () => {
     if (typeof window !== 'undefined') {
@@ -30,11 +31,11 @@ async function testetoken(EfiPay: any) {
             })
             .getPaymentToken();
         if ("payment_token" in result && "card_mask" in result) {
-            console.log(`token: ${result.payment_token}`)
-            console.log(`mask: ${result.card_mask}`)
+            debug.log(`token: ${result.payment_token}`)
+            debug.log(`mask: ${result.card_mask}`)
         }
     } catch (err) {
-        console.log("Erro ao gerar token", err)
+        debug.log("Erro ao gerar token", err)
     }
 }
 
@@ -65,7 +66,6 @@ export default function Suport() {
                         <p>Estamos sempre buscando melhor atende-lo e seu email é muito importante para nós.</p>
                     </div>
                 </div>
-                <button type='button' onClick={testetoken}>gerar</button>
             </section>
             <Footer />
         </>

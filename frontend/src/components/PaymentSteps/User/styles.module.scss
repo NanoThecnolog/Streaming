@@ -1,0 +1,32 @@
+.userData {
+    h4 {
+        font-size: 1.5rem;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #ddd;
+    }
+
+    label {
+        display: flex;
+        flex-direction: column;
+        font-size: 1rem;
+        margin-bottom: 10px;
+
+        input {
+            padding: 8px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            max-width: 100%;
+        }
+    }
+
+    .addressGrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+
+        label {
+            width: 100%;
+        }
+    }
+}

@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mouse+Memoirs&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 @font-face {
   font-family: 'HarryPotter';
@@ -8,18 +10,32 @@
 
 
 :root {
-  --blue: #2349bd;
+  --blue: #0d42e0;
+  --blue-hbo: #5301d6;
+  --blue-prime: #3b92fc;
+  --blue-disney: #006271;
   --blue-selected: #1e49d2cc;
+  --blue-paramount: #003FCF;
+  --blue-starz-1: #AAF7ED;
+  --blue-starz-2: #48EEF8;
   --grey: #686868;
   --grey-transparent: rgba(104, 104, 104, 0.856);
   --grey-selected: #a29f9f;
   --red: #d42c2c;
   --red-selected: #aa2323;
+  --red-globo: #FB0434;
+  --red-sky: #E81C24;
   --white: #e6e6e6;
   --green: #007714;
   --black: #242424;
   --yellow: #e0bf29;
+  --yellow-starz: #FFF56D;
   --orange: #e0840c;
+  --orange-globo: #FF8F01;
+  --orange-globo-gradient: linear-gradient(90deg, var(--red-globo), var(--orange-globo));
+
+  --starz-gradient: linear-gradient(90deg, var(--yellow-starz), var(--blue-starz-1), var(--blue-starz-2));
+
   --background-black: #141414;
 
   --background-gray: #272727;
@@ -30,7 +46,18 @@
   --font-Roboto: "Roboto", serif;
   --font-Montserrat: "Montserrat", sans-serif;
   --font-Potter: "HarryPotter", sans-serif;
+  --font-Poppins: "Poppins", sans-serif; //hbo e paramount
+  --font-Noto: "Noto Sans", sans-serif; //prime
+  --font-Inter: "Inter", sans-serif; //apple  
+  --font-Nunito: "Nunito", sans-serif; //sky e globoplay
+  --font-Mouse: "Mouse Memoirs", sans-serif; //disney
+  --font-Raleway: "Raleway", sans-serif; //starz  
 }
+
+/*
+* {
+  outline: 2px solid red;
+}*/
 
 html,
 body {
@@ -45,11 +72,11 @@ body {
 }
 
 h1,
-h3,
 h2,
+h3,
+h4,
 h5,
 h6,
-h4,
 p {
   margin: 0px;
 }

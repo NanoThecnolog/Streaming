@@ -9,6 +9,11 @@ import SEO from '@/components/SEO'
 import Footer from '@/components/Footer'
 import { desconto } from '@/utils/Variaveis'
 import { debug } from '@/classes/DebugLogger'
+import PlanCard from '@/components/ui/PlanCard'
+import User from '@/components/PaymentSteps/User'
+import { UserContext } from '@/@types/user'
+import { useFlix } from '@/contexts/FlixContext'
+import PaymentStage from '@/components/PaymentSteps/payment'
 
 export interface PlanProps {
     name: string;
@@ -20,14 +25,45 @@ export interface PlanProps {
     updated_at: Date;
 }
 
+export interface UserDataProps {
+    nome: string,
+    cpf: string,
+    telefone: string,
+    address: {
+        street: string,
+        number: string,
+        neighborhood: string,
+        zipcode: string,
+        city: string,
+        complement: string,
+        state: string
+    }
+}
+
 export default function Payment() {
     const router = useRouter()
+    const { user } = useFlix()
     const { id } = router.query
     const [plan, setPlan] = useState<PlanProps>()
+    const [dataUser, setDataUser] = useState<UserDataProps>(
+        {
+            nome: "",
+            cpf: "",
+            telefone: "",
+            address: {
+                street: "",
+                number: "",
+                neighborhood: "",
+                zipcode: "",
+                city: "",
+                complement: "",
+                state: "",
+            },
+        })
 
     useEffect(() => {
         if (id) {
-            console.log("ID recebido", id)
+            debug.log("ID recebido", id)
             getPlans()
             if (plan) {
                 debug.log(plan)
@@ -42,7 +78,7 @@ export default function Payment() {
             const plan = data.plan.find(p => p.id === id)
             setPlan(plan)
         } catch (err) {
-            console.log(err)
+            debug.error("Erro ao buscar planos", err)
         }
     }
 
@@ -54,55 +90,8 @@ export default function Payment() {
                 <article className={styles.articleContainer}>
                     <section className={styles.formContainer}>
                         <form className={styles.form}>
-                            <div className={styles.userData}>
-                                <h4>Dados do Usuário</h4>
-                                <label htmlFor="nome">
-                                    Nome
-                                    <input type="text" id="nome" />
-                                </label>
-                                <label htmlFor="cpf">
-                                    CPF
-                                    <input type="text" id="cpf" />
-                                </label>
-                                <label htmlFor="phone">
-                                    Telefone
-                                    <input type="tel" id="phone" />
-                                </label>
-                            </div>
-
-                            <div className={styles.userAddress}>
-                                <h4>Endereço</h4>
-                                <div className={styles.addressGrid}>
-                                    <label htmlFor="street">
-                                        Logradouro
-                                        <input type="text" id="street" />
-                                    </label>
-                                    <label htmlFor="number">
-                                        Número
-                                        <input type="number" id="number" />
-                                    </label>
-                                    <label htmlFor="neighborhood">
-                                        Bairro
-                                        <input type="text" id="neighborhood" />
-                                    </label>
-                                    <label htmlFor="zipcode">
-                                        CEP
-                                        <input type="text" id="zipcode" />
-                                    </label>
-                                    <label htmlFor="city">
-                                        Cidade
-                                        <input type="text" id="city" />
-                                    </label>
-                                    <label htmlFor="complement">
-                                        Complemento
-                                        <input type="text" id="complement" />
-                                    </label>
-                                    <label htmlFor="state">
-                                        Estado
-                                        <input type="text" id="state" />
-                                    </label>
-                                </div>
-                            </div>
+                            <User data={dataUser} setDataUser={setDataUser} />
+                            <PaymentStage />
                             <div className={styles.payOptions}>
                                 <button type='submit' className={styles.methodButton}>
                                     Escolher Forma de Pagamento
@@ -114,15 +103,7 @@ export default function Payment() {
 
                 <aside className={styles.asideContainer}>
                     {plan && (
-                        <div className={styles.planCard}>
-                            <h2>{plan.name}</h2>
-                            <div>
-                                <h4>{formatPrice(calculateDiscount(plan.price, desconto[plan.type]))}</h4>
-                                {desconto[plan.type] > 0 && <p className={styles.discount}>{desconto[plan.type]}% OFF</p>}
-                            </div>
-
-                            <p>Tipo de cobrança: {plan.type}</p>
-                        </div>
+                        <PlanCard plan={plan} />
                     )}
                 </aside>
             </main>

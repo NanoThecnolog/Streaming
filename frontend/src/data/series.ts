@@ -559,6 +559,11 @@ export const series: SeriesProps[] = [
                         ep: 5,
                         src: "https://drive.google.com/file/d/1GNCnioGH6bQ0t0-MA4pMej9tIIU1ew48/preview",
                         duration: "52m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1GXSqRnJ8LNvARfAoEV4AiS4ki00ieTgE/preview",
+                        duration: "53m"
                     }
                 ]
             },
@@ -1121,6 +1126,11 @@ export const series: SeriesProps[] = [
                         ep: 9,
                         src: "https://drive.google.com/file/d/1ivLAkAOrTz3eGEJe66ba0SmT-BBy87xf/preview",
                         duration: "44m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1xZmU8PmYi1zsFbNbvu5z8TlmpOsgR5H_/preview",
+                        duration: "01h 15m"
                     }
                 ]
             }
@@ -3602,6 +3612,11 @@ export const series: SeriesProps[] = [
                         src: "https://drive.google.com/file/d/1NRBzz82TFcvd2VPr_9Mnb94Xil4bTutJ/preview",
                         duration: "49m"
                     },
+                    {
+                        ep: 11,
+                        src: "https://drive.google.com/file/d/1053PT_6NOz8pkf5aXbM3pRmTR5SvngKe/preview",
+                        duration: "48m"
+                    }
                 ]
             },
         ]
@@ -13978,62 +13993,62 @@ export const series: SeriesProps[] = [
                 episodes: [
                     {
                         ep: 1,
-                        src: "https://drive.google.com/file/d/12Usy-7t73OUT8cdR6LhG8KT8YJ1Co3pG/preview",
+                        src: "https://drive.google.com/file/d/1997pNOo177_KTXjD_cGvVvr8jAWYLJWx/preview",
                         duration: "24m"
                     },
                     {
                         ep: 2,
-                        src: "https://drive.google.com/file/d/12ZTafBqH1dcNRPACh05mhw22nsEZjOxM/preview",
+                        src: "https://drive.google.com/file/d/1dsc-FbF0GtcEWLaeAq2jtHUT7Pciqvsp/preview",
                         duration: "24m"
                     },
                     {
                         ep: 3,
-                        src: "https://drive.google.com/file/d/12h-0STRMvAdFG5dnRFxP5eudWZsW7Kqg/preview",
+                        src: "https://drive.google.com/file/d/13Y_H6b627qbFXyNbPfntRHFVILmu8B11/preview",
                         duration: "24m"
                     },
                     {
                         ep: 4,
-                        src: "https://drive.google.com/file/d/13W9VK8lXj-ijspULEpag1mauC-wO3Vh2/preview",
+                        src: "https://drive.google.com/file/d/1XlwawL0fh5hvU9hSn9zn_1_8TTDEzT_n/preview",
                         duration: "24m"
                     },
                     {
                         ep: 5,
-                        src: "https://drive.google.com/file/d/13YkeFui7bMrBYckNAu2fAEG6jtDQCJmY/preview",
+                        src: "https://drive.google.com/file/d/1s_gz7LZJ3fTDI8j1LsrjTV006whVSyaf/preview",
                         duration: "24m"
                     },
                     {
                         ep: 6,
-                        src: "https://drive.google.com/file/d/13_0QSEm2jQiiNqpJKTMTIUuEIIVLPTF_/preview",
+                        src: "https://drive.google.com/file/d/1xoWsVa7ZviOXaJ45SZivRV7r_L_nCHAS/preview",
                         duration: "24m"
                     },
                     {
                         ep: 7,
-                        src: "https://drive.google.com/file/d/16ce0zcBtqx7jjGXmYHTH4-JRzzCtlDB-/preview",
+                        src: "https://drive.google.com/file/d/1mLoOOPMF5WDFawTN6HYGDSgpNLMU0tmf/preview",
                         duration: "24m"
                     },
                     {
                         ep: 8,
-                        src: "https://drive.google.com/file/d/18I_F191zUlLtoCvOFL16Ajid0x71KZOS/preview",
+                        src: "https://drive.google.com/file/d/1h9WN_33gw-9oQyp5AUfIQcz82NssYQIq/preview",
                         duration: "24m"
                     },
                     {
                         ep: 9,
-                        src: "https://drive.google.com/file/d/1_MDzloOp-A3psveP4vyHYXFChRjN8pMt/preview",
+                        src: "https://drive.google.com/file/d/1vCx1tEFZbiw0S4cpYCqC5S7RMXbbuEPJ/preview",
                         duration: "24m"
                     },
                     {
                         ep: 10,
-                        src: "https://drive.google.com/file/d/1I6JhT_fd8xKgkeYpjHVhhPC5unt4nRcm/preview",
+                        src: "https://drive.google.com/file/d/1HYAblf3ecJnVKPDIGlnwIPG8jiNOFhHx/preview",
                         duration: "24m"
                     },
                     {
                         ep: 11,
-                        src: "https://drive.google.com/file/d/1sF3I4omUoaZ1t7HjJvxhzAlcNP5rTEqs/preview",
+                        src: "https://drive.google.com/file/d/1ESGT4aJvpvcfWF8gMx0KTAVblbA97ObZ/preview",
                         duration: "24m"
                     },
                     {
                         ep: 12,
-                        src: "https://drive.google.com/file/d/1gJ0lFTuxAkN1akmehwtcUWG_4kRxNbJT/preview",
+                        src: "https://drive.google.com/file/d/1NPQHZKCkr_7OoMO4_T8WYJ0035VG9YSb/preview",
                         duration: "24m"
                     }
                 ]

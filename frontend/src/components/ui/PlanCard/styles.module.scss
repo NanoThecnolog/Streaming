@@ -1,0 +1,106 @@
+.planCard {
+
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    .brand {
+        font-family: var(--font-bebas);
+        color: #fff;
+
+        h1 {
+            span {
+                color: var(--red);
+            }
+        }
+    }
+
+
+    h3 {
+        font-size: 1rem;
+        color: var(--grey);
+    }
+
+    h4 {
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: var(--black);
+        font-family: var(--font-bebas);
+        position: relative;
+    }
+
+    .discount {
+        color: var(--red);
+        font-weight: bold;
+        font-size: 1.5rem;
+        font-family: var(--font-bebas);
+        position: absolute;
+        top: 2px;
+        right: -58px;
+    }
+
+    .resume {
+        margin-top: 50px;
+        //outline: 2px solid red;
+        width: 100%;
+
+        .items {
+            //outline: 2px solid blue;
+            width: 100%;
+
+            .item {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                //outline: 2px solid green;
+                justify-content: flex-start;
+                align-items: flex-start;
+
+                .itemPlan {
+                    display: flex;
+                    justify-content: space-between;
+                    //outline: 2px solid green;
+                    width: 100%;
+                }
+
+                .periodPlan {
+                    p {
+                        color: var(--grey);
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+        }
+
+        .subtotalContainer {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px 0;
+            gap: 15px;
+            border-top: 1px solid rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+
+            .subtotal {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+            }
+
+            .subDiscount {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+
+        .totalContainer {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+        }
+    }
+}
