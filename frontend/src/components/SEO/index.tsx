@@ -14,13 +14,13 @@ export default function SEO({ title, description }: SEOProps) {
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
             <meta property="og:type" content="website" />
-            <meta property="og:url" content="https://flixnext.netlify.app/" />
-            <meta property="og:image" content="https://flixnext.netlify.app/blurImage.png" />
+            <meta property="og:url" content="https://flixnext.com.br/" />
+            <meta property="og:image" content="https://flixnext.com.br/blurImage.png" />
             <meta property="twitter:title" content={title} />
             <meta property="twitter:description" content={description} />
-            <meta property="twitter:url" content="https://flixnext.netlify.app/" />
+            <meta property="twitter:url" content="https://flixnext.com.br/" />
             <meta property="twitter:card" content="summary_large_image" />
-            <meta property="twitter:image" content="https://flixnext.netlify.app/blurImage.png" />
+            <meta property="twitter:image" content="https://flixnext.com.br/blurImage.png" />
 
             <link rel="icon" href="/favicon.ico" />
         </Head>

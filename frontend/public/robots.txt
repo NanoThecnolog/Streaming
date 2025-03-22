@@ -19,7 +19,7 @@ User-agent: *
 Disallow: /recover
 
 # Host
-Host: https://flixnext.netlify.app
+Host: https://flixnext.com.br
 
 # Sitemaps
-Sitemap: https://flixnext.netlify.app/sitemap.xml
+Sitemap: https://flixnext.com.br/sitemap.xml
