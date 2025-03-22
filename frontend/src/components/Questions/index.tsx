@@ -1,6 +1,6 @@
 import { FAQ } from '@/pages/faq'
 import styles from './styles.module.scss'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, ChevronUp } from 'lucide-react'
 import { useState } from 'react'
 
 export default function Questions({ question, answer }: FAQ) {
@@ -15,7 +15,7 @@ export default function Questions({ question, answer }: FAQ) {
             <div className={styles.question}>
                 <h3>{question}</h3>
             </div>
-            <div className={styles.icon}><ChevronDown size={30} /></div>
+            <div className={styles.icon}>{ativo ? <ChevronUp size={30} /> : <ChevronDown size={30} />}</div>
             <div className={`${styles.answer} ${ativo && styles.ativo}`}>
                 <p dangerouslySetInnerHTML={{ __html: answer }}></p>
             </div>

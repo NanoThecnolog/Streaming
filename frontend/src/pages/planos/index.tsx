@@ -27,7 +27,16 @@ export default function Donate() {
     const series = serieData.slice(0, 20)
     const movies = allData.slice(0, 20)
 
-
+    async function getPlans() {
+        try {
+            const plans = await apiSub.get('/pay/plan/list')
+            const data: PlansProps = plans.data
+            debug.log(data)
+            setPlans(data)
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
     useEffect(() => {
         getPlans()
@@ -47,17 +56,6 @@ export default function Donate() {
         }
 
     }, [allData, serieData, setAllData, setSerieData])
-
-    async function getPlans() {
-        try {
-            const plans = await apiSub.get('/plan/list')
-            const data: PlansProps = plans.data
-            debug.log(data)
-            setPlans(data)
-        } catch (err) {
-            console.log(err)
-        }
-    }
 
     function handleClick(id: string) {
         router.push(`/payment?id=${id}`)

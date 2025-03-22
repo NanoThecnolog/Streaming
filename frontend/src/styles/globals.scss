@@ -54,6 +54,7 @@
   --font-Raleway: "Raleway", sans-serif; //starz  
 }
 
+
 /*
 * {
   outline: 2px solid red;
@@ -67,6 +68,7 @@ body {
   background-color: var(--background-black);
   box-sizing: border-box;
   scroll-behavior: smooth;
+  overflow-x: hidden;
   color: var(--white);
   font-optical-sizing: auto;
 }

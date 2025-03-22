@@ -16,6 +16,7 @@ import debounce from "lodash.debounce";
 import { SeriesProps } from "@/@types/series";
 import { fuseConfig } from "@/utils/Variaveis";
 import { debug } from "@/classes/DebugLogger";
+import { apiSub } from "@/services/apiSubManager";
 
 export default function Header() {
     //refatorar esse componente
@@ -52,8 +53,17 @@ export default function Header() {
         async function wakeUpServer() {
             try {
                 const acordar = await api.get('/acordar');
-                //console.log(acordar.data.status)
-                setServerWake(true)
+                const acordarManager = await apiSub.get('/');
+                if (acordar.status === 200 && acordarManager.data.code === 200) {
+                    setServerWake(true)
+                    debug.table({
+                        Backend: acordar.data.status,
+                        SubManager: acordarManager.data.message
+                    })
+
+                }
+
+
                 return acordar
             } catch (err) {
                 //console.log(err)
