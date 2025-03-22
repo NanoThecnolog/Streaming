@@ -8,6 +8,10 @@ Allow: /series
 
 # *
 User-agent: *
+Allow: /planos
+
+# *
+User-agent: *
 Disallow: /watch
 
 # *
@@ -15,7 +19,7 @@ User-agent: *
 Disallow: /recover
 
 # Host
-Host: https://flixnext.netflify.app
+Host: https://flixnext.netlify.app
 
 # Sitemaps
-Sitemap: https://flixnext.netflify.app/sitemap.xml
+Sitemap: https://flixnext.netlify.app/sitemap.xml
