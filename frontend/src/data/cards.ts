@@ -38,6 +38,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 1405338,
+        title: "Demon City",
+        subtitle: "",
+        description: 'Acusado de matar a própria família e abandonado à beira da morte, um ex-assassino vai fazer de tudo para se vingar dos "demônios" mascarados que dominaram a cidade.',
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1ElmkwmivBZ-23SDjRHWkytwcQTcmY3Xj/preview",
+        duration: "01h 46m",
+        genero: [gen.acao, gen.fantasia, gen.suspense, agp.crime, stm.netflix]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 1297763,
         title: "Batman Ninja",
         subtitle: "vs Liga Yakusa",
@@ -1380,7 +1392,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Kyle é um jovem bem-sucedido e cobiçado pelas mulheres, mas ao tentar humilhar Kendra, ela lança uma maldição que o deixa com o rosto deformado. Envergonhado, ele passa a viver isolado com a companhia de uma empregada e um professor cego contratado para lhe dar aulas. Para quebrar o feitiço, Kyle tem de fazer com que uma mulher consiga amá-lo de verdade. Ele volta a ter esperanças quando se aproxima de Lindy, uma colega da escola.",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/0B9SnN2mtCSl-ckd5SkFBUGFUVGs/preview",
+        src: "",
         duration: "01h 26m",
         genero: [gen.romance, gen.fantasia, gen.drama, stm.prime]
     },

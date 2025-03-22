@@ -61,7 +61,7 @@
                 color: var(--black);
                 border-radius: 1rem;
                 width: 300px;
-                height: 350px;
+                min-height: 350px;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -197,13 +197,15 @@
 
         .streamBrand {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 20px;
             justify-content: center;
             align-items: center;
             width: 100%;
-            max-width: 90%;
+            //max-width: 90%;
             height: auto;
+            //background-color: blue;
+            max-width: min(90%, 1500px);
 
             .logo {
                 display: flex;

@@ -67,7 +67,7 @@ export default function Donate() {
         <>
             <SEO title="Escolha seu Plano | FlixNext" description="Planos via boleto ou cartão de crédito" />
             <Header />
-            <main className={styles.mainPage} id="Escolher">
+            <main className={styles.mainPage} id="escolher">
                 <section className={styles.sectionContainer}>
                     <div className={styles.contentContainer}>
                         <div className={styles.title}>
@@ -200,8 +200,6 @@ export default function Donate() {
                                 <SiSky />
                                 <p>Sky+</p>
                             </div>
-                        </div>
-                        <div className={styles.streamBrand}>
                             <div className={`${styles.logo} ${styles.apple}`}>
                                 <SiAppletv />
                                 <p>Apple TV+</p>
