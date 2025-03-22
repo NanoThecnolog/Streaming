@@ -73,7 +73,7 @@ export default function Payment() {
 
     async function getPlans() {
         try {
-            const plans = await apiSub.get('/plan/list')
+            const plans = await apiSub.get('/pay/plan/list')
             const data: PlansProps = plans.data
             const plan = data.plan.find(p => p.id === id)
             setPlan(plan)
