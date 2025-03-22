@@ -14,8 +14,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import { Autoplay, Navigation } from "swiper/modules";
 import { flixFetcher } from "@/classes/Flixclass";
-import { SiAppletv, SiHbo, SiNetflix, SiParamountplus, SiPrimevideo, SiGlovo, SiStarz, SiSky } from "react-icons/si";
+import { SiAppletv, SiHbo, SiNetflix, SiParamountplus, SiPrimevideo, SiStarz, SiSky } from "react-icons/si";
 import { TbBrandDisney } from "react-icons/tb";
+import Spinner from "@/components/ui/Loading/spinner";
+import Link from "next/link";
 
 
 
@@ -65,15 +67,15 @@ export default function Donate() {
         <>
             <SEO title="Escolha seu Plano | FlixNext" description="Planos via boleto ou cartão de crédito" />
             <Header />
-            <main className={styles.mainPage}>
+            <main className={styles.mainPage} id="Escolher">
                 <section className={styles.sectionContainer}>
                     <div className={styles.contentContainer}>
                         <div className={styles.title}>
                             <h1>Escolha o melhor plano para você</h1>
                         </div>
                         <div className={styles.plansContainer}>
-                            {plans && plans.plan.length > 0 &&
-                                plans.plan.sort((a, b) => a.price - b.price).map(p => (
+                            {
+                                plans && plans.plan.length > 0 ? plans.plan.sort((a, b) => a.price - b.price).map(p => (
                                     <div className={styles.plan} key={p.planId}>
                                         <div className={styles.infoPlan}>
                                             <div className={styles.planDetails}>
@@ -103,7 +105,10 @@ export default function Donate() {
                                             <button onClick={() => handleClick(p.id)}>Escolha seu plano</button>
                                         </div>
                                     </div>
-                                ))}
+                                )) : <div className={styles.loader}>
+                                    <Spinner />
+                                </div>
+                            }
                         </div>
                     </div>
                 </section>
@@ -112,54 +117,63 @@ export default function Donate() {
                         <h2>Conteúdo exclusivo</h2>
                         <h4>Na FlixNext você encontra filmes e séries que não acha em nenhum outro lugar</h4>
                     </div>
-                    {allData.length > 0 &&
-                        <div className={styles.cardContainer}>
-                            <Swiper
-                                modules={[Navigation, Autoplay]}
-                                navigation
-                                autoplay={{ delay: 5000, disableOnInteraction: false }}
-                                spaceBetween={10}
-                                loop={true}
-                                breakpoints={swiperBreakpoints}
-                            >
-                                {movies.map(movie => {
-                                    const url = `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-                                    return (
-                                        <SwiperSlide key={movie.id}>
-                                            <div className={styles.card}>
-                                                <img src={url} alt={movie.title} />
-                                            </div>
-                                        </SwiperSlide>
-                                    )
-                                })}
+                    {allData.length > 0 && serieData.length > 0 ?
+                        <>
+                            <div className={styles.cardContainer}>
+                                <Swiper
+                                    modules={[Navigation, Autoplay]}
+                                    navigation
+                                    autoplay={{ delay: 5000, disableOnInteraction: false }}
+                                    spaceBetween={10}
+                                    loop={true}
+                                    breakpoints={swiperBreakpoints}
+                                >
+                                    {movies.map(movie => {
+                                        const url = `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                                        return (
+                                            <SwiperSlide key={movie.id}>
+                                                <div className={styles.card}>
+                                                    <img src={url} alt={movie.title} />
+                                                </div>
+                                            </SwiperSlide>
+                                        )
+                                    })}
 
-                            </Swiper>
+                                </Swiper>
+                            </div>
+                            <div className={styles.cardContainer}>
+                                <Swiper
+                                    modules={[Navigation, Autoplay]}
+                                    navigation
+                                    autoplay={{ delay: 5000, disableOnInteraction: false }}
+                                    spaceBetween={10}
+                                    loop={true}
+                                    breakpoints={swiperBreakpoints}
+                                >
+                                    {series.map(serie => {
+                                        const url = `https://image.tmdb.org/t/p/w500${serie.poster_path}`
+                                        return (
+                                            <SwiperSlide key={serie.id}>
+                                                <div className={styles.card}>
+                                                    <img src={url} alt={serie.name} />
+                                                </div>
+                                            </SwiperSlide>
+                                        )
+                                    })}
+                                </Swiper>
+                            </div>
+                        </>
+                        : <div className={styles.loader}>
+                            <Spinner />
                         </div>
                     }
-
-                    {serieData.length > 0 &&
-                        <div className={styles.cardContainer}>
-                            <Swiper
-                                modules={[Navigation, Autoplay]}
-                                navigation
-                                autoplay={{ delay: 5000, disableOnInteraction: false }}
-                                spaceBetween={10}
-                                loop={true}
-                                breakpoints={swiperBreakpoints}
-                            >
-                                {series.map(serie => {
-                                    const url = `https://image.tmdb.org/t/p/w500${serie.poster_path}`
-                                    return (
-                                        <SwiperSlide key={serie.id}>
-                                            <div className={styles.card}>
-                                                <img src={url} alt={serie.name} />
-                                            </div>
-                                        </SwiperSlide>
-                                    )
-                                })}
-                            </Swiper>
-                        </div>
-                    }
+                    <div className={styles.buttonActionContainer}>
+                        <Link href="/planos/#escolher">
+                            <button>
+                                Escolher plano
+                            </button>
+                        </Link>
+                    </div>
                 </section>
                 <section className={styles.contentPromoContainer}>
                     <div className={styles.content}>

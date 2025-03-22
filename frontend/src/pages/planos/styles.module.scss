@@ -24,6 +24,8 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
+            flex-wrap: wrap;
+            padding: 0 20px;
 
             h1 {
                 padding-bottom: 20px;
@@ -125,6 +127,45 @@
     }
 }
 
+.buttonActionContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 100px 0;
+    //background-color: blue;
+
+    button {
+        background-color: var(--red-selected);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        height: 60px;
+        border-radius: 2rem;
+        color: var(--white);
+        font-family: var(--font-Roboto);
+        font-size: 1.5rem;
+        font-weight: 900;
+        transition: .4s;
+
+        &:hover {
+            transform: scale(1.05);
+            background-color: var(--red);
+        }
+    }
+}
+
+.loader {
+    //background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    overflow: hidden;
+
+}
+
 .contentPromoContainer {
     display: flex;
     flex-direction: column;
@@ -143,10 +184,15 @@
         h2 {
             text-align: center;
             font-size: 2.5rem;
+
         }
 
         p {
             font-size: 1.2rem;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            padding: 0 20px;
+            text-align: center;
         }
 
         .streamBrand {
@@ -157,7 +203,6 @@
             align-items: center;
             width: 100%;
             max-width: 90%;
-            //background-color: blue;
             height: auto;
 
             .logo {
@@ -338,6 +383,8 @@
 
         h4 {
             font-size: 1.2rem;
+            text-align: center;
+            flex-wrap: wrap;
         }
     }
 
@@ -345,6 +392,7 @@
         height: 310px;
         width: 100vw;
         overflow-x: hidden;
+        transition: .4s;
 
         .card {
             img {
@@ -469,8 +517,6 @@
 
             }
         }
-
-
     }
 
     .contentPromoContainer {

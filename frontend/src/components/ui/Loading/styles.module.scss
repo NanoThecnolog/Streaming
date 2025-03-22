@@ -20,12 +20,16 @@
 
 
     .spinner {
-        border: 12px solid var(--grey-selected);
-        border-top: 12px solid var(--red);
-        border-radius: 4rem;
-        width: 65px;
-        height: 65px;
-        animation: spin 1.2s linear infinite;
+        //background-color: blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        //border: 12px solid var(--grey-selected);
+        //border-top: 12px solid var(--red);
+        //border-radius: 4rem;
+        width: 100px;
+        height: 100px;
+        //animation: spin 1.2s linear infinite;
     }
 
     .randomText {
@@ -33,6 +37,7 @@
         font-family: var(--font-bebas);
         opacity: 0;
         animation: fade 4s linear infinite;
+        margin-top: 20px;
     }
 }
 
