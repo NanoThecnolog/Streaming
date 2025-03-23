@@ -356,7 +356,6 @@ export default function Serie() {
                                             episode: episode,
                                             data: ep
                                         }
-                                        debug.log("chamando no episode")
                                         return (
                                             <div key={index} className={styles.episodeContainer}>
                                                 <EpisodeCard episodeData={episodeInfo} handlePlay={handlePlayEpisode} />
@@ -412,7 +411,7 @@ export default function Serie() {
                                         </div>
                                     </>
                                 )
-                                : "Carregando..."
+                                : <div className={styles.loading}><Spinner /></div>
                             }
                         </div>
                     ) : <div className={styles.loading}><Spinner /></div>

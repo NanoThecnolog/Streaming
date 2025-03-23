@@ -169,13 +169,16 @@ export default function Movie() {
             {
                 movie ? (
                     <section className={styles.container}>
-
                         {!loading ?
                             <div
                                 className={styles.imageContainer}
                                 style={{ backgroundImage: `url(${tmdbData ? `https://image.tmdb.org/t/p/original/${showPoster ? tmdbData.poster_path : tmdbData.backdrop_path}` : movie ? movie.background : "/fundo-largo.jpg"})` }}
-                            ></div> : <div><Spinner /></div>}
-
+                            ></div>
+                            :
+                            <div className={styles.loading}>
+                                <div className={styles.loadingContainer}><Spinner /></div>
+                            </div>
+                        }
                         <div className={styles.coverContainer}>
                         </div>
                         <div className={`${styles.content} ${loading ? styles.loading : ""}`}>
@@ -239,7 +242,6 @@ export default function Movie() {
                                                     </>
                                                 }
                                                 <div className={styles.cast}>
-
                                                     {cast && cast.cast.length > 0 &&
                                                         <>
                                                             <h2>Elenco</h2>
@@ -271,16 +273,24 @@ export default function Movie() {
                                                         ))}
                                                     </div>
                                                 </div>
-
                                             </>
-                                        ) : <div className={styles.loadingContainer}><Spinner /></div>
+                                        )
+                                            :
+                                            <div className={styles.loading}>
+                                                <div className={styles.loadingContainer}>
+                                                    <Spinner />
+                                                </div>
+                                            </div>
                                     }
                                 </>
                             )}
-
                         </div>
                     </section>
-                ) : <div><Spinner /></div>
+                ) : <div className={styles.loading}>
+                    <div className={styles.loadingContainer}>
+                        <Spinner />
+                    </div>
+                </div>
             }
             <Footer />
         </>

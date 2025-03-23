@@ -1,14 +1,11 @@
 import Header from "@/components/Header";
 import TopSerie from "@/components/seriesComponents/Top serie";
 import styles from './styles.module.scss'
-import CardSerieContainer from "@/components/seriesComponents/CardSerieContainer";
 import { useCallback, useEffect, useState } from "react";
 import Search from "@/components/Searching";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { useTMDB } from "@/contexts/TMDBContext";
-import { apiTMDB } from "@/services/apiTMDB";
-import { TMDBSeries } from "@/@types/series";
 import Loading from "@/components/ui/Loading";
 import { gen, stm } from "@/utils/Genres";
 import debounce from "lodash.debounce";

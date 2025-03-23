@@ -17,6 +17,7 @@ import { SeriesProps } from "@/@types/series";
 import { fuseConfig } from "@/utils/Variaveis";
 import { debug } from "@/classes/DebugLogger";
 import { apiSub } from "@/services/apiSubManager";
+import { apiEmail } from "@/services/apiMessenger";
 
 export default function Header() {
     //refatorar esse componente
@@ -54,13 +55,15 @@ export default function Header() {
             try {
                 const acordar = await api.get('/acordar');
                 const acordarManager = await apiSub.get('/');
-                if (acordar.status === 200 && acordarManager.data.code === 200) {
+                const acordarMensageria = await apiEmail.get('/');
+                debug.log(acordarMensageria)
+                if (acordar.status === 200 && acordarManager.data.code === 200 && acordarMensageria.data.code === 200) {
                     setServerWake(true)
                     debug.table({
                         Backend: acordar.data.status,
-                        SubManager: acordarManager.data.message
+                        SubManager: acordarManager.data.message,
+                        Mensageria: acordarMensageria.data.data.message
                     })
-
                 }
 
 

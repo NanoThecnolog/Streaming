@@ -65,7 +65,7 @@ export default function Donate() {
 
     return (
         <>
-            <SEO title="Escolha seu Plano | FlixNext" description="Planos via boleto ou cartão de crédito" />
+            <SEO title="Escolha seu Plano | FlixNext" description="Planos a partir de R$10,99" />
             <Header />
             <main className={styles.mainPage} id="escolher">
                 <section className={styles.sectionContainer}>
