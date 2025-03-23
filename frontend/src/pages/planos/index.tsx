@@ -8,7 +8,7 @@ import { PlansProps } from "@/@types/plans";
 import { calculateDiscount, formatPrice } from "@/utils/UtilitiesFunctions";
 import { useRouter } from "next/router";
 import { debug } from "@/classes/DebugLogger";
-import { desconto, swiperBreakpoints } from "@/utils/Variaveis";
+import { desconto, faqPlans, swiperBreakpoints } from "@/utils/Variaveis";
 import { useTMDB } from "@/contexts/TMDBContext";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
@@ -18,6 +18,7 @@ import { SiAppletv, SiHbo, SiNetflix, SiParamountplus, SiPrimevideo, SiStarz, Si
 import { TbBrandDisney } from "react-icons/tb";
 import Spinner from "@/components/ui/Loading/spinner";
 import Link from "next/link";
+import Questions from "@/components/Questions";
 
 
 
@@ -215,12 +216,29 @@ export default function Donate() {
                                 <SiStarz />
                             </div>
                         </div>
+                        <div className={styles.buttonActionContainer}>
+                            <Link href="/planos/#escolher">
+                                <button>
+                                    Escolher plano
+                                </button>
+                            </Link>
+                        </div>
                     </div>
                 </section>
-                <section className={styles.contentPromoContainer}>
-                    <div className={styles.content}>
-                        <h2>Você pede, a gente adiciona!</h2>
-                        <p>Quer assistir algo específico? Na FlixNext, você pode solicitar novos títulos e a gente corre atrás para incluir no catálogo!</p>
+                <section className={styles.faqContainer}>
+                    <div className={styles.faq}>
+                        <div className={styles.title}>
+                            <h1>perguntas frequentes</h1>
+                        </div>
+                        <div className={styles.questionsContainer}>
+                            {faqPlans.map((item, index) => (
+                                <Questions
+                                    key={index}
+                                    question={item.question}
+                                    answer={item.answer}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </section>
             </main>

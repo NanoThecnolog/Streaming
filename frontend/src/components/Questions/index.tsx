@@ -15,7 +15,11 @@ export default function Questions({ question, answer }: FAQ) {
             <div className={styles.question}>
                 <h3>{question}</h3>
             </div>
-            <div className={styles.icon}>{ativo ? <ChevronUp size={30} /> : <ChevronDown size={30} />}</div>
+            <div className={styles.icon}>
+                {
+                    ativo ? <ChevronUp size={30} /> : <ChevronDown size={30} />
+                }
+            </div>
             <div className={`${styles.answer} ${ativo && styles.ativo}`}>
                 <p dangerouslySetInnerHTML={{ __html: answer }}></p>
             </div>

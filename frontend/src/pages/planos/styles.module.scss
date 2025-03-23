@@ -1,3 +1,7 @@
+.mainPage {
+    font-family: var(--font-Roboto);
+}
+
 .sectionContainer {
     display: flex;
     padding-top: 220px;
@@ -5,7 +9,6 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    font-family: var(--font-Roboto);
     overflow-x: hidden;
     background: linear-gradient(180deg, var(--red)0%, var(--background-black) 80%);
 
@@ -91,10 +94,10 @@
                         }
 
                         .priceDiscount {
-                            font-size: 1.2rem;
-                            font-family: var(--font-Roboto);
+                            font-size: 1.5rem;
                             color: var(--red);
                             font-weight: bold;
+                            font-family: var(--font-bebas);
                         }
 
                         .planType {
@@ -133,7 +136,6 @@
     align-items: center;
     width: 100%;
     margin: 100px 0;
-    //background-color: blue;
 
     button {
         background-color: var(--red-selected);
@@ -144,7 +146,6 @@
         height: 60px;
         border-radius: 2rem;
         color: var(--white);
-        font-family: var(--font-Roboto);
         font-size: 1.5rem;
         font-weight: 900;
         transition: .4s;
@@ -157,7 +158,6 @@
 }
 
 .loader {
-    //background-color: blue;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -169,7 +169,7 @@
 .contentPromoContainer {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    justify-content: flex-start;
 
     .content {
         display: flex;
@@ -179,12 +179,10 @@
         gap: 20px;
         width: 100%;
         height: 100vh;
-        font-family: var(--font-Roboto);
 
         h2 {
             text-align: center;
             font-size: 2.5rem;
-
         }
 
         p {
@@ -202,9 +200,7 @@
             justify-content: center;
             align-items: center;
             width: 100%;
-            //max-width: 90%;
             height: auto;
-            //background-color: blue;
             max-width: min(90%, 1500px);
 
             .logo {
@@ -377,7 +373,6 @@
         align-items: center;
         justify-content: center;
         gap: 20px;
-        font-family: var(--font-Roboto);
 
         h2 {
             font-size: 2.2rem;
@@ -402,6 +397,31 @@
                 width: 200px;
                 object-fit: cover;
                 object-position: center;
+            }
+        }
+    }
+}
+
+.faqContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+
+    .faq {
+        width: 80%;
+        max-width: 1200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 50px;
+        margin-bottom: 100px;
+
+        .title {
+            h1 {
+                text-transform: uppercase;
+                text-align: center;
             }
         }
     }
