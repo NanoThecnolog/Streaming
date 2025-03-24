@@ -52,26 +52,32 @@ export default function Header() {
     }, [user])
     useEffect(() => {
         async function wakeUpServer() {
-            try {
-                const acordar = await api.get('/acordar');
-                const acordarManager = await apiSub.get('/');
-                const acordarMensageria = await apiEmail.get('/');
-                debug.log(acordarMensageria)
-                if (acordar.status === 200 && acordarManager.data.code === 200 && acordarMensageria.data.code === 200) {
-                    setServerWake(true)
-                    debug.table({
-                        Backend: acordar.data.status,
-                        SubManager: acordarManager.data.message,
-                        Mensageria: acordarMensageria.data.data.message
-                    })
-                }
+            const responses = await Promise.allSettled([
+                api.get('/acordar'),
+                apiSub.get('/'),
+                apiEmail.get('/')
+            ]);
 
+            const [acordar, acordarManager, acordarMensageria] = responses;
 
-                return acordar
-            } catch (err) {
-                //console.log(err)
-                setServerWake(false)
-                return err
+            //debug.log(acordarMensageria);
+
+            if (
+                acordar.status === "fulfilled" &&
+                acordar.value.status === 200 &&
+                acordarManager.status === "fulfilled" &&
+                acordarManager.value.data.code === 200 &&
+                acordarMensageria.status === "fulfilled" &&
+                acordarMensageria.value.data.code === 200
+            ) {
+                setServerWake(true);
+                debug.table({
+                    Backend: acordar.value.data.status,
+                    SubManager: acordarManager.value.data.message,
+                    Mensageria: acordarMensageria.value.data.data.message
+                });
+            } else {
+                setServerWake(false);
             }
         }
         wakeUpServer()

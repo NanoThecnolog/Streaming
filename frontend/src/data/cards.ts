@@ -1303,18 +1303,6 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
-        tmdbId: 6435,
-        title: "Da Magia à Sedução",
-        subtitle: "",
-        description: "As mulheres da família Owens tem poderes mágicos. Mas uma maldição as persegue há mais de duzentos anos: qualquer homem que se apaixona por uma delas, morre. Descendentes da bruxa que começou este feitiço, Sally (Sandra Bullock) e Gillian (Nicole Kidman) são duas irmãs que foram criadas por suas tias (Dianne Wiest e Stockard Channing). Já adultas, enquanto Sally se mostra bastante reservada, Gillian foge de casa para ter o primeiro de muitos namorados. Após algum tempo, Sally se casa e tem duas filhas, mas seu marido acaba morrendo atropelado. Até que chega o momento em que ela deve ajudar Gillian, que se envolveu com Jimmy Angelov (Goran Visnjic), um búlgaro agressivo que as ameaça. Sentindo que correm perigo, as duas o envenenam, mas, temendo as conseqüências de tal ato, Gillian convence Sally que o melhor é trazê-lo de volta a vida. Uma decisão que trará uma série de complicações com polícia e com seus próprios poderes.",
-        faixa: "A12",
-        src: "https://drive.google.com/file/d/0B1b41N9wDOlQanR1c2JsNzdDX2s/preview",
-        duration: "01h 44m",
-        genero: [gen.romance, gen.comedia, gen.fantasia, stm.apple]
-    },
-    {
-        background: background,
-        overlay: overlay,
         tmdbId: 9741,
         title: "Corpo Fechado",
         subtitle: "",
@@ -1332,7 +1320,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: 'Em uma pequena cidade americana vive Roy Neary (Richard Dreyfuss), um chefe de família que, ao pressentir a chegada de alienígenas, tem o seu comportamento alterado. Ele fica obcecado pela idéia e começa a investigar a situação, buscando o local de contato dos ET’s. Como ele, diversas outras pessoas sentem a presença extraterrestre e rumam para o local do pouso da nave.',
         faixa: "L",
-        src: "https://drive.google.com/file/d/0B0qC7HeoQLWvWnJQQXpRM05nZTg/preview",
+        src: "https://drive.google.com/file/d/1uXsV1XiS4ss9SUgv74GDVYNRW4CV9rpA/preview",
         duration: "02h 17m",
         genero: [gen.drama, gen.ficcao]
     },
@@ -1344,7 +1332,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Will é um garoto rico e bem-sucedido, até sofrer um grave acidente que o deixa preso a uma cadeira de rodas. Ele está profundamente depressivo e contrata uma garota do campo para cuidar dele. Ela sempre levou uma vida modesta, com dificuldades financeiras e problemas no trabalho, mas está disposta a provar para Will que ainda existem razões para viver.",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/0B3rJrEtevWWBd0ROUWhmUGtLbzA/preview",
+        src: "https://drive.google.com/file/d/1yHcV0zwVWEIk68wmji_OvpQ4XQ9QWLth/preview",
         duration: "01h 50m",
         genero: [gen.romance, gen.drama, stm.gplay]
     },
@@ -1356,9 +1344,9 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Em um futuro próximo, a África do Sul decidiu substituir os seus policiais humanos por robôs dotados de inteligência artificial. O criador , o cientista Deon, sonha em embutir emoções nos robôs. Um dia, ele rouba um modelo defeituoso e faz experiências nele, até conseguir criar Chappie, um robô capaz de pensar e aprender por conta própria. Mas Chappie é roubado por ladrões que precisam da ajuda para um assalto a banco. Quando Vincent, um engenheiro rival de Deon, decide sabotar as experiências do colega de trabalho, a segurança do país e o futuro de Chappie correm riscos.",
         faixa: "A16",
-        src: "https://drive.google.com/file/d/0B6k5ch7SyQ-qQ0FWbmV0Z3NUTVk/preview",
+        src: "https://drive.google.com/file/d/10gktXdhKhjTovBet_d3_eZw5vVHCm55Y/preview",
         duration: "02h",
-        genero: [gen.acao, gen.ficcao, agp.crime]
+        genero: [gen.acao, gen.ficcao, agp.crime, stm.hbo]
     },
     {
         background: background,
@@ -1632,9 +1620,9 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Bilhões de habitantes da Terra não estão cientes de que o planeta tem uma data de expiração. Com os avisos de um cientista norte-americano, os líderes mundiais começam os preparativos secretos para a sobrevivência de alguns membros da sociedade. Quando o cataclisma global finalmente ocorre, o fracassado escritor Jackson Curtis tenta levar sua família para um lugar seguro quando o mundo começa a desmoronar.",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/0B_C9S49FPUtxbjNOQ005WjNHSjQ/preview",
+        src: "https://drive.google.com/file/d/1Mj0mt1q-bI9pmzMuVCdeGCmHPIv2TNja/preview",
         duration: "02h 38m",
-        genero: [gen.acao, gen.aventura, gen.ficcao]
+        genero: [gen.acao, gen.aventura, gen.ficcao, stm.hbo]
     },
     {
         background: background,
@@ -2317,9 +2305,9 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Na década de 40, o operário Noah Calhoun e a rica Allie estão desesperadamente apaixonados, mas os pais da jovem não aprovam o namoro. Quando Noah vai para a Segunda Guerra Mundial, parece ser o fim do romance. Enquanto isso, Allie se envolve com outro homem. Mas quando Noah retorna para a pequena cidade anos mais tarde, próximo ao casamento de Allie, logo se torna claro que a paixão ainda não acabou.",
         faixa: "A14",
-        src: "https://drive.google.com/file/d/0B_FHbbV4-iNeMW5HcHNiZWhPV1U/preview?resourcekey=0-Wnj42nvDObqxh_C5_6IdyA",
+        src: "https://drive.google.com/file/d/1hld4dYWOaFO2wEYq-MtIMG9EQKlRLHAF/preview",
         duration: "02h 03m",
-        genero: [gen.romance, gen.drama]
+        genero: [gen.romance, gen.drama, stm.prime]
     },
     {
         background: background,
@@ -3014,7 +3002,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Ip Man imigra para Hong Kong em 1949, depois dos conflitos com os japoneses. Em Hong Kong, ele intenciona propagar sua disciplina Wing Chun de artes marciais para o mundo, mas ele esbarra no ciúme dos seus rivais e na opressão dos britânicos.",
         faixa: "A16",
-        src: "https://drive.google.com/file/d/1kqBrXZLZl3ivMiBSpuXDzvu3WlKQUmKk/preview",
+        src: "https://drive.google.com/file/d/1YefIktfxyxGVtxKAn3iKCjd3-T_uyTuX/preview",
         duration: "01h 48m",
         genero: [gen.acao, gen.drama, agp.historia]
     },
@@ -3026,7 +3014,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Donnie Yen terá uma luta explosiva com o ex-campeão mundial dos pesos pesados de boxe Mike Tyson. E a história ainda abordará parte da juventude do maior discípulo de Yip Man: Bruce Lee.",
         faixa: "A14",
-        src: "https://drive.google.com/file/d/1QDYDwZUP6lVygupzCW2vlzQAbuLqI8Oq/preview",
+        src: "https://drive.google.com/file/d/1Znf9SrcNNxn5BM71_mhi8pQbD9PXdu7Z/preview",
         duration: "01h 45m",
         genero: [gen.acao, gen.drama, agp.historia]
     },
@@ -3952,7 +3940,7 @@ export const cards: CardsProps[] = [
         subtitle: "A Última Rodada",
         description: "Eddie e Venom estão fugindo. Perseguidos pelos dois mundos, a dupla é forçada a tomar uma decisão devastadora que vai fechar as cortinas da última rodada de Venom e Eddie.",
         faixa: "A14",
-        src: "https://drive.google.com/file/d/1-MaDGaT2AUCi-6s_NDPt3HMLZZyauoT2/preview",
+        src: "https://drive.google.com/file/d/1EEbvtvhxmEqTaFVC654VIo_px5DTBL25/preview",
         duration: "1h 50m",
         genero: [gen.acao, gen.ficcao, gen.suspense, agp.vilian, agp.marvel]
     },
@@ -5646,10 +5634,9 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "O adolescente Ferris Bueller decide sair da rotina e engana seus pais fingindo estar doente para poder matar aula. Ele convence sua namorada, Sloane, e seu melhor amigo, Cameron, a se juntar a ele no passeio até Chicago, usando a Ferrari do pai de Cameron. No entanto, o diretor da escola sabe que Ferris está mentindo e vai atrás dele.",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/16-IXZMzfdZfxV8yQWYNB4xOgz6JDkABn/preview",
+        src: "https://drive.google.com/file/d/1DXNPol9y5phlp2zt7OSxB-uNSFq7HMG8/preview",
         duration: "1h 43m",
-        genero: [gen.comedia, lang.leg],
-        lang: "Leg",
+        genero: [gen.comedia],
     },
     {
         background: background,
@@ -6140,7 +6127,7 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Em uma noite de outono em 2003, Mark Zuckerberg, estudante de Harvard e gênio da computação, começa a trabalhar em um novo conceito que acaba se transformando em uma rede social global conhecida como Facebook. Seis anos e 500 milhões de amigos mais tarde, Zuckerberg se torna o mais jovem bilionário da história com o sucesso de sua rede social. No entanto, a sua ascensão sem precedentes traz complicações legais e pessoais.",
         faixa: "A14",
-        src: "https://drive.google.com/file/d/0B6YDeOkBf2TUU3l1YzAtZ1ltdm8/preview?resourcekey=0-99IlX_REL2prE0W3RIqByg",
+        src: "https://drive.google.com/file/d/1xIu6UM2LebMIVBfmtXZEN4jmMyRlFCZK/preview",
         duration: "02h",
         genero: [gen.drama]
     },
@@ -6874,7 +6861,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1Zi4GcLlnPwlnWiOmtL1HkDi2czK9uEhj/preview",
         duration: "2h 4m",
-        genero: [gen.acao, agp.hero, agp.marvel]
+        genero: [gen.acao, agp.hero, agp.marvel, stm.disney]
 
     }, {
         background: background,
@@ -6886,7 +6873,7 @@ export const cards: CardsProps[] = [
         faixa: "A12",
         src: "https://drive.google.com/file/d/1NESARf5orL9bHF8j-fSMyAXhFsTmCsNG/preview",
         duration: "2h 5m",
-        genero: [gen.acao, agp.hero, agp.marvel]
+        genero: [gen.acao, agp.hero, agp.marvel, stm.disney]
     },
     {
         background: background,
@@ -6896,9 +6883,9 @@ export const cards: CardsProps[] = [
         subtitle: "",
         description: "Depois de um inimigo reduzir o mundo de Tony Stark a destroços, o Homem de Ferro precisa aprender a confiar em seus instintos para proteger aqueles que ama, especialmente sua namorada, e lutar contra seu maior medo: o fracasso.",
         faixa: "A12",
-        src: "https://drive.google.com/file/d/13QDFKfTteUPFrq1iTHJCLfuTZJTN6nWl/preview",
+        src: "https://drive.google.com/file/d/1Zw3-IlC0Cal2CZv9BbDOOrx51ysP2IKH/preview",
         duration: "2h 10m",
-        genero: [gen.acao, agp.hero, agp.marvel]
+        genero: [gen.acao, agp.hero, agp.marvel, stm.disney]
     },
     {
         background: background,

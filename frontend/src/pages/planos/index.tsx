@@ -37,7 +37,7 @@ export default function Donate() {
             debug.log(data)
             setPlans(data)
         } catch (err) {
-            console.log(err)
+            debug.error(err)
         }
     }
 
@@ -49,7 +49,7 @@ export default function Donate() {
         if (allData.length === 0) {
             debug.warn("chamando 1")
             flixFetcher.fetchMovieData(setAllData)
-            if (serieData.length == 0) {
+            if (serieData.length === 0) {
                 debug.warn("Chamando 2")
                 flixFetcher.fetchSerieData(setSerieData)
             }

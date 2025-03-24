@@ -10645,7 +10645,7 @@ export const series: SeriesProps[] = [
             },
         ]
     },
-    {
+    /*{
         background: background,
         overlay: overlay,
         tmdbID: 4607,
@@ -11298,7 +11298,7 @@ export const series: SeriesProps[] = [
                 ]
             },
         ]
-    },
+    },*/
 
     {
         background: background,
