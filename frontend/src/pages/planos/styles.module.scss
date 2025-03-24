@@ -179,6 +179,7 @@
         gap: 20px;
         width: 100%;
         height: 100vh;
+        margin-top: 100px;
 
         h2 {
             text-align: center;
@@ -444,7 +445,11 @@
     }
 
     .contentPromoContainer {
+
+
         .content {
+            margin-top: 100px;
+
             .streamBrand {
                 grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
                 gap: 8px;
@@ -495,6 +500,8 @@
 
     .contentPromoContainer {
         .content {
+            margin-top: 150px;
+
             .streamBrand {
                 grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
                 gap: 10px;
@@ -543,6 +550,8 @@
 
     .contentPromoContainer {
         .content {
+            margin-top: 100px;
+
             .streamBrand {
                 grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
                 gap: 10px;
@@ -577,6 +586,8 @@
 
     .contentPromoContainer {
         .content {
+            margin-top: 200px;
+
             .streamBrand {
                 .globo {
                     p {
