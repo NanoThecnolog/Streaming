@@ -19,6 +19,8 @@ import { TbBrandDisney } from "react-icons/tb";
 import Spinner from "@/components/ui/Loading/spinner";
 import Link from "next/link";
 import Questions from "@/components/Questions";
+import { api } from "@/services/api";
+import axios from "axios";
 
 
 
@@ -32,7 +34,7 @@ export default function Donate() {
 
     async function getPlans() {
         try {
-            const plans = await apiSub.get('/pay/plan/list')
+            const plans = await axios.get('/api/plan/list')
             const data: PlansProps = plans.data
             debug.log(data)
             setPlans(data)
@@ -74,43 +76,46 @@ export default function Donate() {
                         <div className={styles.title}>
                             <h1>Escolha o melhor plano para você</h1>
                         </div>
-                        <div className={styles.plansContainer}>
-                            {
-                                plans && plans.plan.length > 0 ? plans.plan.sort((a, b) => a.price - b.price).map(p => (
-                                    <div className={styles.plan} key={p.planId}>
-                                        <div className={styles.infoPlan}>
-                                            <div className={styles.planDetails}>
-                                                <p className={styles.planName}>
-                                                    {p.name}
-                                                </p>
-                                                <p className={styles.planPrice}>
-                                                    {formatPrice(calculateDiscount(p.price, desconto[p.type]))}
-                                                </p>
-                                                {desconto[p.type] > 0 && <p className={styles.priceDiscount}>{desconto[p.type]}% OFF</p>}
-                                                <p className={styles.planType}>
-                                                    Plano <span>{p.type}</span>
-                                                </p>
+                        {
+                            plans ?
+                                <div className={styles.plansContainer}>
+                                    {
+                                        plans.plan.length > 0 && plans.plan.sort((a, b) => a.price - b.price).map(p => (
+                                            <div className={styles.plan} key={p.planId}>
+                                                <div className={styles.infoPlan}>
+                                                    <div className={styles.planDetails}>
+                                                        <p className={styles.planName}>
+                                                            {p.name}
+                                                        </p>
+                                                        <p className={styles.planPrice}>
+                                                            {formatPrice(calculateDiscount(p.price, desconto[p.type]))}
+                                                        </p>
+                                                        {desconto[p.type] > 0 && <p className={styles.priceDiscount}>{desconto[p.type]}% OFF</p>}
+                                                        <p className={styles.planType}>
+                                                            Plano <span>{p.type}</span>
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <ul>
+                                                            <li>Filmes e Séries raros</li>
+                                                            <li>Solicitação de novos conteúdos</li>
+                                                            <li>Mais de 500 títulos disponíveis</li>
+                                                            <li>suporte 24/7</li>
+                                                            <li>Novos conteúdos toda semana</li>
+                                                            <li>Cancele quando quiser</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div className={styles.buttonContainer}>
+                                                    <button onClick={() => handleClick(p.id)}>Escolha seu plano</button>
+                                                </div>
                                             </div>
-                                            <div>
-                                                <ul>
-                                                    <li>Filmes e Séries raros</li>
-                                                    <li>Solicitação de novos conteúdos</li>
-                                                    <li>Mais de 500 títulos disponíveis</li>
-                                                    <li>suporte 24/7</li>
-                                                    <li>Novos conteúdos toda semana</li>
-                                                    <li>Cancele quando quiser</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div className={styles.buttonContainer}>
-                                            <button onClick={() => handleClick(p.id)}>Escolha seu plano</button>
-                                        </div>
-                                    </div>
-                                )) : <div className={styles.loader}>
+                                        ))
+                                    }
+                                </div> : <div className={styles.loader}>
                                     <Spinner />
                                 </div>
-                            }
-                        </div>
+                        }
                     </div>
                 </section>
                 <section className={styles.contentPromoContainer}>
