@@ -19,7 +19,6 @@ import { TbBrandDisney } from "react-icons/tb";
 import Spinner from "@/components/ui/Loading/spinner";
 import Link from "next/link";
 import Questions from "@/components/Questions";
-import { api } from "@/services/api";
 import axios from "axios";
 
 

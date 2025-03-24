@@ -1,5 +1,6 @@
 import { CardsProps } from "@/@types/Cards"
 import { SeriesProps } from "@/@types/series"
+import { debug } from "@/classes/DebugLogger"
 
 /**
  * Função que transforma minutos em horas
@@ -107,11 +108,19 @@ export function formatedDate(date: string | Date) {
 
 export function calculateDiscount(price: number, disc: number) {
     const discount = (price * disc) / 100
-    return parseFloat((price - discount).toFixed(2))
+    const priceWithDiscount = parseFloat((price - discount).toFixed(0))
+    let cents = priceWithDiscount % 100
+
+    if (cents > 50) {
+        return priceWithDiscount - cents + 99
+    } else {
+        return priceWithDiscount - cents + 49
+    }
 }
 
 export function formatPrice(price: number) {
     if (!price || isNaN(price)) return
+
     return Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL',

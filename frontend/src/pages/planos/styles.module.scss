@@ -50,11 +50,11 @@
 
         .plansContainer {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 20px;
             justify-content: center;
             align-items: center;
-            width: 90%;
+            width: 95%;
             margin-bottom: 20px;
             overflow-x: hidden;
 
