@@ -97,7 +97,7 @@ export default function Home() {
                             cardPerContainer={cardPerContainer}
                           />*/}
                           {
-                            index === 1 && cardPerContainer >= 2 && <Search />
+                            index === 3 && cardPerContainer >= 2 && <Search />
                           }
                           <Carousel type="movie" section={sec} cardPerContainer={cardPerContainer} />
                         </div>
