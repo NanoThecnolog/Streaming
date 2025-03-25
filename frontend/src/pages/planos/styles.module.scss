@@ -10,7 +10,11 @@
     width: 100%;
     height: 100%;
     overflow-x: hidden;
-    background: linear-gradient(180deg, var(--red)0%, var(--background-black) 80%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.74) 60%, var(--background-black) 80%),
+        url('/fundo-filmes.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
     .contentContainer {
         display: flex;
@@ -57,7 +61,6 @@
             width: 95%;
             margin-bottom: 20px;
             overflow-x: hidden;
-
 
             .plan {
                 background-color: var(--white);

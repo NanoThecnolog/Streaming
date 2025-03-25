@@ -41,6 +41,89 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 60743,
+        title: "Constantine",
+        subtitle: "",
+        description: "John Constantine é um detetive com habilidades sobrenaturais. Perseguido por mistérios e segredos de seu próprio passado, a vida de John é mudada quando suas habilidades são descobertas pelas forças do céu, ou seja, pelo autoritário anjo Manny. Ele irá ajudar o detetive a se tornar um grande e feroz defensor das forças do bem contra o mal.",
+        genero: [gen.acao, gen.aventura, gen.drama, gen.ficcao, gen.fantasia, gen.terror, agp.dc, agp.hero],
+        faixa: "A16",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1Zxu7ecWhx2Rb8czdhTYNJsSA0CUNAce8/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1SDsQFvl0GSGbMQo36zq1HKrQwTQNVsu4/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1PUkeDqAZcT3NpDv4etJLdA5sXrrcpp4T/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1W3hwnT_WPydgtfa5lHiIMPhdWMnVW31N/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1urt1l32lcA8y3H8PVXU3ViRtI0Kn6L2H/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/13fff1HKceBTGjMwqe4905gp0NG-v93d3/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1aw2rrNC71qBpE_HgZ8iTtZBFuQDBUQbD/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1QPegKQBR8unc0StZChxSVYCxesBO3eHV/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 9,
+                        src: "https://drive.google.com/file/d/1n2GYiSMu3O1GcPKuX0W2hw97xM8gb49e/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 10,
+                        src: "https://drive.google.com/file/d/1dGqYb9fGOvWx6Dva-K9cTwq3XGQ_QBGd/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 11,
+                        src: "https://drive.google.com/file/d/1WQ39j7-TrLgz8HtGHPE5v3A2fQL4Idt5/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 12,
+                        src: "https://drive.google.com/file/d/1KjQ7lQJ0_w9NErwCOlTVLUBRs4XDB15c/preview",
+                        duration: "43m"
+                    },
+                    {
+                        ep: 13,
+                        src: "https://drive.google.com/file/d/1sTiakD_8HeIBV82tBEl5UG9xOQ47BU4Q/preview",
+                        duration: "43m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 127532,
         title: "Solo Leveling",
         subtitle: "",
