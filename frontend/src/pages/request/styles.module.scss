@@ -14,6 +14,11 @@
         align-items: center;
         font-family: var(--font-Roboto);
 
+        .loading {
+            width: 100%;
+            height: 100%;
+        }
+
         .inputContainer {
 
             display: flex;

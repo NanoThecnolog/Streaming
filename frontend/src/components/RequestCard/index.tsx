@@ -64,7 +64,7 @@ export default function RequestCard({ card }: RequestCard) {
                 <div className={`${styles.buttonContainer} ${loading && styles.loading}`}>
                     <div>
                         {
-                            loading ? <Spinner /> : <button onClick={() => handleClick(card)}>Solicitar</button>
+                            loading ? <div className={styles.loadingIcon}><Spinner /></div> : <button onClick={() => handleClick(card)}>Solicitar</button>
                         }
                     </div>
                 </div>

@@ -38,6 +38,30 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 539517,
+        title: "Constantine",
+        subtitle: "Cidade dos Demônios",
+        description: "Uma década depois de um trágico acidente, o homem de família Chas e o místico detetive John Constantine pretendem curar Trish, a filha de Chas, de um misterioso coma sobrenatural. Com a ajuda de sócios poderosos, eles buscam a salvação.",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1p2Fh6btv7stwHLmkOmskiwIUKOsZ7p9u/preview",
+        duration: "01h 30m",
+        genero: [gen.animacao, gen.fantasia, gen.terror, gen.acao, agp.dc, stm.hbo]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbId: 791348,
+        title: "Constantine",
+        subtitle: "A Casa dos Mistérios",
+        description: "",
+        faixa: "A16",
+        src: "https://drive.google.com/file/d/1oXv4COmntmRRAeXrJUOCmj8cjzP_PptU/preview",
+        duration: "27m",
+        genero: [gen.animacao, gen.acao, gen.fantasia, gen.terror, agp.dc, stm.hbo]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 1405338,
         title: "Demon City",
         subtitle: "",

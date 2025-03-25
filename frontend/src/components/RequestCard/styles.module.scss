@@ -40,7 +40,6 @@
             border-radius: .4rem;
             font-family: var(--font-Anton);
             font-size: 1.5rem;
-            //font-weight: 900;
             color: var(--white);
             text-transform: uppercase;
             transition: .4s;
@@ -58,16 +57,26 @@
         &:hover {
             opacity: 1;
         }
+
+
+
+        .loadingIcon {
+            width: 230px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
     .loading {
         opacity: 1;
     }
+
+
 }
 
 @media(max-width: 915px) {
     .card {
-
 
         .buttonContainer {
             //width: 200px;

@@ -104,7 +104,7 @@ export default function Request() {
                         </div>
                     </div>
                     {
-                        loading ? <Spinner /> : searchCards && searchCards.length > 0 ?
+                        loading ? <div className={styles.loading}><Spinner /></div> : searchCards && searchCards.length > 0 ?
                             <>
                                 <h3 className={styles.warning}>Clique em um card para Solicitá-lo</h3>
                                 <div className={styles.cardContainer}>
