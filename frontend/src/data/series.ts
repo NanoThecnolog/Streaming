@@ -245,6 +245,44 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 249042,
+        title: "Adolescência",
+        subtitle: "",
+        description: "Um garoto de 13 anos é acusado de assassinar uma colega de escola, levando a família, a terapeuta e o investigador do caso a se perguntarem: o que realmente aconteceu?",
+        genero: [gen.drama, agp.crime, stm.netflix],
+        faixa: "A12",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1wkOZElPQqFzpqeAXPfQSM2YFsIiF_f0w/preview",
+                        duration: "01h 05m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1C4PmZHMTRWxYKOWuu2Skd3-VgnXrqrOe/preview",
+                        duration: "51m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1nyDeYhIQssLE1wWP2iNvRYvkBY66CWzE/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1Ukme_LJcxLnlKN2ZEEGYjqYMDkBczdjU/preview",
+                        duration: "01h"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 60743,
         title: "Constantine",
         subtitle: "",

@@ -286,11 +286,12 @@ export default function Movie() {
                             )}
                         </div>
                     </section>
-                ) : <div className={styles.loading}>
-                    <div className={styles.loadingContainer}>
-                        <Spinner />
+                ) :
+                    <div className={styles.loading}>
+                        <div className={styles.loadingContainer}>
+                            <Spinner />
+                        </div>
                     </div>
-                </div>
             }
             <Footer />
         </>
