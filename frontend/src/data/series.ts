@@ -245,6 +245,62 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 243881,
+        title: "Casa de Davi",
+        subtitle: "",
+        description: "Conta a história da ascensão do ícone bíblico Davi, que se torna o mais famoso rei de Israel. O outrora poderoso rei Saul é vítima de seu próprio orgulho. Seguindo as ordens de Deus, o profeta Samuel unge um pária adolescente como o novo rei.",
+        genero: [gen.drama, stm.prime],
+        faixa: "A16",
+        news: {
+            type: "news"
+        },
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1XkG615RNdnYJAZcZzsvhiQcc4DthkVyb/preview",
+                        duration: "57m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1C0u2FnWR3Mi_BN1-z4DqDMWh2JRiuaZ3/preview",
+                        duration: "57m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1sjuQCMfJTVnBC7AsE9sU69LDB2qYk_ug/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1WjEXbzWyGXqsX5dtBR_l3ezWVFw50tOm/preview",
+                        duration: "58m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1GNCnioGH6bQ0t0-MA4pMej9tIIU1ew48/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1GXSqRnJ8LNvARfAoEV4AiS4ki00ieTgE/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1kURf6gUtXKFpChTd1KD3ZQqr45ukQ4ja/preview",
+                        duration: "57m"
+                    }
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 249042,
         title: "Adolescência",
         subtitle: "",
@@ -951,59 +1007,6 @@ export const series: SeriesProps[] = [
                     }
                 ]
             }
-        ]
-    },
-
-
-    {
-        background: background,
-        overlay: overlay,
-        tmdbID: 243881,
-        title: "Casa de Davi",
-        subtitle: "",
-        description: "Conta a história da ascensão do ícone bíblico Davi, que se torna o mais famoso rei de Israel. O outrora poderoso rei Saul é vítima de seu próprio orgulho. Seguindo as ordens de Deus, o profeta Samuel unge um pária adolescente como o novo rei.",
-        genero: [gen.drama, stm.prime],
-        faixa: "A16",
-        news: {
-            type: "news"
-        },
-        season: [
-            {
-                s: 1,
-                lang: "Dublado",
-                episodes: [
-                    {
-                        ep: 1,
-                        src: "https://drive.google.com/file/d/1XkG615RNdnYJAZcZzsvhiQcc4DthkVyb/preview",
-                        duration: "57m"
-                    },
-                    {
-                        ep: 2,
-                        src: "https://drive.google.com/file/d/1C0u2FnWR3Mi_BN1-z4DqDMWh2JRiuaZ3/preview",
-                        duration: "57m"
-                    },
-                    {
-                        ep: 3,
-                        src: "https://drive.google.com/file/d/1sjuQCMfJTVnBC7AsE9sU69LDB2qYk_ug/preview",
-                        duration: "52m"
-                    },
-                    {
-                        ep: 4,
-                        src: "https://drive.google.com/file/d/1WjEXbzWyGXqsX5dtBR_l3ezWVFw50tOm/preview",
-                        duration: "58m"
-                    },
-                    {
-                        ep: 5,
-                        src: "https://drive.google.com/file/d/1GNCnioGH6bQ0t0-MA4pMej9tIIU1ew48/preview",
-                        duration: "52m"
-                    },
-                    {
-                        ep: 6,
-                        src: "https://drive.google.com/file/d/1GXSqRnJ8LNvARfAoEV4AiS4ki00ieTgE/preview",
-                        duration: "53m"
-                    }
-                ]
-            },
         ]
     },
     {
