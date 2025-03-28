@@ -50,6 +50,18 @@ export const cards: CardsProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbId: 762509,
+        title: "Mufasa",
+        subtitle: "O Rei Leão",
+        description: "Acompanhe a história épica da ascensão improvável do amado rei das Terras do Reino. Órfão e sozinho, Mufasa se perde até encontrar Taka, herdeiro de uma linhagem real. Isso dá início a uma jornada épica que testa os laços entre os dois enquanto enfrentam um inimigo mortal.",
+        faixa: "10",
+        src: "https://drive.google.com/file/d/1EHOqbtPwxiOlcNodJdrPKtrA8PKAYsQi/preview",
+        duration: "01h 58m",
+        genero: [gen.animacao, gen.aventura, agp.familia, stm.disney]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbId: 8909,
         title: "O Procurado",
         subtitle: "",
@@ -1987,18 +1999,6 @@ export const cards: CardsProps[] = [
         src: "https://drive.google.com/file/d/1z6_GGgtAOVj2GeB6OAjmh0bdlC1kkbih/preview",
         duration: "02h 12m",
         genero: [gen.acao, gen.acao, gen.suspense, stm.prime]
-    },
-    {
-        background: background,
-        overlay: overlay,
-        tmdbId: 10681,
-        title: "Wall-E",
-        subtitle: "",
-        description: "Depois de milhares de solitários anos fazendo o que ele foi construído para fazer, o curioso e adorável WALL-E encontra uma nova razão para viver quando conhece uma robô de busca de alto design chamada EVA.",
-        faixa: "L",
-        src: "https://drive.google.com/file/d/1MiqOg2g2MbKRwexsa1xxF4Uxa6Y9-saJ/preview",
-        duration: "01h 37m",
-        genero: [gen.animacao, gen.ficcao, agp.familia, stm.disney]
     },
     {
         background: background,

@@ -301,6 +301,168 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 85552,
+        title: "Euphoria",
+        subtitle: "",
+        description: "Um grupo de estudantes do ensino médio lida com diferentes situações típicas da idade como drogas, sexo, busca pela identidade, traumas, comportamento nas redes sociais e amizade.",
+        genero: [gen.drama, stm.hbo],
+        faixa: "18",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1oqMdrIMYCc30aoVYZlKzR_XVGqDPeaFU/preview",
+                        duration: "53m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1AroRcfAjZRNdHhl5MNFemzrxPArj5ee1/preview",
+                        duration: "01h 05m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1yni4I97Qdj7doORIhYD6eKRvnsBhahAH/preview",
+                        duration: "56m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1s6o6FIAsF13tPvdL92u8Sw8NppRhvB_N/preview",
+                        duration: "55m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1RoqZW8eTKlQzek2ztSn5dAz3cPvWZSzX/preview",
+                        duration: "52m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/10JQHS5S7vf527wXz_CyoQKN72SYgWPUH/preview",
+                        duration: "50m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1i3iWi-0y75HONwr5zNVzn0ZcezoLN4oY/preview",
+                        duration: "59m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1_F4T8F9KPYxy2UcJntUyS7l797WycK8y/preview",
+                        duration: "01h 04m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1NKnPg1N5Wx6rR5Fp3TNcAM1WM8bmwgfa/preview",
+                        duration: "01h 01m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/161oPBLeGlRiA3NvMejSm6RPEpLUYt_Ia/preview",
+                        duration: "57m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1snwycMvOfmMHMJgvzn1vfXYSR1qaJv_I/preview",
+                        duration: "01h"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/12V2LHOIRKZ6Ob3cjnlchNUZOloHOIVbQ/preview",
+                        duration: "01h 02m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/16Q69MleUyGdNQp935kpb_f9zqxbe8zo0/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1Men84V8InET9MLOSRf3BhVPLZ6wT5OlB/preview",
+                        duration: "01h"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/12CG-vZnlJSXRpCqRDlgREOO_rrU6UJUn/preview",
+                        duration: "58m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1ydKFiSaBhabshMCGyoFHPf9-2s7Z3F1E/preview",
+                        duration: "01h 01m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
+        tmdbID: 114479,
+        title: "The Acolyte",
+        subtitle: "",
+        description: "Cem anos antes da ascensão do Império, a Ordem Jedi e a República Galáctica prosperaram sem guerras durante séculos. Durante esse tempo, uma investigação sobre uma terrível onda de crimes coloca uma Mestra Jedi contra uma perigosa guerreira de seu passado.",
+        genero: [gen.fantasia, gen.ficcao, agp.misterio, stm.disney, agp.space],
+        faixa: "A12",
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1ZxUQmF5ozMrQ-tixGCuB0LcMVIVym_OH/preview",
+                        duration: "40m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1qpWhRENFjOT06AlIjLvWRpt5plzXxUI1/preview",
+                        duration: "36m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1WScIeuiInXRZe0ipwTEeAq7YbDh87PNk/preview",
+                        duration: "42m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/11KlWwCoKXFeO1KVPMlT5tnDShvCNK7rd/preview",
+                        duration: "32m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1O_imiYzpZESmBcxnKLt09QobRkIsqA3J/preview",
+                        duration: "32m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1F-J4iePtNTfMneh4NPYthUkQvk6oeFgA/preview",
+                        duration: "36m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1-2YcdIjNFrIuMxNSPryZZkORuCenn1FZ/preview",
+                        duration: "41m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1Xxtm9L_7cQAxYUEn1UUs3MqFmUY97ApX/preview",
+                        duration: "46m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 249042,
         title: "Adolescência",
         subtitle: "",

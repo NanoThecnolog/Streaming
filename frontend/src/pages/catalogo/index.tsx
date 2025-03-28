@@ -17,7 +17,7 @@ export default function Catalogo() {
                     <h1>Filmes - {cards.length}</h1>
                     <div className={styles.contentContainer}>
                         {[...cards].sort((a, b) => a.title.localeCompare(b.title)).map(card => (
-                            <div key={card.tmdbId} onClick={() => router.push(`/watch/${card.tmdbId}`)}>
+                            <div key={card.tmdbId} onClick={() => router.push(`/movie/${card.tmdbId}`)}>
                                 <h4>{card.title} {card.subtitle && ` - ${card.subtitle}`}</h4>
                             </div>
                         ))}
