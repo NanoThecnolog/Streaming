@@ -245,6 +245,144 @@ export const series: SeriesProps[] = [
     {
         background: background,
         overlay: overlay,
+        tmdbID: 71914,
+        title: "A Roda do Tempo",
+        subtitle: "",
+        description: "As vidas de cinco jovens camponeses mudam para sempre quando uma mulher estranha e poderosa chega dizendo que um deles é a criança de uma antiga profecia, com o poder de alterar o equilíbrio entre Luz e Trevas para sempre. Eles precisam decidir se confiam na desconhecida – e uns nos outros – para mudar o destino do mundo antes que o Tenebroso consiga se libertar de sua prisão.",
+        genero: [gen.ficcao, gen.fantasia, gen.drama, stm.prime],
+        faixa: "A16",
+        news: {
+            type: "episode",
+        },
+        season: [
+            {
+                s: 1,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1wV2P8eG07GqO3KG4r6hn9DXFUF1HoiHc/preview",
+                        duration: "54m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1y2OxxgzM9BdJx0qXsDK0kvMAPmjVZojr/preview",
+                        duration: "57m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1DVns8jOkz-3fPditRjsuK5wd9hjpB3gw/preview",
+                        duration: "57m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1xYFaYnPTBiwnz7kxn5za2CY_Fh0UgZXR/preview",
+                        duration: "01h 01m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/13jgCZYnOuuG9PmKw5p7p2WGvehfaRbSJ/preview",
+                        duration: "01h"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/11I1Sfe21TTkojH237UE_3KmsBp_nvIo3/preview",
+                        duration: "01h 02m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1UvPPI9XQVjt2Aeaki0UmtjG3UCDZ8hwB/preview",
+                        duration: "59m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1N0-5RmyoWg3nwDgruTyvDFkMm4wyLSpH/preview",
+                        duration: "56m"
+                    },
+                ]
+            },
+            {
+                s: 2,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1Yzth56EmHB3Tt4m4jH9AkcEskH5AtVo5/preview",
+                        duration: "01h 06m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1THFv0RIOjtngjgeCrkxkPGKDv0VaKw5L/preview",
+                        duration: "01h 08m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1QPR_1W_JdpggP3HDPjpYSVoL59GGbNNJ/preview",
+                        duration: "01h 09m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1Lg1f3tgIg1l3k6kVRPylC6zYG_-PC_C3/preview",
+                        duration: "01h"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1xVju1mrYfug1BZCmVAKfLPVaXrAmqBnn/preview",
+                        duration: "01h 08m"
+                    },
+                    {
+                        ep: 6,
+                        src: "https://drive.google.com/file/d/1OUG0F_FaZTOKHIgCbi44M_IKr5NdugJc/preview",
+                        duration: "01h 09m"
+                    },
+                    {
+                        ep: 7,
+                        src: "https://drive.google.com/file/d/1qeftlOeR0OZy2Sa1QkEj9mgXdsYm_X2Q/preview",
+                        duration: "01h 05m"
+                    },
+                    {
+                        ep: 8,
+                        src: "https://drive.google.com/file/d/1G_Q75GJVCJDsTKWZAbShOQMETrAtvlFP/preview",
+                        duration: "01h 09m"
+                    },
+                ]
+            },
+            {
+                s: 3,
+                lang: "Dublado",
+                episodes: [
+                    {
+                        ep: 1,
+                        src: "https://drive.google.com/file/d/1zpIAjaQUk2u04eJ74d2nBeBMHfbxas0A/preview",
+                        duration: "01h 11m"
+                    },
+                    {
+                        ep: 2,
+                        src: "https://drive.google.com/file/d/1VIQrtq_9BCQPitEMVgQ6d_m1mUtP2GNe/preview",
+                        duration: "01h 01m"
+                    },
+                    {
+                        ep: 3,
+                        src: "https://drive.google.com/file/d/1BHefGxgdPcBL53RxrkNbBiuNDik8IBcA/preview",
+                        duration: "01h 05m"
+                    },
+                    {
+                        ep: 4,
+                        src: "https://drive.google.com/file/d/1Iv4ldd90WsbfUFtm52qMRYqCtGhl9nno/preview",
+                        duration: "01h 08m"
+                    },
+                    {
+                        ep: 5,
+                        src: "https://drive.google.com/file/d/1rmovBr98M3DoAs4ADcL6e-VDv5CwplLR/preview",
+                        duration: "01h 09m"
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        background: background,
+        overlay: overlay,
         tmdbID: 243881,
         title: "Casa de Davi",
         subtitle: "",
@@ -4122,6 +4260,11 @@ export const series: SeriesProps[] = [
                         ep: 11,
                         src: "https://drive.google.com/file/d/1053PT_6NOz8pkf5aXbM3pRmTR5SvngKe/preview",
                         duration: "48m"
+                    },
+                    {
+                        ep: 12,
+                        src: "https://drive.google.com/file/d/15u6SUytrq_swgltWcQy5kuZUrOD53urm/preview",
+                        duration: "40m"
                     }
                 ]
             },
