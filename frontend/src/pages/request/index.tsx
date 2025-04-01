@@ -1,21 +1,37 @@
 import Header from '@/components/Header'
 import styles from './styles.module.scss'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
 import { apiTMDB } from '@/services/apiTMDB';
 import { RequestCardProps } from '@/@types/RequestCard';
 import RequestCard from '@/components/RequestCard';
 import { CardsProps } from '@/@types/Cards';
-import { cards } from '@/data/cards';
-import { series } from '@/data/series';
+//import { cards } from '@/data/cards';
+//import { series } from '@/data/series';
 import { SeriesProps } from '@/@types/series';
 import Spinner from '@/components/ui/Loading/spinner';
+import { useFlix } from '@/contexts/FlixContext';
+import { mongoService } from '@/classes/MongoContent';
 
 export default function Request() {
     const [title, setTitle] = useState<string>('')
     const [searchCards, setSearchCards] = useState<RequestCardProps[]>([])
     const [loading, setLoading] = useState<boolean>(false)
+    const { movies, series, setMovies, setSeries } = useFlix()
+
+    useEffect(() => {
+        async function getMongoData() {
+            const [mongoMovies, mongoSeries] = await Promise.all([
+                mongoService.fetchMovieData(),
+                mongoService.fetchSerieData()
+            ])
+            setMovies(mongoMovies)
+            setSeries(mongoSeries)
+        }
+        if (movies.length === 0 || series.length === 0) getMongoData()
+
+    }, [movies, series])
 
 
     /**
@@ -54,7 +70,7 @@ export default function Request() {
             const otherResponses = await Promise.all(allRequests);
 
             const seenIds = new Set<number>();
-            const cardIds = new Set(cards.map((card: CardsProps) => card.tmdbId))
+            const cardIds = new Set(movies.map((card: CardsProps) => card.tmdbId))
             const serieIds = new Set(series.map((serie: SeriesProps) => serie.tmdbID))
 
             const allResults = [

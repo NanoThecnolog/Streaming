@@ -6,6 +6,11 @@
     height: 100%;
     font-family: var(--font-Roboto);
     padding: 150px 50px;
+    gap: 50px;
+
+    h1 {
+        border-bottom: 2px solid white;
+    }
 
     .contentContainer {
         display: grid;

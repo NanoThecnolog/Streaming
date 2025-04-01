@@ -1,5 +1,6 @@
-import { cards } from "@/data/cards"
-import { series } from "@/data/series"
+//import { cards } from "@/data/cards"
+//import { series } from "@/data/series"
+import { mongoService } from "@/classes/MongoContent"
 import { FAQ } from "@/pages/faq"
 
 export const cookieOptions = {
@@ -29,10 +30,16 @@ export const avatares = [
 /**
  * config do fuse
  */
-export const fuseConfig = {
-    dados: [...cards, ...series], // array de objetos para a busca
-    chaves: ["title", "subtitle"], // propriedades a serem comparadas
-    taxa: 0.3 // taxa de comparação
+export const fuseConfig = async () => {
+    const [movies, series] = await Promise.all([
+        mongoService.fetchMovieData(),
+        mongoService.fetchSerieData()
+    ])
+    return {
+        dados: [...movies, ...series],
+        chaves: ["title", "subtitle"],
+        taxa: 0.3
+    }
 }
 
 export const breakpoints = [

@@ -1,6 +1,7 @@
 import { debug } from '@/classes/DebugLogger';
-import { cards } from '@/data/cards';
-import { series } from '@/data/series';
+import { mongoService } from '@/classes/MongoContent';
+//import { cards } from '@/data/cards';
+//import { series } from '@/data/series';
 import { google } from 'googleapis';
 
 export interface ErrorProps {
@@ -61,7 +62,8 @@ export function extractFileId(url: string): string | null {
 export async function verifyAllDataFiles() {
     let errors: ErrorProps[] = []
     let count = 0;
-    const requests = cards.map(async (card) => {
+    const mongoMovies = await mongoService.fetchMovieData()
+    const requests = mongoMovies.map(async (card) => {
         const id = extractFileId(card.src)
         if (id) {
             count++;
@@ -90,7 +92,8 @@ export async function verifyAllDataFiles() {
 }
 export async function verifySerieDataFiles() {
     let errors: ErrorProps[] = []
-    const requests = series.map(async (card) => {
+    const mongoSeries = await mongoService.fetchSerieData()
+    const requests = mongoSeries.map(async (card) => {
         const promiseSeasons = card.season.map(async (season) => {
             const id = extractFileId(season.episodes[0].src)
             if (id) {

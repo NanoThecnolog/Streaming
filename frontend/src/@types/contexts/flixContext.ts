@@ -1,6 +1,8 @@
 import { ReactNode } from "react";
 import { MyListPorps, UserContext, UserProps } from "../user";
 import { ListaFavoritos } from "../favoritos";
+import { SeriesProps } from "../series";
+import { CardsProps } from "../Cards";
 
 export type ContextProviderProps = {
     children: ReactNode;
@@ -14,6 +16,10 @@ export interface ContextProps {
     setFavorites: (id: FavoritesContext[]) => void
     signIn: (credentials: SignInProps) => Promise<void>
     signOut: () => void
+    movies: CardsProps[]
+    series: SeriesProps[]
+    setMovies: (data: CardsProps[]) => void
+    setSeries: (data: SeriesProps[]) => void
 }
 export type SignInProps = {
     email: string,

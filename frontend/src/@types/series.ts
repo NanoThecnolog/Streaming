@@ -9,6 +9,7 @@ export interface SeriesProps {
     faixa: string
     news?: { type: "season" | "episode" | "news" }
     season: Seasons[]
+    index: number
 }
 
 export interface Seasons {
@@ -44,6 +45,7 @@ export interface TMDBSeries {
         id: number,
         name: string
     }[]
+    popularity: number
 }
 export interface DubbedEpisode {
     tmdbID: number,

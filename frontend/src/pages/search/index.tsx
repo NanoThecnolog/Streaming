@@ -3,8 +3,8 @@ import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
 import styles from './styles.module.scss'
 import { CardsProps } from "@/@types/Cards";
-import { cards } from "@/data/cards";
-import { series } from "@/data/series";
+//import { cards } from "@/data/cards";
+//import { series } from "@/data/series";
 import Card from "@/components/Card";
 import CardSerie from "@/components/seriesComponents/Card";
 import Footer from "@/components/Footer";
@@ -15,6 +15,8 @@ import Link from "next/link";
 import Spinner from "@/components/ui/Loading/spinner";
 import { normalizing } from "@/utils/UtilitiesFunctions";
 import { matches } from "@/utils/FilterFunctions";
+import { useFlix } from "@/contexts/FlixContext";
+import { mongoService } from "@/classes/MongoContent";
 
 export default function Search() {
     const router = useRouter();
@@ -25,6 +27,19 @@ export default function Search() {
     const [faixa, setFaixa] = useState<string>('')
     const [filtered, setFiltered] = useState<(CardsProps | SeriesProps)[] | []>([])
     const [loading, setLoading] = useState(false)
+    const { movies, series, setMovies, setSeries } = useFlix()
+
+    useEffect(() => {
+        async function getMongoData() {
+            const [mongoMovies, mongoSeries] = await Promise.all([
+                mongoService.fetchMovieData(),
+                mongoService.fetchSerieData()
+            ])
+            setMovies(mongoMovies)
+            setSeries(mongoSeries)
+        }
+        if (movies.length === 0 || series.length === 0) getMongoData()
+    }, [movies, series])
 
     useEffect(() => {
         if (router.isReady) {
@@ -44,7 +59,7 @@ export default function Search() {
 
             setLoading(true)
             const normalizedMovie = normalizing(movie)
-            const filteredCards = cards
+            const filteredCards = movies
                 .filter((card) => {
                     const normalizedTitle = normalizing(card.title).toLowerCase()
                     const normalizedSubtitle = normalizing(card.subtitle).toLowerCase()
@@ -93,8 +108,7 @@ export default function Search() {
             //const normalizedInput = normalizing(input).toLowerCase()
             if (input === '' && genre === '' && streaming === '' && faixa === '') return setLoading(false);
 
-
-            const filteredCard = cards.filter((item) => matches(input, genre, streaming, faixa, item))
+            const filteredCard = movies.filter((item) => matches(input, genre, streaming, faixa, item))
             const filteredSerie = series.filter((item) => matches(input, genre, streaming, faixa, item))
             const combined = [...filteredCard, ...filteredSerie]
             setFiltered(combined)

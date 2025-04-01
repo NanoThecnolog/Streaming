@@ -6,7 +6,7 @@ import { api } from "@/services/api"
 import NextEpisode from "@/components/ui/NextEpisode"
 import PrevEpisode from "@/components/ui/PreviousEpisode"
 import SEO from "@/components/SEO"
-import { series } from "@/data/series"
+//import { series } from "@/data/series"
 import HelpFlag from "@/components/Helpflag"
 import HelpModal from "@/components/modals/HelpModal/index "
 import { SeriesProps } from "@/@types/series"
@@ -17,6 +17,7 @@ import { apiGoogle } from "@/services/apiGoogle"
 import { CheckFileProps } from "@/@types/googleRequest"
 import Spinner from "@/components/ui/Loading/spinner"
 import { debug } from "@/classes/DebugLogger"
+import { mongoService } from "@/classes/MongoContent"
 
 interface EpisodeProps {
     title: string,
@@ -29,9 +30,9 @@ interface EpisodeProps {
 
 export default function WatchSerie() {
     const router = useRouter()
-    const { title, subtitle, episode, src, season } = router.query
+    const { title, subtitle, episode, src, season, tmdbID } = router.query
     const [episodio, setEpisodio] = useState<EpisodeProps | null>(null)
-    const [serie, setSerie] = useState<SeriesProps>()
+    const [serie, setSerie] = useState<SeriesProps | null>(null)
     const { user, setUser } = useFlix()
     const [visible, setVisible] = useState(false)
     const [shared, setShared] = useState(true)
@@ -65,24 +66,26 @@ export default function WatchSerie() {
     }, [])
 
     useEffect(() => {
-        if (title && src && episode && season) {
-            const serie = series.find(serie => serie.title.toLowerCase() === String(title).toLowerCase())
-            if (serie) {
-                setSerie(serie)
-            }
-            setEpisodio({
-                title: Array.isArray(title) ? title[0] : title,
-                subtitle: Array.isArray(subtitle) ? subtitle[0] : subtitle || '',
-                episode: Array.isArray(episode) ? parseInt(episode[0]) : parseInt(episode),
-                src: src ? src as string : '',
-                season: Array.isArray(season) ? parseInt(season[0]) : parseInt(season),
-            })
+        async function getSerieMongoData() {
+            const serieDb = await mongoService.findOneSerieById(parseInt(tmdbID as string))
+            debug.log('serieDb: ', serieDb)
+            if (!serieDb) return debug.log('serieDb vazia ou null')
 
+            setSerie(serieDb)
+            setEpisodio({
+                title: serieDb.title,
+                subtitle: serieDb.subtitle ?? '',
+                episode: parseInt(episode as string),
+                src: src ? src as string : '',
+                season: parseInt(season as string),
+            })
         }
-    }, [router, title, subtitle, src, episode, season])
+        if (tmdbID && src && episode && season) {
+            getSerieMongoData()
+        }
+    }, [router, src, episode, season, tmdbID])
 
     function handleBack() {
-        const serie = series.find(serie => serie.title === title && serie.subtitle === subtitle)
         Router.push(`/series/serie/${serie?.tmdbID}`)
     }
 
@@ -94,7 +97,7 @@ export default function WatchSerie() {
         if (episodio?.src) {
             shareVerify(episodio.src)
         } else {
-            debug.log("não fazer nada!")
+            debug.log("Src do episodio ausente")
         }
     }, [episodio])
 
@@ -171,12 +174,14 @@ export default function WatchSerie() {
                                             subtitle={episodio.subtitle}
                                             season={episodio.season}
                                             episode={episodio.episode}
+                                            serie={serie}
                                         />
                                         <NextEpisode
                                             title={episodio.title}
                                             subtitle={episodio.subtitle}
                                             season={episodio.season}
                                             episode={episodio.episode}
+                                            serie={serie}
                                         />
                                     </div>
 
@@ -196,8 +201,6 @@ export default function WatchSerie() {
                         />
                     )}
                 </div>
-
-
             </div>
         </>
     )

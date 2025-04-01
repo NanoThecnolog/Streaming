@@ -6,7 +6,7 @@ import { api } from "@/services/api";
 import HelpFlag from "@/components/Helpflag";
 import HelpModal from "@/components/modals/HelpModal/index ";
 import SEO from "@/components/SEO";
-import { cards } from '@/data/cards';
+//import { cards } from '@/data/cards';
 import { CardsProps } from '@/@types/Cards';
 import { parseCookies } from 'nookies';
 import { useFlix } from '@/contexts/FlixContext';
@@ -15,12 +15,14 @@ import NoFile from '@/components/ui/NoFile';
 import { CheckFileProps } from '@/@types/googleRequest';
 import Spinner from '@/components/ui/Loading/spinner';
 import { debug } from '@/classes/DebugLogger';
+import { mongoService } from '@/classes/MongoContent';
+import { apiEmail } from '@/services/apiMessenger';
 
 export default function Watch() {
     const router = useRouter()
     const { tmdbId } = router.query;
     const [movieData, setMovieData] = useState({ title: '', subtitle: '', src: '', tmdbId: 0 });
-    const { user, setUser } = useFlix()
+    const { user, setUser, movies } = useFlix()
     const [visible, setVisible] = useState(false)
     const [shared, setShared] = useState(true)
     const [loading, setLoading] = useState(false)
@@ -50,8 +52,8 @@ export default function Watch() {
     }, [acordarServidor])
 
     useEffect(() => {
-        if (tmdbId) {
-            const movie: CardsProps | undefined = cards.find(card => card.tmdbId === Number(tmdbId))
+        async function getMovieMongoData() {
+            const movie = await mongoService.findOneMovieById(parseInt(tmdbId as string))
             if (!movie) return
             setMovieData({
                 title: movie.title,
@@ -59,8 +61,8 @@ export default function Watch() {
                 src: movie.src,
                 tmdbId: movie.tmdbId
             })
-
         }
+        if (tmdbId) getMovieMongoData()
     }, [router, tmdbId])
 
     const handleBack = useCallback(() => {
@@ -90,9 +92,9 @@ export default function Watch() {
             const encodedLink = encodeURIComponent(link)
             const info = await apiGoogle.get(`/${encodedLink}`)
             debug.log("file check: ", info)
-            if (info.data.code && info.data.code === 404) {
+            if (info.data.code && (info.data.code === 404 || info.data.code === 400)) {
 
-                const notificar = await api.post('/system/notification/problem', {
+                const notificar = await apiEmail.post('/system/problem', {
                     title: movieData.title,
                     description: 'Problema com arquivo',
                     tmdbId: movieData.tmdbId,

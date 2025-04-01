@@ -4,10 +4,12 @@ import { api } from "./api";
 import { WatchLaterProps } from "@/@types/watchLater";
 import { destroyCookie, parseCookies, setCookie } from "nookies";
 import { WatchLaterContext } from "@/@types/contexts/flixContext";
-import { cards } from "@/data/cards";
+//import { cards } from "@/data/cards";
 import { cookieOptions } from "@/utils/Variaveis";
-import { series } from "@/data/series";
+//import { series } from "@/data/series";
 import { debug } from "@/classes/DebugLogger";
+import { CardsProps } from "@/@types/Cards";
+import { SeriesProps } from "@/@types/series";
 
 interface TestProps {
     title: string,
@@ -19,14 +21,12 @@ interface TestProps {
 /**
  * Essa função adiciona ou remove o filme da lista no banco de dados. Avisa com toast o resultado. 
  * Atualiza os dados do usuário, da lista de favoritos e da lista de watchlater no Storage.
- * @param userid ID do usuário
- * @param title Título do filme / série
  * @param tmdbid ID do filme no TMDB
- * @param subtitle Subtítulo do filme / série
+ * @param card card do filme ou serie no banco de dados
  * @returns void
  */
 
-export async function addWatchLater(tmdbid: number) {
+export async function addWatchLater(card: CardsProps | SeriesProps) {
     let isLoading = false;
     try {
         if (isLoading) return;
@@ -38,6 +38,11 @@ export async function addWatchLater(tmdbid: number) {
         // Busca a lista no banco de dados pelo user
         const { data: filmes } = await api.get<WatchLaterProps[]>(`/watchLater?id=${user.id}`);
 
+        let tmdbid: number;
+        if ('src' in card) tmdbid = card.tmdbId
+        else tmdbid = card.tmdbID
+
+
         // Verifica se o filme já está na lista
         const filmeExiste = filmes.find((filme) => filme.tmdbid === tmdbid);
 
@@ -48,22 +53,22 @@ export async function addWatchLater(tmdbid: number) {
         }
 
         // Adiciona o novo filme à lista e atualiza as listas no localStorage
-        const cardExiste = (): TestProps | null => {
+        /*const cardExiste = (): TestProps | null => {
             return cards.find(card => card.tmdbId === tmdbid)
                 ?? series.find(card => card.tmdbID === tmdbid)
                 ?? null
         }
-        const movie = cardExiste()
-        //const card = movie ? movie : series.find(card => card.tmdbID === tmdbid)
-        if (!movie) {
-            return debug.error("título não encontrado em cards", movie)
+        //const movie = cardExiste()
+        //const card = movie ? movie : series.find(card => card.tmdbID === tmdbid)*/
+        if (!card) {
+            return debug.error("Título não encontrado em cards, tmdbId: ", tmdbid)
         }
 
         const data = {
             userid: user.id,
-            title: movie.title,
-            subtitle: movie.subtitle,
-            tmdbid: movie.tmdbId ?? movie.tmdbID
+            title: card.title,
+            subtitle: card.subtitle,
+            tmdbid
         }
         await api.post(`/watchLater/`, data)
         const { 'flix-watch': watchCookie } = parseCookies()
@@ -75,7 +80,7 @@ export async function addWatchLater(tmdbid: number) {
         watchList.push({ id: tmdbid })
         destroyCookie(null, 'flix-watch')
         setCookie(null, 'flix-watch', JSON.stringify(watchList), cookieOptions)
-        toast.success(`${movie.title} ${movie.subtitle != '' ? `- ${movie.subtitle}` : ''} adicionado à lista de assistir mais tarde!`);
+        toast.success(`${card.title} ${card.subtitle != '' ? `- ${card.subtitle}` : ''} adicionado à lista de assistir mais tarde!`);
     } catch (err: any) {
         toast.error(err.response.data.error || "Erro ao adicionar filme à lista.");
         debug.error("Erro ao adicionar filme:", err.response.data.error);

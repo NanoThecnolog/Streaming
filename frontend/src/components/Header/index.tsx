@@ -31,12 +31,26 @@ export default function Header() {
     const [serverWake, setServerWake] = useState<boolean>(false)
     const { user, setUser, signOut } = useFlix()
     const [initial, setInitial] = useState("-")
+    //const [config, setConfig] = useState<{ dados: any[], chaves: string[], taxa: number } | null>(null)
+    const [fuse, setFuse] = useState<Fuse<any> | null>(null)
 
-    const fuse = useMemo(() =>
-        new Fuse(fuseConfig.dados, {
-            keys: fuseConfig.chaves,
-            threshold: fuseConfig.taxa
-        }), [])
+    useEffect(() => {
+        async function loadConfig() {
+            const configData = await fuseConfig()
+            //setConfig(configData)
+            setFuse(new Fuse(configData.dados, {
+                keys: configData.chaves,
+                threshold: configData.taxa
+            }))
+        }
+        loadConfig()
+    }, [])
+
+    /*const fuse = useMemo(() =>
+        new Fuse(config.dados, {
+            keys: config.chaves,
+            threshold: config.taxa
+        }), [])*/
 
     useEffect(() => {
         if (!user) {
@@ -100,7 +114,7 @@ export default function Header() {
 
     const handleSearchRelated = useMemo(() =>
         debounce((text: string) => {
-            if (text.length > 0) {
+            if (text.length > 0 && fuse) {
                 const related = fuse.search(text).map((result) => result.item)
                 setRelatedSearch(related)
             } else {

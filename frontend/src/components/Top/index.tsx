@@ -1,23 +1,25 @@
-import { cards } from '@/data/cards'
+//import { cards } from '@/data/cards'
 import styles from './styles.module.scss'
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { UserProps } from '@/@types/user';
 import { FaInfoCircle, FaPlay } from 'react-icons/fa';
 import { getUserCookieData } from '@/services/cookieClient';
-import { MovieTMDB } from '@/@types/Cards';
+import { CardsProps, MovieTMDB } from '@/@types/Cards';
 import Adult from '../ui/Adult';
-import { releaseCards } from '@/data/release';
 import { useTMDB } from '@/contexts/TMDBContext';
 import { fetchTMDBBackDrop, fetchTMDBMovie, fetchTMDBPoster } from '@/services/fetchTMDBData';
+import { useFlix } from '@/contexts/FlixContext';
 
 interface TopProps {
-    width?: number;
+    width?: number
+    cards: CardsProps[]
 }
 
-export default function Top({ width }: TopProps) {
+export default function Top({ width, cards }: TopProps) {
     const router = useRouter()
     const [cardOn, setCardOn] = useState(0)
+    const { movies } = useFlix()
     const card = cards[cardOn]
     //const releaseSet = new Set(releaseCards.map(item => item.tmdbId))
     //const release = cards.filter(card => releaseSet.has(card.tmdbId))
@@ -65,7 +67,7 @@ export default function Top({ width }: TopProps) {
             }
         }
         getImages()
-    }, [allData, cardOn, card.tmdbId])
+    }, [allData, cardOn, card])
 
     const getBackgroundImage = () => {
         return width && width <= 980

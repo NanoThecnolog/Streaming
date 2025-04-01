@@ -5,13 +5,14 @@ import { ToastContainer } from "react-toastify";
 import { TMDBProvider } from "@/contexts/TMDBContext";
 import { useEffect } from "react";
 import ErrorBoundary from "@/components/Errors/ErrorBoundary";
-import { FlixProvider } from "@/contexts/FlixContext";
+import { FlixProvider, useFlix } from "@/contexts/FlixContext";
 import Router from "next/router";
 import NProgress from "nprogress"
 import "nprogress/nprogress.css";
 
 
 export default function App({ Component, pageProps }: AppProps) {
+  const { movies, series, setMovies, setSeries } = useFlix()
 
 
 
@@ -46,12 +47,14 @@ export default function App({ Component, pageProps }: AppProps) {
 
   }, [])
 
+
+
   return (
     <ErrorBoundary>
       <FlixProvider>
         <TMDBProvider>
           <Component {...pageProps} />
-          <ToastContainer autoClose={3000} />
+          <ToastContainer autoClose={3500} />
         </TMDBProvider>
       </FlixProvider>
     </ErrorBoundary>

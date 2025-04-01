@@ -2,7 +2,6 @@ import { useRouter } from 'next/router'
 import styles from './styles.module.scss'
 import { useEffect, useState } from 'react';
 import { CardsProps, MovieTMDB } from '@/@types/Cards';
-import { cards } from '@/data/cards';
 import { fetchTMDBMovieCast, fetchTMDBTrailer } from '@/services/fetchTMDBData';
 import SEO from '@/components/SEO';
 import Header from '@/components/Header';
@@ -28,6 +27,7 @@ import { parseCookies } from 'nookies';
 import debounce from 'lodash.debounce';
 import { debug } from '@/classes/DebugLogger';
 import { tmdb } from '@/classes/TMDB';
+import { mongoService } from '@/classes/MongoContent';
 
 interface groupedByDepartment {
     [job: string]: CrewProps[]
@@ -38,8 +38,8 @@ export default function Movie() {
     const [showPoster, setShowPoster] = useState(false)
     const { tmdbId } = router.query;
     const { allData } = useTMDB()
-    const { user, setUser } = useFlix()
-    const [movie, setMovie] = useState<CardsProps>()
+    const { user, setUser, movies, setMovies } = useFlix()
+    const [movie, setMovie] = useState<CardsProps | null>(null)
     const [tmdbData, setTmdbData] = useState<MovieTMDB>()
     const [loading, setLoading] = useState(false)
     const [onWatchLater, setOnWatchLater] = useState(false)
@@ -49,24 +49,34 @@ export default function Movie() {
     const [trailer, setTrailer] = useState<TrailerProps | null>(null)
     const [loadingButton, setLoadingButton] = useState(false)
 
+
+    useEffect(() => {
+        if (!tmdbId) return
+        async function fetchCard() {
+            const response: CardsProps | null = await mongoService.findOneMovieById(parseInt(tmdbId as string))
+            setMovie(response)
+        }
+        fetchCard()
+        getTMDBData()
+        getTMDBCast()
+    }, [router, tmdbId])
+
     const watchLater = async () => {
         if (!movie) return
         const onList = await isOnTheList(movie.tmdbId)
         setOnWatchLater(onList)
     }
     useEffect(() => {
-        if (!tmdbId) return
-        const card = cards.find(card => card.tmdbId === Number(tmdbId));
-        setMovie(card)
-        getTMDBData()
-        getTMDBCast()
-    }, [router, tmdbId])
-    useEffect(() => {
         if (!movie) return
-        const relatedCards = getRelatedCards(movie, allData)
+        async function getMoviesMongoDB() {
+            const response = await mongoService.fetchMovieData()
+            setMovies(response)
+        }
+        if (movies.length === 0) getMoviesMongoDB()
+        const relatedCards = getRelatedCards(movie, movies, allData)
         if (relatedCards && relatedCards.length > 0) setRelatedCards(relatedCards)
         watchLater()
-    }, [movie])
+    }, [movie, movies, allData])
 
     const handleWidth = debounce(() => {
         if (window.innerWidth <= 915) {
@@ -134,7 +144,7 @@ export default function Movie() {
         try {
             if (loadingButton) return
             setLoadingButton(true)
-            await addWatchLater(movie.tmdbId)
+            await addWatchLater(movie)
             await watchLater()
         } catch (err: any) {
             debug.error("Erro ao adicionar filme", err)

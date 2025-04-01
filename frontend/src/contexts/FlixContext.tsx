@@ -1,12 +1,12 @@
+import { CardsProps } from "@/@types/Cards";
 import { ContextProps, ContextProviderProps, FavoritesContext, SignInProps, WatchLaterContext } from "@/@types/contexts/flixContext";
-import { ListaFavoritos } from "@/@types/favoritos";
-import { MyListPorps, UserContext, UserProps } from "@/@types/user";
+import { SeriesProps } from "@/@types/series";
+import { UserContext, UserProps } from "@/@types/user";
 import { api } from "@/services/api";
-import { getCookieData } from "@/services/cookieClient";
 import { cookieOptions } from "@/utils/Variaveis";
 import Router from "next/router";
 import { destroyCookie, setCookie } from "nookies";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify";
 
 
@@ -18,6 +18,8 @@ export function FlixProvider({ children }: ContextProviderProps) {
     const [user, setUser] = useState<UserContext | null>();
     const [favorites, setFavorites] = useState<FavoritesContext[]>([])
     const [watchLater, setWatchLater] = useState<WatchLaterContext[]>([])
+    const [movies, setMovies] = useState<CardsProps[]>([])
+    const [series, setSeries] = useState<SeriesProps[]>([])
 
     /*useEffect(() => {
         const token = getCookieData('flix-token')
@@ -103,7 +105,7 @@ export function FlixProvider({ children }: ContextProviderProps) {
     }
 
     return (
-        <FlixContext.Provider value={{ user, favorites, watchLater, setWatchLater, setFavorites, setUser, signIn, signOut }}>
+        <FlixContext.Provider value={{ user, favorites, watchLater, setWatchLater, setFavorites, setUser, signIn, signOut, movies, series, setMovies, setSeries }}>
             {children}
         </FlixContext.Provider>
     )

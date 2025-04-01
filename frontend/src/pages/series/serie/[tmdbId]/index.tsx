@@ -1,6 +1,6 @@
 import Router, { useRouter } from "next/router"
 import { useEffect, useState } from "react";
-import { series } from "@/data/series";
+//import { series } from "@/data/series";
 import { Episodes, SeriesProps, TMDBEpisodes, TMDBSeries } from "@/@types/series";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -28,6 +28,8 @@ import { useFlix } from "@/contexts/FlixContext";
 import NewContent from "@/components/ui/NewContent";
 import debounce from "lodash.debounce";
 import { debug } from "@/classes/DebugLogger";
+import { mongoService } from "@/classes/MongoContent";
+import { getRelatedSerieCards } from "@/utils/CardsManipulation";
 
 interface TMDBImagesProps {
     backdrop: string,
@@ -42,20 +44,30 @@ export default function Serie() {
     //refatorar
     const router = useRouter()
     const { tmdbId } = router.query;
-    const [serie, setSerie] = useState<SeriesProps | null>()
+
+    const [serie, setSerie] = useState<SeriesProps | null>(null)
+
     const [TMDBSerie, setTMDBSerie] = useState<TMDBSeries>()
     const [seasonToShow, setSeasonToShow] = useState<number>(1)
     const [episodesToShow, setEpisodesToShow] = useState<Episodes[]>([])
     const [episodesData, setEpisodesData] = useState<(TMDBEpisodes[] | null)[]>([])
-    const { user } = useFlix()
+
+    const { user, series, setSeries } = useFlix()
+    const { serieData } = useTMDB()
+
     const [onWatchLater, setOnWatchLater] = useState<boolean>(false)
+
     const [headTitle, setHeadTitle] = useState<string>(' ')
     const [TMDBImage, setTMDBImage] = useState<TMDBImagesProps>()
-    const { serieData } = useTMDB();
+
     const [relatedCards, setRelatedCards] = useState<SeriesProps[]>()
+
     const [cast, setCast] = useState<CastProps[]>()
     const [crewDepartment, setCrewDepartment] = useState<groupedByDepartment>({})
-    const [loading, setLoading] = useState(false);
+
+    const [loading, setLoading] = useState(false)
+    const [loadingButton, setLoadingButton] = useState(false)
+
     const [trailer, setTrailer] = useState<TrailerProps | null>(null)
     const [showPoster, setShowPoster] = useState(false)
 
@@ -64,8 +76,15 @@ export default function Serie() {
         setSerie(null)
         setSeasonToShow(1)
         debug.warn("chamando", seasonToShow)
-        const findSerie = series.find((serie) => serie.tmdbID === Number(tmdbId))
-        setSerie(findSerie)
+        //const findSerie = series.find((serie) => serie.tmdbID === Number(tmdbId))
+        async function fetchSerie() {
+            const response: SeriesProps | null = await mongoService.findOneSerieById(parseInt(tmdbId as string))
+            if (response) {
+                setSerie(response)
+            }
+        }
+        fetchSerie()
+
     }, [tmdbId, router])
     useEffect(() => {
         if (!serie) return;
@@ -174,27 +193,16 @@ export default function Serie() {
         setEpisodesData(episodesArray)
     }
     useEffect(() => {
-        function getRelatedCards() {
-            if (serie) {
-                const relatedCards = series
-                    .filter(card => card.tmdbID !== serie.tmdbID)
-                    .map(card => {
-                        const titleMatch = card.title.toLowerCase().includes(serie.title.toLowerCase()) ? 2 : 0;
-                        const commonGenres = card.genero.filter((genre: string) => serie.genero.includes(genre)).length;
-                        const genreScore = commonGenres > 0 ? commonGenres + (commonGenres === serie.genero.length ? 1 : 0) : 0;
-
-                        return {
-                            ...card,
-                            score: titleMatch + genreScore,
-                        };
-                    })
-                    .sort((a, b) => b.score - a.score)
-                    .slice(0, 20)
-                setRelatedCards(relatedCards)
-            }
+        if (!serie) return
+        async function getSeriesMongoDB() {
+            const response = await mongoService.fetchSerieData()
+            setSeries(response)
         }
-        getRelatedCards()
-    }, [serie])
+        if (series.length === 0) getSeriesMongoDB()
+        //debug.log(serie, series, serieData)
+        const relatedCards = getRelatedSerieCards(serie, series, serieData)
+        setRelatedCards(relatedCards)
+    }, [serie, series, serieData])
 
 
     function handleChangeSeason(value: number) {
@@ -212,6 +220,7 @@ export default function Serie() {
             title: `${serie?.title}`,
             subtitle: `${serie?.subtitle}`,
             episode: `${epNumber}`,
+            tmdbID: `${serie?.tmdbID}`,
             src: `${ep.src}`,
             season: `${season ?? seasonToShow}`
         })
@@ -226,7 +235,10 @@ export default function Serie() {
             return
         }
         try {
-            await addWatchLater(tmdbid);
+            if (!serie) return
+            if (loadingButton) return
+            setLoadingButton(true)
+            await addWatchLater(serie);
             const onList: Promise<boolean> = isOnTheList(tmdbid)
             onList.then(result => {
                 if (!result) {
@@ -239,6 +251,8 @@ export default function Serie() {
             if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
             console.log("Erro na function handleAddUserList", err)
             return toast.error("Erro inesperado ao adicionar série à lista!")
+        } finally {
+            setLoadingButton(false)
         }
     }
 
@@ -301,12 +315,15 @@ export default function Serie() {
                                                 ).join(', ') : serie.genero.join(', ')}</h4>
                                     </div>
                                     <div className={styles.watchButton} onClick={() => handlePlayEpisode(serie.season[0].episodes[0], serie.season[0].s)}>
-                                        <button type="button" className={styles.buttonPlay}><Play /><h4>Começar a Assistir</h4></button>
+                                        <button type="button" className={styles.buttonPlay}>
+                                            <Play />
+                                            <h4>Começar a Assistir</h4>
+                                        </button>
                                     </div>
                                     <div className={styles.buttonContainer}>
                                         <div className={styles.watchLater}>
                                             <button type="button" onClick={() => handleAddUserList(serie.tmdbID)}>
-                                                {onWatchLater ? (
+                                                {loadingButton ? <Spinner /> : onWatchLater ? (
                                                     <>
                                                         <p><FaCheck /></p>
                                                         <p>Adicionado à Lista</p>

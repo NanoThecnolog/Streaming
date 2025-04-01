@@ -1,10 +1,11 @@
 import Card from "../Card"
-import { cards } from "@/data/cards";
+//import { cards } from "@/data/cards";
 import styles from './styles.module.scss'
 import { useEffect, useState } from "react";
 import { MdNavigateNext } from "react-icons/md";
 import { MdNavigateBefore } from "react-icons/md";
 import { releaseCards } from "@/data/release";
+import { useFlix } from "@/contexts/FlixContext";
 
 interface ContainerProps {
     section: string,
@@ -14,8 +15,9 @@ interface ContainerProps {
 export default function ReleaseContainer({ section, cardPerContainer }: ContainerProps) {
     const [currentIndex, setCurrentIndex] = useState(0)
     const [cardsPerPage, setCardsPerPage] = useState(cardPerContainer);
+    const { movies } = useFlix()
     const releaseSet = new Set(releaseCards.map(item => item.tmdbId))
-    const filteredCards = cards.filter(card => releaseSet.has(card.tmdbId))
+    const filteredCards = movies.filter(card => releaseSet.has(card.tmdbId))
 
 
     useEffect(() => {

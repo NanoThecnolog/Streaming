@@ -10,7 +10,7 @@ interface HelpProps {
     handleHelpModal: () => void
     userId: string | undefined,
     tmdbId: number
-    serie?: SeriesProps
+    serie?: SeriesProps | null
     season?: number,
     episode?: number,
 }

@@ -1,12 +1,14 @@
 import { useRouter } from 'next/router'
 import styles from './styles.module.scss'
-import { series } from '@/data/series'
+//import { series } from '@/data/series'
+import { SeriesProps } from '@/@types/series'
 
 interface PrevProps {
     title: string,
     subtitle: string,
     season: number,
     episode: number
+    serie: SeriesProps | null
 }
 
 interface PrevEpisodeProps {
@@ -15,11 +17,11 @@ interface PrevEpisodeProps {
     src: string,
 }
 
-export default function PrevEpisode({ title, subtitle, season, episode }: PrevProps) {
+export default function PrevEpisode({ title, subtitle, season, episode, serie }: PrevProps) {
     const router = useRouter()
 
     function getPrevEpisode(): PrevEpisodeProps | null {
-        const serie = series.find(serie => serie.title === title && serie.subtitle === subtitle);
+        //const serie = series.find(serie => serie.title === title && serie.subtitle === subtitle);
 
         if (!serie) return null;
 
@@ -50,7 +52,8 @@ export default function PrevEpisode({ title, subtitle, season, episode }: PrevPr
             subtitle: `${subtitle}` || "",
             src: `${prevEpisode.src}`,
             episode: `${prevEpisode.episode}`,
-            season: `${prevEpisode.season}`
+            season: `${prevEpisode.season}`,
+            tmdbID: `${serie?.tmdbID}`
         });
         const play = `/watch/serie?${movie}`;
 

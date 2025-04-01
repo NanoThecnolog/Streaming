@@ -6,16 +6,17 @@ import SEO from '@/components/SEO';
 import { useFlix } from '@/contexts/FlixContext';
 import { parseCookies } from 'nookies';
 import { WatchLaterContext } from '@/@types/contexts/flixContext';
-import { cards } from '@/data/cards';
-import { series } from '@/data/series';
+//import { cards } from '@/data/cards';
+//import { series } from '@/data/series';
 import { CardsProps } from '@/@types/Cards';
 import { SeriesProps } from '@/@types/series';
 import Card from '@/components/Card';
 import CardSerie from "@/components/seriesComponents/Card";
 import Footer from '@/components/Footer';
+import { mongoService } from '@/classes/MongoContent';
 
 interface ListsProps {
-    cards: CardsProps[]
+    movies: CardsProps[]
     series: SeriesProps[]
 }
 
@@ -23,6 +24,19 @@ export default function WatchLater() {
     const { 'flix-watch': watchCookies } = parseCookies()
     const [watchListIds, setWatchListIds] = useState<WatchLaterContext[]>()
     const [list, setList] = useState<ListsProps>()
+    const { movies, series, setMovies, setSeries } = useFlix()
+
+    useEffect(() => {
+        async function getMongoData() {
+            const [movies, series] = await Promise.all([
+                mongoService.fetchMovieData(),
+                mongoService.fetchSerieData()
+            ])
+            setMovies(movies)
+            setSeries(series)
+        }
+        if (movies.length === 0 || series.length === 0) getMongoData()
+    }, [movies, series])
 
 
     useEffect(() => {
@@ -36,18 +50,14 @@ export default function WatchLater() {
             return arr.filter(item => watchListIds.some(w => w.id === item[key]))
         }
 
-        const movies = filteredList(cards, "tmdbId")
+        const movie = filteredList(movies, "tmdbId")
         const serie = filteredList(series, "tmdbID")
         setList({
-            cards: movies,
+            movies: movie,
             series: serie
         })
 
     }, [watchListIds])
-
-
-
-
     return (
         <>
             <SEO title='Minha Lista - FlixNext' description='A lista dos filmes para assistir mais tarde' />
@@ -61,7 +71,7 @@ export default function WatchLater() {
                         <h2>Filmes</h2>
                         <div className={styles.cardsContainer}>
                             {
-                                list?.cards.map(item => <Card card={item} key={item.tmdbId} />)
+                                list?.movies.map(item => <Card card={item} key={item.tmdbId} />)
                             }
                         </div>
                         <h2>Séries</h2>

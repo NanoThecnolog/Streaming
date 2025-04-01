@@ -1,10 +1,11 @@
-import { cards } from '@/data/cards'
-import { series } from '@/data/series';
+//import { cards } from '@/data/cards'
+//import { series } from '@/data/series';
 import { useState } from 'react'
 import { CiSearch } from "react-icons/ci";
 import styles from './styles.module.scss'
 import Image from 'next/image';
 import Router from 'next/router';
+import { useFlix } from '@/contexts/FlixContext';
 
 interface SearchProps {
     handleOpenModal?: () => void;
@@ -12,6 +13,7 @@ interface SearchProps {
 
 export default function Search({ handleOpenModal }: SearchProps) {
     const [inputSearch, setInputSearch] = useState<string>("")
+    const { movies, series, setMovies, setSeries } = useFlix()
 
     function handleSearch(input: string) {
         const search = new URLSearchParams({ input: input });
@@ -41,7 +43,7 @@ export default function Search({ handleOpenModal }: SearchProps) {
                     />
                     <CiSearch size={35} color="#242424" onClick={() => handleSearch(inputSearch)} />
                 </form>
-                <p className={styles.quantidades}>Atualmente temos {cards.length} filmes e {series.length} séries</p>
+                <p className={styles.quantidades}>Atualmente temos {movies.length} filmes e {series.length} séries</p>
             </div>
         </div>
     )

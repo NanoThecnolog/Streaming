@@ -1,24 +1,27 @@
 import { useRouter } from 'next/router'
 import styles from './styles.module.scss'
-import { series } from '@/data/series'
+import { SeriesProps } from '@/@types/series'
+import { debug } from '@/classes/DebugLogger'
 
 interface NextProps {
     title: string,
     subtitle: string,
     season: number,
     episode: number
+    serie: SeriesProps | null
 }
 interface NextEpisodeProps {
     season: number,
     episode: number,
     src: string,
+
 }
 
-export default function NextEpisode({ title, subtitle, season, episode }: NextProps) {
+export default function NextEpisode({ title, subtitle, season, episode, serie }: NextProps) {
     const router = useRouter()
 
     function getNextEpisode(): NextEpisodeProps | null {
-        const serie = series.find(serie => serie.title === title && serie.subtitle === subtitle)
+        debug.log(serie)
 
         if (!serie) return null
 
@@ -40,10 +43,12 @@ export default function NextEpisode({ title, subtitle, season, episode }: NextPr
             subtitle: `${subtitle}` || "",
             src: `${nextEpisode?.src}`,
             episode: `${nextEpisode?.episode}`,
-            season: `${nextEpisode?.season}`
+            season: `${nextEpisode?.season}`,
+            tmdbID: `${serie?.tmdbID}`
         });
         const play: string = `/watch/serie?${movie}`
-        router.push(play)
+        debug.log(play)
+        router.replace(play)
     }
     return (
         <>

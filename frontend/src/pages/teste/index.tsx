@@ -4,12 +4,18 @@ import styles from './styles.module.scss'
 import { debug } from '@/classes/DebugLogger'
 import { ErrorProps } from '@/services/googleCheck';
 import { useState } from 'react';
+import { mongoService } from '@/classes/MongoContent';
+import { apiManager } from '@/services/apiManager';
+import { useFlix } from '@/contexts/FlixContext';
 
 export default function TestPage() {
     const env = process.env.NEXT_PUBLIC_DEBUG
     const [errors, setErrors] = useState<ErrorProps[] | null>(null)
     const [type, setType] = useState<`movie` | `tv`>()
     const [loading, setLoading] = useState(false)
+    //const [movies, setMovies] = useState<any[]>([])
+    //const [series, setSeries] = useState<any[]>([])
+    const { movies, setMovies, series, setSeries } = useFlix()
 
     async function verify(type: 'movie' | 'tv') {
         setType(type)
@@ -37,6 +43,23 @@ export default function TestPage() {
         link.click()
         document.body.removeChild(link)
     }
+    const fetchData = async () => {
+        const results = await Promise.allSettled([
+            await mongoService.fetchMovieData(),
+            await mongoService.fetchSerieData()
+        ])
+        results.forEach((result, index) => {
+            if (result.status === 'fulfilled') {
+                const data = result.value
+                //index === 0 ? setMovies(data) : setSeries(data)
+
+                //index === 0 ? debug.log('Filmes', data) : debug.log('Series', data)
+            } else {
+                const error = result.reason
+                index === 0 ? debug.error('Erro ao buscar filme:', error) : debug.error('Erro ao buscar série', error)
+            }
+        })
+    }
 
     return (
         <div className={styles.container}>
@@ -48,6 +71,30 @@ export default function TestPage() {
                         <button onClick={() => verify(`movie`)}>{loading ? 'Testando...' : 'Testar filmes'}</button>
                         <button onClick={() => verify(`tv`)}>{loading ? 'Testando...' : 'Testar series'}</button>
                         {errors && errors.length > 0 ? <button onClick={() => downloadErrors(errors)}>baixar Erros</button> : ''}
+
+                        <button onClick={() => fetchData()}>buscar dados no banco</button>
+
+
+                        <div className={styles.mongo}>
+                            <div className={styles.mongoContainer}>
+                                <h2>Filmes</h2>
+                                {movies && movies.map((movie, index) => (
+                                    <div key={index}>
+                                        {movie.title}
+                                    </div>
+                                ))}
+
+                            </div>
+                            <div className={styles.mongoContainer}>
+                                <h2>Series</h2>
+                                {series && series.map((serie, index) => (
+                                    <div key={index}>
+                                        {serie.title} - {index}
+                                    </div>
+                                ))}
+
+                            </div>
+                        </div>
                     </>
                 }
             </div>

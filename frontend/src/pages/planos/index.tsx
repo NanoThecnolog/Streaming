@@ -3,7 +3,6 @@ import Header from "@/components/Header";
 import styles from './styles.module.scss'
 import SEO from "@/components/SEO";
 import { useEffect, useState } from "react";
-import { apiSub } from "@/services/apiSubManager";
 import { PlansProps } from "@/@types/plans";
 import { calculateDiscount, formatPrice } from "@/utils/UtilitiesFunctions";
 import { useRouter } from "next/router";
@@ -252,3 +251,5 @@ export default function Donate() {
 }
 //colocar perguntas frequêntes com informações sobre os planos
 //melhorar a propaganda
+//antes das perguntas frequentes colocar um comparativo de gasto
+// se o cliente fosse contratar todos os streamings

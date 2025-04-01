@@ -50,6 +50,7 @@ class FlixFetcher {
 
     async fetchSerieData(setSerieData: (data: TMDBSeries[]) => void, attempt: number = 1) {
         if (this.loading) return
+
         this.loading = true
         try {
             const response = await apiTMDB.get('/all/tv')

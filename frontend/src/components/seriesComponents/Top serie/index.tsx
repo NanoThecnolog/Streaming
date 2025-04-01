@@ -1,5 +1,5 @@
-import { series } from '@/data/series'
-import { FaCirclePlay, FaPlay } from "react-icons/fa6";
+//import { series } from '@/data/series'
+import { FaPlay } from "react-icons/fa6";
 import styles from './styles.module.scss'
 import { useEffect, useState } from 'react';
 import Router from 'next/router';
@@ -7,6 +7,8 @@ import Adult from '@/components/ui/Adult';
 import { useTMDB } from '@/contexts/TMDBContext';
 import NewContent from '@/components/ui/NewContent';
 import { FaInfoCircle } from 'react-icons/fa';
+import { useFlix } from "@/contexts/FlixContext";
+import { mongoService } from "@/classes/MongoContent";
 
 
 interface TopSerieProps {
@@ -20,11 +22,20 @@ interface TMDBImageProps {
 
 export default function TopSerie({ width }: TopSerieProps) {
     const [cardOn, setCardOn] = useState(0)
+    const { series, setSeries } = useFlix()
     const card = series[cardOn]
     const [fade, setFade] = useState('fadeIn')
     const [TMDBImages, setTMDBImages] = useState<TMDBImageProps>()
 
     const { serieData } = useTMDB();
+
+    useEffect(() => {
+        async function getSeriesMongoData() {
+            const mongoSeries = await mongoService.fetchSerieData()
+            setSeries(mongoSeries)
+        }
+        if (series.length === 0) getSeriesMongoData()
+    }, [series])
 
 
     useEffect(() => {

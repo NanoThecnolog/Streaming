@@ -6,10 +6,11 @@ import Card from '../Card';
 import styles from './styles.module.scss'
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
 import { useEffect, useRef, useState } from 'react';
-import { cards } from '@/data/cards';
+//import { cards } from '@/data/cards';
 import { shuffle } from '@/utils/UtilitiesFunctions';
-import { series } from '@/data/series';
+//import { series } from '@/data/series';
 import { SeriesProps } from '@/@types/series';
+import { useFlix } from '@/contexts/FlixContext';
 
 interface CarouselProps {
     //cards: CardsProps[],
@@ -20,6 +21,7 @@ interface CarouselProps {
 
 export default function Carousel({ type, section, cardPerContainer }: CarouselProps) {
     const [filter, setFilter] = useState<(CardsProps | SeriesProps)[]>([])
+    const { movies, series } = useFlix()
 
     const swiperRef = useRef<any>(null)
     const prevRef = useRef<any>(null)
@@ -32,8 +34,7 @@ export default function Carousel({ type, section, cardPerContainer }: CarouselPr
     };
 
     useEffect(() => {
-        //const filtered = filterCards(type === 'movie' ? cards as CardsProps[] : series as SeriesProps[], section)
-        const filter = type === 'movie' ? cards.filter(card => card.genero.some(gen => gen.toLowerCase() === section?.toLowerCase())) : series.filter(card => card.genero.some(gen => gen.toLowerCase() === section?.toLowerCase()))
+        const filter = type === 'movie' ? movies.filter(card => card.genero.some(gen => gen.toLowerCase() === section?.toLowerCase())) : series.filter(card => card.genero.some(gen => gen.toLowerCase() === section?.toLowerCase()))
         let shuffled: CardsProps[] | SeriesProps[];
         if (type === 'movie') shuffled = shuffle(filter as CardsProps[])
         else shuffled = shuffle(filter as SeriesProps[])

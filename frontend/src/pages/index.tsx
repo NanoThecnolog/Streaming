@@ -7,8 +7,6 @@ import styles from "@/styles/Home.module.scss";
 import Search from "@/components/Searching";
 import SEO from "@/components/SEO";
 import { useTMDB } from "@/contexts/TMDBContext";
-import { apiTMDB } from "@/services/apiTMDB";
-import { MovieTMDB } from "@/@types/Cards";
 import Loading from "@/components/ui/Loading";
 import { agp, gen } from "@/utils/Genres";
 import BackTopButton from "@/components/ui/BackToTop";
@@ -16,6 +14,8 @@ import debounce from "lodash.debounce";
 import Carousel from "@/components/Carousel";
 import { breakpoints } from "@/utils/Variaveis";
 import { flixFetcher } from "@/classes/Flixclass";
+import { mongoService } from "@/classes/MongoContent";
+import { useFlix } from "@/contexts/FlixContext";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -28,14 +28,21 @@ export default function Home() {
   const agrupadores = Object.values(agp);
   const combined = [...generos, ...agrupadores.filter(item => removedSections.includes(item))];
   const divisaoPorGenero = combined
-  const { allData, setAllData, setSerieData } = useTMDB()
+  const { allData, setAllData } = useTMDB()
   const [loading, setLoading] = useState(false)
   const [visible, setvisible] = useState(false)
+  const { movies, setMovies } = useFlix()
+
+  useEffect(() => {
+    async function fetchMoviesMongoDB() {
+      const response = await mongoService.fetchMovieData()
+      if (response.length > 0) setMovies(response)
+    }
+    if (movies.length === 0) fetchMoviesMongoDB()
+  }, [movies])
 
 
   useEffect(() => {
-
-
     if (allData.length > 0) return
     flixFetcher.fetchMovieData(setAllData)
   }, [setAllData])
@@ -83,7 +90,7 @@ export default function Home() {
             <Header />
             <main className={`${styles.main} ${inter.className}`}>
               <div className={styles.content}>
-                <Top width={width} />
+                <Top width={width} cards={movies} />
                 <div className={styles.mid} id="filmes">
                   {
                     //<ReleaseContainer section="lançamentos" cardPerContainer={cardPerContainer} />

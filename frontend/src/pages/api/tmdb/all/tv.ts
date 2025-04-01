@@ -1,4 +1,5 @@
-import { series } from "@/data/series";
+//import { series } from "@/data/series";
+import { mongoService } from "@/classes/MongoContent";
 import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
 
@@ -45,17 +46,24 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     res.setHeader('Cache-Control', 's-maxage=18000, stale-while-revalidate=300')
 
     try {
-        const cardData = await Promise.all(series.map(async card => fetchCardData(card.tmdbID, max_tentativas)))
+        const mongoData = await mongoService.fetchSerieData()
+        if (mongoData.length > 0) {
+            const cardData = await Promise.all(mongoData.map(async card => fetchCardData(card.tmdbID, max_tentativas)))
 
-        const successFulData = cardData.filter((result) => result.success).map((result) => result.data)
-        const errorData = cardData.filter((result) => !result.success)
-        return res.status(200).json({
-            success: true,
-            data: successFulData,
-            errors: errorData
-        });
+            const successFulData = cardData
+                .filter((result) => result.success)
+                .map((result) => result.data)
+            const errorData = cardData
+                .filter((result) => !result.success)
+            return res.status(200).json({
+                success: true,
+                data: successFulData,
+                errors: errorData
+            });
+        }
+
     } catch (err) {
-        console.error("Erro ao buscar dados do TMDB:", err);
-        return res.status(500).json({ error: "Error fetching data from TMDB", details: err });
+        console.error("Erro ao buscar dados:", err);
+        return res.status(500).json({ error: "Error fetching data", details: err });
     }
 }

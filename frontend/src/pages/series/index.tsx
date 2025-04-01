@@ -13,7 +13,9 @@ import BackTopButton from "@/components/ui/BackToTop";
 import Carousel from "@/components/Carousel";
 import { breakpoints } from "@/utils/Variaveis";
 import { flixFetcher } from "@/classes/Flixclass";
-
+import { SeriesProps } from "@/@types/series";
+import { mongoService } from "@/classes/MongoContent";
+import { useFlix } from "@/contexts/FlixContext";
 
 export default function Series() {
     //refatorar
@@ -24,31 +26,18 @@ export default function Series() {
     const combined = [...streamings, ...genres]
     const removedSections = ["Romance", "Terror", "Globo Play", "Paramount", "StarZ", "SKY"]
     const divisaoPorGenero = combined.filter(item => !removedSections.includes(item))
-    const [loading, setLoading] = useState(false)
+    //const [loading, setLoading] = useState(false)
     const { serieData, setSerieData } = useTMDB()
     const [visible, setvisible] = useState(false)
+    const { series, setSeries } = useFlix()
 
-
-    /*useEffect(() => {
-        /**
-         * Realiza a busca dos dados no TMDB e salva no context.
-         * @returns não retorna dado nenhum
-         */
-    /*const fetchData = async () => {
-        if (loading || serieData.length > 0) return
-        setLoading(true)
-        try {
-            const response = await apiTMDB.get('/all/tv')
-            const cardData = response.data.data as TMDBSeries[]
-            setSerieData(cardData)
-        } catch (err) {
-            console.log(err)
-        } finally {
-            setLoading(false)
+    useEffect(() => {
+        async function fetchSeriesMongoDB() {
+            const response: SeriesProps[] = await mongoService.fetchSerieData()
+            if (response.length > 0) setSeries(response)
         }
-    }
-    fetchData()
-}, [serieData.length, setSerieData])*/
+        if (series.length === 0) fetchSeriesMongoDB()
+    }, [series])
 
     useEffect(() => {
         if (serieData.length > 0) return
@@ -123,12 +112,7 @@ export default function Series() {
                                     {divisaoPorGenero.map((sec, index) => (
                                         <div key={sec}>
                                             {
-                                                /*<CardSerieContainer
-                                                section={sec}
-                                                cardPerContainer={cardPerContainer}
-                                            />*/}
-                                            {
-                                                index === 4 && cardPerContainer >= 2 && <Search />
+                                                index === 5 && cardPerContainer >= 2 && <Search />
                                             }
                                             <Carousel type="tv" section={sec} cardPerContainer={cardPerContainer} />
                                         </div>
