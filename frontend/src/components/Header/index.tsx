@@ -18,6 +18,7 @@ import { fuseConfig } from "@/utils/Variaveis";
 import { debug } from "@/classes/DebugLogger";
 import { apiSub } from "@/services/apiSubManager";
 import { apiEmail } from "@/services/apiMessenger";
+import { apiManager } from "@/services/apiManager";
 
 export default function Header() {
     //refatorar esse componente
@@ -69,10 +70,11 @@ export default function Header() {
             const responses = await Promise.allSettled([
                 api.get('/acordar'),
                 apiSub.get('/'),
-                apiEmail.get('/')
+                apiEmail.get('/'),
+                apiManager.get('/')
             ]);
 
-            const [acordar, acordarManager, acordarMensageria] = responses;
+            const [acordar, acordarManager, acordarMensageria, acordarContentManager] = responses;
 
             //debug.log(acordarMensageria);
 
@@ -82,13 +84,16 @@ export default function Header() {
                 acordarManager.status === "fulfilled" &&
                 acordarManager.value.data.code === 200 &&
                 acordarMensageria.status === "fulfilled" &&
-                acordarMensageria.value.data.code === 200
+                acordarMensageria.value.data.code === 200 &&
+                acordarContentManager.status === 'fulfilled' //&&
+                //acordarContentManager.value.data.code === 200
             ) {
                 setServerWake(true);
                 debug.table({
                     Backend: acordar.value.data.status,
                     SubManager: acordarManager.value.data.message,
-                    Mensageria: acordarMensageria.value.data.data.message
+                    Mensageria: acordarMensageria.value.data.data.message,
+                    //content: acordarContentManager.value.data.message
                 });
             } else {
                 setServerWake(false);

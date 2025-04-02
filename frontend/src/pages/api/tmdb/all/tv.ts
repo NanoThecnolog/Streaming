@@ -43,10 +43,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (!tmdbToken) {
         return res.status(500).json({ error: "TMDB token is missing" });
     }
+    const mongoData = await mongoService.fetchSerieData()
     res.setHeader('Cache-Control', 's-maxage=18000, stale-while-revalidate=300')
 
     try {
-        const mongoData = await mongoService.fetchSerieData()
+
         if (mongoData.length > 0) {
             const cardData = await Promise.all(mongoData.map(async card => fetchCardData(card.tmdbID, max_tentativas)))
 
