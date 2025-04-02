@@ -55,7 +55,7 @@ export default function TopSerie({ width }: TopSerieProps) {
             const posterUrl = `https://image.tmdb.org/t/p/original${data.poster_path}`;
             setTMDBImages({ backdrop: backdropUrl, poster: posterUrl })
         }
-    }, [serieData, cardOn, card.tmdbID])
+    }, [serieData, cardOn, card])
     function handleEpisodes(tmdbId: number) {
         Router.push(`/series/serie/${tmdbId}`)
     }
@@ -72,7 +72,10 @@ export default function TopSerie({ width }: TopSerieProps) {
         Router.push(play)
     }
     const getBackgroundImage = () => {
-        return width && width <= 780
+        if (!series || series.length === 0) return width && width <= 780
+            ? TMDBImages?.poster ?? '/fundo-alto.jpg'
+            : TMDBImages?.backdrop ?? '/fundo-largo.jpg'
+        else return width && width <= 780
             ? TMDBImages?.poster ?? card.overlay
             : TMDBImages?.backdrop ?? card.background
     }

@@ -1,11 +1,12 @@
 //import { cards } from '@/data/cards'
 //import { series } from '@/data/series';
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CiSearch } from "react-icons/ci";
 import styles from './styles.module.scss'
 import Image from 'next/image';
 import Router from 'next/router';
 import { useFlix } from '@/contexts/FlixContext';
+import { mongoService } from '@/classes/MongoContent';
 
 interface SearchProps {
     handleOpenModal?: () => void;
@@ -19,6 +20,17 @@ export default function Search({ handleOpenModal }: SearchProps) {
         const search = new URLSearchParams({ input: input });
         Router.push(`/search?${search.toString()}`);
     }
+    useEffect(() => {
+        async function handleMongoData() {
+            const [movie, serie] = await Promise.all([
+                mongoService.fetchMovieData(),
+                mongoService.fetchSerieData()
+            ])
+            if (movies.length === 0) setMovies(movie)
+            if (series.length === 0) setSeries(serie)
+        }
+        if (movies.length === 0 || series.length === 0) handleMongoData()
+    }, [movies, series])
     return (
         <div className={styles.search_area}>
             <Image

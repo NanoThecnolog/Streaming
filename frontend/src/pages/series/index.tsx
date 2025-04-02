@@ -107,17 +107,22 @@ export default function Series() {
                         <Header />
                         <main className={styles.main} id="series">
                             <div className={styles.content}>
-                                <TopSerie width={width} />
-                                <div className={styles.mid}>
-                                    {divisaoPorGenero.map((sec, index) => (
-                                        <div key={sec}>
-                                            {
-                                                index === 5 && cardPerContainer >= 2 && <Search />
-                                            }
-                                            <Carousel type="tv" section={sec} cardPerContainer={cardPerContainer} />
+                                {
+                                    series && series.length > 0 &&
+                                    <>
+                                        <TopSerie width={width} />
+                                        <div className={styles.mid}>
+                                            {divisaoPorGenero.map((sec, index) => (
+                                                <div key={sec}>
+                                                    {
+                                                        index === 5 && cardPerContainer >= 2 && <Search />
+                                                    }
+                                                    <Carousel type="tv" section={sec} cardPerContainer={cardPerContainer} />
+                                                </div>
+                                            ))}
                                         </div>
-                                    ))}
-                                </div>
+                                    </>
+                                }
                             </div>
                             <BackTopButton visible={visible} link="/series/#series" />
                         </main>

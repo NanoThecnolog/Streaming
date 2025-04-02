@@ -10,6 +10,7 @@ import Adult from '../ui/Adult';
 import { useTMDB } from '@/contexts/TMDBContext';
 import { fetchTMDBBackDrop, fetchTMDBMovie, fetchTMDBPoster } from '@/services/fetchTMDBData';
 import { useFlix } from '@/contexts/FlixContext';
+import { mongoService } from '@/classes/MongoContent';
 
 interface TopProps {
     width?: number
@@ -19,7 +20,7 @@ interface TopProps {
 export default function Top({ width, cards }: TopProps) {
     const router = useRouter()
     const [cardOn, setCardOn] = useState(0)
-    const { movies } = useFlix()
+    const { movies, setMovies } = useFlix()
     const card = cards[cardOn]
     //const releaseSet = new Set(releaseCards.map(item => item.tmdbId))
     //const release = cards.filter(card => releaseSet.has(card.tmdbId))
@@ -31,6 +32,14 @@ export default function Top({ width, cards }: TopProps) {
     })
     const { allData } = useTMDB()
     const [TMDBMovie, setTMDBMovie] = useState<MovieTMDB | null>(null)
+
+    useEffect(() => {
+        async function getMoviesMongoData() {
+            const mongoMovies = await mongoService.fetchMovieData()
+            setMovies(mongoMovies)
+        }
+        if (movies.length === 0) getMoviesMongoData()
+    }, [movies])
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -70,7 +79,10 @@ export default function Top({ width, cards }: TopProps) {
     }, [allData, cardOn, card])
 
     const getBackgroundImage = () => {
-        return width && width <= 980
+        if (!cards || cards.length === 0) return width && width <= 780
+            ? TMDBImages?.poster ?? '/fundo-alto.jpg'
+            : TMDBImages?.backdrop ?? '/fundo-largo.jpg'
+        else return width && width <= 980
             ? TMDBImages.poster ?? card.overlay
             : TMDBImages.backdrop ?? card.background
     }

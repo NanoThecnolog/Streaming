@@ -90,28 +90,34 @@ export default function Home() {
             <Header />
             <main className={`${styles.main} ${inter.className}`}>
               <div className={styles.content}>
-                <Top width={width} cards={movies} />
-                <div className={styles.mid} id="filmes">
-                  {
-                    //<ReleaseContainer section="lançamentos" cardPerContainer={cardPerContainer} />
-                  }
-                  {
-                    divisaoPorGenero.map((sec, index) => {
-                      return (
-                        <div key={index}>
-                          {/*<CardContainer
+                {movies && movies.length > 0 &&
+                  <>
+                    <Top width={width} cards={movies} />
+                    <div className={styles.mid} id="filmes">
+                      {
+                        //<ReleaseContainer section="lançamentos" cardPerContainer={cardPerContainer} />
+                      }
+                      {
+                        divisaoPorGenero.map((sec, index) => {
+                          return (
+                            <div key={index}>
+                              {/*<CardContainer
                             section={sec}
                             cardPerContainer={cardPerContainer}
                           />*/}
-                          {
-                            index === 3 && cardPerContainer >= 2 && <Search />
-                          }
-                          <Carousel type="movie" section={sec} cardPerContainer={cardPerContainer} />
-                        </div>
-                      )
-                    })}
+                              {
+                                index === 3 && cardPerContainer >= 2 && <Search />
+                              }
+                              <Carousel type="movie" section={sec} cardPerContainer={cardPerContainer} />
+                            </div>
+                          )
+                        })}
 
-                </div>
+                    </div>
+                  </>
+
+                }
+
               </div>
               <BackTopButton link="/#inicio" visible={visible} />
             </main>

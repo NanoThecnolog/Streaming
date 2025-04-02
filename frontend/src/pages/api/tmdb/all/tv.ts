@@ -1,4 +1,5 @@
 //import { series } from "@/data/series";
+import { debug } from "@/classes/DebugLogger";
 import { mongoService } from "@/classes/MongoContent";
 import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
@@ -44,6 +45,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(500).json({ error: "TMDB token is missing" });
     }
     const mongoData = await mongoService.fetchSerieData()
+    //debug.log('MongoData serie: ', mongoData)
     res.setHeader('Cache-Control', 's-maxage=18000, stale-while-revalidate=300')
 
     try {
