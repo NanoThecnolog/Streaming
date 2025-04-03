@@ -5,8 +5,9 @@ import { debug } from '@/classes/DebugLogger'
 import { ErrorProps } from '@/services/googleCheck';
 import { useState } from 'react';
 import { mongoService } from '@/classes/MongoContent';
-import { apiManager } from '@/services/apiManager';
 import { useFlix } from '@/contexts/FlixContext';
+import { CardsProps } from '@/@types/Cards';
+import { SeriesProps } from '@/@types/series';
 
 export default function TestPage() {
     const env = process.env.NEXT_PUBLIC_DEBUG
@@ -51,7 +52,8 @@ export default function TestPage() {
         results.forEach((result, index) => {
             if (result.status === 'fulfilled') {
                 const data = result.value
-                //index === 0 ? setMovies(data) : setSeries(data)
+
+                index === 0 ? setMovies(data as CardsProps[]) : setSeries(data as SeriesProps[])
 
                 //index === 0 ? debug.log('Filmes', data) : debug.log('Series', data)
             } else {
@@ -74,11 +76,10 @@ export default function TestPage() {
 
                         <button onClick={() => fetchData()}>buscar dados no banco</button>
 
-
                         <div className={styles.mongo}>
                             <div className={styles.mongoContainer}>
                                 <h2>Filmes</h2>
-                                {movies && movies.map((movie, index) => (
+                                {movies && movies.sort((a, b) => b.index - a.index).map((movie, index) => (
                                     <div key={index}>
                                         {movie.title}
                                     </div>
@@ -87,9 +88,9 @@ export default function TestPage() {
                             </div>
                             <div className={styles.mongoContainer}>
                                 <h2>Series</h2>
-                                {series && series.map((serie, index) => (
+                                {series && series.sort((a, b) => b.index - a.index).map((serie, index) => (
                                     <div key={index}>
-                                        {serie.title} - {index}
+                                        {serie.title}
                                     </div>
                                 ))}
 

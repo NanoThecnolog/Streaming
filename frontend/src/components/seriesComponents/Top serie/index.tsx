@@ -9,6 +9,7 @@ import NewContent from '@/components/ui/NewContent';
 import { FaInfoCircle } from 'react-icons/fa';
 import { useFlix } from "@/contexts/FlixContext";
 import { mongoService } from "@/classes/MongoContent";
+import { debug } from "@/classes/DebugLogger";
 
 
 interface TopSerieProps {
@@ -23,7 +24,7 @@ interface TMDBImageProps {
 export default function TopSerie({ width }: TopSerieProps) {
     const [cardOn, setCardOn] = useState(0)
     const { series, setSeries } = useFlix()
-    const card = series[cardOn]
+    const card = series.sort((a, b) => b.index - a.index)[cardOn]
     const [fade, setFade] = useState('fadeIn')
     const [TMDBImages, setTMDBImages] = useState<TMDBImageProps>()
 
@@ -72,12 +73,17 @@ export default function TopSerie({ width }: TopSerieProps) {
         Router.push(play)
     }
     const getBackgroundImage = () => {
-        if (!series || series.length === 0) return width && width <= 780
-            ? TMDBImages?.poster ?? '/fundo-alto.jpg'
-            : TMDBImages?.backdrop ?? '/fundo-largo.jpg'
-        else return width && width <= 780
-            ? TMDBImages?.poster ?? card.overlay
-            : TMDBImages?.backdrop ?? card.background
+        if (!series || series.length === 0) {
+            debug.log('if')
+            return width && width <= 780
+                ? TMDBImages?.poster ?? '/fundo-alto.jpg'
+                : TMDBImages?.backdrop ?? '/fundo-largo.jpg'
+        } else {
+            debug.log('else')
+            return width && width <= 780
+                ? TMDBImages?.poster ?? card.overlay
+                : TMDBImages?.backdrop ?? card.background
+        }
     }
 
     return (

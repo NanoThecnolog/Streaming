@@ -182,13 +182,14 @@ export default function Movie() {
                         {!loading ?
                             <div
                                 className={styles.imageContainer}
-                                style={{ backgroundImage: `url(${tmdbData ? `https://image.tmdb.org/t/p/original/${showPoster ? tmdbData.poster_path : tmdbData.backdrop_path}` : movie ? movie.background : "/fundo-largo.jpg"})` }}
+                                style={{ backgroundImage: `url(${tmdbData ? `https://image.tmdb.org/t/p/original${showPoster ? tmdbData.poster_path : tmdbData.backdrop_path}` : movie ? movie.background : "/fundo-largo.jpg"})` }}
                             ></div>
                             :
                             <div className={styles.loading}>
                                 <div className={styles.loadingContainer}><Spinner /></div>
                             </div>
                         }
+
                         <div className={styles.coverContainer}>
                         </div>
                         <div className={`${styles.content} ${loading ? styles.loading : ""}`}>
