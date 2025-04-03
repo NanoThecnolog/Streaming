@@ -84,13 +84,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (!tmdbToken) {
         return res.status(500).json({ error: "TMDB token is missing" });
     }
-    const mongoData = await mongoService.fetchMovieData()
+
     //debug.log('MongoData movie: ', mongoData)
     res.setHeader('Cache-Control', 's-maxage=18000, stale-while-revalidate=300')
     debug.log("Rota sendo chamada")
 
     try {
         debug.log("Inciando fetch de dados")
+        const mongoData = await mongoService.fetchMovieData()
 
         if (mongoData.length > 0) {
             const cardData = await fetchInBatches(mongoData, batchSize)
