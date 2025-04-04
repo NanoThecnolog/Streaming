@@ -6,6 +6,7 @@ import TVDash from '@/components/dashboard/Tv'
 import { useFlix } from '@/contexts/FlixContext'
 import { useRouter } from 'next/router'
 import { parseCookies } from 'nookies'
+import { debug } from '@/classes/DebugLogger'
 
 export default function Dashboard() {
     const router = useRouter()
@@ -24,7 +25,9 @@ export default function Dashboard() {
     useEffect(() => {
         if (user) {
             const access = user.access
-            if (!access) router.push('/')
+            debug.log('acesso: ', access)
+            debug.log(user)
+            //if (!access) router.push('/login')
         }
     }, [user])
 

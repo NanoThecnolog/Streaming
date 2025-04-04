@@ -44,7 +44,9 @@ export default function Put() {
         if (loading) return debug.log('calma q ta indo')
         setLoading(true)
         try {
-            const response = await mongoService.updateMovie(movieData)
+            debug.log("movie data", movieData)
+            if (!id) return toast.warning('tmdbid tá vazio, dá uma conferida meu nobre')
+            const response = await mongoService.updateMovie(id, movieData)
             debug.log(response)
             toast.success("Filme Editado!")
         } catch (err) {
@@ -56,9 +58,10 @@ export default function Put() {
     function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
         if (!movieData) return
         const { name, value } = e.target
+
         setMovieData(prev => ({
             ...prev,
-            [name]: value,
+            [name]: name === 'tmdbId' ? parseInt(value) : value,
         }))
 
     }

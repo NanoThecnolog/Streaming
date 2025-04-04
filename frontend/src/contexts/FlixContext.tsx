@@ -2,6 +2,7 @@ import { CardsProps } from "@/@types/Cards";
 import { ContextProps, ContextProviderProps, FavoritesContext, SignInProps, WatchLaterContext } from "@/@types/contexts/flixContext";
 import { SeriesProps } from "@/@types/series";
 import { UserContext, UserProps } from "@/@types/user";
+import { debug } from "@/classes/DebugLogger";
 import { api } from "@/services/api";
 import { cookieOptions } from "@/utils/Variaveis";
 import Router from "next/router";
@@ -37,7 +38,7 @@ export function FlixProvider({ children }: ContextProviderProps) {
                 password
             })
 
-            const { avatar, birthday, id, name, token, news, verified, myList, favoritos, createdAt } = response.data
+            const { avatar, birthday, id, name, token, news, verified, myList, access, favoritos, createdAt } = response.data
 
             if (!response.data.verified) {
                 alert(
@@ -48,6 +49,8 @@ export function FlixProvider({ children }: ContextProviderProps) {
                 );
                 return;
             }
+
+            debug.log('acesso na função de sign: ', access)
 
             const favoriteIds = favoritos.map(item => ({ id: item.tmdbid }))
             const watchLaterIds = myList.map(item => ({ id: item.tmdbid }))
@@ -73,6 +76,7 @@ export function FlixProvider({ children }: ContextProviderProps) {
                 birthday,
                 news,
                 verified,
+                access,
                 createdAt
             }
             destroyCookie(null, 'flix-user')

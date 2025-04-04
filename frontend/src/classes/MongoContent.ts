@@ -60,9 +60,9 @@ class MongoContentService {
             return null
         }
     }
-    async updateMovie(movie: any): Promise<CardsProps | null> {
+    async updateMovie(id: number, movie: any): Promise<CardsProps | null> {
         try {
-            const response = await apiManager.put(`/movie/${movie.tmdbId}`, movie)
+            const response = await apiManager.put(`/movie/${id}`, movie)
             const data: CardsProps = response.data
             return data
         } catch (err) {
