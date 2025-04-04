@@ -1,11 +1,32 @@
 import Header from '@/components/Header'
 import styles from './styles.module.scss'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import MovieDash from '@/components/dashboard/Movie'
 import TVDash from '@/components/dashboard/Tv'
+import { useFlix } from '@/contexts/FlixContext'
+import { useRouter } from 'next/router'
+import { parseCookies } from 'nookies'
 
 export default function Dashboard() {
+    const router = useRouter()
+    const { user, setUser } = useFlix()
     const [type, setType] = useState<string>('')
+    useEffect(() => {
+        if (!user) {
+            const { 'flix-user': userCookie } = parseCookies()
+            if (!userCookie) {
+                router.push('/login')
+                return
+            }
+            setUser(JSON.parse(userCookie))
+        }
+    }, [])
+    useEffect(() => {
+        if (user) {
+            const access = user.access
+            if (!access) router.push('/')
+        }
+    }, [user])
 
     function ComponentToShow() {
         if (type === 'movie') {
@@ -32,8 +53,6 @@ export default function Dashboard() {
                         {ComponentToShow()}
                     </section>
                 </article>
-
-
             </main>
         </>
     )

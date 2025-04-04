@@ -23,7 +23,8 @@ export interface UserContext {
     birthday: Date,
     news: boolean,
     verified: boolean,
-    createdAt: Date
+    createdAt: Date,
+    access: boolean
 }
 
 export interface MyListPorps {

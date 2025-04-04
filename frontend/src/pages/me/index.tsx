@@ -2,17 +2,13 @@ import Header from "@/components/Header";
 import styles from './styles.module.scss'
 import Footer from "@/components/Footer";
 import { useEffect, useState } from "react";
-import { updateUserCookie } from "@/services/cookieClient";
 import { UserContext } from "@/@types/user";
 import Image from "next/image";
 import { BiSolidEditAlt } from "react-icons/bi";
 import Qrcode from "@/components/Qrcode";
 import Avatar from "@/components/modals/Avatar";
-import { SeriesProps } from "@/@types/series";
-import { CardsProps } from "@/@types/Cards";
 import EditarDados from "@/components/modals/EditarDados";
 import { FaUserCircle } from "react-icons/fa";
-import { WatchLaterProps } from "@/@types/watchLater";
 import SEO from "@/components/SEO";
 import Switch from "@/components/ui/Switch";
 import { toast } from "react-toastify";
@@ -21,7 +17,6 @@ import { useFlix } from "@/contexts/FlixContext";
 import { destroyCookie, parseCookies, setCookie } from "nookies";
 import { useRouter } from "next/router";
 import { cookieOptions } from "@/utils/Variaveis";
-import { addWatchLater } from "@/services/handleWatchLater";
 import SubConfig from "@/components/ui/SubConfig";
 import { formatedDate } from "@/utils/UtilitiesFunctions";
 
