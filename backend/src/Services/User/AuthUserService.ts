@@ -46,6 +46,7 @@ class AuthUserService {
             favoritos: favoriteList,
             news: userExiste.news,
             token: token,
+            access: userExiste.access,
             createdAt: userExiste.created_at
         }
     }
