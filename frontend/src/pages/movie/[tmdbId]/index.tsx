@@ -174,7 +174,7 @@ export default function Movie() {
     }
     return (
         <>
-            <SEO description={tmdbData ? tmdbData.overview : ""} title={`${movie ? movie.title : ""} - FlixNext`} />
+            <SEO description={tmdbData ? tmdbData.overview : ""} title={`${movie ? movie.title : ""} - FlixNext`} url={`https://flixnext.com.br/movie/${tmdbId}`} image={`https://image.tmdb.org/t/p/w500${tmdbData?.backdrop_path}`} />
             <Header />
             {
                 movie ? (

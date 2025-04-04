@@ -83,7 +83,12 @@ export default function Home() {
 
   return (
     <>
-      <SEO title="FlixNext - Início" description="Um Streaming nunca antes visto porque é novo." />
+      <SEO
+        title="FlixNext - Início"
+        description="Um Streaming nunca antes visto porque é novo."
+        image="https://flixnext.com.br/blurImage.png"
+        url="https://flixnext.com.br"
+      />
       {
         allData.length > 0 ?
           <>

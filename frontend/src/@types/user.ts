@@ -9,6 +9,7 @@ export interface UserProps {
     verified: boolean,
     birthday: Date,
     news: boolean,
+    access: boolean,
     myList: MyListPorps[]
     favoritos: ListaFavoritos[]
     createdAt: Date

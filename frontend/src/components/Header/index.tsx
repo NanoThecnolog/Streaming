@@ -11,14 +11,16 @@ import { useFlix } from "@/contexts/FlixContext";
 import { parseCookies } from "nookies";
 import { IoAddCircle, IoCreate } from "react-icons/io5";
 import Fuse from 'fuse.js'
-import { CardsProps } from "@/@types/Cards";
+import { CardsProps, MovieTMDB } from "@/@types/Cards";
 import debounce from "lodash.debounce";
-import { SeriesProps } from "@/@types/series";
+import { SeriesProps, TMDBSeries } from "@/@types/series";
 import { fuseConfig } from "@/utils/Variaveis";
 import { debug } from "@/classes/DebugLogger";
 import { apiSub } from "@/services/apiSubManager";
 import { apiEmail } from "@/services/apiMessenger";
 import { apiManager } from "@/services/apiManager";
+import { tmdb } from "@/classes/TMDB";
+import { useTMDB } from "@/contexts/TMDBContext";
 
 export default function Header() {
     //refatorar esse componente
@@ -31,6 +33,7 @@ export default function Header() {
     const [searchMobileVisible, setSearchMobileVisible] = useState<boolean>(false)
     const [serverWake, setServerWake] = useState<boolean>(false)
     const { user, setUser, signOut } = useFlix()
+    const { allData, serieData } = useTMDB()
     const [initial, setInitial] = useState("-")
     //const [config, setConfig] = useState<{ dados: any[], chaves: string[], taxa: number } | null>(null)
     const [fuse, setFuse] = useState<Fuse<any> | null>(null)
@@ -182,7 +185,40 @@ export default function Header() {
                     />
                     {relatedSearch.length > 0 &&
                         <ul className={styles.relatedUi}>
-                            {relatedSearch.map((card, index) => <li style={{ cursor: loading ? "progress" : "pointer" }} key={index} onClick={() => handleRelatedSearchClick(card)}><CiSearch size={20} /> {card.title} {card.subtitle ? `- ${card.subtitle}` : ""}</li>)}
+                            {relatedSearch.map((card, index) => {
+                                let tmdbData: MovieTMDB | TMDBSeries | null;
+                                if ('tmdbId' in card) {
+                                    tmdbData = allData.find((db) => card.tmdbId === db.id) || null
+                                } else {
+                                    tmdbData = serieData.find((db) => card.tmdbID === db.id) || null
+                                }
+                                return (
+                                    <>
+                                        <li style={{ cursor: loading ? "progress" : "pointer" }}
+                                            key={index}
+                                            onClick={() => handleRelatedSearchClick(card)}
+                                        >
+                                            {/*<CiSearch size={20} />*/}
+                                            <div className={styles.item}>
+                                                {tmdbData ? <img
+                                                    src={`https://image.tmdb.org/t/p/w400${tmdbData.poster_path}`}
+                                                    alt="Poster"
+                                                    className={styles.imgSearch}
+                                                />
+                                                    : <span>Imagem Indisponível</span>
+                                                }
+                                                <h4>
+                                                    {card.title} {card.subtitle ? `- ${card.subtitle}` : ""}
+                                                </h4>
+                                            </div>
+                                            <div className={styles.divider}></div>
+                                        </li>
+
+                                    </>
+                                )
+                            }
+
+                            )}
                         </ul>
                     }
 
@@ -190,7 +226,6 @@ export default function Header() {
                         <h2><CiSearch size={35} color="#fff" /></h2>
                     </div>
                 </form>
-
             </div>
             <div className={styles.right_nav}>
                 <div className={styles.status}>

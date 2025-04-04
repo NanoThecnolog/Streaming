@@ -2,6 +2,7 @@ import { apiManager } from "@/services/apiManager";
 import { debug } from "./DebugLogger";
 import { CardsProps } from "@/@types/Cards";
 import { SeriesProps } from "@/@types/series";
+import { MovieProps } from "@/components/dashboard/Movie/Create";
 
 class MongoContentService {
     constructor() { }
@@ -42,6 +43,27 @@ class MongoContentService {
         try {
             const response = await apiManager.get(`/serie/tmdbid/${id}`)
             const data: SeriesProps = response.data
+            return data
+        } catch (err) {
+            debug.error(err)
+            return null
+        }
+    }
+    async createMovie(movie: MovieProps): Promise<CardsProps | null> {
+        try {
+            //debug.log(data)
+            const response = await apiManager.post('/movie', movie)
+            const data: CardsProps = response.data
+            return data
+        } catch (err) {
+            debug.error(err)
+            return null
+        }
+    }
+    async updateMovie(movie: any): Promise<CardsProps | null> {
+        try {
+            const response = await apiManager.put(`/movie/${movie.tmdbId}`, movie)
+            const data: CardsProps = response.data
             return data
         } catch (err) {
             debug.error(err)
