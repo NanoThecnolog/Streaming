@@ -1,0 +1,169 @@
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .formRow {
+        display: flex;
+        gap: 20px;
+
+        .formItem {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            input {
+                width: 500px;
+                height: 25px;
+                background-color: var(--background-gray-light);
+                color: var(--white);
+            }
+
+            textarea {
+                width: 500px;
+                padding: 5px;
+                border-radius: .4rem;
+                background-color: var(--background-gray-light);
+                color: var(--white);
+            }
+
+            select {
+                width: 200px;
+                height: 400px;
+                border-radius: .4rem;
+                background-color: var(--background-gray-light);
+                color: var(--white);
+                border: 2px solid var(--white);
+
+                option {
+                    padding: 5px;
+                    outline: 1px solid rgba(255, 255, 255, 0.39);
+                }
+            }
+
+            .selectFaixa {
+                width: 80px;
+                height: 40px;
+                padding: 5px;
+            }
+
+            .chosenFaixa {
+                padding: 15px 0;
+            }
+
+            .duration {
+                width: 80px;
+            }
+
+            .tmdbid::-webkit-inner-spin-button,
+            .tmdbid::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                appearance: none;
+                margin: 0;
+            }
+
+            .tmdbid {
+                -moz-appearance: textfield;
+                appearance: textfield;
+                width: 80px;
+            }
+
+            .seasonForm {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                .seasonNumber {
+                    -moz-appearance: textfield;
+                    appearance: textfield;
+                    width: 50px;
+                    height: 25px;
+                    background-color: var(--background-gray-light);
+                    color: var(--white);
+
+                    &::-webkit-inner-spin-button,
+                    &::-webkit-outer-spin-button {
+                        -webkit-appearance: none;
+                        appearance: none;
+                        margin: 0;
+                    }
+                }
+
+                .seasonLang {
+                    width: 100px;
+                    height: 35px;
+                    border: none;
+                }
+
+                .episodeForm {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    .episodeNumber {
+                        width: 40px;
+                    }
+                }
+
+                .buttonEpisode {
+                    button {
+                        width: 200px;
+                        height: 30px;
+                        color: inherit;
+                        background-color: var(--red);
+                        font-size: 1rem;
+                        text-transform: uppercase;
+                        font-weight: 900;
+                        border-radius: .4rem;
+                        transition: .4s;
+
+                        &:hover {
+                            transform: scale(1.05);
+                        }
+                    }
+                }
+            }
+
+            .buttonSeason {
+                button {
+                    width: 200px;
+                    height: 30px;
+                    color: inherit;
+                    background-color: var(--red);
+                    font-size: 1rem;
+                    text-transform: uppercase;
+                    font-weight: 900;
+                    border-radius: .4rem;
+                    transition: .4s;
+
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    .buttonContainer {
+        height: 70px;
+
+        button {
+            width: 50%;
+            height: 100%;
+            color: inherit;
+            background-color: var(--red);
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            font-weight: 900;
+            border-radius: 5rem;
+            transition: .4s;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+}

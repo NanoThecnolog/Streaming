@@ -365,7 +365,7 @@ export default function Serie() {
                                     episodesToShow.map((ep, index) => {
                                         const season = episodesData[seasonToShow - 1];
                                         const episode = season?.find(e => e.episode_number === ep.ep)
-                                        const image = episode ? `https://image.tmdb.org/t/p/w200${episode?.still_path}` : '/blurImage.png';
+                                        const image = episode ? `https://image.tmdb.org/t/p/w400${episode?.still_path}` : '/blurImage.png';
                                         const episodeInfo = {
                                             serieTmdbId: serie.tmdbID,
                                             seasonNumber: episode?.season_number,

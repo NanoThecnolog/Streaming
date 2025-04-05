@@ -1,6 +1,5 @@
 import { FormEvent, useEffect, useState } from 'react'
 import styles from './styles.module.scss'
-import { MovieProps } from '../Create'
 import { debug } from '@/classes/DebugLogger'
 import { toast } from 'react-toastify'
 import { mongoService } from '@/classes/MongoContent'

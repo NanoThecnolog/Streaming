@@ -47,6 +47,7 @@
         .formItem {
             display: flex;
             flex-direction: column;
+            gap: 10px;
 
             input {
                 width: 500px;
@@ -102,6 +103,80 @@
                 -moz-appearance: textfield;
                 appearance: textfield;
                 width: 80px;
+            }
+
+            .seasonForm {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                .seasonNumber {
+                    -moz-appearance: textfield;
+                    appearance: textfield;
+                    width: 50px;
+                    height: 25px;
+                    background-color: var(--background-gray-light);
+                    color: var(--white);
+
+                    &::-webkit-inner-spin-button,
+                    &::-webkit-outer-spin-button {
+                        -webkit-appearance: none;
+                        appearance: none;
+                        margin: 0;
+                    }
+                }
+
+                .seasonLang {
+                    width: 100px;
+                    height: 35px;
+                    border: none;
+                }
+
+                .episodeForm {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    .episodeNumber {
+                        width: 40px;
+                    }
+                }
+
+                .buttonEpisode {
+                    button {
+                        width: 200px;
+                        height: 30px;
+                        color: inherit;
+                        background-color: var(--red);
+                        font-size: 1rem;
+                        text-transform: uppercase;
+                        font-weight: 900;
+                        border-radius: .4rem;
+                        transition: .4s;
+
+                        &:hover {
+                            transform: scale(1.05);
+                        }
+                    }
+                }
+            }
+
+            .buttonSeason {
+                button {
+                    width: 200px;
+                    height: 30px;
+                    color: inherit;
+                    background-color: var(--red);
+                    font-size: 1rem;
+                    text-transform: uppercase;
+                    font-weight: 900;
+                    border-radius: .4rem;
+                    transition: .4s;
+
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+                }
             }
         }
     }

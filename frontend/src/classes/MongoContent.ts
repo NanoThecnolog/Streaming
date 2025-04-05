@@ -3,6 +3,7 @@ import { debug } from "./DebugLogger";
 import { CardsProps } from "@/@types/Cards";
 import { SeriesProps } from "@/@types/series";
 import { MovieProps } from "@/components/dashboard/Movie/Create";
+import { TVProps } from "@/components/dashboard/Tv/Create";
 
 class MongoContentService {
     constructor() { }
@@ -64,6 +65,26 @@ class MongoContentService {
         try {
             const response = await apiManager.put(`/movie/${id}`, movie)
             const data: CardsProps = response.data
+            return data
+        } catch (err) {
+            debug.error(err)
+            return null
+        }
+    }
+    async createSerie(serie: TVProps): Promise<SeriesProps | null> {
+        try {
+            const response = await apiManager.post('/serie', serie)
+            const data = response.data
+            return data
+        } catch (err) {
+            debug.error(err)
+            return null
+        }
+    }
+    async updateSerie(id: number, serie: any): Promise<SeriesProps | null> {
+        try {
+            const response = await apiManager.put(`/serie/${id}`, serie)
+            const data: SeriesProps = response.data
             return data
         } catch (err) {
             debug.error(err)
