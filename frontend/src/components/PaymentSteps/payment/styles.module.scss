@@ -13,7 +13,7 @@
     }
 
 
-    form {
+    .form {
         .input {
             display: flex;
             flex-direction: column;
@@ -27,13 +27,25 @@
             input {
                 padding: 10px;
                 font-size: 1rem;
-                border: 1px solid var(--grey);
                 border-radius: 5px;
+            }
+
+            .numberInput {
+                width: 200px;
+            }
+
+            .expireInput {
+                width: 70px;
+            }
+
+            .cvvInput {
+                width: 40px;
             }
         }
 
         .row {
             display: flex;
+            justify-content: flex-start;
             gap: 10px;
         }
     }

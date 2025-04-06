@@ -74,7 +74,7 @@ export default function CreateTV() {
         const { name, value } = e.target
         setSerieData(prev => ({
             ...prev,
-            [name]: Number(value),
+            [name]: value,
         }))
     }
 
@@ -145,7 +145,7 @@ export default function CreateTV() {
                             type="text"
                             id="title"
                             name='title'
-                            value={serieData?.title || ''}
+                            value={serieData.title || ''}
                             onChange={handleChange}
                         />
                     </div>
@@ -170,12 +170,12 @@ export default function CreateTV() {
                         />
                     </div>
                     <div className={styles.formItem}>
-                        <label htmlFor="tmdbid">TMDBID</label>
+                        <label htmlFor="tmdbID">TMDBID</label>
                         <input
                             type="number"
                             id="tmdbid"
                             className={styles.tmdbid}
-                            name='tmdbId'
+                            name='tmdbID'
                             value={serieData.tmdbID}
                             onChange={handleChange}
                         />
@@ -227,60 +227,79 @@ export default function CreateTV() {
                                         <option value={"Leg"}>Legendado</option>
                                     </select>
                                 </div>
+                                <div className={styles.buttonSeason}>
+                                    <button
+                                        onClick={() => handleRemoveSeason(seasonIndex)}
+                                    >
+                                        Remover temporada
+                                    </button>
+                                </div>
 
                                 <h3 className="text-md mt-2">Episódios</h3>
                                 {season.episodes.map((episode, episodeIndex) => (
-                                    <div key={episodeIndex} className={styles.episodeForm}>
-                                        <label htmlFor='epNumber'>
-                                            Nº Episódio:
-                                        </label>
-                                        <input
-                                            id='epNumber'
-                                            className={styles.episodeNumber}
-                                            type="number"
-                                            value={episode.ep}
-                                            onChange={(e) =>
-                                                handleEpisodeChange(
-                                                    seasonIndex,
-                                                    episodeIndex,
-                                                    "ep",
-                                                    Number(e.target.value)
-                                                )
-                                            }
-                                        />
-                                        <label htmlFor='epSrc'>
-                                            Link:
-                                        </label>
-                                        <input
-                                            id='epSrc'
-                                            type="text"
-                                            value={episode.src}
-                                            onChange={(e) =>
-                                                handleEpisodeChange(
-                                                    seasonIndex,
-                                                    episodeIndex,
-                                                    "src",
-                                                    e.target.value
-                                                )
-                                            }
-                                        />
-                                        <label htmlFor='epDuration'>
-                                            Duração:
-                                        </label>
-                                        <input
-                                            id='epDuration'
-                                            type="text"
-                                            value={episode.duration}
-                                            onChange={(e) =>
-                                                handleEpisodeChange(
-                                                    seasonIndex,
-                                                    episodeIndex,
-                                                    "duration",
-                                                    e.target.value
-                                                )
-                                            }
-                                        />
-                                    </div>
+                                    <>
+                                        <div key={episodeIndex} className={styles.episodeForm}>
+                                            <label htmlFor='epNumber'>
+                                                Nº Episódio:
+                                            </label>
+                                            <input
+                                                id='epNumber'
+                                                className={styles.episodeNumber}
+                                                type="number"
+                                                value={episode.ep}
+                                                onChange={(e) =>
+                                                    handleEpisodeChange(
+                                                        seasonIndex,
+                                                        episodeIndex,
+                                                        "ep",
+                                                        Number(e.target.value)
+                                                    )
+                                                }
+                                            />
+                                            <label htmlFor='epSrc'>
+                                                Link:
+                                            </label>
+                                            <input
+                                                id='epSrc'
+                                                type="text"
+                                                value={episode.src}
+                                                onChange={(e) =>
+                                                    handleEpisodeChange(
+                                                        seasonIndex,
+                                                        episodeIndex,
+                                                        "src",
+                                                        e.target.value
+                                                    )
+                                                }
+                                            />
+                                            <label htmlFor='epDuration'>
+                                                Duração:
+                                            </label>
+                                            <input
+                                                id='epDuration'
+                                                type="text"
+                                                value={episode.duration}
+                                                onChange={(e) =>
+                                                    handleEpisodeChange(
+                                                        seasonIndex,
+                                                        episodeIndex,
+                                                        "duration",
+                                                        e.target.value
+                                                    )
+                                                }
+                                            />
+                                        </div>
+                                        <div className={styles.buttonEpisode}>
+                                            <button
+                                                onClick={() =>
+                                                    handleRemoveEpisode(seasonIndex, episodeIndex)
+                                                }
+                                                className="text-red-500"
+                                            >
+                                                Remover
+                                            </button>
+                                        </div>
+                                    </>
                                 ))}
                                 <div className={styles.buttonEpisode}>
                                     <button type='button' onClick={() => handleAddEpisode(seasonIndex)}>+ Episódio</button>

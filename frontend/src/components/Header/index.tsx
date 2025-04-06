@@ -19,7 +19,6 @@ import { debug } from "@/classes/DebugLogger";
 import { apiSub } from "@/services/apiSubManager";
 import { apiEmail } from "@/services/apiMessenger";
 import { apiManager } from "@/services/apiManager";
-import { tmdb } from "@/classes/TMDB";
 import { useTMDB } from "@/contexts/TMDBContext";
 
 export default function Header() {
@@ -59,9 +58,14 @@ export default function Header() {
     useEffect(() => {
         if (!user) {
             const { 'flix-user': userCookie } = parseCookies()
-            if (userCookie) setUser(JSON.parse(userCookie))
+            if (userCookie) {
+                debug.log("user no useEffect", JSON.parse(userCookie))
+                setUser(JSON.parse(userCookie))
+            }
+        } else {
+            debug.log("user no else do useEffect", user)
         }
-    }, [])
+    }, [user])
 
     useEffect(() => {
         if (!user) return
@@ -98,6 +102,7 @@ export default function Header() {
                     Mensageria: acordarMensageria.value.data.data.message,
                     //content: acordarContentManager.value.data.message
                 });
+                debug.log("user no header", user)
             } else {
                 setServerWake(false);
             }
@@ -205,7 +210,7 @@ export default function Header() {
                                                     alt="Poster"
                                                     className={styles.imgSearch}
                                                 />
-                                                    : <span>Imagem Indisponível</span>
+                                                    : <span>Imagem não carregada</span>
                                                 }
                                                 <h4>
                                                     {card.title} {card.subtitle ? `- ${card.subtitle}` : ""}
@@ -213,15 +218,12 @@ export default function Header() {
                                             </div>
                                             <div className={styles.divider}></div>
                                         </li>
-
                                     </>
                                 )
                             }
-
                             )}
                         </ul>
                     }
-
                     <div className={styles.button_container} onClick={() => handleSearch(searchInput)}>
                         <h2><CiSearch size={35} color="#fff" /></h2>
                     </div>
@@ -248,7 +250,6 @@ export default function Header() {
                             <FaUserCircle size={35} color="#fff" className={styles.loginIcon} />
                     }
                 </div>
-
             </div>
             {
                 modal &&

@@ -23,23 +23,24 @@
         color: var(--grey);
     }
 
-    h4 {
-        font-size: 2.5rem;
-        font-weight: 900;
-        color: var(--black);
-        font-family: var(--font-bebas);
-        position: relative;
+    .price {
+        width: 100%;
+
+        h4 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--black);
+            font-family: var(--font-bebas);
+            position: relative;
+            width: 100%;
+
+
+        }
     }
 
-    .discount {
-        color: var(--red);
-        font-weight: bold;
-        font-size: 1.5rem;
-        font-family: var(--font-bebas);
-        position: absolute;
-        top: 2px;
-        right: -58px;
-    }
+
+
+
 
     .resume {
         margin-top: 50px;
@@ -94,7 +95,17 @@
             .subDiscount {
                 display: flex;
                 justify-content: space-between;
+
+                .discount {
+                    color: var(--red);
+                    font-weight: 900;
+                }
             }
+        }
+
+        .method {
+            display: flex;
+            justify-content: space-between;
         }
 
         .totalContainer {

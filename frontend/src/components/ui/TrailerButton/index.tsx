@@ -26,6 +26,5 @@ export default function TrailerButton({ trailer }: TrailerButtonProps) {
                 </div>
             }
         </>
-
     )
 }

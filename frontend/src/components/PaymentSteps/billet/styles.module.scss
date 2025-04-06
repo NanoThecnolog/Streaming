@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+
+
+    h2 {
+        text-align: center;
+    }
+
+    .billet {
+        position: relative;
+
+        .checkbox {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+
+            input {
+                width: 15px;
+                height: 15px;
+                cursor: pointer;
+            }
+        }
+    }
+}

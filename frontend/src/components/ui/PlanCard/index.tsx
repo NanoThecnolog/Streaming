@@ -4,10 +4,11 @@ import { calculateDiscount, formatPrice } from '@/utils/UtilitiesFunctions'
 import { desconto } from '@/utils/Variaveis'
 interface PlanCardProps {
     plan: PlanProps
+    method: string | null
 
 }
-export default function PlanCard({ plan }: PlanCardProps) {
-    const periodo = plan.type === 'trimestral' ? 'Período de 3 meses' : plan.type === 'semestral' ? 'Período de 6 meses' : plan.type === 'anual' ? 'Período de 12 meses' : 'Cobrado mensalmente';
+export default function PlanCard({ plan, method }: PlanCardProps) {
+    const periodo = plan.type === 'trimestral' ? 'Cobrado a cada 3 meses' : plan.type === 'semestral' ? 'Cobrado a cada 6 meses' : plan.type === 'anual' ? 'Cobrado a cada 12 meses' : 'Cobrado mensalmente';
     return (
         <div className={styles.planCard}>
             <div className={styles.brand}>
@@ -16,8 +17,8 @@ export default function PlanCard({ plan }: PlanCardProps) {
             <div>
                 <h3>Assinar {plan.name} por apenas</h3>
             </div>
-            <div>
-                <h4>{formatPrice(calculateDiscount(plan.price, desconto[plan.type]))}{desconto[plan.type] > 0 && <p className={styles.discount}>{desconto[plan.type]}% OFF</p>}</h4>
+            <div className={styles.price}>
+                <h4>{formatPrice(calculateDiscount(plan.price, desconto[plan.type]))}</h4>
             </div>
             <div className={styles.resume}>
                 <div className={styles.items}>
@@ -39,11 +40,18 @@ export default function PlanCard({ plan }: PlanCardProps) {
                     {
                         desconto[plan.type] > 0 &&
                         <div className={styles.subDiscount}>
-                            <p>Desconto</p>
+                            <p>Desconto {desconto[plan.type] > 0 && <span className={styles.discount}>- {desconto[plan.type]}% OFF</span>}</p>
                             <p>{formatPrice(calculateDiscount(plan.price, desconto[plan.type]) - plan.price)}</p>
                         </div>
                     }
                 </div>
+                {
+                    method &&
+                    <div className={styles.method}>
+                        <p>Forma de Pagamento</p>
+                        <p>{method === 'billet' ? 'boleto' : method === 'credit' && '1x cartão'}</p>
+                    </div>
+                }
                 <div className={styles.totalContainer}>
                     <p>Total</p>
                     <p>{formatPrice(calculateDiscount(plan.price, desconto[plan.type]))}</p>

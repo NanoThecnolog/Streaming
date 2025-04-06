@@ -1,0 +1,31 @@
+.container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    cursor: pointer;
+
+    .item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: .4s;
+
+        svg {
+            transition: .4s;
+        }
+
+        &:hover {
+            transform: scale(1.1);
+
+            svg {
+                color: red;
+
+            }
+        }
+    }
+}

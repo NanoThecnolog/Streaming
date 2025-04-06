@@ -71,7 +71,7 @@ export default function PutTV() {
         const { name, value } = e.target
         setSerieData(prev => ({
             ...prev,
-            [name]: Number(value),
+            [name]: value,
         }))
     }
 
@@ -177,12 +177,12 @@ export default function PutTV() {
                             />
                         </div>
                         <div className={styles.formItem}>
-                            <label htmlFor="tmdbid">TMDBID</label>
+                            <label htmlFor="tmdbID">TMDBID</label>
                             <input
                                 type="number"
-                                id="tmdbid"
+                                id="tmdbID"
                                 className={styles.tmdbid}
-                                name='tmdbId'
+                                name='tmdbID'
                                 value={serieData.tmdbID}
                                 onChange={handleChange}
                             />
