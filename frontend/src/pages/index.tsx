@@ -24,7 +24,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
-  const [width, setWidth] = useState<number>()
+  const [width, setWidth] = useState<number>(0)
   const removedSections = [agp.dc, agp.marvel, agp.hero]
   const generos = Object.values(gen);
   const agrupadores = Object.values(agp);
@@ -108,12 +108,15 @@ export default function Home() {
               <div className={styles.content}>
                 {movies && movies.length > 0 &&
                   <>
+                    <div className={styles.top}>
+                      {
+                        topCard && <NewTop width={width} card={topCard} />
+                      }
+                    </div>
                     {
-                      <Top width={width} cards={movies} />
+                      //<Top width={width} cards={movies} />
                     }
-                    {
-                      //topCard && <NewTop width={width} card={topCard} />
-                    }
+
 
                     <div className={styles.mid} id="filmes">
                       {

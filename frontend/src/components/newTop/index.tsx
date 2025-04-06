@@ -1,23 +1,16 @@
-//import { cards } from '@/data/cards'
 import styles from './styles.module.scss'
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
-import { UserProps } from '@/@types/user';
-import { FaInfoCircle, FaPlay } from 'react-icons/fa';
-import { getUserCookieData } from '@/services/cookieClient';
+import { FaInfoCircle, FaPlay, FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
 import { CardsProps, MovieTMDB } from '@/@types/Cards';
 import Adult from '../ui/Adult';
-import { TMDBProvider, useTMDB } from '@/contexts/TMDBContext';
-import { fetchTMDBBackDrop, fetchTMDBMovie, fetchTMDBPoster } from '@/services/fetchTMDBData';
+import { useTMDB } from '@/contexts/TMDBContext';
+import { fetchTMDBMovie } from '@/services/fetchTMDBData';
 import { useFlix } from '@/contexts/FlixContext';
 import { mongoService } from '@/classes/MongoContent';
-import { debug } from '@/classes/DebugLogger';
-import { tmdb } from '@/classes/TMDB';
-import { VideoProps } from '@/@types/trailer';
-import ReactPlayer from 'react-player'
 
 interface TopProps {
-    width?: number
+    width: number
     card: CardsProps
 }
 
@@ -25,7 +18,10 @@ export default function NewTop({ width, card }: TopProps) {
     const router = useRouter()
     const { movies, setMovies } = useFlix()
     const videoRef = useRef<HTMLVideoElement | null>(null)
-    const buttonRef = useRef<HTMLButtonElement | null>(null)
+    const [isMuted, setIsMuted] = useState(true)
+    const [volume, setVolume] = useState(0.1)
+
+
     const [TMDBImages, setTMDBImages] = useState<{ backdrop: string | null; poster: string | null }>({
         backdrop: null,
         poster: null
@@ -81,100 +77,113 @@ export default function NewTop({ width, card }: TopProps) {
             }, 3000)
             return () => clearInterval(timer)
         }
-        handleTrailer()
+        if (width > 915) handleTrailer()
     }, [card])
 
-    const soundGain = () => {
+    const handleVolume = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newVolume = parseFloat(e.target.value)
+
         if (videoRef.current) {
             const video = videoRef.current
             video.muted = false
-            video.volume = 0
-
-            let currentVolume = 0
-            const interval = setInterval(() => {
-                if (currentVolume < 1) {
-                    currentVolume += 0.05
-                    video.volume = Math.min(currentVolume, 1)
+            video.volume = newVolume
+        }
+        setVolume(newVolume)
+        setIsMuted(newVolume === 0)
+    }
+    const toggleMute = () => {
+        const video = videoRef.current
+        if (video) {
+            if (isMuted) {
+                if (volume <= 0.2) {
+                    if (video.muted) {
+                        video.muted = false
+                    }
+                    video.volume = 0.5
+                    setVolume(0.5)
                 } else {
-                    clearInterval(interval)
-                    setSoundEnable(true)
+                    video.volume = volume
                 }
-            }, 100)
+            } else {
+                video.volume = 0;
+
+            }
+            setIsMuted(!isMuted)
         }
     }
 
-    useEffect(() => {
-        if (showVideo && buttonRef.current) {
-            const button = buttonRef.current
-            const volumeTimer = setTimeout(() => {
-                button.click()
-            }, 1000)
-            return () => clearTimeout(volumeTimer)
-        }
-    }, [showVideo])
-
-
-
     return (
         <>
-            <div
-                className={styles.topContainer}
-                //style={{ backgroundImage: `url(${getBackgroundImage()})` }}
-                id="inicio"
-            >
-                <div className={`${styles.bannerImage} ${showVideo ? styles.hidden : ''}`}>
+            <div className={styles.topContainer} id="inicio">
+                <div className={styles.gradient}></div>
+                <div className={`${styles.bannerImage} ${styles.fadeIn} ${showVideo ? styles.hidden : ''}`}>
                     <img src={`${getBackgroundImage()}`} alt="banner" />
-                    <div className={styles.overlay}>
-                        <div className={styles.leftSide}>
-                            <h1 className={styles.tituloPrincipal}>
-                                {card.title ?? card.title}
-                            </h1>
-                            {card.subtitle && (
-                                <h3 className={styles.subTituloPrincipal}>{card.subtitle}</h3>
-                            )}
-                            <div className={styles.gen}>
-                                <p>
-                                    {TMDBMovie ? TMDBMovie.genres.map(genre => genre.name === "Action & Adventure"
-                                        ? "Ação e Aventura" : genre.name === "Sci-Fi & Fantasy"
-                                            ? "Ficção Científica e Fantasia" : genre.name === "Thriller"
-                                                ? "Suspense"
-                                                : genre.name).join(', ')
-                                        : card.genero.join(', ')}
-                                </p>
-                                <Adult faixa={card.faixa} />
+                </div>
+                <div className={styles.overlay}>
+                    <div className={styles.leftSide}>
+                        <h1 className={styles.tituloPrincipal}>
+                            {card.title ?? card.title}
+                        </h1>
+                        {card.subtitle && (
+                            <h3 className={styles.subTituloPrincipal}>{card.subtitle}</h3>
+                        )}
+                        <div className={styles.gen}>
+                            <p>
+                                {TMDBMovie ? TMDBMovie.genres.map(genre => genre.name === "Action & Adventure"
+                                    ? "Ação e Aventura" : genre.name === "Sci-Fi & Fantasy"
+                                        ? "Ficção Científica e Fantasia" : genre.name === "Thriller"
+                                            ? "Suspense"
+                                            : genre.name).join(', ')
+                                    : card.genero.join(', ')}
+                            </p>
+                            <Adult faixa={card.faixa} />
+                        </div>
+                        <div className={styles.description}>
+                            <p>{card.description}</p>
+                        </div>
+                        <div className={styles.buttonSection}>
+                            <div className={styles.watch} onClick={handleWatch}>
+                                <FaPlay size={35} />
+                                <h3>Assistir</h3>
                             </div>
-                            <div className={styles.description}>
-                                <p>{card.description}</p>
-                            </div>
-                            <div className={styles.buttonSection}>
-                                <div className={styles.watch} onClick={handleWatch}>
-                                    <FaPlay size={35} />
-                                    <h3>Assistir</h3>
-                                </div>
-                                <div className={styles.queue} onClick={handleMoreInfo}>
-                                    <FaInfoCircle size={25} />
-                                    <h3>Mais Informações</h3>
-                                </div>
+                            <div className={styles.queue} onClick={handleMoreInfo}>
+                                <FaInfoCircle size={25} />
+                                <h3>Mais Informações</h3>
                             </div>
                         </div>
                     </div>
+                    {
+                        width > 915 && <div className={`${styles.volumeControl} ${!showVideo ? styles.hidden : ''}`}>
+                            <input
+                                type="range"
+                                min={0}
+                                max={1}
+                                step={0.01}
+                                value={volume}
+                                onChange={handleVolume}
+                                className={styles.volumeSlider}
+                                aria-orientation='vertical'
+                            />
+                            <button onClick={toggleMute} className={styles.muteButton}>
+                                {isMuted || volume === 0 ? <FaVolumeMute size={24} /> : <FaVolumeUp size={24} />}
+                            </button>
+                        </div>
+                    }
                 </div>
-                <video
-                    ref={videoRef}
-                    src={'/videos/trailer/trailer.mkv'}
-                    controls
-                    autoPlay
-                    muted={!soundEnable}
-                    playsInline
-                    className={`${styles.bannerVideo} ${showVideo ? styles.visible : ''}`}
-                    onEnded={() => setShowVideo(false)}
-                />
-                <button
-                    onClick={soundGain}
-                    ref={buttonRef}
-                ></button>
+                {
+                    width > 915 && <video
+                        ref={videoRef}
+                        src={`/videos/trailer/${card.tmdbId}.mkv`}
+                        controls={false}
+                        autoPlay
+                        muted
+                        playsInline
+                        className={`${styles.bannerVideo} ${showVideo ? styles.visible : ''}`}
+                        onEnded={() => setShowVideo(false)}
+                    />
+                }
+
             </div>
         </>
-
     )
 }
