@@ -12,7 +12,6 @@ import "nprogress/nprogress.css";
 
 
 export default function App({ Component, pageProps }: AppProps) {
-  const { movies, series, setMovies, setSeries } = useFlix()
 
 
 

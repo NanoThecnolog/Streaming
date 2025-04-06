@@ -63,6 +63,19 @@ export default function Donate() {
     function handleClick(id: string) {
         router.push(`/payment?id=${id}`)
     }
+    function handlePrice(price: number, planType: string) {
+        switch (planType) {
+            case 'mensal':
+                return formatPrice(calculateDiscount(price, desconto[planType]))
+            case 'trimestral':
+                return formatPrice(calculateDiscount(price, desconto[planType]) / 3)
+            case 'semestral':
+                return formatPrice(calculateDiscount(price, desconto[planType]) / 6)
+            case 'anual':
+                return formatPrice(calculateDiscount(price, desconto[planType]) / 12)
+        }
+
+    }
 
     return (
         <>
@@ -86,7 +99,7 @@ export default function Donate() {
                                                             {p.name}
                                                         </p>
                                                         <p className={styles.planPrice}>
-                                                            {formatPrice(calculateDiscount(p.price, desconto[p.type]))}
+                                                            {handlePrice(p.price, p.type)}/mês
                                                         </p>
                                                         {desconto[p.type] > 0 && <p className={styles.priceDiscount}>{desconto[p.type]}% OFF</p>}
                                                         <p className={styles.planType}>

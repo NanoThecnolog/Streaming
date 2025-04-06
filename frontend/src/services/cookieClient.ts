@@ -13,6 +13,7 @@ export async function getUserCookieData(): Promise<UserProps | null> {
     const userCookie = await getCookie('flix-user')
     if (!userCookie) return null;
     const userData: UserProps = JSON.parse(userCookie as string)
+    debug.log('User no serviço cookieClient:', userData)
     return userData
 }
 

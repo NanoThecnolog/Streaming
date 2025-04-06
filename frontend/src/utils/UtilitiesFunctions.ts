@@ -105,7 +105,12 @@ export function formatedDate(date: string | Date) {
         timeZone: 'UTC'
     })
 }
-
+/**
+ * Função para calcular desconto em cima do valor
+ * @param price valor do plano (1099)
+ * @param disc desconto em porcentagem (5, 7, 10)
+ * @returns retorna o preço com desconto
+ */
 export function calculateDiscount(price: number, disc: number) {
     const discount = (price * disc) / 100
     const priceWithDiscount = parseFloat((price - discount).toFixed(0))
@@ -117,7 +122,11 @@ export function calculateDiscount(price: number, disc: number) {
         return priceWithDiscount - cents + 49
     }
 }
-
+/**
+ * Função para formatar o valor de acordo com a moeda
+ * @param price Valor (1099)
+ * @returns Retorna uma string
+ */
 export function formatPrice(price: number) {
     if (!price || isNaN(price)) return
 
@@ -126,4 +135,8 @@ export function formatPrice(price: number) {
         currency: 'BRL',
         minimumFractionDigits: 2
     }).format(price / 100)
+}
+
+export function getparcels(price: number, parcels: number): number {
+    return price / parcels
 }

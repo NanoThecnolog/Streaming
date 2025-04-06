@@ -76,7 +76,7 @@ export function FlixProvider({ children }: ContextProviderProps) {
                 birthday,
                 news,
                 verified,
-                access,
+                access: access,
                 createdAt
             }
             destroyCookie(null, 'flix-user')

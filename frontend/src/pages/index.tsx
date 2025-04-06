@@ -16,6 +16,8 @@ import { breakpoints } from "@/utils/Variaveis";
 import { flixFetcher } from "@/classes/Flixclass";
 import { mongoService } from "@/classes/MongoContent";
 import { useFlix } from "@/contexts/FlixContext";
+import NewTop from "@/components/newTop";
+import { CardsProps } from "@/@types/Cards";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -32,6 +34,8 @@ export default function Home() {
   const [loading, setLoading] = useState(false)
   const [visible, setvisible] = useState(false)
   const { movies, setMovies } = useFlix()
+  const tmdbid = 635910;
+  const [topCard, setTopCard] = useState<CardsProps | null>(null)
 
   useEffect(() => {
     async function fetchMoviesMongoDB() {
@@ -74,12 +78,19 @@ export default function Home() {
     []
   );
   useEffect(() => {
-
     window.addEventListener('scroll', handleScroll)
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
+
+  useEffect(() => {
+    if (movies.length > 0) {
+      const card = movies.find((card) => card.tmdbId === tmdbid)
+      if (!card) return
+      setTopCard(card)
+    }
+  }, [movies])
 
   return (
     <>
@@ -97,7 +108,13 @@ export default function Home() {
               <div className={styles.content}>
                 {movies && movies.length > 0 &&
                   <>
-                    <Top width={width} cards={movies} />
+                    {
+                      <Top width={width} cards={movies} />
+                    }
+                    {
+                      //topCard && <NewTop width={width} card={topCard} />
+                    }
+
                     <div className={styles.mid} id="filmes">
                       {
                         //<ReleaseContainer section="lançamentos" cardPerContainer={cardPerContainer} />

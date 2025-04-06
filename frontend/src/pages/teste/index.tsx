@@ -3,11 +3,12 @@ import { apiGoogle } from '@/services/apiGoogle'
 import styles from './styles.module.scss'
 import { debug } from '@/classes/DebugLogger'
 import { ErrorProps } from '@/services/googleCheck';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { mongoService } from '@/classes/MongoContent';
 import { useFlix } from '@/contexts/FlixContext';
 import { CardsProps } from '@/@types/Cards';
 import { SeriesProps } from '@/@types/series';
+import NewTop from '@/components/newTop';
 
 export default function TestPage() {
     const env = process.env.NEXT_PUBLIC_DEBUG
@@ -17,6 +18,7 @@ export default function TestPage() {
     //const [movies, setMovies] = useState<any[]>([])
     //const [series, setSeries] = useState<any[]>([])
     const { movies, setMovies, series, setSeries } = useFlix()
+    const [card, setCard] = useState<CardsProps>()
 
     async function verify(type: 'movie' | 'tv') {
         setType(type)
@@ -62,11 +64,21 @@ export default function TestPage() {
             }
         })
     }
+    useEffect(() => {
+        debug.log(movies)
+        const card = movies.find((card) => card.tmdbId === 635910)
+        setCard(card)
+        if (!card) return debug.log("erro pra definir card")
+    }, [movies])
 
     return (
         <div className={styles.container}>
             <div>
                 <h1>Página de testes</h1>
+                {
+                    card && <NewTop width={window.innerWidth} card={card} />
+                }
+
                 {
                     env === 'development' &&
                     <>
