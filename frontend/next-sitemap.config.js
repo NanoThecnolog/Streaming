@@ -9,6 +9,8 @@ module.exports = {
             { userAgent: '*', allow: '/' },
             { userAgent: '*', allow: '/series' },
             { userAgent: '*', allow: '/planos' },
+            { userAgent: '*', allow: '/movie/*' },
+            { userAgent: '*', allow: '/series/serie/*' },
             { userAgent: '*', disallow: '/watch', },
             { userAgent: '*', disallow: '/recover', },
         ],

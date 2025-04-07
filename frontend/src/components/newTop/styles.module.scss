@@ -173,7 +173,7 @@
         //outline: 2px solid red;
         height: 100px;
         transition: .4s;
-        opacity: 0.6;
+        opacity: 0.2;
 
         &.hidden {
             opacity: 0;
@@ -198,6 +198,7 @@
         .volumeSlider {
             outline: 1px solid var(--white);
             -webkit-appearance: none;
+            appearance: none;
             width: 100px;
             height: 1px;
             transform: rotate(-90deg);
@@ -205,6 +206,8 @@
             background: var(--background-gray);
             border-radius: 5px;
             cursor: pointer;
+            padding: 0;
+            margin: 0;
 
             &::-webkit-slider-thumb {
                 -webkit-appearance: none;
@@ -214,7 +217,6 @@
                 border-radius: 50%;
                 background: var(--white);
                 cursor: pointer;
-                //border: 2px solid var(--red);
             }
 
             &::-moz-range-thumb {
