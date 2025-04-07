@@ -16,13 +16,13 @@ export default function SEO({ title, description, image, url }: SEOProps) {
             <meta name="description" content={description} />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-            <meta property="og:title" content={title} />
+            <meta property="og:title" content={title ?? 'FlixNext'} />
             <meta property="og:description" content={description} />
             <meta property="og:type" content="website" />
             <meta property="og:url" content={url ?? website} />
             <meta property="og:image" content={image ?? websiteImage} />
 
-            <meta property="twitter:title" content={title} />
+            <meta property="twitter:title" content={title ?? 'FlixNext'} />
             <meta property="twitter:description" content={description} />
             <meta property="twitter:url" content={url ?? website} />
             <meta property="twitter:card" content="summary_large_image" />

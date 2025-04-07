@@ -28,12 +28,18 @@ import debounce from 'lodash.debounce';
 import { debug } from '@/classes/DebugLogger';
 import { tmdb } from '@/classes/TMDB';
 import { mongoService } from '@/classes/MongoContent';
+import { GetServerSideProps } from 'next';
+import axios from 'axios';
 
 interface groupedByDepartment {
     [job: string]: CrewProps[]
 }
 
-export default function Movie() {
+interface MovieProps {
+    data: MovieTMDB
+}
+
+export default function Movie({ data }: MovieProps) {
     const router = useRouter()
     const [showPoster, setShowPoster] = useState(false)
     const { tmdbId } = router.query;
@@ -174,7 +180,7 @@ export default function Movie() {
     }
     return (
         <>
-            <SEO description={tmdbData ? tmdbData.overview : ""} title={`${movie ? movie.title : ""} - FlixNext`} url={`https://flixnext.com.br/movie/${tmdbId}`} image={`https://image.tmdb.org/t/p/w500${tmdbData?.backdrop_path}`} />
+            <SEO description={data.overview} title={`${data.title} - FlixNext`} url={`https://flixnext.com.br/movie/${data.id}`} image={`https://image.tmdb.org/t/p/w500${data.backdrop_path}`} />
             <Header />
             {
                 movie ? (
@@ -307,4 +313,35 @@ export default function Movie() {
             <Footer />
         </>
     )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    const { tmdbId } = context.params as { tmdbId: string }
+    const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
+
+    //const res = await fetch(`https://api.flixnext.com.br/serie/${tmdbId}`)
+    //const res = await apiTMDB.get(`/movie/${tmdbId}`)
+    const res = await axios.get(`https://api.themoviedb.org/3/movie/${tmdbId}`, {
+        headers: {
+            Authorization: `Bearer ${tmdbToken}`
+        },
+        params: {
+            language: "pt-BR",
+        },
+    });
+
+    const data = res.data
+    //debug.log('data no serversideprops', data)
+
+    if (!data) {
+        return {
+            notFound: true,
+        }
+    }
+
+    return {
+        props: {
+            data
+        },
+    }
 }

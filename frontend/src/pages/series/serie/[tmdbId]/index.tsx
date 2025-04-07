@@ -30,6 +30,8 @@ import debounce from "lodash.debounce";
 import { debug } from "@/classes/DebugLogger";
 import { mongoService } from "@/classes/MongoContent";
 import { getRelatedSerieCards } from "@/utils/CardsManipulation";
+import { GetServerSideProps } from "next";
+import axios from "axios";
 
 interface TMDBImagesProps {
     backdrop: string,
@@ -39,8 +41,11 @@ interface TMDBImagesProps {
 interface groupedByDepartment {
     [job: string]: CrewProps[]
 }
+interface SerieProps {
+    data: TMDBSeries
+}
 
-export default function Serie() {
+export default function Serie({ data }: SerieProps) {
     //refatorar
     const router = useRouter()
     const { tmdbId } = router.query;
@@ -284,7 +289,7 @@ export default function Serie() {
 
     return (
         <>
-            <SEO title={`${headTitle} | FlixNext`} description={serie?.description || "Descrição indisponível"} />
+            <SEO title={`${data.name} | FlixNext`} description={data.overview} image={`https://image.tmdb.org/t/p/w500${data.backdrop_path}`} url={`https://flixnext.com.br/series/serie/${data.id}`} />
             <section className={styles.container}>
                 <Header />
                 {serie ?
@@ -437,4 +442,35 @@ export default function Serie() {
             <Footer />
         </>
     )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    const { tmdbId } = context.params as { tmdbId: string }
+    const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
+
+    //const res = await fetch(`https://api.flixnext.com.br/serie/${tmdbId}`)
+    //const res = await apiTMDB.get(`/movie/${tmdbId}`)
+    const res = await axios.get(`https://api.themoviedb.org/3/tv/${tmdbId}`, {
+        headers: {
+            Authorization: `Bearer ${tmdbToken}`
+        },
+        params: {
+            language: "pt-BR",
+        },
+    });
+
+    const data = res.data
+    //debug.log('data no serversideprops', data)
+
+    if (!data) {
+        return {
+            notFound: true,
+        }
+    }
+
+    return {
+        props: {
+            data
+        },
+    }
 }
