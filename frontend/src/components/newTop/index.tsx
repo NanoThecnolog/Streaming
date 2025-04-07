@@ -22,6 +22,7 @@ export default function NewTop({ width, card }: TopProps) {
     const [volume, setVolume] = useState(0.1)
 
 
+
     const [TMDBImages, setTMDBImages] = useState<{ backdrop: string | null; poster: string | null }>({
         backdrop: null,
         poster: null
