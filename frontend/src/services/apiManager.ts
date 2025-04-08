@@ -1,6 +1,5 @@
 import { debug } from "@/classes/DebugLogger";
 import axios from "axios";
-//import { parseCookies } from "nookies";
 
 const url = process.env.NEXT_PUBLIC_CONTENT_MANAGER_URL;
 if (!url) debug.error("variável de ambiente não configurada.")

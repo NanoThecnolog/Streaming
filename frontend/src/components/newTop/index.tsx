@@ -174,7 +174,7 @@ export default function NewTop({ width, card }: TopProps) {
                 {
                     width > 915 && <video
                         ref={videoRef}
-                        src={`/videos/trailer/${card.tmdbId}.mkv`}
+                        src={`https://srv770983.hstgr.cloud/content/trailer/${card.tmdbId}`}
                         controls={false}
                         autoPlay
                         muted
