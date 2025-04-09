@@ -266,6 +266,7 @@
                 width: 100%;
                 height: 25px;
                 transition: .4s;
+                color: var(--white);
 
 
                 &:hover {
@@ -322,7 +323,6 @@
             top: 75%;
         }
 
-
         .dropdown {
             display: flex;
             justify-content: space-evenly;
@@ -330,7 +330,7 @@
             position: fixed;
             background-color: white;
             color: black;
-            top: 95%;
+            height: 50px;
             bottom: 0;
             left: 0;
             right: 0;
@@ -501,17 +501,18 @@
 
         .dropdownModal {
             position: fixed;
-            top: 75%;
+            top: 72%;
         }
 
         .dropdown {
+            position: relative;
             display: flex;
             justify-content: space-evenly;
             align-items: center;
             position: fixed;
             background-color: white;
             color: black;
-            top: 95%;
+            height: 50px;
             bottom: 0;
             left: 0;
             right: 0;
@@ -682,7 +683,7 @@
 
         .dropdownModal {
             position: fixed;
-            top: 75%;
+            top: 72%;
         }
 
         .dropdown {
@@ -692,7 +693,7 @@
             position: fixed;
             background-color: white;
             color: black;
-            top: 95%;
+            height: 50px;
             bottom: 0;
             left: 0;
             right: 0;
@@ -865,7 +866,7 @@
 
         .dropdownModal {
             position: fixed;
-            top: 75%;
+            top: 72%;
         }
 
         .dropdown {
@@ -875,7 +876,7 @@
             position: fixed;
             background-color: white;
             color: black;
-            top: 95%;
+            height: 50px;
             bottom: 0;
             left: 0;
             right: 0;

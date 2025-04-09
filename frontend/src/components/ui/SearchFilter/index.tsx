@@ -1,5 +1,7 @@
 import { capitalize } from '@/utils/UtilitiesFunctions'
 import styles from './styles.module.scss'
+import { gen, stm } from '@/utils/Genres';
+import { classification } from '@/utils/Variaveis';
 
 interface FilterProps {
     title: string | null,
@@ -16,36 +18,18 @@ interface FilterProps {
 }
 
 export default function Filter({ title, genre, streaming, faixa, setTitle, setGenre, setStreaming, setFaixa, handleFilter }: FilterProps) {
-    const generos = [
-        "ação",
-        "suspense",
-        "aventura",
-        "comédia",
-        "terror",
-        "romance",
-        "super herói",
-        "drama",
-        "ficção científica",
-        "fantasia",
-        "animação",
-        "dc",
-        "marvel"
-    ]
-    const streamings = [
-        "netflix",
-        "hbo",
-        "disney+",
-        "prime video",
-        "apple tv",
-    ]
-    const faixas = [
+    const generos = Object.values(gen)
+    const streamings = Object.values(stm)
+    /*const faixas = [
         "L",
         "10",
         "A12",
         "A14",
         "A16",
         "18"
-    ]
+    ]*/
+    const faixas = classification.map((c) => c.etaria)
+
     return (
         <div className={styles.container}>
             <form onSubmit={(e) => { e.preventDefault(); handleFilter }}>

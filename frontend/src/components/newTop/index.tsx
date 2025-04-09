@@ -19,7 +19,7 @@ export default function NewTop({ width, card }: TopProps) {
     const { movies, setMovies } = useFlix()
     const videoRef = useRef<HTMLVideoElement | null>(null)
     const [isMuted, setIsMuted] = useState(true)
-    const [volume, setVolume] = useState(0.1)
+    const [volume, setVolume] = useState(0)
 
 
 
@@ -79,7 +79,7 @@ export default function NewTop({ width, card }: TopProps) {
             return () => clearInterval(timer)
         }
         if (width > 915) handleTrailer()
-    }, [card])
+    }, [card, width])
 
     const handleVolume = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newVolume = parseFloat(e.target.value)
@@ -117,7 +117,7 @@ export default function NewTop({ width, card }: TopProps) {
         <>
             <div className={styles.topContainer} id="inicio">
                 <div className={styles.gradient}></div>
-                <div className={`${styles.bannerImage} ${styles.fadeIn} ${showVideo ? styles.hidden : ''}`}>
+                <div className={`${styles.bannerImage} ${styles.fadeIn} ${width > 915 && showVideo ? styles.hidden : ''}`}>
                     <img src={`${getBackgroundImage()}`} alt="banner" />
                 </div>
                 <div className={styles.overlay}>
@@ -183,7 +183,6 @@ export default function NewTop({ width, card }: TopProps) {
                         onEnded={() => setShowVideo(false)}
                     />
                 }
-
             </div>
         </>
     )

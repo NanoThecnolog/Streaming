@@ -47,7 +47,7 @@ export default function Home(/* { moviesTMDB }: HomeProps */) {
 
   useEffect(() => {
     async function fetchMoviesMongoDB() {
-      const response = await mongoService.fetchMovieData()
+      const response: CardsProps[] = await mongoService.fetchMovieData()
       if (response.length > 0) setMovies(response)
     }
     if (movies.length === 0) fetchMoviesMongoDB()

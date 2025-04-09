@@ -27,11 +27,15 @@
 
         .leftSide {
             width: 60%;
+            //height: 400px;
+            //padding-left: 5%;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             gap: 10px;
             font-family: var(--font-Montserrat);
+            //position: relative;
+
 
             .tituloPrincipal {
                 margin: 0;
@@ -40,14 +44,32 @@
                 color: var(--white);
                 text-shadow: 5px 5px 10px black;
                 text-transform: uppercase;
+
+                .newContentBox {
+                    width: 150px;
+                }
             }
 
-            .subTituloPrincipal {
-                margin: 0px;
+            .subtituloPrincipal {
+                margin: 0;
                 font-weight: 600;
                 font-size: 1.6rem;
                 color: var(--white);
                 text-shadow: 5px 5px 10px black;
+            }
+
+
+            .season {
+                padding: .7rem 0;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                font-family: var(--font-Roboto);
+                font-weight: 900;
+
+                p {
+                    text-shadow: 5px 5px 10px black;
+                }
             }
 
             .gen {
@@ -60,24 +82,21 @@
                 }
             }
 
-
             .description {
                 display: -webkit-box;
                 -webkit-box-orient: vertical;
                 -webkit-line-clamp: 3;
-                height: 58.5px;
+                height: 53px;
                 line-clamp: 3;
                 overflow: hidden;
                 text-overflow: ellipsis;
-                //border: 1px solid red;
-                padding: 1rem 0;
-                margin-bottom: 1rem;
+                padding-bottom: 1rem;
 
                 p {
-                    margin: 0px;
+                    margin: 0;
                     font-family: var(--font-Montserrat);
                     font-weight: 400;
-                    font-size: 20px;
+                    font-size: 1.2rem;
                     color: white;
                     text-shadow: 3px 3px 5px black;
                 }
@@ -90,49 +109,57 @@
 
                 svg {
                     min-width: 25px;
+                    padding-left: 10px;
                 }
 
                 .watch,
                 .queue {
                     padding: 20px 35px;
-                    border-radius: .4rem;
+                    border-radius: 8px;
                     display: flex;
                     align-items: center;
                     gap: 10px;
-                    transition: all 0.5s;
-                    cursor: pointer;
-
-                    &:hover {
-                        transform: translateY(5px) scale(1.1);
-                    }
 
                     h3 {
                         font-size: 1.4rem;
+
                     }
                 }
 
                 .watch {
                     color: var(--black);
+                    display: flex;
+                    gap: 10px;
                     background-color: var(--white);
+                    transition: all 0.5s;
 
                     &:hover {
                         background-color: var(--red-selected);
+                        cursor: pointer;
                         color: var(--white);
+                        transform: translateY(5px) scale(1.1);
                     }
                 }
 
                 .queue {
                     color: white;
-                    background-color: var(--grey-transparent);
+                    display: flex;
+                    background-color: var(--grey);
                     margin-left: 30px;
-
+                    transition: all 0.5s;
 
                     &:hover {
                         background-color: var(--grey-selected);
+                        cursor: pointer;
+                        transform: translateY(5px) scale(1.1);
                     }
                 }
+
             }
+
+
         }
+
     }
 
     .bannerImage {
@@ -248,6 +275,8 @@
     }
 }
 
+
+
 @-webkit-keyframes fadeIn {
     0% {
         opacity: 0;
@@ -273,6 +302,8 @@
         opacity: 1;
     }
 
+
+
     100% {
         opacity: 0;
     }
@@ -282,6 +313,8 @@
     0% {
         opacity: 1;
     }
+
+
 
     100% {
         opacity: 0;
@@ -300,16 +333,14 @@
     animation-name: fadeOut;
     -webkit-animation-duration: 2s;
     animation-duration: 2s;
-
-
 }
+
 
 //mobile
 //telas muito pequenas
 //telas smartphone padrão
-@media (max-width: 374px) {
+@media (max-width: 375px) {
     .topContainer {
-        height: 100%;
         justify-content: flex-end;
 
         .gradient {
@@ -327,10 +358,10 @@
 
                 .tituloPrincipal {
                     font-size: 1.5rem;
-                    padding-top: 160%;
+                    //padding-top: 160%;
                 }
 
-                .subTituloPrincipal {
+                .subtituloPrincipal {
                     font-size: 1.2rem;
                 }
 
@@ -349,7 +380,7 @@
                     justify-content: center;
                     align-items: flex-start;
                     gap: 10px;
-                    //padding-top: 40px;
+
 
                     .watch {
                         display: flex;
@@ -383,16 +414,13 @@
                 }
             }
         }
-
     }
 }
 
 //telas smartphone maiores
-@media (min-width: 375px) and (max-width: 560px) {
+@media (min-width: 375.1px) and (max-width: 560px) {
     .topContainer {
-        height: 100%;
         justify-content: flex-end;
-
 
         .overlay {
             .leftSide {
@@ -402,24 +430,23 @@
 
                 .tituloPrincipal {
                     font-size: 1.5rem;
+                    //padding-top: 140%;
                 }
 
-                .subTituloPrincipal {
+                .subtituloPrincipal {
                     font-size: 1.2rem;
                 }
 
                 .gen {
-                    flex-direction: column;
                     align-items: flex-start;
-                    gap: 5px;
                 }
 
                 .description {
-                    height: 50px;
+                    height: 40px;
                     display: none;
 
                     p {
-                        font-size: 1.2rem;
+                        font-size: 1rem;
                     }
                 }
 
@@ -428,7 +455,8 @@
                     justify-content: center;
                     align-items: flex-start;
                     gap: 10px;
-                    padding-top: 40px;
+                    padding-top: 30px;
+                    //background-color: red;
 
                     .watch {
 
@@ -440,7 +468,7 @@
                         margin-left: 0;
 
                         h3 {
-                            font-size: 0.8rem;
+                            font-size: 1.2rem;
                         }
                     }
                 }
@@ -450,11 +478,8 @@
 }
 
 //telas Tablets (disp. medios)
-@media (min-width: 560.1px) and (max-width: 768px) {
+@media (min-width: 560.1px) and (max-width: 767.9px) {
     .topContainer {
-        height: 100%;
-        width: 100vw;
-        //background-color: red;
         justify-content: flex-end;
 
         .overlay {
@@ -463,22 +488,18 @@
                 width: 100%;
                 height: 100%;
 
-                //padding: 120px 25px 0 25px;
-
                 .tituloPrincipal {
+                    padding-top: 40%;
                     font-size: 1.8rem;
-                    padding-top: 80%;
-
                 }
 
-                .subTituloPrincipal {
+                .subtituloPrincipal {
                     font-size: 1.2rem;
                 }
 
                 .description {
-                    height: 50px;
+                    height: 41.5px;
                     padding-right: 20px;
-
 
                     p {
                         font-size: 1rem;
@@ -492,7 +513,6 @@
                     align-items: center;
                     gap: 10px;
 
-
                     .watch {
                         display: flex;
                         justify-content: center;
@@ -502,10 +522,8 @@
 
                     .queue {
                         margin-left: 0;
-                        //padding: 0;
                         width: 200px;
                         height: 40px;
-
 
                         h3 {
                             font-size: 1.2rem;
@@ -519,7 +537,7 @@
 }
 
 //telas notebooks e monitores pequenos
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
     .topContainer {
         .overlay {
             .leftSide {
@@ -527,7 +545,7 @@
                     font-size: 2.2rem;
                 }
 
-                .subTituloPrincipal {
+                .subtituloPrincipal {
                     font-size: 1.4rem;
                 }
 
@@ -578,13 +596,10 @@
 //telas de monitores maiores
 @media (min-width: 1281px) and (max-width: 1440px) {
     .topContainer {
-
         .overlay {
             .leftSide {
                 .tituloPrincipal {
-
                     font-size: 2.5rem;
-
                 }
 
                 .subTituloPrincipal {
@@ -645,6 +660,4 @@
             }
         }
     }
-
-
 }

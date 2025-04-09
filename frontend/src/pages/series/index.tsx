@@ -16,11 +16,12 @@ import { flixFetcher } from "@/classes/Flixclass";
 import { SeriesProps } from "@/@types/series";
 import { mongoService } from "@/classes/MongoContent";
 import { useFlix } from "@/contexts/FlixContext";
+import NewTopSerie from "@/components/seriesComponents/newTopSerie";
 
 export default function Series() {
     //refatorar
     const [cardPerContainer, setCardPerContainer] = useState<number>(5)
-    const [width, setWidth] = useState<number>()
+    const [width, setWidth] = useState<number>(0)
     const genres = Object.values(gen)
     const streamings = Object.values(stm)
     const combined = [...streamings, ...genres]
@@ -30,6 +31,8 @@ export default function Series() {
     const { serieData, setSerieData } = useTMDB()
     const [visible, setvisible] = useState(false)
     const { series, setSeries } = useFlix()
+    const tmdbid = 249042
+    const [topCard, setTopCard] = useState<SeriesProps | null>(null)
 
     useEffect(() => {
         async function fetchSeriesMongoDB() {
@@ -40,12 +43,12 @@ export default function Series() {
     }, [series])
 
     useEffect(() => {
+
         if (serieData.length > 0) return
         flixFetcher.fetchSerieData(setSerieData)
     }, [setSerieData])
 
     useEffect(() => {
-
         function handleResize() {
             const windowWidth = window.innerWidth;
             setWidth(windowWidth)
@@ -56,30 +59,6 @@ export default function Series() {
         handleResize()
         return () => window.removeEventListener('resize', handleResize)
     }, [])
-    useEffect(() => {
-        const rightClickBlock = (event: MouseEvent) => {
-            event.preventDefault();
-        };
-        // Impede atalhos de ferramentas de desenvolvedor
-        const openConsoleBlock = (event: KeyboardEvent) => {
-            if (
-                event.key === 'F12' ||
-                (event.ctrlKey && event.shiftKey && event.key === 'I') ||
-                (event.ctrlKey && event.shiftKey && event.key === 'C') ||
-                (event.ctrlKey && event.shiftKey && event.key === 'J') ||
-                (event.ctrlKey && event.key === 'U')
-            ) {
-                event.preventDefault();
-            }
-        };
-        document.addEventListener('contextmenu', rightClickBlock);
-        document.addEventListener('keydown', openConsoleBlock);
-        return () => {
-            document.removeEventListener('contextmenu', rightClickBlock);
-            document.removeEventListener('keydown', openConsoleBlock);
-        }
-    }, [])
-
     const handleScroll = useCallback(
         debounce(() => {
             if (window.scrollY > 1500) {
@@ -91,16 +70,28 @@ export default function Series() {
         []
     );
     useEffect(() => {
-
         window.addEventListener('scroll', handleScroll)
         return () => {
             window.removeEventListener('scroll', handleScroll)
         }
     }, [])
 
+    useEffect(() => {
+        if (series.length > 0) {
+            const card = series.find((card) => card.tmdbID === tmdbid)
+            if (!card) return
+            setTopCard(card)
+        }
+    }, [series])
+
     return (
         <>
-            <SEO title="Series | FlixNext" description="Várias séries para maratonar!" />
+            <SEO
+                title="Series | FlixNext"
+                description="Várias séries para maratonar!"
+                image="https://flixnext.com.br/blurImage.png"
+                url="https://flixnext.com.br"
+            />
             {
                 serieData.length > 0 ?
                     <>
@@ -110,7 +101,11 @@ export default function Series() {
                                 {
                                     series && series.length > 0 &&
                                     <>
-                                        <TopSerie width={width} />
+                                        {//<TopSerie width={width} />
+                                        }
+                                        {
+                                            topCard && <NewTopSerie width={width} card={topCard} />
+                                        }
                                         <div className={styles.mid}>
                                             {divisaoPorGenero.map((sec, index) => (
                                                 <div key={sec}>
