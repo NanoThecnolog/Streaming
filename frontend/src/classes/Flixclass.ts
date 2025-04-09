@@ -31,6 +31,8 @@ class FlixFetcher {
 
         this.loading = true
         try {
+            debug.log("Movies no fetchMovieData", movies)
+            if (movies.length === 0) return debug.error("Lista movies vazia!", movies)
             const response = await apiTMDB.post('/all/movie', {
                 movies: movies
             })

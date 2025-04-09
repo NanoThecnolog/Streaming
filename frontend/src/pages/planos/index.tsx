@@ -19,6 +19,10 @@ import Spinner from "@/components/ui/Loading/spinner";
 import Link from "next/link";
 import Questions from "@/components/Questions";
 import axios from "axios";
+import { mongoService } from "@/classes/MongoContent";
+import { useFlix } from "@/contexts/FlixContext";
+import { MovieTMDB } from "@/@types/Cards";
+import { TMDBSeries } from "@/@types/series";
 
 
 
@@ -26,9 +30,27 @@ export default function Donate() {
     const router = useRouter()
     const [plans, setPlans] = useState<PlansProps>()
     const { allData, serieData, setAllData, setSerieData } = useTMDB()
+    const { movies, setMovies, series, setSeries } = useFlix()
+    const [moviesToShow, setMoviesToShow] = useState<MovieTMDB[]>()
+    const [seriesToShow, setSeriesToShow] = useState<TMDBSeries[]>()
 
-    const series = serieData.slice(0, 20)
-    const movies = allData.slice(0, 20)
+    //const seriesToShow = serieData.slice(0, 20)
+    //const moviesToShow = allData.slice(0, 20)
+
+    useEffect(() => {
+        async function fetchMoviesMongoDB() {
+            const response = await mongoService.fetchMovieData()
+            if (response.length > 0) setMovies(response)
+        }
+        if (movies.length === 0) fetchMoviesMongoDB()
+    }, [movies])
+    useEffect(() => {
+        async function fetchSeriesMongoDB() {
+            const response = await mongoService.fetchSerieData()
+            if (response.length > 0) setSeries(response)
+        }
+        if (series.length === 0) fetchSeriesMongoDB()
+    }, [series])
 
     async function getPlans() {
         try {
@@ -48,7 +70,8 @@ export default function Donate() {
     useEffect(() => {
         if (allData.length === 0) {
             debug.warn("chamando 1")
-            flixFetcher.fetchMovieData(setAllData)
+            const cards = movies.sort((a, b) => b.index - a.index).slice(0, 20)
+            flixFetcher.fetchMovieData(setAllData, cards)
             if (serieData.length === 0) {
                 debug.warn("Chamando 2")
                 flixFetcher.fetchSerieData(setSerieData)
@@ -58,7 +81,7 @@ export default function Donate() {
             flixFetcher.fetchSerieData(setSerieData)
         }
 
-    }, [allData, serieData, setAllData, setSerieData])
+    }, [movies, allData, serieData, setAllData, setSerieData])
 
     function handleClick(id: string) {
         router.push(`/payment?id=${id}`)
@@ -145,7 +168,7 @@ export default function Donate() {
                                     loop={true}
                                     breakpoints={swiperBreakpoints}
                                 >
-                                    {movies.map(movie => {
+                                    {allData.slice(0, 20).map(movie => {
                                         const url = `https://image.tmdb.org/t/p/w500${movie.poster_path}`
                                         return (
                                             <SwiperSlide key={movie.id}>
@@ -167,7 +190,7 @@ export default function Donate() {
                                     loop={true}
                                     breakpoints={swiperBreakpoints}
                                 >
-                                    {series.map(serie => {
+                                    {serieData.slice(0, 20).map(serie => {
                                         const url = `https://image.tmdb.org/t/p/w500${serie.poster_path}`
                                         return (
                                             <SwiperSlide key={serie.id}>
