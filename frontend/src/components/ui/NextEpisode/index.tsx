@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import styles from './styles.module.scss'
 import { SeriesProps } from '@/@types/series'
 import { debug } from '@/classes/DebugLogger'
+import { TbPlayerTrackNextFilled } from 'react-icons/tb'
 
 interface NextProps {
     title: string,
@@ -51,15 +52,16 @@ export default function NextEpisode({ title, subtitle, season, episode, serie }:
         router.replace(play)
     }
     return (
-        <>
+        <div className={styles.container}>
             <button
                 className={styles.next}
                 onClick={handleNextEpisode}
                 disabled={!nextEpisode}
                 type='button'
             >
+                <TbPlayerTrackNextFilled size={25} />
                 Próximo Episódio
             </button>
-        </>
+        </div>
     )
 }

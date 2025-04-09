@@ -1,11 +1,8 @@
 import { CardsProps } from "@/@types/Cards";
 import { debug } from "@/classes/DebugLogger";
 import { mongoService } from "@/classes/MongoContent";
-import { apiManager } from "@/services/apiManager";
-//import { cards } from "@/data/cards";
 import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
-//import {PromiseFulfilledResult} from 'typescript'
 
 const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN
 const maxTentativas = 3
@@ -84,6 +81,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (!tmdbToken) {
         return res.status(500).json({ error: "TMDB token is missing" });
     }
+    const { movies } = req.body;
 
     //debug.log('MongoData movie: ', mongoData)
     res.setHeader('Cache-Control', 's-maxage=18000, stale-while-revalidate=300')
@@ -91,10 +89,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
         debug.log("Inciando fetch de dados")
-        const mongoData = await mongoService.fetchMovieData()
+        //const mongoData = await mongoService.fetchMovieData()
 
-        if (mongoData.length > 0) {
-            const cardData = await fetchInBatches(mongoData, batchSize)
+        if (movies.length > 0) {
+            const cardData = await fetchInBatches(movies, batchSize)
             debug.log("Fetch de dados concluído")
 
             const successFulData = cardData

@@ -1,6 +1,6 @@
 import { apiTMDB } from "@/services/apiTMDB";
 import { debug } from "./DebugLogger";
-import { MovieTMDB } from "@/@types/Cards";
+import { CardsProps, MovieTMDB } from "@/@types/Cards";
 import { TMDBSeries } from "@/@types/series";
 
 class FlixFetcher {
@@ -21,28 +21,30 @@ class FlixFetcher {
         //this.setSerieData = setSerieData
     }
 
-
-
     /**
      * Realiza a busca dos dados no TMDB e salva no context.
      * @returns não retorna dado nenhum
     */
 
-    async fetchMovieData(setAllData: (data: MovieTMDB[]) => void, attempt: number = 1) {
+    async fetchMovieData(setAllData: (data: MovieTMDB[]) => void, movies: CardsProps[], attempt: number = 1) {
         if (this.loading) return
 
         this.loading = true
         try {
-            const response = await apiTMDB.get('/all/movie')
+            const response = await apiTMDB.post('/all/movie', {
+                movies: movies
+            })
             if (response.status === 502 || !response.data) {
-                this.retryMovie(setAllData, attempt)
+                this.retryMovie(setAllData, attempt, movies)
                 return
             }
+            debug.log("Erros na requisição ao tmdb: ", response.data.errors)
             this.allData = response.data.data as MovieTMDB[]
+            //return this.allData
             setAllData(this.allData)
         } catch (err) {
             debug.error(`Erro na tentativa ${attempt}`, err)
-            this.retryMovie(setAllData, attempt)
+            this.retryMovie(setAllData, attempt, movies)
         } finally {
             this.loading = false
         }
@@ -67,10 +69,10 @@ class FlixFetcher {
         }
     }
 
-    private retryMovie(setAllData: (data: MovieTMDB[]) => void, attempt: number) {
+    private retryMovie(setAllData: (data: MovieTMDB[]) => void, attempt: number, movies: CardsProps[]) {
         if (attempt < this.maxRetries) {
             debug.warn(`Tentativa ${attempt}/${this.maxRetries} falhou. Tentando novamente em 4 segundos...`)
-            setTimeout(() => this.fetchMovieData(setAllData, attempt + 1), 4000)
+            setTimeout(() => this.fetchMovieData(setAllData, movies, attempt + 1), 4000)
         } else {
             debug.log("Numero maximo de tentativas atingido.")
         }

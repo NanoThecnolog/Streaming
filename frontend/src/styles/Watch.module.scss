@@ -103,9 +103,14 @@
     .buttonContainer {
         width: 100%;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
         align-items: center;
         gap: 20px;
         padding: 20px;
+        position: absolute;
+        bottom: 150px;
+        left: 0;
+        //background-color: blue;
+
     }
 }

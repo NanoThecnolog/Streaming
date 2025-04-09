@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import styles from './styles.module.scss'
 //import { series } from '@/data/series'
 import { SeriesProps } from '@/@types/series'
+import { TbPlayerTrackPrevFilled } from 'react-icons/tb'
 
 interface PrevProps {
     title: string,
@@ -61,15 +62,17 @@ export default function PrevEpisode({ title, subtitle, season, episode, serie }:
     }
 
     return (
-        <>
+        <div className={styles.container}>
             <button
                 className={styles.prev}
                 onClick={handlePrevEpisode}
                 disabled={!prevEpisode}
                 type='button'
+                title='Episódio Anterior'
             >
                 Episódio Anterior
+                <TbPlayerTrackPrevFilled size={25} />
             </button>
-        </>
+        </div>
     )
 }

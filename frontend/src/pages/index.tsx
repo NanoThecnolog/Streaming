@@ -17,12 +17,20 @@ import { flixFetcher } from "@/classes/Flixclass";
 import { mongoService } from "@/classes/MongoContent";
 import { useFlix } from "@/contexts/FlixContext";
 import NewTop from "@/components/newTop";
-import { CardsProps } from "@/@types/Cards";
+import { CardsProps, MovieTMDB } from "@/@types/Cards";
+import { GetServerSideProps } from "next";
+import { apiTMDB } from "@/services/apiTMDB";
+import { debug } from "@/classes/DebugLogger";
+import axios from "axios";
 
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+interface HomeProps {
+  moviesTMDB: MovieTMDB[]
+}
+
+export default function Home(/* { moviesTMDB }: HomeProps */) {
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
   const [width, setWidth] = useState<number>(0)
   const removedSections = [agp.dc, agp.marvel, agp.hero]
@@ -31,7 +39,7 @@ export default function Home() {
   const combined = [...generos, ...agrupadores.filter(item => removedSections.includes(item))];
   const divisaoPorGenero = combined
   const { allData, setAllData } = useTMDB()
-  const [loading, setLoading] = useState(false)
+  //const [loading, setLoading] = useState(false)
   const [visible, setvisible] = useState(false)
   const { movies, setMovies } = useFlix()
   const tmdbid = 696506;
@@ -45,18 +53,13 @@ export default function Home() {
     if (movies.length === 0) fetchMoviesMongoDB()
   }, [movies])
 
-
   useEffect(() => {
     if (allData.length > 0) return
-    flixFetcher.fetchMovieData(setAllData)
-  }, [setAllData])
-
+    //setAllData(moviesTMDB)
+    if (movies.length > 0) flixFetcher.fetchMovieData(setAllData, movies)
+  }, [movies, setAllData])
 
   useEffect(() => {
-    // Breakpoints ajustados
-    /**
-     * Define a quantidade de cards por container baseado na largura da página
-     */
     function handleResize() {
       const windowWidth = window.innerWidth;
       setWidth(windowWidth)
@@ -116,20 +119,11 @@ export default function Home() {
                     {
                       //<Top width={width} cards={movies} />
                     }
-
-
                     <div className={styles.mid} id="filmes">
-                      {
-                        //<ReleaseContainer section="lançamentos" cardPerContainer={cardPerContainer} />
-                      }
                       {
                         divisaoPorGenero.map((sec, index) => {
                           return (
                             <div key={index}>
-                              {/*<CardContainer
-                            section={sec}
-                            cardPerContainer={cardPerContainer}
-                          />*/}
                               {
                                 index === 3 && cardPerContainer >= 2 && <Search />
                               }
@@ -137,12 +131,9 @@ export default function Home() {
                             </div>
                           )
                         })}
-
                     </div>
                   </>
-
                 }
-
               </div>
               <BackTopButton link="/#inicio" visible={visible} />
             </main>
@@ -155,3 +146,35 @@ export default function Home() {
     </>
   );
 }
+/*
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const moviesTMDB = await fetchMovieData()
+  if (!moviesTMDB) return { notFound: true }
+
+  return {
+    props: { moviesTMDB }
+  }
+}
+
+async function fetchMovieData(attempt: number = 1, maxRetries = 5): Promise<MovieTMDB[] | null> {
+  try {
+    //const response = await apiTMDB.get('/all/movie')
+    const response = await axios.get('http://localhost:3000/api/tmdb/all/movie')
+
+    if (response.status === 502 || !response.data) {
+      if (attempt < maxRetries) {
+        return await fetchMovieData(attempt + 1, maxRetries)
+      }
+      return null
+    }
+
+    return response.data.data as MovieTMDB[]
+  } catch (err) {
+    debug.error(`Erro na tentativa ${attempt}`, err)
+    if (attempt < maxRetries) {
+      return await fetchMovieData(attempt + 1, maxRetries)
+    }
+    return null
+  }
+}
+*/

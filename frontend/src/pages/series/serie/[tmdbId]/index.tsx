@@ -138,15 +138,7 @@ export default function Serie({ data }: SerieProps) {
     useEffect(() => {
         if (serie && tmdbId) getTMDBCast()
     }, [serie])
-    /**
-     * Função assíncrona que busca informações sobre atores e equipe técnica da série.
-     * @param mainCast - atores principais
-     * @param seriesCast - todos os atores envolvidos nas temporadas
-     * @param casting - filtragem para retirar possíveis undefined
-     * @param crewData - utiliza a equipe técnica geral da série ou a equipe especifica de cada temporada
-     * @param groupedByDepartment - agrupa equipe de acordo com a propriedade department
-     * @returns Não retorna nada
-     */
+
     async function getTMDBCast() {
         if (loading) return
         setLoading(true)
@@ -370,7 +362,7 @@ export default function Serie({ data }: SerieProps) {
                                     episodesToShow.map((ep, index) => {
                                         const season = episodesData[seasonToShow - 1];
                                         const episode = season?.find(e => e.episode_number === ep.ep)
-                                        const image = episode ? `https://image.tmdb.org/t/p/w400${episode?.still_path}` : '/blurImage.png';
+                                        const image = episode ? `https://image.tmdb.org/t/p/w500${episode?.still_path}` : '/blurImage.png';
                                         const episodeInfo = {
                                             serieTmdbId: serie.tmdbID,
                                             seasonNumber: episode?.season_number,
