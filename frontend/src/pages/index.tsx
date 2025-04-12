@@ -42,7 +42,7 @@ export default function Home(/* { moviesTMDB }: HomeProps */) {
   //const [loading, setLoading] = useState(false)
   const [visible, setvisible] = useState(false)
   const { movies, setMovies } = useFlix()
-  const tmdbid = 696506;
+  const tmdbid = 1195506;
   const [topCard, setTopCard] = useState<CardsProps | null>(null)
 
   useEffect(() => {

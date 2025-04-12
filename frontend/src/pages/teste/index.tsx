@@ -76,7 +76,7 @@ export default function TestPage() {
             <div>
                 <h1>Página de testes</h1>
                 {
-                    card && <NewTop width={window.innerWidth} card={card} />
+                    //card && <NewTop width={window.innerWidth} card={card} />
                 }
 
                 {

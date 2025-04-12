@@ -3,6 +3,7 @@ import { mongoService } from '@/classes/MongoContent';
 //import { cards } from '@/data/cards';
 //import { series } from '@/data/series';
 import { google } from 'googleapis';
+import pLimit from 'p-limit'
 
 export interface ErrorProps {
     tmdbId: number,
@@ -60,73 +61,106 @@ export function extractFileId(url: string): string | null {
 
 
 export async function verifyAllDataFiles() {
-    let errors: ErrorProps[] = []
+    let errors: (ErrorProps | null)[] = []
     let count = 0;
+    const limit = pLimit(20)
     const mongoMovies = await mongoService.fetchMovieData()
-    const requests = mongoMovies.map(async (card) => {
-        const id = extractFileId(card.src)
-        if (id) {
+    const allChecks = mongoMovies.map(card =>
+        limit(async () => {
+            const id = extractFileId(card.src)
+            if (!id) {
+                debug.error(`Erro com o id da url: ${card.src}, do card: ${card.tmdbId}`)
+                return null
+            }
 
             try {
-                count++;
+                count++
+                debug.log(`testando o card ${card.tmdbId}`, count)
                 const result = await checkDriveFile(id)
                 if (result?.code !== 200) {
                     debug.error(`Erro com o arquivo. ${card.tmdbId}`)
-                    errors.push({
+                    return {
                         tmdbId: card.tmdbId,
                         title: card.title,
                         subtitle: card.subtitle,
                         src: card.src
-                    })
+                    } as ErrorProps
                 }
-            } catch (err: any) {
+            } catch (err) {
                 debug.error(`Erro com o arquivo: ${card.tmdbId}`, err)
             }
 
-        } else {
-            debug.log(`Erro com o id da url ${card.tmdbId}`)
-        }
-    })
-    await Promise.allSettled(requests)
+            return null
+        })
+    )
+    const results = await Promise.allSettled(allChecks)
+    results
+        .filter((r): r is PromiseRejectedResult => r.status === 'rejected')
+        .forEach(r => {
+            debug.error("Erro numa verificação: ", r.reason)
+        })
+    const filteredErrors = results
+        .filter((r): r is PromiseFulfilledResult<ErrorProps | null> => r.status === 'fulfilled' && r.value !== null)
+        .map(r => r.value)
+
+    errors.push(...filteredErrors)
     debug.log(`Verificação concluída. ${count} arquivos testados.`)
     return errors;
 }
 export async function verifySerieDataFiles() {
-    let errors: ErrorProps[] = []
     let count = 0;
-    const mongoSeries = await mongoService.fetchSerieData()
-    const requests = mongoSeries.map(async (card) => {
-        const promiseSeasons = card.season.flatMap((season) => {
-            return season.episodes.map(async (episode) => {
-                const id = extractFileId(episode.src)
-                if (id) {
+    const errors: (ErrorProps | null)[] = [];
+    const mongoSeries = await mongoService.fetchSerieData();
+    const limit = pLimit(20);
 
+    const allChecks = mongoSeries.flatMap((card) => {
+        return card.season.flatMap((season) => {
+            return season.episodes.map((episode) =>
+                limit(async () => {
+                    const id = extractFileId(episode.src);
+                    if (!id) {
+                        debug.error(`Erro com o id da url ${card.tmdbID}`);
+                        return null;
+                    }
                     try {
                         count++;
-                        const result = await checkDriveFile(id)
+                        debug.log(`testando ${episode.ep} da temporada ${season.s} da serie ${card.title}`, count)
+                        const result = await checkDriveFile(id);
                         if (result?.code !== 200) {
-                            debug.error(`Erro com o arquivo. ${card.tmdbID}`)
-                            errors.push({
+                            debug.error(`Erro com o arquivo. ${card.tmdbID}`);
+                            return {
                                 tmdbId: card.tmdbID,
                                 title: card.title,
                                 subtitle: card.subtitle,
                                 season: season.s,
-                                src: episode.src
-                            })
+                                src: episode.src,
+                            } as ErrorProps;
                         }
-                    } catch (err: any) {
-                        debug.error(`Erro com o arquivo: ${card.tmdbID}`, err)
+                    } catch (err) {
+                        debug.error(`Erro com o arquivo: ${card.tmdbID}`, err);
                     }
 
-                } else {
-                    debug.error(`Erro com o id da url ${card.tmdbID}`)
-                }
-            })
+                    return null;
+                })
+            );
+        });
+    });
+
+    const results = await Promise.allSettled(allChecks);
+
+    results
+        .filter((r) => r.status === 'rejected')
+        .forEach(r => {
+            debug.error("Erro numa verificação: ", r.reason)
         })
-        return Promise.allSettled(promiseSeasons)
-    })
-    await Promise.allSettled(requests)
-    debug.log(`Verificação concluída. ${count} arquivos testados.`)
+
+    const filteredErrors = results
+        .filter((r): r is PromiseFulfilledResult<ErrorProps | null> => r.status === 'fulfilled' && r.value !== null)
+        .map(r => r.value)
+
+    errors.push(...filteredErrors);
+
+    debug.log(`Verificação concluída. ${count} arquivos testados. ${errors.length} Erros encontrados.`);
     return errors;
 }
 /*testes
