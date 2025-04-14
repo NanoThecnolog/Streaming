@@ -16,8 +16,9 @@ export interface TVProps {
     description: string,
     genero: string[],
     faixa: string,
-    news?: { type: "season" | "episode" | "news" },
     season: Seasons[]
+    news?: "season" | "episode" | "news"
+
 }
 
 export default function CreateTV() {

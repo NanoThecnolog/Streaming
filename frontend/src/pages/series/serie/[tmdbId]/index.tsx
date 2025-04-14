@@ -285,7 +285,7 @@ export default function Serie({ data }: SerieProps) {
                                         <h1>{serie.title} {serie.subtitle !== '' && `- ${serie.subtitle}`}</h1>
                                     </div>
                                     <div className={styles.tmdbInfo}>
-                                        {serie.news && <NewContent type={serie.news.type} />}
+                                        {serie.news && <NewContent type={serie.news} />}
                                         <Stars average={TMDBSerie?.vote_average ?? 0} />
                                         <Adult faixa={serie.faixa} />
                                     </div>

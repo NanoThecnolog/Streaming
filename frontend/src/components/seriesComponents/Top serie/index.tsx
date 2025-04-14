@@ -106,7 +106,7 @@ export default function TopSerie({ width }: TopSerieProps) {
                         {
                             card.news &&
                             <div className={styles.newContentBox}>
-                                <NewContent type={card.news.type} />
+                                <NewContent type={card.news} />
                             </div>
                         }
                         <Adult faixa={card.faixa} />
