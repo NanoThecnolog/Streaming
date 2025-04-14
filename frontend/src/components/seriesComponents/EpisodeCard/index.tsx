@@ -2,6 +2,7 @@ import { PlayIcon } from 'lucide-react'
 import styles from './styles.module.scss'
 import { Episodes, TMDBEpisodes } from '@/@types/series'
 import { minToHour } from '@/utils/UtilitiesFunctions'
+import { debug } from '@/classes/DebugLogger'
 
 interface EpisodeProps {
     episodeData: {
@@ -15,6 +16,7 @@ interface EpisodeProps {
 }
 
 export default function EpisodeCard({ episodeData, handlePlay }: EpisodeProps) {
+    debug.log(episodeData)
     return (
         <div className={styles.episodeContainer} onClick={() => handlePlay(episodeData.data, episodeData.seasonNumber)}>
             <div

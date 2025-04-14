@@ -98,6 +98,7 @@ export default function Serie({ data }: SerieProps) {
         debug.log("seasonToShow:", seasonToShow)
         if (seasonToShow > 0) {
             const episodes = serie.season[seasonToShow - 1]?.episodes
+            debug.log("episódios: ", episodes)
             setEpisodesToShow(episodes)
         }
         fetchEpisodes()
@@ -348,7 +349,9 @@ export default function Serie({ data }: SerieProps) {
                             <div className={styles.cardContainer}>
                                 {
                                     episodesToShow.map((ep, index) => {
+                                        debug.log("episodesData: ", episodesData)
                                         const season = episodesData[seasonToShow - 1];
+                                        debug.log("season no render: ", season)
                                         const episode = season?.find(e => e.episode_number === ep.ep)
                                         const image = episode ? `https://image.tmdb.org/t/p/w500${episode?.still_path}` : '/blurImage.png';
                                         const episodeInfo = {

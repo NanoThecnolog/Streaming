@@ -136,7 +136,7 @@ class TMDBService {
         }
         if (tmdbID === 0) return null;
 
-        const endPoint = `/tv/${tmdbID}/season/${season}?language=pt-BR`;
+        const endPoint = `https://api.themoviedb.org/3/tv/${tmdbID}/season/${season}?language=pt-BR`;
 
         try {
             const response = await axios.get(endPoint, {
