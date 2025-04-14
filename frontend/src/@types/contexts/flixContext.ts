@@ -9,11 +9,11 @@ export type ContextProviderProps = {
 }
 export interface ContextProps {
     user: UserContext | null | undefined;
-    favorites: FavoritesContext[],
+    //favorites: FavoritesContext[],
     watchLater: WatchLaterContext[],
     setUser: (user: UserContext) => void
     setWatchLater: (tmdbid: WatchLaterContext[]) => void
-    setFavorites: (id: FavoritesContext[]) => void
+    //setFavorites: (id: FavoritesContext[]) => void
     signIn: (credentials: SignInProps) => Promise<void>
     signOut: () => void
     movies: CardsProps[]

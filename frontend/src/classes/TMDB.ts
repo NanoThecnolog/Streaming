@@ -62,14 +62,6 @@ class TMDBService {
     }
 
     /**
-     * Busca detalhes de uma série.
-     * @param tmdbID ID da série no TMDB.
-     * @returns Dados da série ou null em caso de erro.
-     */
-    async fetchSeriesDetails(tmdbID: number): Promise<TMDBSeries | null> {
-        return this.fetchTMDBData<TMDBSeries>(tmdbID, 'tv', 'details');
-    }
-    /**
      * Busca informações do elenco de um filme.
      * @param tmdbID ID do filme no TMDB.
      * @returns Dados do elenco ou null em caso de erro.
@@ -77,6 +69,34 @@ class TMDBService {
 
     async fetchMovieCast(tmdbID: number): Promise<CastProps | null> {
         return this.fetchTMDBData<CastProps>(tmdbID, 'movie', 'details', true);
+    }
+    /**
+     * Busca a imagem de fundo de um filme.
+     * @param tmdbID ID do filme no TMDB
+     * @returns URL da imagem de fundo ou null em caso de erro
+     */
+
+    async fetchMovieBackDrop(tmdbID: number): Promise<string | null> {
+        return this.fetchTMDBData<string>(tmdbID, 'movie', 'backdrop');
+    }
+    /**
+     * Busca a imagem do pôster de um filme.
+     * @param tmdbID ID do filme no TMDB
+     * @returns URL do pôster ou null em caso de erro
+     */
+
+    async fetchMoviePoster(tmdbID: number): Promise<string | null> {
+        return this.fetchTMDBData<string>(tmdbID, 'movie', 'poster');
+    }
+
+
+    /**
+     * Busca detalhes de uma série.
+     * @param tmdbID ID da série no TMDB.
+     * @returns Dados da série ou null em caso de erro.
+     */
+    async fetchSeriesDetails(tmdbID: number): Promise<TMDBSeries | null> {
+        return this.fetchTMDBData<TMDBSeries>(tmdbID, 'tv', 'details');
     }
 
     /**
@@ -89,25 +109,9 @@ class TMDBService {
         return this.fetchTMDBData<CastProps>(tmdbID, 'tv', 'details', true);
     }
 
-    /**
-     * Busca a imagem de fundo de um filme.
-     * @param tmdbID ID do filme no TMDB
-     * @returns URL da imagem de fundo ou null em caso de erro
-     */
 
-    async fetchMovieBackDrop(tmdbID: number): Promise<string | null> {
-        return this.fetchTMDBData<string>(tmdbID, 'movie', 'backdrop');
-    }
 
-    /**
-     * Busca a imagem do pôster de um filme.
-     * @param tmdbID ID do filme no TMDB
-     * @returns URL do pôster ou null em caso de erro
-     */
 
-    async fetchMoviePoster(tmdbID: number): Promise<string | null> {
-        return this.fetchTMDBData<string>(tmdbID, 'movie', 'poster');
-    }
     /**
      * Busca os dados sobre o elenco de uma temporada.
      * @param tmdbID ID da Série no TMDB

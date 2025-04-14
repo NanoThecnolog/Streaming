@@ -7,7 +7,6 @@ import HelpFlag from "@/components/Helpflag";
 import HelpModal from "@/components/modals/HelpModal/index ";
 import SEO from "@/components/SEO";
 //import { cards } from '@/data/cards';
-import { CardsProps } from '@/@types/Cards';
 import { parseCookies } from 'nookies';
 import { useFlix } from '@/contexts/FlixContext';
 import { apiGoogle } from '@/services/apiGoogle';

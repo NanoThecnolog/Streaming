@@ -75,7 +75,7 @@ export default function Card({ card }: CardProps) {
                 />
                 {card.news &&
                     <div className={styles.newContentBox}>
-                        <NewContent type={card.news.type} />
+                        <NewContent type={card.news} />
                     </div>
                 }
             </div>

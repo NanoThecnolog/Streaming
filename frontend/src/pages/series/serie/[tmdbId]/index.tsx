@@ -9,8 +9,8 @@ import { Play } from "lucide-react";
 import { toast } from "react-toastify";
 import { FaCheck } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
-import { fetchEpisodeData, fetchTMDBSerieCast, fetchTMDBSerieCastBySeason, fetchTMDBSeries, fetchTMDBTrailer } from "@/services/fetchTMDBData";
-import { addWatchLater, isOnTheList } from "@/services/handleWatchLater";
+//import { fetchEpisodeData, fetchTMDBSerieCast, fetchTMDBSerieCastBySeason, fetchTMDBSeries, fetchTMDBTrailer } from "@/services/fetchTMDBData";
+//import { addWatchLater, isOnTheList } from "@/services/handleWatchLater";
 import Stars from "@/components/ui/StarAverage";
 import Adult from "@/components/ui/Adult";
 import SEO from "@/components/SEO";
@@ -32,6 +32,9 @@ import { mongoService } from "@/classes/MongoContent";
 import { getRelatedSerieCards } from "@/utils/CardsManipulation";
 import { GetServerSideProps } from "next";
 import axios from "axios";
+import { userMethod, UserMethods } from "@/classes/userMethods";
+import { tmdb } from "@/classes/TMDB";
+import { watchLaterManager } from "@/classes/watchLaterManager";
 
 interface TMDBImagesProps {
     backdrop: string,
@@ -62,7 +65,6 @@ export default function Serie({ data }: SerieProps) {
 
     const [onWatchLater, setOnWatchLater] = useState<boolean>(false)
 
-    const [headTitle, setHeadTitle] = useState<string>(' ')
     const [TMDBImage, setTMDBImage] = useState<TMDBImagesProps>()
 
     const [relatedCards, setRelatedCards] = useState<SeriesProps[]>()
@@ -100,26 +102,18 @@ export default function Serie({ data }: SerieProps) {
         }
         fetchEpisodes()
 
-        const onList: Promise<boolean> = isOnTheList(serie.tmdbID)
-        onList.then(result => {
-            if (!result) {
-                setOnWatchLater(false)
-            } else {
-                setOnWatchLater(true)
-            }
-        })
-        const titulo = `${serie.title} ${serie.subtitle ? `- ${serie.subtitle}` : ''}`
-        setHeadTitle(titulo)
+        const onList = watchLaterManager.isOnTheList(serie.tmdbID)
+        setOnWatchLater(onList)
     }, [serie, seasonToShow])
     useEffect(() => {
         fetchSerieData()
     }, [serie, serieData])
     async function fetchSerieData() {
         try {
-            if (!serie) return //console.warn("Serie ou serieData faltando..")
+            if (!serie) return //debug.warn("Serie ou serieData faltando..")
             let serieInfo: TMDBSeries | null | undefined
             if (!serieData || serieData.length <= 0) {
-                serieInfo = await fetchTMDBSeries(serie.tmdbID)
+                serieInfo = await tmdb.fetchSeriesDetails(serie.tmdbID)
             } else {
                 //debuglog("Serie data", serieData)
                 serieInfo = serieData.find(data => data.id === serie.tmdbID)
@@ -144,19 +138,19 @@ export default function Serie({ data }: SerieProps) {
         setLoading(true)
         try {
             if (!tmdbId || isNaN(Number(tmdbId))) return debug.log("tmdbId", tmdbId, "tipo: ", typeof (tmdbId))
-            const mainCast = await fetchTMDBSerieCast(Number(tmdbId));
+            const mainCast = await tmdb.fetchSeriesCast(Number(tmdbId));
 
-            if (!mainCast) return console.warn("Nenhum dado sobre o elenco principal da série.")
+            if (!mainCast) return debug.warn("Nenhum dado sobre o elenco principal da série.")
             const seriesCast: CastProps[] = []
-            if (!serie) return console.warn("Dados da Série não estão presentes");
+            if (!serie) return debug.warn("Dados da Série não estão presentes");
             //debuglog("length de série.season: ", serie.season.length)
             for (let i = 0; i < serie.season.length; i++) {
                 //debuglog("valor de i no for: ", i + 1)
-                const castSeason = await fetchTMDBSerieCastBySeason(Number(tmdbId), i + 1)
+                const castSeason = await tmdb.fetchSeriesCastBySeason(Number(tmdbId), i + 1)
                 if (!castSeason) return
                 seriesCast.push(mainCast, castSeason)
             }
-            if (seriesCast.length <= 0) return console.warn("Nenhum dado sobre o elenco das temporadas")
+            if (seriesCast.length <= 0) return debug.warn("Nenhum dado sobre o elenco das temporadas")
             const casting = seriesCast.filter((cast): cast is CastProps => cast !== undefined)
 
             const crewData = Array.isArray(mainCast.crew) && mainCast.crew.length > 0
@@ -173,7 +167,7 @@ export default function Serie({ data }: SerieProps) {
             setCrewDepartment(groupedByDepartment)
             setCast(casting)
         } catch (err) {
-            console.error("Erro ao buscar dados sobre o elenco do filme.", err)
+            debug.error("Erro ao buscar dados sobre o elenco do filme.", err)
         } finally {
             setLoading(false)
         }
@@ -183,7 +177,7 @@ export default function Serie({ data }: SerieProps) {
         if (!serie) return
         const episodesArray = await Promise.all(
             serie.season.map(async temp => {
-                const episodes = await fetchEpisodeData(serie.tmdbID, temp.s)
+                const episodes = await tmdb.fetchEpisodeData(serie.tmdbID, temp.s)
                 return episodes
             })
         )
@@ -235,18 +229,12 @@ export default function Serie({ data }: SerieProps) {
             if (!serie) return
             if (loadingButton) return
             setLoadingButton(true)
-            await addWatchLater(serie);
-            const onList: Promise<boolean> = isOnTheList(tmdbid)
-            onList.then(result => {
-                if (!result) {
-                    setOnWatchLater(false)
-                } else {
-                    setOnWatchLater(true)
-                }
-            })
+            await watchLaterManager.addWatchLater(serie);
+            const onList = watchLaterManager.isOnTheList(tmdbid)
+            setOnWatchLater(onList)
         } catch (err: any) {
             if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
-            console.log("Erro na function handleAddUserList", err)
+            debug.log("Erro na function handleAddUserList", err)
             return toast.error("Erro inesperado ao adicionar série à lista!")
         } finally {
             setLoadingButton(false)
@@ -258,7 +246,7 @@ export default function Serie({ data }: SerieProps) {
     }, [router, tmdbId])
     async function getTrailer() {
         if (!tmdbId) return
-        const trailer = await fetchTMDBTrailer(Number(tmdbId), 'tv')
+        const trailer = await tmdb.fetchTrailer(Number(tmdbId), 'tv')
         if (!trailer) return setTrailer(null)
         return setTrailer(trailer)
     }

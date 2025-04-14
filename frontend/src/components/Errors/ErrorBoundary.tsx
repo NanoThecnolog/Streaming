@@ -1,6 +1,5 @@
 import React from "react";
 import styles from './styles.module.scss'
-import Router from "next/router";
 
 
 type Props = { children: React.ReactNode };

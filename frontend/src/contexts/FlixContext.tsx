@@ -11,24 +11,14 @@ import { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify";
 
 
-
-
 export const FlixContext = createContext({} as ContextProps)
 
 export function FlixProvider({ children }: ContextProviderProps) {
     const [user, setUser] = useState<UserContext | null>();
-    const [favorites, setFavorites] = useState<FavoritesContext[]>([])
+    //const [favorites, setFavorites] = useState<FavoritesContext[]>([])
     const [watchLater, setWatchLater] = useState<WatchLaterContext[]>([])
     const [movies, setMovies] = useState<CardsProps[]>([])
     const [series, setSeries] = useState<SeriesProps[]>([])
-
-    /*useEffect(() => {
-        const token = getCookieData('flix-token')
-        console.log("token no context", token)
-        if (!token) return
-        api.get
-
-    },[])*/
 
     //favoritos, watch later, dados do usuário, tudo aqui
     async function signIn({ email, password }: SignInProps) {
@@ -52,20 +42,20 @@ export function FlixProvider({ children }: ContextProviderProps) {
 
             debug.log('acesso na função de sign: ', access)
 
-            const favoriteIds = favoritos.map(item => ({ id: item.tmdbid }))
+            //const favoriteIds = favoritos.map(item => ({ id: item.tmdbid }))
             const watchLaterIds = myList.map(item => ({ id: item.tmdbid }))
 
 
             destroyCookie(null, 'flix-token')
             setCookie(null, 'flix-token', token, cookieOptions)
 
-            destroyCookie(null, 'flix-favorites')
-            setCookie(null, 'flix-favorites', JSON.stringify(favoriteIds), cookieOptions)
+            //destroyCookie(null, 'flix-favorites')
+            //setCookie(null, 'flix-favorites', JSON.stringify(favoriteIds), cookieOptions)
 
             destroyCookie(null, 'flix-watch')
             setCookie(null, 'flix-watch', JSON.stringify(watchLaterIds), cookieOptions)
 
-            setFavorites(favoriteIds)
+            //setFavorites(favoriteIds)
             setWatchLater(watchLaterIds)
 
             const user: UserContext = {
@@ -99,7 +89,7 @@ export function FlixProvider({ children }: ContextProviderProps) {
             destroyCookie(null, 'flix-watch')
             destroyCookie(null, 'flix-user')
             setUser(null)
-            setFavorites([])
+            //setFavorites([])
             setWatchLater([])
             Router.push('/login')
         } catch (err) {
@@ -109,7 +99,7 @@ export function FlixProvider({ children }: ContextProviderProps) {
     }
 
     return (
-        <FlixContext.Provider value={{ user, favorites, watchLater, setWatchLater, setFavorites, setUser, signIn, signOut, movies, series, setMovies, setSeries }}>
+        <FlixContext.Provider value={{ user, /*favorites*/ watchLater, setWatchLater, /*setFavorites*/ setUser, signIn, signOut, movies, series, setMovies, setSeries }}>
             {children}
         </FlixContext.Provider>
     )

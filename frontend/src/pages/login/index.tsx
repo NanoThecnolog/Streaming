@@ -2,14 +2,10 @@ import Link from 'next/link'
 import styles from './styles.module.scss'
 import { FormEvent, useEffect, useState } from 'react';
 import { api } from '@/services/api';
-import { toast } from 'react-toastify';
-import Router from 'next/router';
 import { FaSpinner } from 'react-icons/fa';
 import ForgetPass from '@/components/modals/ForgetPassword';
-import setData from '@/services/setDataOnStorage';
 import SEO from '@/components/SEO';
 import { useFlix } from '@/contexts/FlixContext';
-import { useTMDB } from '@/contexts/TMDBContext';
 
 export default function Login() {
     //refatorar esse componente

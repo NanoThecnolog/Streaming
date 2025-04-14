@@ -2,14 +2,14 @@ import { useRouter } from 'next/router'
 import styles from './styles.module.scss'
 import { useEffect, useState } from 'react';
 import { CardsProps, MovieTMDB } from '@/@types/Cards';
-import { fetchTMDBMovieCast, fetchTMDBTrailer } from '@/services/fetchTMDBData';
+//import { fetchTMDBMovieCast, fetchTMDBTrailer } from '@/services/fetchTMDBData';
 import SEO from '@/components/SEO';
 import Header from '@/components/Header';
 import Stars from '@/components/ui/StarAverage';
 import Adult from '@/components/ui/Adult';
 import { FaCheck, FaPlay } from 'react-icons/fa';
 import { FiPlus } from 'react-icons/fi';
-import { addWatchLater, isOnTheList } from '@/services/handleWatchLater';
+//import { addWatchLater, isOnTheList } from '@/services/handleWatchLater';
 import { toast } from 'react-toastify';
 import { CastProps, CrewProps } from '@/@types/cast';
 import Footer from '@/components/Footer';
@@ -30,6 +30,8 @@ import { tmdb } from '@/classes/TMDB';
 import { mongoService } from '@/classes/MongoContent';
 import { GetServerSideProps } from 'next';
 import axios from 'axios';
+import { userMethod, UserMethods } from '@/classes/userMethods';
+import { watchLaterManager } from '@/classes/watchLaterManager';
 
 interface groupedByDepartment {
     [job: string]: CrewProps[]
@@ -67,9 +69,9 @@ export default function Movie({ data }: MovieProps) {
         getTMDBCast()
     }, [router, tmdbId])
 
-    const watchLater = async () => {
+    const watchLater = () => {
         if (!movie) return
-        const onList = await isOnTheList(movie.tmdbId)
+        const onList = watchLaterManager.isOnTheList(movie.tmdbId)
         setOnWatchLater(onList)
     }
     useEffect(() => {
@@ -118,7 +120,7 @@ export default function Movie({ data }: MovieProps) {
         if (loading) return
         setLoading(true)
         try {
-            const cast = await fetchTMDBMovieCast(Number(tmdbId));
+            const cast = await tmdb.fetchMovieCast(Number(tmdbId));
             if (!cast) return debug.warn("Nenhum dado ao buscar elenco do filme.")
 
             const crewData = cast.crew?.length ? cast.crew : [];
@@ -150,7 +152,7 @@ export default function Movie({ data }: MovieProps) {
         try {
             if (loadingButton) return
             setLoadingButton(true)
-            await addWatchLater(movie)
+            await watchLaterManager.addWatchLater(movie)
             await watchLater()
         } catch (err: any) {
             debug.error("Erro ao adicionar filme", err)
@@ -165,7 +167,7 @@ export default function Movie({ data }: MovieProps) {
         if (!tmdbId || isNaN(Number(tmdbId))) return;
         const getTrailer = async () => {
             try {
-                const trailer = await fetchTMDBTrailer(Number(tmdbId), 'movie')
+                const trailer = await tmdb.fetchTrailer(Number(tmdbId), 'movie')
                 setTrailer(trailer || null)
             } catch (err) {
                 debug.error("Erro ao buscar o trailer", err)
@@ -207,7 +209,7 @@ export default function Movie({ data }: MovieProps) {
                                 <>
                                     <div>
                                         <div className={styles.movieDetail}>
-                                            <h4>{minToHour(tmdbData.runtime)} - {new Date(tmdbData.release_date).getFullYear()} - {movie.lang && movie.lang === "Leg" ? "Legendado" : "Dublado"}</h4>
+                                            <h4>{movie.title.toLowerCase() === 'batman vs superman' ? movie.duration : minToHour(tmdbData.runtime)} - {new Date(tmdbData.release_date).getFullYear()} - {movie.lang && movie.lang === "Leg" ? "Legendado" : "Dublado"}</h4>
                                         </div>
                                         <div className={styles.generoContainer}>
                                             <h4>{tmdbData.genres ? tmdbData.genres.map(genre => genre.name === "Action & Adventure" ? "Ação e Aventura" : genre.name === "Sci-Fi & Fantasy" ? "Ficção Científica e Fantasia" : genre.name === "Thriller" ? "Suspense" : genre.name).join(', ') : movie && movie.genero.join(', ')}</h4>
