@@ -99,9 +99,9 @@ export default function Upload() {
                 {message && <p className={styles.message}>{message}</p>}
             </div>
             <div>
-                {<button onClick={getTrailerURL}>buscar video</button>
+                {//<button onClick={getTrailerURL}>buscar video</button>
                 }
-                {<video src='https://srv770983.hstgr.cloud/content/trailer/696506' controls width="100%" />
+                {//<video src='https://srv770983.hstgr.cloud/content/trailer/696506' controls width="100%" />
                 }
             </div>
         </>

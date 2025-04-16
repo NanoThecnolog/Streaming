@@ -440,7 +440,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         params: {
             language: "pt-BR",
         },
-    });
+    })
 
     const data = res.data
     //debug.log('data no serversideprops', data)

@@ -1,10 +1,13 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import { agp, gen, stm } from '@/utils/Genres';
 import { classification } from '@/utils/Variaveis';
 import { debug } from '@/classes/DebugLogger';
 import { toast } from 'react-toastify';
 import { mongoService } from '@/classes/MongoContent';
+import { tmdb } from '@/classes/TMDB';
+import debounce from 'lodash.debounce';
+import { minToHour } from '@/utils/UtilitiesFunctions';
 
 export interface MovieProps {
     background: string,
@@ -35,8 +38,6 @@ export default function Create() {
         genero: [],
         lang: 'Dub'
     })
-
-
     const genres = [
         ...Object.values(gen),
         ...Object.values(agp),
@@ -87,6 +88,24 @@ export default function Create() {
             genero: selectedOptions
         }));
     }
+
+    useEffect(() => {
+        const getTMDBDetails = debounce(async () => {
+            const dataTMDB = await tmdb.fetchMovieDetails(movieData.tmdbId)
+            debug.log('Dados do filme: ', dataTMDB)
+            if (!dataTMDB) return
+            setMovieData(prev => ({
+                ...prev,
+                title: dataTMDB.title,
+                description: dataTMDB.overview,
+                duration: minToHour(dataTMDB.runtime),
+                genero: dataTMDB.genres.map(gen => gen.name)
+            }))
+        }, 2000)
+        if (movieData.tmdbId && movieData.tmdbId > 0) getTMDBDetails()
+
+
+    }, [movieData.tmdbId])
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.formRow}>

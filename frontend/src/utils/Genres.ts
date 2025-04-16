@@ -6,7 +6,7 @@ export const gen = {
     terror: "Terror",
     suspense: "Suspense",
     fantasia: "Fantasia",
-    ficcao: "Ficção Científica",
+    ficcao: "Ficção científica",
     drama: "Drama",
     animacao: "Animação",
 }
