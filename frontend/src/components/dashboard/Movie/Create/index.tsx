@@ -103,9 +103,8 @@ export default function Create() {
             }))
         }, 2000)
         if (movieData.tmdbId && movieData.tmdbId > 0) getTMDBDetails()
-
-
     }, [movieData.tmdbId])
+
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.formRow}>

@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import { debug } from '@/classes/DebugLogger'
 import { mongoService } from '@/classes/MongoContent'
@@ -6,6 +6,8 @@ import { toast } from 'react-toastify'
 import { classification } from '@/utils/Variaveis'
 import { agp, gen, stm } from '@/utils/Genres'
 import { Episodes, Seasons } from '@/@types/series'
+import debounce from 'lodash.debounce'
+import { tmdb } from '@/classes/TMDB'
 
 export interface TVProps {
     background: string,
@@ -136,6 +138,20 @@ export default function CreateTV() {
             genero: selectedOptions
         }));
     }
+
+    useEffect(() => {
+        const getTMDBData = debounce(async () => {
+            const dataTMDB = await tmdb.fetchSeriesDetails(serieData.tmdbID)
+            if (!dataTMDB) return
+            setSerieData(prev => ({
+                ...prev,
+                title: dataTMDB.name,
+                description: dataTMDB.overview,
+                genero: dataTMDB.genres.map(gen => gen.name)
+            }))
+        }, 2000)
+        if (serieData.tmdbID && serieData.tmdbID > 0) getTMDBData()
+    }, [serieData.tmdbID])
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.formRow}>
