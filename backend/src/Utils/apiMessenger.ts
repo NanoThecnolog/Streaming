@@ -1,7 +1,9 @@
 import axios from "axios"
 
 const url = process.env.MENSAGERIA
+if (!url) console.log("URL de mensageria ausente")
 const apiKey = process.env.API_KEY
+if (!apiKey) console.log("Chave da api de mensageria ausente")
 export const apiEmail = axios.create({
     baseURL: url
 })
