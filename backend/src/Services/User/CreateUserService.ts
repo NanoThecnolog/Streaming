@@ -1,3 +1,5 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import { hash } from "bcrypt";
 import prismaClient from "../../prisma";
 import { apiEmail } from "../../Utils/apiMessenger";
