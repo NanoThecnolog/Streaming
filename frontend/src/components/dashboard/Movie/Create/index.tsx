@@ -20,7 +20,7 @@ export interface MovieProps {
     src: string,
     duration: string,
     genero: string[],
-    lang: "Dub" | "Leg",
+    lang: "Dublado" | "Legendado",
 }
 
 export default function Create() {
@@ -36,7 +36,7 @@ export default function Create() {
         src: '',
         duration: '',
         genero: [],
-        lang: 'Dub'
+        lang: 'Dublado'
     })
     const genres = [
         ...Object.values(gen),
@@ -63,7 +63,7 @@ export default function Create() {
                     src: '',
                     duration: '',
                     genero: [],
-                    lang: 'Dub'
+                    lang: 'Dublado'
                 }
             )
             toast.success("Ae bobão, filme adicionado!")

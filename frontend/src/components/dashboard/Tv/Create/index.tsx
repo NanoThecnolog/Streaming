@@ -240,8 +240,8 @@ export default function CreateTV() {
                                             handleSeasonChange(seasonIndex, "lang", e.target.value)
                                         }
                                     >
-                                        <option value={"Dub"}>Dublado</option>
-                                        <option value={"Leg"}>Legendado</option>
+                                        <option value={"Dublado"}>Dublado</option>
+                                        <option value={"Legendado"}>Legendado</option>
                                     </select>
                                 </div>
                                 <div className={styles.buttonSeason}>

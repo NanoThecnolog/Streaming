@@ -1,5 +1,6 @@
 import { CardsProps } from "@/@types/Cards";
 import { debug } from "@/classes/DebugLogger";
+import { CardFetcher, MovieFetcher } from "@/classes/mainFetcher";
 import { mongoService } from "@/classes/MongoContent";
 import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
@@ -88,27 +89,28 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     debug.log("Rota sendo chamada")
 
     try {
-        debug.log("Inciando fetch de dados")
-        //const mongoData = await mongoService.fetchMovieData()
+        //const tmdbService = new MovieFetcher(tmdbToken)
+        //const cardFetcher = new CardFetcher(tmdbService)
 
         if (movies.length > 0) {
+            debug.log("Inciando fetch de dados")
             const cardData = await fetchInBatches(movies, batchSize)
             debug.log("Fetch de dados concluído")
 
             const successFulData = cardData
                 .filter(result => result.success)
                 .map(result => result.data)
-            const errorData = cardData
-                .filter(result => !result.success)
+            const errorData = cardData.filter(result => !result.success)
+
             return res.status(200).json({
                 success: true,
                 data: successFulData,
                 errors: errorData
             });
         }
-
+        return res.status(400).json({ error: "Nenhum filme enviado." })
     } catch (err) {
         console.error("Erro ao buscar dados:", err);
-        return res.status(500).json({ error: "Error fetching data", details: err });
+        return res.status(500).json({ error: "Error at fetching data", details: err });
     }
 }

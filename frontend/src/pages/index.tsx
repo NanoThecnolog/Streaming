@@ -51,6 +51,11 @@ export default function Home(/* { moviesTMDB }: HomeProps */) {
       if (response.length > 0) setMovies(response)
     }
     if (movies.length === 0) fetchMoviesMongoDB()
+    else if (movies.length > 0) {
+      const card = movies.find((card) => card.tmdbId === tmdbid)
+      if (!card) return
+      setTopCard(card)
+    }
   }, [movies])
 
   useEffect(() => {
@@ -87,13 +92,7 @@ export default function Home(/* { moviesTMDB }: HomeProps */) {
     }
   }, [])
 
-  useEffect(() => {
-    if (movies.length > 0) {
-      const card = movies.find((card) => card.tmdbId === tmdbid)
-      if (!card) return
-      setTopCard(card)
-    }
-  }, [movies])
+
 
   return (
     <>
