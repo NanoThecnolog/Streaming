@@ -1,5 +1,4 @@
 import Header from "@/components/Header";
-import TopSerie from "@/components/seriesComponents/Top serie";
 import styles from './styles.module.scss'
 import { useCallback, useEffect, useState } from "react";
 import Search from "@/components/Searching";
@@ -31,7 +30,7 @@ export default function Series() {
     const { serieData, setSerieData } = useTMDB()
     const [visible, setvisible] = useState(false)
     const { series, setSeries } = useFlix()
-    const tmdbid = 100088
+    const tmdbid = 78191
     const [topCard, setTopCard] = useState<SeriesProps | null>(null)
 
     useEffect(() => {
