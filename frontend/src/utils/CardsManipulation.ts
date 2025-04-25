@@ -34,17 +34,33 @@ export function getRelatedCards(movie: CardsProps, movies: CardsProps[], allData
             //match por genero, recebe a quantidade de generos iguais
             const commonGenres = card.genero.filter((genre: string) => movie.genero.includes(genre)).length;
             //recebe a quantidade de genero iguais + 2 se tiver todos iguais
-            const genreScore = commonGenres > 0 ? commonGenres + (commonGenres === movie.genero.length ? 2
-                : commonGenres < movie.genero.length ? 1 : 0) : 0;
-            //recebe 1 ponto se os primeiros generos forem iguais
-            const firstGenreMatchScore = commonGenres > 0 ? (movie.genero[0] === card.genero[0] ? 0 : 0) : 0;
+            const genreScore = commonGenres > 0
+                ? commonGenres + (commonGenres === movie.genero.length
+                    ? 2
+                    : commonGenres < movie.genero.length ? 1 : 0)
+                : 0;
+            //recebe 1 ponto se o primeiro genero for igual
+            const firstGenreMatchScore = commonGenres > 0
+                ? (movie.genero[0] === card.genero[0]
+                    ? 1 : 0)
+                : 0;
+            // recebe 2 pontos se os dois possuem genero dc, marvel ou super heroi
+            const sharedGenres = card.genero.filter((gen: string) => movie.genero.includes(gen))
+            const heroGenres = ['dc', 'marvel', 'super herói']
+            const pointsPerShared = sharedGenres.length > 0
+                ? sharedGenres.reduce((acc, genre) => {
+                    if (heroGenres.includes(genre)) acc += 2
+                    return acc
+                }, 0)
+                : 0
+
 
             // compara a popularidade do filme no TMDB
             const cardData = allData.find(mov => mov.id === card.tmdbId)
             const cardPopularity = cardData?.popularity || 0;
             //quanto mais popular, mais nota ganha (escala de 0 - 2)
             const popularityWeight = Math.min(cardPopularity / 100, 2)
-            const score = Number((titleMatch + titleKeyMatch + genreScore + firstGenreMatchScore + popularityWeight).toFixed(3))
+            const score = Number((titleMatch + titleKeyMatch + genreScore + firstGenreMatchScore + popularityWeight + pointsPerShared).toFixed(3))
 
             return {
                 ...card,
@@ -76,12 +92,22 @@ export function getRelatedSerieCards(serie: SeriesProps, series: SeriesProps[], 
             //recebe 1 ponto se os primeiros generos forem iguais
             const firstGenreMatchScore = commonGenres > 0 ? (serie.genero[0] === card.genero[0] ? 0 : 0) : 0
 
+            // recebe 2 pontos se os dois possuem genero dc, marvel ou super heroi
+            const sharedGenres = card.genero.filter((gen: string) => serie.genero.includes(gen))
+            const heroGenres = ['dc', 'marvel', 'super herói']
+            const pointsPerShared = sharedGenres.length > 0
+                ? sharedGenres.reduce((acc, genre) => {
+                    if (heroGenres.includes(genre)) acc += 2
+                    return acc
+                }, 0)
+                : 0
+
             // compara a popularidade do filme no TMDB
             const cardData = allData.find(mov => mov.id === card.tmdbID)
             const cardPopularity = cardData?.popularity || 0
             //quanto mais popular, mais nota ganha (escala de 0 - 2)
             const popularityWeight = Math.min(cardPopularity / 100, 2)
-            const score = Number((titleMatch + titleKeyMatch + genreScore + firstGenreMatchScore + popularityWeight).toFixed(3))
+            const score = Number((titleMatch + titleKeyMatch + genreScore + firstGenreMatchScore + popularityWeight + pointsPerShared).toFixed(3))
 
             return {
                 ...card,

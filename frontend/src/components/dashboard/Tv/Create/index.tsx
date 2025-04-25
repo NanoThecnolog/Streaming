@@ -86,7 +86,7 @@ export default function CreateTV() {
             ...prev,
             season: [
                 ...prev.season,
-                { s: prev.season.length + 1, lang: "Dub", episodes: [{ ep: 1, src: "", duration: "" }] },
+                { s: prev.season.length + 1, lang: "Dublado", episodes: [{ ep: 1, src: "", duration: "" }] },
             ],
         }))
     }
@@ -240,8 +240,8 @@ export default function CreateTV() {
                                             handleSeasonChange(seasonIndex, "lang", e.target.value)
                                         }
                                     >
-                                        <option value={"Dublado"}>Dublado</option>
-                                        <option value={"Legendado"}>Legendado</option>
+                                        <option value="Dublado">Dublado</option>
+                                        <option value="Legendado">Legendado</option>
                                     </select>
                                 </div>
                                 <div className={styles.buttonSeason}>

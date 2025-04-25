@@ -340,7 +340,15 @@ export default function Serie({ data }: SerieProps) {
                                             onChange={(e) => handleChangeSeason(Number(e.target.value))}
                                         >
                                             {serie.season.map((s, index) => (
-                                                <option key={index} value={s.s}>Temporada {s.s} - {s.lang}</option>
+                                                <option key={index} value={s.s}>Temporada {s.s} - {
+                                                    s.lang === 'Leg'
+                                                        ? 'Legendado'
+                                                        : s.lang === 'Legendado'
+                                                            ? 'Legendado'
+                                                            : s.lang === 'Dub'
+                                                                ? 'Dublado'
+                                                                : 'Dublado'}
+                                                </option>
                                             ))}
                                         </select>
                                     </div>
