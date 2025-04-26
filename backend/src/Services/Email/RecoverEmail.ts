@@ -27,7 +27,7 @@ export class RecoverAccService {
                 userName: user.name,
                 userEmail: user.email
             })
-            return sendEmail.data.accepted.length > 0 ? 'Email enviado' : 'Email não enviado'
+            return sendEmail.data.data.accepted.length > 0 ? 'Email enviado' : 'Email não enviado'
         } catch (err: any) {
             console.log(err)
             return `Erro ao Enviar email de recuperação. mensagem: ${err.message}`
