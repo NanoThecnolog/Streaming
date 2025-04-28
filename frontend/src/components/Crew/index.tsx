@@ -1,7 +1,5 @@
-import { CrewProps } from '@/@types/cast'
+import { CrewProps } from '@/@types/movie/cast'
 import styles from './styles.module.scss'
-import Image from 'next/image';
-import { FaCircleUser } from 'react-icons/fa6';
 
 interface CrewComponentProps {
     crew: CrewProps;

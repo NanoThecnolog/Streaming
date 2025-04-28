@@ -17,7 +17,7 @@ import SEO from "@/components/SEO";
 import EpisodeCard from "@/components/seriesComponents/EpisodeCard";
 import Spinner from "@/components/ui/Loading/spinner";
 import { useTMDB } from "@/contexts/TMDBContext";
-import { CastProps, CrewProps } from "@/@types/cast";
+import { CastProps, CrewProps } from "@/@types/movie/cast";
 import { translate } from "@/utils/UtilitiesFunctions";
 import Cast from "@/components/Cast";
 import Crew from "@/components/Crew";
@@ -397,7 +397,9 @@ export default function Serie({ data }: SerieProps) {
                                                         .filter((actor, index, self) =>
                                                             self.findIndex(a => a.id === actor.id) === index
                                                         )
-                                                        .map((actor, index) => <Cast actor={actor} key={index} />)
+                                                        .map((actor, index) =>
+                                                            <Cast actor={actor} key={index} />
+                                                        )
                                                 }
                                             </div>
                                         </div>

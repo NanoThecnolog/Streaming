@@ -1,0 +1,32 @@
+.crew {
+    width: 100%;
+
+    h2 {
+        font-size: 2rem;
+        border-bottom: 1px solid white;
+        margin-bottom: 20px;
+    }
+
+    .crewContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 90%;
+
+        .departmentGroup {
+            margin-bottom: 20px;
+
+            .departmentTitle {
+                font-size: 1.5rem;
+                font-weight: 900;
+                margin: 15px 0 5px 0;
+            }
+
+            .departmentCrew {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 15px;
+            }
+        }
+    }
+}

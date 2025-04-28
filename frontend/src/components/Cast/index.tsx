@@ -1,4 +1,4 @@
-import { CastingProps } from '@/@types/cast'
+import { CastingProps } from '@/@types/movie/cast'
 import styles from './styles.module.scss'
 import Image from 'next/image';
 import { FaCircleUser } from 'react-icons/fa6';

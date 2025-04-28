@@ -2,7 +2,6 @@ import { Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useCallback, useEffect, useState } from "react";
-import Top from "@/components/Top";
 import styles from "@/styles/Home.module.scss";
 import Search from "@/components/Searching";
 import SEO from "@/components/SEO";
@@ -18,19 +17,13 @@ import { mongoService } from "@/classes/MongoContent";
 import { useFlix } from "@/contexts/FlixContext";
 import NewTop from "@/components/newTop";
 import { CardsProps, MovieTMDB } from "@/@types/Cards";
-import { GetServerSideProps } from "next";
-import { apiTMDB } from "@/services/apiTMDB";
-import { debug } from "@/classes/DebugLogger";
-import axios from "axios";
 
 
 const inter = Inter({ subsets: ["latin"] });
 
-interface HomeProps {
-  moviesTMDB: MovieTMDB[]
-}
 
-export default function Home(/* { moviesTMDB }: HomeProps */) {
+
+export default function Home() {
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
   const [width, setWidth] = useState<number>(0)
   const removedSections = [agp.dc, agp.marvel, agp.hero]
@@ -145,35 +138,3 @@ export default function Home(/* { moviesTMDB }: HomeProps */) {
     </>
   );
 }
-/*
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const moviesTMDB = await fetchMovieData()
-  if (!moviesTMDB) return { notFound: true }
-
-  return {
-    props: { moviesTMDB }
-  }
-}
-
-async function fetchMovieData(attempt: number = 1, maxRetries = 5): Promise<MovieTMDB[] | null> {
-  try {
-    //const response = await apiTMDB.get('/all/movie')
-    const response = await axios.get('http://localhost:3000/api/tmdb/all/movie')
-
-    if (response.status === 502 || !response.data) {
-      if (attempt < maxRetries) {
-        return await fetchMovieData(attempt + 1, maxRetries)
-      }
-      return null
-    }
-
-    return response.data.data as MovieTMDB[]
-  } catch (err) {
-    debug.error(`Erro na tentativa ${attempt}`, err)
-    if (attempt < maxRetries) {
-      return await fetchMovieData(attempt + 1, maxRetries)
-    }
-    return null
-  }
-}
-*/

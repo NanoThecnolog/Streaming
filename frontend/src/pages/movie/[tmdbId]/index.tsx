@@ -2,22 +2,16 @@ import { useRouter } from 'next/router'
 import styles from './styles.module.scss'
 import { useEffect, useState } from 'react';
 import { CardsProps, MovieTMDB } from '@/@types/Cards';
-//import { fetchTMDBMovieCast, fetchTMDBTrailer } from '@/services/fetchTMDBData';
 import SEO from '@/components/SEO';
 import Header from '@/components/Header';
 import Stars from '@/components/ui/StarAverage';
 import Adult from '@/components/ui/Adult';
-import { FaCheck, FaPlay } from 'react-icons/fa';
-import { FiPlus } from 'react-icons/fi';
-//import { addWatchLater, isOnTheList } from '@/services/handleWatchLater';
+import { FaPlay } from 'react-icons/fa';
 import { toast } from 'react-toastify';
-import { CastProps, CrewProps } from '@/@types/cast';
+import { CastingProps, CastProps } from '@/@types/movie/cast';
 import Footer from '@/components/Footer';
-import { minToHour, translate } from '@/utils/UtilitiesFunctions';
-import Card from '@/components/Card';
+import { minToHour } from '@/utils/UtilitiesFunctions';
 import Spinner from '@/components/ui/Loading/spinner';
-import Cast from '@/components/Cast';
-import Crew from '@/components/Crew';
 import { TrailerProps } from '@/@types/trailer';
 import TrailerButton from '@/components/ui/TrailerButton';
 import { getRelatedCards } from '@/utils/CardsManipulation';
@@ -28,50 +22,52 @@ import debounce from 'lodash.debounce';
 import { debug } from '@/classes/DebugLogger';
 import { tmdb } from '@/classes/TMDB';
 import { mongoService } from '@/classes/MongoContent';
-import { GetServerSideProps } from 'next';
 import axios from 'axios';
-import { userMethod, UserMethods } from '@/classes/userMethods';
 import { watchLaterManager } from '@/classes/watchLaterManager';
+import CrewContainer from '@/components/movie/CrewContainer';
+import { CrewProps } from '@/@types/movie/crew';
+import CastContainer from '@/components/movie/CastContaner';
+import RelatedCardsContainer from '@/components/movie/RelatedContainer';
+import WatchLaterContainer from '@/components/ui/ButtonWatchLater';
+
+import { GetStaticProps, GetStaticPaths } from "next";
 
 interface groupedByDepartment {
     [job: string]: CrewProps[]
 }
 
 interface MovieProps {
-    data: MovieTMDB
+    movie: MovieTMDB,
+    cast: CastingProps[],
+    crewByDepartment: groupedByDepartment
 }
 
-export default function Movie({ data }: MovieProps) {
+export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
+
+    useEffect(() => {
+        debug.log('props do MoviePage:', { movie, cast, crewByDepartment });
+    }, [movie, cast, crewByDepartment])
     const router = useRouter()
     const [showPoster, setShowPoster] = useState(false)
     const { tmdbId } = router.query;
     const { allData } = useTMDB()
     const { user, setUser, movies, setMovies } = useFlix()
-    const [movie, setMovie] = useState<CardsProps | null>(null)
-    const [tmdbData, setTmdbData] = useState<MovieTMDB>()
-    const [loading, setLoading] = useState(false)
+    const [filme, setFilme] = useState<CardsProps | null>(null)
     const [onWatchLater, setOnWatchLater] = useState(false)
-    const [cast, setCast] = useState<CastProps>()
-    const [crewDepartment, setCrewDepartment] = useState<groupedByDepartment>({})
     const [relatedCards, setRelatedCards] = useState<CardsProps[]>([])
     const [trailer, setTrailer] = useState<TrailerProps | null>(null)
     const [loadingButton, setLoadingButton] = useState(false)
 
-
     useEffect(() => {
-        if (!tmdbId) return
-        async function fetchCard() {
-            const response: CardsProps | null = await mongoService.findOneMovieById(parseInt(tmdbId as string))
-            setMovie(response)
-        }
-        fetchCard()
-        getTMDBData()
-        getTMDBCast()
-    }, [router, tmdbId])
+        if (!movie) return
+        const filme = movies.find(mv => mv.tmdbId === movie.id)
+        if (!filme) return debug.warn('movie not found')
+        setFilme(filme)
+    }, [movie])
 
     const watchLater = () => {
-        if (!movie) return
-        const onList = watchLaterManager.isOnTheList(movie.tmdbId)
+        if (!movie || !filme) return
+        const onList = watchLaterManager.isOnTheList(filme.tmdbId)
         setOnWatchLater(onList)
     }
     useEffect(() => {
@@ -81,10 +77,11 @@ export default function Movie({ data }: MovieProps) {
             setMovies(response)
         }
         if (movies.length === 0) getMoviesMongoDB()
-        const relatedCards = getRelatedCards(movie, movies, allData)
+        if (!filme) return debug.log('filme not found above relatedCards')
+        const relatedCards = getRelatedCards(filme, movies, allData)
         if (relatedCards && relatedCards.length > 0) setRelatedCards(relatedCards)
         watchLater()
-    }, [movie, movies, allData])
+    }, [movie, movies, allData, filme])
 
     const handleWidth = debounce(() => {
         if (window.innerWidth <= 915) {
@@ -101,58 +98,18 @@ export default function Movie({ data }: MovieProps) {
         return () => window.removeEventListener('resize', handleWidth)
 
     }, [handleWidth])
-
-    async function getTMDBData() {
-        if (loading) return
-        setLoading(true)
-        try {
-            //const tmdbData = await fetchTMDBMovie(Number(tmdbId));
-            const tmdbData = await tmdb.fetchMovieDetails(Number(tmdbId))
-            if (!tmdbData) return debug.warn("Nenhum dado retornado durante a busca pelo filme no TMDB.")
-            setTmdbData(tmdbData)
-        } catch (err) {
-            debug.error("Erro na busca pelo filme no TMDB!")
-        } finally {
-            setLoading(false)
-        }
-    }
-    async function getTMDBCast() {
-        if (loading) return
-        setLoading(true)
-        try {
-            const cast = await tmdb.fetchMovieCast(Number(tmdbId));
-            if (!cast) return debug.warn("Nenhum dado ao buscar elenco do filme.")
-
-            const crewData = cast.crew?.length ? cast.crew : [];
-
-            const groupedByDepartment = crewData.reduce<groupedByDepartment>((acc, crew) => {
-                if (!crew.department) return acc
-                const department = crew.department || "Outros";
-
-                acc[department] = acc[department] || []
-                acc[department].push(crew)
-                return acc
-            }, {});
-            setCrewDepartment(groupedByDepartment)
-            setCast(cast)
-        } catch (err) {
-            debug.error("Erro ao buscar dados sobre o elenco do filme.", err)
-        } finally {
-            setLoading(false)
-        }
-    }
     async function handleWatchLater() {
         if (!user) {
             const { 'flix-user': userCookie } = parseCookies()
             if (!userCookie) return router.push('/login')
             setUser(JSON.parse(userCookie))
         }
-        if (!movie) return debug.warn("Erro ao adicionar filme a lista de assistir mais tarde.")
+        if (!movie || !filme) return debug.warn("Erro ao adicionar filme a lista de assistir mais tarde.")
 
         try {
             if (loadingButton) return
             setLoadingButton(true)
-            await watchLaterManager.addWatchLater(movie)
+            await watchLaterManager.addWatchLater(filme)
             await watchLater()
         } catch (err: any) {
             debug.error("Erro ao adicionar filme", err)
@@ -164,142 +121,100 @@ export default function Movie({ data }: MovieProps) {
     }
 
     useEffect(() => {
-        if (!tmdbId || isNaN(Number(tmdbId))) return;
+        if (!filme) return debug.log('filme not defined for getTrailer inside useEffect')
         const getTrailer = async () => {
             try {
-                const trailer = await tmdb.fetchTrailer(Number(tmdbId), 'movie')
-                setTrailer(trailer || null)
+                const trailer = await tmdb.fetchTrailer(filme.tmdbId, 'movie')
+                setTrailer(trailer)
             } catch (err) {
                 debug.error("Erro ao buscar o trailer", err)
                 setTrailer(null)
             }
         }
         getTrailer()
-    }, [tmdbId])
+    }, [filme])
 
     function handlePlay() {
         router.push(`/watch/${tmdbId}`)
     }
     return (
         <>
-            <SEO description={data.overview} title={`${data.title} - FlixNext`} url={`https://flixnext.com.br/movie/${data.id}`} image={`https://image.tmdb.org/t/p/w500${data.backdrop_path}`} />
+            <SEO description={movie.overview} title={`${movie.title} - FlixNext`} url={`https://flixnext.com.br/movie/${movie.id}`} image={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} />
             <Header />
             {
-                movie ? (
+                movie && filme ? (
                     <section className={styles.container}>
-                        {!loading ?
-                            <div
-                                className={styles.imageContainer}
-                                style={{ backgroundImage: `url(${tmdbData ? `https://image.tmdb.org/t/p/original${showPoster ? tmdbData.poster_path : tmdbData.backdrop_path}` : movie ? movie.background : "/fundo-largo.jpg"})` }}
-                            ></div>
-                            :
-                            <div className={styles.loading}>
-                                <div className={styles.loadingContainer}><Spinner /></div>
-                            </div>
-                        }
-
+                        <div
+                            className={styles.imageContainer}
+                            style={{ backgroundImage: `url(${movie ? `https://image.tmdb.org/t/p/original${showPoster ? movie.poster_path : movie.backdrop_path}` : filme ? filme.background : "/fundo-largo.jpg"})` }}
+                        ></div>
+                        <div className={styles.loading}>
+                            <div className={styles.loadingContainer}><Spinner /></div>
+                        </div>
                         <div className={styles.coverContainer}>
                         </div>
-                        <div className={`${styles.content} ${loading ? styles.loading : ""}`}>
+                        <div className={styles.content}>
                             <div className={styles.titleContainer}>
-                                <h1 className={`${movie.title.toLowerCase() === 'harry potter' && styles.harryFont}`}>{movie.title}</h1>
-                                <h3 className={`${movie.title.toLowerCase() === 'harry potter' && styles.subHarryFont}`}>{movie.subtitle != '' && `${movie.subtitle}`}{movie.tmdbId === 597 && user && user.id === "3ed15ea3-4c54-478d-908f-e19e06d1c1f9" && "Thais cara de Nariz, coloca o filme em 1 hora e 24 minutos 😏...."}</h3>
+                                <h1 className={`${movie.title.toLowerCase() === 'harry potter' && styles.harryFont}`}>{filme.title}</h1>
+                                <h3 className={`${movie.title.toLowerCase() === 'harry potter' && styles.subHarryFont}`}>{filme.subtitle != '' && `${filme.subtitle}`}{filme.tmdbId === 597 && user && user.id === "3ed15ea3-4c54-478d-908f-e19e06d1c1f9" && "Thais cara de Nariz, coloca o filme em 1 hora e 24 minutos 😏...."}</h3>
                             </div>
-                            {tmdbData && (
+                            {movie && (
                                 <>
                                     <div>
                                         <div className={styles.movieDetail}>
-                                            <h4>{movie.title.toLowerCase() === 'batman vs superman' ? movie.duration : minToHour(tmdbData.runtime)} - {new Date(tmdbData.release_date).getFullYear()} - {movie.lang && movie.lang === "Leg" ? "Legendado" : "Dublado"}</h4>
+                                            <h4>{filme.title.toLowerCase() === 'batman vs superman' ?
+                                                filme.duration
+                                                : minToHour(movie.runtime)} - {new Date(movie.release_date).getFullYear()} - {filme.lang && filme.lang === "Leg" ? "Legendado" : "Dublado"}
+                                            </h4>
                                         </div>
                                         <div className={styles.generoContainer}>
-                                            <h4>{tmdbData.genres ? tmdbData.genres.map(genre => genre.name === "Action & Adventure" ? "Ação e Aventura" : genre.name === "Sci-Fi & Fantasy" ? "Ficção Científica e Fantasia" : genre.name === "Thriller" ? "Suspense" : genre.name).join(', ') : movie && movie.genero.join(', ')}</h4>
+                                            <h4>
+                                                {
+                                                    movie.genres ?
+                                                        movie.genres.map(genre =>
+                                                            genre.name === "Action & Adventure" ?
+                                                                "Ação e Aventura"
+                                                                : genre.name === "Sci-Fi & Fantasy" ?
+                                                                    "Ficção Científica e Fantasia"
+                                                                    : genre.name === "Thriller" ?
+                                                                        "Suspense"
+                                                                        : genre.name).join(', ')
+                                                        : filme && filme.genero.join(', ')
+                                                }
+                                            </h4>
                                         </div>
                                         <div className={styles.movieInfo}>
-                                            <Stars average={tmdbData?.vote_average} />
-                                            <Adult faixa={movie?.faixa} />
+                                            <Stars average={movie.vote_average} />
+                                            <Adult faixa={filme.faixa} />
                                         </div>
                                     </div>
                                     <div className={styles.buttonPlay} onClick={handlePlay}>
                                         <button type='button'><FaPlay size={25} /><h4>Começar a Assistir</h4></button>
                                     </div>
                                     <div className={styles.buttonContainer}>
-                                        <div className={styles.buttonWatchLater}>
-                                            <button type='button' onClick={handleWatchLater}>
-                                                {loadingButton ? <Spinner /> : onWatchLater ? (
-                                                    <>
-                                                        <p><FaCheck /></p>
-                                                        <p>Adicionado à Lista</p>
-                                                    </>
-                                                ) : (
-                                                    <>
-                                                        <p><FiPlus /></p>
-                                                        <p>Minha Lista</p>
-                                                    </>
-                                                )}
-                                            </button>
-                                        </div>
+                                        <WatchLaterContainer loading={loadingButton} onClick={handleWatchLater} onWatchLater={onWatchLater} />
                                         {
                                             trailer && trailer.results.length > 0 &&
                                             <TrailerButton trailer={trailer} />
                                         }
                                     </div>
                                     <div className={styles.descriptionContainer}>
-                                        <p>{tmdbData.overview}</p>
+                                        <p>{movie.overview}</p>
                                     </div>
                                     {
-                                        !loading ? (
+                                        (
                                             <>
-                                                {
-                                                    movie &&
-                                                    <>
-                                                        <h2>Você também vai gostar</h2>
-                                                        <div className={styles.cardContainer}>
-                                                            {relatedCards?.map(card =>
-                                                                <Card card={card} key={card.tmdbId} />
-                                                            )}
-                                                        </div>
-                                                    </>
+                                                {relatedCards &&
+                                                    <RelatedCardsContainer cards={relatedCards} />
                                                 }
-                                                <div className={styles.cast}>
-                                                    {cast && cast.cast.length > 0 &&
-                                                        <>
-                                                            <h2>Elenco</h2>
-                                                            <div className={styles.castContainer}>
-                                                                {cast.cast.slice(0, 20).map((actor, index) =>
-                                                                    <Cast actor={actor} key={index} />
-                                                                )}
-                                                            </div>
-                                                        </>
-                                                    }
-                                                </div>
-                                                <div className={styles.crew}>
-                                                    <h2>Equipe Técnica</h2>
-                                                    <div className={styles.crewContainer}>
-                                                        {Object.keys(crewDepartment).map((department) => (
-                                                            <div key={department} className={styles.departmentGroup}>
-                                                                <h3 className={styles.departmentTitle}>{translate(department)}</h3>
-                                                                <div className={styles.departmentCrew}>
-                                                                    {crewDepartment[department]
-                                                                        .filter((crew, index, self) =>
-                                                                            self.findIndex(c => c.name === crew.name) === index
-                                                                        )
-                                                                        .map((crew, index) => (
-                                                                            <Crew crew={crew} key={index} />
-                                                                        ))
-                                                                    }
-                                                                </div>
-                                                            </div>
-                                                        ))}
-                                                    </div>
-                                                </div>
+                                                {cast &&
+                                                    <CastContainer cast={cast} />
+                                                }
+                                                {crewByDepartment &&
+                                                    <CrewContainer crewDepartment={crewByDepartment} />
+                                                }
                                             </>
                                         )
-                                            :
-                                            <div className={styles.loading}>
-                                                <div className={styles.loadingContainer}>
-                                                    <Spinner />
-                                                </div>
-                                            </div>
                                     }
                                 </>
                             )}
@@ -317,33 +232,79 @@ export default function Movie({ data }: MovieProps) {
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-    const { tmdbId } = context.params as { tmdbId: string }
-    const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
+export const getStaticPaths: GetStaticPaths = async () => {
 
-    //const res = await fetch(`https://api.flixnext.com.br/serie/${tmdbId}`)
-    //const res = await apiTMDB.get(`/movie/${tmdbId}`)
-    const res = await axios.get(`https://api.themoviedb.org/3/movie/${tmdbId}`, {
-        headers: {
-            Authorization: `Bearer ${tmdbToken}`
-        },
-        params: {
-            language: "pt-BR",
-        },
-    });
-
-    const data = res.data
-    //debug.log('data no serversideprops', data)
-
-    if (!data) {
-        return {
-            notFound: true,
-        }
-    }
+    const movies = await mongoService.fetchMovieData()
+    const paths = movies.map(movie => ({
+        params: { tmdbId: movie.tmdbId.toString() }
+    })
+    )
+    //debug.log('ids dos filmes', paths)
 
     return {
-        props: {
-            data
-        },
+        paths,
+        fallback: 'blocking',
+    };
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
+    const { tmdbId } = context.params as { tmdbId: string };
+    //debug.log('ids no staticprops', tmdbId)
+    const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
+
+    try {
+        const resMovie = await axios.get(`https://api.themoviedb.org/3/movie/${tmdbId}`, {
+            headers: {
+                Authorization: `Bearer ${tmdbToken}`
+            },
+            params: {
+                language: "pt-BR",
+            },
+        });
+        //debug.log('resMovie', resMovie.data)
+
+        // Requisição para dados do elenco (cast)
+        const resCast = await axios.get(`https://api.themoviedb.org/3/movie/${tmdbId}/credits`, {
+            headers: {
+                Authorization: `Bearer ${tmdbToken}`
+            },
+        });
+        //debug.log('resCast', resCast.data)
+
+        const movieData = resMovie.data;
+        const castData = resCast.data;
+        const crewData = castData.crew?.length ? castData.crew : [];
+        //debug.log('crewData no staticProps', crewData)
+
+        const groupedByDepartment = crewData.reduce((acc: any, crew: any) => {
+            if (!crew.department) return acc
+            const department = crew.department || "Outros";
+
+            acc[department] = acc[department] || []
+            acc[department].push(crew)
+            return acc
+        }, {});
+        //debug.log('groupedByDepartment no staticprops', groupedByDepartment)
+
+        if (!movieData) {
+            debug.log('movieData not found')
+            return {
+                notFound: true,
+            };
+        }
+
+        return {
+            props: {
+                movie: movieData,
+                cast: castData.cast,
+                crewByDepartment: groupedByDepartment,
+            },
+            revalidate: 60 * 60 * 24 * 1,
+        };
+    } catch (err) {
+        debug.log(err)
+        return {
+            notFound: true,
+        };
     }
-}
+};

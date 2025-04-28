@@ -4,7 +4,7 @@ import { TrailerProps } from "@/@types/trailer";
 import { CollectionProps, ResultsProps } from "@/@types/collection";
 import axios from "axios";
 import { TMDBEpisodes, TMDBSeries } from "@/@types/series";
-import { CastProps } from "@/@types/cast";
+import { CastProps } from "@/@types/movie/cast";
 import { MovieTMDB } from "@/@types/Cards";
 
 class TMDBService {
@@ -67,7 +67,7 @@ class TMDBService {
      * @returns Dados do elenco ou null em caso de erro.
      */
 
-    async fetchMovieCast(tmdbID: number): Promise<CastProps | null> {
+    public async fetchMovieCast(tmdbID: number): Promise<CastProps | null> {
         return this.fetchTMDBData<CastProps>(tmdbID, 'movie', 'details', true);
     }
     /**
@@ -76,7 +76,7 @@ class TMDBService {
      * @returns URL da imagem de fundo ou null em caso de erro
      */
 
-    async fetchMovieBackDrop(tmdbID: number): Promise<string | null> {
+    public async fetchMovieBackDrop(tmdbID: number): Promise<string | null> {
         return this.fetchTMDBData<string>(tmdbID, 'movie', 'backdrop');
     }
     /**
@@ -85,7 +85,7 @@ class TMDBService {
      * @returns URL do pôster ou null em caso de erro
      */
 
-    async fetchMoviePoster(tmdbID: number): Promise<string | null> {
+    public async fetchMoviePoster(tmdbID: number): Promise<string | null> {
         return this.fetchTMDBData<string>(tmdbID, 'movie', 'poster');
     }
 
@@ -95,7 +95,7 @@ class TMDBService {
      * @param tmdbID ID da série no TMDB.
      * @returns Dados da série ou null em caso de erro.
      */
-    async fetchSeriesDetails(tmdbID: number): Promise<TMDBSeries | null> {
+    public async fetchSeriesDetails(tmdbID: number): Promise<TMDBSeries | null> {
         return this.fetchTMDBData<TMDBSeries>(tmdbID, 'tv', 'details');
     }
 
@@ -105,7 +105,7 @@ class TMDBService {
      * @returns Dados do elenco ou null em caso de erro.
      */
 
-    async fetchSeriesCast(tmdbID: number): Promise<CastProps | null> {
+    public async fetchSeriesCast(tmdbID: number): Promise<CastProps | null> {
         return this.fetchTMDBData<CastProps>(tmdbID, 'tv', 'details', true);
     }
 
@@ -119,7 +119,7 @@ class TMDBService {
      * @returns Dados do elenco da série de acordo com o TMDB ou null em caso de erro
      */
 
-    async fetchSeriesCastBySeason(tmdbID: number, season: number): Promise<CastProps | null> {
+    public async fetchSeriesCastBySeason(tmdbID: number, season: number): Promise<CastProps | null> {
         return this.fetchTMDBData<CastProps>(tmdbID, 'tv', 'details', true, season);
     }
     /**
@@ -129,7 +129,7 @@ class TMDBService {
      * @returns Retorna um objeto com as informações do episódio.
      */
 
-    async fetchEpisodeData(tmdbID: number, season: number): Promise<TMDBEpisodes[] | null> {
+    public async fetchEpisodeData(tmdbID: number, season: number): Promise<TMDBEpisodes[] | null> {
         if (!TMDBService.tmdbToken) {
             debug.warn("Variável de ambiente TMDB não definida.");
             return null;
@@ -154,7 +154,7 @@ class TMDBService {
      * @returns Retorna informações sobre a coleção
      */
 
-    async fetchCollection(name: string): Promise<ResultsProps[] | null> {
+    public async fetchCollection(name: string): Promise<ResultsProps[] | null> {
         try {
             const response = await apiTMDB<CollectionProps>(`/collection/${name}`);
             return response.data.results;
@@ -170,7 +170,7 @@ class TMDBService {
      * @returns retorna id do título e um array com os trailers disponíveis
      */
 
-    async fetchTrailer(tmdbId: number, type: 'tv' | 'movie'): Promise<TrailerProps | null> {
+    public async fetchTrailer(tmdbId: number, type: 'tv' | 'movie'): Promise<TrailerProps | null> {
         try {
             const response = await apiTMDB<TrailerProps>(`/trailer/${type}/${tmdbId}`);
             return response.data;

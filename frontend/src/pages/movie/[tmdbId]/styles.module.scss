@@ -142,26 +142,7 @@ $scrollbar-thumb-border: 2px solid #ddd;
             align-content: center;
             gap: 10px;
 
-            .buttonWatchLater {
-                display: flex;
-                justify-content: center;
-                width: 180px;
 
-                button {
-                    background-color: transparent;
-                    color: var(--white);
-                    border: none;
-                    border-radius: 8px;
-                    width: 180px;
-                    height: 100px;
-                    transition: all .2s;
-                    cursor: pointer;
-
-                    &:hover {
-                        background-color: #1e1e1e;
-                    }
-                }
-            }
 
             .buttonFavorite {
                 button {
@@ -178,8 +159,6 @@ $scrollbar-thumb-border: 2px solid #ddd;
                     }
                 }
             }
-
-
         }
 
         .descriptionContainer {
@@ -187,70 +166,7 @@ $scrollbar-thumb-border: 2px solid #ddd;
         }
 
 
-
-
-
-        .cardContainer {
-            display: flex;
-            gap: 20px;
-            overflow-x: scroll;
-            width: 100%;
-            padding-bottom: 30px;
-            scrollbar-color: var(--grey) var(--background-gray-light);
-        }
-
-        .cast {
-            width: 100%;
-            margin: 50px 0;
-
-            h2 {
-                border-bottom: 1px solid white;
-                margin-bottom: 20px;
-            }
-
-            .castContainer {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                gap: 15px;
-                width: 100%;
-            }
-        }
-
-        .crew {
-            width: 100%;
-
-            h2 {
-                font-size: 2rem;
-                border-bottom: 1px solid white;
-                margin-bottom: 20px;
-            }
-
-            .crewContainer {
-                display: flex;
-                flex-direction: column;
-                gap: 15px;
-                width: 90%;
-
-                .departmentGroup {
-                    margin-bottom: 20px;
-
-                    .departmentTitle {
-                        font-size: 1.5rem;
-                        font-weight: 900;
-                        margin: 15px 0 5px 0;
-                    }
-
-                    .departmentCrew {
-                        display: grid;
-                        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-                        gap: 15px;
-                    }
-                }
-            }
-        }
     }
-
-
 
     .loading {
         width: 100%;

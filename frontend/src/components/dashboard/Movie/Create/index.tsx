@@ -99,7 +99,11 @@ export default function Create() {
                 title: dataTMDB.title,
                 description: dataTMDB.overview,
                 duration: minToHour(dataTMDB.runtime),
-                genero: dataTMDB.genres.map(gen => gen.name)
+                genero: dataTMDB.genres.map(gen =>
+                    gen.name === 'Thriller'
+                        ? 'Suspense'
+                        : gen.name
+                )
             }))
         }, 2000)
         if (movieData.tmdbId && movieData.tmdbId > 0) getTMDBDetails()

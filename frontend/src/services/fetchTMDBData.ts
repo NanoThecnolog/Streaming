@@ -4,7 +4,7 @@ import { TMDBSeries } from "@/@types/series";
 import { TMDBEpisodes } from "@/@types/series"
 import { apiTMDB } from "./apiTMDB";
 import { CollectionProps, ResultsProps } from "@/@types/collection";
-import { CastProps } from "@/@types/cast";
+import { CastProps } from "@/@types/movie/cast";
 import { TrailerProps } from "@/@types/trailer";
 import { debug } from "@/classes/DebugLogger";
 
