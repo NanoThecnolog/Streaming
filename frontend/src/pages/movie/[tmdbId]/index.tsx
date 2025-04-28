@@ -61,9 +61,10 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
     useEffect(() => {
         if (!movie) return
         const filme = movies.find(mv => mv.tmdbId === movie.id)
+        debug.log('Filme encontrado', filme)
         if (!filme) return debug.warn('movie not found')
         setFilme(filme)
-    }, [movie])
+    }, [movie, movies])
 
     const watchLater = () => {
         if (!movie || !filme) return
