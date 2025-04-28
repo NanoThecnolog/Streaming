@@ -17,7 +17,7 @@ import SEO from "@/components/SEO";
 import EpisodeCard from "@/components/seriesComponents/EpisodeCard";
 import Spinner from "@/components/ui/Loading/spinner";
 import { useTMDB } from "@/contexts/TMDBContext";
-import { CastProps, CrewProps } from "@/@types/movie/cast";
+import { CastProps } from "@/@types/movie/cast";
 import { translate } from "@/utils/UtilitiesFunctions";
 import Cast from "@/components/Cast";
 import Crew from "@/components/Crew";
@@ -35,6 +35,7 @@ import axios from "axios";
 import { userMethod, UserMethods } from "@/classes/userMethods";
 import { tmdb } from "@/classes/TMDB";
 import { watchLaterManager } from "@/classes/watchLaterManager";
+import { CrewProps } from "@/@types/movie/crew";
 
 interface TMDBImagesProps {
     backdrop: string,

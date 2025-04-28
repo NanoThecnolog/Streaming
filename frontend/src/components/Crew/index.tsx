@@ -1,4 +1,4 @@
-import { CrewProps } from '@/@types/movie/cast'
+import { CrewProps } from '@/@types/movie/crew';
 import styles from './styles.module.scss'
 
 interface CrewComponentProps {
