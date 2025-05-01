@@ -36,6 +36,7 @@ import { userMethod, UserMethods } from "@/classes/userMethods";
 import { tmdb } from "@/classes/TMDB";
 import { watchLaterManager } from "@/classes/watchLaterManager";
 import { CrewProps } from "@/@types/movie/crew";
+import RelatedCardsContainer from "@/components/movie/RelatedContainer";
 
 interface TMDBImagesProps {
     backdrop: string,
@@ -379,11 +380,11 @@ export default function Serie({ data }: SerieProps) {
                                 }
                             </div>
                             <div className={styles.related}>
-                                <h2>Você também vai gostar</h2>
+
                                 <div className={styles.relatedContainer}>
-                                    {relatedCards?.map(card =>
-                                        <Card card={card} key={card.tmdbID} />
-                                    )}
+                                    {relatedCards &&
+                                        <RelatedCardsContainer cards={relatedCards} />
+                                    }
                                 </div>
                             </div>
                             {cast ?

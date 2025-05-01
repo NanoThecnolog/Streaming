@@ -52,8 +52,8 @@ export default function Carousel({ type, section, cardPerContainer }: CarouselPr
     }, [swiperRef])
 
     return (
-        <div className={styles['carousel-container']}>
-            <h2 className={styles.content_title}>{section.toUpperCase()}</h2>
+        <div className={styles.carouselContainer}>
+            <h2 className={styles.contentTitle}>{section.toUpperCase()}</h2>
             <Swiper
                 ref={swiperRef}
                 modules={[Navigation]}

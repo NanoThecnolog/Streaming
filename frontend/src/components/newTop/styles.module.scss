@@ -345,7 +345,8 @@
                 }
 
                 .buttonSection {
-                    flex-direction: column;
+                    display: none;
+                    /*flex-direction: column;
                     justify-content: center;
                     align-items: flex-start;
                     gap: 10px;
@@ -379,7 +380,7 @@
                         svg {
                             height: 25px;
                         }
-                    }
+                    }*/
                 }
             }
         }
@@ -424,7 +425,8 @@
                 }
 
                 .buttonSection {
-                    flex-direction: column;
+                    display: none;
+                    /*flex-direction: column;
                     justify-content: center;
                     align-items: flex-start;
                     gap: 10px;
@@ -442,7 +444,7 @@
                         h3 {
                             font-size: 0.8rem;
                         }
-                    }
+                    }*/
                 }
             }
         }
@@ -476,7 +478,7 @@
                 }
 
                 .description {
-                    height: 50px;
+                    height: 40.5px;
                     padding-right: 20px;
 
 
@@ -487,7 +489,8 @@
                 }
 
                 .buttonSection {
-                    flex-direction: row;
+                    display: none;
+                    /*flex-direction: row;
                     justify-content: flex-start;
                     align-items: center;
                     gap: 10px;
@@ -511,7 +514,7 @@
                             font-size: 1.2rem;
                             padding: 0;
                         }
-                    }
+                    }*/
                 }
             }
         }
@@ -634,17 +637,16 @@
                 }
 
                 .buttonSection {
+                    /*
                     .queue {
                         &:hover {
                             background-color: var(--grey);
                             //cursor: not-allowed;
                             transform: initial;
                         }
-                    }
+                    }*/
                 }
             }
         }
     }
-
-
 }

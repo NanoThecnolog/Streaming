@@ -20,18 +20,14 @@ export default function NewTop({ width, card }: TopProps) {
     const videoRef = useRef<HTMLVideoElement | null>(null)
     const [isMuted, setIsMuted] = useState(true)
     const [volume, setVolume] = useState(0)
-
-
+    const { allData } = useTMDB()
+    const [TMDBMovie, setTMDBMovie] = useState<MovieTMDB | null>(null)
+    const [showVideo, setShowVideo] = useState<boolean>(false)
 
     const [TMDBImages, setTMDBImages] = useState<{ backdrop: string | null; poster: string | null }>({
         backdrop: null,
         poster: null
     })
-    const { allData } = useTMDB()
-    const [TMDBMovie, setTMDBMovie] = useState<MovieTMDB | null>(null)
-    const [showVideo, setShowVideo] = useState<boolean>(false)
-    const [soundEnable, setSoundEnable] = useState(false)
-
     useEffect(() => {
         async function getMoviesMongoData() {
             const mongoMovies = await mongoService.fetchMovieData()
@@ -112,10 +108,14 @@ export default function NewTop({ width, card }: TopProps) {
             setIsMuted(!isMuted)
         }
     }
+    function handleClick() {
+        if (width >= 768) return
+        router.push(`/movie/${card.tmdbId}`)
+    }
 
     return (
         <>
-            <div className={styles.topContainer} id="inicio">
+            <div className={styles.topContainer} id="inicio" onClick={handleClick}>
                 <div className={styles.gradient}></div>
                 <div className={`${styles.bannerImage} ${styles.fadeIn} ${width > 915 && showVideo ? styles.hidden : ''}`}>
                     <img src={`${getBackgroundImage()}`} alt="banner" />

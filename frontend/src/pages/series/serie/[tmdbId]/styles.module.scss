@@ -176,6 +176,7 @@
 
         .relatedContainer {
             display: flex;
+            flex-direction: column;
             gap: 20px;
             overflow-x: scroll;
             padding-bottom: 2rem;
