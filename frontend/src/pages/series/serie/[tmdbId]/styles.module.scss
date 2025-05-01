@@ -166,22 +166,26 @@
     }
 
     .related {
-        padding: 4rem 4rem 2rem 4rem;
-        width: 90%;
+        padding: 0 0 2rem 4rem;
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
         gap: 20px;
+        //outline: 2px solid red;
 
         .relatedContainer {
             display: flex;
             flex-direction: column;
             gap: 20px;
+            //outline: 2px solid blue;
             //overflow-x: scroll;
-            padding-bottom: 2rem;
-            width: 100%;
-            scrollbar-color: var(--grey) var(--background-gray-light);
+            //padding-bottom: 2rem;
+            //padding-right: 10px;
+            width: 90%;
+            //overflow: visible;
+            //scrollbar-color: var(--grey) var(--background-gray-light);
         }
     }
 

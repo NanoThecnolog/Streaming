@@ -42,7 +42,7 @@ export default function RelatedCardsContainer({ cards }: RelatedProps) {
             <h2>Você também vai gostar</h2>
             <div className={styles.cardContainer}>
                 <Swiper
-                    spaceBetween={10}
+                    spaceBetween={5}
                     slidesPerView={cardPerContainer}
                     loop={true}
                     className={styles.slide}

@@ -380,7 +380,6 @@ export default function Serie({ data }: SerieProps) {
                                 }
                             </div>
                             <div className={styles.related}>
-
                                 <div className={styles.relatedContainer}>
                                     {relatedCards &&
                                         <RelatedCardsContainer cards={relatedCards} />
