@@ -65,6 +65,7 @@ export default function Carousel({ type, section, cardPerContainer }: CarouselPr
                 }}*/
                 loop={true}
                 onSwiper={handleSwiper}
+                className={styles.carousel}
             >
                 {filter.map((card) => {
                     if ('season' in card) {

@@ -2,6 +2,8 @@
     position: relative;
     width: 100%;
     margin: 30px 0;
+    padding-right: 7px;
+    //outline: 2px solid red;
 
     .contentTitle {
         font-family: var(--font-bebas);
@@ -10,6 +12,11 @@
         letter-spacing: 3px;
         //padding-left: 40px;
         margin-bottom: 10px;
+    }
+
+    .carousel {
+        padding-right: 4px;
+        //outline: 2px solid blue;
     }
 
     .buttonContainer {
