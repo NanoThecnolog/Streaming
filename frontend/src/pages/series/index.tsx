@@ -109,7 +109,7 @@ export default function Series() {
                                             {divisaoPorGenero.map((sec, index) => (
                                                 <div key={sec}>
                                                     {
-                                                        index === 5 && cardPerContainer >= 2 && <Search />
+                                                        index === 5 && width >= 915 && <Search />
                                                     }
                                                     <Carousel type="tv" section={sec} cardPerContainer={cardPerContainer} />
                                                 </div>

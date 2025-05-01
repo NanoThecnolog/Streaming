@@ -1,11 +1,11 @@
 .card {
-    min-width: 350px;
-    height: 600px;
+    width: 100%;
+    //height: 300px;
+    aspect-ratio: 2 /3;
     color: var(--white);
     position: relative;
     border: 2px solid transparent;
     overflow: hidden;
-    //border-radius: .6rem;
     transition: all 0.5s;
     cursor: pointer;
 
@@ -29,6 +29,36 @@
         object-position: center;
     }
 }
+
+/*@media(max-width: 375px) {
+    .card {
+        height: 230px;
+    }
+}
+
+@media(min-width: 375.1px) and (max-width: 440px) {
+    .card {
+        height: 230px;
+    }
+}
+
+@media(min-width: 440.1px) and (max-width: 560px) {
+    .card {
+        height: 300px;
+    }
+}
+
+@media(min-width: 560.1px) and (max-width: 640px) {
+    .card {
+        height: 230px;
+    }
+}
+
+@media(min-width: 640.1px) and (max-width: 760px) {
+    .card {
+        height: 273px;
+    }
+}*/
 
 @media(max-width: 915px) {
     .card {

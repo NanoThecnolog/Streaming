@@ -59,11 +59,11 @@ export default function Carousel({ type, section, cardPerContainer }: CarouselPr
                 modules={[Navigation]}
                 spaceBetween={10}
                 slidesPerView={cardPerContainer}
-                navigation={{
+                /*navigation={{
                     nextEl: `.next-${section.replace(/\s+/g, '-')}`,
                     prevEl: `.before-${section.replace(/\s+/g, '-')}`
-                }}
-                loop={false}
+                }}*/
+                loop={true}
                 onSwiper={handleSwiper}
             >
                 {filter.map((card) => {
@@ -79,10 +79,11 @@ export default function Carousel({ type, section, cardPerContainer }: CarouselPr
 
                 })}
             </Swiper>
-            <div className={styles.buttonContainer}>
+            {/* <div className={styles.buttonContainer}>
                 <button ref={prevRef} className={`${styles['swiper-button-prev']} before-${section.replace(/\s+/g, '-')}`}><MdNavigateBefore size={40} /></button>
                 <button ref={nextRef} className={`${styles['swiper-button-next']} next-${section.replace(/\s+/g, '-')}`}><MdNavigateNext size={40} /></button>
-            </div>
+            </div>*/
+            }
         </div>
     );
 };

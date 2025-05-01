@@ -64,20 +64,6 @@ export default function Card({ card }: CardProps) {
     return (
         <>
             <div className={styles.card} id={card.genero[0].toLowerCase()}>
-                {
-                    /*<Image
-                    src={TMDBImages ? TMDBImages.poster : card.overlay}
-                    alt={card.title}
-                    fill
-                    placeholder="blur"
-                    blurDataURL="/blurImage.png"
-                    quality={85}
-                    className={styles.backgroundImage}
-                    priority
-                    sizes="100%"
-                    onClick={() => handleClick()}
-                />*/
-                }
                 <img
                     src={TMDBImages ? TMDBImages.poster : card.overlay}
                     alt={card.title}
