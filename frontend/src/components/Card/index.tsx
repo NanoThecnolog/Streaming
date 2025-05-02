@@ -18,20 +18,18 @@ export default function Card({ card }: CardProps) {
     const router = useRouter();
     const { allData, serieData } = useTMDB()
     const [TMDBImages, setTMDBImages] = useState<TMDBImagesProps>()
+    debug.log("Imagens no card: ", TMDBImages)
 
     useEffect(() => {
         async function getImage() {
             if ('season' in card) {
-
                 const data = serieData.find(data => data.id === card.tmdbID)
                 //debug.log('serie no card: ', data)
                 const url = data ? `https://image.tmdb.org/t/p/w500${data.poster_path}` : await tmdb.fetchSeriesDetails(card.tmdbID)
 
                 if (url) {
-                    if (typeof url === 'string') {
-                        setTMDBImages({ poster: url })
-                        //setCachedImage(card.tmdbId, url)
-                    } else if ('poster_path' in url) {
+                    if (typeof url === 'string') setTMDBImages({ poster: url })
+                    else if ('poster_path' in url) {
                         const posterUrl = `https://image.tmdb.org/t/p/w500${url.poster_path}`
                         setTMDBImages({ poster: posterUrl })
                     }
@@ -41,10 +39,7 @@ export default function Card({ card }: CardProps) {
                 //debug.log('movie no card: ', data)
                 const url = data ? `https://image.tmdb.org/t/p/w500${data.poster_path}` : await tmdb.fetchMoviePoster(card.tmdbId)
 
-                if (url) {
-                    setTMDBImages({ poster: url })
-                    //setCachedImage(card.tmdbId, url)
-                }
+                if (url) setTMDBImages({ poster: url })
                 else { debug.error('url não definida') }
             }
 

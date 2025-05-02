@@ -1,24 +1,36 @@
-.cardContainer {
+.container {
     display: flex;
-    //gap: 20px;
-    //overflow-x: scroll;
+    flex-direction: column;
     width: 100%;
-    //padding-right: 20px;
-    //height: 400px;
-    //padding-bottom: 30px;
-    scrollbar-color: var(--grey) var(--background-gray-light);
-    //outline: 2px solid red;
-    //padding: 0 20px;
+    //height: 300px;
+    //outline: 2px solid blue;
 
-    .slide {
-        padding-right: 6px;
+    .cardContainer {
+        display: flex;
+        //gap: 20px;
+        //overflow-x: scroll;
+        width: 100%;
+        //padding-right: 20px;
+        //height: 400px;
+        //padding-bottom: 30px;
+        //scrollbar-color: var(--grey) var(--background-gray-light);
+        //outline: 2px solid red;
+        //padding: 0 20px;
+
+        .slide {
+            padding-right: 6px;
+            //height: 400px;
+            //outline: 2px solid blue;
+        }
     }
 }
 
 @media(max-width: 915px) {
-    .cardContainer {
-        .slide {
-            padding-right: 0;
+    .container {
+        .cardContainer {
+            .slide {
+                padding-right: 1px;
+            }
         }
     }
 }

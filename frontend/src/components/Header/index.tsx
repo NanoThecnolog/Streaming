@@ -96,13 +96,13 @@ export default function Header() {
                 //acordarContentManager.value.data.code === 200
             ) {
                 setServerWake(true);
-                debug.table({
+                /*debug.table({
                     Backend: acordar.value.data.status,
                     SubManager: acordarManager.value.data.message,
                     Mensageria: acordarMensageria.value.data.data.message,
                     //content: acordarContentManager.value.data.message
                 });
-                debug.log("user no header", user)
+                debug.log("user no header", user)*/
             } else {
                 setServerWake(false);
             }

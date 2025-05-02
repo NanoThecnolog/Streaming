@@ -91,7 +91,7 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
         } else {
             setShowPoster(false)
         }
-    }, 300)
+    }, 500)
 
     useEffect(() => {
         window.addEventListener('resize', handleWidth)
@@ -202,20 +202,14 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
                                     <div className={styles.descriptionContainer}>
                                         <p>{movie.overview}</p>
                                     </div>
-                                    {
-                                        (
-                                            <>
-                                                {relatedCards &&
-                                                    <RelatedCardsContainer cards={relatedCards} />
-                                                }
-                                                {cast &&
-                                                    <CastContainer cast={cast} />
-                                                }
-                                                {crewByDepartment &&
-                                                    <CrewContainer crewDepartment={crewByDepartment} />
-                                                }
-                                            </>
-                                        )
+                                    {relatedCards &&
+                                        <RelatedCardsContainer cards={relatedCards} />
+                                    }
+                                    {cast &&
+                                        <CastContainer cast={cast} />
+                                    }
+                                    {crewByDepartment &&
+                                        <CrewContainer crewDepartment={crewByDepartment} />
                                     }
                                 </>
                             )}
