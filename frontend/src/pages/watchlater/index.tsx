@@ -6,12 +6,9 @@ import SEO from '@/components/SEO';
 import { useFlix } from '@/contexts/FlixContext';
 import { parseCookies } from 'nookies';
 import { WatchLaterContext } from '@/@types/contexts/flixContext';
-//import { cards } from '@/data/cards';
-//import { series } from '@/data/series';
 import { CardsProps } from '@/@types/Cards';
 import { SeriesProps } from '@/@types/series';
 import Card from '@/components/Card';
-import CardSerie from "@/components/seriesComponents/Card";
 import Footer from '@/components/Footer';
 import { mongoService } from '@/classes/MongoContent';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -101,16 +98,14 @@ export default function WatchLater() {
                                 //onSwiper={handleSwiper}
                                 className={styles.carousel}
                             >
-
                                 {
                                     list?.movies.map(item =>
-                                        <SwiperSlide>
+                                        <SwiperSlide key={item.tmdbId}>
                                             <Card card={item} key={item.tmdbId} />
                                         </SwiperSlide>
                                     )
                                 }
                             </Swiper>
-
                         </div>
                         <h2>Séries</h2>
                         <div className={styles.cardsContainer}>
@@ -123,14 +118,12 @@ export default function WatchLater() {
                             >
                                 {
                                     list?.series.map(item =>
-                                        <SwiperSlide>
+                                        <SwiperSlide key={item.tmdbID}>
                                             <Card card={item} key={item.tmdbID} />
                                         </SwiperSlide>
                                     )
                                 }
-
                             </Swiper>
-
                         </div>
                     </div>
                 </article>
