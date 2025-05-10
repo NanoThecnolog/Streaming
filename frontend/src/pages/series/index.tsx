@@ -30,7 +30,7 @@ export default function Series() {
     const { serieData, setSerieData } = useTMDB()
     const [visible, setvisible] = useState(false)
     const { series, setSeries } = useFlix()
-    const tmdbid = 78191
+    const tmdbid = 83867;
     const [topCard, setTopCard] = useState<SeriesProps | null>(null)
 
     useEffect(() => {
