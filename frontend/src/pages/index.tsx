@@ -35,7 +35,7 @@ export default function Home() {
   //const [loading, setLoading] = useState(false)
   const [visible, setvisible] = useState(false)
   const { movies, setMovies } = useFlix()
-  const tmdbid = 931349;
+  const tmdbid = 950387;
   const [topCard, setTopCard] = useState<CardsProps | null>(null)
 
   useEffect(() => {
@@ -84,9 +84,6 @@ export default function Home() {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
-
-
-
   return (
     <>
       <SEO
