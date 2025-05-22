@@ -106,7 +106,7 @@ export default function TestPage() {
             </div>
         </div>
     )
-}/*
+}
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const client = new SetupAPIClient(ctx)
 
@@ -134,4 +134,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
             }
         }
     }
-}*/
+}
