@@ -5,7 +5,7 @@ import { FAQ } from "@/pages/faq"
 
 export const cookieOptions = {
     maxAge: 15 * 24 * 60 * 60 * 1000,
-    path: '/'
+    path: '/',
 }
 export const avatares = [
     "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.woueb.net%2Fimages%2Fmanga%2Fromain-manga.jpg&f=1&nofb=1&ipt=44ff213852ef9a7bbcf72a0c9e624c3e2a880f7e2c5852e751ff6a047b5d561e&ipo=images",

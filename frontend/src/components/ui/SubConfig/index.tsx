@@ -9,7 +9,8 @@ export default function SubConfig() {
     const { user } = useFlix()
 
     const { 'flix-user': userCookies } = parseCookies()
-    debug.log(JSON.parse(userCookies))
+    const userData = userCookies
+    debug.log(userData)
     return (
         <section className={styles.sectionContainer}>
             <div className={styles.accountContainer}>

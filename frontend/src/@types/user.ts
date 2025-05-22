@@ -25,6 +25,15 @@ export interface UserContext {
     createdAt: Date,
     watchLater: MyListPorps[]
 }
+export interface UserCookiesProps {
+    name: string,
+    email: string,
+    avatar: string | null,
+    verified: boolean,
+    birthday: Date,
+    news: boolean,
+    createdAt: Date,
+}
 
 export interface MyListPorps {
     id: string,

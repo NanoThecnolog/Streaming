@@ -1,7 +1,7 @@
 import { CardsProps } from "@/@types/Cards";
-import { ContextProps, ContextProviderProps, FavoritesContext, SignInProps, WatchLaterContext } from "@/@types/contexts/flixContext";
+import { ContextProps, ContextProviderProps, SignInProps, WatchLaterContext } from "@/@types/contexts/flixContext";
 import { SeriesProps } from "@/@types/series";
-import { LoginProps, UserContext, UserProps } from "@/@types/user";
+import { LoginProps, UserContext, UserCookiesProps } from "@/@types/user";
 import { debug } from "@/classes/DebugLogger";
 import { cookieOptions } from "@/utils/Variaveis";
 import axios from "axios";
@@ -14,7 +14,7 @@ import { toast } from "react-toastify";
 export const FlixContext = createContext({} as ContextProps)
 
 export function FlixProvider({ children }: ContextProviderProps) {
-    const [user, setUser] = useState<UserContext | null>();
+    const [user, setUser] = useState<UserCookiesProps | null>();
     //const [favorites, setFavorites] = useState<FavoritesContext[]>([])
     const [watchLater, setWatchLater] = useState<WatchLaterContext[]>([])
     const [movies, setMovies] = useState<CardsProps[]>([])
@@ -34,7 +34,7 @@ export function FlixProvider({ children }: ContextProviderProps) {
             const data = userData.data
             const watchLaterIds = data.watchLater.map(item => ({ id: item.id, tmdbid: item.tmdbid }))
 
-            const user: UserContext = {
+            const userCookie = {
                 name: data.name,
                 email: data.email,
                 avatar: data.avatar,
@@ -42,11 +42,10 @@ export function FlixProvider({ children }: ContextProviderProps) {
                 news: data.news,
                 verified: data.verified,
                 createdAt: data.createdAt,
-                watchLater: data.watchLater
             }
             destroyCookie(null, 'flix-user')
-            setCookie(null, 'flix-user', JSON.stringify(user), cookieOptions)
-            setUser(user)
+            setCookie(null, 'flix-user', JSON.stringify(userCookie), cookieOptions)
+            setUser(userCookie)
             destroyCookie(null, 'flix-watch')
             setCookie(null, 'flix-watch', JSON.stringify(watchLaterIds), cookieOptions)
             toast.success(`Olá, ${data.name}. Bem vindo!`)
