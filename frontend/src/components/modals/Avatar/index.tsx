@@ -1,15 +1,15 @@
 import { X } from 'lucide-react';
 import styles from './styles.module.scss';
 import { toast } from 'react-toastify';
-import { api } from '@/services/api';
+import { SetupAPIClient } from '@/services/api';
 import Router from 'next/router';
-import { getUserCookieData, updateUserCookie } from '@/services/cookieClient';
 import Image from 'next/image';
 import { avatares, cookieOptions } from '@/utils/Variaveis';
 import { useState } from 'react';
 import { destroyCookie, parseCookies, setCookie } from 'nookies';
 import { UserContext } from '@/@types/user';
 import { useFlix } from '@/contexts/FlixContext';
+import axios from 'axios';
 
 interface AvatarProps {
     handleCloseModal: () => void;
@@ -18,6 +18,7 @@ interface AvatarProps {
 export default function Avatar({ handleCloseModal }: AvatarProps) {
     const [loading, setLoading] = useState(false)
     const { user, setUser } = useFlix()
+    const client = new SetupAPIClient()
 
     async function handleChangeAvatar(url: string) {
         if (loading) return
@@ -28,14 +29,22 @@ export default function Avatar({ handleCloseModal }: AvatarProps) {
 
         try {
             setLoading(true)
-            const changeAvatar = await api.put('/user', {
-                id: user.id,
-                avatar: url
-            })
-            const data: UserContext = changeAvatar.data
+            const userData = { avatar: url }
+            const response = await axios.put('/api/user/update', userData)
+            const data: UserContext = response.data.request;
+            const userCookie = {
+                name: data.name,
+                email: data.email,
+                avatar: data.avatar,
+                verified: data.verified,
+                birthday: data.birthday,
+                news: data.news,
+                createdAt: response.data.request.created_at,
+                watchLater: data.watchLater
+            }
             destroyCookie(null, 'flix-user')
-            setCookie(null, 'flix-user', JSON.stringify(data), cookieOptions)
-            setUser(data)
+            setCookie(null, 'flix-user', JSON.stringify(userCookie), cookieOptions)
+            setUser(userCookie)
             toast.success("Avatar alterado!")
         } catch (err) {
             console.log("Erro ao tentar atualizar avatar. ", err)

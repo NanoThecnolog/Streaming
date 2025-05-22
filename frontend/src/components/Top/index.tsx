@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { UserProps } from '@/@types/user';
 import { FaInfoCircle, FaPlay } from 'react-icons/fa';
-import { getUserCookieData } from '@/services/cookieClient';
 import { CardsProps, MovieTMDB } from '@/@types/Cards';
 import Adult from '../ui/Adult';
 import { useTMDB } from '@/contexts/TMDBContext';
@@ -53,13 +52,6 @@ export default function Top({ width, cards }: TopProps) {
         return () => clearInterval(interval)
     }, [])
 
-    useEffect(() => {
-        const fetchUserData = async () => {
-            const user = await getUserCookieData();
-            if (user) setUser(user)
-        }
-        fetchUserData()
-    }, [])
     useEffect(() => {
         const getImages = async () => {
             const data = allData.find(data => data.id === card.tmdbId)

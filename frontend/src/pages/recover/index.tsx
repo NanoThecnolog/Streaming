@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import styles from './styles.module.scss'
 import { useRouter } from 'next/router'
-import { api } from '@/services/api';
 import { toast } from 'react-toastify';
 import { FaSpinner } from 'react-icons/fa6';
 import SEO from '@/components/SEO';
+import { SetupAPIClient } from '@/services/api';
 
 export default function RecoverPage() {
     const router = useRouter()
@@ -21,8 +21,9 @@ export default function RecoverPage() {
         }
         if (!token) return
         setLoading(true)
+        const client = new SetupAPIClient()
         try {
-            const response = await api.put('/recover', {
+            const response = await client.api.put('/recover', {
                 token: token,
                 password: password
             })

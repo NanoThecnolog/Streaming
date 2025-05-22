@@ -105,6 +105,7 @@ export function formatedDate(date: string | Date) {
         timeZone: 'UTC'
     })
 }
+
 /**
  * Função para calcular desconto em cima do valor
  * @param price valor do plano (1099)

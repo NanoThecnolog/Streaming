@@ -3,14 +3,19 @@ import axios from "axios";
 
 const url = process.env.NEXT_PUBLIC_CONTENT_MANAGER_URL;
 if (!url) debug.error("variável de ambiente não configurada.")
+const apiKey = process.env.NEXT_PUBLIC_API_KEY
+if (!apiKey) debug.error("apiKey do contentManager ausente.")
 export const apiManager = axios.create({
     baseURL: url
 });
 
-/*api.interceptors.request.use(async (config) => {
-    const { 'flix-token': token } = parseCookies()
-    if (token) config.headers.Authorization = `Bearer ${token}`
-    return config;
-}, (error) => {
-    return Promise.reject(error)
-})*/
+apiManager.interceptors.request.use(
+    async (config) => {
+        if (apiKey) {
+            config.headers = config.headers ?? {}
+            config.headers['key'] = apiKey
+        } else debug.error("enviroment variable API_KEY missing")
+        return config;
+    }, (error) => {
+        return Promise.reject(error)
+    })

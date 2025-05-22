@@ -16,15 +16,14 @@ export interface UserProps {
 }
 
 export interface UserContext {
-    id: string,
     name: string,
     email: string,
-    avatar: string,
+    avatar: string | null,
+    verified: boolean,
     birthday: Date,
     news: boolean,
-    verified: boolean,
     createdAt: Date,
-    access: boolean
+    watchLater: MyListPorps[]
 }
 
 export interface MyListPorps {
@@ -35,4 +34,11 @@ export interface MyListPorps {
     created_at: string,
     updated_at: string
     tmdbid: number
+}
+
+export interface LoginProps {
+    name: string,
+    avatar: string,
+    watchLater: MyListPorps[],
+    token: string
 }

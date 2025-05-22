@@ -1,35 +1,16 @@
 import Header from '@/components/Header'
 import styles from './styles.module.scss'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import MovieDash from '@/components/dashboard/Movie'
 import TVDash from '@/components/dashboard/Tv'
-import { useFlix } from '@/contexts/FlixContext'
 import { useRouter } from 'next/router'
-import { parseCookies } from 'nookies'
 import { debug } from '@/classes/DebugLogger'
+import { GetServerSideProps } from 'next'
+import { SetupAPIClient } from '@/services/api'
 
 export default function Dashboard() {
     const router = useRouter()
-    const { user, setUser } = useFlix()
     const [type, setType] = useState<string>('')
-    useEffect(() => {
-        if (!user) {
-            const { 'flix-user': userCookie } = parseCookies()
-            if (!userCookie) {
-                router.push('/login')
-                return
-            }
-            setUser(JSON.parse(userCookie))
-        }
-    }, [])
-    useEffect(() => {
-        if (user) {
-            const access = user.access
-            debug.log('acesso: ', access)
-            debug.log(user)
-            //if (!access) router.push('/login')
-        }
-    }, [user])
 
     function ComponentToShow() {
         if (type === 'movie') {
@@ -59,4 +40,33 @@ export default function Dashboard() {
             </main>
         </>
     )
+}
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+    const client = new SetupAPIClient(ctx)
+
+    try {
+        const response = await client.api.get('/user/access')
+        const data: { access: boolean, message: string } = response.data
+        debug.log(data)
+        if (!data.access) return {
+            redirect: {
+                destination: '/series',
+                permanent: false
+            }
+        }
+
+        return {
+            props: {}
+        }
+    } catch (err) {
+        console.log('Error getting access for user', err)
+
+        return {
+            redirect: {
+                destination: '/login',
+                permanent: false,
+            }
+        }
+    }
 }

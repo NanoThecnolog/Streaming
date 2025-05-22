@@ -18,7 +18,7 @@ export default function Card({ card }: CardProps) {
     const router = useRouter();
     const { allData, serieData } = useTMDB()
     const [TMDBImages, setTMDBImages] = useState<TMDBImagesProps>()
-    debug.log("Imagens no card: ", TMDBImages)
+    //debug.log("Imagens no card: ", TMDBImages)
 
     useEffect(() => {
         async function getImage() {

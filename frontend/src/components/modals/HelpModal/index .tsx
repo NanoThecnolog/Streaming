@@ -1,4 +1,3 @@
-import { api } from '@/services/api'
 import styles from './styles.module.scss'
 import { toast } from 'react-toastify'
 import { useState } from 'react'
@@ -8,14 +7,14 @@ import { debug } from '@/classes/DebugLogger'
 
 interface HelpProps {
     handleHelpModal: () => void
-    userId: string | undefined,
+    email: string | undefined,
     tmdbId: number
     serie?: SeriesProps | null
     season?: number,
     episode?: number,
 }
 
-export default function HelpModal({ handleHelpModal, userId, tmdbId, serie, season, episode }: HelpProps) {
+export default function HelpModal({ handleHelpModal, email, tmdbId, serie, season, episode }: HelpProps) {
     const [loading, setLoading] = useState(false)
     //console.log(`tmbdID do componente modal: ${tmdbId}`)
 
@@ -54,7 +53,7 @@ export default function HelpModal({ handleHelpModal, userId, tmdbId, serie, seas
             const response = await apiEmail.post('/system/problem', {
                 title,
                 description,
-                userId: userId === undefined ? 'Indefinido' : userId,
+                email: email === undefined ? 'Indefinido' : email,
                 tmdbId: serie ? serie.tmdbID : tmdbId ? tmdbId : 'Indefinido',
                 season: season ? season : 0,
                 episode: episode ? episode : 0

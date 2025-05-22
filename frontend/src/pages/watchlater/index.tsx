@@ -1,7 +1,6 @@
 import Header from '@/components/Header'
 import styles from './styles.module.scss'
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 import SEO from '@/components/SEO';
 import { useFlix } from '@/contexts/FlixContext';
 import { parseCookies } from 'nookies';
@@ -13,6 +12,7 @@ import Footer from '@/components/Footer';
 import { mongoService } from '@/classes/MongoContent';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import { debug } from '@/classes/DebugLogger';
 
 interface ListsProps {
     movies: CardsProps[]
@@ -22,10 +22,9 @@ interface ListsProps {
 export default function WatchLater() {
     const { 'flix-watch': watchCookies } = parseCookies()
     const [watchListIds, setWatchListIds] = useState<WatchLaterContext[]>()
-    const [list, setList] = useState<ListsProps>()
+    const [list, setList] = useState<ListsProps | null>(null)
     const { movies, series, setMovies, setSeries } = useFlix()
-    const [width, setWidth] = useState<number>(0)
-    const [cardPerContainer, setCardPerContainer] = useState(5)
+    const [cardPerContainer, setCardPerContainer] = useState(10)
 
     useEffect(() => {
         async function getMongoData() {
@@ -46,9 +45,13 @@ export default function WatchLater() {
 
     useEffect(() => {
         if (!watchListIds) return
+        //debug.log('watchListIds no useEffect', watchListIds)
+        if (list && list.movies.length > 0 && list.series.length > 0) return
+        const tmdbidSet = [...new Set(watchListIds.map(item => item.tmdbid))]
+        //debug.log("set", tmdbidSet)
 
         const filteredList = <T extends Record<string, any>>(arr: T[], key: keyof T) => {
-            return arr.filter(item => watchListIds.some(w => w.id === item[key]))
+            return arr.filter(item => tmdbidSet.some(set => set === item[key]))
         }
 
         const movie = filteredList(movies, "tmdbId")
@@ -92,7 +95,7 @@ export default function WatchLater() {
                         <h2>Filmes</h2>
                         <div className={styles.cardsContainer}>
                             <Swiper
-                                spaceBetween={10}
+                                spaceBetween={5}
                                 slidesPerView={cardPerContainer}
                                 loop={true}
                                 //onSwiper={handleSwiper}
@@ -118,7 +121,7 @@ export default function WatchLater() {
                             >
                                 {
                                     list?.series.map(item =>
-                                        <SwiperSlide key={item.tmdbID}>
+                                        <SwiperSlide key={item.tmdbID} className={styles.item}>
                                             <Card card={item} key={item.tmdbID} />
                                         </SwiperSlide>
                                     )

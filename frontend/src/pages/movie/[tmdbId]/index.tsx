@@ -23,14 +23,14 @@ import { debug } from '@/classes/DebugLogger';
 import { tmdb } from '@/classes/TMDB';
 import { mongoService } from '@/classes/MongoContent';
 import axios from 'axios';
-import { watchLaterManager } from '@/classes/watchLaterManager';
 import CrewContainer from '@/components/movie/CrewContainer';
 import { CrewProps } from '@/@types/movie/crew';
 import CastContainer from '@/components/movie/CastContaner';
 import RelatedCardsContainer from '@/components/movie/RelatedContainer';
 import WatchLaterContainer from '@/components/ui/ButtonWatchLater';
 
-import { GetStaticProps, GetStaticPaths } from "next";
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
+import { WatchLaterManager } from '@/classes/watchLaterManager';
 
 interface groupedByDepartment {
     [job: string]: CrewProps[]
@@ -57,6 +57,7 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
     const [relatedCards, setRelatedCards] = useState<CardsProps[]>([])
     const [trailer, setTrailer] = useState<TrailerProps | null>(null)
     const [loadingButton, setLoadingButton] = useState(false)
+    const watchLaterManager = new WatchLaterManager()
 
     useEffect(() => {
         if (!movie) return
@@ -65,9 +66,11 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
         if (!filme) return debug.warn('movie not found')
         setFilme(filme)
     }, [movie, movies])
+    //enviar o token pro backend pra verificar o acesso do usuario, pra retornar true ou false
 
     const watchLater = () => {
         if (!movie || !filme) return
+        //aqui vai fazer a request pro backend do next com axios /api/user/list/getmovies
         const onList = watchLaterManager.isOnTheList(filme.tmdbId)
         setOnWatchLater(onList)
     }
@@ -100,18 +103,18 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
 
     }, [handleWidth])
     async function handleWatchLater() {
-        if (!user) {
-            const { 'flix-user': userCookie } = parseCookies()
-            if (!userCookie) return router.push('/login')
-            setUser(JSON.parse(userCookie))
-        }
+        if (!user) return router.push('/login')
         if (!movie || !filme) return debug.warn("Erro ao adicionar filme a lista de assistir mais tarde.")
 
         try {
             if (loadingButton) return
             setLoadingButton(true)
-            await watchLaterManager.addWatchLater(filme)
-            await watchLater()
+            //fazer requisição post com axios pro backend para a rota api/user/list/add
+            const response = await axios.post('/api/user/list/add', filme)
+            const data = response.data
+            await watchLaterManager.updateCookie('flix-watch', data.request.cookie)
+            watchLater()
+            toast.success(data.request.message)
         } catch (err: any) {
             debug.error("Erro ao adicionar filme", err)
             const errorMessage = err.response?.data?.message || "Erro ao adicionar filme à lista. Por favor, tente novamente mais tarde!";
@@ -157,7 +160,7 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
                         <div className={styles.content}>
                             <div className={styles.titleContainer}>
                                 <h1 className={`${movie.title.toLowerCase() === 'harry potter' && styles.harryFont}`}>{filme.title}</h1>
-                                <h3 className={`${movie.title.toLowerCase() === 'harry potter' && styles.subHarryFont}`}>{filme.subtitle != '' && `${filme.subtitle}`}{filme.tmdbId === 597 && user && user.id === "3ed15ea3-4c54-478d-908f-e19e06d1c1f9" && "Thais cara de Nariz, coloca o filme em 1 hora e 24 minutos 😏...."}</h3>
+                                <h3 className={`${movie.title.toLowerCase() === 'harry potter' && styles.subHarryFont}`}>{filme.subtitle != '' && `${filme.subtitle}`}</h3>
                             </div>
                             {movie && (
                                 <>

@@ -1,17 +1,18 @@
-import { api } from "@/services/api";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Spinner from "../ui/Loading/spinner";
+import { SetupAPIClient } from "@/services/api";
 
 export default function Qrcode() {
     const [qrCodeUrl, setQrCodeUrl] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
+    const client = new SetupAPIClient()
     useEffect(() => {
         qrCode();
     }, []);
     async function qrCode() {
         try {
-            const response = await api.get('/pix');
+            const response = await client.api.get('/pix');
             const data = response.data;
             setQrCodeUrl(data);
         } catch (err) {

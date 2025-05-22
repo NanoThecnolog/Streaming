@@ -2,13 +2,14 @@ import { FormEvent, useState } from 'react'
 import styles from './styles.module.scss'
 import { FaSpinner } from 'react-icons/fa6'
 import { toast } from 'react-toastify'
-import { api } from '@/services/api'
 import { X } from 'lucide-react'
-import { getUserCookieData, updateUserCookie } from '@/services/cookieClient'
 import { useFlix } from '@/contexts/FlixContext'
 import { destroyCookie, setCookie } from 'nookies'
 import { cookieOptions } from '@/utils/Variaveis'
 import { UserContext } from '@/@types/user'
+import { SetupAPIClient } from '@/services/api'
+import axios from 'axios'
+import { debug } from '@/classes/DebugLogger'
 
 interface EditarDadosProps {
     handleClose: () => void;
@@ -22,6 +23,7 @@ export default function EditarDados({ handleClose }: EditarDadosProps) {
     const [confirmPassword, setConfirmPassword] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
     const { user, setUser } = useFlix()
+    const client = new SetupAPIClient()
 
     async function handleDados(event: FormEvent) {
         event.preventDefault();
@@ -38,18 +40,28 @@ export default function EditarDados({ handleClose }: EditarDadosProps) {
                 return
             }
             const userData: Record<string, any> = {
-                id: user.id,
                 ...(name && { name }),
                 ...(birthday && { birthday: birthday?.toISOString() }),
                 ...(password && { password })
             }
-            const response = await api.put('/user', userData)
-            const data: UserContext = response.data;
+            debug.log('UserData no modal de editar dados', userData)
+            const response = await axios.put('/api/user/update', userData)
+            const data: UserContext = response.data.request;
+            const userCookie = {
+                name: data.name,
+                email: data.email,
+                avatar: data.avatar,
+                verified: data.verified,
+                birthday: data.birthday,
+                news: data.news,
+                createdAt: response.data.request.created_at,
+                watchLater: data.watchLater
+            }
             destroyCookie(null, 'flix-user')
-            setCookie(null, 'flix-user', JSON.stringify(data), cookieOptions)
-            setUser(data)
+            setCookie(null, 'flix-user', JSON.stringify(userCookie), cookieOptions)
+            setUser(userCookie)
             toast.success("Dados alterados com sucesso.")
-            console.log("Dados alterados com sucesso", data)
+            //console.log("Dados alterados com sucesso", data)
         } catch (err) {
             console.log("Erro ao alterar dados", err)
             toast.error("Erro ao alterar seus dados.")

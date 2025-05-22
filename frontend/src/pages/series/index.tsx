@@ -118,7 +118,7 @@ export default function Series() {
                                     </>
                                 }
                             </div>
-                            <BackTopButton visible={visible} link="/series/#series" />
+                            <BackTopButton visible={visible} />
                         </main>
                         <Footer />
                     </> : <div className={styles.loading}><Loading /></div>

@@ -29,6 +29,17 @@
                 overflow-x: auto;
                 width: 100%;
                 scrollbar-color: var(--grey) var(--background-gray-light);
+                //outline: 2px solid red;
+
+                .carousel {
+                    //height: 100px;
+                    //outline: 2px solid red;
+                    width: 100%;
+
+                    .item {
+                        //height: 200px;
+                    }
+                }
             }
         }
     }

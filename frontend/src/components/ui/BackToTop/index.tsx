@@ -4,15 +4,17 @@ import { FaChevronCircleUp } from 'react-icons/fa'
 
 interface ButtonProps {
     visible: boolean,
-    link: string
 }
 
-export default function BackTopButton({ visible, link }: ButtonProps) {
+export default function BackTopButton({ visible }: ButtonProps) {
+    const handleScrollTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
     return (
-        <Link href={link} className={`${styles.backTopButton} ${visible ? styles.visible : ''}`}>
+        <button disabled={!visible} onClick={handleScrollTop} className={`${styles.backTopButton} ${visible ? styles.visible : styles.hidden}`}>
             <div className={styles.upIcon}>
                 <FaChevronCircleUp size={40} />
             </div>
-        </Link>
+        </button>
     )
 }

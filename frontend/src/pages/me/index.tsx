@@ -12,13 +12,14 @@ import { FaUserCircle } from "react-icons/fa";
 import SEO from "@/components/SEO";
 import Switch from "@/components/ui/Switch";
 import { toast } from "react-toastify";
-import { api } from "@/services/api";
 import { useFlix } from "@/contexts/FlixContext";
 import { destroyCookie, parseCookies, setCookie } from "nookies";
 import { useRouter } from "next/router";
 import { cookieOptions } from "@/utils/Variaveis";
 import SubConfig from "@/components/ui/SubConfig";
 import { formatedDate } from "@/utils/UtilitiesFunctions";
+import { SetupAPIClient } from "@/services/api";
+import axios from "axios";
 
 export default function Me() {
     //const [user, setUser] = useState<UserProps | null>(null)
@@ -27,6 +28,7 @@ export default function Me() {
     const [modalVisible, setModalVisible] = useState(false)
     const [editarDados, setEditarDados] = useState(false)
     const [loading, setLoading] = useState<boolean>(false)
+    //const client = new SetupAPIClient()
 
     useEffect(() => {
         if (!user) {
@@ -36,7 +38,6 @@ export default function Me() {
                 return
             }
             setUser(JSON.parse(userCookie))
-
         }
     }, [])
     function handleOpenModal() {
@@ -67,12 +68,12 @@ export default function Me() {
                 return
             }
             const userData = {
-                id: user.id,
                 news: newsletter
             }
 
-            const response = await api.put('/user', userData)
-            const data: UserContext = response.data;
+            //const response = await client.api.put('/user', userData)
+            const response = await axios.put('/api/user/update', userData)
+            const data: UserContext = response.data.request;
             destroyCookie(null, 'flix-user')
             setCookie(null, 'flix-user', JSON.stringify(data), cookieOptions)
             setUser(data)

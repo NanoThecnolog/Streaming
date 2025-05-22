@@ -6,7 +6,6 @@ import styles from './styles.module.scss'
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { AlignJustify, LucideLogOut, Search } from "lucide-react";
-import { api } from "@/services/api";
 import { useFlix } from "@/contexts/FlixContext";
 import { parseCookies } from "nookies";
 import { IoAddCircle, IoCreate } from "react-icons/io5";
@@ -20,6 +19,7 @@ import { apiSub } from "@/services/apiSubManager";
 import { apiEmail } from "@/services/apiMessenger";
 import { apiManager } from "@/services/apiManager";
 import { useTMDB } from "@/contexts/TMDBContext";
+import { SetupAPIClient } from "@/services/api";
 
 export default function Header() {
     //refatorar esse componente
@@ -34,8 +34,8 @@ export default function Header() {
     const { user, setUser, signOut } = useFlix()
     const { allData, serieData } = useTMDB()
     const [initial, setInitial] = useState("-")
-    //const [config, setConfig] = useState<{ dados: any[], chaves: string[], taxa: number } | null>(null)
     const [fuse, setFuse] = useState<Fuse<any> | null>(null)
+    const client = new SetupAPIClient()
 
     useEffect(() => {
         async function loadConfig() {
@@ -48,12 +48,6 @@ export default function Header() {
         }
         loadConfig()
     }, [])
-
-    /*const fuse = useMemo(() =>
-        new Fuse(config.dados, {
-            keys: config.chaves,
-            threshold: config.taxa
-        }), [])*/
 
     useEffect(() => {
         if (!user) {
@@ -69,13 +63,14 @@ export default function Header() {
 
     useEffect(() => {
         if (!user) return
+        debug.log(user)
         const inicial = user.name[0].toUpperCase()
         setInitial(inicial)
     }, [user])
     useEffect(() => {
         async function wakeUpServer() {
             const responses = await Promise.allSettled([
-                api.get('/acordar'),
+                client.api.get('/acordar'),
                 apiSub.get('/'),
                 apiEmail.get('/'),
                 apiManager.get('/')

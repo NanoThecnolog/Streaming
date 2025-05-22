@@ -22,13 +22,16 @@ export const agp = {
     misterio: "Mistério",
     familia: "Família",
     korean: "Coreano",
+    chines: "Chinês",
     manga: "Mangá",
     violent: "Violento",
     music: "Música",
     nacional: "Nacional",
     space: "Espaço",
     psico: "Psicopata",
-    politics: "Política"
+    politics: "Política",
+    supernatural: "Sobrenatural",
+    murderer: "Assassinato",
 }
 export const stm = {
     netflix: "Netflix",

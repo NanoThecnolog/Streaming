@@ -1,10 +1,10 @@
 import { CardsProps } from "@/@types/Cards";
 import { ContextProps, ContextProviderProps, FavoritesContext, SignInProps, WatchLaterContext } from "@/@types/contexts/flixContext";
 import { SeriesProps } from "@/@types/series";
-import { UserContext, UserProps } from "@/@types/user";
+import { LoginProps, UserContext, UserProps } from "@/@types/user";
 import { debug } from "@/classes/DebugLogger";
-import { api } from "@/services/api";
 import { cookieOptions } from "@/utils/Variaveis";
+import axios from "axios";
 import Router from "next/router";
 import { destroyCookie, setCookie } from "nookies";
 import { createContext, useContext, useState } from "react";
@@ -23,58 +23,34 @@ export function FlixProvider({ children }: ContextProviderProps) {
     //favoritos, watch later, dados do usuário, tudo aqui
     async function signIn({ email, password }: SignInProps) {
         try {
-            const response = await api.post<UserProps>('/login', {
+
+            const response = await axios.post<LoginProps>('/api/login', {
                 email,
                 password
             })
-
-            const { avatar, birthday, id, name, token, news, verified, myList, access, favoritos, createdAt } = response.data
-
-            if (!response.data.verified) {
-                alert(
-                    "Sua conta ainda não foi ativada.\n\n" +
-                    "Um link de ativação foi enviado para o seu e-mail durante o cadastro.\n\n" +
-                    "Por favor, verifique sua caixa de entrada ou a pasta de spam e clique no link de ativação " +
-                    "para liberar o acesso ao conteúdo."
-                );
-                return;
-            }
-
-            debug.log('acesso na função de sign: ', access)
-
-            //const favoriteIds = favoritos.map(item => ({ id: item.tmdbid }))
-            const watchLaterIds = myList.map(item => ({ id: item.tmdbid }))
-
-
-            destroyCookie(null, 'flix-token')
-            setCookie(null, 'flix-token', token, cookieOptions)
-
-            //destroyCookie(null, 'flix-favorites')
-            //setCookie(null, 'flix-favorites', JSON.stringify(favoriteIds), cookieOptions)
-
-            destroyCookie(null, 'flix-watch')
-            setCookie(null, 'flix-watch', JSON.stringify(watchLaterIds), cookieOptions)
-
-            //setFavorites(favoriteIds)
-            setWatchLater(watchLaterIds)
+            if (response.status != 200) debug.log('Erro no primeiro axios ao fazer login')
+            const userData = await axios.get<UserContext>('/api/user')
+            debug.log('resultado da request', userData.data)
+            const data = userData.data
+            const watchLaterIds = data.watchLater.map(item => ({ id: item.id, tmdbid: item.tmdbid }))
 
             const user: UserContext = {
-                id,
-                name,
-                email,
-                avatar,
-                birthday,
-                news,
-                verified,
-                access: access,
-                createdAt
+                name: data.name,
+                email: data.email,
+                avatar: data.avatar,
+                birthday: data.birthday,
+                news: data.news,
+                verified: data.verified,
+                createdAt: data.createdAt,
+                watchLater: data.watchLater
             }
             destroyCookie(null, 'flix-user')
             setCookie(null, 'flix-user', JSON.stringify(user), cookieOptions)
             setUser(user)
-
-            toast.success(`Olá, ${name}. Bem vindo!`)
-            Router.push('/');
+            destroyCookie(null, 'flix-watch')
+            setCookie(null, 'flix-watch', JSON.stringify(watchLaterIds), cookieOptions)
+            toast.success(`Olá, ${data.name}. Bem vindo!`)
+            Router.push('/')
         } catch (err) {
             console.log("Erro ao autenticar usuário.", err)
             toast.error("Erro ao tentar realizar login. Verifique seu email e sua senha, e tente novamente")
@@ -82,14 +58,12 @@ export function FlixProvider({ children }: ContextProviderProps) {
         }
     }
 
-    function signOut() {
+    async function signOut() {
         try {
-            destroyCookie(null, 'flix-token')
-            destroyCookie(null, 'flix-favorites')
             destroyCookie(null, 'flix-watch')
             destroyCookie(null, 'flix-user')
+            await fetch('/api/user/logout')
             setUser(null)
-            //setFavorites([])
             setWatchLater([])
             Router.push('/login')
         } catch (err) {
@@ -99,7 +73,7 @@ export function FlixProvider({ children }: ContextProviderProps) {
     }
 
     return (
-        <FlixContext.Provider value={{ user, /*favorites*/ watchLater, setWatchLater, /*setFavorites*/ setUser, signIn, signOut, movies, series, setMovies, setSeries }}>
+        <FlixContext.Provider value={{ user, watchLater, setWatchLater, setUser, signIn, signOut, movies, series, setMovies, setSeries }}>
             {children}
         </FlixContext.Provider>
     )

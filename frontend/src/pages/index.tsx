@@ -124,7 +124,7 @@ export default function Home() {
                   </>
                 }
               </div>
-              <BackTopButton link="/#inicio" visible={visible} />
+              <BackTopButton visible={visible} />
             </main>
             <Footer />
           </> :

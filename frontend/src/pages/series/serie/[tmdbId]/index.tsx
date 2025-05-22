@@ -29,9 +29,9 @@ import { getRelatedSerieCards } from "@/utils/CardsManipulation";
 import { GetServerSideProps } from "next";
 import axios from "axios";
 import { tmdb } from "@/classes/TMDB";
-import { watchLaterManager } from "@/classes/watchLaterManager";
 import { CrewProps } from "@/@types/movie/crew";
 import RelatedCardsContainer from "@/components/movie/RelatedContainer";
+import { WatchLaterManager } from "@/classes/watchLaterManager";
 
 interface TMDBImagesProps {
     backdrop: string,
@@ -75,11 +75,13 @@ export default function Serie({ data }: SerieProps) {
     const [trailer, setTrailer] = useState<TrailerProps | null>(null)
     const [showPoster, setShowPoster] = useState(false)
 
+    const watchLaterManager = new WatchLaterManager()
+
     useEffect(() => {
         if (!tmdbId) return
         setSerie(null)
         setSeasonToShow(1)
-        debug.warn("chamando", seasonToShow)
+        //debug.warn("chamando", seasonToShow)
         //const findSerie = series.find((serie) => serie.tmdbID === Number(tmdbId))
         async function fetchSerie() {
             const response: SeriesProps | null = await mongoService.findOneSerieById(parseInt(tmdbId as string))
@@ -92,14 +94,13 @@ export default function Serie({ data }: SerieProps) {
     }, [tmdbId, router])
     useEffect(() => {
         if (!serie) return;
-        debug.log("seasonToShow:", seasonToShow)
+        //debug.log("seasonToShow:", seasonToShow)
         if (seasonToShow > 0) {
             const episodes = serie.season[seasonToShow - 1]?.episodes
-            debug.log("episódios: ", episodes)
+            //debug.log("episódios: ", episodes)
             setEpisodesToShow(episodes)
         }
         fetchEpisodes()
-
         const onList = watchLaterManager.isOnTheList(serie.tmdbID)
         setOnWatchLater(onList)
     }, [serie, seasonToShow])
@@ -141,9 +142,7 @@ export default function Serie({ data }: SerieProps) {
             if (!mainCast) return debug.warn("Nenhum dado sobre o elenco principal da série.")
             const seriesCast: CastProps[] = []
             if (!serie) return debug.warn("Dados da Série não estão presentes");
-            //debuglog("length de série.season: ", serie.season.length)
             for (let i = 0; i < serie.season.length; i++) {
-                //debuglog("valor de i no for: ", i + 1)
                 const castSeason = await tmdb.fetchSeriesCastBySeason(Number(tmdbId), i + 1)
                 if (!castSeason) return
                 seriesCast.push(mainCast, castSeason)
@@ -195,10 +194,10 @@ export default function Serie({ data }: SerieProps) {
 
 
     function handleChangeSeason(value: number) {
-        debug.log(serie)
+        //debug.log(serie)
         if (!serie) return
         if (value > 0 && value <= serie.season.length) {
-            debug.log(value)
+            //debug.log(value)
             setSeasonToShow(value)
         } else return;
     }
@@ -217,23 +216,30 @@ export default function Serie({ data }: SerieProps) {
     }
 
 
-    async function handleAddUserList(tmdbid: number) {
+    async function handleWatchLater(tmdbid: number) {
         //toast.warning("A função Assistir mais tarde está temporariamente desativada")
-        if (!user) {
-            Router.push('/login')
-            return
-        }
+        if (!user) return Router.push('/login')
         try {
             if (!serie) return
             if (loadingButton) return
             setLoadingButton(true)
-            await watchLaterManager.addWatchLater(serie);
+            //console.log('chamando')
+            const response = await axios.post('/api/user/list/add', serie)
+            const data = response.data
+            //debug.log('response da requisição em handleWatchLater', data)
+
+            debug.log(data.request.cookie)
+            await watchLaterManager.updateCookie('flix-watch', data.request.cookie)
+
             const onList = watchLaterManager.isOnTheList(tmdbid)
+            debug.log('Resultado do onList', onList)
+
             setOnWatchLater(onList)
+            toast.success(data.request.message)
         } catch (err: any) {
             if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
-            debug.log("Erro na function handleAddUserList", err)
-            return toast.error("Erro inesperado ao adicionar série à lista!")
+            debug.log("Erro na function handleWatchLater", err)
+            return toast.error("Erro inesperado ao atualizar sua lista! Fale com o Administrador")
         } finally {
             setLoadingButton(false)
         }
@@ -305,7 +311,7 @@ export default function Serie({ data }: SerieProps) {
                                     </div>
                                     <div className={styles.buttonContainer}>
                                         <div className={styles.watchLater}>
-                                            <button type="button" onClick={() => handleAddUserList(serie.tmdbID)}>
+                                            <button type="button" onClick={() => handleWatchLater(serie.tmdbID)}>
                                                 {loadingButton ? <Spinner /> : onWatchLater ? (
                                                     <>
                                                         <p><FaCheck /></p>
@@ -354,9 +360,9 @@ export default function Serie({ data }: SerieProps) {
                             <div className={styles.cardContainer}>
                                 {
                                     episodesToShow.map((ep, index) => {
-                                        debug.log("episodesData: ", episodesData)
+                                        //debug.log("episodesData: ", episodesData)
                                         const season = episodesData[seasonToShow - 1];
-                                        debug.log("season no render: ", season)
+                                        //debug.log("season no render: ", season)
                                         const episode = season?.find(e => e.episode_number === ep.ep)
                                         const image = episode ? `https://image.tmdb.org/t/p/w500${episode?.still_path}` : '/blurImage.png';
                                         const episodeInfo = {

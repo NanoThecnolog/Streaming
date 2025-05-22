@@ -5,7 +5,7 @@ import { ToastContainer } from "react-toastify";
 import { TMDBProvider } from "@/contexts/TMDBContext";
 import { useEffect } from "react";
 import ErrorBoundary from "@/components/Errors/ErrorBoundary";
-import { FlixProvider, useFlix } from "@/contexts/FlixContext";
+import { FlixProvider } from "@/contexts/FlixContext";
 import Router from "next/router";
 import NProgress from "nprogress"
 import "nprogress/nprogress.css";

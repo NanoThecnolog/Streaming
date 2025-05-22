@@ -214,3 +214,22 @@ export const classification = [
         msg: "Pode conter conteúdo extremo, violência explícita, sexo explícito e apologia às drogas."
     }
 ]
+
+export const blockedDomains = [
+    "teste.com",
+    "abc.com",
+    "123.com",
+    "mail.com",
+    "email.com",
+    "test.com",
+    "t.tr",
+    "example.com"
+]
+
+export const fakePatterns = [
+    "teste",
+    "test",
+    "abc",
+    "123",
+    "fake"
+];

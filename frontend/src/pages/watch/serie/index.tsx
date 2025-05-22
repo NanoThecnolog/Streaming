@@ -2,7 +2,6 @@ import Router, { useRouter } from "next/router"
 import styles from '@/styles/Watch.module.scss'
 import { ChevronLeft } from "lucide-react"
 import { useEffect, useState } from "react"
-import { api } from "@/services/api"
 import NextEpisode from "@/components/ui/NextEpisode"
 import PrevEpisode from "@/components/ui/PreviousEpisode"
 import SEO from "@/components/SEO"
@@ -18,6 +17,7 @@ import { CheckFileProps } from "@/@types/googleRequest"
 import Spinner from "@/components/ui/Loading/spinner"
 import { debug } from "@/classes/DebugLogger"
 import { mongoService } from "@/classes/MongoContent"
+import { apiEmail } from "@/services/apiMessenger"
 
 interface EpisodeProps {
     title: string,
@@ -47,22 +47,6 @@ export default function WatchSerie() {
             }
             setUser(JSON.parse(userCookie))
         }
-    }, [])
-
-    useEffect(() => {
-        async function acordarServidor() {
-            try {
-                const wakeup = await api.get('/acordar');
-                return wakeup
-            } catch (err) {
-                return err
-            }
-        }
-        acordarServidor();
-        const manterAcordado = setInterval(() => {
-            acordarServidor()
-        }, 40000);
-        return () => clearInterval(manterAcordado)
     }, [])
 
     useEffect(() => {
@@ -109,13 +93,13 @@ export default function WatchSerie() {
             const encodedLink = encodeURIComponent(link)
             const info = await apiGoogle.get(`/${encodedLink}`)
             if (info.data.code && info.data.code === 404) {
-                const notificar = await api.post('/system/notification/problem', {
+                const notificar = await apiEmail.post('/system/notification/problem', {
                     title: episodio?.title,
                     description: 'Problema com arquivo',
                     tmdbId: serie?.tmdbID,
                     season: episodio?.season,
                     episode: episodio?.episode,
-                    userId: user?.id
+                    email: user?.email
                 })
                 debug.log("depois do envio de email", notificar.data)
                 if (notificar.data.code === 201) debug.log("email enviado!")
@@ -193,7 +177,7 @@ export default function WatchSerie() {
                     {visible && (
                         <HelpModal
                             handleHelpModal={handleHelpModal}
-                            userId={user?.id}
+                            email={user?.email}
                             tmdbId={Number(serie ? serie.tmdbID : 0)}
                             serie={serie}
                             season={Number(season)}

@@ -30,5 +30,6 @@ export interface FavoritesContext {
     id: number
 }
 export interface WatchLaterContext {
-    id: number
+    id: string,
+    tmdbid: number
 }

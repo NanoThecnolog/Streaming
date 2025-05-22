@@ -2,7 +2,6 @@ import styles from '@/styles/Watch.module.scss';
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { ChevronLeft } from 'lucide-react';
-import { api } from "@/services/api";
 import HelpFlag from "@/components/Helpflag";
 import HelpModal from "@/components/modals/HelpModal/index ";
 import SEO from "@/components/SEO";
@@ -36,19 +35,6 @@ export default function Watch() {
             setUser(JSON.parse(userCookie))
         }
     }, [])
-
-    const acordarServidor = useCallback(async () => {
-        try {
-            await api.get('/acordar')
-        } catch (err) {
-            console.error("Erro ao acordar o servidor", err)
-        }
-    }, [])
-    useEffect(() => {
-        acordarServidor();
-        const manterAcordado = setInterval(acordarServidor, 40000);
-        return () => clearInterval(manterAcordado)
-    }, [acordarServidor])
 
     useEffect(() => {
         async function getMovieMongoData() {
@@ -97,7 +83,7 @@ export default function Watch() {
                     title: movieData.title,
                     description: 'Problema com arquivo',
                     tmdbId: movieData.tmdbId,
-                    userId: user?.id
+                    email: user?.email
                 })
                 debug.log("depois do envio de email", notificar.data)
                 if (notificar.data.code === 201) debug.log("email enviado!")
@@ -145,7 +131,7 @@ export default function Watch() {
                     {visible && (
                         <HelpModal
                             handleHelpModal={handleHelpModal}
-                            userId={user?.id}
+                            email={user?.email}
                             tmdbId={Number(tmdbId)}
                         />
                     )}

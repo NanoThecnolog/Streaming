@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Spinner from '../ui/Loading/spinner';
 import { useRouter } from 'next/router';
-import { api } from '@/services/api';
 import { toast } from 'react-toastify';
 import { apiEmail } from '@/services/apiMessenger';
 import { useFlix } from '@/contexts/FlixContext';
@@ -32,7 +31,7 @@ export default function RequestCard({ card }: RequestCard) {
                 tmdbId: card.id,
                 title: card.title ?? card.name ?? card.original_name,
                 subtitle: card.subtitle ?? "---",
-                userId: user?.id,
+                email: user?.email,
                 userName: user?.name
             })
             const data = response;

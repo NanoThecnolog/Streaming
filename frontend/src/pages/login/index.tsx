@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import styles from './styles.module.scss'
 import { FormEvent, useEffect, useState } from 'react';
-import { api } from '@/services/api';
 import { FaSpinner } from 'react-icons/fa';
 import ForgetPass from '@/components/modals/ForgetPassword';
 import SEO from '@/components/SEO';
 import { useFlix } from '@/contexts/FlixContext';
+import { debug } from '@/classes/DebugLogger';
 
 export default function Login() {
     //refatorar esse componente
@@ -16,33 +16,16 @@ export default function Login() {
     const newAccount = "/signup";
     const { signIn } = useFlix()
 
-    useEffect(() => {
-        async function wakeUpServer() {
-            try {
-                const acordar = await api.get('/acordar');
-
-                return acordar
-            } catch (err) {
-                //console.log(err)
-                return err
-            }
-        }
-        wakeUpServer()
-        const manterAcordado = setInterval(() => {
-            wakeUpServer()
-        }, 40000)
-        return () => clearInterval(manterAcordado)
-    }, [])
-
     async function handleLogin(e: FormEvent) {
         e.preventDefault()
         if (loading) return
         try {
             setLoading(true)
             const credentials = { email, password }
-            await signIn(credentials)
+            const login = await signIn(credentials)
+
         } catch (err) {
-            console.log(err)
+            console.log('Erro ao realizar login', err)
         } finally {
             setLoading(false)
         }
@@ -89,9 +72,9 @@ export default function Login() {
                         <Link href={newAccount}><h3>Criar conta</h3></Link>
                     </div>
                 </div>
-                {modalVisible && <ForgetPass
-                    handleClose={handleClose}
-                />
+                {
+                    modalVisible &&
+                    <ForgetPass handleClose={handleClose} />
                 }
             </div>
         </>

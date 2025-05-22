@@ -16,7 +16,7 @@ interface EpisodeProps {
 }
 
 export default function EpisodeCard({ episodeData, handlePlay }: EpisodeProps) {
-    debug.log(episodeData)
+    //debug.log(episodeData)
     return (
         <div className={styles.episodeContainer} onClick={() => handlePlay(episodeData.data, episodeData.seasonNumber)}>
             <div

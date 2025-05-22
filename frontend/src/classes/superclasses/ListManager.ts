@@ -1,11 +1,12 @@
+import { SetupAPIClient } from "@/services/api";
 import { cookieOptions } from "@/utils/Variaveis";
 import { destroyCookie, parseCookies, setCookie } from "nookies";
 import { toast } from "react-toastify";
 
 export class ListManager {
-    protected updateCookie<T>(cookieName: string, newData: T) {
-        destroyCookie(null, cookieName)
-        setCookie(null, cookieName, JSON.stringify(newData), cookieOptions)
+    protected client?: SetupAPIClient
+    constructor(client?: SetupAPIClient) {
+        this.client = client
     }
     protected toastAdd(title: string, subtitle: string = '') {
         toast.success(`${title} ${subtitle ? `- ${subtitle}` : ''} adicionado à lista!`)
@@ -14,8 +15,12 @@ export class ListManager {
         toast.warning(`${title} ${subtitle ? `- ${subtitle}` : ''} removido da lista!`)
     }
 
-    protected getCookie<T>(name: string): T | null {
-        const cookie = parseCookies()
+    public getCookie<T>(name: string, ctx?: any): T | null {
+        const cookie = parseCookies(ctx)
         return cookie[name] ? JSON.parse(cookie[name]) : null
+    }
+    public updateCookie<T>(cookieName: string, newData: T, ctx?: any) {
+        destroyCookie(ctx ? ctx : null, cookieName)
+        setCookie(ctx ? ctx : null, cookieName, JSON.stringify(newData), cookieOptions)
     }
 }

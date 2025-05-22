@@ -1,9 +1,9 @@
 import { X } from 'lucide-react'
 import styles from './styles.module.scss'
 import { useState } from 'react';
-import { api } from '@/services/api';
 import { toast } from 'react-toastify';
 import { FaSpinner } from 'react-icons/fa6';
+import { SetupAPIClient } from '@/services/api';
 
 interface ForgetPassProps {
     handleClose: () => void;
@@ -13,11 +13,12 @@ interface ForgetPassProps {
 export default function ForgetPass({ handleClose }: ForgetPassProps) {
     const [email, setEmail] = useState<string>()
     const [loading, setLoading] = useState<boolean>(false)
+    const client = new SetupAPIClient()
 
     async function sendRedefineToken() {
         try {
             setLoading(true)
-            const sending = await api.post('/recovertoken', {
+            const sending = await client.api.post('/recovertoken', {
                 email: email
             })
             console.log(sending)
