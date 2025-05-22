@@ -11,11 +11,12 @@ interface UserRequest {
     email: string,
     birthday: Date,
     password: string,
+    cpf: string
 
 }
 
 class CreateUserService {
-    async execute({ name, email, birthday, password }: UserRequest) {
+    async execute({ name, email, birthday, password, cpf }: UserRequest) {
 
         const userExiste = await prismaClient.user.findFirst({
             where: { email }
@@ -34,6 +35,7 @@ class CreateUserService {
                 email,
                 birthday,
                 password: passwordHash,
+                cpf
             }, select: {
                 id: true,
                 name: true,

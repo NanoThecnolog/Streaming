@@ -8,20 +8,22 @@
     "start": "node src/server.js"
   },
   "dependencies": {
-    "@prisma/client": "^5.19.1",
+    "@prisma/client": "^6.8.2",
     "@types/validator": "^13.12.2",
     "axios": "^1.8.1",
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
+    "express-rate-limit": "^7.5.0",
     "jsonwebtoken": "^9.0.2",
     "mjml": "^4.15.3",
     "nodemailer": "^6.9.15",
     "pix-payload": "^1.0.4",
-    "prisma": "^5.19.1",
+    "prisma": "^6.8.2",
     "qrcode": "^1.5.4",
     "sdk-node-apis-efi": "^1.2.14",
+    "uuid": "^11.1.0",
     "validator": "^13.12.0"
   },
   "devDependencies": {

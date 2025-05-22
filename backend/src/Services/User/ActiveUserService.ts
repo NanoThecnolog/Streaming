@@ -7,7 +7,7 @@ interface ActiveRequest {
 }
 
 class ActiveUserService {
-    async execute({ id }: ActiveRequest) {
+    public async execute({ id }: ActiveRequest) {
 
         const userExiste = await prismaClient.user.findUnique({
             where: {

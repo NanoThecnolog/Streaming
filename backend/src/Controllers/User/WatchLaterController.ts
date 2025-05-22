@@ -5,9 +5,10 @@ class WatchLaterController {
     async handle(req: Request, res: Response) {
         try {
             const watchLaterService = new WatchLaterService();
-            const { userid, title, subtitle, tmdbid } = req.body;
+            const id = req.user_id
+            const { title, subtitle, tmdbid } = req.body;
             const addMovie = await watchLaterService.execute({
-                userid,
+                userid: id,
                 title,
                 subtitle,
                 tmdbid

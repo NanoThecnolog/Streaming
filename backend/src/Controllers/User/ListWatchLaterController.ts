@@ -5,10 +5,9 @@ class ListWatchLaterController {
     async handle(req: Request, res: Response) {
         try {
             const listService = new ListWatchLaterService();
-            const { id } = req.query;
+            const id = req.user_id;
             if (!id) return res.status(400).json({ error: "id não definido ou ausente." })
             const list = await listService.execute(id as string)
-
             return res.json(list)
         } catch (err) {
             if (err instanceof Error) {

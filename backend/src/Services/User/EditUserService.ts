@@ -8,7 +8,6 @@ interface EditUserRequest {
     password?: string,
     birthday?: Date,
     news?: boolean
-
 }
 
 
@@ -32,13 +31,14 @@ class EditUserService {
                 birthday: birthday ?? userExiste.birthday,
                 news: news ?? userExiste.news
             }, select: {
-                id: true,
                 name: true,
                 email: true,
                 avatar: true,
                 birthday: true,
                 news: true,
-                verified: true
+                verified: true,
+                created_at: true,
+                watchLater: true
             }
         })
         return editUser;

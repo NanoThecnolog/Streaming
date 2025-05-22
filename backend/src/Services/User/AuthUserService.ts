@@ -2,6 +2,7 @@ import { compare } from "bcrypt";
 import prismaClient from "../../prisma";
 import { sign } from "jsonwebtoken";
 import { ListFavoriteService } from "./ListFavoriteService";
+import { v4 as uuidv4 } from 'uuid'
 
 class AuthUserService {
     async execute(email: string, password: string) {
@@ -12,6 +13,14 @@ class AuthUserService {
 
         const passwordMatch = await compare(password, userExiste.password);
         if (!passwordMatch) throw new Error("Email ou senha incorreto.")
+
+        if (!userExiste.verified) {
+            const err: any = new Error("Account not verified. Please, check your email!--")
+            err.statusCode = 403
+            throw err
+        }
+        //const sessionId = uuidv4()
+
 
         const secret = process.env.SECRET_JWT;
         if (!secret) throw new Error("Variável de ambiente não definida corretamente.")
@@ -32,24 +41,17 @@ class AuthUserService {
                 userId: userExiste.id
             }
         })
-        const favoriteService = new ListFavoriteService();
-        const favoriteList = await favoriteService.execute(userExiste.id)
+        //const favoriteService = new ListFavoriteService();
+        //const favoriteList = await favoriteService.execute(userExiste.id)
 
         return {
-            id: userExiste.id,
             name: userExiste.name,
-            email: userExiste.email,
             avatar: userExiste.avatar,
-            verified: userExiste.verified,
-            birthday: userExiste.birthday,
-            myList: watchLaterList,
-            favoritos: favoriteList,
-            news: userExiste.news,
+            watchLater: watchLaterList,
             token: token,
-            access: userExiste.access,
-            createdAt: userExiste.created_at
         }
     }
 }
 
 export { AuthUserService }
+

@@ -30,6 +30,8 @@ class WatchLaterService {
                     connect: { id: userid }
                 },
                 tmdbid
+            }, select: {
+                id: true
             }
         })
         return movieList
