@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "dev": "concurrently -n frontend,dbmanager,mensageria,subscription,backend \"cd frontend && yarn dev\" \"cd ../dbmanager && yarn dev\" \"cd ../mensageria && yarn dev\" \"cd ../subscription-service && yarn dev\" \"cd backend && yarn dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
