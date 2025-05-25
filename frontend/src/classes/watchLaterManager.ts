@@ -1,13 +1,11 @@
 import { CardsProps } from "@/@types/Cards";
 import { ListManager } from "./superclasses/ListManager";
 import { SeriesProps } from "@/@types/series";
-import { UserContext } from "@/@types/user";
 import { debug } from "./DebugLogger";
 import { WatchLaterProps } from "@/@types/watchLater";
 import { WatchLaterContext } from "@/@types/contexts/flixContext";
 import { toast } from "react-toastify";
 import { SetupAPIClient } from "@/services/api";
-import axios from "axios";
 
 export class WatchLaterManager extends ListManager {
     private loading = false
@@ -32,7 +30,6 @@ export class WatchLaterManager extends ListManager {
         try {
             if (!this.client) return debug.log('Client não instanciado no metodo addWatchLater')
             const { data: filmes } = await this.client.api.get<WatchLaterProps[]>(`/watchLater`)
-            //debug.log('lista com os conteudos antes do novo filme ser add', filmes)
             const tmdbid = 'src' in card ? card.tmdbId : card.tmdbID
             const filmeExiste = filmes.find(filme => String(filme.tmdbid) === String(tmdbid))
 
@@ -52,8 +49,6 @@ export class WatchLaterManager extends ListManager {
             const watchListOnDB = await this.client.api.get<WatchLaterProps[]>('/watchLater')
             const requestData = watchListOnDB.data
             const newWatchList = requestData.map(item => ({ id: item.id, tmdbid: item.tmdbid }))
-            //debug.log('Lista WatchLater com o novo titulo added', newWatchList)
-            //this.updateCookie('flix-watch', newWatchList, this.ctx)
             return {
                 cookie: newWatchList,
                 message: `${card.title} ${card.subtitle ? `- ${card.subtitle}` : ''} adicionado da sua lista!`
@@ -76,14 +71,10 @@ export class WatchLaterManager extends ListManager {
         if (!this.client) return debug.log('Client não instanciado no metodo removeWatchLater')
         try {
 
-            //debug.log('removendo...', filme)
-            //const response = await axios.delete(`http://localhost:3000/api/user/list/delete/${filme.id}`)
             await this.client.api.delete(`/watchLater/${filme.id}`)
             const watchListOnDB = await this.client.api.get<WatchLaterProps[]>('/watchLater')
             const requestData = watchListOnDB.data
             const newWatchList = requestData.map(item => ({ id: item.id, tmdbid: item.tmdbid }))
-            //debug.log('Lista WatchLater com o novo titulo added', newWatchList)
-            //this.updateCookie('flix-watch', newWatchList, this.ctx)
             return newWatchList
         } catch (err: any) {
             debug.error("Erro ao remover título:", err)
@@ -97,10 +88,7 @@ export class WatchLaterManager extends ListManager {
          */
     public isOnTheList(tmdbid: number): boolean {
         const watchList = this.getCookie<WatchLaterContext[]>('flix-watch') || []
-        //debug.log('log no metodo isOnTheList', watchList)
         if (!watchList) return false;
         return watchList.some(item => item.tmdbid === tmdbid)
     }
 }
-
-//export const watchLaterManager = new WatchLaterManager()

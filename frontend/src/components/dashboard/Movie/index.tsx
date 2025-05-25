@@ -4,11 +4,15 @@ import Create from './Create'
 import Put from './Put'
 import Delete from './Delete'
 
-export default function MovieDash() {
+interface MovieDashProps {
+    id?: number
+}
+
+export default function MovieDash({ id }: MovieDashProps) {
     const [action, setAction] = useState<string>()
     function formToShow() {
         if (action === 'create') return <Create />
-        if (action === 'put') return <Put />
+        if (action === 'put') return <Put tmdbid={id} />
         if (action === 'delete') return <Delete />
     }
     return (

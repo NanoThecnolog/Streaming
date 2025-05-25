@@ -9,7 +9,7 @@ $scrollbar-thumb-border: 2px solid #ddd;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding-top: 150px;
+    //padding-top: 10px;
     margin-bottom: 200px;
     width: 100%;
     position: relative;
@@ -56,58 +56,13 @@ $scrollbar-thumb-border: 2px solid #ddd;
 
     .content {
         width: 90%;
-        //outline: 2px solid red;
         display: flex;
         justify-content: center;
         align-items: flex-start;
         flex-direction: column;
         gap: 25px;
-        //padding-left: 10rem;
-        padding-top: 20rem;
+        padding-top: 10rem;
         z-index: 3;
-
-
-
-        .titleContainer {
-            h1 {
-                margin: 0;
-                font-size: 3rem;
-            }
-
-            .harryFont {
-                font-family: var(--font-Potter);
-                font-size: 6rem;
-                font-weight: 100;
-                word-spacing: -20px;
-            }
-
-            .subHarryFont {
-                font-family: var(--font-Potter);
-                font-size: 2rem;
-                font-weight: 100;
-                word-spacing: -6px;
-            }
-
-            h3 {
-
-                font-size: 1.5rem;
-            }
-        }
-
-        .movieDetail {
-            h4 {
-                display: flex;
-                font-weight: 500;
-            }
-        }
-
-        .generoContainer {
-            padding-bottom: 10px;
-
-            h4 {
-                font-weight: 500;
-            }
-        }
 
         .movieInfo {
             display: flex;
@@ -143,8 +98,6 @@ $scrollbar-thumb-border: 2px solid #ddd;
             align-content: center;
             gap: 10px;
 
-
-
             .buttonFavorite {
                 button {
                     background-color: transparent;
@@ -165,8 +118,6 @@ $scrollbar-thumb-border: 2px solid #ddd;
         .descriptionContainer {
             margin-bottom: 100px;
         }
-
-
     }
 
     .loading {
@@ -186,6 +137,8 @@ $scrollbar-thumb-border: 2px solid #ddd;
 @media(max-width: 570px) {
     .container {
         .content {
+            padding-top: 10rem;
+
             .buttonContainer {
                 flex-direction: column;
                 justify-content: center;

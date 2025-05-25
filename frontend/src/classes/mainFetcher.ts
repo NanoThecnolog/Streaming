@@ -50,7 +50,10 @@ export class MovieFetcher {
                         cardId
                     }
                 }
-                await new Promise((resolve) => setTimeout(resolve, 1000))
+                await new Promise((resolve) => {
+                    const delay = Math.pow(2, attempts) * 100 + Math.random() * 100
+                    setTimeout(resolve, delay)
+                })
             }
         }
     }

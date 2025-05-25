@@ -443,7 +443,7 @@
                         align-items: flex-start;
                         padding: 12px;
                         flex-direction: column;
-                        max-height: 600px;
+                        max-height: 60vh;
                         width: 270px;
                         overflow-x: hidden;
                         background-color: var(--black);
@@ -456,12 +456,15 @@
 
                         li {
                             list-style: none;
-                            display: flex;
-                            gap: 8px;
-                            align-items: center;
+                            border-bottom: 1px solid white;
                             width: 100%;
-                            padding: 4px 10px;
+                            min-height: 60px;
+                            padding: 5px 0;
                             transition: .2s;
+
+                            .subtitle {
+                                font-size: 1rem;
+                            }
                         }
                     }
                 }
@@ -623,8 +626,8 @@
                         align-items: flex-start;
                         padding: 12px;
                         flex-direction: column;
-                        max-height: 600px;
-                        width: 370px;
+                        max-height: 60vh;
+                        width: 300px;
                         overflow-x: hidden;
                         background-color: var(--black);
                         border-radius: .4rem;
@@ -636,12 +639,20 @@
 
                         li {
                             list-style: none;
-                            display: flex;
-                            gap: 8px;
-                            align-items: center;
+                            border-bottom: 0.1px solid var(--grey);
                             width: 100%;
-                            padding: 4px 10px;
+                            min-height: 60px;
+                            display: flex;
+                            align-items: center;
                             transition: .2s;
+
+                            .title {
+                                font-size: 1rem;
+
+                                .subtitle {
+                                    font-size: .9rem;
+                                }
+                            }
                         }
                     }
                 }
@@ -806,8 +817,8 @@
                         align-items: flex-start;
                         padding: 12px;
                         flex-direction: column;
-                        max-height: 600px;
-                        width: 370px;
+                        max-height: 60vh;
+                        width: 300px;
                         overflow-x: hidden;
                         background-color: var(--black);
                         border-radius: .4rem;
@@ -819,12 +830,20 @@
 
                         li {
                             list-style: none;
-                            display: flex;
-                            gap: 8px;
-                            align-items: center;
+                            border-bottom: 0.1px solid var(--grey);
                             width: 100%;
-                            padding: 4px 10px;
+                            min-height: 60px;
+                            display: flex;
+                            align-items: center;
                             transition: .2s;
+
+                            .title {
+                                font-size: 1rem;
+
+                                .subtitle {
+                                    font-size: .9rem;
+                                }
+                            }
                         }
                     }
                 }
@@ -988,8 +1007,8 @@
                         align-items: flex-start;
                         padding: 12px;
                         flex-direction: column;
-                        max-height: 600px;
-                        width: 370px;
+                        max-height: 65vh;
+                        width: 300px;
                         overflow-x: hidden;
                         background-color: var(--black);
                         border-radius: .4rem;
@@ -1001,12 +1020,20 @@
 
                         li {
                             list-style: none;
-                            display: flex;
-                            gap: 8px;
-                            align-items: center;
+                            border-bottom: 0.1px solid var(--grey);
                             width: 100%;
-                            padding: 4px 10px;
+                            min-height: 60px;
+                            display: flex;
+                            align-items: center;
                             transition: .2s;
+
+                            .title {
+                                font-size: 1rem;
+
+                                .subtitle {
+                                    font-size: .9rem;
+                                }
+                            }
                         }
                     }
                 }

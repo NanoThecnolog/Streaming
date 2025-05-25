@@ -1,14 +1,12 @@
 import Header from '@/components/Header'
 import styles from './styles.module.scss'
-import { useEffect, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
 import { apiTMDB } from '@/services/apiTMDB';
 import { RequestCardProps } from '@/@types/RequestCard';
 import RequestCard from '@/components/RequestCard';
 import { CardsProps } from '@/@types/Cards';
-//import { cards } from '@/data/cards';
-//import { series } from '@/data/series';
 import { SeriesProps } from '@/@types/series';
 import Spinner from '@/components/ui/Loading/spinner';
 import { useFlix } from '@/contexts/FlixContext';
@@ -41,7 +39,9 @@ export default function Request() {
      * Os resultados filtrados passam por um novo filtro que verifica se os títulos já existem na plataforma
      * salva os resultados no estado SearchCards, para renderização
      */
-    async function handleSearch() {
+    async function handleSearch(e: FormEvent) {
+        e.preventDefault()
+
         setSearchCards([])
 
         try {
@@ -111,13 +111,13 @@ export default function Request() {
             <main className={styles.mainContainer}>
                 <section className={styles.sectionContainer}>
                     <div>
-                        <div className={styles.inputContainer}>
+                        <form onSubmit={(e) => handleSearch(e)} className={styles.inputContainer}>
                             <label htmlFor="nome">
                                 <h2>Nome do filme ou série</h2>
                                 <input type="text" id='nome' value={title} onChange={(e) => setTitle(e.target.value)} />
                             </label>
-                            <button onClick={handleSearch}>Buscar</button>
-                        </div>
+                            <button type='submit'>Buscar</button>
+                        </form>
                     </div>
                     {
                         loading ? <div className={styles.loading}><Spinner /></div> : searchCards && searchCards.length > 0 ?

@@ -1,7 +1,5 @@
 import { CardsProps } from "@/@types/Cards";
 import { debug } from "@/classes/DebugLogger";
-import { CardFetcher, MovieFetcher } from "@/classes/mainFetcher";
-import { mongoService } from "@/classes/MongoContent";
 import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
 
@@ -9,6 +7,62 @@ const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN
 const maxTentativas = 3
 const batchSize = 20
 const cache = new Map<number, any>()
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    if (!tmdbToken) {
+        return res.status(401).json({ error: "TMDB token is missing" });
+    }
+    const { movies } = req.body;
+
+    //debug.log('MongoData movie: ', mongoData)
+    res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate=300')
+    debug.log("Rota sendo chamada")
+
+    try {
+        if (movies.length > 0) {
+            debug.log("Inciando fetch de dados")
+            const cardData = await fetchInBatches(movies, batchSize)
+            debug.log("Fetch de dados concluído")
+
+            const successFulData = cardData
+                .filter(result => result.success)
+                .map(result => result.data)
+            const errorData = cardData.filter(result => !result.success)
+
+            return res.status(200).json({
+                success: true,
+                data: successFulData,
+                errors: errorData
+            });
+        }
+        return res.status(400).json({ error: "Nenhum filme enviado." })
+    } catch (err) {
+        console.error("Erro ao buscar dados:", err);
+        return res.status(500).json({ error: "Error at fetching data", details: err });
+    }
+}
+
+async function fetchInBatches(items: CardsProps[], batchSize: number) {
+    debug.log("Iniciando função fetchInBatches")
+    let results: any[] = []
+    //debuglog(items)
+    const batchPromises = []
+    for (let i = 0; i < items.length; i += batchSize) {
+        //debuglog("Durante o FOR", i)
+        const batch = items.slice(i, i + batchSize)
+        batchPromises.push(
+            Promise.all(batch.map(card => fetchCardData(card.tmdbId, maxTentativas)))
+        )
+    }
+    try {
+        const batchResults = await Promise.all(batchPromises)
+        results = batchResults.flat()
+    } catch (err) {
+        console.log("Erro no card", err)
+    }
+    debug.log("Fim do FOR em fetchInBatches")
+    return results
+}
 
 async function fetchCardData(cardId: number, retries: number = maxTentativas): Promise<any> {
     debug.log("Inciando fetchCardData, cardId", cardId)
@@ -53,64 +107,5 @@ async function fetchCardData(cardId: number, retries: number = maxTentativas): P
             }
             await new Promise((resolve) => setTimeout(resolve, 1000))
         }
-    }
-}
-
-async function fetchInBatches(items: CardsProps[], batchSize: number) {
-    debug.log("Iniciando função fetchInBatches")
-    let results: any[] = []
-    //debuglog(items)
-    const batchPromises = []
-    for (let i = 0; i < items.length; i += batchSize) {
-        //debuglog("Durante o FOR", i)
-        const batch = items.slice(i, i + batchSize)
-        batchPromises.push(
-            Promise.all(batch.map(card => fetchCardData(card.tmdbId, maxTentativas)))
-        )
-    }
-    try {
-        const batchResults = await Promise.all(batchPromises)
-        results = batchResults.flat()
-    } catch (err) {
-        console.log("Erro no card", err)
-    }
-    debug.log("Fim do FOR em fetchInBatches")
-    return results
-}
-
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    if (!tmdbToken) {
-        return res.status(500).json({ error: "TMDB token is missing" });
-    }
-    const { movies } = req.body;
-
-    //debug.log('MongoData movie: ', mongoData)
-    res.setHeader('Cache-Control', 's-maxage=18000, stale-while-revalidate=300')
-    debug.log("Rota sendo chamada")
-
-    try {
-        //const tmdbService = new MovieFetcher(tmdbToken)
-        //const cardFetcher = new CardFetcher(tmdbService)
-
-        if (movies.length > 0) {
-            debug.log("Inciando fetch de dados")
-            const cardData = await fetchInBatches(movies, batchSize)
-            debug.log("Fetch de dados concluído")
-
-            const successFulData = cardData
-                .filter(result => result.success)
-                .map(result => result.data)
-            const errorData = cardData.filter(result => !result.success)
-
-            return res.status(200).json({
-                success: true,
-                data: successFulData,
-                errors: errorData
-            });
-        }
-        return res.status(400).json({ error: "Nenhum filme enviado." })
-    } catch (err) {
-        console.error("Erro ao buscar dados:", err);
-        return res.status(500).json({ error: "Error at fetching data", details: err });
     }
 }

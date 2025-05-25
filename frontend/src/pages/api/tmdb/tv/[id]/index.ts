@@ -7,7 +7,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { id } = req.query;
 
     if (!tmdbToken) {
-        res.status(500).json({ error: "TMDB token is missing" });
+        res.status(401).json({ error: "TMDB token is missing" });
         return;
     }
 

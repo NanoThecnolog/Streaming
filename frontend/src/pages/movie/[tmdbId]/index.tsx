@@ -28,8 +28,12 @@ import CastContainer from '@/components/movie/CastContaner';
 import RelatedCardsContainer from '@/components/movie/RelatedContainer';
 import WatchLaterContainer from '@/components/ui/ButtonWatchLater';
 
-import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
+import { GetStaticProps, GetStaticPaths } from "next";
 import { WatchLaterManager } from '@/classes/watchLaterManager';
+import Overview from '@/components/ui/overview';
+import Genre from '@/components/ui/Genre';
+import Details from '@/components/ui/DetailContent';
+import Title from '@/components/ui/Title';
 
 interface groupedByDepartment {
     [job: string]: CrewProps[]
@@ -157,35 +161,18 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
                         <div className={styles.coverContainer}>
                         </div>
                         <div className={styles.content}>
-                            <div className={styles.titleContainer}>
-                                <h1 className={`${movie.title.toLowerCase() === 'harry potter' && styles.harryFont}`}>{filme.title}</h1>
-                                <h3 className={`${movie.title.toLowerCase() === 'harry potter' && styles.subHarryFont}`}>{filme.subtitle != '' && `${filme.subtitle}`}</h3>
-                            </div>
                             {movie && (
                                 <>
+                                    <Title title={movie.title} subtitle={filme.subtitle} />
                                     <div>
-                                        <div className={styles.movieDetail}>
-                                            <h4>{filme.title.toLowerCase() === 'batman vs superman' ?
-                                                filme.duration
-                                                : minToHour(movie.runtime)} - {new Date(movie.release_date).getFullYear()} - {filme.lang && filme.lang === "Leg" ? "Legendado" : "Dublado"}
-                                            </h4>
-                                        </div>
-                                        <div className={styles.generoContainer}>
-                                            <h4>
-                                                {
-                                                    movie.genres ?
-                                                        movie.genres.map(genre =>
-                                                            genre.name === "Action & Adventure" ?
-                                                                "Ação e Aventura"
-                                                                : genre.name === "Sci-Fi & Fantasy" ?
-                                                                    "Ficção Científica e Fantasia"
-                                                                    : genre.name === "Thriller" ?
-                                                                        "Suspense"
-                                                                        : genre.name).join(', ')
-                                                        : filme && filme.genero.join(', ')
-                                                }
-                                            </h4>
-                                        </div>
+                                        <Details
+                                            title={filme.title}
+                                            duration={filme.duration}
+                                            runtime={movie.runtime}
+                                            releaseDate={movie.release_date}
+                                            language={filme.lang}
+                                        />
+                                        <Genre genres={movie.genres} />
                                         <div className={styles.movieInfo}>
                                             <Stars average={movie.vote_average} />
                                             <Adult faixa={filme.faixa} />
@@ -201,9 +188,7 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
                                             <TrailerButton trailer={trailer} />
                                         }
                                     </div>
-                                    <div className={styles.descriptionContainer}>
-                                        <p>{movie.overview}</p>
-                                    </div>
+                                    <Overview text={movie.overview} />
                                     {relatedCards &&
                                         <RelatedCardsContainer cards={relatedCards} />
                                     }

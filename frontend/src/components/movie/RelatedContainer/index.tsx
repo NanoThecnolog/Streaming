@@ -15,16 +15,8 @@ interface RelatedProps {
 export default function RelatedCardsContainer({ cards }: RelatedProps) {
     const [cardPerContainer, setCardPerContainer] = useState(2)
 
-
-    //debug.log("Cards relacionados: ", cards)
-    //debug.log("quantidade de Card por slide: ", cardPerContainer)
-
-
-
     useEffect(() => {
-        //debug.log("Largura do window", window.innerWidth)
         const handleResize = debounce(() => {
-            //debug.log("Largura do window", window.innerWidth)
             const windowWidth = window.innerWidth;
             const breakpoints = [
                 { width: 560, cards: 2 },
@@ -37,7 +29,6 @@ export default function RelatedCardsContainer({ cards }: RelatedProps) {
             ]
             const { cards } = breakpoints.find(b => windowWidth < b.width) || { cards: 2 }
             setCardPerContainer(cards)
-            //debug.log(cards)
         }, 1000)
         window.addEventListener('resize', handleResize)
         handleResize()
@@ -55,7 +46,6 @@ export default function RelatedCardsContainer({ cards }: RelatedProps) {
                     className={styles.slide}
                 >
                     {cards.map((card) => {
-                        //debug.log('card', card)
                         if ('season' in card) {
                             return <SwiperSlide key={card.tmdbID}>
                                 <Card card={card} />

@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import { TVProps } from '../Create'
 import styles from './styles.module.scss'
 import { agp, gen, stm } from '@/utils/Genres'
@@ -8,7 +8,11 @@ import { classification } from '@/utils/Variaveis'
 import { mongoService } from '@/classes/MongoContent'
 import { toast } from 'react-toastify'
 
-export default function PutTV() {
+interface PutTVProps {
+    tmdbid?: number
+}
+
+export default function PutTV({ tmdbid }: PutTVProps) {
     const [id, setId] = useState<number>()
     const [loading, setLoading] = useState(false)
     const [serieData, setSerieData] = useState<TVProps>({
@@ -27,6 +31,15 @@ export default function PutTV() {
         ...Object.values(agp),
         ...Object.values(stm)
     ]
+    useEffect(() => {
+        if (tmdbid) {
+            const getMovie = async () => {
+                const seriedb = await mongoService.findOneSerieById(tmdbid)
+                if (seriedb) setSerieData(seriedb)
+            }
+            getMovie()
+        }
+    }, [tmdbid])
 
     const searchSerie = async () => {
         if (!id || id === 0) return

@@ -294,7 +294,19 @@ export default function Header() {
                                 </div>
                                 {relatedSearch.length > 0 &&
                                     <ul className={styles.relatedUiModal}>
-                                        {relatedSearch.map((card, index) => <li style={{ cursor: loading ? "progress" : "pointer" }} key={index} onClick={() => handleRelatedSearchClick(card)}><CiSearch size={20} /> {card.title} {card.subtitle ? `- ${card.subtitle}` : ""}</li>)}
+                                        {relatedSearch.map((card, index) =>
+                                            <li style={{
+                                                cursor: loading ? "progress" : "pointer"
+                                            }}
+                                                key={index}
+                                                onClick={() => handleRelatedSearchClick(card)}
+                                            >
+                                                <span className={styles.title}>
+                                                    {card.title}
+                                                    <span className={styles.subtitle}>{card.subtitle ? ` - ${card.subtitle}` : ""}</span>
+                                                </span>
+                                            </li>
+                                        )}
                                     </ul>
                                 }
                             </form>

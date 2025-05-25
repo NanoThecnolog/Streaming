@@ -1,0 +1,25 @@
+.titleContainer {
+    h1 {
+        margin: 0;
+        font-size: 3rem;
+    }
+
+    .harryFont {
+        font-family: var(--font-Potter);
+        font-size: 6rem;
+        font-weight: 100;
+        word-spacing: -20px;
+    }
+
+    .subHarryFont {
+        font-family: var(--font-Potter);
+        font-size: 2rem;
+        font-weight: 100;
+        word-spacing: -6px;
+    }
+
+    h3 {
+
+        font-size: 1.5rem;
+    }
+}

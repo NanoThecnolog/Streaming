@@ -79,16 +79,6 @@ export function shuffle<T>(array: T[]): T[] {
 }
 
 /**
- * Função para debug no console.log em desenvolvimento
- * @param args Argumentos para debugar no console
-
-export function debuglog(...args: any[]) {
-    if (process.env.NEXT_PUBLIC_DEBUG === "development") {
-        console.log(...args)
-    }
-}*/
-
-/**
  * Função para formatar datas na aplicação.
  * @param date Data no formato Date ou string ("2024-09-20T21:20:54.315Z")
  * @returns Retorna uma string com a data formatada (dd/mm/aaaa)

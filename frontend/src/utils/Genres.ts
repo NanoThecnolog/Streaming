@@ -30,6 +30,8 @@ export const agp = {
     space: "Espaço",
     psico: "Psicopata",
     politics: "Política",
+    party: "Festa",
+    besteirol: "besteirol",
     supernatural: "Sobrenatural",
     murderer: "Assassinato",
 }

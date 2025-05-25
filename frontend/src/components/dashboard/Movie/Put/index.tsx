@@ -7,7 +7,11 @@ import { classification } from '@/utils/Variaveis'
 import { agp, gen, stm } from '@/utils/Genres'
 import { CardsProps } from '@/@types/Cards'
 
-export default function Put() {
+interface PutProps {
+    tmdbid?: number
+}
+
+export default function Put({ tmdbid }: PutProps) {
     const [loading, setLoading] = useState(false)
     const [id, setId] = useState<number>()
     const [movieData, setMovieData] = useState<CardsProps>({
@@ -30,11 +34,21 @@ export default function Put() {
         ...Object.values(stm)
     ]
 
+    useEffect(() => {
+        if (tmdbid) {
+            const getMovie = async () => {
+                const moviedb = await mongoService.findOneMovieById(tmdbid)
+                if (moviedb) setMovieData(moviedb)
+            }
+            getMovie()
+        }
+    }, [tmdbid])
+
     async function searchMovie() {
         if (!id || id === 0) return
         const moviedb = await mongoService.findOneMovieById(id)
         debug.log(moviedb)
-        if (moviedb) return setMovieData(moviedb)
+        if (moviedb) setMovieData(moviedb)
         else toast.warning('Filme não encontrado, verifique o id')
     }
 

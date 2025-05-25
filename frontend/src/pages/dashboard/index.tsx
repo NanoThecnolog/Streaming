@@ -11,13 +11,14 @@ import { SetupAPIClient } from '@/services/api'
 export default function Dashboard() {
     const router = useRouter()
     const [type, setType] = useState<string>('')
+    const { id } = router.query;
 
     function ComponentToShow() {
         if (type === 'movie') {
-            return <MovieDash />
+            return <MovieDash id={parseInt(id as string)} />
         }
         if (type === 'tv') {
-            return <TVDash />
+            return <TVDash id={parseInt(id as string)} />
         }
     }
 
