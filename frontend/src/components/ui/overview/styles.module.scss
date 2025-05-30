@@ -1,3 +1,10 @@
 .descriptionContainer {
     margin-bottom: 100px;
+    max-width: 50%;
+}
+
+@media(max-width: 915px) {
+    .descriptionContainer {
+        max-width: 100%;
+    }
 }

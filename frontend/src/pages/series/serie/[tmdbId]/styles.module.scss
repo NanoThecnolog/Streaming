@@ -54,7 +54,7 @@
             z-index: 2;
 
             .desc_top {
-                padding: 30rem 4rem 0rem 4rem;
+                padding: 30rem 4rem 1rem 4rem;
                 display: flex;
                 flex-direction: column;
                 gap: 8px;
@@ -118,6 +118,7 @@
                 .selectSeasonContainer {
                     padding-top: 20px;
 
+
                     select {
                         color: var(--white);
                         background: none;
@@ -127,6 +128,8 @@
                         padding: 15px;
                         cursor: pointer;
                         transition: all .2s;
+                        background-color: var(--black);
+
 
                         &:hover {
                             background-color: #1e1e1e;
@@ -151,12 +154,14 @@
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             justify-content: center;
             gap: 12px;
-            padding: 5rem 4rem 2rem 4rem;
+            padding: 3rem 4rem 3rem 4rem;
             background: rgb(20, 20, 20);
             z-index: 3;
 
+
             .episodeContainer {
                 position: relative;
+
 
                 .changeContainer {
                     opacity: 0;

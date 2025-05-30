@@ -8,19 +8,15 @@ import { mongoService } from '@/classes/MongoContent';
 import { useFlix } from '@/contexts/FlixContext';
 import { CardsProps } from '@/@types/Cards';
 import { SeriesProps } from '@/@types/series';
-import NewTop from '@/components/newTop';
 import { SetupAPIClient } from '@/services/api';
 import { GetServerSideProps } from 'next';
 
 export default function TestPage() {
-    const env = process.env.NEXT_PUBLIC_DEBUG
     const [errors, setErrors] = useState<ErrorProps[] | null>(null)
     const [type, setType] = useState<`movie` | `tv`>()
     const [loading, setLoading] = useState(false)
-    //const [movies, setMovies] = useState<any[]>([])
-    //const [series, setSeries] = useState<any[]>([])
     const { movies, setMovies, series, setSeries } = useFlix()
-    const [card, setCard] = useState<CardsProps>()
+    //const [card, setCard] = useState<CardsProps>()
 
     async function verify(type: 'movie' | 'tv') {
         setType(type)
@@ -58,7 +54,6 @@ export default function TestPage() {
                 const data = result.value
 
                 index === 0 ? setMovies(data as CardsProps[]) : setSeries(data as SeriesProps[])
-
                 //index === 0 ? debug.log('Filmes', data) : debug.log('Series', data)
             } else {
                 const error = result.reason
@@ -69,7 +64,7 @@ export default function TestPage() {
     useEffect(() => {
         debug.log(movies)
         const card = movies.find((card) => card.tmdbId === 635910)
-        setCard(card)
+        //setCard(card)
         if (!card) return debug.log("erro pra definir card")
     }, [movies])
 
@@ -91,7 +86,6 @@ export default function TestPage() {
                                 {movie.title}
                             </div>
                         ))}
-
                     </div>
                     <div className={styles.mongoContainer}>
                         <h2>Series</h2>
@@ -100,7 +94,6 @@ export default function TestPage() {
                                 {serie.title}
                             </div>
                         ))}
-
                     </div>
                 </div>
             </div>

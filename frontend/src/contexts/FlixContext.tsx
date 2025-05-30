@@ -30,7 +30,7 @@ export function FlixProvider({ children }: ContextProviderProps) {
             })
             if (response.status != 200) debug.log('Erro no primeiro axios ao fazer login')
             const userData = await axios.get<UserContext>('/api/user')
-            debug.log('resultado da request', userData.data)
+            //debug.log('resultado da request', userData.data)
             const data = userData.data
             const watchLaterIds = data.watchLater.map(item => ({ id: item.id, tmdbid: item.tmdbid }))
 
@@ -59,11 +59,12 @@ export function FlixProvider({ children }: ContextProviderProps) {
 
     async function signOut() {
         try {
-            destroyCookie(null, 'flix-watch')
-            destroyCookie(null, 'flix-user')
-            await fetch('/api/user/logout')
             setUser(null)
             setWatchLater([])
+            await destroyCookie(null, 'flix-watch')
+            await destroyCookie(null, 'flix-user')
+            const logout = await axios.get('/api/user/logout')
+            debug.log(logout.data.message)
             Router.push('/login')
         } catch (err) {
             toast.error("Erro ao deslogar.")
