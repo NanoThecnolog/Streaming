@@ -67,13 +67,13 @@ export default function Carousel({ type, section, cardPerContainer }: CarouselPr
                 onSwiper={handleSwiper}
                 className={styles.carousel}
             >
-                {filter.map((card) => {
+                {filter.map((card, index) => {
                     if ('season' in card) {
                         return <SwiperSlide key={card.tmdbID}>
                             <Card card={card} />
                         </SwiperSlide>
                     } else {
-                        return <SwiperSlide key={card.tmdbId}>
+                        return <SwiperSlide key={`${card.tmdbId}+${index}`}>
                             <Card card={card} />
                         </SwiperSlide>
                     }

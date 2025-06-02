@@ -10,7 +10,8 @@ export interface ErrorProps {
     title: string,
     subtitle: string,
     src: string,
-    season?: number
+    season?: number,
+    episode?: number
 }
 
 
@@ -134,6 +135,7 @@ export async function verifySerieDataFiles() {
                                 subtitle: card.subtitle,
                                 season: season.s,
                                 src: episode.src,
+                                episode: episode.ep
                             } as ErrorProps;
                         }
                     } catch (err) {

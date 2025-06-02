@@ -34,6 +34,11 @@ export const agp = {
     besteirol: "besteirol",
     supernatural: "Sobrenatural",
     murderer: "Assassinato",
+    religioso: "Religioso",
+    apocalipse: "Apocalipse",
+    ghosts: "Fantasmas",
+    future: "Futurístico",
+    technology: "Tecnologia"
 }
 export const stm = {
     netflix: "Netflix",

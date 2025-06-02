@@ -17,6 +17,7 @@ import { mongoService } from "@/classes/MongoContent";
 import { useFlix } from "@/contexts/FlixContext";
 import NewTop from "@/components/newTop";
 import { CardsProps, MovieTMDB } from "@/@types/Cards";
+import { GetStaticPaths } from "next";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -112,7 +113,7 @@ export default function Home() {
                       {
                         divisaoPorGenero.map((sec, index) => {
                           return (
-                            <div key={index}>
+                            <div key={`${sec}+${index}`}>
                               {
                                 index === 3 && width >= 915 && <Search />
                               }
@@ -135,3 +136,10 @@ export default function Home() {
     </>
   );
 }
+/*export const getStaticPaths: GetStaticPaths = async () => {
+
+  return {
+        paths,
+        fallback: 'blocking',
+    };
+}*/
