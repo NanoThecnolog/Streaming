@@ -26,12 +26,37 @@ class FlixFetcher {
      * @returns não retorna dado nenhum
     */
 
-    async fetchMovieData(setAllData: (data: MovieTMDB[]) => void, movies: CardsProps[], attempt: number = 1) {
+    /*async fetchMovieData(setAllData: (data: MovieTMDB[]) => void, movies: CardsProps[], attempt: number = 1) {
         if (this.loading) return
 
         this.loading = true
         try {
             debug.log("Movies no fetchMovieData", movies)
+            if (movies.length === 0) return debug.error("Lista movies vazia!", movies)
+            const response = await apiTMDB.post('/all/movie', {
+                movies: movies
+            })
+            if (response.status === 502 || !response.data) {
+                this.retryMovie(setAllData, attempt, movies)
+                return
+            }
+            debug.log("Erros na requisição ao tmdb: ", response.data.errors)
+            this.allData = response.data.data as MovieTMDB[]
+            //return this.allData
+            setAllData(this.allData)
+        } catch (err) {
+            debug.error(`Erro na tentativa ${attempt}`, err)
+            this.retryMovie(setAllData, attempt, movies)
+        } finally {
+            this.loading = false
+        }
+    }*/
+    async fetchMovieData(setAllData: (data: MovieTMDB[]) => void, movies: CardsProps[], attempt: number = 1) {
+        if (this.loading) return
+
+        this.loading = true
+        try {
+            //debug.log("Movies no fetchMovieData", movies)
             if (movies.length === 0) return debug.error("Lista movies vazia!", movies)
             const response = await apiTMDB.post('/all/movie', {
                 movies: movies

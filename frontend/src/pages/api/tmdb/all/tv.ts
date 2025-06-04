@@ -8,7 +8,7 @@ const max_tentativas = 3;
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
     if (!tmdbToken) {
-        return res.status(500).json({ error: "TMDB token is missing" });
+        return res.status(401).json({ error: "TMDB token is missing" });
     }
 
     res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate=300')

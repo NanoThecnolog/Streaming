@@ -17,7 +17,6 @@ import { mongoService } from "@/classes/MongoContent";
 import { useFlix } from "@/contexts/FlixContext";
 import NewTop from "@/components/newTop";
 import { CardsProps, MovieTMDB } from "@/@types/Cards";
-import { GetStaticPaths } from "next";
 
 
 const inter = Inter({ subsets: ["latin"] });

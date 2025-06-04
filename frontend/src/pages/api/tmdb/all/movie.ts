@@ -17,7 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     //debug.log('MongoData movie: ', mongoData)
     res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate=300')
-    debug.log("Rota sendo chamada")
+    //debug.log("Rota sendo chamada")
 
     if (!movies || !Array.isArray(movies) || movies.length === 0) {
         debug.timeEnd("TempoTotalDaRota")
@@ -25,7 +25,50 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     try {
-        debug.time("fetchInBatches")
+        debug.time("TempoRequest")
+        /*
+        -- desse jeito é mais simples, mas demora mais, cerca de 35 segundos
+        const cardData = await Promise.all(movies.map(async card => fetchCardData(card.tmdbId, maxTentativas)))
+        const successFulData = cardData
+            .filter(result => result.success)
+            .map(result => result.data)
+        const errorData = cardData.filter(result => !result.success)
+        debug.timeEnd("TempoRequest")
+        return res.status(200).json({
+            success: true,
+            data: successFulData,
+            errors: errorData
+        })*/
+        //desse jeito é mais complexo, porém mais rápido, cerca de 10 a 12 segundos. Usurfrui de paralelismo
+        const cachedResults: any[] = []
+        const uncachedMovies: CardsProps[] = []
+        for (const movie of movies) {
+            const cached = cache.get(movie.tmdbId)
+            if (cached) {
+                debug.log("Cache hit:", movie.tmdbId)
+                cachedResults.push(cached)
+            } else {
+                uncachedMovies.push(movie)
+            }
+        }
+        const fetchedResults = await fetchInBatches(movies, batchSize)
+        debug.timeEnd("fetchInBatches")
+
+        for (const result of fetchedResults) {
+            if (result.success) cache.set(result.cardId, result)
+        }
+        const allResults = [...cachedResults, ...fetchedResults.filter(r => r.success)]
+        const errorResults = fetchedResults.filter(r => !r.success)
+
+        debug.timeEnd("TempoTotalDaRota")
+        return res.status(200).json({
+            success: true,
+            data: allResults.map(r => r.data),
+            errors: errorResults
+        })
+
+
+        /*debug.time("fetchInBatches")
         const cachedResults: any[] = []
         const uncachedMovies: CardsProps[] = []
         for (const movie of movies) {
@@ -116,7 +159,33 @@ async function fetchCardData(cardId: number, retries: number = maxTentativas): P
         return cache.get(cardId)
     }
 
-    let attempts = 0;
+    try {
+        const response = await axios.get(
+            `https://api.themoviedb.org/3/movie/${cardId}`,
+            {
+                headers: { Authorization: `Bearer ${tmdbToken}` },
+                params: { language: "pt-BR" },
+            }
+        )
+        return {
+            success: true,
+            data: response.data,
+            cardId
+        }
+    } catch (err: any) {
+        if (retries > 0) {
+            debug.log(`Tentativa falha pro card ${cardId}, tentando de novo...`)
+            await new Promise(resolve => setTimeout(resolve, 2000))
+            return fetchCardData(cardId, retries - 1)
+        }
+        return {
+            success: false,
+            error: err.response?.data || err.message,
+            cardId
+        }
+    }
+
+    /*let attempts = 0;
     while (attempts <= retries) {
         try {
             const response = await axios.get(
@@ -152,5 +221,5 @@ async function fetchCardData(cardId: number, retries: number = maxTentativas): P
             }
             await new Promise((resolve) => setTimeout(resolve, 1000))
         }
-    }
+    }*/
 }

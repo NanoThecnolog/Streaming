@@ -39,13 +39,17 @@ export default function Series() {
             if (response.length > 0) setSeries(response)
         }
         if (series.length === 0) fetchSeriesMongoDB()
+        if (series.length > 0) {
+            const card = series.find((card) => card.tmdbID === tmdbid)
+            if (!card) return
+            setTopCard(card)
+        }
     }, [series])
 
     useEffect(() => {
-
         if (serieData.length > 0) return
         flixFetcher.fetchSerieData(setSerieData)
-    }, [setSerieData])
+    }, [serieData])
 
     useEffect(() => {
         function handleResize() {
@@ -74,14 +78,6 @@ export default function Series() {
             window.removeEventListener('scroll', handleScroll)
         }
     }, [])
-
-    useEffect(() => {
-        if (series.length > 0) {
-            const card = series.find((card) => card.tmdbID === tmdbid)
-            if (!card) return
-            setTopCard(card)
-        }
-    }, [series])
 
     return (
         <>
