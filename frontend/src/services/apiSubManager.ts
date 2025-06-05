@@ -3,7 +3,7 @@ import axios from "axios";
 
 const url = process.env.NEXT_PUBLIC_SUBMANAGER_URL;
 const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-if (!url) debug.error('Url não definida')
+if (!url) console.error('Url do submanager não definida')
 
 debug.log('url', url)
 export const apiSub = axios.create({

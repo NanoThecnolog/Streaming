@@ -2,7 +2,7 @@ import { debug } from "@/classes/DebugLogger";
 import axios from "axios";
 
 const url = process.env.NEXT_PUBLIC_API_TMDB;
-if (!url) debug.log("variável de ambiente não configurada.")
+if (!url) console.log("variável de ambiente não configurada.")
 
 /**
  * requisição na API do TMDB

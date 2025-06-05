@@ -2,7 +2,7 @@ import { debug } from "@/classes/DebugLogger";
 import axios from "axios";
 
 const url = process.env.NEXT_PUBLIC_CONTENT_MANAGER_URL;
-if (!url) debug.error("variável de ambiente não configurada.")
+if (!url) console.error("url do gerenciador de conteúdo não configurada.")
 const apiKey = process.env.NEXT_PUBLIC_API_KEY
 if (!apiKey) debug.error("apiKey do contentManager ausente.")
 export const apiManager = axios.create({

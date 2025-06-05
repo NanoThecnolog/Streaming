@@ -6,10 +6,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (req.method !== 'GET') return res.status(400).json({ code: 400, message: "Método não permitido para essa rota" })
 
     const { link } = req.query
-    if (!link) throw new Error("Link não fornecido")
+    if (!link) {
+        return res.status(400).json({ error: "Missing link", message: "Link não recebido nada rota." })
+    }
 
     try {
-        const decodedLink = decodeURIComponent(link as string)
+        const decodedLink = decodeURIComponent(
+            Array.isArray(link) ? link.join('/') : link)
         const fileId = extractFileId(decodedLink);
 
         if (fileId) {
@@ -21,5 +24,4 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     } catch (err: any) {
         return res.status(500).json({ code: 500, erro: err, message: err.message })
     }
-
 }
