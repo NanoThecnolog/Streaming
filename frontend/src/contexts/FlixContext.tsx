@@ -23,14 +23,18 @@ export function FlixProvider({ children }: ContextProviderProps) {
     //favoritos, watch later, dados do usuário, tudo aqui
     async function signIn({ email, password }: SignInProps) {
         try {
-
+            debug.log("Iniciando login")
             const response = await axios.post<LoginProps>('/api/login', {
                 email,
                 password
             })
+            debug.log("email e senha enviados")
             if (response.status != 200) debug.log('Erro no primeiro axios ao fazer login')
+            debug.log("Primeiro axios ok", response.status)
+            debug.log("Buscando dados do usuario")
             const userData = await axios.get<UserContext>('/api/user')
             //debug.log('resultado da request', userData.data)
+            debug.log("dados buscados", userData.data)
             const data = userData.data
             const watchLaterIds = data.watchLater.map(item => ({ id: item.id, tmdbid: item.tmdbid }))
 

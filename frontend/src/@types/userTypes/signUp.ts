@@ -1,6 +1,6 @@
 export type NewUserProps = {
     name: string,
-    birthday: Date,
+    birthday: string,
     email: string,
     password: string,
     cpf: string,

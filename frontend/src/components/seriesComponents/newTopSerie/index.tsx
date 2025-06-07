@@ -203,7 +203,7 @@ export default function NewTopSerie({ width, card }: TopSerieProps) {
                 width > 915 &&
                 <video
                     ref={videoRef}
-                    src={`https://srv770983.hstgr.cloud/content/trailer/${card.tmdbID}`}
+                    src={`https://api.flixnext.com.br/content/trailer/${card.tmdbID}`}
                     controls={false}
                     autoPlay
                     muted

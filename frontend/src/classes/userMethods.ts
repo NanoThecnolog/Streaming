@@ -24,7 +24,7 @@ export class UserMethods {
         const userData = {
             name: user.name,
             email: user.email,
-            birthday: user.birthday.toISOString() || '',
+            birthday: new Date(user.birthday).toISOString(),
             password: user.password
         }
         const response = await this.client.api.post('/user', userData)

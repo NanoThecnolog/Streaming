@@ -11,7 +11,7 @@ export default async function loginHandler(req: NextApiRequest, res: NextApiResp
     debug.log('Request inside loginHandler')
     const client = new SetupAPIClient()
 
-
+    debug.log("Iniciando o try catch na rota api/login")
     try {
         const response = await client.api.post<LoginProps>('/login', { email, password })
         debug.log('Resposta do api.post', response.data)

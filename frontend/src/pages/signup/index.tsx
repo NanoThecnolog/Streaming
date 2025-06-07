@@ -22,12 +22,13 @@ export default function Signup() {
     const [confirmPassword, setConfirmPassword] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
     const login = "/login";
-    const [user, setUser] = useState<NewUserProps>({ name: '', birthday: new Date(), email: '', password: '', cpf: '' })
+    const [user, setUser] = useState<NewUserProps>({ name: '', birthday: '', email: '', password: '', cpf: '' })
 
     const validate = new Validate()
     function formatDate(date: unknown): string {
-        if (date instanceof Date && !isNaN(date.getTime())) {
-            return date.toISOString().substring(0, 10);
+        const parsed = typeof date === 'string' ? new Date(date) : date;
+        if (parsed instanceof Date && !isNaN(parsed.getTime())) {
+            return parsed.toISOString().substring(0, 10);
         }
         return "";
     }
@@ -58,6 +59,7 @@ export default function Signup() {
             toast.warning("As senhas não são iguais.")
             return;
         }
+
         try {
             setLoading(true)
             const registerUser = await userMethod.signUp(user)
@@ -72,6 +74,7 @@ export default function Signup() {
             setLoading(false)
         }
     }
+
     return (
         <>
             <SEO title='Criar conta | FlixNext' description='Crie sua conta e começe a assistir hoje mesmo!' />
@@ -106,10 +109,9 @@ export default function Signup() {
                                         required
                                         value={formatDate(user.birthday)}
                                         onChange={(e) => {
-                                            const [year, month, day] = e.target.value.split('-').map(Number)
                                             setUser((prev) => ({
                                                 ...prev,
-                                                birthday: new Date(year, month - 1, day)
+                                                birthday: e.target.value
                                             }))
                                         }}
                                     />
