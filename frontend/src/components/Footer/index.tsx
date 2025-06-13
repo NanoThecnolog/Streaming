@@ -4,13 +4,14 @@ import { FaLinkedin } from "react-icons/fa";
 import { SiThemoviedatabase } from "react-icons/si";
 import Link from "next/link";
 import styles from './styles.module.scss'
-import Router from "next/router";
+import { useRouter } from "next/navigation";
 
 
 export default function Footer() {
+    const router = useRouter()
 
     function redirectToPage(page: string) {
-        Router.push(`/${page}`);
+        router.push(`/${page}`);
     }
 
     return (
@@ -18,11 +19,11 @@ export default function Footer() {
             <div className={styles.links}>
                 <div className={styles.btn_row}>
                     <h4 onClick={() => redirectToPage("faq")}>Perguntas Frequêntes</h4>
-                    <h4 onClick={() => redirectToPage("signup")}>Criar Conta</h4>
+                    <h4 onClick={() => redirectToPage("suporte")}>Suporte</h4>
                 </div>
                 <div className={styles.btn_row}>
                     <h4 onClick={() => redirectToPage("privacidade")}>Política de Privacidade</h4>
-                    <h4 onClick={() => redirectToPage("suporte")}>Suporte</h4>
+                    <h4 onClick={() => redirectToPage("termos-de-uso")}>Termos de Uso</h4>
                 </div>
                 <div className={styles.btn_row}>
                     <h4 onClick={() => redirectToPage("planos")}>Planos de Assinatura</h4>
