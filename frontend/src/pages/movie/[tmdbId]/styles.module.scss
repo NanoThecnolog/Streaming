@@ -1,14 +1,10 @@
-$scrollbar-width: 10px;
-$scrollbar-thumb-color: #888;
-$scrollbar-track-color: #f1f1f1;
-$scrollbar-thumb-border: 2px solid #ddd;
-
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    min-height: 100vh;
+    //min-height: 100vh;
+    height: 100%;
     //padding-top: 10px;
     margin-bottom: 200px;
     width: 100%;
@@ -21,18 +17,14 @@ $scrollbar-thumb-border: 2px solid #ddd;
         top: 0;
         left: 0;
         width: 100%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-
-        min-height: 100vh;
+        height: 100vh;
         overflow: hidden;
         z-index: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
 
-        .img {
+        img {
+            width: 100%;
+            height: 100%;
+            //aspect-ratio: 9 / 10;
             object-fit: cover;
             object-position: center;
         }
@@ -43,11 +35,11 @@ $scrollbar-thumb-border: 2px solid #ddd;
         top: 0;
         left: 0;
         width: 100%;
-        height: 100vh;
+        height: 100%;
         background: rgb(20, 20, 20);
         background: linear-gradient(0deg,
-                rgba(20, 20, 20, 1) 20%,
-                rgba(255, 255, 255, 0) 100%);
+                rgba(20, 20, 20, 1) 85%,
+                rgba(255, 255, 255, 0) 90%);
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -134,7 +126,9 @@ $scrollbar-thumb-border: 2px solid #ddd;
     }
 }
 
-@media(max-width: 570px) {
+//@media(max-width: 340px) {}
+
+@media(max-width: 390px) {
     .container {
         .content {
             padding-top: 10rem;
@@ -146,5 +140,83 @@ $scrollbar-thumb-border: 2px solid #ddd;
                 width: 100%;
             }
         }
+
+        .imageContainer {
+            height: 100svh;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                //aspect-ratio: 2 /3;
+
+            }
+        }
+
+        .coverContainer {
+            height: 100vh;
+            background: linear-gradient(0deg,
+                    rgba(20, 20, 20, 1) 25%,
+                    rgba(255, 255, 255, 0) 50%);
+        }
     }
 }
+
+@media(min-width: 391px) and (max-width: 570px) {
+    .container {
+        .content {
+            padding-top: 10rem;
+
+            .buttonContainer {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+            }
+        }
+
+        .imageContainer {
+            height: 100vh;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                //aspect-ratio: 2 /3;
+
+            }
+        }
+
+        .coverContainer {
+            height: 100vh;
+            background: linear-gradient(0deg,
+                    rgba(20, 20, 20, 1) 25%,
+                    rgba(255, 255, 255, 0) 50%);
+        }
+    }
+}
+
+@media(min-width: 571px) and (max-width: 915px) {
+    .container {
+        .imageContainer {
+            height: 100vh;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                //aspect-ratio: 2 /3;
+
+            }
+        }
+
+        .coverContainer {
+            height: 100vh;
+            background: linear-gradient(0deg,
+                    rgba(20, 20, 20, 1) 25%,
+                    rgba(255, 255, 255, 0) 50%);
+        }
+    }
+}
+
+//@media(min-width: 914px) {}

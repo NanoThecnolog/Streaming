@@ -140,6 +140,9 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
         }
         getTrailer()
     }, [filme])
+    const getBackgroundImage = () => {
+        return movie ? `https://image.tmdb.org/t/p/original${showPoster ? movie.poster_path : movie.backdrop_path}` : filme ? filme.background : "/fundo-largo.jpg"
+    }
 
     function handlePlay() {
         router.push(`/watch/${tmdbId}`)
@@ -151,10 +154,9 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
             {
                 movie && filme ? (
                     <section className={styles.container}>
-                        <div
-                            className={styles.imageContainer}
-                            style={{ backgroundImage: `url(${movie ? `https://image.tmdb.org/t/p/original${showPoster ? movie.poster_path : movie.backdrop_path}` : filme ? filme.background : "/fundo-largo.jpg"})` }}
-                        ></div>
+                        <div className={styles.imageContainer}>
+                            <img src={getBackgroundImage()} alt="banner" />
+                        </div>
                         <div className={styles.loading}>
                             <div className={styles.loadingContainer}><Spinner /></div>
                         </div>
@@ -163,7 +165,7 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
                         <div className={styles.content}>
                             {movie && (
                                 <>
-                                    <Title title={movie.title} subtitle={filme.subtitle} />
+                                    <Title title={filme.title} subtitle={filme.subtitle} />
                                     <div>
                                         <Details
                                             title={filme.title}
