@@ -10,7 +10,6 @@ import { FaPlay } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import { CastingProps } from '@/@types/movie/cast';
 import Footer from '@/components/Footer';
-import { minToHour } from '@/utils/UtilitiesFunctions';
 import Spinner from '@/components/ui/Loading/spinner';
 import { TrailerProps } from '@/@types/trailer';
 import TrailerButton from '@/components/ui/TrailerButton';
@@ -34,6 +33,7 @@ import Overview from '@/components/ui/overview';
 import Genre from '@/components/ui/Genre';
 import Details from '@/components/ui/DetailContent';
 import Title from '@/components/ui/Title';
+import Head from 'next/head';
 
 interface groupedByDepartment {
     [job: string]: CrewProps[]
@@ -149,6 +149,23 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
     }
     return (
         <>
+            <Head>
+                <title>{`${movie.title} - FlixNext`}</title>
+                <meta name="description" content={movie.overview} />
+
+                {/* Meta OpenGraph */}
+                <meta property="og:title" content={`${movie.title} - FlixNext`} />
+                <meta property="og:description" content={movie.overview} />
+                <meta property="og:image" content={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} />
+                <meta property="og:url" content={`https://flixnext.com.br/movie/${movie.id}`} />
+                <meta property="og:type" content="video.movie" />
+
+                {/* Meta Twitter */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={`${movie.title} - FlixNext`} />
+                <meta name="twitter:description" content={movie.overview} />
+                <meta name="twitter:image" content={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} />
+            </Head>
             <SEO description={movie.overview} title={`${movie.title} - FlixNext`} url={`https://flixnext.com.br/movie/${movie.id}`} image={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} />
             <Header />
             {
