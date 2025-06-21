@@ -32,6 +32,7 @@ import { tmdb } from "@/classes/TMDB";
 import { CrewProps } from "@/@types/movie/crew";
 import RelatedCardsContainer from "@/components/movie/RelatedContainer";
 import { WatchLaterManager } from "@/classes/watchLaterManager";
+import Head from "next/head";
 
 interface TMDBImagesProps {
     backdrop: string,
@@ -286,7 +287,23 @@ export default function Serie({ data }: SerieProps) {
 
     return (
         <>
-            <SEO title={`${data.name} | FlixNext`} description={data.overview} image={`https://image.tmdb.org/t/p/w500${data.backdrop_path}`} url={`https://flixnext.com.br/series/serie/${data.id}`} />
+            <Head>
+                <title>{`${data.name} - FlixNext`}</title>
+                <meta name="description" content={data.overview} />
+
+                {/* Meta OpenGraph */}
+                <meta property="og:title" content={`${data.name} - FlixNext`} />
+                <meta property="og:description" content={data.overview} />
+                <meta property="og:image" content={`https://image.tmdb.org/t/p/w500${data.backdrop_path}`} />
+                <meta property="og:url" content={`https://flixnext.com.br/series/serie/${data.id}`} />
+                <meta property="og:type" content="video.data" />
+
+                {/* Meta Twitter */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={`${data.name} - FlixNext`} />
+                <meta name="twitter:description" content={data.overview} />
+                <meta name="twitter:image" content={`https://image.tmdb.org/t/p/w500${data.backdrop_path}`} />
+            </Head>
             <section className={styles.container}>
                 <Header />
                 {serie ?
