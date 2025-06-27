@@ -180,25 +180,25 @@ export default function NewTopSerie({ width, card }: TopSerieProps) {
                         </div>
                     </div>
                 </div>
-                {
-                    width > 915 &&
-                    <div className={`${styles.volumeControl} ${!showVideo ? styles.hidden : ''}`}>
-                        <input
-                            type="range"
-                            min={0}
-                            max={1}
-                            step={0.01}
-                            value={volume}
-                            onChange={handleVolume}
-                            className={styles.volumeSlider}
-                            aria-orientation='vertical'
-                        />
-                        <button onClick={toggleMute} className={styles.muteButton}>
-                            {isMuted || volume === 0 ? <FaVolumeMute size={24} /> : <FaVolumeUp size={24} />}
-                        </button>
-                    </div>
-                }
             </div>
+            {
+                width > 915 &&
+                <div className={`${styles.volumeControl} ${!showVideo ? styles.hidden : ''}`}>
+                    <input
+                        type="range"
+                        min={0}
+                        max={1}
+                        step={0.01}
+                        value={volume}
+                        onChange={handleVolume}
+                        className={styles.volumeSlider}
+                        aria-orientation='vertical'
+                    />
+                    <button onClick={toggleMute} className={styles.muteButton}>
+                        {isMuted || volume === 0 ? <FaVolumeMute size={24} /> : <FaVolumeUp size={24} />}
+                    </button>
+                </div>
+            }
             {
                 width > 915 &&
                 <video
