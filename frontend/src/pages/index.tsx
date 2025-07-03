@@ -32,10 +32,9 @@ export default function Home() {
   const combined = [...generos, ...agrupadores.filter(item => removedSections.includes(item))];
   const divisaoPorGenero = combined
   const { allData, setAllData } = useTMDB()
-  //const [loading, setLoading] = useState(false)
   const [visible, setvisible] = useState(false)
   const { movies, setMovies } = useFlix()
-  const tmdbid = 574475;
+  const tmdbid = 541671;
   const [topCard, setTopCard] = useState<CardsProps | null>(null)
 
   useEffect(() => {
@@ -53,7 +52,6 @@ export default function Home() {
 
   useEffect(() => {
     if (allData.length > 0) return
-    //setAllData(moviesTMDB)
     if (movies.length > 0) flixFetcher.fetchMovieData(setAllData, movies)
   }, [movies, setAllData])
 
