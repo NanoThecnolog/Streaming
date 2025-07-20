@@ -3,7 +3,7 @@ import styles from './styles.module.scss'
 import { AiOutlineBarcode } from 'react-icons/ai'
 
 interface SelectProps {
-    method: (string: string) => void
+    method: (string: 'credit' | 'billet' | null) => void
 }
 
 export default function SelectPayment({ method }: SelectProps) {

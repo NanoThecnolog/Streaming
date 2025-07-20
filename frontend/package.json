@@ -21,6 +21,7 @@
     "card-validator": "^10.0.2",
     "cookies-next": "^4.2.1",
     "fuse.js": "^7.1.0",
+    "geoip-lite": "^1.4.10",
     "googleapis": "^144.0.0",
     "lodash.debounce": "^4.0.8",
     "lucide-react": "^0.441.0",
@@ -44,6 +45,7 @@
     "ts-node": "^10.9.2"
   },
   "devDependencies": {
+    "@types/geoip-lite": "^1.4.4",
     "@types/lodash.debounce": "^4.0.9",
     "@types/node": "^20",
     "@types/nprogress": "^0.2.3",

@@ -1,10 +1,15 @@
 import Header from '@/components/Header'
 import styles from './styles.module.scss'
 import Footer from '@/components/Footer'
+import SEO from '@/components/SEO'
 
 export default function PageUserTerms() {
     return (
         <>
+            <SEO
+                title='Termos de Uso | FlixNext'
+                description='Termos de uso da plataforma FlixNext'
+            />
             <Header />
             <main className={styles.container}>
                 <section className={styles.sectionContainer}>
@@ -15,6 +20,7 @@ export default function PageUserTerms() {
                         <p>
                             A FlixNext oferece um serviço personalizado de assinatura que permite aos nosso assinates acessar conteúdo de entretenimento pela internet através de computadores, celulares e outros aparelhos conectados à internet (&quot;compatíveis com a plataforma&quot;).
                         </p>
+                        <br />
                         <p>
                             Os Termos de uso abaixo regulam a sua utilização do serviço. Os termos &quot;serviço FlixNext&quot;, &quot;nosso serviço&quot; ou &quot;o serviço&quot; significam o serviço fornecido pela FlixNext para buscar e acessar os conteúdos presentes na plataforma, incluindo todos os recursos e funcionalidades, as recomendações e avaliações, nossos sites e as interfaces de usuário, assim como todo o conteúdo e software associados ao serviço. As referências a &quot;você&quot; nos termos de Uso indicam o assinante que criou a conta FlixNext e que é cobrado na forma de pagamento selecionada.
                         </p>
@@ -62,7 +68,7 @@ export default function PageUserTerms() {
                         </ul>
                     </div>
                     <div>
-                        <h3>Última atualização:</h3> <p>13 de junho de 2025</p>
+                        <h6>Estes Termos de Uso entram em vigor a partir de 13 de junho de 2025.</h6>
                     </div>
                 </section>
             </main>

@@ -52,7 +52,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             }
         }
         const fetchedResults = await fetchInBatches(movies, batchSize)
-        debug.timeEnd("fetchInBatches")
+        //debug.timeEnd("fetchInBatches")
 
         for (const result of fetchedResults) {
             if (result.success) cache.set(result.cardId, result)

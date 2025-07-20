@@ -26,7 +26,7 @@ import debounce from "lodash.debounce";
 import { debug } from "@/classes/DebugLogger";
 import { mongoService } from "@/classes/MongoContent";
 import { getRelatedSerieCards } from "@/utils/CardsManipulation";
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, GetStaticPaths } from "next";
 import axios from "axios";
 import { tmdb } from "@/classes/TMDB";
 import { CrewProps } from "@/@types/movie/crew";
@@ -469,12 +469,21 @@ export default function Serie({ data }: SerieProps) {
     )
 }
 
+export const getStaticPaths: GetStaticPaths = async () => {
+    const series = await mongoService.fetchSerieData()
+    const paths = series.map(serie => ({
+        params: { tmdbId: serie.tmdbID.toString() }
+    }))
+    return {
+        paths,
+        fallback: 'blocking'
+    }
+}
+
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const { tmdbId } = context.params as { tmdbId: string }
     const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
 
-    //const res = await fetch(`https://api.flixnext.com.br/serie/${tmdbId}`)
-    //const res = await apiTMDB.get(`/movie/${tmdbId}`)
     const res = await axios.get(`https://api.themoviedb.org/3/tv/${tmdbId}`, {
         headers: {
             Authorization: `Bearer ${tmdbToken}`
@@ -485,7 +494,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     })
 
     const data = res.data
-    //debug.log('data no serversideprops', data)
 
     if (!data) {
         return {

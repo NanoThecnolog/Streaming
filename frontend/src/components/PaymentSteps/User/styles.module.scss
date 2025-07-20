@@ -1,8 +1,22 @@
 .userData {
-    h4 {
+    h3 {
         font-size: 1.5rem;
-        padding-bottom: 10px;
         border-bottom: 2px solid #ddd;
+        padding-bottom: 5px;
+        margin-bottom: 12px;
+    }
+
+    h4 {
+        font-size: 1rem;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 5px;
+        margin-bottom: 12px;
+    }
+
+    .formContainer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
     }
 
     label {

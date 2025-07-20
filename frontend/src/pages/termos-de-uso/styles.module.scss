@@ -13,6 +13,18 @@
         flex-direction: column;
         gap: 10px;
 
+        h1 {
+            text-align: center;
+            margin: 100px 0;
+        }
+
+        h6 {
+            margin-top: 120px;
+            font-size: large;
+            text-align: center;
+            letter-spacing: 1.8px;
+        }
+
         ol {
             h4 {
                 padding: 15px 0;

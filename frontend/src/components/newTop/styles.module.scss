@@ -1,6 +1,6 @@
 .topContainer {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -153,6 +153,7 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
+            //aspect-ratio: 2 / 3;
         }
 
         h3 {
@@ -310,24 +311,28 @@
 @media (max-width: 374px) {
     .topContainer {
         height: 100%;
-        justify-content: flex-end;
+        justify-content: flex-start;
+        align-items: flex-start;
+        //outline: 2px solid red;
 
         .gradient {
             height: 20%;
         }
 
         .overlay {
-            bottom: 40px;
-            left: 40px;
+            bottom: 30%;
+            left: 20px;
+
 
             .leftSide {
                 justify-content: center;
                 width: 100%;
                 height: 100%;
 
+
                 .tituloPrincipal {
                     font-size: 1.5rem;
-                    padding-top: 160%;
+                    //padding-top: 160%;
                 }
 
                 .subTituloPrincipal {
@@ -346,54 +351,88 @@
 
                 .buttonSection {
                     display: none;
-                    /*flex-direction: column;
-                    justify-content: center;
-                    align-items: flex-start;
-                    gap: 10px;
-                    //padding-top: 40px;
-
-                    .watch {
-                        display: flex;
-                        justify-content: center;
-                        width: 60px;
-                        height: 10px;
-
-                        h3 {
-                            font-size: 1rem;
-                        }
-
-                        svg {
-                            height: 25px;
-                        }
-                    }
-
-                    .queue {
-                        margin-left: 0;
-                        padding: 5px;
-                        width: 190px;
-                        height: 35px;
-
-                        h3 {
-                            font-size: 1rem;
-                        }
-
-                        svg {
-                            height: 25px;
-                        }
-                    }*/
                 }
+            }
+        }
+
+        .gradient {
+            height: 70%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 20%, rgba(20, 20, 20, 1)40%);
+        }
+
+        .bannerImage {
+            //height: 80%;
+
+            img {
+                height: auto;
+                aspect-ratio: 2/3;
             }
         }
 
     }
 }
 
-//telas smartphone maiores
-@media (min-width: 375px) and (max-width: 560px) {
+@media (min-width: 375px) and (max-width: 432px) {
     .topContainer {
         height: 100%;
         justify-content: flex-end;
 
+        .overlay {
+            left: 30px;
+
+            .leftSide {
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+
+                .tituloPrincipal {
+                    font-size: 1.5rem;
+                }
+
+                .subTituloPrincipal {
+                    font-size: 1.2rem;
+                }
+
+                .gen {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 5px;
+                }
+
+                .description {
+                    height: 50px;
+                    display: none;
+
+                    p {
+                        font-size: 1.2rem;
+                    }
+                }
+
+                .buttonSection {
+                    display: none;
+                }
+            }
+        }
+
+        .gradient {
+            height: 60%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 20%, rgba(20, 20, 20, 1)40%);
+        }
+
+        .bannerImage {
+            img {
+                height: auto;
+                aspect-ratio: 2/3;
+            }
+        }
+    }
+}
+
+//telas smartphone maiores
+@media (min-width: 432.1px) and (max-width: 560px) {
+    .topContainer {
+        height: 100%;
+        justify-content: flex-end;
 
         .overlay {
             .leftSide {
@@ -448,6 +487,18 @@
                 }
             }
         }
+
+        .gradient {
+            height: 55%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, rgba(20, 20, 20, 1)50%);
+        }
+
+        .bannerImage {
+            img {
+                height: auto;
+                aspect-ratio: 2/3;
+            }
+        }
     }
 }
 
@@ -490,32 +541,20 @@
 
                 .buttonSection {
                     display: none;
-                    /*flex-direction: row;
-                    justify-content: flex-start;
-                    align-items: center;
-                    gap: 10px;
 
-
-                    .watch {
-                        display: flex;
-                        justify-content: center;
-                        width: 100px;
-                        height: 40px;
-                    }
-
-                    .queue {
-                        margin-left: 0;
-                        //padding: 0;
-                        width: 200px;
-                        height: 40px;
-
-
-                        h3 {
-                            font-size: 1.2rem;
-                            padding: 0;
-                        }
-                    }*/
                 }
+            }
+        }
+
+        .gradient {
+            height: 40%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, rgba(20, 20, 20, 1)50%);
+        }
+
+        .bannerImage {
+            img {
+                //height: auto;
+                aspect-ratio: 2/3;
             }
         }
     }

@@ -1,7 +1,3 @@
-import { CardsProps } from "@/@types/Cards"
-import { SeriesProps } from "@/@types/series"
-import { debug } from "@/classes/DebugLogger"
-
 /**
  * Função que transforma minutos em horas
  * @param min Minutos
@@ -130,4 +126,15 @@ export function formatPrice(price: number) {
 
 export function getparcels(price: number, parcels: number): number {
     return price / parcels
+}
+
+export function getDate() {
+    const hoje = new Date()
+    const data = new Intl.DateTimeFormat('en-CA', {
+        timeZone: 'America/Sao_Paulo',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+    }).format(hoje)
+    return data
 }

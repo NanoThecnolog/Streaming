@@ -38,7 +38,8 @@ export const agp = {
     apocalipse: "Apocalipse",
     ghosts: "Fantasmas",
     future: "Futurístico",
-    technology: "Tecnologia"
+    technology: "Tecnologia",
+    romantic: "Romântico"
 }
 export const stm = {
     netflix: "Netflix",

@@ -1,0 +1,395 @@
+.contentPromoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        height: 100vh;
+        margin-top: 100px;
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .streamBrand {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: auto;
+            max-width: min(90%, 1500px);
+
+            .logo {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                width: 100%;
+                max-width: 200px;
+                transition: transform 0.3s ease-in-out;
+
+                &:hover {
+                    transform: scale(1.1)
+                }
+            }
+
+
+            svg {
+                height: 120px;
+                width: 100%;
+                transition: .4s;
+            }
+
+            p {
+                text-align: center;
+                margin-top: 10px;
+                font-family: var(--font-bebas);
+                font-size: 1.9rem;
+            }
+
+            .netflix {
+                svg {
+                    &:hover {
+                        color: var(--red);
+                        filter: brightness(1.2) drop-shadow(0 0 10px var(--red));
+                    }
+                }
+            }
+
+            .hbo {
+                svg {
+                    &:hover {
+                        color: var(--blue-hbo);
+                        filter: brightness(1.2) drop-shadow(0 0 10px var(--blue-hbo));
+                    }
+                }
+
+                p {
+                    font-family: var(--font-Poppins);
+                    font-weight: 700;
+                    letter-spacing: -2px;
+                }
+            }
+
+            .prime {
+                svg {
+                    &:hover {
+                        color: var(--blue-prime);
+                        filter: brightness(1.2) drop-shadow(0 0 10px var(--blue-prime));
+                    }
+                }
+
+                p {
+                    font-family: var(--font-Noto);
+                    font-weight: 700;
+                    letter-spacing: -2px;
+                }
+            }
+
+            .disney {
+                svg {
+                    &:hover {
+                        color: var(--blue-disney);
+                        filter: brightness(2) drop-shadow(0 0 10px var(--blue-disney));
+                    }
+                }
+
+                p {
+                    font-family: var(--font-Mouse);
+
+                }
+            }
+
+            .sky {
+                svg {
+                    &:hover {
+                        color: var(--red-sky);
+                        filter: brightness(1) drop-shadow(0 0 10px var(--red-sky));
+                    }
+                }
+
+                p {
+                    font-family: var(--font-Nunito);
+                    font-weight: 700;
+                }
+            }
+
+            .apple {
+                svg {
+                    &:hover {
+                        color: white;
+                        filter: brightness(2) drop-shadow(0 0 10px white);
+                    }
+                }
+
+                p {
+                    font-family: var(--font-Inter);
+                    font-weight: 500;
+                }
+            }
+
+            .paramount {
+                svg {
+                    &:hover {
+                        filter: brightness(2) drop-shadow(0 0 30px var(--blue-paramount));
+                    }
+                }
+
+                p {
+                    font-family: var(--font-Poppins);
+                    font-weight: 500;
+                    font-style: italic;
+                }
+            }
+
+            .globo {
+                p {
+                    transition: .4s;
+                    position: relative;
+                    font-family: var(--font-Nunito);
+                    font-weight: 900;
+                    font-size: 4rem;
+                    background: var(--orange-globo-gradient);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+
+                    &:hover {
+                        filter: brightness(1.2) drop-shadow(0 0 10px var(--red-globo));
+                    }
+
+                    span {
+                        position: absolute;
+                        top: 50px;
+                        left: 60px;
+                        background: inherit;
+                    }
+                }
+            }
+
+            .starz {
+                svg {
+                    &:hover {
+                        color: var(--blue-starz-2);
+                        filter: brightness(1.2) drop-shadow(0 0 10px var(--blue-starz-1));
+                    }
+                }
+            }
+
+        }
+
+        .buttonActionContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin: 100px 0;
+
+            button {
+                background-color: var(--red-selected);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 300px;
+                height: 60px;
+                border-radius: 2rem;
+                color: var(--white);
+                font-size: 1.5rem;
+                font-weight: 900;
+                transition: .4s;
+
+                &:hover {
+                    transform: scale(1.05);
+                    background-color: var(--red);
+                }
+            }
+        }
+    }
+
+    .textContent {
+        margin-top: 200px;
+        padding: 0 20px;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+
+        h2 {
+            font-size: 2.2rem;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+    }
+
+    .cardContainer {
+        height: 310px;
+        width: 100vw;
+        overflow-x: hidden;
+        transition: .4s;
+
+        .card {
+            img {
+                height: 300px;
+                width: 200px;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .contentPromoContainer {
+        .content {
+            margin-top: 100px;
+
+            .streamBrand {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 8px;
+
+                h2 {
+                    font-size: 2rem;
+                }
+
+                svg {
+                    height: 70px;
+                }
+
+                p {
+                    font-size: 1rem;
+                }
+
+                .globo {
+                    p {
+                        font-size: 1.5rem;
+
+                        span {
+                            top: 20px;
+                            left: 22px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 375.1px) and (max-width: 560px) {
+    .contentPromoContainer {
+        .content {
+            margin-top: 150px;
+
+            .streamBrand {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 10px;
+
+                h2 {
+                    font-size: 2rem;
+                }
+
+                p {
+                    font-size: 1rem;
+                }
+
+                svg {
+                    height: 70px;
+                }
+
+                .globo {
+                    p {
+                        font-size: 1.8rem;
+
+                        span {
+                            top: 23px;
+                            left: 27px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 560.1px) and (max-width: 768px) {
+    .contentPromoContainer {
+        .content {
+            margin-top: 100px;
+
+            .streamBrand {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 10px;
+
+                svg {
+                    height: 80px;
+                }
+
+                p {
+                    font-size: 1.5rem;
+                }
+
+                .globo {
+                    p {
+                        font-size: 2rem;
+
+                        span {
+                            top: 23px;
+                            left: 30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 915px) {
+    .contentPromoContainer {
+        .content {
+            margin-top: 200px;
+
+            .streamBrand {
+                .globo {
+                    p {
+                        font-size: 2.5rem;
+
+                        span {
+                            top: 30px;
+                            left: 37px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1280px) {}
+
+@media (max-width: 1440px) {}
+
+@media (max-width: 1920px) {}

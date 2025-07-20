@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from 'react'
+import { FormEvent, useState } from 'react'
 import styles from './styles.module.scss'
 import Link from 'next/link'
 import { toast } from 'react-toastify'

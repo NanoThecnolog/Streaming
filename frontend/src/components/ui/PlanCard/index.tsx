@@ -1,4 +1,4 @@
-import { PlanProps } from '@/pages/payment'
+import { PlanProps } from '@/@types/payment'
 import styles from './styles.module.scss'
 import { calculateDiscount, formatPrice } from '@/utils/UtilitiesFunctions'
 import { desconto } from '@/utils/Variaveis'

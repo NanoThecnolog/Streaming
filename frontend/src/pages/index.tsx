@@ -16,7 +16,7 @@ import { flixFetcher } from "@/classes/Flixclass";
 import { mongoService } from "@/classes/MongoContent";
 import { useFlix } from "@/contexts/FlixContext";
 import NewTop from "@/components/newTop";
-import { CardsProps, MovieTMDB } from "@/@types/Cards";
+import { CardsProps } from "@/@types/Cards";
 
 
 const inter = Inter({ subsets: ["latin"] });

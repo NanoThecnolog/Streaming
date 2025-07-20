@@ -12,42 +12,12 @@ import User from '@/components/PaymentSteps/User'
 import { useFlix } from '@/contexts/FlixContext'
 import PaymentCredit from '@/components/PaymentSteps/payment'
 import PaymentBillet from '@/components/PaymentSteps/billet'
-import valid from 'card-validator'
 import SelectPayment from '@/components/PaymentSteps'
+import { CreditPayment, PlanProps, UserDataProps } from '@/@types/payment'
+import axios from 'axios'
+import { getDate } from '@/utils/UtilitiesFunctions'
 
-export interface PlanProps {
-    name: string;
-    id: string;
-    price: number;
-    type: string;
-    planId: number;
-    created_at: Date;
-    updated_at: Date;
-}
 
-export interface UserDataProps {
-    nome: string,
-    cpf: string,
-    telefone: string,
-    address: {
-        street: string,
-        number: string,
-        neighborhood: string,
-        zipcode: string,
-        city: string,
-        complement: string,
-        state: string
-    }
-}
-export interface CreditPayment {
-    brand: string,
-    number: string,
-    cvv: string,
-    expiration: string,
-    holderName: string,
-    holderDocument: string,
-    reuse: boolean,
-}
 
 const loadingEfiPay = async () => {
     if (typeof window !== 'undefined') {
@@ -62,13 +32,16 @@ export default function Payment() {
     const { user } = useFlix()
     const { id } = router.query
     const [plan, setPlan] = useState<PlanProps>()
-    const [method, setMethod] = useState<string | null>(null)
-    const [validation, setValidation] = useState()
+    const [method, setMethod] = useState<'credit' | 'billet' | null>(null)
+    const [validation, setValidation] = useState<boolean>(true)
+    const [confirmarSenha, setConfirmarSenha] = useState('')
     const [dataUser, setDataUser] = useState<UserDataProps>(
         {
             nome: "",
             cpf: "",
             telefone: "",
+            birthday: '',
+            password: '',
             address: {
                 street: "",
                 number: "",
@@ -78,9 +51,27 @@ export default function Payment() {
                 complement: "",
                 state: "",
             },
-
         }
     )
+    const getAddress = async () => {
+        try {
+            const response = await axios.get(`https://viacep.com.br/ws/${dataUser.address.zipcode}/json/`)
+            const data = response.data
+            if (data.erro) {
+                debug.error('CEP nao encontrado')
+            }
+            else {
+                debug.log('CEP encontrado', data)
+                setDataUser((prev) => ({ ...prev, address: { ...prev.address, neighborhood: data.bairro, street: data.logradouro, city: data.localidade, state: data.estado } }))
+            }
+        } catch (err) {
+            debug.error('Erro ao buscar o endereço através do cep', err)
+        }
+    }
+    useEffect(() => {
+        if (dataUser.address.zipcode.length === 8) getAddress()
+    }, [dataUser.address.zipcode])
+
     const [credit, setCredit] = useState<CreditPayment>(
         {
             brand: "",
@@ -89,13 +80,14 @@ export default function Payment() {
             expiration: "",
             holderName: "",
             holderDocument: "",
-            reuse: true
+            reuse: true,
+            fullComplete: false,
         }
     )
 
     useEffect(() => {
         if (id) {
-            debug.log("ID recebido", id)
+            //debug.log("ID recebido", id)
             getPlans()
             if (plan) {
                 debug.log(plan)
@@ -103,15 +95,15 @@ export default function Payment() {
         }
     }, [id])
 
-
-
     /*useEffect(() => {
         loadingEfiPay().then((EfiPay) => {
             if (EfiPay) {
-                return testetoken(EfiPay)
+                return getToken(EfiPay)
             }
         })
     }, [])*/
+
+
 
     async function getToken(EfiPay: any) {
         if (typeof window === 'undefined') return
@@ -150,6 +142,13 @@ export default function Payment() {
         }
     }
 
+    const handleForm = async () => {
+        if (confirmarSenha != dataUser.password) {
+            setValidation(false)
+            return
+        }
+    }
+
     return (
         <>
             <SEO title='Finalizando Assinatura | FlixNext' description='' />
@@ -157,25 +156,40 @@ export default function Payment() {
             <main className={styles.mainPage}>
                 <article className={styles.articleContainer}>
                     <section className={styles.formContainer}>
-                        <form className={styles.form}>
-                            <User data={dataUser} setDataUser={setDataUser} />
+                        <form className={styles.form} onSubmit={handleForm}>
+                            <User
+                                data={dataUser}
+                                setDataUser={setDataUser}
+                                senha={confirmarSenha}
+                                confirmarSenha={setConfirmarSenha}
+                                valid={validation}
+                            />
                             <div className={styles.paymentContainer}>
                                 {method === null ? <SelectPayment method={setMethod} />
-                                    : method === 'credit' ? <PaymentCredit credit={credit} setCredit={setCredit} />
-                                        : method === 'billet' && <PaymentBillet setMethod={setMethod} />
+                                    : method === 'credit' ? <PaymentCredit setMethod={setMethod} credit={credit} setCredit={setCredit} />
+                                        : method === 'billet' && <PaymentBillet setMethod={setMethod} confirm={credit.fullComplete} setCredit={setCredit} />
                                 }
                             </div>
+                            <div className={styles.buttonContainer}>
+                                <button
+                                    type='submit'
+                                    disabled={method == null || !credit.fullComplete}
+                                    className={`${method == null || !credit.fullComplete ? styles.disabled : ''}`}
+                                >
+                                    Iniciar Assinatura
+                                </button>
+                            </div>
+
                         </form>
+
                     </section>
                 </article>
-
                 <aside className={styles.asideContainer}>
                     {plan && (
                         <PlanCard plan={plan} method={method} />
                     )}
                 </aside>
             </main>
-
             <Footer />
         </>
     )

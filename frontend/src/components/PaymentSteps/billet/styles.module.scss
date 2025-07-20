@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     background: var(--white);
     padding: 20px;
     border-radius: 10px;
@@ -15,19 +15,36 @@
         text-align: center;
     }
 
+    p {
+        margin-bottom: 20px;
+    }
+
     .billet {
-        position: relative;
+        display: flex;
+        width: 100%;
+        justify-content: center;
 
-        .checkbox {
-            position: absolute;
-            top: -10px;
-            left: -10px;
+    }
 
-            input {
-                width: 15px;
-                height: 15px;
-                cursor: pointer;
+    .aviso {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        label {
+            display: flex;
+            gap: 10px;
+
+            p {
+                font-size: 1rem;
             }
         }
+
+        p {
+            font-size: .7rem;
+            text-align: justify;
+        }
     }
+
+
 }

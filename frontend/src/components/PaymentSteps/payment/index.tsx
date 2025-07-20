@@ -1,19 +1,46 @@
-import { CreditPayment } from '@/pages/payment'
 import styles from './styles.module.scss'
 import { debug } from '@/classes/DebugLogger'
 import { useEffect, useState } from 'react'
 import valid from 'card-validator'
-import { Divide } from 'lucide-react'
+import Link from 'next/link'
+import { CreditPayment } from '@/@types/payment'
+import { FaCcDinersClub, FaCcMastercard, FaCcVisa } from 'react-icons/fa'
+import { CardNumberVerification } from 'card-validator/dist/card-number'
+import { SiAmericanexpress } from 'react-icons/si'
+import { IoIosArrowBack } from "react-icons/io";
 
 interface PaymentProps {
     credit: CreditPayment,
     setCredit: React.Dispatch<React.SetStateAction<CreditPayment>>
+    setMethod: React.Dispatch<React.SetStateAction<"credit" | "billet" | null>>
 }
 
-export default function PaymentCredit({ credit, setCredit }: PaymentProps) {
+export default function PaymentCredit({ credit, setCredit, setMethod }: PaymentProps) {
     const [brand, setBrand] = useState<string | null>(null)
     const [validExpiration, setValidExpiration] = useState<boolean | null>(null)
     const [validCVV, setValidCVV] = useState<boolean | null>(null)
+    const [validationStatus, setValidationStatus] = useState<CardNumberVerification | null>(null)
+    const [checked, setChecked] = useState(false)
+
+    const bandeiras: Record<string, JSX.Element> = {
+        'mastercard': <FaCcMastercard size={40} />,
+        'visa': <FaCcVisa size={40} />,
+        'maestro': <FaCcMastercard size={40} />,
+        'diners-club': <FaCcDinersClub size={40} />,
+        'american-express': <SiAmericanexpress size={40} />,
+    }
+    const formatExpiration = (value: string) => {
+        const cleaned = value.replace(/\D/g, '').slice(0, 4)
+        return cleaned
+    }
+    const formatDisplay = (value: string) => {
+        const cleaned = value.replace(/\D/g, '').slice(0, 4);
+        if (cleaned.length === 0) return ''
+        if (value.length <= 2) return cleaned
+        return `${cleaned.slice(0, 2)}/${cleaned.slice(2)}`
+    }
+
+
     function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
         const { name, value } = e.target
 
@@ -32,36 +59,50 @@ export default function PaymentCredit({ credit, setCredit }: PaymentProps) {
             if (!cvv.isValid) setValidCVV(cvv.isValid)
             else setValidCVV(true)
         }
-
         setCredit((prev: CreditPayment) => ({
             ...prev,
-            [name]: value,
+            [name]: name === 'expiration' ? formatExpiration(value) : value,
         }))
     }
     useEffect(() => {
-        //
+        debug.log(credit.expiration)
         if (credit.number) {
             const cardValidation = valid.number(credit.number)
+            setValidationStatus(cardValidation)
             debug.log(cardValidation)
         }
     }, [credit])
+    useEffect(() => {
+        if (!checked) {
+            setCredit(prev => ({ ...prev, fullComplete: false }))
+            return
+        }
+        if (credit.number.length === 16 && credit.expiration.length === 4 && credit.cvv.length === 3) setCredit(prev => ({ ...prev, fullComplete: true }))
+        else setCredit(prev => ({ ...prev, fullComplete: false }))
+    }, [checked, credit.number, credit.expiration, credit.cvv])
     return (
         <section className={styles.container}>
+            <IoIosArrowBack onClick={() => setMethod(null)} size={30} style={{ cursor: 'pointer' }} title='voltar' />
             <h2>Pagamento com Cartão de Crédito</h2>
             <div className={styles.form}>
                 <div className={styles.input}>
                     <label htmlFor="card-number">Número do Cartão</label>
-                    <input
-                        type="text"
-                        id="card-number"
-                        className={styles.numberInput}
-                        maxLength={19}
-                        placeholder="1234 5678 9101 1121"
-                        required
-                        value={credit.number}
-                        name='number'
-                        onChange={handleChange}
-                    />
+                    <div className={styles.brandContainer}>
+                        <input
+                            type="text"
+                            id="card-number"
+                            className={styles.numberInput}
+                            maxLength={19}
+                            placeholder="1234 5678 9101 1121"
+                            required
+                            value={credit.number}
+                            name='number'
+                            onChange={handleChange}
+                        />
+                        <div className={styles.brand}>
+                            {brand && bandeiras[brand]}
+                        </div>
+                    </div>
                 </div>
                 <div className={styles.row}>
                     <div className={styles.input}>
@@ -74,7 +115,7 @@ export default function PaymentCredit({ credit, setCredit }: PaymentProps) {
                             placeholder="MM/AA"
                             required
                             name='expiration'
-                            value={credit.expiration}
+                            value={formatDisplay(credit.expiration)}
                             onChange={handleChange}
                         />
                         {credit.expiration !== '' && validExpiration !== null && validExpiration == false &&
@@ -104,6 +145,15 @@ export default function PaymentCredit({ credit, setCredit }: PaymentProps) {
                         }
                     </div>
                 </div>
+            </div>
+            <div className={styles.aviso}>
+                <label htmlFor="check">
+                    <input type="checkbox" onChange={() => setChecked(!checked)} id="check" />
+                    <p>Concordo com os Termos de Uso e Política de Privacidade.</p>
+                </label>
+                <p>
+                    Ao marcar a caixa de seleção acima, você concorda com nossos <strong><Link href="/termos-de-uso" target='_blank' rel='noopener noreferrer'>Termos de Uso</Link></strong> e com nossa <strong><Link href="/privacidade" target='_blank' rel='noopener noreferrer'>Declaração de Privacidade</Link></strong> e confirma ter mais de 18 anos. A FlixNext renovará automaticamente sua assinatura e cobrará o preço da assinatura escolhida da sua forma de pagamento até você cancelar. Você pode cancelar quando quiser para evitar cobranças futuras.
+                </p>
             </div>
         </section>
     )
