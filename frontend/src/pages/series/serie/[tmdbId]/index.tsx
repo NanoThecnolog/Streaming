@@ -26,7 +26,7 @@ import debounce from "lodash.debounce";
 import { debug } from "@/classes/DebugLogger";
 import { mongoService } from "@/classes/MongoContent";
 import { getRelatedSerieCards } from "@/utils/CardsManipulation";
-import { GetServerSideProps, GetStaticPaths } from "next";
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from "next";
 import axios from "axios";
 import { tmdb } from "@/classes/TMDB";
 import { CrewProps } from "@/@types/movie/crew";
@@ -469,7 +469,7 @@ export default function Serie({ data }: SerieProps) {
     )
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
+/*export const getStaticPaths: GetStaticPaths = async () => {
     const series = await mongoService.fetchSerieData()
     const paths = series.map(serie => ({
         params: { tmdbId: serie.tmdbID.toString() }
@@ -479,6 +479,31 @@ export const getStaticPaths: GetStaticPaths = async () => {
         fallback: 'blocking'
     }
 }
+export const getStaticProps: GetStaticProps = async (context) => {
+    const { tmdbId } = context.params as { tmdbId: string }
+    const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN
+
+    try {
+        const resSerie = await axios.get(`https://api.themoviedb.org/3/movie/${tmdbId}`, {
+            headers: {
+                Authorization: `Bearer ${tmdbToken}`
+            },
+            params: {
+                language: 'pt-BR'
+            }
+        })
+        const resCast = await axios.get(`https://api.themoviedb.org/3/movie/${tmdbId}`, {
+            headers: {
+                Authorization: `Bearer ${tmdbToken}`
+            }
+        })
+        const serieData = resSerie.data
+        const castData = resCast.data
+        const crewData = castData.crew?.length ? castData.crew : []
+    } catch (err) {
+        
+    }
+}*/
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const { tmdbId } = context.params as { tmdbId: string }
