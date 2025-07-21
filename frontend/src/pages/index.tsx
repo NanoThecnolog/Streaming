@@ -34,7 +34,7 @@ export default function Home() {
   const { allData, setAllData } = useTMDB()
   const [visible, setvisible] = useState(false)
   const { movies, setMovies } = useFlix()
-  const tmdbid = 541671;
+  const tmdbid = 1087192;
   const [topCard, setTopCard] = useState<CardsProps | null>(null)
 
   useEffect(() => {
