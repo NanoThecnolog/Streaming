@@ -44,12 +44,11 @@ export default function Home() {
       if (response.length > 0) setMovies(response)
     }
     if (movies.length === 0) fetchMoviesMongoDB()
-    else if (movies.length > 0) {
+    else {
       const card = movies.find((card) => card.tmdbId === tmdbid)
-      if (!card) return
-      setTopCard(card)
+      if (card && (!topCard || topCard.tmdbId !== card.tmdbId)) setTopCard(card)
     }
-  }, [movies])
+  }, [movies, topCard])
 
   useEffect(() => {
     if (allData.length > 0) return

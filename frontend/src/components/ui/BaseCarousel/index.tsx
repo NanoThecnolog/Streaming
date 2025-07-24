@@ -17,32 +17,39 @@ interface BaseProps {
 }
 
 export default function BaseCarousel({ title, cardPerContainer, cards }: BaseProps) {
-    debug.log('cards', cards)
+
     return (
         <div className={styles.carouselContainer}>
             <h2 className={styles.contentTitle}>{title.toUpperCase()}</h2>
-            <Swiper
-                //ref={swiperRef}
-                modules={[Navigation]}
-                spaceBetween={10}
-                slidesPerView={cardPerContainer}
-                loop={false}
-                className={styles.carousel}
-            >
-                {cards.map((card, index) => {
-                    if ('season' in card) {
-                        return <SwiperSlide key={uniqueKey(card.tmdbID + index, 'map', 'card', 'serie')} className={styles.slide}>
-                            <Link href={`/series/serie/${card.tmdbID}`}><p>{index + 1}</p></Link>
-                            <Card card={card} />
-                        </SwiperSlide>
-                    } else {
-                        return <SwiperSlide key={uniqueKey(card.tmdbId + index, 'map', 'card', 'movie')} className={styles.slide}>
-                            <Link href={`/movie/${card.tmdbId}`}><p>{index + 1}</p></Link>
-                            <Card card={card} />
-                        </SwiperSlide>
-                    }
-                })}
-            </Swiper>
+            {
+                cardPerContainer && (
+                    <>
+                        {debug.log('cards', cards.map(c => 'season' in c ? c.tmdbID : c.tmdbId))}
+                        <Swiper
+                            //ref={swiperRef}
+                            modules={[Navigation]}
+                            spaceBetween={10}
+                            slidesPerView={cardPerContainer}
+                            loop={false}
+                            className={styles.carousel}
+                        >
+                            {cards.map((card, index) => {
+                                if ('season' in card) {
+                                    return <SwiperSlide key={uniqueKey(card)} className={styles.slide}>
+                                        <Link href={`/series/serie/${card.tmdbID}`}><p>{index + 1}</p></Link>
+                                        <Card card={card} />
+                                    </SwiperSlide>
+                                } else {
+                                    return <SwiperSlide key={uniqueKey(card)} className={styles.slide}>
+                                        <Link href={`/movie/${card.tmdbId}`}><p>{index + 1}</p></Link>
+                                        <Card card={card} />
+                                    </SwiperSlide>
+                                }
+                            })}
+                        </Swiper>
+                    </>
+                )
+            }
         </div>
     )
 }

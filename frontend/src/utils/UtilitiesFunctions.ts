@@ -1,3 +1,6 @@
+import { CardsProps } from "@/@types/Cards"
+import { SeriesProps } from "@/@types/series"
+
 /**
  * Função que transforma minutos em horas
  * @param min Minutos
@@ -139,6 +142,6 @@ export function getDate() {
     return data
 }
 
-export const uniqueKey = (id: number, type: 'map' | 'filter' | 'iteration' | 'default' = 'default', keyword: string = 'kw', context: string = 'ctx'): string => {
-    return `${type}-${context}-${keyword}-${id}`
+export const uniqueKey = (card: CardsProps | SeriesProps, context?: string): string => {
+    return `${context || 'card'}-${('season' in card ? card.tmdbID : card.tmdbId) || card.title + '-' + card.index}`
 }
