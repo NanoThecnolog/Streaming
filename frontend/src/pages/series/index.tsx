@@ -16,6 +16,7 @@ import { SeriesProps } from "@/@types/series";
 import { mongoService } from "@/classes/MongoContent";
 import { useFlix } from "@/contexts/FlixContext";
 import NewTopSerie from "@/components/seriesComponents/newTopSerie";
+import TopPopularTVShows from "@/components/TopPopularTV";
 
 export default function Series() {
     //refatorar
@@ -102,6 +103,7 @@ export default function Series() {
                                             topCard && <NewTopSerie width={width} card={topCard} />
                                         }
                                         <div className={styles.mid}>
+                                            <TopPopularTVShows cardPerContainer={cardPerContainer} cards={serieData} seriesDB={series} />
                                             {divisaoPorGenero.map((sec, index) => (
                                                 <div key={sec}>
                                                     {

@@ -2,38 +2,27 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import styles from './styles.module.scss'
 import SEO from "@/components/SEO";
-import { useEffect, useState } from "react";
 import { PlansProps } from "@/@types/plans";
-import { calculateDiscount, formatPrice } from "@/utils/UtilitiesFunctions";
-import { useRouter } from "next/router";
-import { debug } from "@/classes/DebugLogger";
-import { desconto } from "@/utils/Variaveis";
-import { useTMDB } from "@/contexts/TMDBContext";
 import 'swiper/css';
-import { flixFetcher } from "@/classes/Flixclass";
 import axios from "axios";
 import { mongoService } from "@/classes/MongoContent";
-import { useFlix } from "@/contexts/FlixContext";
-import { CardsProps, MovieTMDB } from "@/@types/Cards";
-import { SeriesProps, TMDBSeries } from "@/@types/series";
+import {MovieTMDB } from "@/@types/Cards";
+import {  TMDBSeries } from "@/@types/series";
 import Prices from "@/components/pagePlans/PromoPrices";
 import Carousel from "@/components/pagePlans/PromoCarousel";
 import Streaming from "@/components/pagePlans/PromoStreamings";
 import PromoFAQ from "@/components/pagePlans/PromoFaq";
 import { GetServerSideProps } from "next";
-import { MovieProps } from "@/components/dashboard/Movie/Create";
+import PromoCounting from "@/components/pagePlans/PromoCounting";
 
 
 //plans: plans.data, movies, series, tmdbMovies: tmdbMovies.data, tmdbSeries: tmdbSeries.data
 interface PagePlansProps {
     plans: PlansProps,
-    movies: CardsProps[],
-    series: SeriesProps[],
     tmdbMovies: MovieTMDB[],
     tmdbSeries: TMDBSeries[],
 }
-export default function PagePlans({ plans, movies, series, tmdbMovies, tmdbSeries }: PagePlansProps) {
-    const router = useRouter()
+export default function PagePlans({ plans, tmdbMovies, tmdbSeries }: PagePlansProps) {
 
     return (
         <>
@@ -45,6 +34,7 @@ export default function PagePlans({ plans, movies, series, tmdbMovies, tmdbSerie
                 }
                 <Carousel movies={tmdbMovies} series={tmdbSeries} />
                 <Streaming />
+                <PromoCounting/>
                 <PromoFAQ />
             </main>
             <Footer />

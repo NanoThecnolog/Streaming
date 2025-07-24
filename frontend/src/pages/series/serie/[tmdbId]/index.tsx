@@ -10,7 +10,6 @@ import { FaCheck } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
 import Stars from "@/components/ui/StarAverage";
 import Adult from "@/components/ui/Adult";
-import SEO from "@/components/SEO";
 import EpisodeCard from "@/components/seriesComponents/EpisodeCard";
 import Spinner from "@/components/ui/Loading/spinner";
 import { useTMDB } from "@/contexts/TMDBContext";
@@ -50,7 +49,7 @@ export default function Serie({ data }: SerieProps) {
     //refatorar
     const router = useRouter()
     const { tmdbId } = router.query;
-    const [access, setAccess] = useState(false)
+    //const [access, setAccess] = useState(false)
     const [serie, setSerie] = useState<SeriesProps | null>(null)
 
     const [TMDBSerie, setTMDBSerie] = useState<TMDBSeries>()
@@ -78,19 +77,6 @@ export default function Serie({ data }: SerieProps) {
 
     const watchLaterManager = new WatchLaterManager()
 
-    /*    useEffect(() => {
-            const getAcess = async () => {
-                try {
-                    const response = await axios.get('/api/user/detail')
-                    debug.log('response ', response.data)
-                    setAccess(response.data.access)
-                } catch (err) {
-                    debug.error('Erro ao buscar dados do usuario', user)
-                }
-            }
-            if (user) getAcess()
-        }, [user])
-    */
     useEffect(() => {
         if (!tmdbId) return
         setSerie(null)

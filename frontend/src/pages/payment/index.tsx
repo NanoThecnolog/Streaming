@@ -176,7 +176,7 @@ export default function Payment() {
                                     disabled={method == null || !credit.fullComplete}
                                     className={`${method == null || !credit.fullComplete ? styles.disabled : ''}`}
                                 >
-                                    Iniciar Assinatura
+                                    Finalizar Assinatura
                                 </button>
                             </div>
 

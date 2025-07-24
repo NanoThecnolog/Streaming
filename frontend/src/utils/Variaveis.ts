@@ -233,3 +233,15 @@ export const fakePatterns = [
     "123",
     "fake"
 ];
+
+export const streamingPrices = [
+    { name: 'Netflix', price: 44.9 },
+    { name: 'Prime Video', price: 19.9 },
+    { name: 'HBO Max', price: 29.9 },
+    { name: 'Disney+', price: 46.9 },
+    { name: 'Sky+', price: 49.95 },
+    { name: 'Apple TV+', price: 21.9 },
+    { name: 'Paramount+', price: 18.9 },
+    { name: 'Globoplay', price: 14.9 },
+    { name: 'StarZ', price: 24.9 },
+]

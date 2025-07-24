@@ -1,0 +1,80 @@
+.container {
+    background: #111;
+    padding: 2rem;
+    border-radius: 16px;
+    max-width: 1300px;
+    margin: 0 auto;
+    text-align: center;
+    //box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+    animation: pulse 5s ease-in-out infinite;
+
+    .streamingList {
+        width: 80%;
+        list-style: none;
+        padding: 0;
+        margin: 2rem auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.4rem;
+        }
+    }
+
+    .total {
+        font-size: 1.2rem;
+        margin: 1rem 0;
+    }
+
+    .divider {
+        height: 2px;
+        background: #444;
+        margin: 2rem 0;
+    }
+
+    .solution {
+        //background: #1db954;
+        padding: 1.5rem;
+        border-radius: 12px;
+        //color: #000;
+
+        span {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        button {
+            margin-top: 1rem;
+            background: var(--red);
+            color: #fff;
+            padding: 0.8rem 1.2rem;
+            border: none;
+            border-radius: 2rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: .4s;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0px rgba(255, 0, 0, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
+    }
+
+    100% {
+        box-shadow: 0 0 0px rgba(255, 0, 0, 0.2);
+    }
+}

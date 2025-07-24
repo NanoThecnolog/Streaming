@@ -17,6 +17,7 @@ import { mongoService } from "@/classes/MongoContent";
 import { useFlix } from "@/contexts/FlixContext";
 import NewTop from "@/components/newTop";
 import { CardsProps } from "@/@types/Cards";
+import TopPopularMovies from "@/components/TopPopularMovies";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -103,10 +104,8 @@ export default function Home() {
                         topCard && <NewTop width={width} card={topCard} />
                       }
                     </div>
-                    {
-                      //<Top width={width} cards={movies} />
-                    }
                     <div className={styles.mid} id="filmes">
+                      <TopPopularMovies cardPerContainer={cardPerContainer} cards={allData} moviesDB={movies} />
                       {
                         divisaoPorGenero.map((sec, index) => {
                           return (
