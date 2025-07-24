@@ -138,3 +138,7 @@ export function getDate() {
     }).format(hoje)
     return data
 }
+
+export const uniqueKey = (id: number, type: 'map' | 'filter' | 'iteration' | 'default' = 'default', keyword: string = 'kw', context: string = 'ctx'): string => {
+    return `${type}-${context}-${keyword}-${id}`
+}

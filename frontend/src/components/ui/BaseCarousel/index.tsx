@@ -5,6 +5,8 @@ import { Navigation } from 'swiper/modules'
 import { CardsProps } from '@/@types/Cards'
 import { SeriesProps } from '@/@types/series'
 import Link from 'next/link'
+import { debug } from '@/classes/DebugLogger'
+import { uniqueKey } from '@/utils/UtilitiesFunctions'
 
 
 interface BaseProps {
@@ -15,6 +17,7 @@ interface BaseProps {
 }
 
 export default function BaseCarousel({ title, cardPerContainer, cards }: BaseProps) {
+    debug.log('cards', cards)
     return (
         <div className={styles.carouselContainer}>
             <h2 className={styles.contentTitle}>{title.toUpperCase()}</h2>
@@ -28,12 +31,12 @@ export default function BaseCarousel({ title, cardPerContainer, cards }: BasePro
             >
                 {cards.map((card, index) => {
                     if ('season' in card) {
-                        return <SwiperSlide key={card.tmdbID} className={styles.slide}>
+                        return <SwiperSlide key={uniqueKey(card.tmdbID + index, 'map', 'card', 'serie')} className={styles.slide}>
                             <Link href={`/series/serie/${card.tmdbID}`}><p>{index + 1}</p></Link>
                             <Card card={card} />
                         </SwiperSlide>
                     } else {
-                        return <SwiperSlide key={`${card.tmdbId}+${index}`} className={styles.slide}>
+                        return <SwiperSlide key={uniqueKey(card.tmdbId + index, 'map', 'card', 'movie')} className={styles.slide}>
                             <Link href={`/movie/${card.tmdbId}`}><p>{index + 1}</p></Link>
                             <Card card={card} />
                         </SwiperSlide>
