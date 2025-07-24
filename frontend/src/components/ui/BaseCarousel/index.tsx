@@ -18,6 +18,10 @@ interface BaseProps {
 
 export default function BaseCarousel({ title, cardPerContainer, cards }: BaseProps) {
 
+    const uniqueCards = Array.from(new Map(
+        cards.map(card => [('season' in card ? card.tmdbID : card.tmdbId), card])
+    ).values())
+
     return (
         <div className={styles.carouselContainer}>
             <h2 className={styles.contentTitle}>{title.toUpperCase()}</h2>
@@ -33,7 +37,7 @@ export default function BaseCarousel({ title, cardPerContainer, cards }: BasePro
                 loop={false}
                 className={styles.carousel}
             >
-                {cards.map((card, index) => {
+                {uniqueCards.map((card, index) => {
                     if ('season' in card) {
                         return <SwiperSlide key={uniqueKey(card)} className={styles.slide}>
                             <Link href={`/series/serie/${card.tmdbID}`}><p>{index + 1}</p></Link>
