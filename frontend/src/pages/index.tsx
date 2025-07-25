@@ -18,9 +18,10 @@ import { useFlix } from "@/contexts/FlixContext";
 import NewTop from "@/components/newTop";
 import { CardsProps } from "@/@types/Cards";
 import TopPopularMovies from "@/components/TopPopularMovies";
+import { SeriesProps } from "@/@types/series";
 
 
-const inter = Inter({ subsets: ["latin"] });
+
 
 
 
@@ -32,7 +33,7 @@ export default function Home() {
   const agrupadores = Object.values(agp);
   const combined = [...generos, ...agrupadores.filter(item => removedSections.includes(item))];
   const divisaoPorGenero = combined
-  const { allData, setAllData } = useTMDB()
+  const { allData, setAllData, serieData, setSerieData } = useTMDB()
   const [visible, setvisible] = useState(false)
   const { movies, setMovies } = useFlix()
   const tmdbid = 1087192;
@@ -40,8 +41,8 @@ export default function Home() {
 
   useEffect(() => {
     async function fetchMoviesMongoDB() {
-      const response: CardsProps[] = await mongoService.fetchMovieData()
-      if (response.length > 0) setMovies(response)
+      const movies: CardsProps[] = await mongoService.fetchMovieData()
+      if (movies.length > 0) setMovies(movies)
     }
     if (movies.length === 0) fetchMoviesMongoDB()
     else {
@@ -51,9 +52,10 @@ export default function Home() {
   }, [movies, topCard])
 
   useEffect(() => {
-    if (allData.length > 0) return
-    if (movies.length > 0) flixFetcher.fetchMovieData(setAllData, movies)
-  }, [movies, setAllData])
+    //if (allData.length > 0 && serieData.length > 0) return
+    if (movies.length > 0 && allData.length === 0) flixFetcher.fetchMovieData(setAllData, movies)
+    if (serieData.length === 0) flixFetcher.fetchSerieData(setSerieData)
+  }, [movies, setAllData, serieData, setSerieData])
 
   useEffect(() => {
     function handleResize() {
@@ -94,7 +96,7 @@ export default function Home() {
         allData.length > 0 ?
           <>
             <Header />
-            <main className={`${styles.main} ${inter.className}`}>
+            <main className={styles.main}>
               <div className={styles.content}>
                 {movies && movies.length > 0 &&
                   <>

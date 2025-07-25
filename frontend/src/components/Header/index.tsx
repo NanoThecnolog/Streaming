@@ -53,7 +53,7 @@ export default function Header() {
         if (!user) {
             const { 'flix-user': userCookie } = parseCookies()
             if (userCookie) {
-                debug.log("user no useEffect", JSON.parse(userCookie))
+                //debug.log("user no useEffect", JSON.parse(userCookie))
                 setUser(JSON.parse(userCookie))
             }
         } else {
@@ -63,7 +63,7 @@ export default function Header() {
 
     useEffect(() => {
         if (!user) return
-        debug.log(user)
+        //debug.log(user)
         const inicial = user.name[0].toUpperCase()
         setInitial(inicial)
     }, [user])
@@ -75,11 +75,7 @@ export default function Header() {
                 apiEmail.get('/'),
                 apiManager.get('/')
             ]);
-
             const [acordar, acordarManager, acordarMensageria, acordarContentManager] = responses;
-
-            //debug.log(acordarMensageria);
-
             if (
                 acordar.status === "fulfilled" &&
                 acordar.value.status === 200 &&
@@ -87,17 +83,9 @@ export default function Header() {
                 acordarManager.value.data.code === 200 &&
                 acordarMensageria.status === "fulfilled" &&
                 acordarMensageria.value.data.code === 200 &&
-                acordarContentManager.status === 'fulfilled' //&&
-                //acordarContentManager.value.data.code === 200
+                acordarContentManager.status === 'fulfilled'
             ) {
                 setServerWake(true);
-                /*debug.table({
-                    Backend: acordar.value.data.status,
-                    SubManager: acordarManager.value.data.message,
-                    Mensageria: acordarMensageria.value.data.data.message,
-                    //content: acordarContentManager.value.data.message
-                });
-                debug.log("user no header", user)*/
             } else {
                 setServerWake(false);
             }
@@ -116,9 +104,6 @@ export default function Header() {
             document.body.style.cursor = "default"
         }
     }, [loading])
-
-
-
 
     const handleSearchRelated = useMemo(() =>
         debounce((text: string) => {

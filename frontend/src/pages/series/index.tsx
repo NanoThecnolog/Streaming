@@ -17,6 +17,7 @@ import { mongoService } from "@/classes/MongoContent";
 import { useFlix } from "@/contexts/FlixContext";
 import NewTopSerie from "@/components/seriesComponents/newTopSerie";
 import TopPopularTVShows from "@/components/TopPopularTV";
+import { CardsProps } from "@/@types/Cards";
 
 export default function Series() {
     //refatorar
@@ -28,7 +29,7 @@ export default function Series() {
     const removedSections = ["Romance", "Terror", "Globo Play", "Paramount", "StarZ", "SKY"]
     const divisaoPorGenero = combined.filter(item => !removedSections.includes(item))
     //const [loading, setLoading] = useState(false)
-    const { serieData, setSerieData } = useTMDB()
+    const { serieData, setSerieData, setAllData, allData } = useTMDB()
     const [visible, setvisible] = useState(false)
     const { series, setSeries } = useFlix()
     const tmdbid = 90802;
@@ -48,9 +49,15 @@ export default function Series() {
     }, [series])
 
     useEffect(() => {
-        if (serieData.length > 0) return
-        flixFetcher.fetchSerieData(setSerieData)
-    }, [serieData])
+        //if (serieData.length > 0) return
+        async function fetchMoviesMongoDB() {
+            const movies: CardsProps[] = await mongoService.fetchMovieData()
+            if (movies.length > 0) await flixFetcher.fetchMovieData(setAllData, movies)
+        }
+
+        if (serieData.length === 0) flixFetcher.fetchSerieData(setSerieData)
+        if (allData.length === 0) fetchMoviesMongoDB()
+    }, [serieData, allData])
 
     useEffect(() => {
         function handleResize() {
