@@ -20,6 +20,7 @@ import { apiEmail } from "@/services/apiMessenger";
 import { apiManager } from "@/services/apiManager";
 import { useTMDB } from "@/contexts/TMDBContext";
 import { SetupAPIClient } from "@/services/api";
+import { uniqueKey } from "@/utils/UtilitiesFunctions";
 
 export default function Header() {
     //refatorar esse componente
@@ -178,27 +179,24 @@ export default function Header() {
                                     tmdbData = serieData.find((db) => card.tmdbID === db.id) || null
                                 }
                                 return (
-                                    <>
-                                        <li style={{ cursor: loading ? "progress" : "pointer" }}
-                                            key={index}
-                                            onClick={() => handleRelatedSearchClick(card)}
-                                        >
-                                            {/*<CiSearch size={20} />*/}
-                                            <div className={styles.item}>
-                                                {tmdbData ? <img
-                                                    src={`https://image.tmdb.org/t/p/w400${tmdbData.poster_path}`}
-                                                    alt="Poster"
-                                                    className={styles.imgSearch}
-                                                />
-                                                    : <span>Imagem não carregada</span>
-                                                }
-                                                <h4>
-                                                    {card.title} {card.subtitle ? `- ${card.subtitle}` : ""}
-                                                </h4>
-                                            </div>
-                                            <div className={styles.divider}></div>
-                                        </li>
-                                    </>
+                                    <li style={{ cursor: loading ? "progress" : "pointer" }}
+                                        key={uniqueKey(card, 'search')}
+                                        onClick={() => handleRelatedSearchClick(card)}
+                                    >
+                                        <div className={styles.item}>
+                                            {tmdbData ? <img
+                                                src={`https://image.tmdb.org/t/p/w400${tmdbData.poster_path}`}
+                                                alt="Poster"
+                                                className={styles.imgSearch}
+                                            />
+                                                : <span>Imagem não carregada</span>
+                                            }
+                                            <h4>
+                                                {card.title} {card.subtitle ? `- ${card.subtitle}` : ""}
+                                            </h4>
+                                        </div>
+                                        <div className={styles.divider}></div>
+                                    </li>
                                 )
                             }
                             )}
