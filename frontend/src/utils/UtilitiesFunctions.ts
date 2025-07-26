@@ -1,5 +1,5 @@
-import { CardsProps } from "@/@types/Cards"
-import { SeriesProps } from "@/@types/series"
+import { CardsProps, MovieTMDB } from "@/@types/Cards"
+import { SeriesProps, TMDBSeries } from "@/@types/series"
 
 /**
  * Função que transforma minutos em horas
@@ -142,6 +142,6 @@ export function getDate() {
     return data
 }
 
-export const uniqueKey = (card: CardsProps | SeriesProps, context?: string): string => {
-    return `${context || 'card'}-${('season' in card ? card.tmdbID : card.tmdbId) || card.title + '-' + card.index}`
+export const uniqueKey = (card: CardsProps | SeriesProps | MovieTMDB | TMDBSeries, context?: string): string => {
+    return `${context || 'card'}-${('season' in card ? card.tmdbID : 'overview' in card ? card.id : card.tmdbId) || ('season' in card ? card.title + card.tmdbID : 'seasons' in card ? card.name : 'tmdbId' in card ? card.title + card.tmdbId : card.title + card.id)}`
 }

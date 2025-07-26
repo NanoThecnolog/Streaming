@@ -35,6 +35,7 @@ export interface TMDBEpisodes {
     runtime: number
 }
 export interface TMDBSeries {
+    seasons: SeasonTMDB,
     backdrop_path: string,
     id: number,
     name: string,
@@ -50,4 +51,14 @@ export interface TMDBSeries {
 export interface DubbedEpisode {
     tmdbID: number,
     season: Seasons[],
+}
+export interface SeasonTMDB {
+    air_date: string,
+    episode_count: number,
+    id: number,
+    name: string,
+    overview: string,
+    poster_path: string,
+    season_number: number,
+    vote_average: number
 }

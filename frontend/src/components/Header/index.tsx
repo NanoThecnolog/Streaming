@@ -21,6 +21,7 @@ import { apiManager } from "@/services/apiManager";
 import { useTMDB } from "@/contexts/TMDBContext";
 import { SetupAPIClient } from "@/services/api";
 import { uniqueKey } from "@/utils/UtilitiesFunctions";
+import Notifications from "../Notifications";
 
 export default function Header() {
     //refatorar esse componente
@@ -208,6 +209,7 @@ export default function Header() {
                 </form>
             </div>
             <div className={styles.right_nav}>
+                <Notifications moviesTMDB={allData} seriesTMDB={serieData} />
                 <div className={styles.status}>
                     <div
                         className={styles.bolinha}
