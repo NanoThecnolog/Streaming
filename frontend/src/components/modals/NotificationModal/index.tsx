@@ -8,11 +8,11 @@ interface ModalProps {
     content: (MovieTMDB | TMDBSeries)[]
 }
 export default function NotificationModal({ content }: ModalProps) {
-    if (!content) return
     const router = useRouter()
     const handleClick = (link: string) => {
         router.push(link)
     }
+    if (!content) return
     return (
         <>
             {
