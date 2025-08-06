@@ -28,7 +28,7 @@ export default function SEO({ title, description, image, url }: SEOProps) {
             <meta property="twitter:card" content="summary_large_image" />
             <meta property="twitter:image" content={image ?? websiteImage} />
 
-            <link rel="icon" href="/favicon.ico" />
+            <link rel="icon" href="/favicon_io/android-chrome-192x192.png" />
         </Head>
     )
 }

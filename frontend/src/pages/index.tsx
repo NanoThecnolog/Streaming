@@ -1,4 +1,3 @@
-import { Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useCallback, useEffect, useState } from "react";
@@ -18,7 +17,6 @@ import { useFlix } from "@/contexts/FlixContext";
 import NewTop from "@/components/newTop";
 import { CardsProps } from "@/@types/Cards";
 import TopPopularMovies from "@/components/TopPopularMovies";
-import { SeriesProps } from "@/@types/series";
 
 
 
