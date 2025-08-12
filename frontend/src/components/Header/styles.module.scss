@@ -283,6 +283,47 @@
 
     .dropdown {
         display: none;
+
+        .dropModal {
+            position: absolute;
+            bottom: 60px;
+            right: 10px;
+            width: 200px;
+            height: 150px;
+            background-color: var(--background-gray);
+            border-radius: .4rem;
+            z-index: 1;
+
+            ul {
+                list-style: none;
+                font-family: var(--font-Roboto);
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                padding: 0 12px;
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    cursor: pointer;
+                    width: 100%;
+                    height: 25px;
+                    transition: .4s;
+                    color: var(--white);
+
+
+                    &:hover {
+                        transform: scale(1.09);
+                    }
+                }
+
+                a {
+                    color: var(--white);
+                    text-decoration: none;
+                }
+            }
+        }
     }
 
 
@@ -321,6 +362,7 @@
         .dropdownModal {
             position: fixed;
             top: 75%;
+            z-index: 100;
         }
 
         .dropdown {
@@ -337,11 +379,17 @@
             gap: 10px;
 
             .dropdownIcon {
-                padding: 2rem;
+                //padding: 2rem;
                 position: relative;
                 width: 100%;
                 display: flex;
                 justify-content: center;
+
+                .searchIcon {
+                    //outline: 2px solid red;
+                    width: 100%;
+                    text-align: center;
+                }
 
                 .dropdownMenu {
                     display: flex;
@@ -352,7 +400,7 @@
                     width: 300px;
                     height: 110px;
                     position: absolute;
-                    bottom: 100%;
+                    bottom: 45px;
                     left: 10%;
 
                     .divider {
@@ -409,7 +457,6 @@
                     top: -80px;
                     font-family: var(--font-Roboto);
                     font-weight: 900;
-
                 }
 
                 .searchInputModal {
@@ -417,7 +464,7 @@
                     align-items: center;
                     justify-content: center;
                     position: absolute;
-                    top: -40px;
+                    bottom: 45px;
                     //left: -110px;
                     width: 180px;
                     border-radius: 0.4rem;
@@ -522,11 +569,18 @@
             gap: 10px;
 
             .dropdownIcon {
-                padding: 2rem;
+                //                padding: 2rem;
                 position: relative;
                 width: 100%;
                 display: flex;
                 justify-content: center;
+                //outline: 2px solid red;
+
+                .searchIcon {
+                    //outline: 2px solid red;
+                    width: 100%;
+                    text-align: center;
+                }
 
                 .dropdownMenu {
                     display: flex;
@@ -537,7 +591,7 @@
                     width: 300px;
                     height: 110px;
                     position: absolute;
-                    bottom: 100%;
+                    bottom: 50px;
                     left: 10%;
 
                     .divider {
@@ -592,7 +646,7 @@
                     background-color: var(--red);
                     color: var(--white);
                     border-radius: .4rem;
-                    top: -80px;
+                    bottom: 80px;
                     font-family: var(--font-Roboto);
                     font-weight: 900;
                 }
@@ -602,7 +656,7 @@
                     align-items: center;
                     justify-content: center;
                     position: absolute;
-                    top: -40px;
+                    bottom: 50px;
                     width: 280px;
                     border-radius: 0.4rem;
                     padding: 0 1rem;
@@ -711,11 +765,17 @@
             gap: 10px;
 
             .dropdownIcon {
-                padding: 2rem;
+                //padding: 2rem;
                 position: relative;
                 width: 100%;
                 display: flex;
                 justify-content: center;
+
+                .searchIcon {
+                    //outline: 2px solid red;
+                    width: 100%;
+                    text-align: center;
+                }
 
                 .dropdownMenu {
                     display: flex;
@@ -726,7 +786,7 @@
                     width: 300px;
                     height: 110px;
                     position: absolute;
-                    bottom: 100%;
+                    bottom: 45px;
                     left: 10%;
 
                     .divider {
@@ -792,7 +852,7 @@
                     align-items: center;
                     justify-content: center;
                     position: absolute;
-                    top: -40px;
+                    bottom: 50px;
                     //left: -70%;
                     width: 280px;
                     border-radius: 0.4rem;
@@ -845,6 +905,47 @@
                                 }
                             }
                         }
+                    }
+                }
+            }
+
+            .dropModal {
+                position: absolute;
+                bottom: 60px;
+                right: 10px;
+                width: 200px;
+                height: 150px;
+                background-color: var(--background-gray);
+                border-radius: .4rem;
+                z-index: 1;
+
+                ul {
+                    list-style: none;
+                    font-family: var(--font-Roboto);
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    padding: 0 12px;
+
+                    li {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        cursor: pointer;
+                        width: 100%;
+                        height: 25px;
+                        transition: .4s;
+                        color: var(--white);
+
+
+                        &:hover {
+                            transform: scale(1.09);
+                        }
+                    }
+
+                    a {
+                        color: var(--white);
+                        text-decoration: none;
                     }
                 }
             }
@@ -902,11 +1003,17 @@
             gap: 10px;
 
             .dropdownIcon {
-                padding: 2rem;
+                //padding: 2rem;
                 position: relative;
                 width: 100%;
                 display: flex;
                 justify-content: center;
+
+                .searchIcon {
+                    //outline: 2px solid red;
+                    width: 100%;
+                    text-align: center;
+                }
 
                 .dropdownMenu {
                     display: flex;
@@ -917,8 +1024,8 @@
                     width: 300px;
                     height: 110px;
                     position: absolute;
-                    bottom: 100%;
-                    left: 10%;
+                    bottom: 50px;
+                    left: 10px;
 
                     .divider {
                         border: 1px solid rgba(0, 0, 0, 0.1);
@@ -982,8 +1089,7 @@
                     align-items: center;
                     justify-content: center;
                     position: absolute;
-                    top: -40px;
-                    //left: -70%;
+                    bottom: 50px;
                     width: 280px;
                     border-radius: 0.4rem;
                     padding: 0 1rem;
@@ -1037,6 +1143,12 @@
                         }
                     }
                 }
+            }
+
+            .dropModal {
+                //outline: 2px solid red;
+                z-index: 12;
+                right: 10px;
             }
 
             .divider {

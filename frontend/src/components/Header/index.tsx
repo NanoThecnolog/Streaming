@@ -32,6 +32,7 @@ export default function Header() {
     const [menuvisible, setMenuVisible] = useState<boolean>(false)
     const [modal, setModal] = useState<boolean>(false)
     const [searchMobileVisible, setSearchMobileVisible] = useState<boolean>(false)
+    const [dropModal, setDropModal] = useState(false)
     const [serverWake, setServerWake] = useState<boolean>(false)
     const { user, setUser, signOut } = useFlix()
     const { allData, serieData } = useTMDB()
@@ -134,17 +135,30 @@ export default function Header() {
         const search = new URLSearchParams({ input: input });
         Router.push(`/search?${search.toString()}`);
     }
-    function handleUserClick() {
-        setModal(!modal)
-        //Router.push('/me');
-    }
+
 
     function handleClickHome(id: number) {
         if (id === 1) {
             setMenuVisible(!menuvisible)
+            setDropModal(false)
+            setSearchMobileVisible(false)
         }
         if (id === 2) {
             setSearchMobileVisible(!searchMobileVisible)
+            if (searchInput) {
+                setSearchInput('')
+                setRelatedSearch([])
+            }
+            setDropModal(false)
+            setMenuVisible(false)
+        }
+        if (id === 3) {
+            setDropModal(!dropModal)
+            setSearchMobileVisible(false)
+            setMenuVisible(false)
+        }
+        if (id === 4) {
+            setModal(!modal)
         }
     }
     return (
@@ -217,7 +231,7 @@ export default function Header() {
                     ></div>
                     <p>status</p>
                 </div>
-                <div onClick={handleUserClick}>
+                <div onClick={() => handleClickHome(4)}>
                     {
                         user?.avatar ? (
                             <div className={styles.avatarImage} title="Meu Perfil">
@@ -262,7 +276,9 @@ export default function Header() {
                 </div>
                 <div className={styles.divider}></div>
                 <div className={styles.dropdownIcon}>
-                    <Search onClick={() => handleClickHome(2)} />
+                    <div className={styles.searchIcon} onClick={() => handleClickHome(2)} >
+                        <Search />
+                    </div>
                     {searchMobileVisible &&
                         <>
                             <form onSubmit={(e) => { e.preventDefault(); handleSearch(searchInput) }} className={styles.searchInputModal}>
@@ -299,7 +315,7 @@ export default function Header() {
                     }
                 </div>
                 <div className={styles.divider}></div>
-                <div className={styles.dropdownIcon} onClick={handleUserClick}>
+                <div className={styles.dropdownIcon} onClick={() => handleClickHome(3)}>
                     {
                         user?.avatar ? (
                             <div className={styles.dropdownAvatarImage} title="Meu Perfil">
@@ -312,6 +328,24 @@ export default function Header() {
                             <FaUserCircle size={35} className={styles.loginIcon} />
                     }
                 </div>
+                {
+                    dropModal &&
+                    <div className={styles.dropModal}>
+                        {user ?
+                            <ul>
+                                <Link href="/me"><li><FaUserCircle size={20} />Minha Conta</li></Link>
+                                <Link href="/watchlater"><li><FaListUl size={20} />Minha Lista</li></Link>
+                                <Link href="/request"><li><IoAddCircle size={20} />Solicitar Filme/Série</li></Link>
+                                <li onClick={signOut}><LucideLogOut size={20} />Sair</li>
+                            </ul>
+                            :
+                            <ul>
+                                <Link href="/login"><li><FaSignInAlt size={20} />Entrar</li></Link>
+                                <Link href="/signup"><li><IoCreate size={20} />Criar Conta</li></Link>
+                            </ul>
+                        }
+                    </div>
+                }
             </div>
         </div>
     )
