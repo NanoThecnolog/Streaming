@@ -35,10 +35,24 @@
                 transition: 0.5s;
 
                 @media(hover) {
+
                     &:hover {
                         color: rgba(255, 255, 255, .0);
                         background-color: transparent;
                     }
+                }
+
+            }
+        }
+    }
+}
+
+@media(max-width: 560px) {
+    .carouselContainer {
+        .carousel {
+            .slide {
+                p {
+                    background-color: rgba(0, 0, 0, .2);
                 }
             }
         }
