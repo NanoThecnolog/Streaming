@@ -16,7 +16,7 @@ import { generate } from '@/classes/Generate'
 
 
 export default function Signup() {
-    const [passVisible, setPassVisible] = useState<boolean>(false)
+    const [passVisible, setPassVisible] = useState<boolean>(true)
 
     const [confirmPassword, setConfirmPassword] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
