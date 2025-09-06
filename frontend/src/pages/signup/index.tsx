@@ -3,22 +3,21 @@ import styles from './styles.module.scss'
 import Link from 'next/link'
 import { toast } from 'react-toastify'
 import Router from 'next/router'
-import { FaSpinner } from 'react-icons/fa'
+import { FaEye, FaEyeSlash, FaSpinner } from 'react-icons/fa'
 import SEO from '@/components/SEO'
 import { Validate } from '@/classes/validater'
 import { NewUserProps } from '@/@types/userTypes/signUp'
 import { userMethod } from '@/classes/userMethods'
 import { debug } from '@/classes/DebugLogger'
+import { FaKey } from 'react-icons/fa6'
+import { generate } from '@/classes/Generate'
 
 
 
 
 export default function Signup() {
-    //refatorar esse componente
-    //const [name, setName] = useState<string>('')
-    //const [birthday, setBirthday] = useState<Date>()
-    //const [email, setEmail] = useState<string>('')
-    //const [password, setPassword] = useState<string>('')
+    const [passVisible, setPassVisible] = useState<boolean>(false)
+
     const [confirmPassword, setConfirmPassword] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
     const login = "/login";
@@ -75,6 +74,12 @@ export default function Signup() {
         }
     }
 
+    const generatePassword = () => {
+        const senhaGerada = generate.password(12)
+        setUser((prev) => ({ ...prev, password: senhaGerada }))
+        setConfirmPassword(senhaGerada)
+    }
+
     return (
         <>
             <SEO title='Criar conta | FlixNext' description='Crie sua conta e começe a assistir hoje mesmo!' />
@@ -93,7 +98,7 @@ export default function Signup() {
                                         onChange={(e) => setUser((prev) => ({ ...prev, name: e.target.value }))}
                                     />
                                 </div>
-                                <div className={styles.nameContainer}>
+                                <div className={styles.cpfContainer}>
                                     <h2>CPF:</h2>
                                     <input
                                         type='text'
@@ -130,22 +135,29 @@ export default function Signup() {
                                 <div className={styles.passwordContainer}>
                                     <h2>Senha:</h2>
                                     <input
-                                        type="password"
+                                        type={passVisible ? "password" : "text"}
                                         required
                                         value={user.password}
                                         onChange={(e) => setUser((prev) => ({ ...prev, password: e.target.value }))}
                                     />
+                                    <div className={styles.reveal} onClick={() => setPassVisible(!passVisible)}>
+                                        {
+                                            passVisible ? <FaEye /> : <FaEyeSlash />
+                                        }
+                                    </div>
+                                    <div className={styles.generatePass} title='Gerar senha aleatória' onClick={generatePassword}>
+                                        <FaKey />
+                                    </div>
                                 </div>
-                                <div className={styles.passwordContainer}>
+                                <div className={styles.passwordConfirmContainer}>
                                     <h2>Confirmar senha:</h2>
                                     <input
-                                        type="password"
+                                        type={passVisible ? "password" : "text"}
                                         required
                                         value={confirmPassword}
                                         onChange={(e) => setConfirmPassword(e.target.value)}
                                     />
                                 </div>
-
                             </div>
                         </div>
 
