@@ -15,7 +15,10 @@ class ActiveUserService {
             }
         })
         if (!userExiste) throw new Error("Usuário não encontrado")
-        if (userExiste.verified) return userExiste
+        if (userExiste.verified) {
+            console.log('Usuario já ativo')
+            return userExiste
+        }
 
         const user = await prismaClient.user.update({
             where: { id },
@@ -33,6 +36,8 @@ class ActiveUserService {
             }
         })
 
+        console.log('Tudo certo com a ativação do usuario')
+
 
         try {
             const loginLink = `${process.env.WEBSITE_LINK}/login`
@@ -46,7 +51,7 @@ class ActiveUserService {
             if (sendEmail.data.accepted.length > 0) console.log("mensagem enviada")
             return user
         } catch (error) {
-            throw new Error("Erro com o envio do email")
+            throw new Error("Erro com o envio do email de confirmação de ativação")
         }
     }
 }
