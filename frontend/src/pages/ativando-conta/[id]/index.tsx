@@ -4,10 +4,35 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import Spinner from "@/components/ui/Loading/spinner";
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
 
-export default function Active() {
-    const router = useRouter()
-    const { id } = router.query;
+interface ActiveProps {
+    id: string
+}
+
+interface ReturnProps {
+    id: string;
+    email: string;
+    addressId: string | null;
+    name: string;
+    birthday: Date;
+    cpf: string | null;
+    phone_number: string | null;
+    password: string;
+    donator: boolean;
+    avatar: string | null;
+    verified: boolean;
+    news: boolean;
+    access: boolean;
+    resetToken: string | null;
+    resetTokenExpire: Date | null;
+    created_at: Date;
+    updated_at: Date;
+}
+
+export default function Active({ id }: ActiveProps) {
+    //const router = useRouter()
+    //const { id } = router.query;
     const [user, setUser] = useState<{ id: string, name: string } | null>(null)
     const loginLink = `/login`
     const containerStyles = {
@@ -16,16 +41,20 @@ export default function Active() {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
     }
+
     useEffect(() => {
-        if (id) activeAcess()
-    }, [id])
-    async function activeAcess() {
         if (!id) return console.error("ID não fornecido")
+        activeAccess()
+    }, [id])
+
+    async function activeAccess() {
         try {
-            const response = await axios.post(`/api/ativar/${id}`)
-            setUser(response.data)
+            const response = await axios.post<ReturnProps>(`/api/ativar/${id}`)
+            const data = response.data
+            setUser({ id: data.id, name: data.name })
         } catch (err) {
             console.error("Erro ao ativar a conta: ", err)
+            //setUser({id: 'ID não recebido', name: 'Sem nome'})
         }
     }
 
@@ -56,4 +85,46 @@ export default function Active() {
             }
         </>
     )
+}
+
+export const getServerSideProps: GetServerSideProps = async (ctx: GetServerSidePropsContext) => {
+    const id = ctx.query?.id
+    console.log(id)
+
+    if (!id || typeof id !== 'string') {
+        return {
+            props: { id: 'id não recebido' }
+        }
+    }
+
+    /*try {
+        const response = await fetch(`https://flixnext.com.br/api/ativar/${id}`, {
+            method: 'POST'
+        })
+        const data = await response.json()
+        console.log(data)
+        //return response.data
+    } catch (err) {
+        console.error("Erro ao ativar essa conta: ", err)
+        //return { message: 'error', error: err }
+    }
+
+    /*async function activeAccess() {
+        if (!id) return console.error("ID não fornecido")
+        try {
+            const response = await axios.post(`https://flixnext.com.br/api/ativar/${id}`)
+            console.log(response.data)
+            //return response.data
+        } catch (err) {
+            console.error("Erro ao ativar a conta: ", err)
+            //return { message: 'error', error: err }
+        }
+    }
+    //console.log(activeAccess())*/
+
+
+
+    return {
+        props: { id }
+    }
 }

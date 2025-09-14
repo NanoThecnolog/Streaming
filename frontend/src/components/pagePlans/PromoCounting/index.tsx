@@ -23,7 +23,7 @@ export default function PromoCounting() {
             <div className={styles.divider} />
             <div className={styles.solution}>
                 <p>Você pode ter acesso a tudo isso em um só lugar</p>
-                <h3>Por apenas <span>R$10,99/mês</span></h3>
+                <h3>A partir de <span>R$10.99/mês</span></h3>
                 <Link href='/planos/#escolher'>
                     <button>Assine agora!</button>
                 </Link>

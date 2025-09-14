@@ -6,8 +6,8 @@ import { PlansProps } from "@/@types/plans";
 import 'swiper/css';
 import axios from "axios";
 import { mongoService } from "@/classes/MongoContent";
-import {MovieTMDB } from "@/@types/Cards";
-import {  TMDBSeries } from "@/@types/series";
+import { MovieTMDB } from "@/@types/Cards";
+import { TMDBSeries } from "@/@types/series";
 import Prices from "@/components/pagePlans/PromoPrices";
 import Carousel from "@/components/pagePlans/PromoCarousel";
 import Streaming from "@/components/pagePlans/PromoStreamings";
@@ -27,6 +27,8 @@ export default function PagePlans({ plans, tmdbMovies, tmdbSeries }: PagePlansPr
     return (
         <>
             <SEO title="Escolha seu Plano | FlixNext" description="Planos a partir de R$10,99" />
+
+            <div className={styles.parallaxBackground}></div>
             <Header />
             <main className={styles.mainPage} id="escolher">
                 {
@@ -34,10 +36,11 @@ export default function PagePlans({ plans, tmdbMovies, tmdbSeries }: PagePlansPr
                 }
                 <Carousel movies={tmdbMovies} series={tmdbSeries} />
                 <Streaming />
-                <PromoCounting/>
+                <PromoCounting />
                 <PromoFAQ />
             </main>
             <Footer />
+
         </>
     )
 }

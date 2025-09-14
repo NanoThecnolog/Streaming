@@ -87,6 +87,7 @@ export default function Watch() {
                 })
                 debug.log("depois do envio de email", notificar.data)
                 if (notificar.data.code === 201) debug.log("email enviado!")
+                else debug.warn('email pode não ter sido enviado. Verificar o codigo:', notificar.data.code)
                 return setShared(false)
             }
             if (info.data.code && info.data.code === 200) {

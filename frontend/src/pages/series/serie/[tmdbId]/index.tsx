@@ -42,10 +42,11 @@ interface groupedByDepartment {
     [job: string]: CrewProps[]
 }
 interface SerieProps {
-    data: TMDBSeries
+    data: TMDBSeries,
+    buttonVisible: boolean
 }
 
-export default function Serie({ data }: SerieProps) {
+export default function Serie({ data, buttonVisible }: SerieProps) {
     //refatorar
     const router = useRouter()
     const { tmdbId } = router.query;
@@ -324,6 +325,7 @@ export default function Serie({ data }: SerieProps) {
                                             <Play />
                                             <h4>Começar a Assistir</h4>
                                         </button>
+
                                     </div>
                                     <div className={styles.buttonContainer}>
                                         <div className={styles.watchLater}>
@@ -346,6 +348,9 @@ export default function Serie({ data }: SerieProps) {
                                             <div className={styles.trailerButton}>
                                                 <TrailerButton trailer={trailer} />
                                             </div>
+                                        }
+                                        {
+                                            buttonVisible && <button style={{ color: '#fff' }} onClick={() => router.push(`/dashboard?id=${tmdbId}`)}>Editar Serie</button>
                                         }
                                     </div>
                                     <div>
@@ -491,9 +496,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
     }
 }*/
 
+import nookies from 'nookies'
+import { verify } from "jsonwebtoken";
+
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const { tmdbId } = context.params as { tmdbId: string }
     const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
+
 
     const res = await axios.get(`https://api.themoviedb.org/3/tv/${tmdbId}`, {
         headers: {
@@ -512,9 +521,33 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         }
     }
 
+    const cookies = nookies.get(context)
+    const token = cookies['flix-token']
+    const env = process.env.SECRET_JWT ?? ''
+    console.log('token dos cookies', token)
+
+    let userId = null
+    let buttonVisible: boolean = false
+    if (token) {
+        try {
+            const decoded = verify(token, env)
+            userId = decoded.sub
+            console.log('decoded dentro do try', decoded)
+        } catch (err) {
+            console.error('Token inválido ou expirado', err)
+        }
+    }
+
+    console.log('id do usuario no token httponly', userId)
+    if (userId && userId === '14864ef2-94ca-4b02-a41b-b69dbc306489') {
+        buttonVisible = true
+    }
+
+
     return {
         props: {
-            data
+            data,
+            buttonVisible
         },
     }
 }

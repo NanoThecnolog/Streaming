@@ -5,7 +5,7 @@ import { Navigation } from 'swiper/modules'
 import { CardsProps } from '@/@types/Cards'
 import { SeriesProps } from '@/@types/series'
 import Link from 'next/link'
-import { debug } from '@/classes/DebugLogger'
+//import { debug } from '@/classes/DebugLogger'
 import { uniqueKey } from '@/utils/UtilitiesFunctions'
 
 

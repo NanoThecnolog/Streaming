@@ -22,8 +22,7 @@ export default function Login() {
         try {
             setLoading(true)
             const credentials = { email, password }
-            const login = await signIn(credentials)
-
+            await signIn(credentials)
         } catch (err) {
             console.log('Erro ao realizar login', err)
         } finally {

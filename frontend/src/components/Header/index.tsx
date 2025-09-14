@@ -229,7 +229,6 @@ export default function Header() {
                         className={styles.bolinha}
                         style={{ backgroundColor: serverWake ? '#007714' : '#d42c2c' }}
                     ></div>
-                    <p>status</p>
                 </div>
                 <div onClick={() => handleClickHome(4)}>
                     {

@@ -13,7 +13,7 @@ interface PutTVProps {
 }
 
 export default function PutTV({ tmdbid }: PutTVProps) {
-    const [id, setId] = useState<number>()
+    const [id, setId] = useState<number>(0)
     const [loading, setLoading] = useState(false)
     const [serieData, setSerieData] = useState<TVProps>({
         background: '/fundo-largo.jpg',
@@ -33,6 +33,7 @@ export default function PutTV({ tmdbid }: PutTVProps) {
     ]
     useEffect(() => {
         if (tmdbid) {
+            setId(tmdbid)
             const getMovie = async () => {
                 const seriedb = await mongoService.findOneSerieById(tmdbid)
                 if (seriedb) setSerieData(seriedb)

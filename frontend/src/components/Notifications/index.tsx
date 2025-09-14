@@ -48,13 +48,13 @@ export default function Notifications({ moviesTMDB, seriesTMDB }: NotificationPr
             .slice(0, 5)
         , [series, tmdbSerieMap])
 
-    debug.log("Ultimos filmes:", lastMovies, 'Ultimas series:', lastSeries)
+    //debug.log("Ultimos filmes:", lastMovies, 'Ultimas series:', lastSeries)
 
     const mergedContent = useMemo(() => {
         return [...lastMovies, ...lastSeries]
     }, [lastMovies, lastSeries])
 
-    debug.log('conteudo fundido: ', mergedContent)
+    //debug.log('conteudo fundido: ', mergedContent)
     useEffect(() => {
         setNotificationContent(mergedContent)
     }, [mergedContent])

@@ -23,6 +23,7 @@
     "fuse.js": "^7.1.0",
     "geoip-lite": "^1.4.10",
     "googleapis": "^144.0.0",
+    "jsonwebtoken": "^9.0.2",
     "lodash.debounce": "^4.0.8",
     "lucide-react": "^0.441.0",
     "mjml": "^4.15.3",
@@ -46,6 +47,7 @@
   },
   "devDependencies": {
     "@types/geoip-lite": "^1.4.4",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/lodash.debounce": "^4.0.9",
     "@types/node": "^20",
     "@types/nprogress": "^0.2.3",
