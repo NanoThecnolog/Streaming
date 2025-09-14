@@ -28,7 +28,7 @@ model user {
   favoritos        favorito[]
   donator          Boolean       @default(false)
   avatar           String?
-  verified         Boolean       @default(false)
+  verified         Boolean       @default(true)
   news             Boolean       @default(true)
   access           Boolean       @default(false)
   resetToken       String?
