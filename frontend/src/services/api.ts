@@ -21,15 +21,3 @@ export class SetupAPIClient {
 
     }
 }
-
-/**export const api = axios.create({
-    baseURL: url
-});*/
-
-/*api.interceptors.request.use(async (config) => {
-    const { 'flix-token': token } = parseCookies()
-    if (token) config.headers.Authorization = `Bearer ${token}`
-    return config;
-}, (error) => {
-    return Promise.reject(error)
-})*/

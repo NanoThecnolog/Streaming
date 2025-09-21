@@ -1,4 +1,4 @@
-import { verifyAllDataFiles, verifySerieDataFiles } from "@/services/googleCheck";
+import { drive } from "@/services/googleCheck";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -6,7 +6,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     try {
         const { type } = req.query;
 
-        const result = type === 'movie' ? await verifyAllDataFiles() : await verifySerieDataFiles();
+        const result = type === 'movie' ? await drive.verifyAllDataFiles() : await drive.verifySerieDataFiles();
 
         return res.status(200).json({
             code: 200,

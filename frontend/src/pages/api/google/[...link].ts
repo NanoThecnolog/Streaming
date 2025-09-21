@@ -1,4 +1,4 @@
-import { checkDriveFile, extractFileId } from "@/services/googleCheck";
+import { drive } from "@/services/googleCheck";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -13,10 +13,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     try {
         const decodedLink = decodeURIComponent(
             Array.isArray(link) ? link.join('/') : link)
-        const fileId = extractFileId(decodedLink);
+        const fileId = drive.extractFileId(decodedLink);
 
         if (fileId) {
-            const infoFile = await checkDriveFile(fileId);
+            const infoFile = await drive.checkFile(fileId);
             return res.status(200).json(infoFile)
         } else {
             return res.status(400).json({ code: 400, message: '❗ ID do arquivo não encontrado no link.' })

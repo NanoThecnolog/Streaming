@@ -5,9 +5,10 @@ import { FaInfoCircle, FaPlay, FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
 import { CardsProps, MovieTMDB } from '@/@types/Cards';
 import Adult from '../ui/Adult';
 import { useTMDB } from '@/contexts/TMDBContext';
-import { fetchTMDBMovie } from '@/services/fetchTMDBData';
 import { useFlix } from '@/contexts/FlixContext';
 import { mongoService } from '@/classes/MongoContent';
+import { flixFetcher } from '@/classes/Flixclass';
+import { tmdb } from '@/classes/TMDB';
 
 interface TopProps {
     width: number
@@ -42,7 +43,7 @@ export default function NewTop({ width, card }: TopProps) {
                 setTMDBMovie(data)
                 setTMDBImages({ backdrop: `https://image.tmdb.org/t/p/original${data.backdrop_path}`, poster: `https://image.tmdb.org/t/p/original${data.poster_path}` })
             } else {
-                const movie = await fetchTMDBMovie(card.tmdbId)
+                const movie = await tmdb.fetchMovieDetails(card.tmdbId)
                 setTMDBMovie(movie)
                 setTMDBImages({ backdrop: `https://image.tmdb.org/t/p/original${movie?.backdrop_path}`, poster: `https://image.tmdb.org/t/p/original${movie?.poster_path}` })
             }

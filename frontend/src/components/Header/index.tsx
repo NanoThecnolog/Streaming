@@ -70,7 +70,7 @@ export default function Header() {
         const inicial = user.name[0].toUpperCase()
         setInitial(inicial)
     }, [user])
-    useEffect(() => {
+    /**useEffect(() => {
         async function wakeUpServer() {
             const responses = await Promise.allSettled([
                 client.api.get('/acordar'),
@@ -98,7 +98,7 @@ export default function Header() {
             wakeUpServer()
         }, 40000)
         return () => clearInterval(manterAcordado)
-    }, [])
+    }, [])*/
 
     useEffect(() => {
         if (loading) document.body.style.cursor = "progress"
@@ -224,12 +224,14 @@ export default function Header() {
             </div>
             <div className={styles.right_nav}>
                 <Notifications moviesTMDB={allData} seriesTMDB={serieData} />
-                <div className={styles.status}>
+                {
+                    /*<div className={styles.status}>
                     <div
                         className={styles.bolinha}
                         style={{ backgroundColor: serverWake ? '#007714' : '#d42c2c' }}
                     ></div>
-                </div>
+                </div>*/
+                }
                 <div onClick={() => handleClickHome(4)}>
                     {
                         user?.avatar ? (
