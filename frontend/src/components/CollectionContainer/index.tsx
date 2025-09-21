@@ -1,4 +1,3 @@
-import { fetchCollection } from '@/services/fetchTMDBData'
 import styles from './styles.module.scss'
 import { ResultsProps } from '@/@types/collection'
 import { useCallback, useEffect, useState } from 'react'
@@ -6,6 +5,7 @@ import CardCollection from './CardCollection'
 import { collections } from '@/data/collections'
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md'
 import { useRouter } from 'next/router'
+import { tmdb } from '@/classes/TMDB'
 
 interface CollectionProps {
     cardPerContainer: number
@@ -47,7 +47,7 @@ export default function CollectionContainer({ cardPerContainer }: CollectionProp
 
     const fetchCollectionData = useCallback(async () => {
         try {
-            const resultados = (await Promise.all(collectionsName.map(fetchCollection)))
+            const resultados = (await Promise.all(collectionsName.map(tmdb.fetchCollection)))
                 .flat()
                 .filter((result): result is ResultsProps => result !== null)
 

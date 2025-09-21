@@ -2,10 +2,10 @@ import styles from './styles.module.scss'
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { SeriesProps } from "@/@types/series";
-import { fetchTMDBSeries } from '@/services/fetchTMDBData';
 import { useRouter } from 'next/router';
 import { useTMDB } from '@/contexts/TMDBContext';
 import NewContent from '@/components/ui/NewContent';
+import { tmdb } from '@/classes/TMDB';
 
 interface CardProps {
     card: SeriesProps;
@@ -30,7 +30,7 @@ export default function Card({ card }: CardProps) {
                         setTMDBImage({ poster: url })
                         setCachedImage(card.tmdbID, url)
                     } else {
-                        const url = await fetchTMDBSeries(card.tmdbID)
+                        const url = await tmdb.fetchSeriesDetails(card.tmdbID)
                         if (url) {
                             const posterImage = `https://image.tmdb.org/t/p/w500${url.poster_path}`
                             setTMDBImage({ poster: posterImage })

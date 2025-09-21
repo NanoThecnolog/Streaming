@@ -7,10 +7,10 @@ import { FaInfoCircle, FaPlay } from 'react-icons/fa';
 import { CardsProps, MovieTMDB } from '@/@types/Cards';
 import Adult from '../ui/Adult';
 import { useTMDB } from '@/contexts/TMDBContext';
-import { fetchTMDBBackDrop, fetchTMDBMovie, fetchTMDBPoster } from '@/services/fetchTMDBData';
 import { useFlix } from '@/contexts/FlixContext';
 import { mongoService } from '@/classes/MongoContent';
 import { debug } from '@/classes/DebugLogger';
+import { tmdb } from '@/classes/TMDB';
 
 interface TopProps {
     width?: number
@@ -61,9 +61,9 @@ export default function Top({ width, cards }: TopProps) {
                 setTMDBMovie(data)
                 setTMDBImages({ backdrop: backdropUrl, poster: posterUrl })
             } else {
-                const movie = await fetchTMDBMovie(card.tmdbId)
-                const backdropUrl = await fetchTMDBBackDrop(card.tmdbId)
-                const posterUrl = await fetchTMDBPoster(card.tmdbId)
+                const movie = await tmdb.fetchMovieDetails(card.tmdbId)
+                const backdropUrl = await tmdb.fetchMovieBackDrop(card.tmdbId)
+                const posterUrl = await tmdb.fetchMoviePoster(card.tmdbId)
                 setTMDBMovie(movie)
                 setTMDBImages({ backdrop: backdropUrl, poster: posterUrl })
             }
