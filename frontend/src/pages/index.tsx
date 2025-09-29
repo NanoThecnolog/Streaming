@@ -19,10 +19,6 @@ import { CardsProps } from "@/@types/Cards";
 import TopPopularMovies from "@/components/TopPopularMovies";
 
 
-
-
-
-
 export default function Home() {
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
   const [width, setWidth] = useState<number>(0)
@@ -34,7 +30,7 @@ export default function Home() {
   const { allData, setAllData, serieData, setSerieData } = useTMDB()
   const [visible, setvisible] = useState(false)
   const { movies, setMovies } = useFlix()
-  const tmdbid = 1242011;
+  const tmdbid = 1007734;
   const [topCard, setTopCard] = useState<CardsProps | null>(null)
 
   useEffect(() => {
