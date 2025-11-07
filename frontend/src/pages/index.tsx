@@ -30,8 +30,13 @@ export default function Home() {
   const { allData, setAllData, serieData, setSerieData } = useTMDB()
   const [visible, setvisible] = useState(false)
   const { movies, setMovies } = useFlix()
-  const tmdbid = 604079;
+  const tmdbid = 617126;
   const [topCard, setTopCard] = useState<CardsProps | null>(null)
+
+  useEffect(() => {
+    const card = movies.find((card) => card.tmdbId === tmdbid)
+    if (card && (!topCard || topCard.tmdbId !== card.tmdbId)) setTopCard(card)
+  }, [movies])
 
   useEffect(() => {
     async function fetchMoviesMongoDB() {
