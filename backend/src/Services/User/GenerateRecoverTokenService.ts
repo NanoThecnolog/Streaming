@@ -33,18 +33,26 @@ export class GenerateRecoverTokenService {
             const response = await recoverEmail.execute(userExiste, token)
 
             debugLog("mensagem enviada")
-            sendStatus = response
+
+            if (!response) return {
+                id: userExiste.id,
+                name: userExiste.name,
+                email: userExiste.email,
+                status: "Email não enviado"
+            }
+
+            return {
+                id: userExiste.id,
+                name: userExiste.name,
+                email: userExiste.email,
+                status: "Email enviado"
+            }
+
 
         } catch (err) {
-            sendStatus = "Erro ao enviar email"
             throw new Error("Erro com o envio do email")
         }
-        return {
-            id: userExiste.id,
-            name: userExiste.name,
-            email: userExiste.email,
-            status: sendStatus
-        }
+
 
 
     }

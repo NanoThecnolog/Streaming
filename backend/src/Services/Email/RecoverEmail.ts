@@ -1,6 +1,7 @@
 import prismaClient from '../../prisma';
 import { apiEmail } from '../../Utils/apiMessenger';
 import { createTransporter } from '../../Utils/CreateTransporter';
+import { debugLog } from '../../Utils/DebugLog';
 
 interface UserProps {
     id: string;
@@ -20,17 +21,18 @@ interface UserProps {
 }
 
 export class RecoverAccService {
-    async execute(user: UserProps, token: string) {
+    async execute(user: UserProps, token: string): Promise<boolean> {
         try {
-            const sendEmail = await apiEmail.post('/user/recover', {
+            const sendEmail = await apiEmail.post('/recover/user', {
                 token,
                 userName: user.name,
                 userEmail: user.email
             })
-            return sendEmail.data.data.accepted.length > 0 ? 'Email enviado' : 'Email não enviado'
+            return sendEmail.data.data.accepted.length > 0 ? true : false
         } catch (err: any) {
             console.log(err)
-            return `Erro ao Enviar email de recuperação. mensagem: ${err.message}`
+            debugLog(`Erro ao Enviar email de recuperação. mensagem: ${err.message}`)
+            return false
         }
     }
 }

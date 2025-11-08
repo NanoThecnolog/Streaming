@@ -31,7 +31,7 @@ export class ProblemNotificationService {
                 }
             })
             try {
-                await apiEmail.post('/system/problem', data)
+                await apiEmail.post('/notification/problem', data)
             } catch (err) {
                 debugLog('Erro ao enviar email', err)
                 return {

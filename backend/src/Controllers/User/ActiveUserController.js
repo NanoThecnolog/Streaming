@@ -30,7 +30,7 @@ class ActiveUserController {
                 if (err instanceof Error) {
                     return res.status(400).json({ error: err.message });
                 }
-                return res.status(400).json({ error: "Erro ao ativar usuário." });
+                return res.status(400).json({ message: "Erro ao ativar usuário.", error: err });
             }
         });
     }

@@ -17,7 +17,6 @@ const prisma_1 = __importDefault(require("../../prisma"));
 class CreateManyMovieService {
     execute(_a) {
         return __awaiter(this, arguments, void 0, function* ({ data }) {
-            //console.log("Received data:", data);
             const batchSize = 10;
             const results = [];
             for (let i = 0; i < data.length; i += batchSize) {

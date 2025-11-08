@@ -2,11 +2,7 @@ import { Request, Response } from 'express';
 import { ProblemNotificationService } from '../../Services/Movie/ProblemNotificationService';
 
 export class ProblemNotificationController {
-    /*private problemNotificationService: ProblemNotificationService
 
-    constructor() {
-        this.problemNotificationService = new ProblemNotificationService()
-    }*/
     async handle(req: Request, res: Response) {
         try {
             const problemNotificationService = new ProblemNotificationService()

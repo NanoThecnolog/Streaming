@@ -37,7 +37,7 @@ class ProblemNotificationService {
                     }
                 });
                 try {
-                    yield apiMessenger_1.apiEmail.post('/system/problem', data);
+                    yield apiMessenger_1.apiEmail.post('/notification/problem', data);
                 }
                 catch (err) {
                     (0, DebugLog_1.debugLog)('Erro ao enviar email', err);

@@ -11,20 +11,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RecoverAccService = void 0;
 const apiMessenger_1 = require("../../Utils/apiMessenger");
+const DebugLog_1 = require("../../Utils/DebugLog");
 class RecoverAccService {
     execute(user, token) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const sendEmail = yield apiMessenger_1.apiEmail.post('/user/recover', {
+                const sendEmail = yield apiMessenger_1.apiEmail.post('/recover/user', {
                     token,
                     userName: user.name,
                     userEmail: user.email
                 });
-                return sendEmail.data.data.accepted.length > 0 ? 'Email enviado' : 'Email não enviado';
+                return sendEmail.data.data.accepted.length > 0 ? true : false;
             }
             catch (err) {
                 console.log(err);
-                return `Erro ao Enviar email de recuperação. mensagem: ${err.message}`;
+                (0, DebugLog_1.debugLog)(`Erro ao Enviar email de recuperação. mensagem: ${err.message}`);
+                return false;
             }
         });
     }

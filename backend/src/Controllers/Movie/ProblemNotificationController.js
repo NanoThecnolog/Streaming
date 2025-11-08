@@ -12,11 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProblemNotificationController = void 0;
 const ProblemNotificationService_1 = require("../../Services/Movie/ProblemNotificationService");
 class ProblemNotificationController {
-    /*private problemNotificationService: ProblemNotificationService
-
-    constructor() {
-        this.problemNotificationService = new ProblemNotificationService()
-    }*/
     handle(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {

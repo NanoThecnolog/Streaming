@@ -17,8 +17,6 @@ interface DataRequest {
 
 class CreateManyMovieService {
     async execute({ data }: DataRequest) {
-        //console.log("Received data:", data);
-
 
         const batchSize = 10;
         const results = [];
@@ -35,10 +33,7 @@ class CreateManyMovieService {
                 throw new Error("Failed to create movies");
             }
         }
-
         return results;
-
-
     }
 }
 

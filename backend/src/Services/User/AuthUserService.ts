@@ -34,8 +34,6 @@ class AuthUserService {
                 userId: userExiste.id
             }
         })
-        //const favoriteService = new ListFavoriteService();
-        //const favoriteList = await favoriteService.execute(userExiste.id)
 
         return {
             name: userExiste.name,

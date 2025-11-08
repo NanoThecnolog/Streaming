@@ -1,6 +1,5 @@
-import { Request, Response } from "express";
 import prismaClient from "../../prisma";
-import { create } from "qrcode";
+
 type MovieRequest = {
     background: string;
     overlay: string;

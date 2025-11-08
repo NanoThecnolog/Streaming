@@ -12,7 +12,7 @@ const app = (0, express_1.default)();
 const port = process.env.PORT || 3333;
 app.use(express_1.default.json({ limit: '40mb' }));
 app.use(express_1.default.urlencoded({ limit: '40mb', extended: true }));
-//app.use(express.json());
+app.set('trust proxy', true);
 app.use((0, cors_1.default)());
 app.use(router_1.router);
 // Tratamento de erros
