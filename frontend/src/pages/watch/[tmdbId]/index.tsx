@@ -79,7 +79,7 @@ export default function Watch() {
             debug.log("file check: ", info)
             if (info.data.code && (info.data.code === 404 || info.data.code === 400)) {
 
-                const notificar = await apiEmail.post('/system/problem', {
+                const notificar = await apiEmail.post('/notification/problem', {
                     title: movieData.title,
                     description: 'Problema com arquivo',
                     tmdbId: movieData.tmdbId,

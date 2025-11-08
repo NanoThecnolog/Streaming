@@ -16,7 +16,7 @@ import { SeriesProps, TMDBSeries } from "@/@types/series";
 import { fuseConfig } from "@/utils/Variaveis";
 import { debug } from "@/classes/DebugLogger";
 import { apiSub } from "@/services/apiSubManager";
-import { apiEmail } from "@/services/apiMessenger";
+//import { apiEmail } from "@/services/apiMessenger";
 import { apiManager } from "@/services/apiManager";
 import { useTMDB } from "@/contexts/TMDBContext";
 import { SetupAPIClient } from "@/services/api";

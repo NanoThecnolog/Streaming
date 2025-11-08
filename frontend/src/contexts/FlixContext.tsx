@@ -3,11 +3,12 @@ import { ContextProps, ContextProviderProps, SignInProps, WatchLaterContext } fr
 import { SeriesProps } from "@/@types/series";
 import { LoginProps, UserContext, UserCookiesProps } from "@/@types/user";
 import { debug } from "@/classes/DebugLogger";
+import { mongoService } from "@/classes/MongoContent";
 import { cookieOptions } from "@/utils/Variaveis";
 import axios from "axios";
 import Router from "next/router";
 import { destroyCookie, setCookie } from "nookies";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 
@@ -76,12 +77,31 @@ export function FlixProvider({ children }: ContextProviderProps) {
         }
     }
 
+    useEffect(() => {
+
+        const fetchMoviesMongoDB = async () => {
+            const moviesDB: CardsProps[] = await mongoService.fetchMovieData()
+            //debug.log("movies data base", moviesDB)
+            if (moviesDB.length > 0) setMovies(moviesDB)
+        }
+        if (movies.length === 0) fetchMoviesMongoDB()
+    }, [movies])
+
+    useEffect(() => {
+        const fetchSeriesMongoDB = async () => {
+            const seriesDB: SeriesProps[] = await mongoService.fetchSerieData()
+            if (seriesDB.length > 0) setSeries(seriesDB)
+            //setIsSerieLoading(true)
+        }
+        if (series.length === 0) fetchSeriesMongoDB()
+    }, [series])
+
     return (
         <FlixContext.Provider value={{ user, watchLater, setWatchLater, setUser, signIn, signOut, movies, series, setMovies, setSeries }}>
             {children}
         </FlixContext.Provider>
     )
 }
-export function useFlix() {
+export const useFlix = () => {
     return useContext(FlixContext)
 }

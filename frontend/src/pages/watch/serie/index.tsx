@@ -93,7 +93,7 @@ export default function WatchSerie() {
             const encodedLink = encodeURIComponent(link)
             const info = await apiGoogle.get(`/${encodedLink}`)
             if (info.data.code && info.data.code === 404) {
-                const notificar = await apiEmail.post('/system/notification/problem', {
+                const notificar = await apiEmail.post('/notification/problem', {
                     title: episodio?.title,
                     description: 'Problema com arquivo',
                     tmdbId: serie?.tmdbID,

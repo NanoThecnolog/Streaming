@@ -50,7 +50,7 @@ export default function HelpModal({ handleHelpModal, email, tmdbId, serie, seaso
 
         try {
             setLoading(true)
-            const response = await apiEmail.post('/system/problem', {
+            const response = await apiEmail.post('/notification/problem', {
                 title,
                 description,
                 email: email === undefined ? 'Indefinido' : email,

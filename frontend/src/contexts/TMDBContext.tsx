@@ -1,6 +1,8 @@
 import { MovieTMDB } from "@/@types/Cards";
 import { TMDBSeries } from "@/@types/series";
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, ReactNode, useEffect } from "react";
+import { useFlix } from "./FlixContext";
+import { flixFetcher } from "@/classes/Flixclass";
 
 type TMDBProviderProps = {
     children: ReactNode;
@@ -16,18 +18,35 @@ interface TMDBContextProps {
 
 export const TMDBContext = createContext<TMDBContextProps>({
     allData: [],
-    setAllData: () => { },
+    setAllData: (data: MovieTMDB[]) => { },
     serieData: [],
-    setSerieData: () => { },
+    setSerieData: (data: TMDBSeries[]) => { },
     cachedImages: [],
     setCachedImage: () => { },
 });
 
 export function TMDBProvider({ children }: TMDBProviderProps) {
-    const [allData, setAllData] = useState<MovieTMDB[]>([]);
+    const [allData, setAllData] = useState<MovieTMDB[]>([])
     const [serieData, setSerieData] = useState<TMDBSeries[]>([])
 
+    const { movies, series } = useFlix()
+
     const [cachedImages, setCachedImages] = useState<Record<number, string>>({})
+
+    const getMovieData = async () => {
+        await flixFetcher.fetchMovieData(setAllData, movies)
+    }
+    const getSerieData = async () => {
+        await flixFetcher.fetchSerieData(setSerieData)
+    }
+
+    useEffect(() => {
+        if (movies.length > 0) getMovieData()
+    }, [movies])
+
+    useEffect(() => {
+        if (series.length > 0) getSerieData()
+    }, [series])
 
 
 

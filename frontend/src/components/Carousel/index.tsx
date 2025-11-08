@@ -4,7 +4,6 @@ import { CardsProps } from '@/@types/Cards';
 import { Navigation } from "swiper/modules";
 import Card from '../Card';
 import styles from './styles.module.scss'
-import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
 import { useEffect, useRef, useState } from 'react';
 //import { cards } from '@/data/cards';
 import { shuffle } from '@/utils/UtilitiesFunctions';

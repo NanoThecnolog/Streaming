@@ -50,41 +50,30 @@ export default function Serie({ data, buttonVisible }: SerieProps) {
     //refatorar
     const router = useRouter()
     const { tmdbId } = router.query;
-    //const [access, setAccess] = useState(false)
     const [serie, setSerie] = useState<SeriesProps | null>(null)
-
     const [TMDBSerie, setTMDBSerie] = useState<TMDBSeries>()
     const [seasonToShow, setSeasonToShow] = useState<number>(1)
     const [episodesToShow, setEpisodesToShow] = useState<Episodes[]>([])
     const [episodesData, setEpisodesData] = useState<(TMDBEpisodes[] | null)[]>([])
-
     const { user, series, setSeries } = useFlix()
     const { serieData } = useTMDB()
-
     const [onWatchLater, setOnWatchLater] = useState<boolean>(false)
-
     const [TMDBImage, setTMDBImage] = useState<TMDBImagesProps>()
-
     const [relatedCards, setRelatedCards] = useState<SeriesProps[]>()
-
     const [cast, setCast] = useState<CastProps[]>()
     const [crewDepartment, setCrewDepartment] = useState<groupedByDepartment>({})
-
     const [loading, setLoading] = useState(false)
     const [loadingButton, setLoadingButton] = useState(false)
-
     const [trailer, setTrailer] = useState<TrailerProps | null>(null)
     const [showPoster, setShowPoster] = useState(false)
-
     const watchLaterManager = new WatchLaterManager()
 
+    //dados principais
     useEffect(() => {
         if (!tmdbId) return
         setSerie(null)
         setSeasonToShow(1)
-        //debug.warn("chamando", seasonToShow)
-        //const findSerie = series.find((serie) => serie.tmdbID === Number(tmdbId))
-        async function fetchSerie() {
+        const fetchSerie = async () => {
             const response: SeriesProps | null = await mongoService.findOneSerieById(parseInt(tmdbId as string))
             if (response) {
                 setSerie(response)
@@ -93,6 +82,7 @@ export default function Serie({ data, buttonVisible }: SerieProps) {
         fetchSerie()
 
     }, [tmdbId, router])
+
     useEffect(() => {
         if (!serie) return;
         //debug.log("seasonToShow:", seasonToShow)
@@ -105,10 +95,82 @@ export default function Serie({ data, buttonVisible }: SerieProps) {
         const onList = watchLaterManager.isOnTheList(serie.tmdbID)
         setOnWatchLater(onList)
     }, [serie, seasonToShow])
+
     useEffect(() => {
         fetchSerieData()
     }, [serie, serieData])
-    async function fetchSerieData() {
+
+    useEffect(() => {
+        if (serie && tmdbId) getTMDBCast()
+    }, [serie])
+
+    useEffect(() => {
+        if (!serie) return
+        const getSeriesMongoDB = async () => {
+            const response = await mongoService.fetchSerieData()
+            setSeries(response)
+        }
+        if (series.length === 0) getSeriesMongoDB()
+        //debug.log(serie, series, serieData)
+        const relatedCards = getRelatedSerieCards(serie, series, serieData)
+        setRelatedCards(relatedCards)
+    }, [serie, series, serieData])
+
+
+    //interação do usuario
+    const handleWatchLater = async (tmdbid: number) => {
+        //toast.warning("A função Assistir mais tarde está temporariamente desativada")
+        if (!user) return Router.push('/login')
+        try {
+            if (!serie) return
+            if (loadingButton) return
+            setLoadingButton(true)
+            //console.log('chamando')
+            const response = await axios.post('/api/user/list/add', serie)
+            const data = response.data
+            //debug.log('response da requisição em handleWatchLater', data)
+
+            debug.log(data.request.cookie)
+            await watchLaterManager.updateCookie('flix-watch', data.request.cookie)
+
+            const onList = watchLaterManager.isOnTheList(tmdbid)
+            debug.log('Resultado do onList', onList)
+
+            setOnWatchLater(onList)
+            toast.success(data.request.message)
+        } catch (err: any) {
+            if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
+            debug.log("Erro na function handleWatchLater", err)
+            return toast.error("Erro inesperado ao atualizar sua lista! Fale com o Administrador")
+        } finally {
+            setLoadingButton(false)
+        }
+    }
+
+    const handleChangeSeason = (value: number) => {
+        //debug.log(serie)
+        if (!serie) return
+        if (value > 0 && value <= serie.season.length) {
+            //debug.log(value)
+            setSeasonToShow(value)
+        } else return;
+    }
+
+    const handlePlayEpisode = (ep: Episodes, season?: number) => {
+        const epNumber = ep.ep
+        const episode = new URLSearchParams({
+            title: `${serie?.title}`,
+            subtitle: `${serie?.subtitle}`,
+            episode: `${epNumber}`,
+            tmdbID: `${serie?.tmdbID}`,
+            src: `${ep.src}`,
+            season: `${season ?? seasonToShow}`
+        })
+        Router.push(`/watch/serie?${episode}`)
+    }
+
+    //dados da serie
+    const fetchSerieData = async () => {
         try {
             if (!serie) return //debug.warn("Serie ou serieData faltando..")
             let serieInfo: TMDBSeries | null | undefined
@@ -129,11 +191,7 @@ export default function Serie({ data, buttonVisible }: SerieProps) {
         }
     }
 
-    useEffect(() => {
-        if (serie && tmdbId) getTMDBCast()
-    }, [serie])
-
-    async function getTMDBCast() {
+    const getTMDBCast = async () => {
         if (loading) return
         setLoading(true)
         try {
@@ -171,7 +229,7 @@ export default function Serie({ data, buttonVisible }: SerieProps) {
         }
     }
 
-    async function fetchEpisodes() {
+    const fetchEpisodes = async () => {
         if (!serie) return
         const episodesArray = await Promise.all(
             serie.season.map(async temp => {
@@ -181,81 +239,19 @@ export default function Serie({ data, buttonVisible }: SerieProps) {
         )
         setEpisodesData(episodesArray)
     }
-    useEffect(() => {
-        if (!serie) return
-        async function getSeriesMongoDB() {
-            const response = await mongoService.fetchSerieData()
-            setSeries(response)
-        }
-        if (series.length === 0) getSeriesMongoDB()
-        //debug.log(serie, series, serieData)
-        const relatedCards = getRelatedSerieCards(serie, series, serieData)
-        setRelatedCards(relatedCards)
-    }, [serie, series, serieData])
 
-
-    function handleChangeSeason(value: number) {
-        //debug.log(serie)
-        if (!serie) return
-        if (value > 0 && value <= serie.season.length) {
-            //debug.log(value)
-            setSeasonToShow(value)
-        } else return;
-    }
-
-    function handlePlayEpisode(ep: Episodes, season?: number) {
-        const epNumber = ep.ep
-        const episode = new URLSearchParams({
-            title: `${serie?.title}`,
-            subtitle: `${serie?.subtitle}`,
-            episode: `${epNumber}`,
-            tmdbID: `${serie?.tmdbID}`,
-            src: `${ep.src}`,
-            season: `${season ?? seasonToShow}`
-        })
-        Router.push(`/watch/serie?${episode}`)
-    }
-
-
-    async function handleWatchLater(tmdbid: number) {
-        //toast.warning("A função Assistir mais tarde está temporariamente desativada")
-        if (!user) return Router.push('/login')
-        try {
-            if (!serie) return
-            if (loadingButton) return
-            setLoadingButton(true)
-            //console.log('chamando')
-            const response = await axios.post('/api/user/list/add', serie)
-            const data = response.data
-            //debug.log('response da requisição em handleWatchLater', data)
-
-            debug.log(data.request.cookie)
-            await watchLaterManager.updateCookie('flix-watch', data.request.cookie)
-
-            const onList = watchLaterManager.isOnTheList(tmdbid)
-            debug.log('Resultado do onList', onList)
-
-            setOnWatchLater(onList)
-            toast.success(data.request.message)
-        } catch (err: any) {
-            if (err.response && err.response.data) return toast.error(err.response.data.message || "Erro ao adicionar filme à lista.")
-            debug.log("Erro na function handleWatchLater", err)
-            return toast.error("Erro inesperado ao atualizar sua lista! Fale com o Administrador")
-        } finally {
-            setLoadingButton(false)
-        }
-    }
-
+    //auxiliares
     useEffect(() => {
         getTrailer()
     }, [router, tmdbId])
-    async function getTrailer() {
+    const getTrailer = async () => {
         if (!tmdbId) return
         const trailer = await tmdb.fetchTrailer(Number(tmdbId), 'tv')
         if (!trailer) return setTrailer(null)
         return setTrailer(trailer)
     }
 
+    //responsividade
     const handleWidth = debounce(() => {
         if (window.innerWidth <= 915) {
             debug.log(window.innerWidth)
@@ -264,7 +260,6 @@ export default function Serie({ data, buttonVisible }: SerieProps) {
             setShowPoster(false)
         }
     }, 300)
-
     useEffect(() => {
         window.addEventListener('resize', handleWidth)
         handleWidth()
@@ -475,7 +470,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN
 
     try {
-        const resSerie = await axios.get(`https://api.themoviedb.org/3/movie/${tmdbId}`, {
+        const resSerie = await axios.get(`https://api.themoviedb.org/3/tv/${tmdbId}`, {
             headers: {
                 Authorization: `Bearer ${tmdbToken}`
             },
@@ -483,7 +478,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
                 language: 'pt-BR'
             }
         })
-        const resCast = await axios.get(`https://api.themoviedb.org/3/movie/${tmdbId}`, {
+        const resCast = await axios.get(`https://api.themoviedb.org/3/tv/${tmdbId}`, {
             headers: {
                 Authorization: `Bearer ${tmdbToken}`
             }
@@ -492,7 +487,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
         const castData = resCast.data
         const crewData = castData.crew?.length ? castData.crew : []
     } catch (err) {
-        
+        console.error('Erro durante a busca dos dados da série', err)
     }
 }*/
 
@@ -524,7 +519,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const cookies = nookies.get(context)
     const token = cookies['flix-token']
     const env = process.env.SECRET_JWT ?? ''
-    console.log('token dos cookies', token)
+    debug.log('token dos cookies', token)
 
     let userId = null
     let buttonVisible: boolean = false
@@ -532,17 +527,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         try {
             const decoded = verify(token, env)
             userId = decoded.sub
-            console.log('decoded dentro do try', decoded)
+            debug.log('decoded dentro do try', decoded)
         } catch (err) {
             console.error('Token inválido ou expirado', err)
         }
     }
 
-    console.log('id do usuario no token httponly', userId)
+    debug.log('id do usuario no token httponly', userId)
     if (userId && userId === '14864ef2-94ca-4b02-a41b-b69dbc306489') {
         buttonVisible = true
     }
-
 
     return {
         props: {

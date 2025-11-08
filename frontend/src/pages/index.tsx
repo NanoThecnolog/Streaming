@@ -38,7 +38,7 @@ export default function Home() {
     if (card && (!topCard || topCard.tmdbId !== card.tmdbId)) setTopCard(card)
   }, [movies])
 
-  useEffect(() => {
+  /*useEffect(() => {
     async function fetchMoviesMongoDB() {
       const movies: CardsProps[] = await mongoService.fetchMovieData()
       if (movies.length > 0) setMovies(movies)
@@ -48,7 +48,7 @@ export default function Home() {
       const card = movies.find((card) => card.tmdbId === tmdbid)
       if (card && (!topCard || topCard.tmdbId !== card.tmdbId)) setTopCard(card)
     }
-  }, [movies, topCard])
+  }, [movies, topCard])*/
 
   useEffect(() => {
     //if (allData.length > 0 && serieData.length > 0) return

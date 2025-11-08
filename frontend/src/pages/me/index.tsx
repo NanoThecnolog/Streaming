@@ -18,7 +18,6 @@ import { useRouter } from "next/router";
 import { cookieOptions } from "@/utils/Variaveis";
 import SubConfig from "@/components/ui/SubConfig";
 import { formatedDate } from "@/utils/UtilitiesFunctions";
-import { SetupAPIClient } from "@/services/api";
 import axios from "axios";
 
 export default function Me() {

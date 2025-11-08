@@ -12,6 +12,22 @@ Allow: /planos
 
 # *
 User-agent: *
+Allow: /movie/*
+
+# *
+User-agent: *
+Allow: /series/serie/*
+
+# *
+User-agent: *
+Allow: /signup
+
+# *
+User-agent: *
+Allow: /login
+
+# *
+User-agent: *
 Disallow: /watch
 
 # *

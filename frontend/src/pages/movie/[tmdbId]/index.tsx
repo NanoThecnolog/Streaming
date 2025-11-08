@@ -46,10 +46,6 @@ interface MovieProps {
 }
 
 export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
-
-    useEffect(() => {
-        debug.log('props do MoviePage:', { movie, cast, crewByDepartment });
-    }, [movie, cast, crewByDepartment])
     const router = useRouter()
     const [showPoster, setShowPoster] = useState(false)
     const { tmdbId } = router.query;
@@ -62,6 +58,7 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
     const [loadingButton, setLoadingButton] = useState(false)
     const watchLaterManager = new WatchLaterManager()
 
+    //atualização de dados e estado
     useEffect(() => {
         if (!movie) return
         const filme = movies.find(mv => mv.tmdbId === movie.id)
@@ -69,17 +66,11 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
         if (!filme) return debug.warn('movie not found')
         setFilme(filme)
     }, [movie, movies])
-    //enviar o token pro backend pra verificar o acesso do usuario, pra retornar true ou false
 
-    const watchLater = () => {
-        if (!movie || !filme) return
-        //aqui vai fazer a request pro backend do next com axios /api/user/list/getmovies
-        const onList = watchLaterManager.isOnTheList(filme.tmdbId)
-        setOnWatchLater(onList)
-    }
+
     useEffect(() => {
         if (!movie) return
-        async function getMoviesMongoDB() {
+        const getMoviesMongoDB = async () => {
             const response = await mongoService.fetchMovieData()
             setMovies(response)
         }
@@ -90,22 +81,29 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
         watchLater()
     }, [movie, movies, allData, filme])
 
-    const handleWidth = debounce(() => {
-        if (window.innerWidth <= 915) {
-            debug.log(window.innerWidth)
-            setShowPoster(true)
-        } else {
-            setShowPoster(false)
-        }
-    }, 500)
-
     useEffect(() => {
-        window.addEventListener('resize', handleWidth)
-        handleWidth()
-        return () => window.removeEventListener('resize', handleWidth)
+        if (!filme) return debug.log('filme not defined for getTrailer inside useEffect')
+        const getTrailer = async () => {
+            try {
+                const trailer = await tmdb.fetchTrailer(filme.tmdbId, 'movie')
+                setTrailer(trailer)
+            } catch (err) {
+                debug.error("Erro ao buscar o trailer", err)
+                setTrailer(null)
+            }
+        }
+        getTrailer()
+    }, [filme])
 
-    }, [handleWidth])
-    async function handleWatchLater() {
+    //interação do usuario
+    const watchLater = () => {
+        if (!movie || !filme) return
+        //aqui vai fazer a request pro backend do next com axios /api/user/list/getmovies
+        const onList = watchLaterManager.isOnTheList(filme.tmdbId)
+        setOnWatchLater(onList)
+    }
+
+    const handleWatchLater = async () => {
         if (!user) return router.push('/login')
         if (!movie || !filme) return debug.warn("Erro ao adicionar filme a lista de assistir mais tarde.")
 
@@ -127,24 +125,28 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
         }
     }
 
-    useEffect(() => {
-        if (!filme) return debug.log('filme not defined for getTrailer inside useEffect')
-        const getTrailer = async () => {
-            try {
-                const trailer = await tmdb.fetchTrailer(filme.tmdbId, 'movie')
-                setTrailer(trailer)
-            } catch (err) {
-                debug.error("Erro ao buscar o trailer", err)
-                setTrailer(null)
-            }
+    //responsividade de interface
+    const handleWidth = debounce(() => {
+        if (window.innerWidth <= 915) {
+            debug.log(window.innerWidth)
+            setShowPoster(true)
+        } else {
+            setShowPoster(false)
         }
-        getTrailer()
-    }, [filme])
+    }, 500)
+    useEffect(() => {
+        window.addEventListener('resize', handleWidth)
+        handleWidth()
+        return () => window.removeEventListener('resize', handleWidth)
+
+    }, [handleWidth])
+
+
+    //auxiliares
     const getBackgroundImage = () => {
         return movie ? `https://image.tmdb.org/t/p/original${showPoster ? movie.poster_path : movie.backdrop_path}` : filme ? filme.background : "/fundo-largo.jpg"
     }
-
-    function handlePlay() {
+    const handlePlay = () => {
         router.push(`/watch/${tmdbId}`)
     }
     return (

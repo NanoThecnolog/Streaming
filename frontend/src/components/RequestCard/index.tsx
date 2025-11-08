@@ -27,7 +27,7 @@ export default function RequestCard({ card }: RequestCard) {
         setLoading(true)
         try {
             //const response = await apiEmail.get('/')
-            const response = await apiEmail.post('/system/request', {
+            const response = await apiEmail.post('/notification/request', {
                 tmdbId: card.id,
                 title: card.title ?? card.name ?? card.original_name,
                 subtitle: card.subtitle ?? "---",
