@@ -10,6 +10,7 @@ import { CardsProps } from '@/@types/Cards';
 import { SeriesProps } from '@/@types/series';
 import { SetupAPIClient } from '@/services/api';
 import { GetServerSideProps } from 'next';
+import Head from 'next/head';
 
 export default function TestPage() {
     const [errors, setErrors] = useState<ErrorProps[] | null>(null)
@@ -69,35 +70,40 @@ export default function TestPage() {
     }, [movies])
 
     return (
-        <div className={styles.container}>
-            <div>
-                <h1>Página de testes</h1>
-                <button onClick={() => verify(`movie`)}>{loading ? 'Testando...' : 'Testar filmes'}</button>
-                <button onClick={() => verify(`tv`)}>{loading ? 'Testando...' : 'Testar series'}</button>
-                {errors && errors.length > 0 ? <button onClick={() => downloadErrors(errors)}>baixar Erros</button> : ''}
+        <>
+            <Head>
+                <meta name='robots' content='noindex, nofollow' />
+            </Head>
+            <div className={styles.container}>
+                <div>
+                    <h1>Página de testes</h1>
+                    <button onClick={() => verify(`movie`)}>{loading ? 'Testando...' : 'Testar filmes'}</button>
+                    <button onClick={() => verify(`tv`)}>{loading ? 'Testando...' : 'Testar series'}</button>
+                    {errors && errors.length > 0 ? <button onClick={() => downloadErrors(errors)}>baixar Erros</button> : ''}
 
-                <button onClick={() => fetchData()}>buscar dados no banco</button>
+                    <button onClick={() => fetchData()}>buscar dados no banco</button>
 
-                <div className={styles.mongo}>
-                    <div className={styles.mongoContainer}>
-                        <h2>Filmes</h2>
-                        {movies && movies.sort((a, b) => b.index - a.index).map((movie, index) => (
-                            <div key={index}>
-                                {movie.title}
-                            </div>
-                        ))}
-                    </div>
-                    <div className={styles.mongoContainer}>
-                        <h2>Series</h2>
-                        {series && series.sort((a, b) => b.index - a.index).map((serie, index) => (
-                            <div key={index}>
-                                {serie.title}
-                            </div>
-                        ))}
+                    <div className={styles.mongo}>
+                        <div className={styles.mongoContainer}>
+                            <h2>Filmes</h2>
+                            {movies && movies.sort((a, b) => b.index - a.index).map((movie, index) => (
+                                <div key={index}>
+                                    {movie.title}
+                                </div>
+                            ))}
+                        </div>
+                        <div className={styles.mongoContainer}>
+                            <h2>Series</h2>
+                            {series && series.sort((a, b) => b.index - a.index).map((serie, index) => (
+                                <div key={index}>
+                                    {serie.title}
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 export const getServerSideProps: GetServerSideProps = async (ctx) => {

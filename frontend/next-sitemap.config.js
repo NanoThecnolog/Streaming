@@ -17,10 +17,16 @@ module.exports = {
             { userAgent: '*', allow: '/login' },
             { userAgent: '*', disallow: '/watch', },
             { userAgent: '*', disallow: '/recover', },
+            { userAgent: '*', disallow: '/dashboard' },
+            { userAgent: '*', disallow: '/teste' }
         ],
     },
     transform: async (config, path) => {
-        if (path.startsWith('/watch') || path.startsWith('/recover')) return null
+        if (path.startsWith('/watch') ||
+            path.startsWith('/recover') ||
+            path.startsWith('/dashboard') ||
+            path.startsWith('/teste')
+        ) return null
         let priority = config.priority
 
         if (path === '/') {

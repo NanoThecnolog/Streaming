@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 import { debug } from '@/classes/DebugLogger'
 import { GetServerSideProps } from 'next'
 import { SetupAPIClient } from '@/services/api'
+import Head from 'next/head'
 
 export default function Dashboard() {
     const router = useRouter()
@@ -25,6 +26,10 @@ export default function Dashboard() {
 
     return (
         <>
+            <Head>
+                <meta name='robots' content='noindex, nofollow' />
+            </Head>
+
             <Header />
             <main className={styles.container}>
                 <aside>
