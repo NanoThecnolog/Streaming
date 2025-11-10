@@ -25,6 +25,10 @@ export default function HeroSection({ width }: HeroProps) {
             type: "movie"
         },
         {
+            id: 200875,
+            type: "tv"
+        },
+        {
             id: 157239,
             type: "tv"
         },
@@ -35,7 +39,8 @@ export default function HeroSection({ width }: HeroProps) {
         {
             id: 822119,
             type: "movie"
-        }
+        },
+
     ]
     return (
         <section className={styles.container}>
