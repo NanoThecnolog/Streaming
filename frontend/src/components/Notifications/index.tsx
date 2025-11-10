@@ -30,7 +30,7 @@ export default function Notifications({ moviesTMDB, seriesTMDB }: NotificationPr
             }
         }
         fetchContent()
-    }, [])
+    }, [movies.length, series.length])
 
     const lastMovies = useMemo(() =>
         [...movies]

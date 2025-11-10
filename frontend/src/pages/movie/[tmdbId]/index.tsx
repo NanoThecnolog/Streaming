@@ -237,7 +237,7 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
 
 export const getStaticPaths: GetStaticPaths = async () => {
 
-    const movies = await mongoService.fetchMovieData()
+    /*const movies = await mongoService.fetchMovieData()
     const paths = movies.map(movie => ({
         params: { tmdbId: movie.tmdbId.toString() }
     })
@@ -247,6 +247,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
     return {
         paths,
         fallback: 'blocking',
+    };*/
+    return {
+        paths: [],
+        fallback: "blocking",
     };
 };
 
@@ -256,13 +260,18 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
 
     try {
-        const resMovie = await axios.get(`https://api.themoviedb.org/3/movie/${tmdbId}`, {
-            headers: {
-                Authorization: `Bearer ${tmdbToken}`
-            },
-            params: {
-                language: "pt-BR",
-            },
+        const [resMovie, resCast] = await Promise.all([
+            axios.get(`https://api.themoviedb.org/3/movie/${tmdbId}`, {
+                headers: { Authorization: `Bearer ${tmdbToken}` },
+                params: { language: "pt-BR" },
+            }),
+            axios.get(`https://api.themoviedb.org/3/movie/${tmdbId}/credits`, {
+                headers: { Authorization: `Bearer ${tmdbToken}` },
+            }),
+        ])
+        /*const resMovie = await axios.get(`https://api.themoviedb.org/3/movie/${tmdbId}`, {
+            headers: {Authorization: `Bearer ${tmdbToken}`},
+            params: {language: "pt-BR",},
         });
         //debug.log('resMovie', resMovie.data)
 
@@ -271,7 +280,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
             headers: {
                 Authorization: `Bearer ${tmdbToken}`
             },
-        });
+        });*/
         //debug.log('resCast', resCast.data)
 
         const movieData = resMovie.data;
@@ -302,7 +311,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
                 cast: castData.cast,
                 crewByDepartment: groupedByDepartment,
             },
-            revalidate: 60 * 60 * 24 * 1,
+            revalidate: 60 * 60 * 24,
         };
     } catch (err) {
         debug.log(err)

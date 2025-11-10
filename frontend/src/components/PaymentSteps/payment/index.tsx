@@ -79,7 +79,9 @@ export default function PaymentCredit({ credit, setCredit, setMethod }: PaymentP
         }
         if (credit.number.length === 16 && credit.expiration.length === 4 && credit.cvv.length === 3) setCredit(prev => ({ ...prev, fullComplete: true }))
         else setCredit(prev => ({ ...prev, fullComplete: false }))
-    }, [checked, credit.number, credit.expiration, credit.cvv])
+    }, [checked, credit.number, credit.expiration, credit.cvv, setCredit])
+
+
     return (
         <section className={styles.container}>
             <IoIosArrowBack onClick={() => setMethod(null)} size={30} style={{ cursor: 'pointer' }} title='voltar' />

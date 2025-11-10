@@ -38,7 +38,7 @@ export default function Carousel({ type, section, cardPerContainer }: CarouselPr
         if (type === 'movie') shuffled = shuffle(filter as CardsProps[])
         else shuffled = shuffle(filter as SeriesProps[])
         setFilter(shuffled)
-    }, [section])
+    }, [section, movies, series])
 
     useEffect(() => {
         if (swiperInstance && swiperRef.current && swiperRef.current.swiper && prevRef.current && nextRef.current) {
@@ -48,7 +48,7 @@ export default function Carousel({ type, section, cardPerContainer }: CarouselPr
             };
             swiperRef.current.swiper.navigation.update();
         }
-    }, [swiperRef])
+    }, [swiperRef, swiperInstance])
 
     return (
         <div className={styles.carouselContainer}>

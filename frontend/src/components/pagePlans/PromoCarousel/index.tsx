@@ -19,7 +19,7 @@ export default function Carousel({ movies, series }: CarouselProps) {
                 <h2>Conteúdo exclusivo</h2>
                 <h4>Na FlixNext você encontra filmes e séries que não acha em nenhum outro lugar</h4>
             </div>
-            {movies.length > 0 && series.length > 0 ?
+            {Array.isArray(movies) && movies.length > 0 && series.length > 0 ?
                 <>
                     <div className={styles.cardContainer}>
                         <Swiper

@@ -46,7 +46,7 @@ export default function Card({ card }: CardProps) {
 
         }
         getImage()
-    }, [card, allData])
+    }, [card, allData, serieData])
 
     function handleClick() {
         if ('season' in card) {

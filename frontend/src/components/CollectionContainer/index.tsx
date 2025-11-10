@@ -56,7 +56,7 @@ export default function CollectionContainer({ cardPerContainer }: CollectionProp
         } catch (err) {
             console.error(err)
         }
-    }, [])
+    }, [collectionsName])
 
 
     useEffect(() => {

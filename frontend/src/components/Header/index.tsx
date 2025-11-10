@@ -59,9 +59,8 @@ export default function Header() {
                 //debug.log("user no useEffect", JSON.parse(userCookie))
                 setUser(JSON.parse(userCookie))
             }
-        } else {
-            debug.log("user no else do useEffect", user)
         }
+        //debug.log("user no else do useEffect", user)
     }, [user])
 
     useEffect(() => {
