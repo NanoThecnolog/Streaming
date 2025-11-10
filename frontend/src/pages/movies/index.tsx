@@ -12,7 +12,9 @@ import debounce from "lodash.debounce";
 import Carousel from "@/components/Carousel";
 import { breakpoints } from "@/utils/Variaveis";
 import { flixFetcher } from "@/classes/Flixclass";
+import { mongoService } from "@/classes/MongoContent";
 import { useFlix } from "@/contexts/FlixContext";
+import NewTop from "@/components/newTop";
 import { CardsProps } from "@/@types/Cards";
 import TopPopularMovies from "@/components/TopPopularMovies";
 import HeroSection from "@/components/HeroSection";
@@ -36,6 +38,18 @@ export default function Home() {
     const card = movies.find((card) => card.tmdbId === tmdbid)
     if (card && (!topCard || topCard.tmdbId !== card.tmdbId)) setTopCard(card)
   }, [movies])
+
+  /*useEffect(() => {
+    async function fetchMoviesMongoDB() {
+      const movies: CardsProps[] = await mongoService.fetchMovieData()
+      if (movies.length > 0) setMovies(movies)
+    }
+    if (movies.length === 0) fetchMoviesMongoDB()
+    else {
+      const card = movies.find((card) => card.tmdbId === tmdbid)
+      if (card && (!topCard || topCard.tmdbId !== card.tmdbId)) setTopCard(card)
+    }
+  }, [movies, topCard])*/
 
   useEffect(() => {
     //if (allData.length > 0 && serieData.length > 0) return
@@ -88,9 +102,10 @@ export default function Home() {
                   <>
                     <div className={styles.top}>
                       {
-                        //topCard && <NewTop width={width} card={topCard} />
+                        topCard && <NewTop width={width} id={tmdbid} />
+                        //<HeroSection width={width} />
                       }
-                      <HeroSection width={width} />
+
                     </div>
                     <div className={styles.mid} id="filmes">
 

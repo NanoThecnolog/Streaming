@@ -2,7 +2,6 @@
 import { FaPlay } from "react-icons/fa6";
 import styles from './styles.module.scss'
 import { useEffect, useRef, useState } from 'react';
-import Router, { useRouter } from 'next/router';
 import Adult from '@/components/ui/Adult';
 import { useTMDB } from '@/contexts/TMDBContext';
 import NewContent from '@/components/ui/NewContent';
@@ -13,47 +12,73 @@ import { debug } from "@/classes/DebugLogger";
 import { SeriesProps, TMDBSeries } from "@/@types/series";
 import { flixFetcher } from "@/classes/Flixclass";
 import { tmdb } from "@/classes/TMDB";
+import { useRouter } from "next/navigation";
 
 
 interface TopSerieProps {
     width: number,
-    card: SeriesProps
+    id: number
+    isActive?: boolean
 }
 interface TMDBImageProps {
     backdrop: string | null,
-    poster: string | null
+    poster: string | null,
+
 }
 
 
-export default function NewTopSerie({ width, card }: TopSerieProps) {
-    //const [cardOn, setCardOn] = useState(0)
+export default function NewTopSerie({ width, id, isActive = false }: TopSerieProps) {
     const router = useRouter()
-    const { series, setSeries } = useFlix()
-    //const card = series.sort((a, b) => b.index - a.index)[cardOn]
-    //const [fade, setFade] = useState('fadeIn')
-    const [TMDBImages, setTMDBImages] = useState<TMDBImageProps>({
-        backdrop: null,
-        poster: null
-    })
     const { serieData } = useTMDB();
+    const { series } = useFlix()
     const [TMDBSerie, setTMDBSerie] = useState<TMDBSeries | null>(null)
     const [showVideo, setShowVideo] = useState<boolean>(false)
     const videoRef = useRef<HTMLVideoElement | null>(null)
     const [isMuted, setIsMuted] = useState(true)
     const [volume, setVolume] = useState(0)
-
-
+    const [card, setCard] = useState<SeriesProps | null>(null)
+    const [TMDBImages, setTMDBImages] = useState<TMDBImageProps>({
+        backdrop: null,
+        poster: null
+    })
 
     useEffect(() => {
-        async function getSeriesMongoData() {
-            const mongoSeries = await mongoService.fetchSerieData()
-            setSeries(mongoSeries)
+        const card = series.find((card) => card.tmdbID === id)
+        if (!card) return
+        setCard(card)
+        //debug.log("series card", card)
+    }, [series, id])
+
+    const handleTrailer = async () => {
+        const timer = setTimeout(() => {
+            setShowVideo(true)
+        }, 3000)
+        return () => clearInterval(timer)
+    }
+
+    useEffect(() => {
+        if (width > 915) handleTrailer()
+    }, [card, width])
+
+    useEffect(() => {
+        if (!videoRef.current) return
+        const video = videoRef.current
+
+        if (isActive) {
+
+            if (width > 915) handleTrailer()
+            video.play().catch(() => null)
+        } else {
+            setShowVideo(false)
+            video.pause()
+            //testar se é melhor começar do zero ou se só pause o video
+            video.currentTime = 0
         }
-        if (series.length === 0) getSeriesMongoData()
-    }, [series])
+    }, [isActive])
 
     useEffect(() => {
         const getImages = async () => {
+            if (!card) return
             const data = serieData.find(data => data.id === card.tmdbID)
             if (data) {
                 setTMDBSerie(data)
@@ -75,30 +100,22 @@ export default function NewTopSerie({ width, card }: TopSerieProps) {
         }
     }
     function handleEpisodes(tmdbId: number) {
-        Router.push(`/series/serie/${tmdbId}`)
+        router.push(`/series/serie/${tmdbId}`)
     }
 
     function handleWatch() {
         const movie = new URLSearchParams({
-            title: `${card.title}`,
-            subtitle: `${card.subtitle}` || "",
-            src: `${card.season[0].episodes[0].src}`,
-            episode: `${card.season[0].episodes[0].ep}`,
-            season: `${card.season[0].s}`
+            title: `${card?.title}`,
+            subtitle: `${card?.subtitle}` || "",
+            src: `${card?.season[0].episodes[0].src}`,
+            episode: `${card?.season[0].episodes[0].ep}`,
+            season: `${card?.season[0].s}`
         });
         const play: string = `/watch/serie?${movie}`
-        Router.push(play)
+        router.push(play)
     }
 
-    useEffect(() => {
-        async function handleTrailer() {
-            const timer = setTimeout(() => {
-                setShowVideo(true)
-            }, 3000)
-            return () => clearInterval(timer)
-        }
-        if (width > 915) handleTrailer()
-    }, [card, width])
+
 
     const handleVolume = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newVolume = parseFloat(e.target.value)
@@ -131,6 +148,8 @@ export default function NewTopSerie({ width, card }: TopSerieProps) {
             setIsMuted(!isMuted)
         }
     }
+
+    if (!card) return
 
     return (
         <div className={styles.topContainer} id="inicio">

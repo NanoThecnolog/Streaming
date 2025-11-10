@@ -9,35 +9,66 @@ import { useFlix } from '@/contexts/FlixContext';
 import { mongoService } from '@/classes/MongoContent';
 import { flixFetcher } from '@/classes/Flixclass';
 import { tmdb } from '@/classes/TMDB';
+import { debug } from '@/classes/DebugLogger';
 
 interface TopProps {
     width: number
-    card: CardsProps
+    //card: CardsProps
+    id: number
+    isActive?: boolean
 }
 
-export default function NewTop({ width, card }: TopProps) {
+export default function NewTop({ width, id, isActive = false }: TopProps) {
     const router = useRouter()
-    const { movies, setMovies } = useFlix()
+    //const { movies, setMovies } = useFlix()
     const videoRef = useRef<HTMLVideoElement | null>(null)
     const [isMuted, setIsMuted] = useState(true)
     const [volume, setVolume] = useState(0)
     const { allData } = useTMDB()
+    const { movies } = useFlix()
     const [TMDBMovie, setTMDBMovie] = useState<MovieTMDB | null>(null)
     const [showVideo, setShowVideo] = useState<boolean>(false)
+    const [card, setCard] = useState<CardsProps | null>(null)
 
     const [TMDBImages, setTMDBImages] = useState<{ backdrop: string | null; poster: string | null }>({
         backdrop: null,
         poster: null
     })
+
     useEffect(() => {
-        async function getMoviesMongoData() {
-            const mongoMovies = await mongoService.fetchMovieData()
-            setMovies(mongoMovies)
+        const card = movies.find((card) => card.tmdbId === id)
+        if (!card) return debug.error("card do movie nao encontrado. componente newTop")
+        setCard(card)
+        //debug.log("movie card", card)
+    }, [movies, id])
+
+    const handleTrailer = async () => {
+        const timer = setTimeout(() => {
+            setShowVideo(true)
+        }, 3000)
+        return () => clearInterval(timer)
+    }
+    /*useEffect(() => {
+        if (width > 915) handleTrailer()
+    }, [card, width])*/
+
+    useEffect(() => {
+        if (!videoRef.current) return
+        const video = videoRef.current
+
+        if (isActive) {
+            if (width > 915) handleTrailer()
+            video.play().catch(() => null)
+        } else {
+            setShowVideo(false)
+            video.pause()
+            //testar se é melhor começar do zero ou se só pause o video
+            video.currentTime = 0
         }
-        if (movies.length === 0) getMoviesMongoData()
-    }, [movies])
+    }, [videoRef, width, isActive])
     useEffect(() => {
         const getImages = async () => {
+            if (!card) return
             const data = allData.find(data => data.id === card.tmdbId)
             if (data) {
                 setTMDBMovie(data)
@@ -59,24 +90,16 @@ export default function NewTop({ width, card }: TopProps) {
         }
     }
 
-    function handleMoreInfo() {
-        router.push(`/movie/${card.tmdbId}`)
+    const handleMoreInfo = () => {
+        router.push(`/movie/${card?.tmdbId}`)
     }
-    function handleWatch() {
-        const play: string = `/watch/${card.tmdbId}`
+    const handleWatch = () => {
+        const play: string = `/watch/${card?.tmdbId}`
         router.push(play)
     }
 
 
-    useEffect(() => {
-        async function handleTrailer() {
-            const timer = setTimeout(() => {
-                setShowVideo(true)
-            }, 3000)
-            return () => clearInterval(timer)
-        }
-        if (width > 915) handleTrailer()
-    }, [card, width])
+
 
     const handleVolume = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newVolume = parseFloat(e.target.value)
@@ -109,10 +132,12 @@ export default function NewTop({ width, card }: TopProps) {
             setIsMuted(!isMuted)
         }
     }
-    function handleClick() {
+    const handleClick = () => {
         if (width >= 768) return
-        router.push(`/movie/${card.tmdbId}`)
+        router.push(`/movie/${card?.tmdbId}`)
     }
+
+    if (!card) return
 
     return (
         <>

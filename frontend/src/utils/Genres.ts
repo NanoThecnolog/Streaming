@@ -1,3 +1,4 @@
+//generos principais
 export const gen = {
     acao: "Ação",
     aventura: "Aventura",
@@ -10,6 +11,7 @@ export const gen = {
     drama: "Drama",
     animacao: "Animação",
 }
+//agrupadores
 export const agp = {
     dc: "DC",
     marvel: "Marvel",
@@ -41,6 +43,16 @@ export const agp = {
     technology: "Tecnologia",
     romantic: "Romântico"
 }
+//temas especiais
+export const sptopc = {
+    halloween: "Halloween",
+    Natal: "Natal",
+    paraRir: "Para rir alto",
+    paraMaratonar: "Para maratonar",
+    paraChorar: "Para chorar",
+    paraRelaxar: "Para relaxar"
+}
+//streamings
 export const stm = {
     netflix: "Netflix",
     hbo: "HBO",
@@ -52,6 +64,8 @@ export const stm = {
     paramount: "Paramount",
     gplay: "Globo Play"
 }
+
+//language
 export const lang = {
     leg: "Legendado",
     dub: "Dublado"
