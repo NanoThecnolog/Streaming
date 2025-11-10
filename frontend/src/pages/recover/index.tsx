@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { FaSpinner } from 'react-icons/fa6';
 import SEO from '@/components/SEO';
 import { SetupAPIClient } from '@/services/api';
+import Head from 'next/head';
 
 export default function RecoverPage() {
     const router = useRouter()
@@ -47,6 +48,9 @@ export default function RecoverPage() {
     }
     return (
         <>
+            <Head>
+                <meta name='robots' content='noindex, nofollow' />
+            </Head>
             <SEO title='Recuperação | Flixnext' description='Recupere sua conta aqui!' />
             <div className={styles.container}>
                 <div className={styles.recoverContainer}>

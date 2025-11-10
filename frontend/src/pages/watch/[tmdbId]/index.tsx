@@ -15,6 +15,7 @@ import Spinner from '@/components/ui/Loading/spinner';
 import { debug } from '@/classes/DebugLogger';
 import { mongoService } from '@/classes/MongoContent';
 import { apiEmail } from '@/services/apiMessenger';
+import Head from 'next/head';
 
 export default function Watch() {
     const router = useRouter()
@@ -105,6 +106,9 @@ export default function Watch() {
 
     return (
         <>
+            <Head>
+                <meta name='robots' content='noindex, nofollow' />
+            </Head>
             <SEO title={`${movieData.title} - FlixNext`} description=" " />
             <div className={styles.container}>
                 <div className={styles.movie}>

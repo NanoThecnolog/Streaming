@@ -20,6 +20,7 @@ module.exports = {
         ],
     },
     transform: async (config, path) => {
+        if (path.startsWith('/watch') || path.startsWith('/recover')) return null
         let priority = config.priority
 
         if (path === '/') {

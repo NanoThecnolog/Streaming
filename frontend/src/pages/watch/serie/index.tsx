@@ -18,6 +18,7 @@ import Spinner from "@/components/ui/Loading/spinner"
 import { debug } from "@/classes/DebugLogger"
 import { mongoService } from "@/classes/MongoContent"
 import { apiEmail } from "@/services/apiMessenger"
+import Head from "next/head"
 
 interface EpisodeProps {
     title: string,
@@ -119,6 +120,9 @@ export default function WatchSerie() {
 
     return (
         <>
+            <Head>
+                <meta name='robots' content='noindex, nofollow' />
+            </Head>
             <SEO title={`Episódio ${episode} - ${title} ${subtitle && `- ${subtitle}`} | FlixNext`} description=" " />
             <div className={styles.container}>
 
