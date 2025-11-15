@@ -1,4 +1,3 @@
-//import { series } from '@/data/series'
 import { FaPlay } from "react-icons/fa6";
 import styles from './styles.module.scss'
 import { useEffect, useRef, useState } from 'react';
@@ -7,10 +6,7 @@ import { useTMDB } from '@/contexts/TMDBContext';
 import NewContent from '@/components/ui/NewContent';
 import { FaInfoCircle, FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
 import { useFlix } from "@/contexts/FlixContext";
-import { mongoService } from "@/classes/MongoContent";
-import { debug } from "@/classes/DebugLogger";
 import { SeriesProps, TMDBSeries } from "@/@types/series";
-import { flixFetcher } from "@/classes/Flixclass";
 import { tmdb } from "@/classes/TMDB";
 import { useRouter } from "next/navigation";
 
@@ -23,7 +19,6 @@ interface TopSerieProps {
 interface TMDBImageProps {
     backdrop: string | null,
     poster: string | null,
-
 }
 
 
@@ -65,7 +60,6 @@ export default function NewTopSerie({ width, id, isActive = false }: TopSeriePro
         const video = videoRef.current
 
         if (isActive) {
-
             if (width > 915) handleTrailer()
             video.play().catch(() => null)
         } else {
@@ -74,7 +68,7 @@ export default function NewTopSerie({ width, id, isActive = false }: TopSeriePro
             //testar se é melhor começar do zero ou se só pause o video
             video.currentTime = 0
         }
-    }, [isActive])
+    }, [videoRef, width, isActive])
 
     useEffect(() => {
         const getImages = async () => {
@@ -99,11 +93,11 @@ export default function NewTopSerie({ width, id, isActive = false }: TopSeriePro
                 : TMDBImages?.backdrop ?? '/fundo-largo.jpg'
         }
     }
-    function handleEpisodes(tmdbId: number) {
+    const handleEpisodes = (tmdbId: number) => {
         router.push(`/series/serie/${tmdbId}`)
     }
 
-    function handleWatch() {
+    const handleWatch = () => {
         const movie = new URLSearchParams({
             title: `${card?.title}`,
             subtitle: `${card?.subtitle}` || "",

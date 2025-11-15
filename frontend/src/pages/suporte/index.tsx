@@ -4,6 +4,8 @@ import Footer from '@/components/Footer'
 import SEO from '@/components/SEO'
 import { useEffect } from 'react'
 import { debug } from '@/classes/DebugLogger'
+import { faq } from '@/utils/Variaveis'
+import Questions from '@/components/Questions'
 
 const loadingEfiPay = async () => {
     if (typeof window !== 'undefined') {
@@ -61,9 +63,23 @@ export default function Suport() {
                     </div>
                     <div>
                         <h3>Está com problemas?</h3>
-                        <p>Fale conosco através do email: contato@ericssongomes.com</p>
+                        <p>Fale conosco através do email: suporte@flixnext.com.br</p>
                         <p>Descreva o problema da melhor forma possível.</p>
-                        <p>Estamos sempre buscando melhor atende-lo e seu email é muito importante para nós.</p>
+                        <p>Estamos sempre buscando melhor atende-lo. Seu contato é muito importante para nós.</p>
+                    </div>
+                </div>
+                <div className={styles.faqContainer}>
+                    <div className={styles.title}>
+                        <h1>{"perguntas frequentes - faq".toUpperCase()}</h1>
+                    </div>
+                    <div className={styles.questionsContainer}>
+                        {faq.map((item, index) => (
+                            <Questions
+                                key={index}
+                                question={item.question}
+                                answer={item.answer}
+                            />
+                        ))}
                     </div>
                 </div>
             </section>

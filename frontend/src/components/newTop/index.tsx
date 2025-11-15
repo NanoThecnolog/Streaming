@@ -48,9 +48,9 @@ export default function NewTop({ width, id, isActive = false }: TopProps) {
         }, 3000)
         return () => clearInterval(timer)
     }
-    /*useEffect(() => {
+    useEffect(() => {
         if (width > 915) handleTrailer()
-    }, [card, width])*/
+    }, [card, width])
 
     useEffect(() => {
         if (!videoRef.current) return
@@ -97,9 +97,6 @@ export default function NewTop({ width, id, isActive = false }: TopProps) {
         const play: string = `/watch/${card?.tmdbId}`
         router.push(play)
     }
-
-
-
 
     const handleVolume = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newVolume = parseFloat(e.target.value)
