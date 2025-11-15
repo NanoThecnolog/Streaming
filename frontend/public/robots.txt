@@ -34,6 +34,14 @@ Disallow: /watch
 User-agent: *
 Disallow: /recover
 
+# *
+User-agent: *
+Disallow: /dashboard
+
+# *
+User-agent: *
+Disallow: /teste
+
 # Host
 Host: https://flixnext.com.br
 
