@@ -21,6 +21,10 @@ export default function HeroSection({ width }: HeroProps) {
     const [activeIndex, setActiveIndex] = useState(0)
     const ids: IDProps[] = [
         {
+            id: 66732,
+            type: 'tv'
+        },
+        {
             id: 617126,
             type: "movie"
         },
