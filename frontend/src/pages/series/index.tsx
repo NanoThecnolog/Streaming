@@ -32,8 +32,6 @@ export default function Series() {
     const { serieData, setSerieData, setAllData, allData } = useTMDB()
     const [visible, setvisible] = useState(false)
     const { series, setSeries } = useFlix()
-    const tmdbid = 66732;
-    const [topCard, setTopCard] = useState<SeriesProps | null>(null)
 
     useEffect(() => {
         async function fetchSeriesMongoDB() {
@@ -41,11 +39,6 @@ export default function Series() {
             if (response.length > 0) setSeries(response)
         }
         if (series.length === 0) fetchSeriesMongoDB()
-        if (series.length > 0) {
-            const card = series.find((card) => card.tmdbID === tmdbid)
-            if (!card) return
-            setTopCard(card)
-        }
     }, [series])
 
     useEffect(() => {
@@ -107,7 +100,7 @@ export default function Series() {
                                         {//<TopSerie width={width} />
                                         }
                                         {
-                                            topCard && <NewTopSerie width={width} id={157239} />
+                                            <NewTopSerie width={width} id={66732} />
                                         }
                                         <div className={styles.mid}>
                                             <TopPopularTVShows cardPerContainer={cardPerContainer} cards={serieData} seriesDB={series} />
