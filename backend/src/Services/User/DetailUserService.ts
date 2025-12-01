@@ -24,7 +24,9 @@ interface RequestProps {
 
 
 export class DetailUserService {
-    async execute({ id }: RequestProps): Promise<DetailUserProps> {
+    async execute({ id }: RequestProps): Promise<DetailUserProps | string> {
+        //console.log("teste")
+        //return 'teste'
         const [user, watchLaterList] = await Promise.all([
             prismaClient.user.findUniqueOrThrow({
                 where: { id: id }
@@ -42,6 +44,21 @@ export class DetailUserService {
                 }
             })
         ])
+        console.log(user.id)
+        await prismaClient.loginHistory.upsert({
+            where: { userId: user.id },
+            create: {
+                userId: user.id,
+                name: user.name,
+                email: user.email,
+                lastAccess: new Date()
+            },
+            update: {
+                name: user.name,
+                email: user.email,
+                lastAccess: new Date()
+            }
+        })
         return {
             name: user.name,
             email: user.email,

@@ -1,8 +1,7 @@
 import { compare } from "bcrypt";
 import prismaClient from "../../prisma";
 import { sign } from "jsonwebtoken";
-import { ListFavoriteService } from "./ListFavoriteService";
-import { v4 as uuidv4 } from 'uuid'
+import { AppError } from '../../Utils/AppErrorExtend'
 
 class AuthUserService {
     async execute(email: string, password: string) {

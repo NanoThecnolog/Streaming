@@ -6,6 +6,7 @@ export class DetailUserController {
         try {
             const detailService = new DetailUserService();
             const id = req.user_id;
+            console.log("id no controller", id)
             const userDetails = await detailService.execute({
                 id: id as string
             })

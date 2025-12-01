@@ -34,8 +34,19 @@ model user {
   resetToken       String?
   resetTokenExpire DateTime?
 
-  created_at DateTime @default(now())
-  updated_at DateTime @default(now()) @updatedAt
+  created_at   DateTime      @default(now())
+  updated_at   DateTime      @default(now()) @updatedAt
+  loginHistory loginHistory?
+}
+
+model loginHistory {
+  id         String   @id @default(uuid())
+  userId     String   @unique
+  name       String
+  email      String
+  lastAccess DateTime @default(now())
+
+  user user @relation(fields: [userId], references: [id])
 }
 
 model subscription {
