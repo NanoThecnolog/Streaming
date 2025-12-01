@@ -96,6 +96,18 @@ export function FlixProvider({ children }: ContextProviderProps) {
         if (series.length === 0) fetchSeriesMongoDB()
     }, [series])
 
+    useEffect(() => {
+        const getUserDetails = async () => {
+            try {
+                const userData = await axios.get<UserContext>('/api/user')
+                setUser(userData.data)
+            } catch (err) {
+                debug.error("Sem dados do usuário")
+            }
+        }
+        if (!user) getUserDetails()
+    }, [])
+
     return (
         <FlixContext.Provider value={{ user, watchLater, setWatchLater, setUser, signIn, signOut, movies, series, setMovies, setSeries }}>
             {children}
