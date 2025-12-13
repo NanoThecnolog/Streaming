@@ -5,7 +5,6 @@ import { useEffect, useState } from "react"
 import NextEpisode from "@/components/ui/NextEpisode"
 import PrevEpisode from "@/components/ui/PreviousEpisode"
 import SEO from "@/components/SEO"
-//import { series } from "@/data/series"
 import HelpFlag from "@/components/Helpflag"
 import HelpModal from "@/components/modals/HelpModal/index "
 import { SeriesProps } from "@/@types/series"
@@ -41,13 +40,17 @@ export default function WatchSerie() {
 
     useEffect(() => {
         if (!user) {
+            /*
             const { 'flix-user': userCookie } = parseCookies()
             if (!userCookie) {
-                router.push('/login')
+                
                 return
             }
             setUser(JSON.parse(userCookie))
+            */
+            router.push('/login')
         }
+        //if (user?.donator === false) router.push('/me')
     }, [])
 
     useEffect(() => {
@@ -78,13 +81,13 @@ export default function WatchSerie() {
         setVisible(!visible)
     }
 
-    useEffect(() => {
+    /*useEffect(() => {
         if (episodio?.src) {
             shareVerify(episodio.src)
         } else {
             debug.log("Src do episodio ausente")
         }
-    }, [episodio])
+    }, [episodio])*/
 
     async function shareVerify(link: string) {
         if (loading) return

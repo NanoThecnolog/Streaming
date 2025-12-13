@@ -28,14 +28,19 @@ export default function Watch() {
 
     useEffect(() => {
         if (!user) {
-            const { 'flix-user': userCookie } = parseCookies()
+            /*const { 'flix-user': userCookie } = parseCookies()
             if (!userCookie) {
-                router.push('/login')
+                
                 return
             }
-            setUser(JSON.parse(userCookie))
+            setUser(JSON.parse(userCookie))*/
+            router.push('/login')
         }
+        //if (user?.donator === false) router.push('/me')
+        //debug.log(user.donator)
+        //debug.log(user)
     }, [])
+
 
     useEffect(() => {
         async function getMovieMongoData() {
@@ -60,7 +65,7 @@ export default function Watch() {
         setVisible(!visible)
     }
 
-    useEffect(() => {
+    /*useEffect(() => {
         debug.log("movie data ao verificar: ", movieData)
         if (movieData.src) {
             shareVerify(movieData.src)
@@ -68,7 +73,7 @@ export default function Watch() {
             setShared(false)
             debug.log("não fazer nada!")
         }
-    }, [movieData])
+    }, [movieData])*/
 
 
     async function shareVerify(link: string) {
