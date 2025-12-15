@@ -44,7 +44,7 @@ export default function Avatar({ handleCloseModal }: AvatarProps) {
             }
             destroyCookie(null, 'flix-user')
             setCookie(null, 'flix-user', JSON.stringify(userCookie), cookieOptions)
-            setUser(userCookie)
+            setUser(data)
             toast.success("Avatar alterado!")
         } catch (err) {
             console.log("Erro ao tentar atualizar avatar. ", err)

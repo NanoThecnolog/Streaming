@@ -59,7 +59,7 @@ export default function EditarDados({ handleClose }: EditarDadosProps) {
             }
             destroyCookie(null, 'flix-user')
             setCookie(null, 'flix-user', JSON.stringify(userCookie), cookieOptions)
-            setUser(userCookie)
+            setUser(data)
             toast.success("Dados alterados com sucesso.")
             //console.log("Dados alterados com sucesso", data)
         } catch (err) {
