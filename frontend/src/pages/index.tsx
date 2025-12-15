@@ -18,9 +18,12 @@ import TopPopularMovies from "@/components/TopPopularMovies";
 import HeroSection from "@/components/HeroSection";
 import TrendingCarousel from "@/components/TrendingCarousel";
 import TopPopularTVShows from "@/components/TopPopularTV";
+import { DailyWarningModal } from "@/components/ui/DailyModal";
+import { useDailyModal } from "@/hooks/useDailyModal";
 
 
 export default function Home() {
+  const { isOpen, close } = useDailyModal()
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
   const [width, setWidth] = useState<number>(0)
   const removedSections = [agp.dc, agp.marvel, agp.hero]
@@ -116,12 +119,14 @@ export default function Home() {
               </div>
               <BackTopButton visible={visible} />
             </main>
+            <DailyWarningModal open={isOpen} onClose={close} />
             <Footer />
           </> :
           <div className={styles.loading}>
             <Loading />
           </div>
       }
+
     </>
   );
 }

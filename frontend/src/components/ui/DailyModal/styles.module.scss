@@ -1,0 +1,143 @@
+/* Overlay com fade */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    font-family: var(--font-Roboto);
+
+    /* animação */
+    animation: fadeIn 0.3s ease forwards;
+
+    &.closing {
+        animation: fadeOut 0.25s ease forwards;
+    }
+}
+
+/* Modal */
+.modal {
+    background: var(--black);
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 620px;
+    width: 100%;
+    margin: 0 1rem;
+
+    /* leve animação de entrada */
+    animation: scaleIn 0.3s ease forwards;
+
+    h2 {
+        margin-bottom: 1rem;
+        text-align: center;
+        font-size: 1.4rem;
+    }
+
+    p {
+        margin-bottom: 1.25rem;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    /*strong {
+        color: var(--red);
+    }*/
+
+    .buttonContainer {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-top: 1.5rem;
+
+        button {
+            //width: 100%;
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: background 0.2s ease, transform 0.1s ease;
+
+            @media(hover: hover) and (pointer:fine) {
+                &:hover {
+                    background: #111;
+                }
+            }
+
+            &:active {
+                transform: scale(0.97);
+            }
+        }
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .modal {
+        padding: 1.5rem;
+
+        h2 {
+            font-size: 1.25rem;
+        }
+
+        p {
+            font-size: 0.9rem;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .modal {
+        padding: 1.25rem;
+        border-radius: 6px;
+
+        h2 {
+            font-size: 1.15rem;
+        }
+
+        p {
+            font-size: 0.88rem;
+        }
+
+        .buttonContainer button {
+            width: 100%;
+        }
+    }
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

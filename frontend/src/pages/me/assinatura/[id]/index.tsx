@@ -56,12 +56,15 @@ export default function SubscriptionPage({ subscription }: SubscriptionPageProps
     const handleConfirmCancel = async () => {
         try {
             const cancelar = await apiSub.delete(`/subscription/${data.subscription_id}`)
-            toast.success("Assinatura cancelada!")
+            toast.success("Assinatura cancelada! Atualize a página ou faça login novamente.")
             debug.log("Assinatura cancelada", cancelar.data)
             router.refresh()
         } catch (err) {
-            toast.error("Ocorreu um erro ao cancelar sua assinatura. Tente novamente mais tarde, ou entre em contato!")
+            //toast.error("Ocorreu um erro ao cancelar sua assinatura. Tente novamente mais tarde, ou entre em contato!")
             debug.log("Erro ao cancelar assinatura", err)
+        } finally {
+            setShowCancelModal(false)
+            router.refresh()
         }
     }
 
@@ -107,7 +110,7 @@ export default function SubscriptionPage({ subscription }: SubscriptionPageProps
                                     : <>
                                         <button className={styles.actionPrimary}>
                                             <CreditCard size={18} />
-                                            Escolher Plano
+                                            Reativar Assinatura
                                         </button>
                                     </>
                             }
