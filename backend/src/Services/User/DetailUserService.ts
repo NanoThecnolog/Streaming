@@ -33,7 +33,7 @@ interface SubscriptionProps {
     userId: string,
     subId: number,
     planId: string,
-    startedAt: string | Date,
+    startedAt?: string | Date,
     status: string
 }
 
