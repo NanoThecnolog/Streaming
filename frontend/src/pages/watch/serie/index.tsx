@@ -41,15 +41,15 @@ export default function WatchSerie() {
 
     useEffect(() => {
         if (!user) {
-            /*
+
             const { 'flix-user': userCookie } = parseCookies()
             if (!userCookie) {
-                
+
                 return
             }
             setUser(JSON.parse(userCookie))
-            */
-            router.push('/login')
+
+            //router.push('/login')
         }
         //if (user?.donator === false) router.push('/me')
     }, [])

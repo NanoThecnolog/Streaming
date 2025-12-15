@@ -31,12 +31,15 @@ export default function Me() {
 
     useEffect(() => {
         if (!user) {
+
             const { 'flix-user': userCookie } = parseCookies()
             if (!userCookie) {
                 router.push('/login')
                 return
             }
-            setUser(JSON.parse(userCookie))
+
+
+            //setUser(JSON.parse(userCookie))
         }
     }, [])
     function handleOpenModal() {

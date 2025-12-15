@@ -29,13 +29,13 @@ export default function Watch() {
 
     useEffect(() => {
         if (!user) {
-            /*const { 'flix-user': userCookie } = parseCookies()
+            const { 'flix-user': userCookie } = parseCookies()
             if (!userCookie) {
-                
+                //router.push('/login')
                 return
             }
-            setUser(JSON.parse(userCookie))*/
-            router.push('/login')
+            setUser(JSON.parse(userCookie))
+
         }
         //if (user?.donator === false) router.push('/me')
         //debug.log(user.donator)

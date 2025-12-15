@@ -22,7 +22,7 @@ import PaymentLoader from '@/components/ui/PaymentLoader'
 import { Validate } from '@/classes/validator'
 
 interface PageProps {
-    plans: PlansProps | null,
+    plans: PlanProp[] | null,
 }
 
 export interface DataUserPaymentProps {
@@ -46,6 +46,7 @@ export default function PaymentUserPage({ plans }: PageProps) {
     //const [selectedPlan, setSelectedPlan] = useState<PlanProp | null>(null)
     const [loading, setLoading] = useState(false)
     const [planIdSelected, setPlanIdSelected] = useState<number | null>(null)
+    const [selectedPlan, setSelectedPlan] = useState<PlanProp | null>(null)
     //const [method, setMethod] = useState<"credit" | "billet" | null>(null)
     const [checked, setChecked] = useState(false)
     const [dataUser, setDataUser] = useState<DataUserPaymentProps>(
@@ -107,7 +108,13 @@ export default function PaymentUserPage({ plans }: PageProps) {
         })
     }, [user])
 
-    const selectedPlan = plans?.plan.find(p => p.planId === planIdSelected)
+    useEffect(() => {
+        if (plans && plans.length > 0) {
+            const selectedPlan = plans.find(p => p.planId === planIdSelected)
+            if (!selectedPlan) return
+            setSelectedPlan(selectedPlan)
+        }
+    }, [planIdSelected, plans])
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault()
@@ -189,7 +196,7 @@ export default function PaymentUserPage({ plans }: PageProps) {
                         <h3>Escolha seu plano</h3>
 
                         <div className={styles.planGrid}>
-                            {plans?.plan.map(plan => (
+                            {plans && plans.map(plan => (
                                 <button
                                     key={plan.planId}
                                     type="button"
@@ -318,6 +325,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     try {
 
         const plans = await axios.get('https://flixnext.com.br/api/plan/list')
+
+
 
         return {
             props: {
