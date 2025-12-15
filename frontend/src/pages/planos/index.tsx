@@ -2,7 +2,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import styles from './styles.module.scss'
 import SEO from "@/components/SEO";
-import { PlansProps } from "@/@types/plans";
+import { PlanProp, PlansProps } from "@/@types/plans";
 import 'swiper/css';
 import axios from "axios";
 import { mongoService } from "@/classes/MongoContent";
@@ -21,7 +21,7 @@ import { useRouter } from "next/navigation";
 
 //plans: plans.data, movies, series, tmdbMovies: tmdbMovies.data, tmdbSeries: tmdbSeries.data
 interface PagePlansProps {
-    plans: PlansProps,
+    plans: PlanProp[],
     tmdbMovies: MovieTMDB[],
     tmdbSeries: TMDBSeries[],
 }

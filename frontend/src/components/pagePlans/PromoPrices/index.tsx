@@ -2,11 +2,11 @@ import Spinner from '@/components/ui/Loading/spinner'
 import styles from './styles.module.scss'
 import { calculateDiscount, formatPrice } from '@/utils/UtilitiesFunctions'
 import { desconto } from '@/utils/Variaveis'
-import { PlansProps } from '@/@types/plans'
+import { PlanProp, PlansProps } from '@/@types/plans'
 import { useRouter } from 'next/navigation'
 
 interface PricesProps {
-    plans: PlansProps;
+    plans: PlanProp[];
     setPlanSelected?: (e: number) => void
 }
 
@@ -50,7 +50,7 @@ export default function Prices({ plans, setPlanSelected }: PricesProps) {
                         plans ?
                             <div className={styles.plansContainer}>
                                 {
-                                    plans.plan.length > 0 && plans.plan.sort((a, b) => a.price - b.price).map(p => (
+                                    plans.length > 0 && plans.sort((a, b) => a.price - b.price).map(p => (
                                         <div
                                             className={`${styles.plan}
                                             ${p.type === "semestral" && styles.border}`}
