@@ -29,12 +29,12 @@ export function DailyWarningModal({ open, onClose }: Props) {
 
                 <p>
                     <strong>O sistema entra em funcionamento a partir do dia 17</strong>, mas
-                    as assinaturas <strong>já podem ser contratadas <Link className='red' href={'/me/escolher-plano'}>clicando aqui</Link></strong>.
+                    as assinaturas <strong>já podem ser contratadas.</strong>.
                 </p>
 
                 <p>
                     Usuários atuais podem contratar pelo <Link href={'/me'} className='red'>painel da conta</Link>. Novos usuários
-                    realizarão a contratação no momento do cadastro.
+                    realizarão a escolha do plano no momento do cadastro. <Link href='/planos'>Clique aqui</Link> para ver os planos disponíveis.
                 </p>
                 <p>Obrigado por nos apoiarem!</p>
 

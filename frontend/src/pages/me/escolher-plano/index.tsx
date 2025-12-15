@@ -321,6 +321,17 @@ export default function PaymentUserPage({ plans }: PageProps) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
+    const { req } = ctx
+
+    const token = req.cookies['flix-token']
+
+
+    if (!token) return {
+        redirect: {
+            destination: '/login',
+            permanent: false
+        }
+    }
 
     try {
 
