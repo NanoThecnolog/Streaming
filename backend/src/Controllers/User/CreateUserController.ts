@@ -6,7 +6,7 @@ class CreateUserController {
     async handle(req: Request, res: Response) {
         try {
             const createUserService = new CreateUserService();
-            const { name, email, birthday, password, cpf } = req.body;
+            const { name, email, birthday, password, cpf, phone_number, address } = req.body;
             if (!name || !email || !birthday || !password) throw new BadRequestError("Campos obrigatórios inválidos")
 
             const user = await createUserService.execute({
@@ -14,7 +14,9 @@ class CreateUserController {
                 email,
                 birthday,
                 password,
-                cpf
+                cpf,
+                phone_number,
+                address
             })
             console.log("resultado da requisição do service:", user)
             return res.status(200).json(user)

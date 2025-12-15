@@ -1,6 +1,7 @@
 import prismaClient from "../../prisma";
 import nodemailer from 'nodemailer';
 import { apiEmail } from "../../Utils/apiMessenger";
+import { debugLog } from "../../Utils/DebugLog";
 
 interface ActiveRequest {
     id: string
@@ -47,10 +48,12 @@ class ActiveUserService {
                 qrCode
             })
             if (sendEmail.data.accepted.length > 0) console.log("mensagem enviada")
-            return user
+
         } catch (error) {
-            throw new Error("Erro com o envio do email de confirmação de ativação")
+            //throw new Error("Erro com o envio do email de confirmação de ativação")
+            console.error("Erro ao enviar email de confirmação de ativação de conta para o usuário!")
         }
+        return user
     }
 }
 export { ActiveUserService }

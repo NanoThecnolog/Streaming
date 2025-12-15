@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -14,29 +8,34 @@ datasource db {
 }
 
 model user {
-  id               String        @id @default(uuid())
-  name             String
-  email            String        @unique
-  birthday         DateTime
-  cpf              String?
-  phone_number     String?
-  addressId        String?       @unique
-  address          address?      @relation(fields: [addressId], references: [id], onDelete: Cascade)
-  password         String
-  subscription     subscription?
-  watchLater       watchLater[]
-  favoritos        favorito[]
-  donator          Boolean       @default(false)
-  avatar           String?
-  verified         Boolean       @default(true)
-  news             Boolean       @default(true)
-  access           Boolean       @default(false)
+  id       String   @id @default(uuid())
+  name     String
+  email    String   @unique
+  birthday DateTime
+  password String
+
+  donator  Boolean @default(false)
+  avatar   String?
+  verified Boolean @default(false) //alterar valor default para false quando terminar
+  news     Boolean @default(true)
+  access   Boolean @default(false)
+
+  cpf          String? @unique
+  phone_number String?
+
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+
   resetToken       String?
   resetTokenExpire DateTime?
 
-  created_at   DateTime      @default(now())
-  updated_at   DateTime      @default(now()) @updatedAt
+  addressId String?  @unique
+  address   address? @relation(fields: [addressId], references: [id], onDelete: Cascade)
+
+  favoritos    favorito[]
   loginHistory loginHistory?
+  subscription subscription?
+  watchLater   watchLater[]
 }
 
 model loginHistory {
@@ -45,23 +44,46 @@ model loginHistory {
   name       String
   email      String
   lastAccess DateTime @default(now())
-
-  user user @relation(fields: [userId], references: [id])
+  user       user     @relation(fields: [userId], references: [id])
 }
 
 model subscription {
-  id     String @id @default(uuid())
-  userId String @unique
-  user   user   @relation(fields: [userId], references: [id], onDelete: Cascade)
-  subId  Int
-  status String
+  id        String   @id @default(uuid())
+  userId    String   @unique
+  subId     Int      @unique
+  status    String
+  planId    String
+  startedAt DateTime @default(now())
 
-  planId String
-  plan   plan   @relation(fields: [planId], references: [id])
-  //antes de continuar, quero ver o que retorna na busca pela subscrição, pra decidir quais campos guardar aqui
-  //posso guardar informações de pagamento pra mostrar na página do usuário, data de vencimento, status da assinatura, quais já foram pagas, etc....
-  //preciso abranger todos os cenários: pagamento por boleto, por cartão de crédito, solicitação de cancelamento de sub, mudança de plano, etc...
+  //invoices invoice[]
+  history subscriptionHistory[]
+
+  plan plan @relation(fields: [planId], references: [id])
+  user user @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([status])
 }
+
+model subscriptionHistory {
+  id             String   @id @default(uuid())
+  subscriptionId String
+  fromStatus     String
+  toStatus       String
+  changedAt      DateTime @default(now())
+
+  subscription subscription @relation(fields: [subscriptionId], references: [id])
+}
+
+/**
+ * model invoice {
+ * id       String        @id @default(uuid())
+ * status   InvoiceStatus // paid | pending | failed | refunded
+ * chargeId Int //ID da cobrança na EFI
+ * subscriptionId String?
+ * subscription   subscription? @relation(fields: [subscriptionId], references: [id])
+ * @@index([status])
+ * }
+ */
 
 model address {
   id           String  @id @default(uuid())
@@ -76,68 +98,71 @@ model address {
 }
 
 model plan {
-  id     String @id @default(uuid())
-  name   String @unique
-  price  Int
-  type   String //mensal, anual, trimestral, semestral
-  planId Int    @unique //id do plano na EFI
-
-  sub subscription[]
-
-  created_at DateTime @default(now())
-  updated_at DateTime @default(now()) @updatedAt
+  id         String         @id @default(uuid())
+  name       String         @unique
+  price      Int
+  type       String
+  planId     Int            @unique
+  created_at DateTime       @default(now())
+  updated_at DateTime       @default(now()) @updatedAt
+  sub        subscription[]
 }
 
 model watchLater {
-  id       String @id @default(uuid())
-  title    String
-  subtitle String
-  tmdbid   Int
-
-  userId String
-  user   user   @relation(fields: [userId], references: [id], onDelete: Cascade)
-
+  id         String   @id @default(uuid())
+  title      String
+  subtitle   String
+  userId     String
   created_at DateTime @default(now())
   updated_at DateTime @default(now()) @updatedAt
-}
-
-model movies {
-  id          String   @id @default(uuid())
-  title       String
-  subtitle    String?
-  src         String
-  background  String
-  overlay     String
-  description String
-  duration    String
-  genero      String[]
-
-  created_at DateTime @default(now())
-  updated_at DateTime @default(now()) @updatedAt
+  tmdbid     Int
+  user       user     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model favorito {
-  id       String  @id @default(uuid())
-  tmdbid   Int
-  title    String
-  subtitle String?
-  userId   String
-  user     user    @relation(fields: [userId], references: [id], onDelete: Cascade)
-
+  id         String   @id @default(uuid())
+  title      String
+  subtitle   String?
+  userId     String
   created_at DateTime @default(now())
   updated_at DateTime @default(now()) @updatedAt
+  tmdbid     Int
+  user       user     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model problem {
-  id          String @id @default(uuid())
+  id          String   @id @default(uuid())
   title       String
   description String
-  tmdbId      Int    @unique
+  tmdbId      Int      @unique
   season      Int?
   episode     Int?
   userId      String
   status      String
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now()) @updatedAt
+}
 
-  created_at DateTime @default(now())
-  updated_at DateTime @default(now()) @updatedAt
+//ENUMs
+
+enum SubscriptionStatus {
+  active
+  inactive
+  canceled
+  expired
+  trial
+}
+
+enum InvoiceStatus {
+  new //Cobrança gerada, aguardando definição da forma de pagamento. O termo "new" equivale a "novo"
+  waiting //Forma de pagamento selecionada, aguardando a confirmação do pagamento. O termo "waiting" equivale a "aguardando".
+  identified //Pagamento identificado. O termo "identified" equivale a "identificado". Indica que o pagamento foi efetuado antes do dinheiro ser creditado.
+  approved //Pagamento aprovado. O termo "approved" equivale a "aprovado". Indica que o pagamento foi aprovado pela operadora do cartão mas ainda não foi creditado.
+  paid //Pagamento confirmado. O termo "paid" equivale a "pago".
+  unpaid //Não foi possível confirmar o pagamento da cobrança. O termo "unpaid" equivale a "não pago".
+  refunded //Pagamento devolvido pelo lojista ou pelo intermediador Efí. O termo "refunded" equivale a "devolvido".
+  contested //Pagamento em processo de contestação. O termo "contested" equivale a "contestado".
+  canceled //Cobrança cancelada pelo vendedor ou pelo pagador. O termo "canceled" equivale a "cancelado".
+  settled //Cobrança foi confirmada manualmente. O termo "settled" equivale a "marcar como pago".
+  expired //A cobrança receberá este status caso nao tenha sito realizado nenhum pagamento e a data maxima de pagamento, definica no atributo days_to_write_off, ou nas configurações da sua conta Efí, seja atingida. O termo "expired" equivale a "expirado".
 }

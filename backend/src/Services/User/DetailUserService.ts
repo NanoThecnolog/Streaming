@@ -1,9 +1,12 @@
 import { sign } from "jsonwebtoken";
 import prismaClient from "../../prisma";
+import { address } from "@prisma/client";
 
 interface DetailUserProps {
     name: string,
     email: string,
+    cpf: string | null,
+    phone_number: string | null,
     avatar: string | null,
     verified: boolean,
     birthday: Date,
@@ -17,9 +20,21 @@ interface DetailUserProps {
         userId: string,
         created_at: Date;
     }[],
+    subscription: SubscriptionProps | null,
+    donator: boolean,
+    address: address | null
 }
 interface RequestProps {
     id: string
+}
+
+interface SubscriptionProps {
+    id: string,
+    userId: string,
+    subId: number,
+    planId: string,
+    startedAt: string | Date,
+    status: string
 }
 
 
@@ -27,9 +42,10 @@ export class DetailUserService {
     async execute({ id }: RequestProps): Promise<DetailUserProps | string> {
         //console.log("teste")
         //return 'teste'
-        const [user, watchLaterList] = await Promise.all([
+        const [user, watchLaterList, subscription] = await Promise.all([
             prismaClient.user.findUniqueOrThrow({
-                where: { id: id }
+                where: { id: id },
+                include: { address: true }
             }),
 
             prismaClient.watchLater.findMany({
@@ -42,7 +58,8 @@ export class DetailUserService {
                     userId: true,
                     created_at: true,
                 }
-            })
+            }),
+            prismaClient.subscription.findUnique({ where: { userId: id } })
         ])
         console.log(user.id)
         await prismaClient.loginHistory.upsert({
@@ -65,9 +82,14 @@ export class DetailUserService {
             avatar: user.avatar,
             verified: user.verified,
             birthday: user.birthday,
+            cpf: user.cpf,
+            phone_number: user.phone_number,
             news: user.news,
             watchLater: watchLaterList,
-            createdAt: user.created_at
+            createdAt: user.created_at,
+            subscription: subscription,
+            donator: user.donator,
+            address: user.address
         }
     }
 }

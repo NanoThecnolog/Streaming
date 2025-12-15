@@ -6,23 +6,33 @@ import { apiEmail } from "../../Utils/apiMessenger";
 import { BadRequestError } from "../../Utils/badRequestExtend";
 import { isEmail } from "validator";
 
+interface AddressRequest {
+    street: string;
+    number: string;
+    zipcode: string;
+    state: string;
+    city: string;
+    neighborhood: string,
+    complement?: string;
+}
 interface UserRequest {
     name: string,
     email: string,
     birthday: Date,
     password: string,
     cpf: string
+    phone_number: string
+    address?: AddressRequest
 }
 
 class CreateUserService {
     private async verifyUser(email: string) {
-
         return await prismaClient.user.findFirst({
             where: { email }
         })
 
     }
-    async execute({ name, email, birthday, password, cpf }: UserRequest) {
+    async execute({ name, email, birthday, password, cpf, phone_number, address }: UserRequest) {
 
         const userExiste = await this.verifyUser(email)
 
@@ -40,11 +50,27 @@ class CreateUserService {
                 email,
                 birthday,
                 password: passwordHash,
-                cpf
+                cpf,
+                phone_number,
+                address: address
+                    ? {
+                        create: {
+                            street: address.street,
+                            number: address.number,
+                            neighborhood: address.neighborhood,
+                            zipcode: address.zipcode,
+                            city: address.city,
+                            complement: address.complement ?? null,
+                            state: address.state,
+                        }
+                    } : undefined
             }, select: {
                 id: true,
                 name: true,
-                email: true
+                email: true,
+                cpf: true,
+                phone_number: true,
+                address: true
             }
         })
         if (user) {

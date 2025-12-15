@@ -35,10 +35,12 @@ class AuthUserService {
         })
 
         return {
+            id: userExiste.id,
             name: userExiste.name,
             avatar: userExiste.avatar,
             watchLater: watchLaterList,
             token: token,
+            //donator: userExiste.donator
         }
     }
 }

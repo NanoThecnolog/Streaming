@@ -7,7 +7,7 @@ class EditUserController {
     async handle(req: Request, res: Response) {
         try {
             const editUserService = new EditUserService();
-            const { name, password, avatar, birthday, news } = req.body;
+            const { name, password, avatar, birthday, news, cpf, phone_number, address, donator } = req.body;
             const id = req.user_id
             debugLog('dados do user no controller', { name, password, avatar, birthday, news, id })
             const user = await editUserService.execute({
@@ -16,7 +16,11 @@ class EditUserController {
                 password,
                 avatar,
                 birthday,
-                news
+                news,
+                cpf,
+                phone_number,
+                address,
+                donator
             })
             return res.status(200).json(user)
         } catch (err) {
