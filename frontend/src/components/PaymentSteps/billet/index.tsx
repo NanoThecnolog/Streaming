@@ -1,34 +1,25 @@
 import { useEffect, useState } from 'react';
 import styles from './styles.module.scss'
 import { AiOutlineBarcode } from "react-icons/ai";
-import { IoIosArrowBack } from 'react-icons/io';
 import Link from 'next/link';
-import { CreditPayment } from '@/@types/payment';
 
-interface BilletProps {
-    setMethod: (method: 'credit' | 'billet' | null) => void
-    setCredit: React.Dispatch<React.SetStateAction<CreditPayment>>
-    confirm: boolean
+interface PaymentProps {
+    setCheck: (e: boolean) => void
+    check: boolean
 }
-export default function PaymentBillet({ setMethod, setCredit, confirm }: BilletProps) {
-    const [checked, setChecked] = useState(false)
 
-    /*useEffect(() => {
-        if (billet) setMethod('billet')
-        else setMethod(null)
-    }, [billet])*/
-    /*const handleCheckBox = () => {
-        setBillet(!billet)
-    }*/
+export default function PaymentBillet({ setCheck, check }: PaymentProps) {
+
+
+    const handleCheck = () => {
+        setCheck(!check)
+    }
+
     return (
         <section className={styles.container}>
-            <IoIosArrowBack
-                onClick={() => { setMethod(null), setCredit(prev => ({ ...prev, fullComplete: false })) }}
-                size={30}
-                style={{ cursor: 'pointer' }}
-                title='voltar'
-            />
-            <h2>Pagamento com Boleto bancário</h2>
+            <div className={styles.header}>
+                <h2>Pagamento com Boleto bancário</h2>
+            </div>
             <div className={styles.billet}>
                 <AiOutlineBarcode size={100} />
             </div>
@@ -36,7 +27,12 @@ export default function PaymentBillet({ setMethod, setCredit, confirm }: BilletP
 
             <div className={styles.aviso}>
                 <label htmlFor="check">
-                    <input type="checkbox" onChange={() => { setChecked(!checked), setCredit(prev => ({ ...prev, fullComplete: !confirm })) }} id="check" />
+                    <input
+                        type="checkbox"
+                        onChange={handleCheck}
+                        id="check"
+                        checked={check}
+                    />
                     <p>Concordo com os Termos de Uso e Política de Privacidade.</p>
                 </label>
                 <p>

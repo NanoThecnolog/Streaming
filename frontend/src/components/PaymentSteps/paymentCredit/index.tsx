@@ -10,8 +10,8 @@ import { SiAmericanexpress } from 'react-icons/si'
 import { IoIosArrowBack } from "react-icons/io";
 
 interface PaymentProps {
-    credit: CreditPayment,
-    setCredit: React.Dispatch<React.SetStateAction<CreditPayment>>
+    credit: CreditPayment | null | undefined,
+    setCredit: React.Dispatch<React.SetStateAction<CreditPayment | null | undefined>>
     setMethod: React.Dispatch<React.SetStateAction<"credit" | "billet" | null>>
 }
 
@@ -21,6 +21,19 @@ export default function PaymentCredit({ credit, setCredit, setMethod }: PaymentP
     const [validCVV, setValidCVV] = useState<boolean | null>(null)
     const [validationStatus, setValidationStatus] = useState<CardNumberVerification | null>(null)
     const [checked, setChecked] = useState(false)
+
+    const initialCredit = {
+        brand: '',
+        number: '',
+        cvv: '',
+        expiration: '',
+        expirationMonth: '',
+        expirationYear: '',
+        holderName: '',
+        holderDocument: '',
+        reuse: false,
+        fullComplete: false
+    }
 
     const bandeiras: Record<string, JSX.Element> = {
         'mastercard': <FaCcMastercard size={40} />,
@@ -41,7 +54,7 @@ export default function PaymentCredit({ credit, setCredit, setMethod }: PaymentP
     }
 
 
-    function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target
 
         if (name === 'number') {
@@ -59,34 +72,74 @@ export default function PaymentCredit({ credit, setCredit, setMethod }: PaymentP
             if (!cvv.isValid) setValidCVV(cvv.isValid)
             else setValidCVV(true)
         }
-        setCredit((prev: CreditPayment) => ({
-            ...prev,
-            [name]: name === 'expiration' ? formatExpiration(value) : value,
-        }))
+        if (name === 'holderName') {
+            setCredit(prev => ({ ...(prev ?? initialCredit), holderName: value }))
+        }
+        setCredit(prev => {
+            const safePrev = prev ?? initialCredit
+            return {
+                ...safePrev,
+                [name]: name === 'expiration' ? formatExpiration(value) : value,
+            }
+
+        })
     }
     useEffect(() => {
-        debug.log(credit.expiration)
-        if (credit.number) {
+        if (credit?.number) {
             const cardValidation = valid.number(credit.number)
             setValidationStatus(cardValidation)
             debug.log(cardValidation)
         }
     }, [credit])
     useEffect(() => {
+        if (brand) setCredit(prev => ({ ...(prev ?? initialCredit), brand }))
+    }, [brand])
+    useEffect(() => {
         if (!checked) {
-            setCredit(prev => ({ ...prev, fullComplete: false }))
+            if (credit?.fullComplete !== false) {
+                setCredit(prev => ({ ...(prev ?? initialCredit), fullComplete: false }))
+            }
             return
         }
-        if (credit.number.length === 16 && credit.expiration.length === 4 && credit.cvv.length === 3) setCredit(prev => ({ ...prev, fullComplete: true }))
-        else setCredit(prev => ({ ...prev, fullComplete: false }))
-    }, [checked, credit.number, credit.expiration, credit.cvv, setCredit])
+        const isComplete =
+            credit?.number?.length === 16 &&
+            credit?.expiration?.length === 4 &&
+            credit?.cvv?.length === 3
+        if (credit?.fullComplete !== isComplete)
+            setCredit(prev => {
+                const safePrev = prev ?? initialCredit
+                return {
+                    ...safePrev, fullComplete: true
+                }
+            })
+        else setCredit(prev => {
+            const safePrev = prev ?? initialCredit
+            return {
+                ...safePrev, fullComplete: false
+            }
+        })
+    }, [checked, credit?.number, credit?.expiration, credit?.cvv])
 
 
     return (
         <section className={styles.container}>
-            <IoIosArrowBack onClick={() => setMethod(null)} size={30} style={{ cursor: 'pointer' }} title='voltar' />
-            <h2>Pagamento com Cartão de Crédito</h2>
+            <div className={styles.headerContainer}>
+                <IoIosArrowBack onClick={() => setMethod(null)} size={30} style={{ cursor: 'pointer' }} title='voltar' />
+                <h2 className={styles.title}>Pagamento Cartão de Crédito</h2>
+            </div>
             <div className={styles.form}>
+                <div className={styles.input}>
+                    <label htmlFor="card-name">Nome do Titular</label>
+                    <input
+                        id='card-name'
+                        type="text"
+                        required
+                        placeholder='Nome do Titular como está no cartão'
+                        value={credit?.holderName ?? ""}
+                        onChange={handleChange}
+                        name='holderName'
+                    />
+                </div>
                 <div className={styles.input}>
                     <label htmlFor="card-number">Número do Cartão</label>
                     <div className={styles.brandContainer}>
@@ -97,7 +150,7 @@ export default function PaymentCredit({ credit, setCredit, setMethod }: PaymentP
                             maxLength={19}
                             placeholder="1234 5678 9101 1121"
                             required
-                            value={credit.number}
+                            value={credit?.number ?? ''}
                             name='number'
                             onChange={handleChange}
                         />
@@ -117,10 +170,10 @@ export default function PaymentCredit({ credit, setCredit, setMethod }: PaymentP
                             placeholder="MM/AA"
                             required
                             name='expiration'
-                            value={formatDisplay(credit.expiration)}
+                            value={formatDisplay(credit?.expiration || "")}
                             onChange={handleChange}
                         />
-                        {credit.expiration !== '' && validExpiration !== null && validExpiration == false &&
+                        {credit?.expiration !== '' && validExpiration !== null && validExpiration == false &&
                             <div>
                                 Data inválida!
                             </div>
@@ -136,11 +189,11 @@ export default function PaymentCredit({ credit, setCredit, setMethod }: PaymentP
                             placeholder="123"
                             required
                             name='cvv'
-                            value={credit.cvv}
+                            value={credit?.cvv ?? ""}
                             onChange={handleChange}
                         />
                         {
-                            credit.cvv !== '' && validCVV !== null && validCVV == false &&
+                            credit?.cvv !== '' && validCVV !== null && validCVV == false &&
                             <div>
                                 <p>cvv invalido!</p>
                             </div>
@@ -150,7 +203,7 @@ export default function PaymentCredit({ credit, setCredit, setMethod }: PaymentP
             </div>
             <div className={styles.aviso}>
                 <label htmlFor="check">
-                    <input type="checkbox" onChange={() => setChecked(!checked)} id="check" />
+                    <input type="checkbox" onChange={(e) => setChecked(e.target.checked)} id="check" />
                     <p>Concordo com os Termos de Uso e Política de Privacidade.</p>
                 </label>
                 <p>

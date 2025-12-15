@@ -15,9 +15,6 @@ import debounce from "lodash.debounce";
 import { SeriesProps, TMDBSeries } from "@/@types/series";
 import { fuseConfig } from "@/utils/Variaveis";
 import { debug } from "@/classes/DebugLogger";
-import { apiSub } from "@/services/apiSubManager";
-//import { apiEmail } from "@/services/apiMessenger";
-import { apiManager } from "@/services/apiManager";
 import { useTMDB } from "@/contexts/TMDBContext";
 import { SetupAPIClient } from "@/services/api";
 import { uniqueKey } from "@/utils/UtilitiesFunctions";
@@ -252,13 +249,15 @@ export default function Header() {
                         <ul>
                             <Link href="/me"><li><FaUserCircle size={20} />Minha Conta</li></Link>
                             <Link href="/watchlater"><li><FaListUl size={20} />Minha Lista</li></Link>
-                            <Link href="/request"><li><IoAddCircle size={20} />Solicitar Filme/Série</li></Link>
+                            {
+                                //<Link href="/request"><li><IoAddCircle size={20} />Solicitar Filme/Série</li></Link>
+                            }
                             <li onClick={signOut}><LucideLogOut size={20} />Sair</li>
                         </ul>
                         :
                         <ul>
                             <Link href="/login"><li><FaSignInAlt size={20} />Entrar</li></Link>
-                            <Link href="/signup"><li><IoCreate size={20} />Criar Conta</li></Link>
+                            <Link href="/planos"><li><IoCreate size={20} />Assinar</li></Link>
                         </ul>
                     }
                 </div>

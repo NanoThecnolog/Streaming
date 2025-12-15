@@ -13,7 +13,7 @@ export default function Login() {
     const [password, setPassword] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
     const [modalVisible, setModalVisible] = useState<boolean>(false)
-    const newAccount = "/signup";
+    const newAccount = "/planos";
     const { signIn } = useFlix()
 
     async function handleLogin(e: FormEvent) {

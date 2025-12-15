@@ -109,10 +109,12 @@ export default function Me() {
                                     <button type="button" onClick={openEditarDados}>Editar dados</button>
                                     <button type="button" onClick={handleLogout}>Sair</button>
                                 </div>
-                                <div className={styles.donate}>
+                                {
+                                    /*<div className={styles.donate}>
                                     <h3>Torne-se um doador!!</h3>
                                     <Qrcode />
-                                </div>
+                                </div>*/
+                                }
                                 <div className={styles.newsletter}>
                                     <Switch checked={user.news} onChange={handleNews} />
                                     <h3>Receber Newsletters</h3>

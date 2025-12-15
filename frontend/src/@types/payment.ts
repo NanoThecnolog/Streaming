@@ -11,6 +11,7 @@ export interface PlanProps {
 export interface UserDataProps {
     nome: string,
     cpf: string,
+    email: string,
     telefone: string,
     birthday: string,
     password: string,
@@ -29,6 +30,8 @@ export interface CreditPayment {
     number: string,
     cvv: string,
     expiration: string,
+    expirationMonth: string,
+    expirationYear: string,
     holderName: string,
     holderDocument: string,
     reuse: boolean,

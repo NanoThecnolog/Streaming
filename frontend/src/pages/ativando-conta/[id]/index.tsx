@@ -5,6 +5,7 @@ import Link from "next/link";
 import axios from "axios";
 import Spinner from "@/components/ui/Loading/spinner";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
+import { debug } from "@/classes/DebugLogger";
 
 interface ActiveProps {
     id: string
@@ -43,7 +44,7 @@ export default function Active({ id }: ActiveProps) {
     }
 
     useEffect(() => {
-        if (!id) return console.error("ID não fornecido")
+        if (!id) return debug.error("ID não fornecido")
         activeAccess()
     }, [id])
 
@@ -51,6 +52,7 @@ export default function Active({ id }: ActiveProps) {
         try {
             const response = await axios.post<ReturnProps>(`/api/ativar/${id}`)
             const data = response.data
+            debug.log("conta ativada", data)
             setUser({ id: data.id, name: data.name })
         } catch (err) {
             console.error("Erro ao ativar a conta: ", err)
@@ -64,7 +66,7 @@ export default function Active({ id }: ActiveProps) {
                 <div className={styles.container} style={containerStyles}>
                     <div className={styles.cardContainer}>
                         <div className={styles.contentContainer}>
-                            <h2>Olá, {user?.name || "usuario"}! Sua conta foi ativada com sucesso!</h2>
+                            <h2>Olá, {`${user?.name}!` || "usuario"} Sua conta foi ativada com sucesso!</h2>
                             <p>Obrigado por utilizar nossa plataforma!</p>
                             <div style={{ padding: 10 }}>
                                 <Link href={loginLink}>

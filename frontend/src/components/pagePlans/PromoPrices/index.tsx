@@ -7,26 +7,36 @@ import { useRouter } from 'next/navigation'
 
 interface PricesProps {
     plans: PlansProps;
+    setPlanSelected?: (e: number) => void
 }
 
-export default function Prices({ plans }: PricesProps) {
+export default function Prices({ plans, setPlanSelected }: PricesProps) {
 
     const router = useRouter()
 
     function handlePrice(price: number, planType: string) {
         switch (planType) {
             case 'mensal':
-                return formatPrice(calculateDiscount(price, desconto[planType]))
+                return formatPrice(price)
             case 'trimestral':
-                return formatPrice(calculateDiscount(price, desconto[planType]) / 3)
+                return formatPrice(price / 3)
             case 'semestral':
-                return formatPrice(calculateDiscount(price, desconto[planType]) / 6)
+                return formatPrice(price / 6)
             case 'anual':
-                return formatPrice(calculateDiscount(price, desconto[planType]) / 12)
+                return formatPrice(price / 12)
         }
     }
     function handleClick(id: string) {
-        router.push(`/payment?id=${id}`)
+        if (setPlanSelected) {
+            router.push('/me/assinatura/user#form')
+        } else {
+            router.push(`/payment?id=${id}`)
+        }
+    }
+
+    const handlePlanClick = (id: number) => {
+        if (setPlanSelected)
+            setPlanSelected(id)
     }
     return (
         <>
@@ -41,7 +51,13 @@ export default function Prices({ plans }: PricesProps) {
                             <div className={styles.plansContainer}>
                                 {
                                     plans.plan.length > 0 && plans.plan.sort((a, b) => a.price - b.price).map(p => (
-                                        <div className={styles.plan} key={p.planId}>
+                                        <div
+                                            className={`${styles.plan}
+                                            ${p.type === "semestral" && styles.border}`}
+                                            key={p.planId}
+                                            onClick={() => handlePlanClick(p.planId)}
+                                        >
+                                            {p.type === "semestral" && <div className={styles.recomended}>Mais Recomendado</div>}
                                             <div className={styles.infoPlan}>
                                                 <div className={styles.planDetails}>
                                                     <p className={styles.planName}>

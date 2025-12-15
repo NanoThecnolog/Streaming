@@ -7,7 +7,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
 
     res.setHeader("Cache-Control", "s-maxage=86400, stale-while-revalidate");
     try {
-        const response = await apiSub.get('/pay/plan/list')
+        const response = await apiSub.get('/plans/database')
         res.status(200).json(response.data)
     } catch (err: any) {
         res.status(err.status).json({ code: err.status, message: "Erro ao tentar buscar dados dos planos", erro: err })

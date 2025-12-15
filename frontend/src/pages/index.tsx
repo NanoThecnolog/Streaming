@@ -16,6 +16,8 @@ import { useFlix } from "@/contexts/FlixContext";
 import { CardsProps } from "@/@types/Cards";
 import TopPopularMovies from "@/components/TopPopularMovies";
 import HeroSection from "@/components/HeroSection";
+import TrendingCarousel from "@/components/TrendingCarousel";
+import TopPopularTVShows from "@/components/TopPopularTV";
 
 
 export default function Home() {
@@ -28,7 +30,7 @@ export default function Home() {
   const divisaoPorGenero = combined
   const { allData, setAllData, serieData, setSerieData } = useTMDB()
   const [visible, setvisible] = useState(false)
-  const { movies, setMovies } = useFlix()
+  const { movies, setMovies, series } = useFlix()
   const tmdbid = 617126;
   const [topCard, setTopCard] = useState<CardsProps | null>(null)
 
@@ -95,6 +97,8 @@ export default function Home() {
                     <div className={styles.mid} id="filmes">
 
                       <TopPopularMovies cardPerContainer={cardPerContainer} cards={allData} moviesDB={movies} />
+                      <TopPopularTVShows cardPerContainer={cardPerContainer} cards={serieData} seriesDB={series} />
+                      <TrendingCarousel cardPerContainer={cardPerContainer} />
                       {
                         divisaoPorGenero.map((sec, index) => {
                           return (

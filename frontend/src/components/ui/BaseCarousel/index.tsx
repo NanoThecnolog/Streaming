@@ -12,7 +12,7 @@ import { uniqueKey } from '@/utils/UtilitiesFunctions'
 interface BaseProps {
     title: string,
     cardPerContainer: number,
-    cards: CardsProps[] | SeriesProps[]
+    cards: (CardsProps | SeriesProps)[]
 
 }
 

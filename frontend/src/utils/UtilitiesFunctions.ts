@@ -1,5 +1,6 @@
 import { CardsProps, MovieTMDB } from "@/@types/Cards"
 import { SeriesProps, TMDBSeries } from "@/@types/series"
+import { stateMap } from "./Variaveis"
 
 /**
  * Função que transforma minutos em horas
@@ -144,4 +145,32 @@ export function getDate() {
 
 export const uniqueKey = (card: CardsProps | SeriesProps | MovieTMDB | TMDBSeries, context?: string): string => {
     return `${context || 'card'}-${('season' in card ? card.tmdbID : 'overview' in card ? card.id : card.tmdbId) || ('season' in card ? card.title + card.tmdbID : 'seasons' in card ? card.name : 'tmdbId' in card ? card.title + card.tmdbId : card.title + card.id)}`
+}
+
+export const expirationSlicer = (expiration: string) => {
+    if (expiration.length < 4) return { month: "", year: "" }
+    return {
+        month: expiration.slice(0, 2),
+        year: `20${expiration.slice(2, 4)}`
+    }
+}
+
+export function normalizeState(state: string): string {
+    if (!state) return "";
+    const cleaned = state.trim().toLowerCase();
+
+
+    if (/^[A-Z]{2}$/i.test(state)) {
+        return state.toUpperCase();
+    }
+
+    return stateMap[cleaned] ?? "";
+}
+
+export function normalizeName(name: string): string {
+    return name
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '') // remove acentos
+        .replace(/\s+/g, ' ')           // remove espaço duplicado
+        .trim()
 }

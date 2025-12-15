@@ -1,23 +1,19 @@
 import { useRouter } from 'next/router'
 import styles from './styles.module.scss'
-import { useEffect, useState } from 'react'
-import { apiSub } from '@/services/apiSubManager'
-import { PlansProps } from '@/@types/plans'
+import { FormEvent, useEffect, useState } from 'react'
 import Header from '@/components/Header'
 import SEO from '@/components/SEO'
 import Footer from '@/components/Footer'
 import { debug } from '@/classes/DebugLogger'
 import PlanCard from '@/components/ui/PlanCard'
 import User from '@/components/PaymentSteps/User'
-import { useFlix } from '@/contexts/FlixContext'
-import PaymentCredit from '@/components/PaymentSteps/payment'
 import PaymentBillet from '@/components/PaymentSteps/billet'
-import SelectPayment from '@/components/PaymentSteps'
 import { CreditPayment, PlanProps, UserDataProps } from '@/@types/payment'
 import axios from 'axios'
-import { getDate } from '@/utils/UtilitiesFunctions'
-
-
+import PaymentLoader from '@/components/ui/PaymentLoader'
+import { toast } from 'react-toastify'
+import { useFlix } from '@/contexts/FlixContext'
+import { Functions } from '@/classes/Functions'
 
 const loadingEfiPay = async () => {
     if (typeof window !== 'undefined') {
@@ -27,18 +23,41 @@ const loadingEfiPay = async () => {
     return null
 }
 
+interface CreditCardProps {
+    brand: string,
+    number: string,
+    cvv: string,
+    expirationMonth: string,
+    expirationYear: string,
+    holderName: string,
+    holderDocument: string,
+}
+
+
+
 export default function Payment() {
+    const { user, subscription } = useFlix()
+
+    //descomentar quando for implementar
+    /*useEffect(() => {
+        if (user || subscription)
+            router.push('/me')
+    }, [user, subscription])*/
+
     const router = useRouter()
-    const { user } = useFlix()
+    //const { user } = useFlix()
     const { id } = router.query
+    const [isLoading, setIsLoading] = useState(false)
     const [plan, setPlan] = useState<PlanProps>()
-    const [method, setMethod] = useState<'credit' | 'billet' | null>(null)
+    const [method, setMethod] = useState<'credit' | 'billet' | null>('billet')
+    const [checked, setChecked] = useState(false)
     const [validation, setValidation] = useState<boolean>(true)
     const [confirmarSenha, setConfirmarSenha] = useState('')
     const [dataUser, setDataUser] = useState<UserDataProps>(
         {
             nome: "",
             cpf: "",
+            email: "",
             telefone: "",
             birthday: '',
             password: '',
@@ -53,7 +72,8 @@ export default function Payment() {
             },
         }
     )
-    const getAddress = async () => {
+
+    /*const getAddress = async () => {
         try {
             const response = await axios.get(`https://viacep.com.br/ws/${dataUser.address.zipcode}/json/`)
             const data = response.data
@@ -67,58 +87,131 @@ export default function Payment() {
         } catch (err) {
             debug.error('Erro ao buscar o endereço através do cep', err)
         }
+    }*/
+
+    const getPlans = async () => {
+        try {
+            const plans = await axios.get('/api/plan/list')
+            const data: PlanProps[] = plans.data
+            const plan = data.find(p => p.id === id)
+            setPlan(plan)
+        } catch (err) {
+            debug.error("Erro ao buscar planos", err)
+        }
     }
-    useEffect(() => {
-        if (dataUser.address.zipcode.length === 8) getAddress()
-    }, [dataUser.address.zipcode])
 
-    const [credit, setCredit] = useState<CreditPayment>(
-        {
-            brand: "",
-            number: "",
-            cvv: "",
-            expiration: "",
-            holderName: "",
-            holderDocument: "",
-            reuse: true,
-            fullComplete: false,
+    const handleForm = async (e: FormEvent) => {
+        e.preventDefault()
+
+        if (confirmarSenha != dataUser.password) {
+            setValidation(false)
+            return
         }
-    )
+        if (!plan || !plan.planId) return debug.error("Plano inválido")
 
-    useEffect(() => {
-        if (id) {
-            //debug.log("ID recebido", id)
-            getPlans()
-            if (plan) {
-                debug.log(plan)
+
+        /*if (method === "credit") {
+            let token
+            loadingEfiPay().then((EfiPay) => {
+                if (EfiPay) {
+                    token = getToken(EfiPay) //ta gerando token
+                }
+            })
+            try {
+                const response = await axios.post('/api/payment', {
+
+                })
+            } catch (err) {
+
+            }
+        }*/
+        //logica para boleto
+        // montagem do customer
+        const customer = {
+            name: dataUser.nome,
+            email: dataUser.email,
+            cpf: dataUser.cpf,
+            phone_number: dataUser.telefone,
+            birthday: dataUser.birthday,
+            password: dataUser.password,
+            address: {
+                street: dataUser.address.street,
+                number: dataUser.address.number,
+                neighborhood: dataUser.address.neighborhood,
+                zipcode: dataUser.address.zipcode,
+                city: dataUser.address.city,
+                state: dataUser.address.state,
+                complement: dataUser.address.complement
             }
         }
-    }, [id])
-
-    /*useEffect(() => {
-        loadingEfiPay().then((EfiPay) => {
-            if (EfiPay) {
-                return getToken(EfiPay)
+        const payload = {
+            planId: plan.planId,
+            customer
+        }
+        debug.log(payload)
+        setIsLoading(true)
+        try {
+            const response = await axios.post('/api/payment', payload)
+            debug.log("Assinatura criada", response.data)
+            if (response.data?.subscription) {
+                debug.log("Assinatura criada com sucesso!")
             }
-        })
-    }, [])*/
+            toast.success("Assinatura criada com sucesso!")
+            const subData = response.data.subscription.data
+            const params = {
+                pdf: subData.pdf.charge,
+                pix: subData.pix.qrcode_image,
+                barcode: subData.barcode
+            }
+            router.push(`/success?${new URLSearchParams(params).toString()}`)
+
+        } catch (err) {
+            toast.error("Erro ao criar assinatura!")
+            console.log("Erro ao chamar rota de pagamento", err)
+        } finally {
+            setIsLoading(false)
+            //router.push('/success')
+        }
 
 
 
-    async function getToken(EfiPay: any) {
+        //lidar com a lógica de cadastro aqui. Pedir email e confirmar com codigo.
+        /*
+        No frontend...
+            Gerar codigo curto de 6 a 8 numeros. armazenar no banco de dados com baixa validade, 15 minutos talvez...
+            Mostrar um modal para receber o codigo.
+            Enviar codigo pro serviço de mensageria através do backend do nextjs
+        Na Mensageria...
+            Criar rota para receber codigo e email do usuário e enviar email de confirmação com o codigo para o usuário.
+        De volta ao frontend...
+            Validar o código no modal enviando pra uma rota de confirmação do backend do nextjs, para verificar se o código é valido, se pertence ao email, se não expirou, ou se já não foi usado.
+            Se codigo for validade, marcar email como verificado.
+
+        OBS: model já criado, falta rodar prisma migrate e prisma generate. criar rotas no backend no nextjs para se comunicar com o serviço de backend, criar rotas no serviço de mensageria
+        */
+
+        //chamar rota payment que retorna o token para realizar pagamentos via credit card
+    }
+
+    /*const getToken = async (EfiPay: any) => {
+
         if (typeof window === 'undefined') return
+        if (!credit || !credit?.expiration || credit.expiration.length !== 4) return
+        const expirationMonth = expirationSlicer(credit.expiration).month
+        const expirationYear = expirationSlicer(credit.expiration).year
+
         try {
             const result = await EfiPay.CreditCard
-                .setAccount("8c778309766503063ff66562194ea757")
-                .setEnvironment("sandbox")
+                .setAccount(process.env.NEXT_PUBLIC_EFI_ACCOUNT_ID)
+                .setEnvironment(process.env.NEXT_PUBLIC_EFI_ENV)
                 .setCreditCardData({
-                    brand: "visa",
-                    number: "4485785674290087",
-                    cvv: "123",
-                    expirationMonth: "05",
-                    expirationYear: "2031",
-                    holderName: "Gorbadoc Oldbuck",
-                    holderDocument: "94271564656",
+                    brand: credit?.brand,
+                    number: credit?.number,
+                    cvv: credit?.cvv,
+                    expirationMonth,
+                    expirationYear,
+                    holderName: credit.holderName ?? dataUser.nome,
+                    holderDocument: dataUser.cpf,
                     reuse: false,
                 })
                 .getPaymentToken();
@@ -129,25 +222,40 @@ export default function Payment() {
         } catch (err) {
             debug.log("Erro ao gerar token", err)
         }
-    }
+    }*/
 
-    async function getPlans() {
-        try {
-            const plans = await apiSub.get('/pay/plan/list')
-            const data: PlansProps = plans.data
-            const plan = data.plan.find(p => p.id === id)
-            setPlan(plan)
-        } catch (err) {
-            debug.error("Erro ao buscar planos", err)
+    useEffect(() => {
+        const getAddressInfo = async () => {
+            if (dataUser.address.zipcode.length === 8) {
+                const data = await Functions.getAddress(dataUser.address.zipcode)
+                if (!data || data.erro) {
+                    setDataUser((prev) => ({ ...prev, address: { ...prev.address, neighborhood: "", street: "", city: "", state: "" } }))
+                    return
+                }
+                setDataUser((prev) => ({ ...prev, address: { ...prev.address, neighborhood: data.bairro, street: data.logradouro, city: data.localidade, state: data.estado } }))
+            }
         }
-    }
+        getAddressInfo()
+    }, [dataUser.address.zipcode])
 
-    const handleForm = async () => {
-        if (confirmarSenha != dataUser.password) {
-            setValidation(false)
-            return
+    useEffect(() => {
+        if (id) {
+            getPlans()
         }
-    }
+    }, [id])
+
+
+    /*useEffect(() => {
+        debug.log("Dados do user no context", user)
+        if (user) setDataUser((prev) => ({
+            ...prev,
+            nome: user.name,
+            email: user.email,
+            birthday: user.birthday.toString(),
+        }))
+    }, [user])*/
+
+    if (!router.isReady) return <></>
 
     return (
         <>
@@ -165,23 +273,22 @@ export default function Payment() {
                                 valid={validation}
                             />
                             <div className={styles.paymentContainer}>
-                                {method === null ? <SelectPayment method={setMethod} />
-                                    : method === 'credit' ? <PaymentCredit setMethod={setMethod} credit={credit} setCredit={setCredit} />
-                                        : method === 'billet' && <PaymentBillet setMethod={setMethod} confirm={credit.fullComplete} setCredit={setCredit} />
+                                {//method === null ? <SelectPayment method={setMethod} />
+                                    //: method === 'credit' ? <PaymentCredit setMethod={setMethod} credit={credit} setCredit={setCredit} />
+                                    /*: method === 'billet' && */
+                                    <PaymentBillet setCheck={setChecked} check={checked} />
                                 }
                             </div>
                             <div className={styles.buttonContainer}>
                                 <button
                                     type='submit'
-                                    disabled={method == null || !credit.fullComplete}
-                                    className={`${method == null || !credit.fullComplete ? styles.disabled : ''}`}
+                                    disabled={checked ? false : true}
+                                    className={`${checked ? '' : styles.disabled}`}
                                 >
                                     Finalizar Assinatura
                                 </button>
                             </div>
-
                         </form>
-
                     </section>
                 </article>
                 <aside className={styles.asideContainer}>
@@ -191,6 +298,7 @@ export default function Payment() {
                 </aside>
             </main>
             <Footer />
+            {isLoading && <PaymentLoader />}
         </>
     )
 }

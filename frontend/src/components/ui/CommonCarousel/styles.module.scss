@@ -1,0 +1,60 @@
+.carouselContainer {
+    width: 100%;
+    margin: 30px 0;
+    padding-right: 7px;
+
+    .contentTitle {
+        font-family: var(--font-bebas);
+        color: var(--white);
+        font-size: 2rem;
+        letter-spacing: 3px;
+        margin-bottom: 10px;
+    }
+
+    .carousel {
+        padding-right: 4px;
+
+
+        .slide {
+            position: relative;
+
+            p {
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                padding-left: 5px;
+                color: rgba(255, 255, 255, .8);
+                font-size: 8rem;
+                font-family: var(--font-bebas);
+                letter-spacing: 0.2rem;
+                z-index: 2;
+                width: 100%;
+                background-color: rgba(0, 0, 0, .7);
+                transition: 0.5s;
+
+                @media(hover) {
+
+                    &:hover {
+                        color: rgba(255, 255, 255, .0);
+                        background-color: transparent;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+@media(max-width: 560px) {
+    .carouselContainer {
+        .carousel {
+            .slide {
+                p {
+                    background-color: rgba(0, 0, 0, .2);
+                }
+            }
+        }
+    }
+}

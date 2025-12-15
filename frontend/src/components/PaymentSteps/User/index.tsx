@@ -18,7 +18,7 @@ export default function User({ data, setDataUser, senha, confirmarSenha }: UserS
             <div className={styles.userData}>
                 <h3>Dados do Usuário</h3>
                 <p>Complete os seus dados</p>
-                <form className={styles.formContainer}>
+                <div className={styles.formContainer}>
                     <div>
                         <label htmlFor="nome">
                             Nome
@@ -27,6 +27,16 @@ export default function User({ data, setDataUser, senha, confirmarSenha }: UserS
                                 id="nome"
                                 value={data.nome || ""}
                                 onChange={(e) => setDataUser((prev) => ({ ...prev, nome: e.target.value }))}
+                                required
+                            />
+                        </label>
+                        <label htmlFor="email">
+                            Email
+                            <input
+                                type="text"
+                                id="email"
+                                value={data.email || ""}
+                                onChange={(e) => setDataUser((prev) => ({ ...prev, email: e.target.value }))}
                                 required
                             />
                         </label>
@@ -90,8 +100,18 @@ export default function User({ data, setDataUser, senha, confirmarSenha }: UserS
                                 onChange={(e) => confirmarSenha(e.target.value)}
                             />
                         </label>
+                        <div className={styles.passwordRequires}>
+                            <p>*Sua senha deve conter:</p>
+                            <ul>
+                                <li>mais de 6 caracteres</li>
+                                <li>Maiúsculas</li>
+                                <li>Minúsculas</li>
+                                <li>Número</li>
+                                <li>Caractere especial</li>
+                            </ul>
+                        </div>
                     </div>
-                </form>
+                </div>
             </div>
             <div className={styles.userData}>
                 <h4>Endereço</h4>

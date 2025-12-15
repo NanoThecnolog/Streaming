@@ -1,50 +1,102 @@
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     background: var(--white);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
     width: 100%;
-    max-width: 400px;
+    max-width: 420px;
+    gap: 20px;
 
+    .header {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
 
-    h2 {
-        text-align: center;
+        h2 {
+            text-align: center;
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--black);
+        }
     }
 
     p {
-        margin-bottom: 20px;
+        margin: 0;
+        text-align: center;
+        color: var(--black);
+        font-size: .95rem;
+    }
+
+    svg {
+        flex-shrink: 0;
     }
 
     .billet {
         display: flex;
-        width: 100%;
         justify-content: center;
+        width: 100%;
+        margin: 10px 0;
 
+        svg {
+            width: 90px;
+            height: 90px;
+            opacity: .9;
+        }
     }
 
+    /* Área do aviso */
     .aviso {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
+        width: 100%;
 
         label {
             display: flex;
+            align-items: flex-start;
             gap: 10px;
+            cursor: pointer;
+
+            input {
+                margin-top: 3px;
+            }
 
             p {
-                font-size: 1rem;
+                font-size: 0.95rem;
+                text-align: left;
             }
         }
 
-        p {
-            font-size: .7rem;
+        >p {
+            font-size: 0.75rem;
+            line-height: 1.3rem;
             text-align: justify;
+            color: #444;
         }
     }
 
+    /* Responsividade */
+    @media (max-width: 480px) {
+        padding: 18px;
+        gap: 16px;
 
+        .header {
+            h2 {
+                font-size: 1.25rem;
+            }
+        }
+
+        .billet svg {
+            width: 80px;
+            height: 80px;
+        }
+
+        .aviso>p {
+            font-size: 0.7rem;
+        }
+    }
 }

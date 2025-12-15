@@ -14,6 +14,9 @@ import Streaming from "@/components/pagePlans/PromoStreamings";
 import PromoFAQ from "@/components/pagePlans/PromoFaq";
 import { GetServerSideProps } from "next";
 import PromoCounting from "@/components/pagePlans/PromoCounting";
+import { useFlix } from "@/contexts/FlixContext";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 
 //plans: plans.data, movies, series, tmdbMovies: tmdbMovies.data, tmdbSeries: tmdbSeries.data
@@ -23,6 +26,20 @@ interface PagePlansProps {
     tmdbSeries: TMDBSeries[],
 }
 export default function PagePlans({ plans, tmdbMovies, tmdbSeries }: PagePlansProps) {
+    const router = useRouter()
+    const { user, subscription } = useFlix()
+
+
+    //descomentar quando for implementar
+    /*useEffect(() => {
+        if (user || subscription)
+            router.push('/me')
+    }, [user, subscription])*/
+
+
+    //console.log("planos", plans)
+
+
 
     return (
         <>
@@ -40,14 +57,12 @@ export default function PagePlans({ plans, tmdbMovies, tmdbSeries }: PagePlansPr
                 <PromoFAQ />
             </main>
             <Footer />
-
         </>
     )
 }
 //colocar perguntas frequêntes com informações sobre os planos
 //melhorar a propaganda
-//antes das perguntas frequentes colocar um comparativo de gasto
-// se o cliente fosse contratar todos os streamings
+//antes das perguntas frequentes colocar um comparativo de gasto - check
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
     try {

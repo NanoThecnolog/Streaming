@@ -11,6 +11,7 @@ import { SeriesProps } from '@/@types/series';
 import Spinner from '@/components/ui/Loading/spinner';
 import { useFlix } from '@/contexts/FlixContext';
 import { mongoService } from '@/classes/MongoContent';
+import { GetServerSideProps } from 'next';
 
 export default function Request() {
     const [title, setTitle] = useState<string>('')
@@ -136,4 +137,13 @@ export default function Request() {
             <Footer />
         </>
     )
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+    return {
+        redirect: {
+            destination: '/',
+            permanent: false
+        }
+    }
 }

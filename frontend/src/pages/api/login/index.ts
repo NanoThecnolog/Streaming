@@ -15,7 +15,7 @@ export default async function loginHandler(req: NextApiRequest, res: NextApiResp
     try {
         const response = await client.api.post<LoginProps>('/login', { email, password })
         debug.log('Resposta do api.post', response.data)
-        const { token, avatar, watchLater, name } = response.data
+        const { token, avatar, watchLater, name, id } = response.data
 
         setCookie({ res }, 'flix-token', token, {
             httpOnly: true,
@@ -25,7 +25,7 @@ export default async function loginHandler(req: NextApiRequest, res: NextApiResp
             sameSite: 'lax'
         })
 
-        return res.status(200).json({ data: { avatar, watchLater, name }, success: true })
+        return res.status(200).json({ data: { avatar, watchLater, name, id }, success: true })
     } catch (err) {
         return res.status(401).json({ error: err, message: 'Login inválido' })
     }

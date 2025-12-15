@@ -1,6 +1,6 @@
 import { CardsProps, MovieTMDB } from '@/@types/Cards'
 import BaseCarousel from '../ui/BaseCarousel'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 interface TopPopularProps {
     cardPerContainer: number
@@ -27,14 +27,6 @@ export default function TopPopularMovies({ cardPerContainer, cards, moviesDB }: 
         }
 
     }, [cards, moviesDB])
-    /*const movies = useMemo(() => {
-        const mapMoviesDB = new Map(moviesDB.map(item => [item.tmdbId, item]))
-        return cards
-            .sort((a, b) => b.popularity - a.popularity)
-            .map(card => mapMoviesDB.get(card.id))
-            .filter((item): item is CardsProps => item !== undefined)
-            .slice(0, 10)
-    }, [cards, moviesDB])*/
 
     if (!cards || cards.length === 0) return null
 

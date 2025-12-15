@@ -5,12 +5,13 @@ import { toast } from 'react-toastify'
 import Router from 'next/router'
 import { FaEye, FaEyeSlash, FaSpinner } from 'react-icons/fa'
 import SEO from '@/components/SEO'
-import { Validate } from '@/classes/validater'
+import { Validate } from '@/classes/validator'
 import { NewUserProps } from '@/@types/userTypes/signUp'
 import { userMethod } from '@/classes/userMethods'
 import { debug } from '@/classes/DebugLogger'
 import { FaKey } from 'react-icons/fa6'
 import { generate } from '@/classes/Generate'
+import { GetServerSideProps } from 'next'
 
 
 
@@ -21,7 +22,7 @@ export default function Signup() {
     const [confirmPassword, setConfirmPassword] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
     const login = "/login";
-    const [user, setUser] = useState<NewUserProps>({ name: '', birthday: '', email: '', password: '', cpf: '' })
+    const [user, setUser] = useState<NewUserProps>({ name: '', birthday: '', email: '', password: '', cpf: '', phone_number: '' })
 
     const validate = new Validate()
     function formatDate(date: unknown): string {
@@ -173,4 +174,15 @@ export default function Signup() {
             </div>
         </>
     )
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+
+
+    return {
+        redirect: {
+            destination: '/planos',
+            permanent: false
+        }
+    }
 }

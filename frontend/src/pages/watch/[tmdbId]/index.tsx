@@ -16,6 +16,7 @@ import { debug } from '@/classes/DebugLogger';
 import { mongoService } from '@/classes/MongoContent';
 import { apiEmail } from '@/services/apiMessenger';
 import Head from 'next/head';
+import { GetServerSideProps } from 'next';
 
 export default function Watch() {
     const router = useRouter()
@@ -149,4 +150,21 @@ export default function Watch() {
             </div>
         </>
     )
+}
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+
+    const { req } = ctx
+
+    const token = req.cookies['flix-token']
+
+    if (!token) return {
+        redirect: {
+            destination: '/login',
+            permanent: false
+        }
+    }
+    return {
+        props: {}
+    }
 }
