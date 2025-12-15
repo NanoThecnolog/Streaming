@@ -4,7 +4,7 @@
   "license": "CC-BY-NC-4.0",
   "scripts": {
     "dev": "ts-node-dev src/server.ts",
-    "build": "npx prisma migrate deploy && tsc",
+    "build": "tsc",
     "start": "node src/server.js"
   },
   "dependencies": {
