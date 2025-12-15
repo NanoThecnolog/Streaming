@@ -34,12 +34,12 @@ export function DailyWarningModal({ open, onClose }: Props) {
 
                 <p>
                     Usuários atuais podem contratar pelo <Link href={'/me'} className='red'>painel da conta</Link>. Novos usuários
-                    realizarão a escolha do plano no momento do cadastro. <Link href='/planos'>Clique aqui</Link> para ver os planos disponíveis.
+                    realizarão a escolha do plano no momento do cadastro. <Link href='/planos' className='red'>Clique aqui</Link> para ver os planos disponíveis.
                 </p>
                 <p>Obrigado por nos apoiarem!</p>
 
                 <div className={styles.buttonContainer}>
-                    <button onClick={onClose}>Entendi</button>
+                    <button onClick={onClose}>Fechar</button>
                 </div>
             </div>
         </div>
