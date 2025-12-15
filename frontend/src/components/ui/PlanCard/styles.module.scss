@@ -33,8 +33,11 @@
             font-family: var(--font-bebas);
             position: relative;
             width: 100%;
+        }
 
-
+        p {
+            font-size: .8rem;
+            color: var(--grey);
         }
     }
 

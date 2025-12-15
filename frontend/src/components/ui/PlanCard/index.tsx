@@ -9,6 +9,7 @@ interface PlanCardProps {
 }
 export default function PlanCard({ plan, method }: PlanCardProps) {
     const periodo = plan.type === 'trimestral' ? 'Cobrado a cada 3 meses' : plan.type === 'semestral' ? 'Cobrado a cada 6 meses' : plan.type === 'anual' ? 'Cobrado a cada 12 meses' : 'Cobrado mensalmente';
+    const periodNumber = plan.type === 'trimestral' ? 3 : plan.type === 'semestral' ? 6 : plan.type === 'anual' ? 12 : 1;
     return (
         <div className={styles.planCard}>
             <div className={styles.brand}>
@@ -19,6 +20,7 @@ export default function PlanCard({ plan, method }: PlanCardProps) {
             </div>
             <div className={styles.price}>
                 <h4>{formatPrice(plan.price)}</h4>
+                <p>{formatPrice(plan.price / periodNumber)} cada mês</p>
             </div>
             <div className={styles.resume}>
                 <div className={styles.items}>
