@@ -91,6 +91,11 @@
         background: #b63232;
         transform: translateY(-2px);
     }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
 }
 
 /* MOBILE */

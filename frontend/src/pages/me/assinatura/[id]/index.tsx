@@ -29,6 +29,7 @@ export default function SubscriptionPage({ subscription }: SubscriptionPageProps
     const [chargeModalOpen, setChargeModalOpen] = useState(false)
     const [chargeDetails, setChargeDetails] = useState<ChargeDetailResponse | null>(null)
     const [loadingCharge, setLoadingCharge] = useState(false)
+    const [cancelling, setCancelling] = useState(false)
 
     const openChargeModal = async (chargeId: number) => {
         setChargeModalOpen(true)
@@ -54,6 +55,8 @@ export default function SubscriptionPage({ subscription }: SubscriptionPageProps
     }
 
     const handleConfirmCancel = async () => {
+        if (cancelling) return
+        setCancelling(true)
         try {
             const cancelar = await apiSub.delete(`/subscription/${data.subscription_id}`)
             toast.success("Assinatura cancelada! Atualize a página ou faça login novamente.")
@@ -63,8 +66,9 @@ export default function SubscriptionPage({ subscription }: SubscriptionPageProps
             //toast.error("Ocorreu um erro ao cancelar sua assinatura. Tente novamente mais tarde, ou entre em contato!")
             debug.log("Erro ao cancelar assinatura", err)
         } finally {
+            setCancelling(false)
             setShowCancelModal(false)
-            router.refresh()
+            //router.refresh()
         }
     }
 

@@ -3,10 +3,11 @@ import styles from './styles.module.scss'
 
 interface CancelProps {
     handleConfirmCancel: () => void,
-    handleShowCancelModal: () => void
+    handleShowCancelModal: () => void,
+    cancelling: boolean
 }
 
-export default function CancelSubModal({ handleConfirmCancel, handleShowCancelModal }: CancelProps) {
+export default function CancelSubModal({ handleConfirmCancel, handleShowCancelModal, cancelling }: CancelProps) {
     return (
         <div className={styles.modalOverlay}>
             <div className={styles.modal}>
@@ -22,8 +23,13 @@ export default function CancelSubModal({ handleConfirmCancel, handleShowCancelMo
                         Fechar
                     </button>
 
-                    <button className={styles.modalConfirm} onClick={handleConfirmCancel}>
-                        Confirmar Cancelamento
+
+                    <button
+                        className={styles.modalConfirm}
+                        onClick={handleConfirmCancel}
+                        disabled={cancelling}
+                    >
+                        {cancelling ? 'Cancelando...' : 'Confirmar Cancelamento'}
                     </button>
                 </div>
             </div>
