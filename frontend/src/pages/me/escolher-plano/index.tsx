@@ -42,7 +42,7 @@ export interface DataUserPaymentProps {
 }
 export default function PaymentUserPage({ plans }: PageProps) {
     const router = useRouter()
-    const { user } = useFlix()
+    const { user, setSubscription } = useFlix()
     //const [selectedPlan, setSelectedPlan] = useState<PlanProp | null>(null)
     const [loading, setLoading] = useState(false)
     const [planIdSelected, setPlanIdSelected] = useState<number | null>(null)
@@ -159,15 +159,21 @@ export default function PaymentUserPage({ plans }: PageProps) {
 
             if (response.data?.subscription) {
                 debug.log("Assinatura criada com sucesso!")
+                toast.success("Assinatura criada com sucesso!")
+                const subData = response.data.subscription.data
+                const params = {
+                    pdf: subData.pdf.charge,
+                    pix: subData.pix.qrcode_image,
+                    barcode: subData.barcode
+                }
+                router.push(`/success?${new URLSearchParams(params).toString()}`)
             }
-            toast.success("Assinatura criada com sucesso!")
-            const subData = response.data.subscription.data
-            const params = {
-                pdf: subData.pdf.charge,
-                pix: subData.pix.qrcode_image,
-                barcode: subData.barcode
+            if (response.data?.planId) {
+                debug.log("Assinatura atualizada")
+                toast.success("Assinatura atualizada com sucesso!")
+                setSubscription(user.subscription)
+                router.push('/me')
             }
-            router.push(`/success?${new URLSearchParams(params).toString()}`)
         } catch (err) {
             toast.error("Erro ao criar assinatura! Tente novamente mais tarde ou entre em contato.")
             debug.log("Erro ao chamar rota de pagamento para usuários ativos", err)

@@ -72,23 +72,6 @@ export default function Payment() {
             },
         }
     )
-
-    /*const getAddress = async () => {
-        try {
-            const response = await axios.get(`https://viacep.com.br/ws/${dataUser.address.zipcode}/json/`)
-            const data = response.data
-            if (data.erro) {
-                debug.error('CEP nao encontrado')
-            }
-            else {
-                debug.log('CEP encontrado', data)
-                setDataUser((prev) => ({ ...prev, address: { ...prev.address, neighborhood: data.bairro, street: data.logradouro, city: data.localidade, state: data.estado } }))
-            }
-        } catch (err) {
-            debug.error('Erro ao buscar o endereço através do cep', err)
-        }
-    }*/
-
     const getPlans = async () => {
         try {
             const plans = await axios.get('/api/plan/list')
@@ -173,24 +156,6 @@ export default function Payment() {
             //router.push('/success')
         }
 
-
-
-        //lidar com a lógica de cadastro aqui. Pedir email e confirmar com codigo.
-        /*
-        No frontend...
-            Gerar codigo curto de 6 a 8 numeros. armazenar no banco de dados com baixa validade, 15 minutos talvez...
-            Mostrar um modal para receber o codigo.
-            Enviar codigo pro serviço de mensageria através do backend do nextjs
-        Na Mensageria...
-            Criar rota para receber codigo e email do usuário e enviar email de confirmação com o codigo para o usuário.
-        De volta ao frontend...
-            Validar o código no modal enviando pra uma rota de confirmação do backend do nextjs, para verificar se o código é valido, se pertence ao email, se não expirou, ou se já não foi usado.
-            Se codigo for validade, marcar email como verificado.
-
-        OBS: model já criado, falta rodar prisma migrate e prisma generate. criar rotas no backend no nextjs para se comunicar com o serviço de backend, criar rotas no serviço de mensageria
-        */
-
-        //chamar rota payment que retorna o token para realizar pagamentos via credit card
     }
 
     /*const getToken = async (EfiPay: any) => {

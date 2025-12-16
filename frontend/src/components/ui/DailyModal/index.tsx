@@ -29,7 +29,7 @@ export function DailyWarningModal({ open, onClose }: Props) {
 
                 <p>
                     <strong>O sistema entra em funcionamento a partir do dia 17</strong>, mas
-                    as assinaturas <strong>já podem ser contratadas.</strong>.
+                    as assinaturas <strong>já podem ser contratadas.</strong>
                 </p>
 
                 <p>

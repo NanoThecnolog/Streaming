@@ -139,13 +139,10 @@ export function FlixProvider({ children }: ContextProviderProps) {
         if (!user) getUserDetails()
     }, [])
     useEffect(() => {
-        //debug.log("ta chamando")
         if (user) {
-            //debug.log("tem user")
             debug.log("tem subscription", user.subscription)
             setSubscription(user.subscription)
         }
-
     }, [user])
 
     return (
