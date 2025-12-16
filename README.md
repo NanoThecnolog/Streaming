@@ -2,7 +2,7 @@
 
 Seja bem-vindo ao repositório da plataforma de Streaming **FlixNext**.
 
-Este projeto foi concebido com o intuito de oferecer uma experiência imersiva e otimizada para exploração, pesquisa e consumo de conteúdos audiovisuais de forma gratuita. Apresentado como protótipo funcional, o sistema integra práticas avançadas de desenvolvimento e design, configurando-se como o Trabalho de Conclusão de Curso para o Bacharelado em Sistemas de Informação.
+Este projeto foi concebido com o intuito de oferecer uma experiência imersiva e otimizada para exploração, pesquisa e consumo de conteúdos audiovisuais. Apresentado como protótipo funcional, o sistema integra práticas avançadas de desenvolvimento e design, configurando-se como o Trabalho de Conclusão de Curso para o Bacharelado em Sistemas de Informação. Este projeto também serve como uma simulação completa de um serviço de streaming, em todos os sentidos.
 
 ---
 
@@ -30,6 +30,7 @@ A escolha tecnológica reflete o compromisso com performance, segurança e escal
 - **TypeScript**: Superset de JavaScript, fornecendo maior robustez e escalabilidade ao código.
 - **SASS**: Estilização avançada através de um pré-processador CSS.
 - **Express**: Framework backend eficiente para gerenciamento de APIs e autenticação.
+- **NestJS**: Framework backend versátil para gerenciamento de conteúdos e assinaturas.
 - **PostgreSQL**: Banco de dados relacional, gerenciado com Prisma ORM para maior flexibilidade.
 - **TMDB API**: Fonte confiável de dados ricos sobre filmes e séries.
 
@@ -39,50 +40,70 @@ Cada tecnologia foi estrategicamente selecionada para alinhar-se aos requisitos 
 
 ## 🎨 Estrutura e Arquitetura
 
-O **FlixNext** adota uma **arquitetura monolítica** que alia simplicidade e organização. Essa abordagem foi escolhida considerando as necessidades de um projeto em fase inicial, onde centralização e coesão são cruciais para eficiência e facilidade de desenvolvimento.
+O projeto FlixNext adota uma arquitetura modular híbrida, combinando um monólito modular com microsserviços especializados. Essa abordagem equilibra simplicidade operacional com escalabilidade, permitindo que o projeto evolua de forma sustentável conforme cresce em complexidade e volume de acesso.
 
-### Vantagens da Arquitetura Monolítica
+O núcleo da aplicação concentra as regras centrais de negócio, enquanto serviços específicos são desacoplados em aplicações independentes, cada uma com responsabilidades bem definidas.
 
-- **Simplicidade Operacional**: Todo o código reside em um único repositório, facilitando o desenvolvimento e a implantação.
-- **Facilidade de Depuração**: Identificar e corrigir problemas é mais direto.
-- **Menor Complexidade Inicial**: Ideal para projetos de pequeno e médio porte.
-- **Comunicação Direta**: Dispensa a necessidade de integração entre múltiplos serviços independentes.
+### 🧩 Arquitetura Modular Híbrida
 
-### Preparação para Microserviços
+A arquitetura é composta por:
 
-Embora o projeto adote a arquitetura monolítica, sua estrutura modular foi planejada para permitir uma transição gradual para **microserviços**, caso seja necessário no futuro. Entre os benefícios dessa evolução estão:
+- Frontend (Next.js)
+Responsável pela interface do usuário, renderização e experiência de navegação.
 
-- **Escalabilidade Independente**: Componentes específicos podem ser ampliados conforme a demanda.
-- **Autonomia das Equipes**: Possibilidade de desenvolvimento paralelo em serviços independentes.
-- **Resiliência Aumentada**: Isolamento de falhas em componentes específicos, minimizando impactos no sistema como um todo.
+- Backend Core (Express – Monólito Modular)
+Centraliza autenticação, usuários, permissões e regras de negócio principais, mantendo os domínios bem isolados internamente.
 
-A organização modular do código assegura que cada funcionalidade seja bem isolada e reutilizável, servindo como base sólida para uma potencial migração futura.
+- Microsserviços (NestJS)
+Serviços independentes, desacoplados do core, responsáveis por funcionalidades específicas:
+
+**Mensageria**
+
+**Gerenciamento de Conteúdos**
+
+**Gerenciamento de Assinaturas**
+
+Cada microsserviço possui ciclo de vida próprio, podendo ser escalado, mantido e evoluído de forma independente.
+
+### ✅ Vantagens da Arquitetura Adotada
+
+#### Evolução Gradual: Possibilita iniciar com um core coeso e extrair serviços conforme a necessidade real.
+
+#### Isolamento de Responsabilidades: Funcionalidades críticas ficam separadas, reduzindo acoplamento.
+
+#### Escalabilidade Seletiva: Apenas serviços que exigem mais recursos são escalados.
+
+#### Menor Complexidade Inicial: Evita a sobrecarga operacional típica de arquiteturas totalmente distribuídas.
+
+#### Facilidade de Manutenção: Domínios bem definidos tornam o código mais legível e sustentável.
 
 ### Estrutura de Pastas
 
 ```plaintext
-├── backend/
-│   ├── prisma/             # Configuração do banco de dados com Prisma
-│   └── src/             
-│       ├── @types/         # Tipagem e Interfaces
-│       ├── Controllers/    # Controladores
-│       ├── prisma/         # Configuração do prismaClient
-│       ├── Services/       # Lógica de negócios e serviços de backend
-│       └── Middlewares/    # Validação e autenticação
-├── frontend/
-│   └── public/             # Arquivos estáticos (imagens, ícones, etc.)
+├── backend/                    # Backend Core (Monólito Modular - Express)
+│   ├── prisma/                 # Configuração do banco de dados com Prisma
 │   └── src/
-│       ├── @types/         # Tipagem e Interfaces
-│       ├── components/     # Componentes reutilizáveis
-│       ├── contexts/       # Context API
-│       ├── data/           # Dados estáticos
-│       ├── pages/          # Páginas da aplicação
-│       ├── styles/         # Estilos globais com SASS
-│       ├── services/       # Integração com APIs externas
-│       └── utils/          # Funções utilitárias
+│       ├── @types/             # Tipagens e interfaces compartilhadas
+│       ├── controllers/        # Controladores HTTP
+│       ├── prisma/             # Prisma Client
+│       ├── services/           # Regras de negócio centrais
+│       └── middlewares/        # Autenticação e validações
+│
+├── frontend/                   # Frontend (Next.js)
+│   ├── public/                 # Arquivos estáticos
+│   └── src/
+│       ├── @types/             # Tipagens
+│       ├── components/         # Componentes reutilizáveis
+│       ├── contexts/           # Context API
+│       ├── data/               # Dados estáticos
+│       ├── pages/              # Páginas da aplicação
+│       ├── styles/             # Estilos globais (SCSS)
+│       ├── services/           # Integração com APIs
+│       └── utils/              # Funções utilitárias
+
 ```
 
-Essa estrutura foi projetada para promover organização, legibilidade e manutenção simplificada.
+Essa estrutura reflete uma arquitetura pensada para crescimento progressivo, mantendo simplicidade onde possível e adotando desacoplamento apenas onde há ganho real de escala, resiliência e organização.
 
 ---
 
