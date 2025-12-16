@@ -39,6 +39,10 @@ export default function Me() {
             }
             //setUser(JSON.parse(userCookie))
         }
+        if (user?.subscription && user.subscription.status === 'active') {
+            const id = user.subscription.subId
+            router.push(`/me/assinatura/${id}`)
+        }
     }, [])
     function handleOpenModal() {
         setModalVisible(true)
