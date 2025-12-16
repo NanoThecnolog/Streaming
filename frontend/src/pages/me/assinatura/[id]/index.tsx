@@ -68,7 +68,7 @@ export default function SubscriptionPage({ subscription }: SubscriptionPageProps
         } finally {
             setCancelling(false)
             setShowCancelModal(false)
-            //router.refresh()
+            router.refresh()
         }
     }
 
