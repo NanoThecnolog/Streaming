@@ -184,7 +184,7 @@ export default function SubscriptionPage({ subscription }: SubscriptionPageProps
                                 })}
                             </ul>
                         </section>
-                        {showCancelModal && <CancelSubModal handleConfirmCancel={handleConfirmCancel} handleShowCancelModal={handleShowCancelModal} />}
+                        {showCancelModal && <CancelSubModal handleConfirmCancel={handleConfirmCancel} handleShowCancelModal={handleShowCancelModal} cancelling={cancelling} />}
                         {chargeModalOpen && <ChargeModal chargeDetails={chargeDetails} closeChargeModal={closeChargeModal} loadingCharge={loadingCharge} />}
                     </div>
                     : <div>Carregando...</div>
