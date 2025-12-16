@@ -108,14 +108,13 @@ export default function SubscriptionPage({ subscription }: SubscriptionPageProps
                                         </button>
                                     </>
                                     : <>
-                                        <button className={styles.actionPrimary}>
+                                        <button className={styles.actionPrimary} onClick={() => router.push('/me/escolher-plano')}>
                                             <CreditCard size={18} />
                                             Reativar Assinatura
                                         </button>
                                     </>
                             }
                         </div>
-
                         <section className={styles.section}>
                             <h2 className={styles.sectionTitle}>Informações gerais</h2>
 

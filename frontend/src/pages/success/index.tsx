@@ -15,6 +15,7 @@ interface SuccessPageProps {
 export default function SuccessPage() {
     const router = useRouter()
     const { pdf, pix, barcode } = router.query
+
     //console.log(barcode)
     return (
         <>
@@ -41,7 +42,6 @@ export default function SuccessPage() {
 
                     <h3>Você pode realizar o pagamento por pix, baixando o boleto ou copiando o código de barras</h3>
                     <div className={styles.pixPdfContainer}>
-
                         {pix && (
                             <div className={styles.section}>
                                 <h2>QRCode PIX</h2>
@@ -73,13 +73,11 @@ export default function SuccessPage() {
                             <p className={styles.barcodeText}>{barcode}</p>
                         </div>
                     )}
-
                     <div className={styles.links}>
                         <Link href="/login">Entrar</Link>
                         <Link href="/termos-de-uso">Termos de uso</Link>
                         <Link href="/privacidade">Política de privacidade</Link>
                     </div>
-
                 </div>
             </main>
             <Footer />
