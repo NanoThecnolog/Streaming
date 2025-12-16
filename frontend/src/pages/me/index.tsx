@@ -37,8 +37,6 @@ export default function Me() {
                 router.push('/login')
                 return
             }
-
-
             //setUser(JSON.parse(userCookie))
         }
     }, [])

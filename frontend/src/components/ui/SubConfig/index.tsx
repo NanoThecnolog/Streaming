@@ -33,7 +33,7 @@ export default function SubConfig() {
 
     useEffect(() => {
         getSubEFIDetails()
-    }, [subscription])
+    }, [])
 
     const hasActiveSubscription = !!subEFI && subEFI.data.status === 'active'
 

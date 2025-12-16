@@ -131,19 +131,22 @@ export function FlixProvider({ children }: ContextProviderProps) {
             try {
                 const userData = await axios.get<UserContext>('/api/user')
                 setUser(userData.data)
+                setSubscription(userData.data.subscription)
 
             } catch (err) {
                 debug.error("Sem dados do usuário")
             }
         }
         if (!user) getUserDetails()
-    }, [])
+    }, [user])
+    /*
     useEffect(() => {
         if (user) {
             debug.log("tem subscription", user.subscription)
-            setSubscription(user.subscription)
+            
         }
     }, [user])
+     */
 
     return (
         <FlixContext.Provider value={{ user, watchLater, subscription, setSubscription, setWatchLater, setUser, signIn, signOut, movies, series, setMovies, setSeries }}>
