@@ -31,7 +31,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const data = req.body
     if (!data.customer || !data.customer.address)
-        return res.status(400).json({ error: "Dadis do cliente inválidos" })
+        return res.status(400).json({ error: "Dados do cliente inválidos" })
 
     const token = req.cookies['flix-token']
     if (!token) {
@@ -53,8 +53,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         //console.log(planData)
 
         if (!planData) return res.status(400).json({ message: "Plano não encontrado" })
-
-
 
         const customer = data.customer
         const safeName = normalizeName(customer.name)
@@ -117,8 +115,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             }
         }
 
-        console.log(body)
-        console.log(body.payment.banking_billet.customer)
+        //console.log(body)
+        //console.log(body.payment.banking_billet.customer)
         const response = await apiSub.post('/subscription', body)
 
         return res.status(200).json({
