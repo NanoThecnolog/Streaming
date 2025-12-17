@@ -4,6 +4,7 @@ import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { useState } from 'react'
 
 interface SuccessPageProps {
     data: {
@@ -15,12 +16,13 @@ interface SuccessPageProps {
 export default function SuccessPage() {
     const router = useRouter()
     const { pdf, pix, barcode } = router.query
+    const [barcodeCopied, setBarcodeCopied] = useState(false)
 
     //console.log(barcode)
     return (
         <>
             <Head>
-                <title>Pagamento | FlixNext</title>
+                <title>Apoio | FlixNext</title>
                 <meta name='description' content='' />
                 <meta name='viewport' content='width=device-width, initial-scale=1' />
             </Head>
@@ -28,10 +30,10 @@ export default function SuccessPage() {
             <main className={styles.container}>
                 <div className={styles.card}>
 
-                    <h1 className={styles.title}>Pagamento Gerado</h1>
+                    <h1 className={styles.title}>Conta criada com sucesso</h1>
 
                     <p className={styles.thanks}>
-                        Obrigado pela sua assinatura!
+                        Obrigado pelo seu apoio!
                     </p>
 
                     <p className={styles.info}>
@@ -65,18 +67,22 @@ export default function SuccessPage() {
 
                             <button
                                 className={styles.copyButton}
-                                onClick={() => navigator.clipboard.writeText(barcode as string)}
+                                onClick={() => { navigator.clipboard.writeText(barcode as string), setBarcodeCopied(true) }}
                             >
-                                Copiar código de barras
+                                {barcodeCopied ? 'Código de barras copiado' : 'Copiar código de barras'}
                             </button>
 
                             <p className={styles.barcodeText}>{barcode}</p>
                         </div>
                     )}
+                    <div className={styles.section}>
+                        <p>Em caso de dúvidas, entre em contato através do email: <strong className='red'>suporte@flixnext.com.br</strong></p>
+                    </div>
                     <div className={styles.links}>
                         <Link href="/login">Entrar</Link>
                         <Link href="/termos-de-uso">Termos de uso</Link>
                         <Link href="/privacidade">Política de privacidade</Link>
+                        <Link href="/suporte">Suporte</Link>
                     </div>
                 </div>
             </main>
