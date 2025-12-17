@@ -18,9 +18,12 @@ import { useFlix } from "@/contexts/FlixContext";
 import NewTopSerie from "@/components/seriesComponents/newTopSerie";
 import TopPopularTVShows from "@/components/TopPopularTV";
 import { CardsProps } from "@/@types/Cards";
+import { DailyWarningModal } from "@/components/ui/DailyModal";
+import { useDailyModal } from "@/hooks/useDailyModal";
 
 export default function Series() {
     //refatorar
+    const { isOpen, close } = useDailyModal()
     const [cardPerContainer, setCardPerContainer] = useState<number>(5)
     const [width, setWidth] = useState<number>(0)
     const genres = Object.values(gen)
@@ -118,6 +121,7 @@ export default function Series() {
                             </div>
                             <BackTopButton visible={visible} />
                         </main>
+                        <DailyWarningModal open={isOpen} onClose={close} />
                         <Footer />
                     </> : <div className={styles.loading}><Loading /></div>
             }

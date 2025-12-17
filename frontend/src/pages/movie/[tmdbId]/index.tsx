@@ -34,6 +34,7 @@ import Genre from '@/components/ui/Genre';
 import Details from '@/components/ui/DetailContent';
 import Title from '@/components/ui/Title';
 import Head from 'next/head';
+import { WarningModal } from '@/components/ui/WarningModal';
 
 interface groupedByDepartment {
     [job: string]: CrewProps[]
@@ -56,6 +57,7 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
     const [relatedCards, setRelatedCards] = useState<CardsProps[]>([])
     const [trailer, setTrailer] = useState<TrailerProps | null>(null)
     const [loadingButton, setLoadingButton] = useState(false)
+    const [warningModalOpen, setWarningModalOpen] = useState(false)
     const watchLaterManager = new WatchLaterManager()
 
     //atualização de dados e estado
@@ -94,6 +96,10 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
         }
         getTrailer()
     }, [filme])
+    useEffect(() => {
+        const showingWarningModal = !user || !user.donator
+        setWarningModalOpen(showingWarningModal)
+    }, [user])
 
     //interação do usuario
     const watchLater = () => {
@@ -147,6 +153,10 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
         return movie ? `https://image.tmdb.org/t/p/original${showPoster ? movie.poster_path : movie.backdrop_path}` : filme ? filme.background : "/fundo-largo.jpg"
     }
     const handlePlay = () => {
+        const showingWarningModal = !user || !user.donator
+        if (showingWarningModal) {
+            return setWarningModalOpen(showingWarningModal)
+        }
         router.push(`/watch/${tmdbId}`)
     }
     return (
@@ -230,6 +240,7 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
                         </div>
                     </div>
             }
+            <WarningModal open={warningModalOpen} onClose={() => setWarningModalOpen(false)} />
             <Footer />
         </>
     )

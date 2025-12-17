@@ -19,6 +19,7 @@ import { mongoService } from "@/classes/MongoContent"
 import { apiEmail } from "@/services/apiMessenger"
 import Head from "next/head"
 import { GetServerSideProps } from "next"
+import axios from "axios"
 
 interface EpisodeProps {
     title: string,
@@ -41,18 +42,18 @@ export default function WatchSerie() {
 
     useEffect(() => {
         if (!user) {
-
             const { 'flix-user': userCookie } = parseCookies()
-            if (!userCookie) {
+            if (!userCookie) return
 
-                return
-            }
             setUser(JSON.parse(userCookie))
-
-            //router.push('/login')
         }
-        //if (user?.donator === false) router.push('/me')
     }, [])
+
+    useEffect(() => {
+        if (user && !user.donator) router.push('/me/escolher-plano')
+        //debug.log(user.donator)
+        //debug.log(user)
+    }, [user])
 
     useEffect(() => {
         async function getSerieMongoData() {
@@ -203,6 +204,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const { req } = ctx
 
     const token = req.cookies['flix-token']
+
 
     if (!token) return {
         redirect: {

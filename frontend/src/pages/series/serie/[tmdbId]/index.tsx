@@ -66,6 +66,8 @@ export default function Serie({ data, buttonVisible }: SerieProps) {
     const [loadingButton, setLoadingButton] = useState(false)
     const [trailer, setTrailer] = useState<TrailerProps | null>(null)
     const [showPoster, setShowPoster] = useState(false)
+    const [warningModalOpen, setWarningModalOpen] = useState(false)
+
     const watchLaterManager = new WatchLaterManager()
 
     //dados principais
@@ -116,6 +118,11 @@ export default function Serie({ data, buttonVisible }: SerieProps) {
         setRelatedCards(relatedCards)
     }, [serie, series, serieData])
 
+    useEffect(() => {
+        const showingWarningModal = !user || !user.donator
+        setWarningModalOpen(showingWarningModal)
+    }, [user])
+
 
     //interação do usuario
     const handleWatchLater = async (tmdbid: number) => {
@@ -157,6 +164,10 @@ export default function Serie({ data, buttonVisible }: SerieProps) {
     }
 
     const handlePlayEpisode = (ep: Episodes, season?: number) => {
+        const showingWarningModal = !user || !user.donator
+        if (showingWarningModal) {
+            return setWarningModalOpen(showingWarningModal)
+        }
         const epNumber = ep.ep
         const episode = new URLSearchParams({
             title: `${serie?.title}`,
@@ -450,6 +461,7 @@ export default function Serie({ data, buttonVisible }: SerieProps) {
                     ) : <div className={styles.loading}><Spinner /></div>
                 }
             </section >
+            <WarningModal open={warningModalOpen} onClose={() => setWarningModalOpen(false)} />
             <Footer />
         </>
     )
@@ -493,6 +505,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 import nookies from 'nookies'
 import { verify } from "jsonwebtoken";
+import { WarningModal } from "@/components/ui/WarningModal";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const { tmdbId } = context.params as { tmdbId: string }
