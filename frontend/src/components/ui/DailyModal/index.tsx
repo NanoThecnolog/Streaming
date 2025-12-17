@@ -16,27 +16,38 @@ export function DailyWarningModal({ open, onClose }: Props) {
                 <h2>Aviso importante!</h2>
 
                 <p>
-                    Com o crescimento da plataforma, os custos de infraestrutura e manutenção
-                    também aumentaram. Para garantir a continuidade, estabilidade e evolução
-                    do serviço, será implementado um <strong className='red'>sistema de assinaturas</strong>.
+                    Este projeto nasceu de forma independente, movido pela ideia de criar algo útil,
+                    acessível e feito com cuidado para a comunidade.
+                </p>
+                <p>
+                    Com o crescimento da plataforma, os custos de infraestrutura, manutenção e melhorias
+                    contínuas também aumentaram. Para que o projeto possa seguir existindo, evoluindo e
+                    atendendo a todos com qualidade, foi necessário implementar um
+                    <strong className="red"> sistema de assinaturas</strong>.
                 </p>
 
                 <p>
-                    A assinatura mensal será de <strong className='red'>R$ 10,99</strong>, com pagamento via
-                    <strong> Pix ou boleto</strong>. O valor tem como objetivo
-                    cobrir os custos operacionais e o trabalho de manutenção.
+                    Os planos de acesso são organizados por período e começam em
+                    <strong className="red"> R$ 10,99</strong>, com pagamento via
+                    <strong> Pix ou boleto</strong>.
+                    Esse valor é utilizado exclusivamente para cobrir os custos operacionais e manter
+                    a plataforma ativa.
                 </p>
 
                 <p>
-                    <strong>O sistema entra em funcionamento a partir do dia 17</strong>, mas
-                    as assinaturas <strong>já podem ser contratadas.</strong>
+                    Ao adquirir um plano, você não está apenas liberando funcionalidades — está ajudando
+                    diretamente a manter este projeto vivo e em constante evolução.
                 </p>
-
                 <p>
-                    Usuários atuais podem contratar pelo <Link href={'/me'} className='red'>painel da conta</Link>. Novos usuários
-                    realizarão a escolha do plano no momento do cadastro. <Link href='/planos' className='red'>Clique aqui</Link> para ver os planos disponíveis.
+                    Usuários já cadastrados podem ativar um plano pelo
+                    <Link href="/me" className="red"> painel da conta</Link>.
+                    Novos usuários podem escolher um plano durante o cadastro.
+                    <Link href="/planos" className="red"> Ver planos disponíveis</Link>.
                 </p>
-                <p>Obrigado por nos apoiarem!</p>
+                <p className={styles.purpose}>
+                    A assinatura representa um apoio coletivo para que a plataforma continue existindo,
+                    sendo aprimorada e permanecendo acessível para todos que acreditam na ideia.
+                </p>
 
                 <div className={styles.buttonContainer}>
                     <button onClick={onClose}>Fechar</button>
