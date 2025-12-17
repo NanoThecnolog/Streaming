@@ -1,68 +1,108 @@
 .container {
-    background: #111;
-    padding: 2rem;
-    border-radius: 16px;
+
+    background: linear-gradient(180deg, #0f0f0f 0%, #111 100%);
+    padding: 3rem 2rem;
+    border-radius: 20px;
     max-width: 1300px;
     margin: 0 auto;
     text-align: center;
-    //box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
-    animation: pulse 5s ease-in-out infinite;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.6),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.03);
 
     .streamingList {
-        width: 80%;
+        width: 100%;
+        max-width: 520px;
         list-style: none;
         padding: 0;
-        margin: 2rem auto;
+        margin: 2.5rem auto;
+
         display: flex;
         flex-direction: column;
-        gap: 0.8rem;
+        gap: 0.75rem;
 
         li {
             display: flex;
             justify-content: space-between;
-            border-bottom: 1px solid #333;
-            padding-bottom: 0.4rem;
+            align-items: center;
+
+            padding: 0.6rem 0.2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+            span:first-child {
+                color: rgba(255, 255, 255, 0.75);
+            }
+
+            span:last-child {
+                font-weight: 500;
+                color: #fff;
+            }
         }
     }
 
     .total {
-        font-size: 1.2rem;
-        margin: 1rem 0;
+        margin: 1.5rem 0;
+        font-size: 1.25rem;
+
+        strong {
+            color: var(--red);
+            font-weight: 600;
+        }
     }
+
 
     .divider {
-        height: 2px;
-        background: #444;
-        margin: 2rem 0;
+        height: 1px;
+        background: linear-gradient(90deg,
+                transparent,
+                rgba(255, 255, 255, 0.15),
+                transparent);
+        margin: 2.5rem 0;
     }
 
-    .solution {
-        //background: #1db954;
-        padding: 1.5rem;
-        border-radius: 12px;
-        //color: #000;
 
-        span {
-            font-size: 1.5rem;
-            font-weight: bold;
+    .solution {
+        padding: 1.5rem 1rem;
+        border-radius: 14px;
+
+        p {
+            max-width: 520px;
+            margin: 0 auto 0.8rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            font-weight: 500;
+
+            span {
+                color: var(--red);
+                font-weight: 700;
+            }
         }
 
         button {
-            margin-top: 1rem;
-            background: var(--red);
+            margin-top: 1.5rem;
+            background: var(--red-selected);
             color: #fff;
-            padding: 0.8rem 1.2rem;
+            padding: 0.85rem 1.6rem;
             border: none;
             border-radius: 2rem;
+
+            font-weight: 700;
+            font-size: 1rem;
             cursor: pointer;
-            font-weight: bold;
-            transition: .4s;
+
+            transition: transform 0.25s ease, background-color 0.25s ease;
 
             &:hover {
-                transform: scale(1.05);
+                transform: translateY(-2px);
+                background-color: var(--red);
             }
         }
     }
+
 }
 
 @keyframes pulse {

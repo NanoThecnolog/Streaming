@@ -55,10 +55,10 @@
                 color: var(--black);
                 border-radius: 1rem;
                 width: 300px;
-                height: 360px;
+                height: 460px;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
+                justify-content: center;
                 padding: 20px;
                 gap: 10px;
                 position: relative;
@@ -66,7 +66,7 @@
                 .recomended {
                     position: absolute;
                     top: 0px;
-                    bottom: 378px;
+                    bottom: 95.5%;
                     color: white;
                     font-weight: 900;
                     text-transform: uppercase;
@@ -95,6 +95,7 @@
                         .planName {
                             font-size: 2rem;
                             font-family: var(--font-bebas);
+                            padding-top: 15px;
                         }
 
                         .planPrice {
@@ -107,6 +108,7 @@
                             color: var(--red);
                             font-weight: bold;
                             font-family: var(--font-bebas);
+                            height: 25px;
                         }
 
                         .planType {

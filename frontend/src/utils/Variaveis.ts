@@ -122,69 +122,85 @@ export const swiperBreakpoints = {
 
 export const faq: FAQ[] = [
     {
-        question: "O que é o Projeto FlixNext?",
-        answer: "O projeto FlixNext foi criado com o proposito de facilitar e permitir o acesso a filmes e séries. A ideia inicial era criar algo que pudesse ser compartilhado entre família e amigos. </br></br> Hoje, o propósito é facilitar o acesso para aqueles que não possuem condições financeiras para manter os planos caríssimos de outras plataformas de streamings, ou alugar filmes e séries por aí. Além de evitar que o usuário se exponha a ataques na internet, entrando em sites maliciosos, a procura do filme ou série para baixar, a plataforma entrega de forma segura os conteúdos."
+        question: 'O que é o Projeto FlixNext?',
+        answer:
+            'A FlixNext nasceu como um projeto pessoal, criado inicialmente para amigos e familiares, com o objetivo de facilitar o acesso a filmes e séries difíceis de encontrar. <br/><br/>Com o crescimento inesperado da plataforma, o propósito evoluiu para algo maior: preservar e disponibilizar um acervo de obras raras, muitas delas fora dos catálogos dos streamings tradicionais, de forma organizada, segura e acessível. <br/><br/>A plataforma busca oferecer uma alternativa estável e segura, evitando que usuários precisem recorrer a sites maliciosos ou inseguros em busca desse tipo de conteúdo.'
     },
     {
-        question: "Como faço para criar uma conta?",
-        answer: "Para criar sua conta é preciso se cadastrar na plataforma. </br></br> É rápido e fácil, só precisa preencher seus dados e usar um email válido. Após criar sua conta no nosso site, você receberá um email com um link para ativação da conta. Após ativar sua conta, basta fazer o login na plataforma e aproveitar!"
+        question: 'Como faço para criar uma conta?',
+        answer:
+            'Para criar sua conta, basta realizar o cadastro na plataforma preenchendo seus dados básicos e utilizando um e-mail válido. <br/><br/>Após o cadastro, você receberá um e-mail com um link de ativação. Depois de ativar sua conta, é só fazer login e começar a explorar o catálogo.'
     },
     {
-        question: "Por que preciso ativar minha conta?",
-        answer: "Precisamos validar seu email para que sua conta fique ativa. Essa validação é um meio de segurança para que o uso não autorizado do seu email seja evitado."
+        question: 'Por que preciso ativar minha conta?',
+        answer:
+            'A ativação por e-mail é uma medida de segurança. Ela garante que o endereço informado realmente pertence a você e ajuda a evitar o uso indevido de dados por terceiros.'
     },
     {
-        question: "Não consigo assistir ao filme/série, o que faço?",
-        answer: `Caso esteja enfrentando problemas, entre em contato conosco através do email: <a href="mailto:contato@ericssongomes.com" style="color: red;">contato@ericssongomes.com</a> . Nosso suporte é 24h, todos os dias.`
+        question: 'Não consigo assistir a um filme ou série. O que devo fazer?',
+        answer:
+            'Se você estiver enfrentando qualquer problema técnico, entre em contato conosco pelo e-mail <a href="mailto:suporte@flixnext.com.br">suporte@flixnext.com.br</a>. <br/><br/>O suporte funciona todos os dias e buscamos responder o mais rápido possível.'
     },
     {
-        question: "De onde vêm os filmes e séries que assisto?",
-        answer: "Os arquivos dos filmes são disponibilizados principalmente por terceiros. Por esse motivo, não possuímos controle total ou responsabilidade sobre os arquivos incorporados à plataforma. Porém, a nossa equipe analisa e verifica todos os arquivos que disponibilizamos, garantindo o máximo de segurança e disponibilidade."
+        question: 'De onde vêm os filmes e séries disponíveis na plataforma?',
+        answer:
+            'Os conteúdos são obtidos a partir de fontes externas e acervos digitais disponíveis publicamente. <br/><br/>Embora não sejamos os detentores dos arquivos originais, realizamos uma curadoria cuidadosa antes de disponibilizar qualquer conteúdo, priorizando qualidade, organização e segurança.'
     },
     {
-        question: "Nos filmes e séries legendados, como ativar a legenda?",
-        answer: "Na maioria dos filmes e séries legendados, a legenda já vem embutida e não é necessário ativá-la. Porém, nos casos em que a legenda não está ativa, pode ativá-la nos controles, abaixo da linha de duração do vídeo. Se tiver problemas, entre em contato conosco."
+        question: 'Como funcionam as legendas?',
+        answer:
+            'Na maioria dos conteúdos legendados, as legendas já vêm ativadas automaticamente. <br/><br/>Em alguns casos específicos, é possível ativá-las manualmente nos controles do player. Se tiver dificuldades, nossa equipe de suporte pode ajudar.'
     },
     {
-        question: "Posso pedir ou indicar que acrescente algum filme ou série específico ao catálogo?",
-        answer: "Sim, você pode! Primeiro busque na plataforma para ter certeza que não tem no catálogo. Com sua conta ativa, clique no seu avatar no menu superior para abrir o menu da conta, depois clique em Solicitar Filme/Série. Busque pelo nome do filme ou série que você gostaria de ver aqui na plataforma, localize nos resultados e clique no botão de solicitar! Caso não encontre o que procura, Envie um email para contato@ericssongomes.com com as informações do filme/série (nome e ano de lançamento) e tentaremos adicioná-lo ao catálogo."
+        question: 'Posso sugerir filmes ou séries para o catálogo?',
+        answer:
+            'Sim! Com sua conta ativa, você pode solicitar novos títulos através do e-mail <a href="mailto:suporte@flixnext.com.br">suporte@flixnext.com.br</a>. Nos envie o nome e ano de lançamento da obra, para que possamos verificar a disponibilidade.'
     },
     {
-        question: "A plataforma é paga?",
-        answer: "Sim! Você paga pelo acesso a plataforma. O valor é simbólico se comparado a tudo que você pode usurfrir na plataforma. </br></br>Por apenas <strong style='color: green'>R$10,99</strong> você tem acesso ao conteúdo que só encontramos em plataformas de streaming (as vezes nem lá...). Muitos dos filmes e séries presentes aqui não são encontrados em nenhum outro lugar, e esse é o nosso diferencial!</br></br> Temos 3 modalidades de planos (mensal, trimestral, anual). Para saber mais sobre nossos planos, <a href=''>clique aqui</a>."
+        question: 'A plataforma é paga?',
+        answer:
+            'Sim. O acesso à FlixNext é feito por meio de uma assinatura de valor simbólico, criada exclusivamente para cobrir custos de infraestrutura, armazenamento e manutenção do projeto. <br/><br/>Os planos começam a partir de <strong>R$ 10,99</strong> e variam conforme o período escolhido (mensal, trimestral ou anual).'
     },
     {
-        question: "Como posso ajudar o projeto?",
-        answer: "Você pode ajudar enviando sugestões ou reclamações para nós através do email <a href='mailto:contato@ericssongomes.com'> contato@ericssongomes.com</a >. Sua opinião ajuda, e muito, o nosso trabalho."
-    },
+        question: 'Como posso ajudar o projeto?',
+        answer:
+            'Você pode contribuir enviando sugestões, feedbacks ou relatando problemas pelo e-mail <a href="mailto:contato@flixnext.com.br">contato@flixnext.com.br</a>. <br/><br/>A participação da comunidade é essencial para a evolução contínua da plataforma.'
+    }
 ]
 
 export const faqPlans: FAQ[] = [
     {
-        question: "O que é a FlixNext?",
-        answer: "A FlixNext é um serviço de streaming que oferece uma ampla variedade de filmes e séries. </br></br>Você pode assistir a quantos filmes e séries quiser, quando e onde quiser - tudo por um preço mensal acessível. Aqui você sempre encontra novidades. A cada semana adicionamos mais filmes e séries."
+        question: 'O que é a FlixNext?',
+        answer:
+            'A FlixNext é uma plataforma de streaming independente, focada em preservar e disponibilizar filmes e séries que muitas vezes não estão presentes nos catálogos tradicionais. <br/><br/>O projeto prioriza organização, estabilidade e acesso contínuo ao acervo.'
     },
     {
-        question: "Quanto custa para assinar?",
-        answer: "Tenha acesso aos filmes e séries por um valor único. Os planos variam de acordo com o período de assinatura, começando pelo valor mensal de R$ 10,99."
+        question: 'Quanto custa para assinar?',
+        answer:
+            'Os planos de acesso começam a partir de R$ 10,99. O valor varia de acordo com o período de assinatura escolhido e existe apenas para manter a plataforma ativa e em constante evolução.'
     },
     {
-        question: "Onde posso assistir?",
-        answer: "Assista onde quiser e quando quiser. Acesse sua conta em flixnext.com.br para assistir no computador ou no celular."
+        question: 'Onde posso assistir?',
+        answer:
+            'Você pode assistir diretamente pelo navegador, acessando sua conta em flixnext.com.br, tanto no computador quanto no celular.'
     },
     {
-        question: "Como faço para cancelar?",
-        answer: "Não há contratos nem compromissos com a FlixNext. Você pode cancelar a sua assinatura quando quiser. Não há taxa de cancelamento - você pode começar ou encerrar a sua assinatura a qualquer momento."
+        question: 'Como funciona o cancelamento?',
+        answer:
+            'Não há contratos ou fidelidade. Você pode cancelar sua assinatura a qualquer momento e continuará com acesso até o fim do período já pago.'
     },
     {
-        question: "O que posso assistir na FlixNext?",
-        answer: "A FlixNext possui um grande catálogo de filmes e séries. Assista o quanto quiser, quando quiser."
+        question: 'O que posso assistir na FlixNext?',
+        answer:
+            'O catálogo conta com filmes e séries de diferentes épocas e gêneros, incluindo obras raras e difíceis de encontrar em outras plataformas.'
     },
     {
-        question: "Quais formas de pagamento posso utilizar?",
-        answer: "Você pode utilizar o cartão de crédito ou boleto bancário. </br></br>Por segurança os dados do seu cartão de crédito não são salvos em nosso banco de dados. O boleto é gerado com 5 dias para o vencimento e pode ser pago com pix."
-    },
+        question: 'Quais formas de pagamento são aceitas?',
+        answer:
+            'Atualmente, aceitamos apenas boleto bancário. Os boletos podem ser pagos via Pix dentro do prazo informado.'
+    }
 ]
+
 
 
 export const classification = [

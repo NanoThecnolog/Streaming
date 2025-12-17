@@ -8,7 +8,13 @@ export default function PromoCounting() {
 
     return (
         <section className={styles.container}>
-            <h2>Quanto você gasta com Streaming?</h2>
+            <h2>Quanto custa manter vários streamings?</h2>
+
+            <p className={styles.intro}>
+                Hoje, para acompanhar filmes e séries espalhados por diferentes plataformas,
+                o custo mensal pode facilmente sair do controle.
+            </p>
+
             <ul className={styles.streamingList}>
                 {streamingPrices.map(streaming => (
                     <li key={streaming.name}>
@@ -17,17 +23,30 @@ export default function PromoCounting() {
                     </li>
                 ))}
             </ul>
+
             <div className={styles.total}>
-                <p>Total por mês: <strong>R$ {total.toFixed(2)}</strong></p>
+                <p>
+                    Gasto médio mensal: <strong>R$ {total.toFixed(2)}</strong>
+                </p>
             </div>
+
             <div className={styles.divider} />
+
             <div className={styles.solution}>
-                <p>Você pode ter acesso a tudo isso em um só lugar</p>
-                <h3>A partir de <span>R$10.99/mês</span></h3>
-                <Link href='/planos/#escolher'>
-                    <button>Assine agora!</button>
+                <p>
+                    A FlixNext surge como uma alternativa mais simples, reunindo um acervo amplo
+                    em um único ambiente.
+                </p>
+
+                <h3>
+                    Acesso a partir de <span>R$ 10,99/mês</span>
+                </h3>
+
+                <Link href="/planos/#escolher">
+                    <button>Escolher um plano</button>
                 </Link>
             </div>
         </section>
+
     )
 }

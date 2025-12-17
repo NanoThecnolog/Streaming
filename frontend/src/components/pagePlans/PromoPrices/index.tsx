@@ -66,19 +66,19 @@ export default function Prices({ plans, setPlanSelected }: PricesProps) {
                                                     <p className={styles.planPrice}>
                                                         {handlePrice(p.price, p.type)}/mês
                                                     </p>
-                                                    {desconto[p.type] > 0 && <p className={styles.priceDiscount}>{desconto[p.type]}% OFF</p>}
+                                                    {desconto[p.type] > 0 ? <p className={styles.priceDiscount}>{desconto[p.type]}% OFF</p> : <p className={styles.priceDiscount}></p>}
                                                     <p className={styles.planType}>
                                                         Plano <span>{p.type}</span>
                                                     </p>
                                                 </div>
                                                 <div>
                                                     <ul>
-                                                        <li>Filmes e Séries raros</li>
-                                                        <li>Solicitação de novos conteúdos</li>
-                                                        <li>Mais de 500 títulos disponíveis</li>
-                                                        <li>suporte 24/7</li>
-                                                        <li>Novos conteúdos toda semana</li>
-                                                        <li>Cancele quando quiser</li>
+                                                        <li>Acesso a filmes e séries raros</li>
+                                                        <li>Mais de 800 títulos disponíveis, incluindo obras difíceis de encontrar</li>
+                                                        <li>Atualizações frequentes com novos conteúdos</li>
+                                                        <li>Plataforma estável, organizada e sem anúncios invasivos</li>
+                                                        <li>Suporte humano e direto, todos os dias</li>
+                                                        <li>Cancele sua assinatura quando quiser, sem burocracia</li>
                                                     </ul>
                                                 </div>
                                             </div>

@@ -8,77 +8,123 @@ export default function Privacy() {
         <>
             <SEO title="Política de Privacidade | FlixNext" description='Políticas de Privacidade da plataforma' />
             <Header />
-            <section className={styles.container}>
-                <div className={styles.privacyContainer}>
-                    <div>
-                        <div>
-                            <h1>Declaração sobre Privacidade</h1>
-                        </div>
-                        <div>
-                            <p>Esta declaração de privacidade visa explicar de forma clara como coletamos, utilizamos e protegemos as informações pessoais dos nossos usuários.</p>
-                        </div>
-                    </div>
-                    <div>
-                        <h3>Informações Coletadas</h3>
-                        <p>Ao criar uma conta em nossa plataforma, coletamos os seguintes dados pessoais:</p>
-                        <ul>
-                            <li>Nome completo: Para personalizar sua experiência na plataforma.</li>
-                            <li>E-mail: Utilizado para a criação da conta, envio de comunicações importantes sobre o serviço, e, caso você opte, recebimento de novidades e atualizações.</li>
-                            <li>Data de Nascimento: Necessária para confirmar que o usuário atende aos requisitos de idade mínima para utilizar o serviço.</li>
-                            <li>Telefone: Para contato e suporte ao usuário.</li>
-                            <li>Endereço: Necessário para faturamento e questões contratuais.</li>
-                            <li>CPF: Para validação da identidade do usuário.</li>
-                        </ul>
-                        <p>Se o usuário optar pelo pagamento via cartão de crédito, serão solicitadas as informações do cartão, que são processadas diretamente pelo nosso gateway de pagamento e não são armazenadas pela plataforma.</p>
-                    </div>
-                    <div>
-                        <h3>Uso das Informações</h3>
-                        <p>As informações fornecidas serão utilizadas para:</p>
-                        <ul>
-                            <li>Gerenciar e personalizar sua conta de usuário.</li>
-                            <li>Melhorar a experiência de uso da plataforma com base em dados gerais de nossos usuários.</li>
-                            <li>Processar pagamentos e gerenciar assinaturas do serviço.</li>
-                            <li>Enviar comunicados importantes, como atualizações ou notificações relacionadas à conta.</li>
-                            <li>Cumprir requisitos regulatórios e fiscais.</li>
-                        </ul>
-                        <p>Não utilizamos suas informações para fins de marketing sem o seu consentimento expresso.</p>
-                    </div>
-                    <div>
-                        <h3>Armazenamento e Segurança</h3>
-                        <p>Adotamos medidas de segurança adequadas para proteger as informações pessoais contra acesso não autorizado, alteração, divulgação ou destruição. Isso inclui o uso de criptografia e outras tecnologias de segurança modernas.</p>
-                        <p>Os dados pessoais serão armazenados pelo tempo necessário para a prestação dos nossos serviços e cumprimento de obrigações legais. Já os dados do cartão de crédito <strong>NÃO</strong> são armazenados pela plataforma, sendo processados diretamente pelo gateway de pagamento.</p>
-                    </div>
-                    <div>
-                        <h3>Compartilhamento de Informações</h3>
-                        <p>Não compartilhamos seus dados pessoais com terceiros, exceto quando:</p>
-                        <ul>
-                            <li>For necessário para a prestação dos serviços (como provedores de hospedagem, segurança e processadores de pagamento).</li>
-                            <li>Formos obrigados por lei a divulgar informações para autoridades competentes.</li>
-                        </ul>
-                        <p>Garantimos que quaisquer terceiros com os quais compartilhamos dados sigam os mesmos padrões de proteção e privacidade.</p>
-                    </div>
-                    <div>
-                        <h3>Direitos dos Usuários</h3>
-                        <p>Você tem o direito de:</p>
-                        <ul>
-                            <li>Acessar, corrigir ou atualizar seus dados pessoais a qualquer momento através das configurações de sua conta.</li>
-                            <li>Solicitar a exclusão de seus dados, o que resultará na exclusão da sua conta na plataforma.</li>
-                            <li>Optar por não receber mais comunicações de marketing, ajustando suas preferências no painel de configurações ou através do link de cancelamento presente nos e-mails.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Alterações à Política de Privacidade</h3>
-                        <p>Podemos atualizar esta Política de Privacidade periodicamente para refletir mudanças em nossos serviços ou em requisitos legais. Notificaremos os usuários sobre qualquer alteração substancial por meio de comunicação direta ou por meio de avisos na plataforma.</p>
-                    </div>
-                    <div>
-                        <h3>Contato</h3>
-                        <p>Se tiver qualquer dúvida ou preocupação sobre nossa Política de Privacidade, entre em contato conosco através do email de suporte fornecido em nossa plataforma.</p>
-                    </div>
-                    <div>
-                        <h4>Esta Política de Privacidade entra em vigor a partir de 22/03/2025.</h4>
-                    </div>
-                </div>
-            </section>
+            <main className={styles.container}>
+                <section className={styles.content}>
+                    <h1>Política de Privacidade</h1>
+
+                    <p className={styles.intro}>
+                        Esta Política de Privacidade tem como objetivo explicar, de forma clara e
+                        transparente, como as informações dos usuários são coletadas, utilizadas
+                        e protegidas dentro da plataforma.
+                    </p>
+
+                    <p>
+                        A FlixNext é um projeto independente, mantido de forma comunitária, e adota
+                        como princípio o uso mínimo e responsável de dados pessoais, apenas o
+                        estritamente necessário para o funcionamento do serviço.
+                    </p>
+
+                    <h2>1. Informações coletadas</h2>
+
+                    <p>
+                        Ao criar uma conta na plataforma, podem ser solicitadas as seguintes
+                        informações:
+                    </p>
+
+                    <ul>
+                        <li>Nome: utilizado para identificação básica do usuário</li>
+                        <li>E-mail: utilizado para autenticação, comunicação e suporte</li>
+                        <li>Data de nascimento: utilizada para verificação de idade mínima</li>
+                        <li>Telefone: utilizado para contato em situações específicas de suporte</li>
+                        <li>CPF: utilizado para validação de identidade e controle de acesso</li>
+                    </ul>
+
+                    <p>
+                        Informações de pagamento, quando necessárias, são processadas diretamente
+                        por provedores de pagamento externos e não são armazenadas pela plataforma.
+                    </p>
+
+                    <h2>2. Uso das informações</h2>
+
+                    <p>
+                        Os dados coletados são utilizados exclusivamente para:
+                    </p>
+
+                    <ul>
+                        <li>Gerenciamento e autenticação da conta do usuário</li>
+                        <li>Funcionamento adequado das funcionalidades da plataforma</li>
+                        <li>Comunicações essenciais relacionadas ao uso do serviço</li>
+                        <li>Cumprimento de obrigações legais e regulatórias</li>
+                    </ul>
+
+                    <p>
+                        A FlixNext não utiliza dados pessoais para fins de marketing comercial e
+                        não realiza venda ou monetização de informações de usuários.
+                    </p>
+
+                    <h2>3. Armazenamento e segurança</h2>
+
+                    <p>
+                        As informações são armazenadas em ambientes protegidos, com adoção de
+                        medidas técnicas e organizacionais voltadas à segurança dos dados.
+                    </p>
+
+                    <p>
+                        Os dados pessoais são mantidos apenas pelo tempo necessário para a
+                        prestação do serviço ou cumprimento de obrigações legais.
+                    </p>
+
+                    <h2>4. Compartilhamento de dados</h2>
+
+                    <p>
+                        Os dados dos usuários não são compartilhados com terceiros, exceto quando
+                        estritamente necessário para:
+                    </p>
+
+                    <ul>
+                        <li>Operação técnica da plataforma (hospedagem e infraestrutura)</li>
+                        <li>Processamento de pagamentos por intermediadores externos</li>
+                        <li>Cumprimento de determinações legais ou judiciais</li>
+                    </ul>
+
+                    <p>
+                        Sempre que houver compartilhamento, este ocorrerá de forma limitada e
+                        alinhada às finalidades descritas nesta política.
+                    </p>
+
+                    <h2>5. Direitos dos usuários</h2>
+
+                    <p>
+                        O usuário pode, a qualquer momento:
+                    </p>
+
+                    <ul>
+                        <li>Acessar e atualizar seus dados cadastrais</li>
+                        <li>Solicitar a exclusão de sua conta e informações associadas</li>
+                        <li>Esclarecer dúvidas sobre o uso de seus dados</li>
+                    </ul>
+
+                    <h2>6. Alterações nesta política</h2>
+
+                    <p>
+                        Esta Política de Privacidade pode ser atualizada periodicamente para
+                        refletir ajustes operacionais ou exigências legais. Recomenda-se a
+                        consulta regular deste documento.
+                    </p>
+
+                    <h2>7. Contato</h2>
+
+                    <p>
+                        Em caso de dúvidas ou solicitações relacionadas à privacidade e proteção
+                        de dados, o contato pode ser feito por meio do e-mail de suporte
+                        disponibilizado na plataforma.
+                    </p>
+
+                    <p className={styles.date}>
+                        Esta Política de Privacidade entra em vigor a partir de 22 de março de 2025.
+                    </p>
+                </section>
+            </main>
             <Footer />
         </>
     )

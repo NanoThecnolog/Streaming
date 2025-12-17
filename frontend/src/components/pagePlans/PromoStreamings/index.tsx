@@ -7,49 +7,64 @@ export default function Streaming() {
     return (
         <section className={styles.contentPromoContainer}>
             <div className={styles.content}>
-                <h2>Tudo em um só lugar</h2>
-                <p>Assista aos conteúdos dos streamings mais famosos num só lugar</p>
+                <h2>Um acervo reunido em um só lugar</h2>
+                <p>
+                    A FlixNext organiza e disponibiliza conteúdos que passaram — ou ainda passam —
+                    por grandes plataformas de streaming, reunindo tudo em uma experiência simples,
+                    contínua e sem fragmentação.
+                </p>
+
                 <div className={styles.streamBrand}>
                     <div className={`${styles.logo} ${styles.netflix}`}>
                         <SiNetflix />
                         <p>Netflix</p>
                     </div>
+
                     <div className={`${styles.logo} ${styles.hbo}`}>
                         <SiHbo />
-                        <p>HBO MAX</p>
+                        <p>HBO Max</p>
                     </div>
+
                     <div className={`${styles.logo} ${styles.prime}`}>
                         <SiPrimevideo />
                         <p>Prime Video</p>
                     </div>
+
                     <div className={`${styles.logo} ${styles.disney}`}>
                         <TbBrandDisney />
                         <p>Disney+</p>
                     </div>
+
                     <div className={`${styles.logo} ${styles.sky}`}>
                         <SiSky />
                         <p>Sky+</p>
                     </div>
+
                     <div className={`${styles.logo} ${styles.apple}`}>
                         <SiAppletv />
                         <p>Apple TV+</p>
                     </div>
+
                     <div className={`${styles.logo} ${styles.paramount}`}>
                         <SiParamountplus />
                         <p>Paramount+</p>
                     </div>
+
                     <div className={`${styles.logo} ${styles.globo}`}>
-                        <p>globo<span>play</span></p>
+                        <p>
+                            globo<span>play</span>
+                        </p>
                     </div>
+
                     <div className={`${styles.logo} ${styles.starz}`}>
                         <SiStarz />
+                        <p>Starz</p>
                     </div>
                 </div>
+
                 <div className={styles.buttonActionContainer}>
                     <Link href="/planos/#escolher">
-                        <button>
-                            Escolher plano
-                        </button>
+                        <button>Escolher um plano</button>
                     </Link>
                 </div>
             </div>

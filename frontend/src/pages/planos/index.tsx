@@ -2,7 +2,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import styles from './styles.module.scss'
 import SEO from "@/components/SEO";
-import { PlanProp, PlansProps } from "@/@types/plans";
+import { PlanProp } from "@/@types/plans";
 import 'swiper/css';
 import axios from "axios";
 import { mongoService } from "@/classes/MongoContent";
@@ -15,7 +15,6 @@ import PromoFAQ from "@/components/pagePlans/PromoFaq";
 import { GetServerSideProps } from "next";
 import PromoCounting from "@/components/pagePlans/PromoCounting";
 import { useFlix } from "@/contexts/FlixContext";
-import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 
