@@ -76,6 +76,7 @@ export function FlixProvider({ children }: ContextProviderProps) {
                 verified: data.verified,
                 createdAt: data.createdAt,
                 subscription: data.subscription,
+                donator: data.donator
             }
 
             destroyCookie(null, 'flix-user')
