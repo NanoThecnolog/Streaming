@@ -47,7 +47,8 @@ export interface UserCookiesProps {
     birthday: Date,
     news: boolean,
     createdAt: Date,
-    subscription: SubscriptionProps
+    subscription: SubscriptionProps,
+    donator: boolean
 }
 
 export interface MyListPorps {

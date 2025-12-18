@@ -51,7 +51,7 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
     const [showPoster, setShowPoster] = useState(false)
     const { tmdbId } = router.query;
     const { allData } = useTMDB()
-    const { user, setUser, movies, setMovies } = useFlix()
+    const { user, movies, setMovies } = useFlix()
     const [filme, setFilme] = useState<CardsProps | null>(null)
     const [onWatchLater, setOnWatchLater] = useState(false)
     const [relatedCards, setRelatedCards] = useState<CardsProps[]>([])

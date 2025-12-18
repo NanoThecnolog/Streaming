@@ -16,7 +16,6 @@ import { SeriesProps, TMDBSeries } from "@/@types/series";
 import { fuseConfig } from "@/utils/Variaveis";
 import { debug } from "@/classes/DebugLogger";
 import { useTMDB } from "@/contexts/TMDBContext";
-import { SetupAPIClient } from "@/services/api";
 import { uniqueKey } from "@/utils/UtilitiesFunctions";
 import Notifications from "../Notifications";
 
@@ -35,7 +34,6 @@ export default function Header() {
     const { allData, serieData } = useTMDB()
     const [initial, setInitial] = useState("-")
     const [fuse, setFuse] = useState<Fuse<any> | null>(null)
-    const client = new SetupAPIClient()
 
     useEffect(() => {
         async function loadConfig() {
@@ -66,35 +64,6 @@ export default function Header() {
         const inicial = user.name[0].toUpperCase()
         setInitial(inicial)
     }, [user])
-    /**useEffect(() => {
-        async function wakeUpServer() {
-            const responses = await Promise.allSettled([
-                client.api.get('/acordar'),
-                apiSub.get('/'),
-                apiEmail.get('/'),
-                apiManager.get('/')
-            ]);
-            const [acordar, acordarManager, acordarMensageria, acordarContentManager] = responses;
-            if (
-                acordar.status === "fulfilled" &&
-                acordar.value.status === 200 &&
-                acordarManager.status === "fulfilled" &&
-                acordarManager.value.data.code === 200 &&
-                acordarMensageria.status === "fulfilled" &&
-                acordarMensageria.value.data.code === 200 &&
-                acordarContentManager.status === 'fulfilled'
-            ) {
-                setServerWake(true);
-            } else {
-                setServerWake(false);
-            }
-        }
-        wakeUpServer()
-        const manterAcordado = setInterval(() => {
-            wakeUpServer()
-        }, 40000)
-        return () => clearInterval(manterAcordado)
-    }, [])*/
 
     useEffect(() => {
         if (loading) document.body.style.cursor = "progress"
@@ -167,7 +136,7 @@ export default function Header() {
                 <Link href="/" className={styles.button_container}>
                     <h2>INÍCIO</h2>
                 </Link>
-                <Link href="/#filmes" className={styles.button_container}>
+                <Link href="/movies" className={styles.button_container}>
                     <h2>FILMES</h2>
                 </Link>
                 <Link href="/series" className={styles.button_container}>
@@ -220,14 +189,6 @@ export default function Header() {
             </div>
             <div className={styles.right_nav}>
                 <Notifications moviesTMDB={allData} seriesTMDB={serieData} />
-                {
-                    /*<div className={styles.status}>
-                    <div
-                        className={styles.bolinha}
-                        style={{ backgroundColor: serverWake ? '#007714' : '#d42c2c' }}
-                    ></div>
-                </div>*/
-                }
                 <div onClick={() => handleClickHome(4)}>
                     {
                         user?.avatar ? (

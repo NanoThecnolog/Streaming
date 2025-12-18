@@ -10,14 +10,16 @@ module.exports = {
         policies: [
             { userAgent: '*', allow: '/' },
             { userAgent: '*', allow: '/series' },
-            { userAgent: '*', allow: '/planos' },
+            { userAgent: '*', allow: '/movies' },
             { userAgent: '*', allow: '/movie/*' },
             { userAgent: '*', allow: '/series/serie/*' },
             { userAgent: '*', allow: '/signup' },
             { userAgent: '*', allow: '/login' },
+            { userAgent: '*', allow: '/sobre' },
+            { userAgent: '*', disallow: '/planos' },
             { userAgent: '*', disallow: '/watch', },
             { userAgent: '*', disallow: '/recover', },
-            { userAgent: '*', disallow: '/dashboard' },
+            { userAgent: '*', disallow: '/dashboard/*' },
             { userAgent: '*', disallow: '/teste' }
         ],
     },

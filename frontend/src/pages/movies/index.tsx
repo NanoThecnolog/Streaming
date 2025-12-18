@@ -12,12 +12,10 @@ import debounce from "lodash.debounce";
 import Carousel from "@/components/Carousel";
 import { breakpoints } from "@/utils/Variaveis";
 import { flixFetcher } from "@/classes/Flixclass";
-import { mongoService } from "@/classes/MongoContent";
 import { useFlix } from "@/contexts/FlixContext";
 import NewTop from "@/components/newTop";
 import { CardsProps } from "@/@types/Cards";
 import TopPopularMovies from "@/components/TopPopularMovies";
-import HeroSection from "@/components/HeroSection";
 
 
 export default function Home() {
@@ -30,7 +28,7 @@ export default function Home() {
   const divisaoPorGenero = combined
   const { allData, setAllData, serieData, setSerieData } = useTMDB()
   const [visible, setvisible] = useState(false)
-  const { movies, setMovies } = useFlix()
+  const { movies } = useFlix()
   const tmdbid = 617126;
   const [topCard, setTopCard] = useState<CardsProps | null>(null)
 
@@ -38,18 +36,6 @@ export default function Home() {
     const card = movies.find((card) => card.tmdbId === tmdbid)
     if (card && (!topCard || topCard.tmdbId !== card.tmdbId)) setTopCard(card)
   }, [movies])
-
-  /*useEffect(() => {
-    async function fetchMoviesMongoDB() {
-      const movies: CardsProps[] = await mongoService.fetchMovieData()
-      if (movies.length > 0) setMovies(movies)
-    }
-    if (movies.length === 0) fetchMoviesMongoDB()
-    else {
-      const card = movies.find((card) => card.tmdbId === tmdbid)
-      if (card && (!topCard || topCard.tmdbId !== card.tmdbId)) setTopCard(card)
-    }
-  }, [movies, topCard])*/
 
   useEffect(() => {
     //if (allData.length > 0 && serieData.length > 0) return
@@ -103,7 +89,6 @@ export default function Home() {
                     <div className={styles.top}>
                       {
                         topCard && <NewTop width={width} id={tmdbid} />
-                        //<HeroSection width={width} />
                       }
 
                     </div>
@@ -136,10 +121,3 @@ export default function Home() {
     </>
   );
 }
-/*export const getStaticPaths: GetStaticPaths = async () => {
-
-  return {
-        paths,
-        fallback: 'blocking',
-    };
-}*/

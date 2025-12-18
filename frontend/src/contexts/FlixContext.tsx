@@ -67,7 +67,7 @@ export function FlixProvider({ children }: ContextProviderProps) {
             setSubscription(data.subscription)
             setUser(data)
 
-            const userCookie = {
+            const userCookie: UserCookiesProps = {
                 name: data.name,
                 email: data.email,
                 avatar: data.avatar,

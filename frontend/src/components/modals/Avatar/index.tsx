@@ -10,6 +10,7 @@ import { destroyCookie, parseCookies, setCookie } from 'nookies';
 import { UserContext } from '@/@types/user';
 import { useFlix } from '@/contexts/FlixContext';
 import axios from 'axios';
+import { debug } from '@/classes/DebugLogger';
 
 interface AvatarProps {
     handleCloseModal: () => void;
@@ -31,20 +32,23 @@ export default function Avatar({ handleCloseModal }: AvatarProps) {
             setLoading(true)
             const userData = { avatar: url }
             const response = await axios.put('/api/user/update', userData)
-            const data: UserContext = response.data.request;
+            //debug.log("Resposta da atualização", response.data)
+            const user = await axios.get<UserContext>('/api/user')
+            //debug.log("User buscado", user.data)
+            setUser(user.data)
             const userCookie = {
-                name: data.name,
-                email: data.email,
-                avatar: data.avatar,
-                verified: data.verified,
-                birthday: data.birthday,
-                news: data.news,
-                createdAt: response.data.request.created_at,
-                watchLater: data.watchLater
+                name: user.data.name,
+                email: user.data.email,
+                avatar: user.data.avatar,
+                verified: user.data.verified,
+                birthday: user.data.birthday,
+                news: user.data.news,
+                createdAt: user.data.createdAt,
+                subscription: user.data.subscription,
+                donator: user.data.donator,
             }
             destroyCookie(null, 'flix-user')
             setCookie(null, 'flix-user', JSON.stringify(userCookie), cookieOptions)
-            setUser(data)
             toast.success("Avatar alterado!")
         } catch (err) {
             console.log("Erro ao tentar atualizar avatar. ", err)

@@ -6,7 +6,7 @@ import { X } from 'lucide-react'
 import { useFlix } from '@/contexts/FlixContext'
 import { destroyCookie, setCookie } from 'nookies'
 import { cookieOptions } from '@/utils/Variaveis'
-import { UserContext } from '@/@types/user'
+import { UserContext, UserCookiesProps } from '@/@types/user'
 import { SetupAPIClient } from '@/services/api'
 import axios from 'axios'
 import { debug } from '@/classes/DebugLogger'
@@ -45,21 +45,25 @@ export default function EditarDados({ handleClose }: EditarDadosProps) {
                 ...(password && { password })
             }
             debug.log('UserData no modal de editar dados', userData)
-            const response = await axios.put('/api/user/update', userData)
-            const data: UserContext = response.data.request;
-            const userCookie = {
-                name: data.name,
-                email: data.email,
-                avatar: data.avatar,
-                verified: data.verified,
-                birthday: data.birthday,
-                news: data.news,
-                createdAt: response.data.request.created_at,
-                watchLater: data.watchLater
+            await axios.put('/api/user/update', userData)
+
+            const userProps = await axios.get<UserContext>('/api/user')
+
+            setUser(userProps.data)
+
+            const userCookie: UserCookiesProps = {
+                name: userProps.data.name,
+                email: userProps.data.email,
+                avatar: userProps.data.avatar,
+                verified: userProps.data.verified,
+                birthday: userProps.data.birthday,
+                news: userProps.data.news,
+                createdAt: userProps.data.createdAt,
+                subscription: userProps.data.subscription,
+                donator: userProps.data.donator
             }
             destroyCookie(null, 'flix-user')
             setCookie(null, 'flix-user', JSON.stringify(userCookie), cookieOptions)
-            setUser(data)
             toast.success("Dados alterados com sucesso.")
             //console.log("Dados alterados com sucesso", data)
         } catch (err) {
