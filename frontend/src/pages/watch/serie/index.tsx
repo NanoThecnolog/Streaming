@@ -20,6 +20,7 @@ import { apiEmail } from "@/services/apiMessenger"
 import Head from "next/head"
 import { GetServerSideProps } from "next"
 import axios from "axios"
+import { UserContext } from "@/@types/user"
 
 interface EpisodeProps {
     title: string,
@@ -29,8 +30,12 @@ interface EpisodeProps {
     season: number
 }
 
+interface WatchSerieProps {
+    userContext: UserContext
+}
 
-export default function WatchSerie() {
+
+export default function WatchSerie({ userContext }: WatchSerieProps) {
     const router = useRouter()
     const { title, subtitle, episode, src, season, tmdbID } = router.query
     const [episodio, setEpisodio] = useState<EpisodeProps | null>(null)
@@ -42,12 +47,11 @@ export default function WatchSerie() {
 
     useEffect(() => {
         if (!user) {
-            const { 'flix-user': userCookie } = parseCookies()
-            if (!userCookie) return
-
-            setUser(JSON.parse(userCookie))
+            if (!userContext) return
+            setUser(userContext)
         }
-    }, [])
+
+    }, [userContext])
 
     useEffect(() => {
         if (user && !user.donator) router.push('/me/escolher-plano')
@@ -212,7 +216,21 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
             permanent: false
         }
     }
-    return {
-        props: {}
+    const url = process.env.NEXT_PUBLIC_WEBSITE_LINK
+
+    try {
+        const userData = await axios.get<UserContext>(`${url}/api/user`)
+        return {
+            props: {
+                userContext: userData.data
+            }
+        }
+    } catch (err) {
+        debug.log("Erro ao buscar dados do usuario na pagina /watch")
+        return {
+            props: {
+                userContext: null
+            }
+        }
     }
 }

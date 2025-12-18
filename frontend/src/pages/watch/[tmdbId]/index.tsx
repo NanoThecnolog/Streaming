@@ -17,8 +17,13 @@ import { mongoService } from '@/classes/MongoContent';
 import { apiEmail } from '@/services/apiMessenger';
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
+import axios from 'axios';
+import { UserContext } from '@/@types/user';
 
-export default function Watch() {
+interface WatchProps {
+    userContext: UserContext | null
+}
+export default function Watch({ userContext }: WatchProps) {
     const router = useRouter()
     const { tmdbId } = router.query;
     const [movieData, setMovieData] = useState({ title: '', subtitle: '', src: '', tmdbId: 0 });
@@ -29,13 +34,11 @@ export default function Watch() {
 
     useEffect(() => {
         if (!user) {
-            const { 'flix-user': userCookie } = parseCookies()
-            if (!userCookie) return
-
-            setUser(JSON.parse(userCookie))
+            if (!userContext) return
+            setUser(userContext)
         }
 
-    }, [])
+    }, [userContext])
 
     useEffect(() => {
         if (user && !user.donator) router.push('/me/escolher-plano')
@@ -163,7 +166,21 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
             permanent: false
         }
     }
-    return {
-        props: {}
+    const url = process.env.NEXT_PUBLIC_WEBSITE_LINK
+
+    try {
+        const userData = await axios.get<UserContext>(`${url}/api/user`)
+        return {
+            props: {
+                userContext: userData.data
+            }
+        }
+    } catch (err) {
+        debug.log("Erro ao buscar dados do usuario na pagina /watch")
+        return {
+            props: {
+                userContext: null
+            }
+        }
     }
 }
