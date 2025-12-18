@@ -29,8 +29,7 @@ model user {
   resetToken       String?
   resetTokenExpire DateTime?
 
-  addressId String?  @unique
-  address   address? @relation(fields: [addressId], references: [id], onDelete: Cascade)
+  address address?
 
   favoritos    favorito[]
   loginHistory loginHistory?
@@ -44,7 +43,7 @@ model loginHistory {
   name       String
   email      String
   lastAccess DateTime @default(now())
-  user       user     @relation(fields: [userId], references: [id])
+  user       user     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model subscription {
@@ -94,7 +93,8 @@ model address {
   city         String
   complement   String?
   state        String
-  user         user?
+  userId       String  @unique
+  user         user    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model plan {
