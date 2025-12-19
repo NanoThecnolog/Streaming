@@ -16,6 +16,8 @@ import { useFlix } from "@/contexts/FlixContext";
 import NewTop from "@/components/newTop";
 import { CardsProps } from "@/@types/Cards";
 import TopPopularMovies from "@/components/TopPopularMovies";
+import { DailyWarningModal } from "@/components/ui/DailyModal";
+import { useDailyModal } from "@/hooks/useDailyModal";
 
 
 export default function Home() {
@@ -28,7 +30,8 @@ export default function Home() {
   const divisaoPorGenero = combined
   const { allData, setAllData, serieData, setSerieData } = useTMDB()
   const [visible, setvisible] = useState(false)
-  const { movies } = useFlix()
+  const { movies, user } = useFlix()
+  const { isOpen, close } = useDailyModal()
   const tmdbid = 617126;
   const [topCard, setTopCard] = useState<CardsProps | null>(null)
 
@@ -112,6 +115,7 @@ export default function Home() {
               </div>
               <BackTopButton visible={visible} />
             </main>
+            {!user?.donator && <DailyWarningModal open={isOpen} onClose={close} />}
             <Footer />
           </> :
           <div className={styles.loading}>

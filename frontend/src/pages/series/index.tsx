@@ -34,7 +34,7 @@ export default function Series() {
     //const [loading, setLoading] = useState(false)
     const { serieData, setSerieData, setAllData, allData } = useTMDB()
     const [visible, setvisible] = useState(false)
-    const { series, setSeries } = useFlix()
+    const { user, series, setSeries } = useFlix()
 
     useEffect(() => {
         async function fetchSeriesMongoDB() {
@@ -121,7 +121,7 @@ export default function Series() {
                             </div>
                             <BackTopButton visible={visible} />
                         </main>
-                        <DailyWarningModal open={isOpen} onClose={close} />
+                        {!user?.donator && <DailyWarningModal open={isOpen} onClose={close} />}
                         <Footer />
                     </> : <div className={styles.loading}><Loading /></div>
             }
