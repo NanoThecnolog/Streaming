@@ -228,9 +228,11 @@ export default function Header() {
                     <AlignJustify />
                     {menuvisible &&
                         <div className={styles.dropdownMenu}>
-                            <button type="button" onClick={() => Router.push('/')}>filmes</button>
+                            <button type="button" onClick={() => Router.push('/')}>Início</button>
                             <div className={styles.divider}></div>
-                            <button type="button" onClick={() => Router.push('/series')}>series</button>
+                            <button type="button" onClick={() => Router.push('/movies')}>Filmes</button>
+                            <div className={styles.divider}></div>
+                            <button type="button" onClick={() => Router.push('/series')}>Series</button>
                         </div>
                     }
                 </div>

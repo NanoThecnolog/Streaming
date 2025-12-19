@@ -79,6 +79,8 @@
 @media (max-width: 768px) {
     .modal {
         padding: 1.5rem;
+        max-height: 800px;
+        overflow-y: auto;
 
         h2 {
             font-size: 1.25rem;
@@ -94,6 +96,8 @@
     .modal {
         padding: 1.25rem;
         border-radius: 6px;
+        max-height: 600px;
+        overflow-y: auto;
 
         h2 {
             font-size: 1.15rem;
