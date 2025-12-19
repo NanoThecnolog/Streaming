@@ -119,7 +119,7 @@ export default function Home() {
               </div>
               <BackTopButton visible={visible} />
             </main>
-            <DailyWarningModal open={true} onClose={close} />
+            <DailyWarningModal open={isOpen} onClose={close} />
             <Footer />
           </> :
           <div className={styles.loading}>
