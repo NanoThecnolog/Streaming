@@ -8,8 +8,7 @@ export function useDailyModal(key = 'daily-warning-modal') {
 
     useEffect(() => {
         if (typeof window === 'undefined') return;
-        if (!user) return
-        if (user.donator) return
+        if (user?.donator) return
 
         const today = new Date().toISOString().split('T')[0];
         const lastSeen = localStorage.getItem(key);
