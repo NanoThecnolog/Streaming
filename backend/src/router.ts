@@ -40,7 +40,7 @@ router.delete('/user', ADMAuth, new DeleteUserController().handle)
 router.get('/user', Authenticate, new DetailUserController().handle);
 router.post('/recovertoken', new GenerateRecoverTokenController().handle);
 router.put('/recover', new RecoverController().handle);
-router.post('/track', new TrackingController().handle)
+router.post('/track', Authenticate, new TrackingController().handle)
 
 router.get('/user/access', Authenticate, new AccessController().handle)
 
