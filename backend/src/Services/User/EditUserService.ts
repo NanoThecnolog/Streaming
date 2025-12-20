@@ -15,7 +15,6 @@ interface EditUserRequest {
     donator?: boolean
 }
 
-
 class EditUserService {
     async execute({ id, name, avatar, password, birthday, news, cpf, phone_number, address }: EditUserRequest) {
 

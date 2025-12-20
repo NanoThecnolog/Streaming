@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { EditUserService } from "../../Services/User/EditUserService";
 import { debugLog } from "../../Utils/DebugLog";
 
-
 class EditUserController {
     async handle(req: Request, res: Response) {
         try {

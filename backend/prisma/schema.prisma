@@ -46,6 +46,14 @@ model loginHistory {
   user       user     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
+model tracking {
+  id        String   @id @default(uuid())
+  userId    String
+  name      String
+  path      String
+  createdAt DateTime @default(now())
+}
+
 model subscription {
   id        String   @id @default(uuid())
   userId    String   @unique

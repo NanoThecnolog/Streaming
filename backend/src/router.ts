@@ -16,6 +16,7 @@ import { Authenticate } from "./middlewares/Auth";
 import { ADMAuth } from "./middlewares/ADMAuth";
 import rateLimit from "express-rate-limit";
 import { AccessController } from "./Controllers/User/AccessController";
+import { TrackingController } from "./Controllers/User/trackingController";
 
 const router = Router()
 
@@ -39,6 +40,7 @@ router.delete('/user', ADMAuth, new DeleteUserController().handle)
 router.get('/user', Authenticate, new DetailUserController().handle);
 router.post('/recovertoken', new GenerateRecoverTokenController().handle);
 router.put('/recover', new RecoverController().handle);
+router.post('/track', new TrackingController().handle)
 
 router.get('/user/access', Authenticate, new AccessController().handle)
 
