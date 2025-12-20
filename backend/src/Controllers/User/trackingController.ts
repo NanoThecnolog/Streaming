@@ -6,6 +6,7 @@ export class TrackingController {
         try {
             const { path } = req.body;
             const id = req.user_id
+            console.log(path, id)
             const trackingService = new TrackingService()
             await trackingService.execute({
                 path,

@@ -1,4 +1,5 @@
 import prismaClient from '../../prisma';
+import { BadRequestError } from '../../Utils/badRequestExtend';
 
 interface TrackingServiceProps {
     path: string,
@@ -7,21 +8,16 @@ interface TrackingServiceProps {
 export class TrackingService {
     async execute({ path, userId }: TrackingServiceProps) {
 
+        const user = await prismaClient.user.findUnique({ where: { id: userId } })
+        if (!user) throw new BadRequestError('Usuário não encontrado')
 
-        try {
-            const user = await prismaClient.user.findUnique({ where: { id: userId } })
-            if (!user) return { message: "User not Found!!" }
-
-            await prismaClient.tracking.create({
-                data: {
-                    name: user.name,
-                    userId,
-                    path
-                }
-            })
-            return { message: "ok" }
-        } catch (err) {
-            console.log("Erro ao salvar os dados de tracking do usuario.")
-        }
+        await prismaClient.tracking.create({
+            data: {
+                name: user.name,
+                userId,
+                path
+            }
+        })
+        return { message: "ok" }
     }
 }
