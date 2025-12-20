@@ -44,5 +44,4 @@ export class Functions {
 
         return `${year}-${month}-${day}`
     }
-
 }

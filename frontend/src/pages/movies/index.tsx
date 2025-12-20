@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "@/styles/Home.module.scss";
 import Search from "@/components/Searching";
 import SEO from "@/components/SEO";
@@ -18,6 +18,8 @@ import { CardsProps } from "@/@types/Cards";
 import TopPopularMovies from "@/components/TopPopularMovies";
 import { DailyWarningModal } from "@/components/ui/DailyModal";
 import { useDailyModal } from "@/hooks/useDailyModal";
+import axios from "axios";
+import { Functions } from "@/classes/Functions";
 
 
 export default function Home() {
@@ -39,6 +41,8 @@ export default function Home() {
     const card = movies.find((card) => card.tmdbId === tmdbid)
     if (card && (!topCard || topCard.tmdbId !== card.tmdbId)) setTopCard(card)
   }, [movies])
+
+
 
   useEffect(() => {
     //if (allData.length > 0 && serieData.length > 0) return

@@ -33,15 +33,13 @@ export default function SubConfig() {
 
     useEffect(() => {
         getSubEFIDetails()
-    }, [])
+    }, [subscription])
 
-    const hasActiveSubscription = !!subEFI && subEFI.data.status === 'active'
 
-    const isDonator = !!user?.donator
 
     return (
         <section className={styles.sectionContainer}>
-            {hasActiveSubscription && (
+            {subEFI && (
                 <div className={styles.accountContainer}>
                     <div className={styles.headContainer}>
                         <h1>Conta</h1>
@@ -82,7 +80,7 @@ export default function SubConfig() {
                 </div>
             )}
 
-            {!hasActiveSubscription && user && (
+            {!subEFI && user && (
                 <div className={styles.accountContainer}>
                     <div className={styles.headContainer}>
                         <h1>Conta</h1>
@@ -96,11 +94,11 @@ export default function SubConfig() {
 
                         <div className={styles.subInfo}>
                             <h2>
-                                {isDonator ? 'Plano Premium' : 'Plano não definido'}
+                                {user.donator ? 'Plano Premium' : 'Plano não definido'}
                             </h2>
                         </div>
 
-                        {isDonator ? (
+                        {user.donator ? (
                             <p>
                                 Você tem um plano premium vitalício por acreditar em mim.
                                 Obrigado!
