@@ -14,7 +14,6 @@ import PaymentLoader from '@/components/ui/PaymentLoader'
 import { toast } from 'react-toastify'
 import { useFlix } from '@/contexts/FlixContext'
 import { Functions } from '@/classes/Functions'
-import { normalizeCPF } from '@/utils/UtilitiesFunctions'
 import { Validate } from '@/classes/validator'
 import { Normalize } from '@/classes/Normalize'
 

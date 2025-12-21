@@ -3,6 +3,7 @@ import { PlanProps } from '@/@types/payment';
 import { CreateSubscriptionDto } from '@/@types/subscriptions/createSubscription';
 import { debug } from '@/classes/DebugLogger';
 import { Functions } from '@/classes/Functions';
+import { Normalize } from '@/classes/Normalize';
 import { Validate } from '@/classes/validator';
 import { SetupAPIClient } from '@/services/api';
 import { apiSub } from '@/services/apiSubManager';
@@ -55,21 +56,28 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         if (!planData) return res.status(400).json({ message: "Plano não encontrado" })
 
         const customer = data.customer
-        const safeName = normalizeName(customer.name)
-        const safeBirth = Functions.formatBirth(customer.birthday ?? "")
-        if (!/^\d{4}-\d{2}-\d{2}$/.test(safeBirth)) {
+        const address = customer.address
+
+        if (!Validate.cpf(customer.cpf))
+            return res.status(400).json({ message: "CPF inválido!" })
+
+        const normalizeData = {
+            name: Normalize.names(customer.name),
+            birth: Functions.formatBirth(customer.birthday ?? ""),
+            cpf: Normalize.cpf(customer.cpf),
+            phone_number: Normalize.phone(customer.phone_number),
+            cep: Normalize.cep(address.zipcode),
+            state: Normalize.state(address.state)
+        }
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(normalizeData.birth)) {
             return res.status(400).json({ message: "Data de nascimento no formato incorreto." })
         }
-
-        const address = customer.address
         const user = {
-            name: safeName,
+            name: normalizeData.name,
             address,
-            phone_number: customer.phone_number,
-            cpf: customer.cpf,
+            phone_number: normalizeData.phone_number,
+            cpf: normalizeData.cpf,
         }
-        if (!Validate.cpf(user.cpf))
-            return res.status(400).json({ message: "CPF inválido!" })
 
         await client.api.put('/user', user)
 
@@ -80,19 +88,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         //Construção do body
         const banking_billet = {
             customer: {
-                name: safeName,
-                cpf: customer.cpf,
+                name: normalizeData.name,
+                cpf: normalizeData.cpf,
                 email: customer.email,
-                phone_number: customer.phone_number,
-                birth: safeBirth,
+                phone_number: normalizeData.phone_number,
+                birth: normalizeData.birth,
                 address: {
                     street: address.street,
                     number: address.number,
                     neighborhood: address.neighborhood,
-                    zipcode: address.zipcode,
+                    zipcode: normalizeData.cep,
                     city: address.city,
                     complement: address.complement ?? "",
-                    state: normalizeState(address.state ?? ""),
+                    state: normalizeData.state,
                 }
             },
             expire_at: expireAt,
@@ -125,7 +133,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         })
 
 
-        //return res.status(200).json({ message: "ok" })
+        //return res.status(200).json({ body, user })
     } catch (err) {
         debug.log("Erro ao criar assinatura", err)
         return res.status(500).json({ message: "Erro ao criar assinatura" })

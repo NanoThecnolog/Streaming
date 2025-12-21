@@ -20,6 +20,7 @@ import { Router } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import PaymentLoader from '@/components/ui/PaymentLoader'
 import { Validate } from '@/classes/validator'
+import { Normalize } from '@/classes/Normalize'
 
 interface PageProps {
     plans: PlanProp[] | null,
@@ -121,30 +122,46 @@ export default function PaymentUserPage({ plans }: PageProps) {
         if (!planIdSelected || !checked) return
 
         if (!user) return
-        const safeName = normalizeName(dataUser.nome)
-        if (!safeName.includes(' ')) {
-            toast.error('Nome deve conter nome e sobrenome')
-            return
-        }
-        if (!Validate.cpf(dataUser.cpf)) {
-            toast.error('CPF inválido')
-            return
+        const validations = [
+            {
+                valid: Validate.fullName(dataUser.nome),
+                message: 'Nome inválido! O nome precisa ter nome e sobrenome'
+            },
+            {
+                valid: Validate.cpf(dataUser.cpf),
+                message: 'CPF inválido. Tente novamente ou entre em contato conosco!'
+            },
+            {
+                valid: Validate.phone(dataUser.telefone),
+                message: 'Telefone precisa ser no formato DDD+Número (21991234567)'
+            },
+            {
+                valid: Validate.cep(dataUser.address.zipcode),
+                message: 'Cep inválido. Verifique e tente novamente!'
+            },
+
+        ]
+
+        for (const { valid, message } of validations) {
+            if (!valid) {
+                toast.error(message)
+                return
+            }
         }
 
-        setLoading(true)
         const customer = {
-            name: safeName,
+            name: Normalize.names(dataUser.nome),
             email: user.email,
-            cpf: normalizeCPF(dataUser.cpf),
-            phone_number: dataUser.telefone,
+            cpf: Normalize.cpf(dataUser.cpf),
+            phone_number: Normalize.phone(dataUser.telefone),
             birthday: dataUser.birthday,
             address: {
                 street: dataUser.address.street,
                 number: dataUser.address.number,
                 neighborhood: dataUser.address.neighborhood,
-                zipcode: dataUser.address.zipcode,
+                zipcode: Normalize.cep(dataUser.address.zipcode),
                 city: dataUser.address.city,
-                state: dataUser.address.state,
+                state: Normalize.state(dataUser.address.state),
                 complement: dataUser.address.complement
             }
         }
@@ -153,7 +170,9 @@ export default function PaymentUserPage({ plans }: PageProps) {
             customer,
         }
 
+        setLoading(true)
         try {
+
             // TODO: chamada para criação da assinatura (boleto)
             const response = await axios.post('/api/user/payment', payload)
 
@@ -220,63 +239,131 @@ export default function PaymentUserPage({ plans }: PageProps) {
                     <section className={styles.userData}>
                         <h3>Dados obrigatórios</h3>
 
-                        <input
-                            value={dataUser.nome}
-                            onChange={(e) => setDataUser((prev) => ({ ...prev, nome: e.target.value }))}
-                            placeholder='Nome Completo'
-                            required
-                        />
+                        <div className={styles.field}>
+                            <label htmlFor="nome">Nome completo</label>
+                            <input
+                                id="nome"
+                                value={dataUser.nome}
+                                onChange={(e) => setDataUser((prev) => ({ ...prev, nome: e.target.value }))}
+                                required
+                                placeholder='Nome e Sobrenome'
+                            />
+                        </div>
 
-                        <input
-                            value={dataUser.cpf}
-                            onChange={(e) => setDataUser((prev) => ({ ...prev, cpf: e.target.value }))}
-                            placeholder="CPF sem pontos e traços"
-                            required
-                        />
-                        <input
-                            value={dataUser.telefone}
-                            onChange={(e) => setDataUser((prev) => ({ ...prev, telefone: e.target.value }))}
-                            placeholder="Celular"
-                            required
-                        />
+                        <div className={styles.field}>
+                            <label htmlFor="cpf">CPF</label>
+                            <input
+                                id="cpf"
+                                value={dataUser.cpf}
+                                onChange={(e) => setDataUser((prev) => ({ ...prev, cpf: e.target.value }))}
+                                required
+                                placeholder='Somente números - 11122233398'
+                            />
+                        </div>
 
-                        <input
-                            value={dataUser.address.zipcode}
-                            onChange={(e) => setDataUser((prev) => ({ ...prev, address: { ...prev.address, zipcode: e.target.value.replace(/\D/g, '') } }))}
-                            placeholder="CEP sem pontos e traços"
-                            required
-                        />
-                        <input
-                            value={dataUser.address.street}
-                            onChange={(e) => setDataUser((prev) => ({ ...prev, address: { ...prev.address, street: e.target.value } }))}
-                            placeholder="Logradouro"
-                            required
-                        />
-                        <input
-                            value={dataUser.address.number}
-                            onChange={(e) => setDataUser((prev) => ({ ...prev, address: { ...prev.address, number: e.target.value } }))}
-                            placeholder="Número"
-                            required
-                        />
-                        <input
-                            value={dataUser.address.neighborhood}
-                            onChange={(e) => setDataUser((prev) => ({ ...prev, address: { ...prev.address, neighborhood: e.target.value } }))}
-                            placeholder="Bairro"
-                            required
-                        />
-                        <input
-                            value={dataUser.address.city}
-                            onChange={(e) => setDataUser((prev) => ({ ...prev, address: { ...prev.address, city: e.target.value } }))}
-                            placeholder="Cidade"
-                            required
-                        />
-                        <input
-                            value={dataUser.address.state}
-                            onChange={(e) => setDataUser((prev) => ({ ...prev, address: { ...prev.address, state: e.target.value } }))}
-                            placeholder="Estado"
-                            required
-                        />
+                        <div className={styles.field}>
+                            <label htmlFor="telefone">Celular</label>
+                            <input
+                                id="telefone"
+                                value={dataUser.telefone}
+                                onChange={(e) => setDataUser((prev) => ({ ...prev, telefone: e.target.value }))}
+                                required
+                                placeholder='DDD+Número - 21991234567'
+                            />
+                        </div>
+
+                        <div className={styles.field}>
+                            <label htmlFor="zipcode">CEP</label>
+                            <input
+                                id="zipcode"
+                                value={dataUser.address.zipcode}
+                                onChange={(e) =>
+                                    setDataUser((prev) => ({
+                                        ...prev,
+                                        address: { ...prev.address, zipcode: e.target.value.replace(/\D/g, '') },
+                                    }))
+                                }
+                                required
+                                placeholder='CEP sem traços'
+                            />
+                        </div>
+
+                        <div className={styles.field}>
+                            <label htmlFor="street">Logradouro</label>
+                            <input
+                                id="street"
+                                value={dataUser.address.street}
+                                onChange={(e) =>
+                                    setDataUser((prev) => ({
+                                        ...prev,
+                                        address: { ...prev.address, street: e.target.value },
+                                    }))
+                                }
+                                required
+                            />
+                        </div>
+
+                        <div className={styles.field}>
+                            <label htmlFor="number">Número</label>
+                            <input
+                                id="number"
+                                value={dataUser.address.number}
+                                onChange={(e) =>
+                                    setDataUser((prev) => ({
+                                        ...prev,
+                                        address: { ...prev.address, number: e.target.value },
+                                    }))
+                                }
+                                required
+                            />
+                        </div>
+
+                        <div className={styles.field}>
+                            <label htmlFor="neighborhood">Bairro</label>
+                            <input
+                                id="neighborhood"
+                                value={dataUser.address.neighborhood}
+                                onChange={(e) =>
+                                    setDataUser((prev) => ({
+                                        ...prev,
+                                        address: { ...prev.address, neighborhood: e.target.value },
+                                    }))
+                                }
+                                required
+                            />
+                        </div>
+
+                        <div className={styles.field}>
+                            <label htmlFor="city">Cidade</label>
+                            <input
+                                id="city"
+                                value={dataUser.address.city}
+                                onChange={(e) =>
+                                    setDataUser((prev) => ({
+                                        ...prev,
+                                        address: { ...prev.address, city: e.target.value },
+                                    }))
+                                }
+                                required
+                            />
+                        </div>
+
+                        <div className={styles.field}>
+                            <label htmlFor="state">Estado</label>
+                            <input
+                                id="state"
+                                value={dataUser.address.state}
+                                onChange={(e) =>
+                                    setDataUser((prev) => ({
+                                        ...prev,
+                                        address: { ...prev.address, state: e.target.value },
+                                    }))
+                                }
+                                required
+                            />
+                        </div>
                     </section>
+
                     <section className={styles.paymentMethod}>
                         <h3>Forma de pagamento</h3>
 
