@@ -48,6 +48,7 @@ export default function User({ data, setDataUser, senha, confirmarSenha }: UserS
                                 value={data.cpf || ""}
                                 onChange={(e) => setDataUser((prev) => ({ ...prev, cpf: e.target.value }))}
                                 required
+                                placeholder='CPF - somente numeros, sem pontos ou traços'
                             />
                         </label>
                         <label htmlFor="phone">
@@ -124,6 +125,7 @@ export default function User({ data, setDataUser, senha, confirmarSenha }: UserS
                             value={data.address.zipcode || ""}
                             onChange={(e) => setDataUser((prev) => ({ ...prev, address: { ...prev.address, zipcode: e.target.value.replace(/\D/g, '') } }))}
                             required
+                            placeholder='CEP sem traços'
                         />
                     </label>
                     <label htmlFor="street">

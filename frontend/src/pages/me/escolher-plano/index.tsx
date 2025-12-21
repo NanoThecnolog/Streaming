@@ -13,7 +13,7 @@ import User from '@/components/PaymentSteps/User'
 import PaymentBillet from '@/components/PaymentSteps/billet'
 import { Functions } from '@/classes/Functions'
 import Link from 'next/link'
-import { formatPrice, normalizeName } from '@/utils/UtilitiesFunctions'
+import { formatPrice, normalizeCPF, normalizeName } from '@/utils/UtilitiesFunctions'
 import { EditUserRequest } from '@/pages/api/user/payment'
 import { toast } from 'react-toastify'
 import { Router } from 'lucide-react'
@@ -135,7 +135,7 @@ export default function PaymentUserPage({ plans }: PageProps) {
         const customer = {
             name: safeName,
             email: user.email,
-            cpf: dataUser.cpf,
+            cpf: normalizeCPF(dataUser.cpf),
             phone_number: dataUser.telefone,
             birthday: dataUser.birthday,
             address: {
@@ -230,7 +230,7 @@ export default function PaymentUserPage({ plans }: PageProps) {
                         <input
                             value={dataUser.cpf}
                             onChange={(e) => setDataUser((prev) => ({ ...prev, cpf: e.target.value }))}
-                            placeholder="CPF"
+                            placeholder="CPF sem pontos e traços"
                             required
                         />
                         <input
@@ -243,7 +243,7 @@ export default function PaymentUserPage({ plans }: PageProps) {
                         <input
                             value={dataUser.address.zipcode}
                             onChange={(e) => setDataUser((prev) => ({ ...prev, address: { ...prev.address, zipcode: e.target.value.replace(/\D/g, '') } }))}
-                            placeholder="CEP"
+                            placeholder="CEP sem pontos e traços"
                             required
                         />
                         <input

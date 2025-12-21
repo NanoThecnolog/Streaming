@@ -14,6 +14,8 @@ import PaymentLoader from '@/components/ui/PaymentLoader'
 import { toast } from 'react-toastify'
 import { useFlix } from '@/contexts/FlixContext'
 import { Functions } from '@/classes/Functions'
+import { normalizeCPF } from '@/utils/UtilitiesFunctions'
+import { Validate } from '@/classes/validator'
 
 const loadingEfiPay = async () => {
     if (typeof window !== 'undefined') {
@@ -110,10 +112,14 @@ export default function Payment() {
         }*/
         //logica para boleto
         // montagem do customer
+        if (!Validate.cpf(dataUser.cpf)) {
+            toast.error('CPF inválido. Tente novamente ou entre em contato conosco!')
+            return
+        }
         const customer = {
             name: dataUser.nome,
             email: dataUser.email,
-            cpf: dataUser.cpf,
+            cpf: normalizeCPF(dataUser.cpf),
             phone_number: dataUser.telefone,
             birthday: dataUser.birthday,
             password: dataUser.password,
@@ -150,7 +156,7 @@ export default function Payment() {
 
         } catch (err) {
             toast.error("Erro ao criar assinatura!")
-            console.log("Erro ao chamar rota de pagamento", err)
+            debug.log("Erro ao chamar rota de pagamento", err)
         } finally {
             setIsLoading(false)
             //router.push('/success')

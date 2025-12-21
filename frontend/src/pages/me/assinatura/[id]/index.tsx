@@ -176,7 +176,7 @@ export default function SubscriptionPage({ subscription }: SubscriptionPageProps
                                                 <p className={styles.historyValue}>{status}</p>
                                             </div>
                                             <div>
-                                                <p className={styles.historyLabel}>Data</p>
+                                                <p className={styles.historyLabel}>Data de Emissão</p>
                                                 <p className={styles.historyValue}>{formatedDate(item.created_at)}</p>
                                             </div>
                                         </li>

@@ -174,3 +174,8 @@ export function normalizeName(name: string): string {
         .replace(/\s+/g, ' ')           // remove espaço duplicado
         .trim()
 }
+
+export function normalizeCPF(cpf: string): string {
+    if (!cpf) return ''
+    return cpf.replace(/\D/g, '').slice(11)
+}
