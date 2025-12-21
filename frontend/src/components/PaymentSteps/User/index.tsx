@@ -28,6 +28,7 @@ export default function User({ data, setDataUser, senha, confirmarSenha }: UserS
                                 value={data.nome || ""}
                                 onChange={(e) => setDataUser((prev) => ({ ...prev, nome: e.target.value }))}
                                 required
+                                placeholder='Nome e Sobrenome'
                             />
                         </label>
                         <label htmlFor="email">
@@ -38,6 +39,7 @@ export default function User({ data, setDataUser, senha, confirmarSenha }: UserS
                                 value={data.email || ""}
                                 onChange={(e) => setDataUser((prev) => ({ ...prev, email: e.target.value }))}
                                 required
+                                placeholder='email ativo'
                             />
                         </label>
                         <label htmlFor="cpf">
@@ -59,6 +61,7 @@ export default function User({ data, setDataUser, senha, confirmarSenha }: UserS
                                 value={data.telefone || ""}
                                 onChange={(e) => setDataUser((prev) => ({ ...prev, telefone: e.target.value }))}
                                 required
+                                placeholder='DDD+Número'
                             />
                         </label>
                     </div>
