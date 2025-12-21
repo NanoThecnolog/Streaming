@@ -5,8 +5,6 @@ import { ChevronLeft } from 'lucide-react';
 import HelpFlag from "@/components/Helpflag";
 import HelpModal from "@/components/modals/HelpModal/index ";
 import SEO from "@/components/SEO";
-//import { cards } from '@/data/cards';
-import { parseCookies } from 'nookies';
 import { useFlix } from '@/contexts/FlixContext';
 import { apiGoogle } from '@/services/apiGoogle';
 import NoFile from '@/components/ui/NoFile';
@@ -170,6 +168,14 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
     try {
         const userData = await axios.get<UserContext>(`${url}/api/user`)
+        if (!userData.data.donator) {
+            return {
+                redirect: {
+                    destination: '/me/escolher-plano',
+                    permanent: false
+                }
+            }
+        }
         return {
             props: {
                 userContext: userData.data

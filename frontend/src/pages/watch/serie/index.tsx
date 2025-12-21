@@ -220,6 +220,14 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
     try {
         const userData = await axios.get<UserContext>(`${url}/api/user`)
+        if (!userData.data.donator) {
+            return {
+                redirect: {
+                    destination: '/me/escolher-plano',
+                    permanent: false
+                }
+            }
+        }
         return {
             props: {
                 userContext: userData.data
