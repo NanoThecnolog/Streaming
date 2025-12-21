@@ -50,7 +50,7 @@ export default function Signup() {
                 return;
             }
         }
-        if (!validate.email(user.email)) {
+        if (!Validate.email(user.email)) {
             toast.warning("Email inválido!")
             return;
         }

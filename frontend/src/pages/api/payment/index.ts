@@ -1,15 +1,11 @@
-import { PlansEfiResponse } from '@/@types/efi/plansEfi';
 import { PlanProps } from '@/@types/payment';
-import { PlansProps } from '@/@types/plans';
 import { CreateSubscriptionDto } from '@/@types/subscriptions/createSubscription';
 import { debug } from '@/classes/DebugLogger';
 import { Functions } from '@/classes/Functions';
+import { Normalize } from '@/classes/Normalize';
 import { userMethod } from '@/classes/userMethods';
 import { apiSub } from '@/services/apiSubManager';
-import { normalizeState } from '@/utils/UtilitiesFunctions';
-import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
-import EfiPay from 'payment-token-efi';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== 'POST') {
@@ -41,19 +37,27 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const customer = data.customer
         const address = customer.address
 
+        const normalizeData = {
+            name: Normalize.names(customer.name),
+            cpf: Normalize.cpf(customer.cpf),
+            phone_number: Normalize.phone(customer.phone_number),
+            zipcode: Normalize.cep(address.zipcode),
+            state: Normalize.state(address.state)
+        }
+
         //Criando usuário no backend Express
         const userToCreate = {
-            name: customer.name,
+            name: normalizeData.name,
             email: customer.email,
             password: customer.password,
-            cpf: customer.cpf,
-            phone_number: customer.phone_number,
+            cpf: normalizeData.cpf,
+            phone_number: normalizeData.phone_number,
             birthday: customer.birthday,
             address: {
                 street: address.street,
                 number: address.number,
-                zipcode: address.zipcode,
-                state: normalizeState(address.state),
+                zipcode: normalizeData.zipcode,
+                state: normalizeData.state,
                 city: address.city,
                 neighborhood: address.neighborhood,
                 complement: address.complement ?? ""
@@ -62,30 +66,28 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         //console.log(userToCreate)
 
+
         const createUser = await userMethod.signUp(userToCreate)
         const newUserId = createUser?.user?.id
-
         //console.log(newUserId)
-
         if (!newUserId) return res.status(500).json({ message: "Falha ao criar usuário" })
-
         //const newUserId = "123abc"
         //Construção do body
         const banking_billet = {
             customer: {
-                name: customer.name,
-                cpf: customer.cpf,
+                name: normalizeData.name,
+                cpf: normalizeData.cpf,
                 email: customer.email,
-                phone_number: customer.phone_number,
+                phone_number: normalizeData.phone_number,
                 birth: customer.birthday,
                 address: {
                     street: address.street,
                     number: address.number,
                     neighborhood: address.neighborhood,
-                    zipcode: address.zipcode,
+                    zipcode: normalizeData.zipcode,
                     city: address.city,
                     complement: address.complement ?? "",
-                    state: normalizeState(address.state),
+                    state: normalizeData.state,
                 }
             },
             expire_at: Functions.getFiveDaysLaterString() ?? "",
@@ -117,7 +119,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         })
 
 
-        //return res.status(200).json({ message: "ok" })
+        //return res.status(200).json({ body, userToCreate })
     } catch (err) {
         debug.log("Erro ao criar assinatura", err)
         return res.status(500).json({ error: err, message: "Erro ao criar assinatura" })

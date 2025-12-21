@@ -16,6 +16,7 @@ import { useFlix } from '@/contexts/FlixContext'
 import { Functions } from '@/classes/Functions'
 import { normalizeCPF } from '@/utils/UtilitiesFunctions'
 import { Validate } from '@/classes/validator'
+import { Normalize } from '@/classes/Normalize'
 
 const loadingEfiPay = async () => {
     if (typeof window !== 'undefined') {
@@ -112,27 +113,60 @@ export default function Payment() {
         }*/
         //logica para boleto
         // montagem do customer
-        if (!Validate.cpf(dataUser.cpf)) {
-            toast.error('CPF inválido. Tente novamente ou entre em contato conosco!')
-            return
+        const validations = [
+            {
+                valid: Validate.fullName(dataUser.nome),
+                message: 'Nome inválido! O nome precisa ter nome e sobrenome'
+            },
+            {
+                valid: Validate.email(dataUser.email),
+                message: 'Email inválido. Tente novamente ou entre em contato conosco!'
+            },
+            {
+                valid: Validate.cpf(dataUser.cpf),
+                message: 'CPF inválido. Tente novamente ou entre em contato conosco!'
+            },
+            {
+                valid: Validate.phone(dataUser.telefone),
+                message: 'Telefone precisa ser no formato DDD+Número (21991234567)'
+            },
+            {
+                valid: Validate.password(dataUser.password),
+                message: 'A senha precisa ter mais de 6 caracteres, maiúsculas, minúsculas, numeros e caracteres especiais'
+            },
+            {
+                valid: Validate.cep(dataUser.address.zipcode),
+                message: 'Cep inválido. Verifique e tente novamente!'
+            },
+
+        ]
+
+        for (const { valid, message } of validations) {
+            if (!valid) {
+                toast.error(message)
+                return
+            }
         }
+
+
         const customer = {
-            name: dataUser.nome,
+            name: Normalize.names(dataUser.nome),
             email: dataUser.email,
-            cpf: normalizeCPF(dataUser.cpf),
-            phone_number: dataUser.telefone,
+            cpf: Normalize.cpf(dataUser.cpf),
+            phone_number: Normalize.phone(dataUser.telefone),
             birthday: dataUser.birthday,
             password: dataUser.password,
             address: {
                 street: dataUser.address.street,
                 number: dataUser.address.number,
                 neighborhood: dataUser.address.neighborhood,
-                zipcode: dataUser.address.zipcode,
+                zipcode: Normalize.cep(dataUser.address.zipcode),
                 city: dataUser.address.city,
-                state: dataUser.address.state,
+                state: Normalize.state(dataUser.address.state),
                 complement: dataUser.address.complement
             }
         }
+
         const payload = {
             planId: plan.planId,
             customer
@@ -140,6 +174,7 @@ export default function Payment() {
         debug.log(payload)
         setIsLoading(true)
         try {
+            debug.log("Dados do customer", customer)
             const response = await axios.post('/api/payment', payload)
             debug.log("Assinatura criada", response.data)
             if (response.data?.subscription) {

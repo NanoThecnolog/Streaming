@@ -8,7 +8,7 @@ Allow: /series
 
 # *
 User-agent: *
-Allow: /planos
+Allow: /movies
 
 # *
 User-agent: *
@@ -28,6 +28,14 @@ Allow: /login
 
 # *
 User-agent: *
+Allow: /sobre
+
+# *
+User-agent: *
+Disallow: /planos
+
+# *
+User-agent: *
 Disallow: /watch
 
 # *
@@ -36,7 +44,7 @@ Disallow: /recover
 
 # *
 User-agent: *
-Disallow: /dashboard
+Disallow: /dashboard/*
 
 # *
 User-agent: *

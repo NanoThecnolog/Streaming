@@ -39,7 +39,7 @@ export default function User({ data, setDataUser, senha, confirmarSenha }: UserS
                                 value={data.email || ""}
                                 onChange={(e) => setDataUser((prev) => ({ ...prev, email: e.target.value }))}
                                 required
-                                placeholder='email ativo'
+                                placeholder='email válido'
                             />
                         </label>
                         <label htmlFor="cpf">
@@ -50,7 +50,7 @@ export default function User({ data, setDataUser, senha, confirmarSenha }: UserS
                                 value={data.cpf || ""}
                                 onChange={(e) => setDataUser((prev) => ({ ...prev, cpf: e.target.value }))}
                                 required
-                                placeholder='CPF - somente numeros, sem pontos ou traços'
+                                placeholder='Somente números - 11122233398'
                             />
                         </label>
                         <label htmlFor="phone">
@@ -61,7 +61,7 @@ export default function User({ data, setDataUser, senha, confirmarSenha }: UserS
                                 value={data.telefone || ""}
                                 onChange={(e) => setDataUser((prev) => ({ ...prev, telefone: e.target.value }))}
                                 required
-                                placeholder='DDD+Número'
+                                placeholder='DDD+Número - 21991234567'
                             />
                         </label>
                     </div>
@@ -91,6 +91,7 @@ export default function User({ data, setDataUser, senha, confirmarSenha }: UserS
                                 title='A senha deve conter pelo menos 6 caracteres, uma letra, um número e um caractere especial.'
                                 value={data.password}
                                 onChange={(e) => setDataUser((prev) => ({ ...prev, password: e.target.value }))}
+                                placeholder='Mínimo de 6 caracteres'
                             />
                         </label>
                         <label htmlFor='confirmarSenha'>
