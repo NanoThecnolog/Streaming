@@ -98,8 +98,8 @@ export function FlixProvider({ children }: ContextProviderProps) {
             setUser(null)
             setWatchLater([])
             setSubscription(null)
-            await destroyCookie(null, 'flix-watch')
-            await destroyCookie(null, 'flix-user')
+            await destroyCookie(null, 'flix-watch', cookieOptions)
+            await destroyCookie(null, 'flix-user', cookieOptions)
             const logout = await axios.get('/api/user/logout')
             debug.log(logout.data.message)
 
