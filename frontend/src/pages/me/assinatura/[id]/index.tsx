@@ -16,6 +16,7 @@ import { formatedDate } from '@/utils/UtilitiesFunctions'
 import { ChargeDetailResponse } from '@/@types/efi/chargeEfi'
 import ChargeModal from '@/components/ui/ChargeModal'
 import { IoIosArrowBack } from 'react-icons/io'
+import { Normalize } from '@/classes/Normalize'
 
 interface SubscriptionPageProps {
     subscription: SubDetailsResponseProps
@@ -130,7 +131,7 @@ export default function SubscriptionPage({ subscription }: SubscriptionPageProps
 
                                 <div className={styles.infoItem}>
                                     <span>Status</span>
-                                    <strong>{data.status === 'active' ? 'Ativa' : data.status === 'canceled' ? 'Cancelada' : 'Inativa'}</strong>
+                                    <strong>{Normalize.subscriptionStatus(data.status)}</strong>
                                 </div>
 
                                 <div className={styles.infoItem}>
@@ -160,7 +161,7 @@ export default function SubscriptionPage({ subscription }: SubscriptionPageProps
 
                             <ul className={styles.historyList}>
                                 {data.history.map((item, index) => {
-                                    const status = item.status === "paid" ? "Boleto Pago" : item.status === 'waiting' ? 'Aguardando Pagamento' : item.status
+                                    const status = Normalize.billetStatus(item.status)
                                     return (
                                         <li
                                             key={index}

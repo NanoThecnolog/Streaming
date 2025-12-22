@@ -2,6 +2,7 @@ import { Loader2 } from 'lucide-react'
 import styles from './styles.module.scss'
 import { ChargeDetailResponse } from '@/@types/efi/chargeEfi'
 import { formatedDate } from '@/utils/UtilitiesFunctions'
+import { Normalize } from '@/classes/Normalize'
 
 interface ChargeModalProps {
     loadingCharge: boolean,
@@ -12,7 +13,7 @@ interface ChargeModalProps {
 
 export default function ChargeModal({ loadingCharge, chargeDetails, closeChargeModal }: ChargeModalProps) {
     const paymentMessage = chargeDetails?.data.history.find(item => /pagamento de.*efetuado/i.test(item.message))?.message
-    const status = chargeDetails?.data.status === "paid" ? "Boleto Pago" : chargeDetails?.data.status === "waiting" ? "Aguardando Pagamento" : chargeDetails?.data.status
+    const status = Normalize.billetStatus(chargeDetails?.data.status)
     return (
         <div className={styles.modalOverlay}>
             <div className={styles.modalLarge}>

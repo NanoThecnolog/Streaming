@@ -1,4 +1,4 @@
-import { stateMap } from "@/utils/Variaveis"
+import { billetMap, stateMap, subscriptionMap } from "@/utils/Variaveis"
 
 export class Normalize {
     static onlyNumbers(value?: string, maxLength?: number): string {
@@ -32,5 +32,14 @@ export class Normalize {
 
     static names(name?: string): string {
         return name?.trim().replace(/\s+/g, ' ') ?? ''
+    }
+
+    static subscriptionStatus(s: string): string {
+        if (!s) return ''
+        return subscriptionMap[s]
+    }
+    static billetStatus(s?: string): string {
+        if (!s) return ''
+        return billetMap[s]
     }
 }

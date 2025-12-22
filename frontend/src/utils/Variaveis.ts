@@ -295,3 +295,24 @@ export const stateMap: Record<string, string> = {
     "sergipe": "SE",
     "tocantins": "TO",
 };
+
+export const billetMap: Record<string, string> = {
+    paid: "Pago",
+    unpaid: "Inadimplente",
+    waiting: "Aguardando Pagamento",
+    new: "Boleto Gerado",
+    identified: "Processando Pagamento",
+    approved: "Pagamento Aprovado",
+    settled: "Pagamento Processado",
+    expired: "Boleto Vencido",
+    canceled: "Boleto Cancelado",
+    refunded: "Boleto extornado",
+    contested: "Contestado",
+}
+export const subscriptionMap: Record<string, string> = {
+    active: "Ativa",
+    inactive: "Inativa",
+    cancelled: "Cancelada",
+    new: "Criada",
+    expired: "Finalizada"
+}
