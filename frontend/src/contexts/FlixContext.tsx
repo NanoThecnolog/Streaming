@@ -8,7 +8,7 @@ import { mongoService } from "@/classes/MongoContent";
 import { apiEmail } from "@/services/apiMessenger";
 import { cookieOptions } from "@/utils/Variaveis";
 import axios from "axios";
-import Router from "next/router";
+import { useRouter } from "next/navigation";
 import { destroyCookie, setCookie } from "nookies";
 import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -17,6 +17,7 @@ import { toast } from "react-toastify";
 export const FlixContext = createContext({} as ContextProps)
 
 export function FlixProvider({ children }: ContextProviderProps) {
+    const router = useRouter()
     const [user, setUser] = useState<UserContext | null>();
     //const [favorites, setFavorites] = useState<FavoritesContext[]>([])
     const [watchLater, setWatchLater] = useState<WatchLaterContext[]>([])
@@ -84,7 +85,7 @@ export function FlixProvider({ children }: ContextProviderProps) {
             destroyCookie(null, 'flix-watch')
             setCookie(null, 'flix-watch', JSON.stringify(watchLaterIds), cookieOptions)
             toast.success(`Olá, ${data.name}. Bem vindo!`)
-            Router.push('/')
+            router.push('/')
         } catch (err) {
             console.log("Erro ao autenticar usuário.", err)
             toast.error("Erro ao tentar realizar login. Verifique seu email e sua senha, e tente novamente")
@@ -101,7 +102,7 @@ export function FlixProvider({ children }: ContextProviderProps) {
             await destroyCookie(null, 'flix-user')
             const logout = await axios.get('/api/user/logout')
             debug.log(logout.data.message)
-            Router.push('/login')
+            router.push('/login')
         } catch (err) {
             toast.error("Erro ao deslogar.")
             console.log('Erro ao deslogar', err)

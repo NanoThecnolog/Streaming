@@ -2,6 +2,8 @@
     //background-color: green;
     padding: 5px;
 
+
+
     .accountContainer {
         //background-color: #771085;
         display: flex;
@@ -9,6 +11,30 @@
         justify-content: center;
         align-items: flex-start;
         gap: 20px;
+
+        .loadingContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            gap: 1rem;
+        }
+
+        .spinner {
+            width: 32px;
+            height: 32px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
 
         .headContainer {
             h1 {

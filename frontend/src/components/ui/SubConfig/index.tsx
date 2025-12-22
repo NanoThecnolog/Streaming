@@ -15,31 +15,53 @@ export default function SubConfig() {
     const { user, subscription } = useFlix()
 
     const [subEFI, setSubEFI] = useState<SubDetailsResponseProps | null>(null)
+    const [isLoading, setIsLoading] = useState(true)
 
     const { 'flix-user': userCookies } = parseCookies()
     const userData = userCookies
     debug.log(userData)
 
     const getSubEFIDetails = async () => {
-        if (!subscription) return
+        if (!subscription) {
+            setIsLoading(false)
+            return
+        }
+
+
         try {
+            setIsLoading(true)
+
             const sub = await apiSub.get<SubDetailsResponseProps>(`/subscription/${subscription.subId}`)
+
             if (sub.data.data.status !== 'active') setSubEFI(null)
             setSubEFI(sub.data)
         } catch (err) {
             debug.error("Erro ao buscar dados da assinatura na EFI", err)
+            setSubEFI(null)
+        } finally {
+            setIsLoading(false)
         }
     }
 
     useEffect(() => {
         getSubEFIDetails()
+
     }, [subscription])
 
 
 
     return (
         <section className={styles.sectionContainer}>
-            {subEFI && (
+            {
+                isLoading &&
+                <div className={styles.accountContainer}>
+                    <div className={styles.loadingContainer}>
+                        <div className={styles.spinner} />
+                        <p>Carregando informações da assinatura...</p>
+                    </div>
+                </div>
+            }
+            {!isLoading && subEFI && (
                 <div className={styles.accountContainer}>
                     <div className={styles.headContainer}>
                         <h1>Conta</h1>
@@ -90,7 +112,7 @@ export default function SubConfig() {
                 </div>
             )}
 
-            {!subEFI && user && (
+            {!isLoading && !subEFI && user && (
                 <div className={styles.accountContainer}>
                     <div className={styles.headContainer}>
                         <h1>Conta</h1>
