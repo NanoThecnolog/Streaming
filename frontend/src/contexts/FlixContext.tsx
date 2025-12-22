@@ -102,10 +102,12 @@ export function FlixProvider({ children }: ContextProviderProps) {
             await destroyCookie(null, 'flix-user')
             const logout = await axios.get('/api/user/logout')
             debug.log(logout.data.message)
-            router.push('/login')
+
         } catch (err) {
             toast.error("Erro ao deslogar.")
             console.log('Erro ao deslogar', err)
+        } finally {
+            router.push('/login')
         }
     }
 
