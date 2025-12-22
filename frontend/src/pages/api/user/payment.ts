@@ -7,7 +7,6 @@ import { Normalize } from '@/classes/Normalize';
 import { Validate } from '@/classes/validator';
 import { SetupAPIClient } from '@/services/api';
 import { apiSub } from '@/services/apiSubManager';
-import { normalizeName, normalizeState } from '@/utils/UtilitiesFunctions';
 import { JwtPayload, verify } from 'jsonwebtoken';
 import { NextApiRequest, NextApiResponse } from 'next';
 

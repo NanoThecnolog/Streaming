@@ -53,16 +53,26 @@ export default function SubConfig() {
 
                         <div className={styles.subInfo}>
                             <h2>{subEFI.data.plan.name}</h2>
-                            <h4>
-                                Próximo pagamento:{' '}
-                                {formatedDate(subEFI.data.next_expire_at ?? '')}
-                            </h4>
-                            <p>
-                                Método de pagamento:{' '}
-                                {subEFI.data.payment_method === 'banking_billet'
-                                    ? 'Boleto Bancário'
-                                    : 'Cartão de Crédito'}
-                            </p>
+                            {
+                                subEFI.data.status === 'active' ?
+                                    <>
+                                        <h4>
+                                            Próximo pagamento:{' '}
+                                            {formatedDate(subEFI.data.next_expire_at ?? '')}
+                                        </h4>
+                                        <p>
+                                            Método de pagamento:{' '}
+                                            {subEFI.data.payment_method === 'banking_billet'
+                                                ? 'Boleto Bancário'
+                                                : 'Cartão de Crédito'}
+                                        </p>
+                                    </>
+                                    : <>
+                                        <h4>
+                                            Assinatura Cancelada.
+                                        </h4>
+                                    </>
+                            }
                         </div>
 
                         <div
