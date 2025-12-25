@@ -1,5 +1,6 @@
 import { SetupAPIClient } from '@/services/api';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { parseCookies } from 'nookies';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== 'POST') {
@@ -8,7 +9,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     const { path } = req.body;
-    console.log("path recebido: ", path)
+    //console.log("path recebido: ", path)
+    if (!path || typeof path !== 'string') {
+        console.log("Erro com path recebido na rota de tracking")
+        return res.status(400).json({ error: 'Path Inválido' })
+    }
+
+    const cookies = parseCookies({ req })
+    const token = cookies['flix-token']
+    if (!token) {
+        return res.status(204).end()
+    }
+
     const client = new SetupAPIClient({ req })
     try {
         await client.api.post('/track', { path })
