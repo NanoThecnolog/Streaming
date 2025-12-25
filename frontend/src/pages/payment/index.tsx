@@ -313,12 +313,12 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
     if (token) {
         console.log('token encontrado')
-        /*return {
+        return {
             redirect: {
                 destination: '/me',
                 permanent: false
             }
-        }*/
+        }
     }
 
     return {
