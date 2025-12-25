@@ -152,7 +152,7 @@ export default function Search() {
                                         :
                                         <div className={styles.noResultsContainer}>
                                             <h2>Não achou o que procurava? Deixa com a gente!</h2>
-                                            <p><Link href={`/request`}>Clique aqui</Link> para pedir o que você quer ver!</p>
+                                            <p>Entre em contato através do email <strong className="red">contato@flixnext.com.br</strong> para solicitar!</p>
                                         </div>
                                 }
                             </div>

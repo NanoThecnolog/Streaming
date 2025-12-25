@@ -147,7 +147,11 @@ export default function CreateTV() {
                 ...prev,
                 title: dataTMDB.name,
                 description: dataTMDB.overview,
-                genero: dataTMDB.genres.map(gen => gen.name)
+                genero: dataTMDB.genres.map(gen =>
+                    gen.name === 'Thriller'
+                        ? 'Suspense'
+                        : gen.name
+                )
             }))
         }, 2000)
         if (serieData.tmdbID && serieData.tmdbID > 0) getTMDBData()
