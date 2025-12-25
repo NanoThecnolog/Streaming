@@ -5,6 +5,7 @@ import Header from '@/components/Header'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useState } from 'react'
+import { useFlix } from '@/contexts/FlixContext'
 
 interface SuccessPageProps {
     data: {
@@ -17,6 +18,7 @@ export default function SuccessPage() {
     const router = useRouter()
     const { pdf, pix, barcode } = router.query
     const [barcodeCopied, setBarcodeCopied] = useState(false)
+    const { user } = useFlix()
 
     //console.log(barcode)
     return (
@@ -30,7 +32,7 @@ export default function SuccessPage() {
             <main className={styles.container}>
                 <div className={styles.card}>
 
-                    <h1 className={styles.title}>Conta criada com sucesso</h1>
+                    <h1 className={styles.title}>Assinatura criada!</h1>
 
                     <p className={styles.thanks}>
                         Obrigado pelo seu apoio!
@@ -79,7 +81,10 @@ export default function SuccessPage() {
                         <p>Em caso de dúvidas, entre em contato através do email: <strong className='red'>suporte@flixnext.com.br</strong></p>
                     </div>
                     <div className={styles.links}>
-                        <Link href="/login">Entrar</Link>
+                        {user
+                            ? <Link href="/me">Minha conta</Link>
+                            : <Link href="/login">Entrar</Link>
+                        }
                         <Link href="/termos-de-uso">Termos de uso</Link>
                         <Link href="/privacidade">Política de privacidade</Link>
                         <Link href="/suporte">Suporte</Link>

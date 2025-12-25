@@ -358,26 +358,6 @@ export default function PaymentUserPage({ plans }: PageProps) {
                             />
                         </div>
                     </section>
-
-                    <section className={styles.paymentMethod}>
-                        <h3>Forma de pagamento</h3>
-
-                        <div className={styles.billetBox}>
-                            <strong>Boleto bancário</strong>
-                            <p>O boleto será gerado após a confirmação.</p>
-                        </div>
-                        <label className={styles.checkbox}>
-                            <input
-                                type="checkbox"
-                                checked={checked}
-                                onChange={e => setChecked(e.target.checked)}
-                            />
-                            Concordo com os Termos de Uso e Política de Privacidade.
-                        </label>
-                        <p className={styles.advice}>
-                            Ao marcar a caixa de seleção acima, você concorda com nossos <strong><Link href="/termos-de-uso" target='_blank' rel='noopener noreferrer'>Termos de Uso</Link></strong> e com nossa <strong><Link href="/privacidade" target='_blank' rel='noopener noreferrer'>Declaração de Privacidade</Link></strong> e confirma ter mais de 18 anos. A FlixNext renovará automaticamente sua assinatura e cobrará o preço da assinatura escolhida da sua forma de pagamento até você cancelar. Você pode cancelar quando quiser para evitar cobranças futuras.
-                        </p>
-                    </section>
                 </section>
                 <aside className={styles.summary}>
                     <h3>Resumo da Assinatura</h3>
@@ -392,6 +372,27 @@ export default function PaymentUserPage({ plans }: PageProps) {
                                 : '-'}
                         </strong>
                     </div>
+                    {selectedPlan &&
+                        <section className={styles.paymentMethod}>
+                            <h3>Forma de pagamento</h3>
+
+                            <div className={styles.billetBox}>
+                                <strong>Boleto bancário</strong>
+                                <p>O boleto será gerado após a confirmação.</p>
+                            </div>
+                            <label className={styles.checkbox}>
+                                <input
+                                    type="checkbox"
+                                    checked={checked}
+                                    onChange={e => setChecked(e.target.checked)}
+                                />
+                                Concordo com os Termos de Uso e Política de Privacidade.
+                            </label>
+                            <p className={styles.advice}>
+                                Ao marcar a caixa de seleção acima, você concorda com nossos <strong><Link href="/termos-de-uso" target='_blank' rel='noopener noreferrer'>Termos de Uso</Link></strong> e com nossa <strong><Link href="/privacidade" target='_blank' rel='noopener noreferrer'>Declaração de Privacidade</Link></strong> e confirma ter mais de 18 anos. A FlixNext renovará automaticamente sua assinatura e cobrará o preço da assinatura escolhida da sua forma de pagamento até você cancelar. Você pode cancelar quando quiser para evitar cobranças futuras.
+                            </p>
+                        </section>
+                    }
 
                     <button
                         form="form"
