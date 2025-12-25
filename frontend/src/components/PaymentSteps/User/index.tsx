@@ -1,6 +1,9 @@
 import { UserDataProps } from '@/@types/payment'
 import styles from './styles.module.scss'
 import { getDate } from '@/utils/UtilitiesFunctions'
+import { GetServerSideProps } from 'next'
+import { FaEye, FaRegEyeSlash } from 'react-icons/fa'
+import { useState } from 'react'
 
 interface UserStepProps {
     data: UserDataProps,
@@ -11,7 +14,7 @@ interface UserStepProps {
 }
 
 export default function User({ data, setDataUser, senha, confirmarSenha }: UserStepProps) {
-
+    const [revelium, setRevelium] = useState(false)
 
     return (
         <>
@@ -81,8 +84,9 @@ export default function User({ data, setDataUser, senha, confirmarSenha }: UserS
                         </label>
                         <label htmlFor='senha'>
                             Senha
+
                             <input
-                                type="password"
+                                type={revelium ? 'text' : 'password'}
                                 id='senha'
                                 name='senha'
                                 required
@@ -93,11 +97,19 @@ export default function User({ data, setDataUser, senha, confirmarSenha }: UserS
                                 onChange={(e) => setDataUser((prev) => ({ ...prev, password: e.target.value }))}
                                 placeholder='Mínimo de 6 caracteres'
                             />
+                            <div onClick={() => setRevelium(!revelium)}>
+                                {
+                                    data.password ? revelium
+                                        ? <FaRegEyeSlash />
+                                        : <FaEye /> : ''
+                                }
+                            </div>
+
                         </label>
                         <label htmlFor='confirmarSenha'>
                             Confirmar senha
                             <input
-                                type="password"
+                                type={revelium ? 'text' : 'password'}
                                 id='confirmarSenha'
                                 name='confirmarSenha'
                                 required

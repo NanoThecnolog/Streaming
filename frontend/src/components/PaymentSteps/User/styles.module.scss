@@ -25,6 +25,8 @@
         .passwordRequires {
             padding: 10px 0 0 10px;
         }
+
+
     }
 
     .addressGrid {
@@ -39,6 +41,15 @@
         font-size: 0.95rem;
         font-weight: 500;
         gap: 6px;
+        position: relative;
+
+        svg {
+            //outline: 2px solid red;
+            position: absolute;
+            right: 10px;
+            top: 35px;
+            cursor: pointer;
+        }
 
         input {
             padding: 10px 12px;
@@ -46,12 +57,17 @@
             border: 1px solid #ccc;
             border-radius: 6px;
             transition: border-color .2s;
+            //width: 100%;
+
 
             &:focus {
                 border-color: var(--red);
                 outline: none;
             }
         }
+
+
+
     }
 }
 

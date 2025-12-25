@@ -16,6 +16,7 @@ import { useFlix } from '@/contexts/FlixContext'
 import { Functions } from '@/classes/Functions'
 import { Validate } from '@/classes/validator'
 import { Normalize } from '@/classes/Normalize'
+import { GetServerSideProps } from 'next'
 
 const loadingEfiPay = async () => {
     if (typeof window !== 'undefined') {
@@ -278,11 +279,7 @@ export default function Payment() {
                                 valid={validation}
                             />
                             <div className={styles.paymentContainer}>
-                                {//method === null ? <SelectPayment method={setMethod} />
-                                    //: method === 'credit' ? <PaymentCredit setMethod={setMethod} credit={credit} setCredit={setCredit} />
-                                    /*: method === 'billet' && */
-                                    <PaymentBillet setCheck={setChecked} check={checked} />
-                                }
+                                <PaymentBillet setCheck={setChecked} check={checked} />
                             </div>
                             <div className={styles.buttonContainer}>
                                 <button
@@ -306,4 +303,25 @@ export default function Payment() {
             {isLoading && <PaymentLoader />}
         </>
     )
+}
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+
+    const { req } = ctx
+
+    const token = req.cookies['flix-token']
+
+    if (token) {
+        console.log('token encontrado')
+        /*return {
+            redirect: {
+                destination: '/me',
+                permanent: false
+            }
+        }*/
+    }
+
+    return {
+        props: {}
+    }
 }
