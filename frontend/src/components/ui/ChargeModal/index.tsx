@@ -57,7 +57,11 @@ export default function ChargeModal({ loadingCharge, chargeDetails, closeChargeM
                                 <p>Vencimento: <strong>{formatedDate(chargeDetails.data.payment.banking_billet.expire_at)}</strong></p>
 
                                 {
-                                    chargeDetails.data.status !== 'paid' ? <>
+                                    chargeDetails.data.status === 'paid' && <p>{paymentMessage ?? paymentMessage}</p>
+                                }
+
+                                {
+                                    chargeDetails.data.status !== 'paid' && chargeDetails.data.status !== 'canceled' && <>
                                         <a
                                             href={chargeDetails.data.payment.banking_billet.billet_link}
                                             target="_blank"
@@ -74,7 +78,6 @@ export default function ChargeModal({ loadingCharge, chargeDetails, closeChargeM
                                             PDF
                                         </a>
                                     </>
-                                        : <p>{paymentMessage ?? paymentMessage}</p>
                                 }
                             </div>
                         </div>

@@ -52,20 +52,20 @@ export default function Search() {
             searchingMovie(movie);
         }
     }, [movie])
-    async function searchingMovie(movie: string) {
+    async function searchingMovie(name: string) {
         setFiltered([])
         try {
             if (loading) return
 
             setLoading(true)
-            const normalizedMovie = normalizing(movie)
+            const normalizedName = normalizing(name)
             const filteredCards = movies
                 .filter((card) => {
                     const normalizedTitle = normalizing(card.title).toLowerCase()
                     const normalizedSubtitle = normalizing(card.subtitle).toLowerCase()
                     return (
-                        normalizedTitle.includes(normalizedMovie) ||
-                        normalizedSubtitle.includes(normalizedMovie)
+                        normalizedTitle.includes(normalizedName) ||
+                        normalizedSubtitle.includes(normalizedName)
                     )
                 })
                 .map((card) => ({
@@ -78,8 +78,8 @@ export default function Search() {
                     const normalizedTitle = normalizing(serie.title).toLowerCase()
                     const normalizedSubtitle = normalizing(serie.subtitle).toLowerCase()
                     return (
-                        normalizedTitle.includes(normalizedMovie) ||
-                        normalizedSubtitle.includes(normalizedMovie)
+                        normalizedTitle.includes(normalizedName) ||
+                        normalizedSubtitle.includes(normalizedName)
                     )
                 })
                 .map((serie) => ({
