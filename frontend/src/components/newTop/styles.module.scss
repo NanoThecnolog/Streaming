@@ -24,9 +24,12 @@
         left: 70px;
         color: var(--white);
         z-index: 4;
+        display: flex;
+        width: 95vw;
+        justify-content: space-between;
 
         .leftSide {
-            width: 60%;
+            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -50,6 +53,12 @@
                 text-shadow: 5px 5px 10px black;
             }
 
+            .tituloPrincipal,
+            .subTituloPrincipal,
+            .gen p {
+                transition: all .8s;
+            }
+
             .gen {
                 display: flex;
                 align-items: center;
@@ -66,15 +75,19 @@
                 -webkit-box-orient: vertical;
                 -webkit-line-clamp: 3;
                 height: 58.5px;
+                max-height: 60px;
                 line-clamp: 3;
                 overflow: hidden;
                 text-overflow: ellipsis;
-                //border: 1px solid red;
+
+                opacity: 1;
                 padding: 1rem 0;
                 margin-bottom: 1rem;
+                max-width: 50%;
+                transition: max-height 1s ease, opacity .5s ease, transform .8s ease, margin .5s ease, padding .5s ease;
 
                 p {
-                    margin: 0px;
+                    margin: 0;
                     font-family: var(--font-Montserrat);
                     font-weight: 400;
                     font-size: 20px;
@@ -87,9 +100,16 @@
                 width: 100%;
                 display: flex;
                 font-family: var(--font-Roboto);
+                transition: all .5s ease;
 
                 svg {
+                    transition: min-width .6s ease,
+                        width .6s ease,
+                        height .6s ease;
                     min-width: 25px;
+                    width: 35px;
+                    height: 35px;
+
                 }
 
                 .watch,
@@ -99,7 +119,7 @@
                     display: flex;
                     align-items: center;
                     gap: 10px;
-                    transition: all 0.5s;
+                    transition: all 0.7s;
                     cursor: pointer;
 
                     &:hover {
@@ -108,6 +128,7 @@
 
                     h3 {
                         font-size: 1.4rem;
+                        transform: font-size .4s ease;
                     }
                 }
 
@@ -129,6 +150,68 @@
 
                     &:hover {
                         background-color: var(--grey-selected);
+                    }
+                }
+            }
+
+            &.playing {
+                //outline: 2px solid red;
+                width: 100%;
+                transform: translateY(30px);
+                gap: 5px;
+                //max-height: 10px;
+
+
+
+                .tituloPrincipal {
+                    font-size: 1.8rem;
+                    //outline: 2px solid red;
+                }
+
+                .subTituloPrincipal {
+                    font-size: 1.3rem;
+                    font-style: italic;
+                    //outline: 2px solid red;
+                }
+
+                .gen {
+                    //outline: 2px solid red;
+
+                    p {
+                        font-size: 1rem;
+                        //outline: 2px solid red;
+                    }
+                }
+
+                .description {
+                    max-height: 0;
+                    opacity: 0;
+                    margin: 0;
+                    padding: 0;
+                    //transform: translateY(10px);
+                    pointer-events: none;
+                    //outline: 2px solid red;
+                }
+
+                .buttonSection {
+                    //outline: 2px solid red;
+
+                    svg {
+                        min-width: 10px;
+                        width: 15px;
+                        height: 15px;
+                        //outline: 2px solid red;
+                    }
+
+                    .watch,
+                    .queue {
+                        padding: 10px 17px;
+                        //outline: 2px solid red;
+
+                        h3 {
+                            font-size: 1rem;
+                            //outline: 2px solid red;
+                        }
                     }
                 }
             }

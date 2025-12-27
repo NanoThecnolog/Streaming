@@ -29,11 +29,32 @@ export default function NewTop({ width, id, isActive = false }: TopProps) {
     const [TMDBMovie, setTMDBMovie] = useState<MovieTMDB | null>(null)
     const [showVideo, setShowVideo] = useState<boolean>(false)
     const [card, setCard] = useState<CardsProps | null>(null)
+    const [videoOn, setVideoOn] = useState(false)
 
     const [TMDBImages, setTMDBImages] = useState<{ backdrop: string | null; poster: string | null }>({
         backdrop: null,
         poster: null
     })
+
+
+
+    const handleTrailer = async () => {
+        const timer = setTimeout(() => {
+            setShowVideo(true)
+        }, 3000)
+        return () => clearInterval(timer)
+    }
+    const animateInfo = async () => {
+        const interval = setTimeout(() => {
+            setVideoOn(true)
+        }, 3000)
+        return () => clearInterval(interval)
+    }
+
+    useEffect(() => {
+        setVideoOn(false)
+        setShowVideo(false)
+    }, [isActive])
 
     useEffect(() => {
         const card = movies.find((card) => card.tmdbId === id)
@@ -42,30 +63,29 @@ export default function NewTop({ width, id, isActive = false }: TopProps) {
         //debug.log("movie card", card)
     }, [movies, id])
 
-    const handleTrailer = async () => {
-        const timer = setTimeout(() => {
-            setShowVideo(true)
-        }, 3000)
-        return () => clearInterval(timer)
-    }
-    useEffect(() => {
+    /*useEffect(() => {
         if (width > 915) handleTrailer()
-    }, [card, width])
+    }, [card, width])*/
 
     useEffect(() => {
         if (!videoRef.current) return
         const video = videoRef.current
 
         if (isActive) {
-            if (width > 915) handleTrailer()
-            video.play().catch(() => null)
+            if (width > 915) {
+                handleTrailer()
+                video.play().catch(() => null)
+                animateInfo()
+            }
+
         } else {
             setShowVideo(false)
             video.pause()
-            //testar se é melhor começar do zero ou se só pause o video
             video.currentTime = 0
         }
-    }, [videoRef, width, isActive])
+
+    }, [videoRef, width, isActive, card])
+
     useEffect(() => {
         const getImages = async () => {
             if (!card) return
@@ -144,7 +164,7 @@ export default function NewTop({ width, id, isActive = false }: TopProps) {
                     <img src={`${getBackgroundImage()}`} alt="banner" />
                 </div>
                 <div className={styles.overlay}>
-                    <div className={styles.leftSide}>
+                    <div className={`${styles.leftSide} ${videoOn ? styles.playing : ''}`}>
                         <h1 className={styles.tituloPrincipal}>
                             {card.title ?? card.title}
                         </h1>
@@ -167,17 +187,18 @@ export default function NewTop({ width, id, isActive = false }: TopProps) {
                         </div>
                         <div className={styles.buttonSection}>
                             <div className={styles.watch} onClick={handleWatch}>
-                                <FaPlay size={35} />
+                                <FaPlay />
                                 <h3>Assistir</h3>
                             </div>
                             <div className={styles.queue} onClick={handleMoreInfo}>
-                                <FaInfoCircle size={25} />
+                                <FaInfoCircle />
                                 <h3>Mais Informações</h3>
                             </div>
                         </div>
                     </div>
                     {
-                        width > 915 && <div className={`${styles.volumeControl} ${!showVideo ? styles.hidden : ''}`}>
+                        width > 915 &&
+                        <div className={`${styles.volumeControl} ${!showVideo ? styles.hidden : ''}`}>
                             <input
                                 type="range"
                                 min={0}
@@ -203,7 +224,8 @@ export default function NewTop({ width, id, isActive = false }: TopProps) {
                         muted
                         playsInline
                         className={`${styles.bannerVideo} ${showVideo ? styles.visible : ''}`}
-                        onEnded={() => setShowVideo(false)}
+                        onEnded={() => { setShowVideo(false), setVideoOn(false) }}
+                        onPlay={() => animateInfo()}
                     />
                 }
             </div>

@@ -32,17 +32,12 @@ export default function NewTopSerie({ width, id, isActive = false }: TopSeriePro
     const [isMuted, setIsMuted] = useState(true)
     const [volume, setVolume] = useState(0)
     const [card, setCard] = useState<SeriesProps | null>(null)
+    const [videoOn, setVideoOn] = useState(false)
+
     const [TMDBImages, setTMDBImages] = useState<TMDBImageProps>({
         backdrop: null,
         poster: null
     })
-
-    useEffect(() => {
-        const card = series.find((card) => card.tmdbID === id)
-        if (!card) return
-        setCard(card)
-        //debug.log("series card", card)
-    }, [series, id])
 
     const handleTrailer = async () => {
         const timer = setTimeout(() => {
@@ -51,24 +46,47 @@ export default function NewTopSerie({ width, id, isActive = false }: TopSeriePro
         return () => clearInterval(timer)
     }
 
+    const animateInfo = async () => {
+        const interval = setTimeout(() => {
+            setVideoOn(true)
+        }, 3000)
+        return () => clearInterval(interval)
+    }
+
     useEffect(() => {
+        setVideoOn(false)
+        setShowVideo(false)
+    }, [isActive])
+
+    useEffect(() => {
+        const card = series.find((card) => card.tmdbID === id)
+        if (!card) return
+        setCard(card)
+        //debug.log("series card", card)
+    }, [series, id])
+
+    /*useEffect(() => {
         if (width > 915) handleTrailer()
-    }, [card, width])
+    }, [card, width])*/
 
     useEffect(() => {
         if (!videoRef.current) return
         const video = videoRef.current
 
         if (isActive) {
-            if (width > 915) handleTrailer()
-            video.play().catch(() => null)
+            if (width > 915) {
+                handleTrailer()
+                video.play().catch(() => null)
+                animateInfo()
+            }
+
         } else {
             setShowVideo(false)
+            setVideoOn(false)
             video.pause()
-            //testar se é melhor começar do zero ou se só pause o video
             video.currentTime = 0
         }
-    }, [videoRef, width, isActive])
+    }, [videoRef, width, isActive, card])
 
     useEffect(() => {
         const getImages = async () => {
@@ -152,7 +170,7 @@ export default function NewTopSerie({ width, id, isActive = false }: TopSeriePro
                 <img src={`${getBackgroundImage()}`} alt="banner" />
             </div>
             <div className={styles.overlay}>
-                <div className={styles.leftSide}>
+                <div className={`${styles.leftSide} ${videoOn ? styles.playing : ''}`}>
                     <h1 className={styles.tituloPrincipal}>
                         {card.title.toUpperCase()}
                     </h1>
@@ -184,11 +202,11 @@ export default function NewTopSerie({ width, id, isActive = false }: TopSeriePro
                     </div>
                     <div className={styles.buttonSection}>
                         <div className={styles.watch} onClick={(e) => handleWatch()}>
-                            <FaPlay size={35} />
+                            <FaPlay />
                             <h3>Assistir</h3>
                         </div>
                         <div className={styles.queue} onClick={() => handleEpisodes(card.tmdbID)}>
-                            <FaInfoCircle size={35} />
+                            <FaInfoCircle />
                             <h3>Mais Informações</h3>
                         </div>
                     </div>
@@ -222,7 +240,8 @@ export default function NewTopSerie({ width, id, isActive = false }: TopSeriePro
                     muted
                     playsInline
                     className={`${styles.bannerVideo} ${showVideo ? styles.visible : ''}`}
-                    onEnded={() => setShowVideo(false)}
+                    onEnded={() => { setShowVideo(false), setVideoOn(false) }}
+                    onPlay={() => animateInfo()}
                 />
             }
         </div>
