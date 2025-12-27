@@ -2,93 +2,151 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 2rem;
+}
 
-    .formRow {
-        display: flex;
-        gap: 20px;
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 2rem;
+}
 
-        .formItem {
-            display: flex;
-            flex-direction: column;
+.formItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
 
-            input {
-                width: 500px;
-                height: 25px;
-                background-color: var(--background-gray-light);
-                color: var(--white);
-            }
+    label {
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.7);
+    }
 
-            textarea {
-                width: 500px;
-                padding: 5px;
-                border-radius: .4rem;
-                background-color: var(--background-gray-light);
-                color: var(--white);
-            }
+    input,
+    textarea,
+    select {
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.04);
+        color: var(--white);
 
-            select {
-                width: 200px;
-                height: 400px;
-                border-radius: .4rem;
-                background-color: var(--background-gray-light);
-                color: var(--white);
-                border: 2px solid var(--white);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 0.6rem;
 
-                option {
-                    padding: 5px;
-                    outline: 1px solid rgba(255, 255, 255, 0.39);
-                }
-            }
+        padding: 0.6rem 0.75rem;
+        font-size: 0.9rem;
 
-            .selectFaixa {
-                width: 80px;
-                height: 40px;
-                padding: 5px;
-            }
+        transition: all 0.25s ease;
 
-            .chosenFaixa {
-                padding: 15px 0;
-            }
-
-            .duration {
-                width: 80px;
-            }
-
-            .tmdbid::-webkit-inner-spin-button,
-            .tmdbid::-webkit-outer-spin-button {
-                -webkit-appearance: none;
-                appearance: none;
-                margin: 0;
-            }
-
-            .tmdbid {
-                -moz-appearance: textfield;
-                appearance: textfield;
-                width: 80px;
-            }
+        &:focus {
+            outline: none;
+            border-color: var(--red-selected);
+            background-color: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.25);
         }
     }
 
+    textarea {
+        resize: vertical;
+        min-height: 90px;
+    }
 
+    select {
+        cursor: pointer;
+    }
 
-    .buttonContainer {
-        height: 70px;
+    .selectFaixa {
+        width: 90px;
+        height: 42px;
+        padding: 0 0.5rem;
+    }
 
-        button {
-            width: 50%;
-            height: 100%;
-            color: inherit;
-            background-color: var(--red);
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            font-weight: 900;
-            border-radius: 5rem;
-            transition: .4s;
+    .chosenFaixa {
+        margin-top: 0.25rem;
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.6);
+    }
 
-            &:hover {
-                transform: scale(1.05);
-            }
+    .duration,
+    .tmdbid {
+        width: 120px;
+    }
+
+    .tmdbid::-webkit-inner-spin-button,
+    .tmdbid::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+    }
+
+    .tmdbid {
+        -moz-appearance: textfield;
+        appearance: textfield;
+    }
+}
+
+/* Coluna da direita — gêneros */
+.formRow>.formItem:last-child {
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.035),
+            rgba(255, 255, 255, 0.015));
+    border-radius: 1rem;
+    padding: 1.5rem;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+
+    select {
+        height: 260px;
+        margin-bottom: 1rem;
+
+        option {
+            padding: 0.4rem 0.5rem;
+        }
+    }
+
+    p {
+        font-size: 0.75rem;
+        line-height: 1.4;
+        color: rgba(255, 255, 255, 0.7);
+    }
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1rem;
+
+    button {
+        height: 52px;
+        min-width: 260px;
+
+        background-color: var(--red);
+        color: var(--white);
+
+        border: none;
+        border-radius: 999px;
+
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+
+        cursor: pointer;
+        transition: all 0.25s ease;
+
+        &:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+
+        &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
         }
     }
 }

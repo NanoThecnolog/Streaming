@@ -260,55 +260,61 @@ export default function CreateTV() {
                                 {season.episodes.map((episode, episodeIndex) => (
                                     <>
                                         <div key={episodeIndex} className={styles.episodeForm}>
-                                            <label htmlFor='epNumber'>
-                                                Nº Episódio:
-                                            </label>
-                                            <input
-                                                id='epNumber'
-                                                className={styles.episodeNumber}
-                                                type="number"
-                                                value={episode.ep}
-                                                onChange={(e) =>
-                                                    handleEpisodeChange(
-                                                        seasonIndex,
-                                                        episodeIndex,
-                                                        "ep",
-                                                        Number(e.target.value)
-                                                    )
-                                                }
-                                            />
-                                            <label htmlFor='epSrc'>
-                                                Link:
-                                            </label>
-                                            <input
-                                                id='epSrc'
-                                                type="text"
-                                                value={episode.src}
-                                                onChange={(e) =>
-                                                    handleEpisodeChange(
-                                                        seasonIndex,
-                                                        episodeIndex,
-                                                        "src",
-                                                        e.target.value
-                                                    )
-                                                }
-                                            />
-                                            <label htmlFor='epDuration'>
-                                                Duração:
-                                            </label>
-                                            <input
-                                                id='epDuration'
-                                                type="text"
-                                                value={episode.duration}
-                                                onChange={(e) =>
-                                                    handleEpisodeChange(
-                                                        seasonIndex,
-                                                        episodeIndex,
-                                                        "duration",
-                                                        e.target.value
-                                                    )
-                                                }
-                                            />
+                                            <div className={styles.field}>
+                                                <label htmlFor='epNumber'>
+                                                    Nº Episódio:
+                                                </label>
+                                                <input
+                                                    id='epNumber'
+                                                    className={styles.episodeNumber}
+                                                    type="number"
+                                                    value={episode.ep}
+                                                    onChange={(e) =>
+                                                        handleEpisodeChange(
+                                                            seasonIndex,
+                                                            episodeIndex,
+                                                            "ep",
+                                                            Number(e.target.value)
+                                                        )
+                                                    }
+                                                />
+                                            </div>
+                                            <div className={styles.field}>
+                                                <label htmlFor='epSrc'>
+                                                    Link:
+                                                </label>
+                                                <input
+                                                    id='epSrc'
+                                                    type="text"
+                                                    value={episode.src}
+                                                    onChange={(e) =>
+                                                        handleEpisodeChange(
+                                                            seasonIndex,
+                                                            episodeIndex,
+                                                            "src",
+                                                            e.target.value
+                                                        )
+                                                    }
+                                                />
+                                            </div>
+                                            <div className={styles.field}>
+                                                <label htmlFor='epDuration'>
+                                                    Duração:
+                                                </label>
+                                                <input
+                                                    id='epDuration'
+                                                    type="text"
+                                                    value={episode.duration}
+                                                    onChange={(e) =>
+                                                        handleEpisodeChange(
+                                                            seasonIndex,
+                                                            episodeIndex,
+                                                            "duration",
+                                                            e.target.value
+                                                        )
+                                                    }
+                                                />
+                                            </div>
                                         </div>
                                         <div className={styles.buttonEpisode}>
                                             <button

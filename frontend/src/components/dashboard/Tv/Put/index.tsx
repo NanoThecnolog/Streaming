@@ -146,15 +146,17 @@ export default function PutTV({ tmdbid }: PutTVProps) {
         }));
     }
     return (
-        <>
+        <section className={styles.container}>
             <div className={styles.searchContainer}>
-                <label htmlFor="id">INforme o ID do TMDB</label>
-                <input
-                    type="text"
-                    id='id'
-                    value={id}
-                    onChange={(e) => setId(Number(e.target.value))}
-                />
+                <div className={styles.searchInput}>
+                    <label htmlFor="id">Informe o ID do TMDB</label>
+                    <input
+                        type="text"
+                        id='id'
+                        value={id}
+                        onChange={(e) => setId(Number(e.target.value))}
+                    />
+                </div>
                 <button type='button' onClick={searchSerie}>Buscar série</button>
             </div>
             <form className={styles.form} onSubmit={handleSubmit}>
@@ -261,55 +263,61 @@ export default function PutTV({ tmdbid }: PutTVProps) {
                                     {season.episodes.map((episode, episodeIndex) => (
                                         <>
                                             <div key={episodeIndex} className={styles.episodeForm}>
-                                                <label htmlFor='epNumber'>
-                                                    Nº Episódio:
-                                                </label>
-                                                <input
-                                                    id='epNumber'
-                                                    className={styles.episodeNumber}
-                                                    type="number"
-                                                    value={episode.ep}
-                                                    onChange={(e) =>
-                                                        handleEpisodeChange(
-                                                            seasonIndex,
-                                                            episodeIndex,
-                                                            "ep",
-                                                            Number(e.target.value)
-                                                        )
-                                                    }
-                                                />
-                                                <label htmlFor='epSrc'>
-                                                    Link:
-                                                </label>
-                                                <input
-                                                    id='epSrc'
-                                                    type="text"
-                                                    value={episode.src}
-                                                    onChange={(e) =>
-                                                        handleEpisodeChange(
-                                                            seasonIndex,
-                                                            episodeIndex,
-                                                            "src",
-                                                            e.target.value
-                                                        )
-                                                    }
-                                                />
-                                                <label htmlFor='epDuration'>
-                                                    Duração:
-                                                </label>
-                                                <input
-                                                    id='epDuration'
-                                                    type="text"
-                                                    value={episode.duration}
-                                                    onChange={(e) =>
-                                                        handleEpisodeChange(
-                                                            seasonIndex,
-                                                            episodeIndex,
-                                                            "duration",
-                                                            e.target.value
-                                                        )
-                                                    }
-                                                />
+                                                <div className={styles.field}>
+                                                    <label htmlFor='epNumber'>
+                                                        Nº Episódio:
+                                                    </label>
+                                                    <input
+                                                        id='epNumber'
+                                                        className={styles.episodeNumber}
+                                                        type="number"
+                                                        value={episode.ep}
+                                                        onChange={(e) =>
+                                                            handleEpisodeChange(
+                                                                seasonIndex,
+                                                                episodeIndex,
+                                                                "ep",
+                                                                Number(e.target.value)
+                                                            )
+                                                        }
+                                                    />
+                                                </div>
+                                                <div className={styles.field}>
+                                                    <label htmlFor='epSrc'>
+                                                        Link:
+                                                    </label>
+                                                    <input
+                                                        id='epSrc'
+                                                        type="text"
+                                                        value={episode.src}
+                                                        onChange={(e) =>
+                                                            handleEpisodeChange(
+                                                                seasonIndex,
+                                                                episodeIndex,
+                                                                "src",
+                                                                e.target.value
+                                                            )
+                                                        }
+                                                    />
+                                                </div>
+                                                <div className={styles.field}>
+                                                    <label htmlFor='epDuration'>
+                                                        Duração:
+                                                    </label>
+                                                    <input
+                                                        id='epDuration'
+                                                        type="text"
+                                                        value={episode.duration}
+                                                        onChange={(e) =>
+                                                            handleEpisodeChange(
+                                                                seasonIndex,
+                                                                episodeIndex,
+                                                                "duration",
+                                                                e.target.value
+                                                            )
+                                                        }
+                                                    />
+                                                </div>
                                             </div>
                                             <div className={styles.buttonEpisode}>
                                                 <button
@@ -355,6 +363,6 @@ export default function PutTV({ tmdbid }: PutTVProps) {
                     <button type='submit'>Editar Série</button>
                 </div>
             </form>
-        </>
+        </section>
     )
 }

@@ -86,15 +86,17 @@ export default function Put({ tmdbid }: PutProps) {
         }));
     }
     return (
-        <>
+        <section className={styles.container}>
             <div className={styles.searchContainer}>
-                <label htmlFor="id">Informe o ID do TMDB</label>
-                <input
-                    type="number"
-                    id='id'
-                    value={id}
-                    onChange={(e) => setId(Number(e.target.value))}
-                />
+                <div className={styles.searchInput}>
+                    <label htmlFor="id">Informe o ID do TMDB</label>
+                    <input
+                        type="number"
+                        id='id'
+                        value={id}
+                        onChange={(e) => setId(Number(e.target.value))}
+                    />
+                </div>
                 <button type='button' onClick={searchMovie}>buscar</button>
             </div>
             <form className={styles.form} onSubmit={handleSubmit}>
@@ -201,6 +203,6 @@ export default function Put({ tmdbid }: PutProps) {
                     <button type='submit'>Editar Filme</button>
                 </div>
             </form>
-        </>
+        </section>
     )
 }

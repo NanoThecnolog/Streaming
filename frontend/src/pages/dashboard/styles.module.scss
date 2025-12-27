@@ -1,4 +1,4 @@
-.container {
+/*.container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -50,4 +50,88 @@
     }
 
 
+}*/
+
+.container {
+    width: 100%;
+    min-height: calc(100vh - 80px); // considerando header
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 2rem;
+
+    background-color: var(--black);
+    color: var(--white);
+    font-family: var(--font-Roboto);
+
+    padding: 10rem 3rem;
+
+    aside {
+        background: linear-gradient(180deg,
+                rgba(255, 255, 255, 0.03),
+                rgba(255, 255, 255, 0.01));
+        border-radius: 1rem;
+        padding: 1.5rem;
+
+        display: flex;
+        align-items: stretch;
+
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+
+        .menuContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            width: 100%;
+
+            button {
+                width: 100%;
+                height: 52px;
+
+                background: transparent;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 0.75rem;
+
+                color: var(--white);
+                font-size: 0.95rem;
+                font-weight: 500;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                cursor: pointer;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    background-color: rgba(255, 0, 0, 0.15);
+                    border-color: var(--red);
+                }
+
+                &:focus-visible {
+                    outline: none;
+                    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.4);
+                }
+            }
+        }
+    }
+
+    article {
+        background: linear-gradient(180deg,
+                rgba(255, 255, 255, 0.02),
+                rgba(255, 255, 255, 0.01));
+        border-radius: 1rem;
+        padding: 2rem;
+        width: 90%;
+
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+        .componentContainer {
+            width: 100%;
+            min-height: 100%;
+
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+    }
 }
