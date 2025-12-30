@@ -68,6 +68,7 @@ export default function HeroSection({ width }: HeroProps) {
     return (
         <section className={styles.container}>
             <Swiper
+                speed={1500}
                 modules={[Navigation, Pagination]}
                 navigation
                 pagination={{
