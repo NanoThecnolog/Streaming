@@ -20,6 +20,14 @@ export default function HeroSection({ width }: HeroProps) {
 
     const ids: IDProps[] = [
         {
+            id: 425274,
+            type: 'movie'
+        },
+        {
+            id: 66732,
+            type: 'tv'
+        },
+        {
             id: 798645,
             type: 'movie'
         },
@@ -28,27 +36,19 @@ export default function HeroSection({ width }: HeroProps) {
             type: 'tv'
         },
         {
-            id: 66732,
-            type: 'tv'
-        },
-        {
             id: 617126,
             type: "movie"
         },
         {
-            id: 200875,
+            id: 200875,//bem vindos a derry
             type: "tv"
         },
         {
-            id: 157239,
+            id: 157239,//alien earth
             type: "tv"
         },
         {
-            id: 604079,
-            type: "movie"
-        },
-        {
-            id: 822119,
+            id: 604079,// a longa marcha
             type: "movie"
         },
     ]
@@ -90,7 +90,7 @@ export default function HeroSection({ width }: HeroProps) {
                                 id={item.id}
                                 isActive={activeIndex === index}
                                 onVideoEnded={handleVideoEnded}
-                                disableVideoOnFirst={activeIndex === ids.length - 1}
+                                disableVideoOnFirst={/*activeIndex === ids.length - 1 */false}
                                 type={item.type}
                             />
                         </SwiperSlide>
