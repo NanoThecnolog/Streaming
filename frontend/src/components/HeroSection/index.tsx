@@ -2,12 +2,9 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import styles from './styles.module.scss'
 import { Navigation, Pagination } from 'swiper/modules'
 import NewTop from '../newTop'
-import { useEffect, useRef, useState } from 'react'
-import { useFlix } from '@/contexts/FlixContext'
-import { CardsProps } from '@/@types/Cards'
+import { useState } from 'react'
 import NewTopSerie from '../seriesComponents/newTopSerie'
-import { SeriesProps } from '@/@types/series'
-import { debug } from '@/classes/DebugLogger'
+import type { Swiper as SwiperType } from 'swiper'
 
 interface HeroProps {
     width: number
@@ -18,7 +15,9 @@ type IDProps = {
 }
 
 export default function HeroSection({ width }: HeroProps) {
+    const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null)
     const [activeIndex, setActiveIndex] = useState(0)
+
     const ids: IDProps[] = [
         {
             id: 798645,
@@ -52,8 +51,20 @@ export default function HeroSection({ width }: HeroProps) {
             id: 822119,
             type: "movie"
         },
-
     ]
+
+    const handleVideoEnded = () => {
+        if (!swiperInstance) return
+
+        setTimeout(() => {
+            const isLastSlide = activeIndex === ids.length - 1
+
+            if (isLastSlide) swiperInstance.slideToLoop(0)
+            else swiperInstance.slideNext()
+        }, 3000)
+    }
+
+
     return (
         <section className={styles.container}>
             <Swiper
@@ -66,22 +77,23 @@ export default function HeroSection({ width }: HeroProps) {
                 }}
                 loop
                 slidesPerView={1}
+                onSwiper={setSwiperInstance}
                 onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
                 className={styles.carousel}
             >
                 {
-                    ids.map((item, index) => {
-                        if (item.type === "movie") return (
-                            <SwiperSlide key={index}>
-                                <NewTop width={width} id={item.id} isActive={activeIndex === index} />
-                            </SwiperSlide>
-                        )
-                        if (item.type === "tv") return (
-                            <SwiperSlide key={index}>
-                                <NewTopSerie width={width} id={item.id} isActive={activeIndex === index} />
-                            </SwiperSlide>
-                        )
-                    })
+                    ids.map((item, index) => (
+                        <SwiperSlide key={index}>
+                            <NewTop
+                                width={width}
+                                id={item.id}
+                                isActive={activeIndex === index}
+                                onVideoEnded={handleVideoEnded}
+                                disableVideoOnFirst={activeIndex === ids.length - 1}
+                                type={item.type}
+                            />
+                        </SwiperSlide>
+                    ))
                 }
             </Swiper>
         </section>

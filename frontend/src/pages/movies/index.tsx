@@ -95,7 +95,7 @@ export default function Home() {
                   <>
                     <div className={styles.top}>
                       {
-                        topCard && <NewTop width={width} id={tmdbid} isActive={true} />
+                        topCard && <NewTop width={width} id={tmdbid} isActive={true} type="movie" />
                       }
 
                     </div>

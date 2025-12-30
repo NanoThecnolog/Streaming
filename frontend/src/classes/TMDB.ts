@@ -179,6 +179,15 @@ class TMDBService {
             return null;
         }
     }
+
+    async getTrendingMovies() {
+        try {
+
+        } catch (err) {
+            debug.error("Erro ao buscar trendingMovies", err)
+            return null
+        }
+    }
 }
 
 export const tmdb = new TMDBService()

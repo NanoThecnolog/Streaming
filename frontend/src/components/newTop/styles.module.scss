@@ -16,6 +16,7 @@
         z-index: 3;
         background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(20, 20, 20, 1)80%);
         pointer-events: none;
+
     }
 
     .overlay {
@@ -57,6 +58,19 @@
             .subTituloPrincipal,
             .gen p {
                 transition: all .8s;
+            }
+
+            .season {
+                padding: .7rem 0;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                font-family: var(--font-Roboto);
+                font-weight: 900;
+
+                p {
+                    text-shadow: 5px 5px 10px black;
+                }
             }
 
             .gen {
@@ -121,6 +135,7 @@
                     gap: 10px;
                     transition: all 0.7s;
                     cursor: pointer;
+
 
                     &:hover {
                         transform: translateY(5px) scale(1.1);
@@ -315,6 +330,7 @@
 
     .bannerVideo {
         position: absolute;
+        pointer-events: none;
         top: 0;
         width: 100%;
         height: 100%;
@@ -470,6 +486,7 @@
 
                 .tituloPrincipal {
                     font-size: 1.5rem;
+                    //outline: 2px solid red;
                 }
 
                 .subTituloPrincipal {
