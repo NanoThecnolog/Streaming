@@ -84,12 +84,22 @@
         width: 90px;
         height: 42px;
         padding: 0 0.5rem;
+
+        &:focus {
+            background-color: var(--black);
+        }
     }
 
     .chosenFaixa {
         margin-top: 0.25rem;
         font-size: 0.75rem;
         color: rgba(255, 255, 255, 0.6);
+    }
+
+    .selectLang {
+        &:focus {
+            background-color: var(--black);
+        }
     }
 
     .duration,

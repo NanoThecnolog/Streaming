@@ -181,6 +181,19 @@ export default function Put({ tmdbid }: PutProps) {
                                 onChange={handleChange}
                             />
                         </div>
+                        <div className={styles.formItem}>
+                            <label htmlFor="lang">Idioma</label>
+                            <select
+                                id="lang"
+                                name='lang'
+                                value={movieData.lang}
+                                className={styles.selectLang}
+                                onChange={handleChange}
+                            >
+                                <option key='Dub' value='Dub'>Dublado</option>
+                                <option key='Leg' value='Leg'>Legendado</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div className={styles.formItem}>
