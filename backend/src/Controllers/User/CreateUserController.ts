@@ -16,7 +16,8 @@ class CreateUserController {
                 password,
                 cpf,
                 phone_number,
-                address
+                address,
+                verified: true
             })
             console.log("resultado da requisição do service:", user)
             return res.status(200).json(user)

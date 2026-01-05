@@ -23,6 +23,7 @@ interface UserRequest {
     cpf: string
     phone_number: string
     address?: AddressRequest
+    verified?: boolean
 }
 
 class CreateUserService {
@@ -32,7 +33,7 @@ class CreateUserService {
         })
 
     }
-    async execute({ name, email, birthday, password, cpf, phone_number, address }: UserRequest) {
+    async execute({ name, email, birthday, password, cpf, phone_number, address, verified }: UserRequest) {
 
         const userExiste = await this.verifyUser(email)
 
@@ -52,6 +53,7 @@ class CreateUserService {
                 password: passwordHash,
                 cpf,
                 phone_number,
+                verified,
                 address: address
                     ? {
                         create: {
