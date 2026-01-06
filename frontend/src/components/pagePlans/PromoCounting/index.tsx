@@ -39,7 +39,7 @@ export default function PromoCounting() {
                 </p>
 
                 <h3>
-                    Acesso a partir de <span>R$ 10,99/mês</span>
+                    Acesso a partir de <span>R$ 14,45/mês</span>
                 </h3>
 
                 <Link href="/planos/#escolher">

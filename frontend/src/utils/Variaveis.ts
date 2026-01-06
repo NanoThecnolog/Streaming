@@ -158,7 +158,7 @@ export const faq: FAQ[] = [
     {
         question: 'A plataforma é paga?',
         answer:
-            'Sim. O acesso à FlixNext é feito por meio de uma assinatura de valor simbólico, criada exclusivamente para cobrir custos de infraestrutura, armazenamento e manutenção do projeto. <br/><br/>Os planos começam a partir de <strong>R$ 10,99</strong> e variam conforme o período escolhido (mensal, trimestral, semestral ou anual).'
+            'Sim. O acesso à FlixNext é feito por meio de uma assinatura de valor simbólico, criada exclusivamente para cobrir custos de infraestrutura, armazenamento e manutenção do projeto. <br/><br/>Os planos começam a partir de <strong>R$ 14,45</strong> e variam conforme o período escolhido (mensal, trimestral, semestral ou anual).'
     },
     {
         question: 'Como posso ajudar o projeto?',
@@ -176,7 +176,7 @@ export const faqPlans: FAQ[] = [
     {
         question: 'Quanto custa para assinar?',
         answer:
-            'Os planos de acesso começam a partir de R$ 10,99. O valor varia de acordo com o período de assinatura escolhido e existe apenas para manter a plataforma ativa e em constante evolução.'
+            'Os planos de acesso começam a partir de R$ 14,45. O valor varia de acordo com o período de assinatura escolhido e existe apenas para manter a plataforma ativa e em constante evolução.'
     },
     {
         question: 'Onde posso assistir?',
