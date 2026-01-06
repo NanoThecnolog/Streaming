@@ -21,6 +21,7 @@ import Head from "next/head"
 import { GetServerSideProps } from "next"
 import axios from "axios"
 import { UserContext } from "@/@types/user"
+import { MoviePlayer } from "@/components/ui/Player"
 
 interface EpisodeProps {
     title: string,
@@ -87,45 +88,54 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
         setVisible(!visible)
     }
 
-    /*useEffect(() => {
+    useEffect(() => {
+        debug.log("episódio ao verificar: ", episodio)
         if (episodio?.src) {
             shareVerify(episodio.src)
         } else {
             debug.log("Src do episodio ausente")
         }
-    }, [episodio])*/
+    }, [episodio])
 
-    async function shareVerify(link: string) {
+    const shareVerify = async (link: string) => {
         if (loading) return
-        debug.log("loading no inicio", loading)
+
         setLoading(true)
+
         try {
-            const encodedLink = encodeURIComponent(link)
-            const info = await apiGoogle.get(`/${encodedLink}`)
-            if (info.data.code && info.data.code === 404) {
-                const notificar = await apiEmail.post('/notification/problem', {
-                    title: episodio?.title,
-                    description: 'Problema com arquivo',
-                    tmdbId: serie?.tmdbID,
-                    season: episodio?.season,
-                    episode: episodio?.episode,
-                    email: user?.email
-                })
-                debug.log("depois do envio de email", notificar.data)
-                if (notificar.data.code === 201) debug.log("email enviado!")
-                return setShared(false)
+            const { data } = await apiGoogle.get(
+                `/${encodeURIComponent(link)}`
+            )
+            debug.log('arquivo verificado: ', data)
+
+            const fileCheck: CheckFileProps = data
+            setShared(!!fileCheck.shared)
+        } catch (error: any) {
+            const status = error?.response?.status
+
+            debug.error('Erro ao verificar arquivo', status)
+
+            if (status === 400 || status === 403 || status === 404) {
+                try {
+                    await apiEmail.post('/notification/problem', {
+                        title: episodio?.title,
+                        description: 'Problema com arquivo',
+                        tmdbId: serie?.tmdbID,
+                        season: episodio?.season,
+                        episode: episodio?.episode,
+                        email: user?.email
+                    })
+                } catch (mailError) {
+                    debug.warn('Falha ao enviar notificação', mailError)
+                }
             }
-            if (info.data.code && info.data.code === 200) {
-                const fileCheck: CheckFileProps = info.data.response
-                return setShared(fileCheck.shared)
-            }
-        } catch (err) {
-            console.error("Erro ao verificar arquivo", err)
+
             setShared(false)
         } finally {
             setLoading(false)
         }
     }
+
 
     return (
         <>
@@ -149,43 +159,32 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
                     <div className={styles.flagContainer}>
                         <HelpFlag modalVisible={handleHelpModal} />
                     </div>
-                    {
-                        loading ?
-                            <div className={styles.iframe}>
-                                <Spinner />
-                            </div> : shared ?
-                                episodio &&
-                                <>
-                                    <div className={styles.iframe}>
-                                        <iframe
-                                            title={episodio.title}
-                                            allowFullScreen
-                                            width="100%"
-                                            height="100%"
-                                            src={episodio.src}
-                                        />
-                                    </div>
-                                    <div className={styles.buttonContainer}>
-                                        <PrevEpisode
-                                            title={episodio.title}
-                                            subtitle={episodio.subtitle}
-                                            season={episodio.season}
-                                            episode={episodio.episode}
-                                            serie={serie}
-                                        />
-                                        <NextEpisode
-                                            title={episodio.title}
-                                            subtitle={episodio.subtitle}
-                                            season={episodio.season}
-                                            episode={episodio.episode}
-                                            serie={serie}
-                                        />
-                                    </div>
-
-                                </> :
-                                <div className={styles.iframe}>
-                                    <NoFile type="serie" />
-                                </div>
+                    {episodio && <>
+                        <div className={styles.iframe}>
+                            <MoviePlayer
+                                loading={loading}
+                                shared={shared}
+                                src={episodio.src}
+                                title={episodio.title}
+                            />
+                        </div>
+                        <div className={styles.buttonContainer}>
+                            <PrevEpisode
+                                title={episodio.title}
+                                subtitle={episodio.subtitle}
+                                season={episodio.season}
+                                episode={episodio.episode}
+                                serie={serie}
+                            />
+                            <NextEpisode
+                                title={episodio.title}
+                                subtitle={episodio.subtitle}
+                                season={episodio.season}
+                                episode={episodio.episode}
+                                serie={serie}
+                            />
+                        </div>
+                    </>
                     }
                     {visible && (
                         <HelpModal

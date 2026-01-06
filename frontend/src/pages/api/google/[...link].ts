@@ -3,25 +3,25 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
-    if (req.method !== 'GET') return res.status(400).json({ code: 400, message: "Método não permitido para essa rota" })
+    if (req.method !== 'GET')
+        return res.status(405).json({ code: 405, message: "Método não permitido" })
 
     const { link } = req.query
+
     if (!link) {
-        return res.status(400).json({ error: "Missing link", message: "Link não recebido nada rota." })
+        return res.status(400).json({ message: "Link não recebido." })
     }
 
     try {
-        const decodedLink = decodeURIComponent(
-            Array.isArray(link) ? link.join('/') : link)
-        const fileId = drive.extractFileId(decodedLink);
-
-        if (fileId) {
-            const infoFile = await drive.checkFile(fileId);
-            return res.status(200).json(infoFile)
-        } else {
-            return res.status(400).json({ code: 400, message: '❗ ID do arquivo não encontrado no link.' })
-        }
+        const infoFile = await drive.checkFile(link as string);
+        return res.status(200).json(infoFile)
     } catch (err: any) {
-        return res.status(500).json({ code: 500, erro: err, message: err.message })
+        console.error('Erro durante verificação de arquivo', err.message)
+        if (err.message === 'FILE_PRIVATE')
+            return res.status(403).json({ message: 'Arquivo privad' })
+        if (err.message === 'FILE_NOT_FOUND')
+            return res.status(404).json({ message: 'Arquivo não encontrado' })
+
+        return res.status(500).json({ message: 'Erro ao verificar arquivo.' })
     }
 }

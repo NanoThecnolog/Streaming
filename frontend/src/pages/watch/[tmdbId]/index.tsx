@@ -17,6 +17,7 @@ import Head from 'next/head';
 import { GetServerSideProps } from 'next';
 import axios from 'axios';
 import { UserContext } from '@/@types/user';
+import { MoviePlayer } from '@/components/ui/Player';
 
 interface WatchProps {
     userContext: UserContext | null
@@ -62,11 +63,11 @@ export default function Watch({ userContext }: WatchProps) {
     }, [router])
 
 
-    function handleHelpModal() {
-        setVisible(!visible)
-    }
+    const handleHelpModal = useCallback(() => {
+        setVisible(prev => !prev)
+    }, [])
 
-    /*useEffect(() => {
+    useEffect(() => {
         debug.log("movie data ao verificar: ", movieData)
         if (movieData.src) {
             shareVerify(movieData.src)
@@ -74,36 +75,38 @@ export default function Watch({ userContext }: WatchProps) {
             setShared(false)
             debug.log("não fazer nada!")
         }
-    }, [movieData])*/
+    }, [movieData])
 
 
     async function shareVerify(link: string) {
         if (loading) return
         setLoading(true)
+
         try {
-            const encodedLink = encodeURIComponent(link)
-            const info = await apiGoogle.get(`/${encodedLink}`)
-            debug.log("file check: ", info)
-            if (info.data.code && (info.data.code === 404 || info.data.code === 400)) {
 
-                const notificar = await apiEmail.post('/notification/problem', {
-                    title: movieData.title,
-                    description: 'Problema com arquivo',
-                    tmdbId: movieData.tmdbId,
-                    email: user?.email
-                })
-                debug.log("depois do envio de email", notificar.data)
-                if (notificar.data.code === 201) debug.log("email enviado!")
-                else debug.warn('email pode não ter sido enviado. Verificar o codigo:', notificar.data.code)
-                return setShared(false)
-            }
-            if (info.data.code && info.data.code === 200) {
-                const fileCheck: CheckFileProps = info.data.response
-                return setShared(fileCheck.shared)
-            }
+            const { data } = await apiGoogle.get(`/${encodeURIComponent(link)}`)
+            debug.log("arquivo verificado: ", data)
+            const fileCheck: CheckFileProps = data
 
-        } catch (err) {
-            console.error("Erro ao verificar arquivo", err)
+            setShared(!!fileCheck.shared)
+
+        } catch (err: any) {
+            const status = err?.response?.status
+
+            debug.error('Erro ao verificar arquivo', status)
+
+            if (status === 400 || status === 404 || status === 403) {
+                try {
+                    await apiEmail.post('/notification/problem', {
+                        title: movieData.title,
+                        description: 'Problema com arquivo',
+                        tmdbId: movieData.tmdbId,
+                        email: user?.email
+                    })
+                } catch (mailError) {
+                    debug.warn('Falha ao enviar notificação de erro', mailError)
+                }
+            }
             setShared(false)
         } finally {
             setLoading(false)
@@ -115,29 +118,34 @@ export default function Watch({ userContext }: WatchProps) {
             <Head>
                 <meta name='robots' content='noindex, nofollow' />
             </Head>
-            <SEO title={`${movieData.title} - FlixNext`} description=" " />
+            <SEO title={`${movieData.title}${movieData.subtitle ? ` - ${movieData.subtitle}` : ''} - FlixNext`} description=" " />
             <div className={styles.container}>
                 <div className={styles.movie}>
                     <div className={styles.movieName}>
-                        <button onClick={handleBack} title="Voltar ao início" className={styles.buttonPreview}>
+                        <button
+                            onClick={handleBack}
+                            title="Voltar ao início"
+                            aria-label='Voltar'
+                            className={styles.buttonPreview}
+                        >
                             <ChevronLeft size={30} />
                         </button>
-                        <h3>{movieData.title} {movieData.subtitle != "" && `- ${movieData.subtitle}`}</h3>
+                        <h3>{movieData.title}
+                            {movieData.subtitle && `- ${movieData.subtitle}`}
+                        </h3>
                     </div>
+
                     <div className={styles.flagContainer}>
                         <HelpFlag modalVisible={handleHelpModal} />
                     </div>
+
                     <div className={styles.iframe} id="iframe">
-                        {loading ? <Spinner />
-                            : shared ? <iframe
-                                title={movieData.title}
-                                allowFullScreen
-                                width="100%"
-                                height="100%"
-                                src={movieData.src}
-                            /> :
-                                <NoFile type="movie" />
-                        }
+                        <MoviePlayer
+                            loading={loading}
+                            shared={shared}
+                            src={movieData.src}
+                            title={movieData.title}
+                        />
                     </div>
                     {visible && (
                         <HelpModal
