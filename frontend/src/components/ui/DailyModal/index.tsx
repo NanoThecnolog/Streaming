@@ -28,7 +28,7 @@ export function DailyWarningModal({ open, onClose }: Props) {
 
                 <p>
                     Os planos de acesso são organizados por período e começam em
-                    <strong className="red"> R$ 10,99</strong>, com pagamento via
+                    <strong className="red"> R$ 14,45</strong>, com pagamento via
                     <strong> Pix ou boleto</strong>.
                     Esse valor é utilizado exclusivamente para cobrir os custos operacionais e manter
                     a plataforma ativa.
