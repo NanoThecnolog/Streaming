@@ -1,6 +1,4 @@
 import { useTMDB } from '@/contexts/TMDBContext'
-import BaseCarousel from '../ui/BaseCarousel'
-import styles from './styles.module.scss'
 import { CardsProps } from '@/@types/Cards'
 import { SeriesProps } from '@/@types/series'
 import { useFlix } from '@/contexts/FlixContext'

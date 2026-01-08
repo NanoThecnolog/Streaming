@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import styles from "@/styles/Home.module.scss";
 import Search from "@/components/Searching";
 import SEO from "@/components/SEO";
@@ -20,7 +20,7 @@ import TrendingCarousel from "@/components/TrendingCarousel";
 import TopPopularTVShows from "@/components/TopPopularTV";
 import { DailyWarningModal } from "@/components/ui/DailyModal";
 import { useDailyModal } from "@/hooks/useDailyModal";
-import axios from "axios";
+import LastContentAdded from "@/components/LastContentAdded";
 
 
 export default function Home() {
@@ -103,6 +103,9 @@ export default function Home() {
                       <TopPopularMovies cardPerContainer={cardPerContainer} cards={allData} moviesDB={movies} />
                       <TopPopularTVShows cardPerContainer={cardPerContainer} cards={serieData} seriesDB={series} />
                       <TrendingCarousel cardPerContainer={cardPerContainer} />
+                      <LastContentAdded cardPerContainer={cardPerContainer} type="movie" />
+                      <LastContentAdded cardPerContainer={cardPerContainer} type="tv" />
+
                       {
                         divisaoPorGenero.map((sec, index) => {
                           return (
