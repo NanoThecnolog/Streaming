@@ -11,7 +11,8 @@ import NProgress from "nprogress"
 import "nprogress/nprogress.css";
 import { Functions } from "@/classes/Functions";
 import axios from "axios";
-import { pageview } from "@/utils/gtag";
+import { GA_TRACKING_ID, pageview } from "@/utils/gtag";
+import Script from "next/script";
 
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -34,7 +35,7 @@ export default function App({ Component, pageProps }: AppProps) {
     return () => {
       router.events.off('routeChangeComplete', trackingRoute)
     }
-  }, [])
+  }, [router.events, router.asPath])
 
 
   useEffect(() => {
@@ -88,8 +89,26 @@ export default function App({ Component, pageProps }: AppProps) {
 
 
 
+
+
+
   return (
     <ErrorBoundary>
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+      />
+
+      <Script id="ga-init" strategy="afterInteractive">
+        {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '${GA_TRACKING_ID}', {
+      send_page_view: false
+    });
+  `}
+      </Script>
       <FlixProvider>
         <TMDBProvider>
           <Component {...pageProps} />
