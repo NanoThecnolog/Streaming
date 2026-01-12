@@ -11,6 +11,7 @@ import NProgress from "nprogress"
 import "nprogress/nprogress.css";
 import { Functions } from "@/classes/Functions";
 import axios from "axios";
+import { pageview } from "@/utils/gtag";
 
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -21,6 +22,9 @@ export default function App({ Component, pageProps }: AppProps) {
     if (process.env.NODE_ENV !== 'production') return
 
     const trackingRoute = (url: string) => {
+
+      pageview(url)
+
       axios.post('/api/track', { path: url }).catch(() => { })
     }
     trackingRoute(router.asPath)
