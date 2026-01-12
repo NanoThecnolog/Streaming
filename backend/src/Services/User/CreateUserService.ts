@@ -5,6 +5,7 @@ import prismaClient from "../../prisma";
 import { apiEmail } from "../../Utils/apiMessenger";
 import { BadRequestError } from "../../Utils/badRequestExtend";
 import { isEmail } from "validator";
+import { Normalizer } from '../../Utils/normalizer';
 
 interface AddressRequest {
     street: string;
@@ -48,7 +49,7 @@ class CreateUserService {
         const user = await prismaClient.user.create({
             data: {
                 name,
-                email,
+                email: Normalizer.email(email),
                 birthday,
                 password: passwordHash,
                 cpf,

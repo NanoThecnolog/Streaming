@@ -35,6 +35,33 @@ model user {
   loginHistory loginHistory?
   subscription subscription?
   watchLater   watchLater[]
+
+  genPreferences userGenPreference[]
+}
+
+model userGenPreference {
+  id     String @id @default(uuid())
+  userId String
+  genId  Int
+  weight Int    @default(1)
+
+  createdAt DateTime @default(now())
+
+  user user @relation(fields: [userId], references: [id])
+  gen  gen  @relation(fields: [genId], references: [id])
+
+  @@unique([userId, genId])
+  @@index([userId])
+  @@index([genId])
+}
+
+model gen {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  slug      String   @unique
+  createdAt DateTime @default(now())
+
+  userPreferences userGenPreference[]
 }
 
 model loginHistory {
