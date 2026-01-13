@@ -22,10 +22,14 @@ export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     if (process.env.NODE_ENV !== 'production') return
 
+    const lastPathRef = useRef<string | null>(null)
+
     const trackingRoute = (url: string) => {
 
       pageview(url)
+      if (lastPathRef.current === url) return
 
+      lastPathRef.current = url
       axios.post('/api/track', { path: url }).catch(() => { })
     }
     trackingRoute(router.asPath)
@@ -35,7 +39,7 @@ export default function App({ Component, pageProps }: AppProps) {
     return () => {
       router.events.off('routeChangeComplete', trackingRoute)
     }
-  }, [router.events, router.asPath])
+  }, [router.events])
 
 
   useEffect(() => {
