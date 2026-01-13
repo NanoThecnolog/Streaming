@@ -18,11 +18,12 @@ import Script from "next/script";
 export default function App({ Component, pageProps }: AppProps) {
 
   const router = useRouter()
+  const lastPathRef = useRef<string | null>(null)
 
   useEffect(() => {
     if (process.env.NODE_ENV !== 'production') return
 
-    const lastPathRef = useRef<string | null>(null)
+
 
     const trackingRoute = (url: string) => {
 
