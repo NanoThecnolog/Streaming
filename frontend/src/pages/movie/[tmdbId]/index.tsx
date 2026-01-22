@@ -164,6 +164,7 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
             <Head>
                 <title>{`${movie.title} - FlixNext`}</title>
                 <meta name="description" content={movie.overview} />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
 
                 {/* Meta OpenGraph */}
                 <meta property="og:title" content={`${movie.title} - FlixNext`} />
@@ -177,8 +178,10 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
                 <meta name="twitter:title" content={`${movie.title} - FlixNext`} />
                 <meta name="twitter:description" content={movie.overview} />
                 <meta name="twitter:image" content={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} />
+                <meta property="twitter:url" content={`https://flixnext.com.br/movie/${movie.id}`} />
+
+                <link rel="icon" href="/favicon_io/android-chrome-192x192.png" />
             </Head>
-            <SEO description={movie.overview} title={`${movie.title} - FlixNext`} url={`https://flixnext.com.br/movie/${movie.id}`} image={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} />
             <Header />
             {
                 movie && filme ? (
@@ -247,18 +250,6 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-
-    /*const movies = await mongoService.fetchMovieData()
-    const paths = movies.map(movie => ({
-        params: { tmdbId: movie.tmdbId.toString() }
-    })
-    )
-    //debug.log('ids dos filmes', paths)
-
-    return {
-        paths,
-        fallback: 'blocking',
-    };*/
     return {
         paths: [],
         fallback: "blocking",

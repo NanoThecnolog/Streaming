@@ -91,5 +91,16 @@ class MongoContentService {
             return null
         }
     }
+
+    async getMapId() {
+        try {
+            const response = await apiManager.get<{ id: number }[]>('/map')
+            const data = response.data
+            return data
+        } catch (err) {
+            debug.error(err)
+            return []
+        }
+    }
 }
 export const mongoService = new MongoContentService()

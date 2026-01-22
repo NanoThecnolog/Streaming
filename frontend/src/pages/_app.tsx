@@ -23,8 +23,6 @@ export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     if (process.env.NODE_ENV !== 'production') return
 
-
-
     const trackingRoute = (url: string) => {
 
       pageview(url)
@@ -41,7 +39,6 @@ export default function App({ Component, pageProps }: AppProps) {
       router.events.off('routeChangeComplete', trackingRoute)
     }
   }, [router.events])
-
 
   useEffect(() => {
     console.clear()
