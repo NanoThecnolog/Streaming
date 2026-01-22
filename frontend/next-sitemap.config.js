@@ -52,6 +52,7 @@ module.exports = {
             ? 'https://flixnext.com.br'
             : 'http://localhost:3000'
 
+        console.log("url base utilizada", baseUrl)
         const res = await fetch(`${baseUrl}/api/seo`)
 
         if (!res.ok) throw new Error(`[sitemap] erro ao buscar /api/seo: ${res.status}`)
