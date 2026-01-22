@@ -51,8 +51,20 @@ module.exports = {
         const baseUrl = process.env.NODE_ENV === 'production'
             ? 'https://flixnext.com.br'
             : 'http://localhost:3000'
+
         const res = await fetch(`${baseUrl}/api/seo`)
-        const m = await res.json()
+
+        if (!res.ok) throw new Error(`[sitemap] erro ao buscar /api/seo: ${res.status}`)
+
+        const json = await res.json()
+
+        const m = Array.isArray(json)
+            ? json
+            : Array.isArray(json.data)
+                ? json.data
+                : []
+
+        if (!Array.isArray(m)) throw new Error('[sitemap] resposta inválida da api /api/seo')
 
         return m.map((movie) => ({
             loc: `/movie/${movie.id}`,
