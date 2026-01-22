@@ -48,9 +48,10 @@ module.exports = {
         }
     },
     additionalPaths: async (config) => {
-        const baseUrl = process.env.NODE_ENV === 'production'
+        /*const baseUrl = process.env.NODE_ENV === 'production'
             ? 'https://flixnext.com.br'
-            : 'http://localhost:3000'
+            : 'http://localhost:3000'*/
+        const baseUrl = 'https://flixnext.com.br'
 
         console.log("url base utilizada", baseUrl)
         const res = await fetch(`${baseUrl}/api/seo`)
