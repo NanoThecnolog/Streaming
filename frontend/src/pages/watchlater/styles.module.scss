@@ -1,4 +1,4 @@
-.mainContainer {
+/*.mainContainer {
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -40,6 +40,124 @@
                         //height: 200px;
                     }
                 }
+            }
+        }
+    }
+}*/
+
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    font-family: var(--font-Roboto);
+    //padding-bottom: 160px;
+    padding: 0 10px 160px 10px;
+
+    /*background: linear-gradient(to bottom,
+            var(--background-black) 0%,
+            var(--background-gray) 100%);*/
+
+    .articleContainer {
+        width: 100%;
+        max-width: 1600px;
+        padding: 0 24px;
+        margin-top: 160px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 64px;
+
+        h1 {
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--white);
+        }
+
+        .listContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+
+            h2 {
+                font-size: clamp(1.2rem, 2vw, 1.6rem);
+                font-weight: 600;
+                color: var(--white);
+                margin-bottom: 12px;
+                padding-left: 4px;
+            }
+
+            .cardsContainer {
+                position: relative;
+                width: 100%;
+
+                padding: 12px 0;
+
+                .carousel {
+                    width: 100%;
+
+                    .swiper-slide {
+                        display: flex;
+                        justify-content: center;
+                        align-items: stretch;
+                        transition: transform 0.25s ease;
+
+                        &:hover {
+                            //transform: scale(1.04);
+                            z-index: 2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .mainContainer {
+        .articleContainer {
+            margin-top: 120px;
+            gap: 48px;
+
+            .listContainer {
+                gap: 56px;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .mainContainer {
+        padding-bottom: 120px;
+
+        .articleContainer {
+            margin-top: 100px;
+            padding: 0 16px;
+
+            h1 {
+                text-align: center;
+            }
+
+            .listContainer {
+                gap: 48px;
+
+                h2 {
+                    text-align: left;
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .mainContainer {
+        .articleContainer {
+            margin-top: 80px;
+
+            .listContainer {
+                gap: 40px;
             }
         }
     }

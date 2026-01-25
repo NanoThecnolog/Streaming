@@ -1,6 +1,6 @@
 import Header from '@/components/Header'
 import styles from './styles.module.scss'
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import SEO from '@/components/SEO';
 import { useFlix } from '@/contexts/FlixContext';
 import { parseCookies } from 'nookies';
@@ -21,21 +21,25 @@ interface ListsProps {
 
 export default function WatchLater() {
     const { 'flix-watch': watchCookies } = parseCookies()
-    const [watchListIds, setWatchListIds] = useState<WatchLaterContext[]>()
-    const [list, setList] = useState<ListsProps | null>(null)
+
+    const [watchListIds, setWatchListIds] = useState<WatchLaterContext[]>([])
+    //const [list, setList] = useState<ListsProps | null>(null)
     const { movies, series, setMovies, setSeries } = useFlix()
     const [cardPerContainer, setCardPerContainer] = useState(10)
 
     useEffect(() => {
-        async function getMongoData() {
+        const getMongoData = async () => {
             const [movies, series] = await Promise.all([
                 mongoService.fetchMovieData(),
                 mongoService.fetchSerieData()
             ])
+
             setMovies(movies)
             setSeries(series)
         }
+
         if (movies.length === 0 || series.length === 0) getMongoData()
+
     }, [movies, series])
 
 
@@ -43,7 +47,19 @@ export default function WatchLater() {
         if (watchCookies) setWatchListIds(JSON.parse(watchCookies))
     }, [watchCookies])
 
-    useEffect(() => {
+    const watchLaterList = useMemo(() => {
+        if (!watchListIds.length) {
+            return { movies: [], series: [] }
+        }
+        const tmdbIdSet = new Set(watchListIds?.map(i => i.tmdbid))
+
+        return {
+            movies: movies.filter(m => tmdbIdSet.has(m.tmdbId)),
+            series: series.filter(s => tmdbIdSet.has(s.tmdbID))
+        }
+    }, [watchListIds, movies, series])
+
+    /*useEffect(() => {
         if (!watchListIds) return
         //debug.log('watchListIds no useEffect', watchListIds)
         if (list && list.movies.length > 0 && list.series.length > 0) return
@@ -61,7 +77,8 @@ export default function WatchLater() {
             series: serie
         })
 
-    }, [watchListIds])
+    }, [watchListIds])*/
+
     useEffect(() => {
         function handleResize() {
             const windowWidth = window.innerWidth;
@@ -84,51 +101,47 @@ export default function WatchLater() {
     }, [])
     return (
         <>
-            <SEO title='Minha Lista - FlixNext' description='A lista dos filmes para assistir mais tarde' />
+            <SEO title='Minha Lista - FlixNext' description='Filmes e séries para assistir mais tarde' />
             <Header />
             <main className={styles.mainContainer}>
                 <article className={styles.articleContainer}>
-                    <div>
-                        <h1>Minha Lista</h1>
-                    </div>
-                    <div className={styles.listContainer}>
+                    <h1>Minha Lista</h1>
+
+                    <section className={styles.listContainer}>
                         <h2>Filmes</h2>
+
                         <div className={styles.cardsContainer}>
                             <Swiper
                                 spaceBetween={5}
                                 slidesPerView={cardPerContainer}
-                                loop={true}
-                                //onSwiper={handleSwiper}
+                                loop={watchLaterList.movies.length > cardPerContainer}
                                 className={styles.carousel}
                             >
-                                {
-                                    list?.movies.map(item =>
-                                        <SwiperSlide key={item.tmdbId}>
-                                            <Card card={item} key={item.tmdbId} />
-                                        </SwiperSlide>
-                                    )
-                                }
+                                {watchLaterList.movies.map(movie => (
+                                    <SwiperSlide key={movie.tmdbId}>
+                                        <Card card={movie} />
+                                    </SwiperSlide>
+                                ))}
                             </Swiper>
                         </div>
+
                         <h2>Séries</h2>
+
                         <div className={styles.cardsContainer}>
                             <Swiper
                                 spaceBetween={5}
                                 slidesPerView={cardPerContainer}
-                                loop={true}
-                                //onSwiper={handleSwiper}
+                                loop={watchLaterList.series.length > cardPerContainer}
                                 className={styles.carousel}
                             >
-                                {
-                                    list?.series.map(item =>
-                                        <SwiperSlide key={item.tmdbID} className={styles.item}>
-                                            <Card card={item} key={item.tmdbID} />
-                                        </SwiperSlide>
-                                    )
-                                }
+                                {watchLaterList.series.map(serie => (
+                                    <SwiperSlide key={serie.tmdbID}>
+                                        <Card card={serie} />
+                                    </SwiperSlide>
+                                ))}
                             </Swiper>
                         </div>
-                    </div>
+                    </section>
                 </article>
             </main>
             <Footer />
