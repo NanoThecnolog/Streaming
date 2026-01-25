@@ -13,19 +13,28 @@ import { mongoService } from '@/classes/MongoContent';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { debug } from '@/classes/DebugLogger';
+import { GetServerSideProps } from 'next';
+import axios from 'axios';
+import { WatchLaterProps } from '@/@types/watchLater';
+import { SetupAPIClient } from '@/services/api';
 
 interface ListsProps {
     movies: CardsProps[]
     series: SeriesProps[]
 }
 
-export default function WatchLater() {
-    const { 'flix-watch': watchCookies } = parseCookies()
+interface PageProps {
+    list: WatchLaterProps[]
+}
 
-    const [watchListIds, setWatchListIds] = useState<WatchLaterContext[]>([])
-    //const [list, setList] = useState<ListsProps | null>(null)
+export default function WatchLater({ list }: PageProps) {
+
     const { movies, series, setMovies, setSeries } = useFlix()
     const [cardPerContainer, setCardPerContainer] = useState(10)
+
+    useEffect(() => {
+        debug.log("Lista", list)
+    }, [list])
 
     useEffect(() => {
         const getMongoData = async () => {
@@ -43,41 +52,18 @@ export default function WatchLater() {
     }, [movies, series])
 
 
-    useEffect(() => {
-        if (watchCookies) setWatchListIds(JSON.parse(watchCookies))
-    }, [watchCookies])
 
     const watchLaterList = useMemo(() => {
-        if (!watchListIds.length) {
+        if (!list.length) {
             return { movies: [], series: [] }
         }
-        const tmdbIdSet = new Set(watchListIds?.map(i => i.tmdbid))
+        const tmdbIdSet = new Set(list?.map(i => i.tmdbid))
 
         return {
             movies: movies.filter(m => tmdbIdSet.has(m.tmdbId)),
             series: series.filter(s => tmdbIdSet.has(s.tmdbID))
         }
-    }, [watchListIds, movies, series])
-
-    /*useEffect(() => {
-        if (!watchListIds) return
-        //debug.log('watchListIds no useEffect', watchListIds)
-        if (list && list.movies.length > 0 && list.series.length > 0) return
-        const tmdbidSet = [...new Set(watchListIds.map(item => item.tmdbid))]
-        //debug.log("set", tmdbidSet)
-
-        const filteredList = <T extends Record<string, any>>(arr: T[], key: keyof T) => {
-            return arr.filter(item => tmdbidSet.some(set => set === item[key]))
-        }
-
-        const movie = filteredList(movies, "tmdbId")
-        const serie = filteredList(series, "tmdbID")
-        setList({
-            movies: movie,
-            series: serie
-        })
-
-    }, [watchListIds])*/
+    }, [list, movies, series])
 
     useEffect(() => {
         function handleResize() {
@@ -93,7 +79,6 @@ export default function WatchLater() {
             ]
             const { cards } = breakpoints.find(b => windowWidth < b.width) || { cards: 5 }
             setCardPerContainer(cards)
-            //debug.log(cards)
         }
         window.addEventListener('resize', handleResize)
         handleResize()
@@ -147,4 +132,33 @@ export default function WatchLater() {
             <Footer />
         </>
     )
+}
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+
+    const { req } = ctx
+
+    const token = req.cookies['flix-token']
+    if (!token) return {
+        redirect: {
+            destination: '/login',
+            permanent: false
+        },
+    }
+
+    try {
+        const client = new SetupAPIClient(ctx)
+        const { data } = await client.api.get<WatchLaterProps[]>('/watchLater')
+
+        return {
+            props: { list: data }
+        }
+    } catch (err) {
+        console.log("Erro ao buscar lista de assistir mais tarde")
+        return {
+            props: {
+                list: []
+            }
+        }
+    }
 }
