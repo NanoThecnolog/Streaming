@@ -41,9 +41,10 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [router.events])
 
   useEffect(() => {
-    console.clear()
+
 
     if (process.env.NODE_ENV === 'production') {
+      console.clear()
       console.log(
         '%cATENÇÃO!',
         'font-size: 48px; font-weight: bold; color: #ff3040;'

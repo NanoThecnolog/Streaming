@@ -2,6 +2,8 @@
 import Link from 'next/link';
 import styles from './styles.module.scss';
 import { useFlix } from '@/contexts/FlixContext';
+import { formatPrice } from '@/utils/UtilitiesFunctions';
+import { planValues } from '@/utils/Variaveis';
 
 interface Props {
     open: boolean;
@@ -28,7 +30,7 @@ export function WarningModal({ open, onClose }: Props) {
                         <div className={styles.planInfo}>
                             <p>
                                 Os planos iniciam a partir de
-                                <strong className={styles.price}> R$ 10,99</strong>
+                                <strong className={styles.price}>{formatPrice(planValues.mensal)}</strong>
                             </p>
                             <p className={styles.smallText}>
                                 Pagamento via <strong>boleto bancário</strong>, com opção de pagamento por Pix.

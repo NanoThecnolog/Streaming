@@ -1,6 +1,7 @@
-import { streamingPrices } from '@/utils/Variaveis'
+import { planValues, streamingPrices } from '@/utils/Variaveis'
 import styles from './styles.module.scss'
 import Link from 'next/link'
+import { formatPrice } from '@/utils/UtilitiesFunctions'
 
 export default function PromoCounting() {
 
@@ -19,14 +20,14 @@ export default function PromoCounting() {
                 {streamingPrices.map(streaming => (
                     <li key={streaming.name}>
                         <span>{streaming.name}</span>
-                        <span>R$ {streaming.price.toFixed(2)}</span>
+                        <span>{formatPrice(streaming.price)}</span>
                     </li>
                 ))}
             </ul>
 
             <div className={styles.total}>
                 <p>
-                    Gasto médio mensal: <strong>R$ {total.toFixed(2)}</strong>
+                    Gasto médio mensal: <strong>{formatPrice(total)}</strong>
                 </p>
             </div>
 
@@ -39,7 +40,7 @@ export default function PromoCounting() {
                 </p>
 
                 <h3>
-                    Acesso a partir de <span>R$ 14,45/mês</span>
+                    Acesso a partir de <span>{formatPrice(planValues.mensal)}/mês</span>
                 </h3>
 
                 <Link href="/planos/#escolher">

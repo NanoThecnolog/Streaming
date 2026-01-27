@@ -176,6 +176,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
     try {
         const userData = await axios.get<UserContext>(`${url}/api/user`)
+
         if (!userData.data.donator) {
             return {
                 redirect: {

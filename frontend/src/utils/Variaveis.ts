@@ -2,6 +2,7 @@
 //import { series } from "@/data/series"
 import { mongoService } from "@/classes/MongoContent"
 import { FAQ } from "@/pages/faq"
+import { formatPrice } from "./UtilitiesFunctions"
 
 export const cookieOptions = {
     maxAge: 15 * 24 * 60 * 60 * 1000,
@@ -44,6 +45,13 @@ export const fuseConfig = async () => {
         chaves: ["title", "subtitle"],
         taxa: 0.3
     }
+}
+
+export const planValues = {
+    mensal: 1445,
+    trimestral: 4115,
+    semestral: 8057,
+    anual: 15595,
 }
 
 export const breakpoints = [
@@ -176,7 +184,7 @@ export const faqPlans: FAQ[] = [
     {
         question: 'Quanto custa para assinar?',
         answer:
-            'Os planos de acesso começam a partir de R$ 14,45. O valor varia de acordo com o período de assinatura escolhido e existe apenas para manter a plataforma ativa e em constante evolução.'
+            `Os planos de acesso começam a partir de ${formatPrice(planValues.mensal)}. O valor varia de acordo com o período de assinatura escolhido e existe apenas para manter a plataforma ativa e em constante evolução.`
     },
     {
         question: 'Onde posso assistir?',
@@ -255,16 +263,18 @@ export const fakePatterns = [
 ];
 
 export const streamingPrices = [
-    { name: 'Netflix', price: 44.9 },
-    { name: 'Prime Video', price: 19.9 },
-    { name: 'HBO Max', price: 29.9 },
-    { name: 'Disney+', price: 46.9 },
-    { name: 'Sky+', price: 49.95 },
-    { name: 'Apple TV+', price: 21.9 },
-    { name: 'Paramount+', price: 18.9 },
-    { name: 'Globoplay', price: 14.9 },
-    { name: 'StarZ', price: 24.9 },
+    { name: 'Netflix', price: 4490 },
+    { name: 'Prime Video', price: 1990 },
+    { name: 'HBO Max', price: 3490 },
+    { name: 'Disney+', price: 4690 },
+    { name: 'Sky+', price: 4950 },
+    { name: 'Apple TV+', price: 2990 },
+    { name: 'Paramount+', price: 2790 },
+    { name: 'Globoplay', price: 3990 },
+    { name: 'StarZ', price: 5390 },
 ]
+
+
 
 export const stateMap: Record<string, string> = {
     "acre": "AC",
@@ -314,5 +324,6 @@ export const subscriptionMap: Record<string, string> = {
     inactive: "Inativa",
     canceled: "Cancelada",
     new: "Criada",
-    expired: "Finalizada"
+    expired: "Finalizada",
+    new_charge: "Ativa"
 }
