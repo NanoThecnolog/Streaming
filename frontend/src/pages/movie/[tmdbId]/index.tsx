@@ -96,10 +96,10 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
         }
         getTrailer()
     }, [filme])
-    useEffect(() => {
+    /*useEffect(() => {
         const showingWarningModal = !user || !user.donator
         setWarningModalOpen(showingWarningModal)
-    }, [user])
+    }, [user])*/
 
     //interação do usuario
     const watchLater = () => {
