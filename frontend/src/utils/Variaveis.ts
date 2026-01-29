@@ -48,10 +48,10 @@ export const fuseConfig = async () => {
 }
 
 export const planValues = {
-    mensal: 1445,
-    trimestral: 4115,
-    semestral: 8057,
-    anual: 15595,
+    mensal: 1099,
+    trimestral: 3132,
+    semestral: 6132,
+    anual: 11869,
 }
 
 export const breakpoints = [
