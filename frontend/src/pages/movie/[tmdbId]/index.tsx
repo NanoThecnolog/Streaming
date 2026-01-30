@@ -74,7 +74,9 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
             ? {
                 "@type": "AggregateRating",
                 "ratingValue": movie.vote_average,
-                "ratingCount": movie.vote_count
+                "ratingCount": movie.vote_count,
+                "bestRating": 10,
+                "worstRating": 0
             }
             : undefined,
         "actor": cast.slice(0, 5).map((a: CastingProps) => ({
