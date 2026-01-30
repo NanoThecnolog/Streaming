@@ -9,7 +9,36 @@ module.exports = {
 
     robotsTxtOptions: {
         policies: [
-            { userAgent: '*', allow: '/' },
+            {
+                userAgent: '*',
+                allow: [
+                    '/',
+                    '/series',
+                    '/movies',
+                    '/movie/*',
+                    '/series/*',
+                    '/login',
+                    '/sobre',
+                    '/privacidade',
+                    '/termos-de-uso',
+                    '/catalogo'
+
+                ],
+                disallow: [
+                    '/planos',
+                    '/payment',
+                    '/watch',
+                    '/recover',
+                    '/dashboard',
+                    '/teste',
+                    '/success',
+                    '/me',
+                    '/request',
+                    '/watchlater',
+                    '/ativando-conta',
+                ]
+            },
+            /*{ userAgent: '*', allow: '/' },
             { userAgent: '*', allow: '/series' },
             { userAgent: '*', allow: '/movies' },
             { userAgent: '*', allow: '/movie/*' },
@@ -22,7 +51,7 @@ module.exports = {
             { userAgent: '*', disallow: '/watch', },
             { userAgent: '*', disallow: '/recover', },
             { userAgent: '*', disallow: '/dashboard/*' },
-            { userAgent: '*', disallow: '/teste' }
+            { userAgent: '*', disallow: '/teste' }*/
         ],
     },
     transform: async (config, path) => {
@@ -31,7 +60,13 @@ module.exports = {
             path.startsWith('/dashboard') ||
             path.startsWith('/teste') ||
             path.startsWith('/payment') ||
-            path.startsWith('/planos')
+            path.startsWith('/planos') ||
+            path.startsWith('/success') ||
+            path.startsWith('/request') ||
+            path.startsWith('/me') ||
+            path.startsWith('/watchlater') ||
+            path.startsWith('/ativando-conta')
+
         ) return null
 
         let priority = config.priority

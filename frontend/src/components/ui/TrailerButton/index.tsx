@@ -16,7 +16,7 @@ export default function TrailerButton({ trailer }: TrailerButtonProps) {
     return (
         <>
             {urlTrailer &&
-                <div className={styles.buttonTrailer}>
+                <div className={styles.buttonTrailer} title='Trailer'>
                     <a href={`https://www.youtube.com/watch?v=${urlTrailer.key}`} target='_blank' rel='noopener noreferrer'>
                         <button type='button'>
                             <p><MdOutlineMovie size={25} /></p>

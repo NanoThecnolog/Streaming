@@ -60,6 +60,29 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
     const [warningModalOpen, setWarningModalOpen] = useState(false)
     const watchLaterManager = new WatchLaterManager()
 
+    //Schema para melhorar SEO do site. testando para ver se indexa mais filmes
+    const movieSchema = {
+        "@context": "https://schema.org",
+        "@type": "Movie",
+        "name": movie.title,
+        "description": movie.overview,
+        "image": `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+        "datePublished": movie.release_date,
+        "inLanguage": "pt-BR",
+        "genre": movie.genres?.map((g: any) => g.name),
+        "aggregateRating": movie.vote_count
+            ? {
+                "@type": "AggregateRating",
+                "ratingValue": movie.vote_average,
+                "ratingCount": movie.vote_count
+            }
+            : undefined,
+        "actor": cast.slice(0, 5).map((a: CastingProps) => ({
+            "@type": "Person",
+            "name": a.name
+        }))
+    }
+
     //atualização de dados e estado
     useEffect(() => {
         if (!movie) return
@@ -181,6 +204,13 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
                 <meta property="twitter:url" content={`https://flixnext.com.br/movie/${movie.id}`} />
 
                 <link rel="icon" href="/favicon_io/android-chrome-192x192.png" />
+
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(movieSchema)
+                    }}
+                />
             </Head>
             <Header />
             {
@@ -271,19 +301,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
                 headers: { Authorization: `Bearer ${tmdbToken}` },
             }),
         ])
-        /*const resMovie = await axios.get(`https://api.themoviedb.org/3/movie/${tmdbId}`, {
-            headers: {Authorization: `Bearer ${tmdbToken}`},
-            params: {language: "pt-BR",},
-        });
-        //debug.log('resMovie', resMovie.data)
-
-        // Requisição para dados do elenco (cast)
-        const resCast = await axios.get(`https://api.themoviedb.org/3/movie/${tmdbId}/credits`, {
-            headers: {
-                Authorization: `Bearer ${tmdbToken}`
-            },
-        });*/
-        //debug.log('resCast', resCast.data)
 
         const movieData = resMovie.data;
         const castData = resCast.data;
