@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import { text } from '@/utils/Variaveis'
-import PropagateLoader from 'react-spinners/PropagateLoader'
+import * as Spinners from 'react-spinners'
 
 export default function Loading() {
     const [randomText, setRandomText] = useState<string>("")
-    //const [shuffledTexts, setShuffledTexts] = useState<string[]>([])
     const [index, setIndex] = useState<number>(0)
 
     const shuffleArray = (arr: string[]) => {
@@ -40,11 +39,12 @@ export default function Loading() {
                 <h1><span>Flix</span>Next</h1>
             </div>
             <div className={styles.spinner}>
-                <PropagateLoader
-                    size={15}
+                <Spinners.PacmanLoader
+                    size={25}//15
                     color='#fff'
-                    speedMultiplier={0.6}
-                /></div>
+                    speedMultiplier={1}//0.6
+                />
+            </div>
             <div>
                 {randomText &&
                     <h2 className={styles.randomText}>{randomText}</h2>
