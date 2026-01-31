@@ -20,7 +20,19 @@ export default function HeroSection({ width }: HeroProps) {
 
     const ids: IDProps[] = [
         {
-            id: 425274,
+            id: 106379, //fallout
+            type: 'tv'
+        },
+        {
+            id: 1168190, // dupla perigosa
+            type: 'movie'
+        },
+        {
+            id: 224372, //cavaleiro dos 7 reinos
+            type: 'tv'
+        },
+        {
+            id: 1306368, //dinheiro suspeito
             type: 'movie'
         },
         {
@@ -36,20 +48,8 @@ export default function HeroSection({ width }: HeroProps) {
             type: 'tv'
         },
         {
-            id: 617126,
-            type: "movie"
-        },
-        {
-            id: 200875,//bem vindos a derry
-            type: "tv"
-        },
-        {
-            id: 157239,//alien earth
-            type: "tv"
-        },
-        {
-            id: 604079,// a longa marcha
-            type: "movie"
+            id: 425274,
+            type: 'movie'
         },
     ]
 
