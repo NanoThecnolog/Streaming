@@ -1,40 +1,41 @@
 import { CardsProps, MovieTMDB } from '@/@types/Cards'
 import BaseCarousel from '../ui/BaseCarousel'
 import { useEffect, useState } from 'react'
+import { useTMDB } from '@/contexts/TMDBContext'
+import { useFlix } from '@/contexts/FlixContext'
 
 interface TopPopularProps {
     cardPerContainer: number
-    cards: MovieTMDB[],
-    moviesDB: CardsProps[]
 }
 
-export default function TopPopularMovies({ cardPerContainer, cards, moviesDB }: TopPopularProps) {
-    const [movies, setMovies] = useState<CardsProps[]>([])
+export default function TopPopularMovies({ cardPerContainer }: TopPopularProps) {
+    const { allData } = useTMDB()
+    const { movies } = useFlix()
+    const [trendMovies, setTrendMovies] = useState<CardsProps[]>([])
 
     useEffect(() => {
-        if (movies.length === 0) {
+        if (trendMovies.length === 0) {
             const mapMoviesDB = new Map<number, CardsProps>()
-            const sorted = [...cards].sort((a, b) => b.popularity - a.popularity)
+            const sorted = [...allData].sort((a, b) => b.popularity - a.popularity)
 
             for (const card of sorted) {
-                const movie = moviesDB.find(m => m.tmdbId === card.id)
+                const movie = movies.find(m => m.tmdbId === card.id)
                 if (movie && !mapMoviesDB.has(movie.tmdbId)) {
                     mapMoviesDB.set(movie.tmdbId, movie)
                 }
                 if (mapMoviesDB.size === 10) break
             }
-            setMovies(Array.from(mapMoviesDB.values()))
+            setTrendMovies(Array.from(mapMoviesDB.values()))
         }
 
-    }, [cards, moviesDB])
+    }, [movies, allData])
 
-    if (!cards || cards.length === 0) return null
-
+    if (!allData || allData.length === 0) return null
 
     return (
         <>
             {
-                movies.length > 0 && <BaseCarousel title='TOP10 Filmes para assistir' cardPerContainer={cardPerContainer} cards={movies} />
+                trendMovies.length > 0 && <BaseCarousel title='TOP10 Filmes para assistir' cardPerContainer={cardPerContainer} cards={trendMovies} />
             }
         </>
     )

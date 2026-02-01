@@ -21,6 +21,8 @@ export default function LastContentAdded({ cardPerContainer, type }: ComponentPr
         lastMovies()
     }, [movies])
 
+    if (cards.length === 0) return null
+
     return (
         <CommonCarousel
             cardPerContainer={cardPerContainer}

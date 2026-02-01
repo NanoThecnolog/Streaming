@@ -50,6 +50,8 @@ export default function Carousel({ type, section, cardPerContainer }: CarouselPr
         }
     }, [swiperRef, swiperInstance])
 
+    if (filter.length === 0) return null
+
     return (
         <div className={styles.carouselContainer}>
             <h2 className={styles.contentTitle}>{section.toUpperCase()}</h2>
