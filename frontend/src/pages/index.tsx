@@ -35,16 +35,8 @@ export default function Home() {
   const { allData, setAllData, serieData, setSerieData } = useTMDB()
   const [visible, setvisible] = useState(false)
   const { user, movies, series } = useFlix()
-  const tmdbid = 617126;
-  const [topCard, setTopCard] = useState<CardsProps | null>(null)
 
   useEffect(() => {
-    const card = movies.find((card) => card.tmdbId === tmdbid)
-    if (card && (!topCard || topCard.tmdbId !== card.tmdbId)) setTopCard(card)
-  }, [movies])
-
-  useEffect(() => {
-    //if (allData.length > 0 && serieData.length > 0) return
     if (movies.length > 0 && allData.length === 0) flixFetcher.fetchMovieData(setAllData, movies)
     if (serieData.length === 0) flixFetcher.fetchSerieData(setSerieData)
   }, [movies, setAllData, serieData, setSerieData])
@@ -93,51 +85,37 @@ export default function Home() {
                 {movies && movies.length > 0 &&
                   <>
                     <div className={styles.top}>
-                      {
-                        //topCard && <NewTop width={width} card={topCard} />
-                      }
                       <HeroSection width={width} />
                     </div>
                     <div className={styles.mid} id="filmes">
-
-                      <TopPopularMovies cardPerContainer={cardPerContainer} cards={allData} moviesDB={movies} />
-                      <TopPopularTVShows cardPerContainer={cardPerContainer} cards={serieData} seriesDB={series} />
+                      <TopPopularMovies cardPerContainer={cardPerContainer} />
+                      <TopPopularTVShows cardPerContainer={cardPerContainer} />
                       <TrendingCarousel cardPerContainer={cardPerContainer} />
                       <LastContentAdded cardPerContainer={cardPerContainer} type="movie" />
                       <LastContentAdded cardPerContainer={cardPerContainer} type="tv" />
-
+                      <Search />
                       {
                         divisaoPorGenero.map((sec, index) => {
                           return (
                             <div key={`${sec}+${index}`}>
-                              {
-                                index === 3 && width >= 915 && <Search />
-                              }
                               <Carousel type="movie" section={sec} cardPerContainer={cardPerContainer} />
                             </div>
                           )
-                        })}
+                        })
+                      }
                     </div>
                   </>
                 }
               </div>
               <BackTopButton visible={visible} />
             </main>
-            {!user?.donator && <DailyWarningModal open={isOpen} onClose={close} />}
+            {user && !user?.donator && <DailyWarningModal open={isOpen} onClose={close} />}
             <Footer />
           </> :
           <div className={styles.loading}>
             <Loading />
           </div>
       }
-
     </>
   );
 }
-/*export const getStaticPaths: GetStaticPaths = async () => {
-
-  return {
-        paths,
-        fallback: 'blocking',
-    };
-}*/
