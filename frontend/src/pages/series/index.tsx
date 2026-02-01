@@ -103,10 +103,11 @@ export default function Series() {
                                         {//<TopSerie width={width} />
                                         }
                                         {
-                                            <NewTopSerie width={width} id={66732} isActive={true} />
+                                            <NewTopSerie width={width} id={224372} isActive={true} />
                                         }
                                         <div className={styles.mid}>
-                                            <TopPopularTVShows cardPerContainer={cardPerContainer} cards={serieData} seriesDB={series} />
+                                            <TopPopularTVShows cardPerContainer={cardPerContainer} />
+
                                             {divisaoPorGenero.map((sec, index) => (
                                                 <div key={sec}>
                                                     {

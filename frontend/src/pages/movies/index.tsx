@@ -34,7 +34,7 @@ export default function Home() {
   const [visible, setvisible] = useState(false)
   const { movies, user } = useFlix()
   const { isOpen, close } = useDailyModal()
-  const tmdbid = 617126;
+  const tmdbid = 1168190;
   const [topCard, setTopCard] = useState<CardsProps | null>(null)
 
   useEffect(() => {
@@ -101,7 +101,7 @@ export default function Home() {
                     </div>
                     <div className={styles.mid} id="filmes">
 
-                      <TopPopularMovies cardPerContainer={cardPerContainer} cards={allData} moviesDB={movies} />
+                      <TopPopularMovies cardPerContainer={cardPerContainer} />
                       {
                         divisaoPorGenero.map((sec, index) => {
                           return (
