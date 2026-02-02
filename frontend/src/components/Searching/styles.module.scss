@@ -3,11 +3,22 @@
     height: 500px;
     position: relative;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 40px;
     overflow: hidden;
+
+    @media (max-width: 1024px) {
+        height: 420px;
+    }
+
+    @media (max-width: 768px) {
+        height: 380px;
+    }
+
+    @media (max-width: 480px) {
+        height: 360px;
+    }
 
     .image_Background {
         z-index: 0;
@@ -18,61 +29,127 @@
 
     .overlay_image {
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        inset: 0;
         background-color: rgba(0, 0, 0, 0.5);
         z-index: 1;
     }
 
     .search_area_content {
-        z-index: 1;
+        z-index: 2;
         font-family: "Bebas Neue", cursive;
         color: white;
         font-size: 35px;
         letter-spacing: 5px;
-        padding-left: 40px;
+        padding: 0 40px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        //gap: 50px;
+        text-align: center;
 
+        @media (max-width: 1024px) {
+            font-size: 30px;
+            letter-spacing: 4px;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 26px;
+            letter-spacing: 3px;
+            padding: 0 24px;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 22px;
+            letter-spacing: 2px;
+            padding: 0 16px;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-family: inherit;
+            font-size: 0.5em;
+            letter-spacing: normal;
+            max-width: 700px;
+
+            @media (max-width: 768px) {
+                font-size: 0.55em;
+            }
+        }
 
         .input_area {
             background-color: white;
             border-radius: 2rem;
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1rem;
             width: 40%;
+            min-width: 250px;
+            max-width: 600px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin: 50px 0;
+            gap: 12px;
+            margin: 40px 0;
             color: #242424;
+            //outline: 2px solid red;
+
+            @media (max-width: 1024px) {
+                width: 60%;
+            }
+
+            @media (max-width: 768px) {
+                width: 100%;
+                margin: 30px 0;
+            }
+
+            @media (max-width: 480px) {
+                padding: 0.5rem 0.8rem;
+                border-radius: 1.5rem;
+            }
 
             input {
+                flex: 1;
                 border: none;
-                font-size: 1.5rem;
+                font-size: 1.2rem;
 
                 &::placeholder {
-                    font-size: 1.5rem;
+                    font-size: 1.2rem;
                 }
 
                 &:focus {
                     outline: none;
-                    border: none;
+                }
+
+                @media (max-width: 480px) {
+                    font-size: 1rem;
+
+                    &::placeholder {
+                        font-size: 1rem;
+                    }
                 }
             }
 
             svg {
                 cursor: pointer;
+                flex-shrink: 0;
+
+                @media (max-width: 480px) {
+                    width: 28px;
+                    height: 28px;
+                }
             }
         }
 
         .quantidades {
-            font-size: 1.1rem;
-            font-weight: 900;
+            font-size: 1rem;
+            font-weight: 700;
+
+            @media (max-width: 768px) {
+                font-size: 0.9rem;
+            }
+
+            @media (max-width: 480px) {
+                font-size: 0.85rem;
+            }
         }
     }
 }
