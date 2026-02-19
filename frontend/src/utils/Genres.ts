@@ -41,7 +41,10 @@ export const agp = {
     ghosts: "Fantasmas",
     future: "Futurístico",
     technology: "Tecnologia",
-    romantic: "Romântico"
+    romantic: "Romântico",
+    mythology: "Mitologia",
+    adrenaline: "Adrenalina",
+    monster: "Monstros"
 }
 //temas especiais
 export const sptopc = {

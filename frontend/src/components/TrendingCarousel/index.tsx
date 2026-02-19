@@ -54,6 +54,9 @@ export default function TrendingCarousel({ cardPerContainer }: TrendingProps) {
     useEffect(() => {
         mostPopular(40)
     }, [allData, serieData, movies])
+
+    if (!cards || cards.length === 0) return
+
     return (
         <>
             <CommonCarousel title='Tendências e Populares' cardPerContainer={cardPerContainer} cards={cards} />

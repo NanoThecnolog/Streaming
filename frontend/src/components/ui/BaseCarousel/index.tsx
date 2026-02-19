@@ -25,28 +25,37 @@ export default function BaseCarousel({ title, cardPerContainer, cards }: BasePro
     return (
         <div className={styles.carouselContainer}>
             <h2 className={styles.contentTitle}>{title.toUpperCase()}</h2>
-
-            {
-                //debug.log('cards', cards.map(c => 'season' in c ? c.tmdbID : c.tmdbId))
-            }
             <Swiper
-                //ref={swiperRef}
                 modules={[Navigation]}
                 spaceBetween={10}
-                slidesPerView={cardPerContainer}
+                slidesPerView={cardPerContainer - (cardPerContainer === 8 ? 1 : 0)}
                 loop={false}
                 className={styles.carousel}
             >
                 {uniqueCards.map((card, index) => {
                     if ('season' in card) {
                         return <SwiperSlide key={uniqueKey(card)} className={styles.slide}>
-                            <Link href={`/series/serie/${card.tmdbID}`}><p>{index + 1}</p></Link>
-                            <Card card={card} />
+                            <Link href={`/series/serie/${card.tmdbID}`}><p className={styles.index}>{index === 9 ? (
+                                <>
+                                    <span className={styles.tenOne}>1</span>
+                                    <span className={styles.tenZero}>0</span>
+                                </>
+                            ) : index + 1}</p></Link>
+                            <div className={styles.cardWrapper}>
+                                <Card card={card} />
+                            </div>
                         </SwiperSlide>
                     } else {
                         return <SwiperSlide key={uniqueKey(card)} className={styles.slide}>
-                            <Link href={`/movie/${card.tmdbId}`}><p>{index + 1}</p></Link>
-                            <Card card={card} />
+                            <Link href={`/movie/${card.tmdbId}`}><p className={styles.index}>{index === 9 ? (
+                                <>
+                                    <span className={styles.tenOne}>1</span>
+                                    <span className={styles.tenZero}>0</span>
+                                </>
+                            ) : index + 1}</p></Link>
+                            <div className={styles.cardWrapper}>
+                                <Card card={card} />
+                            </div>
                         </SwiperSlide>
                     }
                 })}

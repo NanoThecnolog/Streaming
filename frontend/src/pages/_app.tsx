@@ -5,7 +5,7 @@ import { ToastContainer } from "react-toastify";
 import { TMDBProvider } from "@/contexts/TMDBContext";
 import { useEffect, useRef } from "react";
 import ErrorBoundary from "@/components/Errors/ErrorBoundary";
-import { FlixProvider } from "@/contexts/FlixContext";
+import { FlixProvider, useFlix } from "@/contexts/FlixContext";
 import Router, { useRouter } from "next/router";
 import NProgress from "nprogress"
 import "nprogress/nprogress.css";
@@ -19,11 +19,13 @@ export default function App({ Component, pageProps }: AppProps) {
 
   const router = useRouter()
   const lastPathRef = useRef<string | null>(null)
+  const { user } = useFlix()
 
   useEffect(() => {
     if (process.env.NODE_ENV !== 'production') return
 
     const trackingRoute = (url: string) => {
+      if (user?.cpf === '14510752784') return
 
       pageview(url)
       if (lastPathRef.current === url) return
@@ -31,6 +33,7 @@ export default function App({ Component, pageProps }: AppProps) {
       lastPathRef.current = url
       axios.post('/api/track', { path: url }).catch(() => { })
     }
+
     trackingRoute(router.asPath)
 
     router.events.on('routeChangeComplete', trackingRoute)
@@ -116,7 +119,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <TMDBProvider>
           <Component {...pageProps} />
           <ToastContainer autoClose={3500} />
-
         </TMDBProvider>
       </FlixProvider>
     </ErrorBoundary>

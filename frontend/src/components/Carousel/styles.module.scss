@@ -1,17 +1,17 @@
 .carouselContainer {
     position: relative;
     width: 100%;
-    margin: 30px 0;
+    margin: 0;
     padding-right: 7px;
     //outline: 2px solid red;
 
     .contentTitle {
         font-family: var(--font-bebas);
         color: var(--white);
-        font-size: 1.5rem;
-        letter-spacing: 3px;
+        font-size: 1.8rem;
+        letter-spacing: 4px;
         //padding-left: 40px;
-        margin-bottom: 10px;
+        //margin-bottom: 10px;
     }
 
     .carousel {
@@ -19,6 +19,7 @@
         //outline: 2px solid blue;
     }
 
+    /*
     .buttonContainer {
         visibility: visible;
 
@@ -78,8 +79,7 @@
         .buttonContainer {
             visibility: hidden;
         }
-
     }
-
-
+}
+    */
 }

@@ -1,14 +1,14 @@
 .carouselContainer {
     width: 100%;
-    margin: 30px 0;
+    margin: 0;
     padding-right: 7px;
 
     .contentTitle {
         font-family: var(--font-bebas);
         color: var(--white);
-        font-size: 2rem;
-        letter-spacing: 3px;
-        margin-bottom: 10px;
+        font-size: 1.6rem;
+        letter-spacing: 4px;
+        //margin-bottom: 10px;
     }
 
     .carousel {

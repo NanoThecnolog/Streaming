@@ -10,6 +10,7 @@ import { shuffle } from '@/utils/UtilitiesFunctions';
 //import { series } from '@/data/series';
 import { SeriesProps } from '@/@types/series';
 import { useFlix } from '@/contexts/FlixContext';
+import { getTitle } from '@/utils/RenderingTitlesSections';
 
 interface CarouselProps {
     //cards: CardsProps[],
@@ -54,7 +55,7 @@ export default function Carousel({ type, section, cardPerContainer }: CarouselPr
 
     return (
         <div className={styles.carouselContainer}>
-            <h2 className={styles.contentTitle}>{section.toUpperCase()}</h2>
+            <h2 className={styles.contentTitle}>{getTitle(section, type).toUpperCase()}</h2>
             <Swiper
                 ref={swiperRef}
                 modules={[Navigation]}

@@ -13,7 +13,6 @@ import Carousel from "@/components/Carousel";
 import { breakpoints } from "@/utils/Variaveis";
 import { flixFetcher } from "@/classes/Flixclass";
 import { useFlix } from "@/contexts/FlixContext";
-import { CardsProps } from "@/@types/Cards";
 import TopPopularMovies from "@/components/TopPopularMovies";
 import HeroSection from "@/components/HeroSection";
 import TrendingCarousel from "@/components/TrendingCarousel";
@@ -72,7 +71,7 @@ export default function Home() {
     <>
       <SEO
         title="FlixNext - Início"
-        description="Um Streaming nunca antes visto porque é novo."
+        description="Feito por quem ama cinema."
         image="https://flixnext.com.br/blurImage.png"
         url="https://flixnext.com.br"
       />
@@ -96,6 +95,7 @@ export default function Home() {
                       <Search />
                       {
                         divisaoPorGenero.map((sec, index) => {
+
                           return (
                             <div key={`${sec}+${index}`}>
                               <Carousel type="movie" section={sec} cardPerContainer={cardPerContainer} />

@@ -1,4 +1,4 @@
-import { CardsProps, MovieTMDB } from '@/@types/Cards'
+import { CardsProps } from '@/@types/Cards'
 import BaseCarousel from '../ui/BaseCarousel'
 import { useEffect, useState } from 'react'
 import { useTMDB } from '@/contexts/TMDBContext'
@@ -30,7 +30,8 @@ export default function TopPopularMovies({ cardPerContainer }: TopPopularProps) 
 
     }, [movies, allData])
 
-    if (!allData || allData.length === 0) return null
+    //if (!allData || allData.length === 0) return null
+    if (!trendMovies || trendMovies.length === 0) return null
 
     return (
         <>

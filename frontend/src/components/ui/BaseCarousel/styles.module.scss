@@ -1,21 +1,21 @@
 .carouselContainer {
     width: 100%;
-    margin: 30px 0;
+    margin: 0;
     padding-right: 7px;
 
     .contentTitle {
         font-family: var(--font-bebas);
         color: var(--white);
-        font-size: 2rem;
-        letter-spacing: 3px;
-        margin-bottom: 10px;
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+        //margin-bottom: 10px;
     }
 
     .carousel {
-        padding-right: 4px;
+        //padding-right: 4px;
 
 
-        .slide {
+        /*.slide {
             position: relative;
 
             p {
@@ -24,6 +24,7 @@
                 left: 0;
                 bottom: 0;
                 right: 0;
+                outline: 2px solid red;
                 padding-left: 5px;
                 color: rgba(255, 255, 255, .8);
                 font-size: 8rem;
@@ -43,6 +44,59 @@
                 }
 
             }
+        }*/
+
+        .slide {
+            position: relative;
+            display: flex;
+            align-items: center;
+            //padding-left: 4.5rem;
+
+            .index {
+                position: absolute;
+                left: 0;
+                bottom: -2rem;
+
+                font-size: clamp(10.5rem, 8vw, 13rem);
+                font-family: var(--font-bebas);
+                letter-spacing: .2rem;
+                line-height: 1;
+
+                color: transparent;
+                -webkit-text-stroke: clamp(1px, 0.2vw, 2px) rgba(255, 255, 255, .45);
+
+
+                z-index: 0;
+                pointer-events: none;
+
+                transition: opacity .3s ease, transform .3s ease;
+
+            }
+
+            .cardWrapper {
+                margin-left: clamp(3rem, 3vw, 3.5rem);
+                position: relative;
+                z-index: 2;
+                width: 100%;
+                height: 100%;
+            }
+
+            .tenOne {
+                position: relative;
+                margin-right: clamp(-2.8rem, -3vw, -3.8rem);
+
+            }
+
+            .tenZero {
+                position: relative;
+                font-size: clamp(8.5rem, 8vw, 11rem);
+            }
+
+        }
+
+        .slide :global(.card) {
+            position: relative;
+            z-index: 2;
         }
     }
 }
