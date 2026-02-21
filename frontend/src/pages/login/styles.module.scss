@@ -62,6 +62,18 @@
                 font-family: var(--font-bebas);
             }
 
+            .passwordInput {
+                position: relative;
+
+                .revelio {
+                    position: absolute;
+                    bottom: 2px;
+                    right: 10px;
+                    color: var(--grey);
+                    cursor: pointer;
+                }
+            }
+
             .buttonContainer {
                 width: 100%;
                 display: flex;

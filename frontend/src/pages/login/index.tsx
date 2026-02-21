@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import styles from './styles.module.scss'
 import { FormEvent, useEffect, useState } from 'react';
-import { FaSpinner } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaSpinner } from 'react-icons/fa';
 import ForgetPass from '@/components/modals/ForgetPassword';
 import SEO from '@/components/SEO';
 import { useFlix } from '@/contexts/FlixContext';
@@ -15,6 +15,7 @@ export default function Login() {
     const [modalVisible, setModalVisible] = useState<boolean>(false)
     const newAccount = "/planos";
     const { signIn } = useFlix()
+    const [revelio, setRevelio] = useState(false)
 
     async function handleLogin(e: FormEvent) {
         e.preventDefault()
@@ -53,17 +54,22 @@ export default function Login() {
                         </div>
                         <div className={styles.passwordContainer}>
                             <h2>Senha:</h2>
-                            <input
-                                type="password"
-                                required
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
+                            <div className={styles.passwordInput}>
+                                <input
+                                    type={revelio ? "text" : "password"}
+                                    required
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+                                <div className={styles.revelio} onClick={() => setRevelio(!revelio)}>
+                                    {revelio ? <FaEyeSlash /> : <FaEye />}
+                                </div>
+                            </div>
                         </div>
                         <div className={styles.buttonContainer}>
                             <button type='submit' disabled={loading}>{loading ? (
-                                <span>carregando... <FaSpinner /></span>
-                            ) : "Acessar"}</button>
+                                <span>Carregando... <FaSpinner /></span>
+                            ) : <span>Acessar</span>}</button>
                         </div>
                     </form>
                     <div className={styles.linksContainer}>
