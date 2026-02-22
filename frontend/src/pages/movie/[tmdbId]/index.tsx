@@ -100,11 +100,11 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
 
     useEffect(() => {
         if (!movie) return
-        const getMoviesMongoDB = async () => {
+        /*const getMoviesMongoDB = async () => {
             const response = await mongoService.fetchMovieData()
             setMovies(response)
         }
-        if (movies.length === 0) getMoviesMongoDB()
+        if (movies.length === 0) getMoviesMongoDB()*/
         if (!filme) return debug.log('movie not found above relatedCards')
         const relatedCards = getRelatedCards(filme, movies, allData)
         if (relatedCards && relatedCards.length > 0) setRelatedCards(relatedCards)
@@ -112,12 +112,8 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
     }, [movie, movies, allData, filme])
 
     useEffect(() => {
-        /*const movieExist = async () => {
-            
-        }*/
         if (movies.length === 0) return
         const movieExist = movies.some(m => m.tmdbId === movie.id)
-        //debug.log(movieExist)
         if (!movieExist) router.replace('/404')
     }, [movies, movie])
 

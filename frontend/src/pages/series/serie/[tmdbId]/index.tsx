@@ -107,6 +107,12 @@ export default function Serie({ data, buttonVisible }: SerieProps) {
     }, [serie])
 
     useEffect(() => {
+        if (series.length === 0) return
+        const movieExist = series.some(m => m.tmdbID === data.id)
+        if (!movieExist) router.replace('/404')
+    }, [series, data])
+
+    useEffect(() => {
         if (!serie) return
         const getSeriesMongoDB = async () => {
             const response = await mongoService.fetchSerieData()
@@ -118,10 +124,10 @@ export default function Serie({ data, buttonVisible }: SerieProps) {
         setRelatedCards(relatedCards)
     }, [serie, series, serieData])
 
-    useEffect(() => {
+    /*useEffect(() => {
         const showingWarningModal = !user || !user.donator
         setWarningModalOpen(showingWarningModal)
-    }, [user])
+    }, [user])*/
 
 
     //interação do usuario
@@ -255,6 +261,7 @@ export default function Serie({ data, buttonVisible }: SerieProps) {
     useEffect(() => {
         getTrailer()
     }, [router, tmdbId])
+
     const getTrailer = async () => {
         if (!tmdbId) return
         const trailer = await tmdb.fetchTrailer(Number(tmdbId), 'tv')
@@ -271,6 +278,7 @@ export default function Serie({ data, buttonVisible }: SerieProps) {
             setShowPoster(false)
         }
     }, 300)
+
     useEffect(() => {
         window.addEventListener('resize', handleWidth)
         handleWidth()
