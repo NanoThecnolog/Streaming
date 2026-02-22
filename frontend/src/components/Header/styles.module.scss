@@ -2,7 +2,7 @@
     width: 100%;
     position: fixed;
     height: 100px;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1)20%, rgba(0, 0, 0, 0.5)60%, transparent);
     display: flex;
     align-items: center;
     z-index: 12;
@@ -11,15 +11,23 @@
     .brand {
         margin-left: 25px;
         display: flex;
-        transition: all 0.5s;
+        transition: all 1s ease;
         cursor: pointer;
 
         .red {
             color: var(--red);
+
+            &::before {
+                content: 'F';
+            }
         }
 
         .white {
             color: rgba(230, 230, 230, 1);
+
+            &::before {
+                content: 'N';
+            }
         }
 
         &:hover {
@@ -29,6 +37,53 @@
         h1 {
             font-family: var(--font-Anton);
             font-size: 35px;
+            white-space: nowrap;
+            position: relative;
+
+            span {
+                display: inline-block;
+                max-width: 180px;
+                transition: all 1s ease;
+            }
+
+            &::before {
+                position: absolute;
+                left: 0;
+                opacity: 0;
+                transform: translateY(10px);
+                transition: all 1s ease;
+                pointer-events: none;
+            }
+        }
+
+        &.hidden {
+
+            span {
+                opacity: 0;
+                transform: translateY(-10px);
+                max-width: 0;
+                //transition: all 1s ease;
+            }
+
+            .red {
+                &::before {
+                    //content: 'F';
+                    opacity: 1;
+                    transform: translateY(0) scale(1.7);
+                    transition-delay: .5s;
+                    z-index: 2;
+                }
+            }
+
+            .white {
+                &::before {
+                    //content: 'N';
+                    opacity: 1;
+                    transform: translateY(0) translateX(14px) scale(1.7);
+                    transition-delay: .5s;
+                    z-index: 1;
+                }
+            }
         }
     }
 
@@ -38,8 +93,6 @@
         align-items: center;
         margin-left: 50px;
 
-
-
         .button_container {
             height: calc(100% - 10px);
             margin: 5px 0;
@@ -47,7 +100,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s;
+            transition: all .6s;
             cursor: pointer;
 
             h2 {
@@ -60,6 +113,20 @@
             &:hover {
                 transform: scale(1.1);
 
+            }
+        }
+
+        &.hidden {
+            .button_container {
+                opacity: 0;
+                pointer-events: none;
+                transform: translateY(-10px)
+            }
+
+            .searchInput {
+                opacity: 0;
+                pointer-events: none;
+                transform: translateY(-10px)
             }
         }
 

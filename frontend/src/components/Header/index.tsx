@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CiSearch } from "react-icons/ci";
 import Router, { useRouter } from "next/router";
 import styles from './styles.module.scss'
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { AlignJustify, LucideLogOut, Search } from "lucide-react";
 import { useFlix } from "@/contexts/FlixContext";
@@ -29,11 +29,12 @@ export default function Header() {
     const [modal, setModal] = useState<boolean>(false)
     const [searchMobileVisible, setSearchMobileVisible] = useState<boolean>(false)
     const [dropModal, setDropModal] = useState(false)
-    const [serverWake, setServerWake] = useState<boolean>(false)
+    //const [serverWake, setServerWake] = useState<boolean>(false)
     const { user, setUser, signOut } = useFlix()
     const { allData, serieData } = useTMDB()
     const [initial, setInitial] = useState("-")
     const [fuse, setFuse] = useState<Fuse<any> | null>(null)
+    const [visible, setVisible] = useState(false)
 
     useEffect(() => {
         async function loadConfig() {
@@ -73,6 +74,28 @@ export default function Header() {
         }
     }, [loading])
 
+    let lastScroll = 0
+    const handleScroll = useCallback(
+        debounce(() => {
+            const currentScroll = window.scrollY
+
+            if (currentScroll > lastScroll && currentScroll > 80) {
+                debug.log("ativando efeito no header")
+                setVisible(true)
+            } else {
+                debug.log("desativando efeito no header")
+                setVisible(false)
+            }
+            lastScroll = currentScroll
+        }, 200), []
+    );
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll)
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [])
+
     const handleSearchRelated = useMemo(() =>
         debounce((text: string) => {
             if (text.length > 0 && fuse) {
@@ -83,7 +106,7 @@ export default function Header() {
             }
         }, 200), [fuse]
     )
-    async function handleRelatedSearchClick(card: CardsProps | SeriesProps) {
+    const handleRelatedSearchClick = async (card: CardsProps | SeriesProps) => {
         debug.log("chamando")
         setLoading(true)
         try {
@@ -96,13 +119,13 @@ export default function Header() {
         }
     }
 
-    function handleSearch(input: string) {
+    const handleSearch = (input: string) => {
         const search = new URLSearchParams({ input: input });
         Router.push(`/search?${search.toString()}`);
     }
 
 
-    function handleClickHome(id: number) {
+    const handleClickHome = (id: number) => {
         if (id === 1) {
             setMenuVisible(!menuvisible)
             setDropModal(false)
@@ -128,11 +151,11 @@ export default function Header() {
     }
     return (
         <div className={styles.header}>
-            <div className={styles.brand} onClick={() => Router.push('/')}>
-                <h1 className={styles.red}>FLiX</h1>
-                <h1 className={styles.white}>NEXT</h1>
+            <div className={`${styles.brand} ${visible && styles.hidden}`} onClick={() => Router.push('/')}>
+                <h1 className={styles.red}><span>FLiX</span></h1>
+                <h1 className={styles.white}><span>NEXT</span></h1>
             </div>
-            <div className={styles.main_nav}>
+            <div className={`${styles.main_nav} ${visible && styles.hidden}`}>
                 <Link href="/" className={styles.button_container}>
                     <h2>INÍCIO</h2>
                 </Link>
@@ -188,7 +211,9 @@ export default function Header() {
                 </form>
             </div>
             <div className={styles.right_nav}>
-                <Notifications moviesTMDB={allData} seriesTMDB={serieData} />
+                {
+                    //<Notifications moviesTMDB={allData} seriesTMDB={serieData} />
+                }
                 <div onClick={() => handleClickHome(4)}>
                     {
                         user?.avatar ? (

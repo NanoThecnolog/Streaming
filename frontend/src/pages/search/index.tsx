@@ -1,17 +1,14 @@
 import Header from "@/components/Header";
 import { useRouter } from "next/router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from './styles.module.scss'
 import { CardsProps } from "@/@types/Cards";
-//import { cards } from "@/data/cards";
-//import { series } from "@/data/series";
 import Card from "@/components/Card";
 import CardSerie from "@/components/seriesComponents/Card";
 import Footer from "@/components/Footer";
 import { SeriesProps } from "@/@types/series";
 import SEO from "@/components/SEO";
 import Filter from "@/components/ui/SearchFilter";
-import Link from "next/link";
 import Spinner from "@/components/ui/Loading/spinner";
 import { normalizing } from "@/utils/UtilitiesFunctions";
 import { matches } from "@/utils/FilterFunctions";
@@ -142,13 +139,7 @@ export default function Search() {
                         loading ? <Spinner /> :
                             <div className={`${filtered.length > 0 ? styles.cardsContainer : styles.noCardsContainer}`}>
                                 {
-                                    filtered.length > 0 ? filtered.map((card, index) => {
-                                        if ("season" in card) {
-                                            return <CardSerie key={index} card={card} />
-                                        } else {
-                                            return <Card key={index} card={card} />
-                                        }
-                                    })
+                                    filtered.length > 0 ? filtered.map((c, index) => <Card card={c} />)
                                         :
                                         <div className={styles.noResultsContainer}>
                                             <h2>Não achou o que procurava? Deixa com a gente!</h2>
