@@ -90,7 +90,10 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
         if (!movie) return
         const filme = movies.find(mv => mv.tmdbId === movie.id)
         debug.log('Filme encontrado', filme)
-        if (!filme) return debug.warn('movie not found')
+        if (!filme) {
+            debug.warn('movie not found')
+            return
+        }
         setFilme(filme)
     }, [movie, movies])
 
@@ -102,14 +105,24 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
             setMovies(response)
         }
         if (movies.length === 0) getMoviesMongoDB()
-        if (!filme) return debug.log('filme not found above relatedCards')
+        if (!filme) return debug.log('movie not found above relatedCards')
         const relatedCards = getRelatedCards(filme, movies, allData)
         if (relatedCards && relatedCards.length > 0) setRelatedCards(relatedCards)
         watchLater()
     }, [movie, movies, allData, filme])
 
     useEffect(() => {
-        if (!filme) return debug.log('filme not defined for getTrailer inside useEffect')
+        /*const movieExist = async () => {
+            
+        }*/
+        if (movies.length === 0) return
+        const movieExist = movies.some(m => m.tmdbId === movie.id)
+        //debug.log(movieExist)
+        if (!movieExist) router.replace('/404')
+    }, [movies, movie])
+
+    useEffect(() => {
+        if (!filme) return debug.log('movie not defined for getTrailer inside useEffect')
         const getTrailer = async () => {
             try {
                 const trailer = await tmdb.fetchTrailer(filme.tmdbId, 'movie')
