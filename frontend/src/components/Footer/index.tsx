@@ -41,7 +41,8 @@ export default function Footer() {
                             <SiThemoviedatabase size={35} />
                         </button>
                     </Link>
-                    <Link href="https://github.com/NanoThecnolog" target="_blank" rel="noopener noreferrer">
+                    {
+                        /*<Link href="https://github.com/NanoThecnolog" target="_blank" rel="noopener noreferrer">
                         <button title="github" type="button">
                             <FaGithub size={35} />
                         </button>
@@ -55,7 +56,8 @@ export default function Footer() {
                         <button title="linkedin" type="button">
                             <FaLinkedin size={35} />
                         </button>
-                    </Link>
+                    </Link>*/
+                    }
                 </div>
             </div>
             <div className={styles.btn_row}>
