@@ -50,7 +50,7 @@ export default function Prices({ plans, setPlanSelected }: PricesProps) {
                         plans ?
                             <div className={styles.plansContainer}>
                                 {
-                                    plans.length > 0 && plans.sort((a, b) => a.price - b.price).map(p => (
+                                    plans.length > 0 && plans.sort((a, b) => a.price - b.price).filter(plan => plan.id !== "b7c7a2d4-9b6c-4f9c-9b0e-123456789abc").map(p => (
                                         <div
                                             className={`${styles.plan}
                                             ${p.type === "semestral" && styles.border}`}
