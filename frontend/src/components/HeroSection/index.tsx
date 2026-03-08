@@ -20,7 +20,19 @@ export default function HeroSection({ width }: HeroProps) {
 
     const ids: IDProps[] = [
         {
-            id: 106379, //fallout
+            id: 1265609, // maquina de guerra
+            type: 'movie'
+        },
+        {
+            id: 223530,//star fleet
+            type: 'tv'
+        },
+        {
+            id: 129552, //agente noturno
+            type: 'tv'
+        },
+        {
+            id: 245927, //paradise
             type: 'tv'
         },
         {
@@ -30,26 +42,6 @@ export default function HeroSection({ width }: HeroProps) {
         {
             id: 224372, //cavaleiro dos 7 reinos
             type: 'tv'
-        },
-        {
-            id: 1306368, //dinheiro suspeito
-            type: 'movie'
-        },
-        {
-            id: 66732,
-            type: 'tv'
-        },
-        {
-            id: 798645,
-            type: 'movie'
-        },
-        {
-            id: 103540,
-            type: 'tv'
-        },
-        {
-            id: 425274,
-            type: 'movie'
         },
     ]
 
