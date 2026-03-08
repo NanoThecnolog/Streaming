@@ -6,6 +6,7 @@ import { apiEmail } from "../../Utils/apiMessenger";
 import { BadRequestError } from "../../Utils/badRequestExtend";
 import { isEmail } from "validator";
 import { Normalizer } from '../../Utils/normalizer';
+import { SecurityService } from '../../classes/security';
 
 interface AddressRequest {
     street: string;
@@ -45,7 +46,7 @@ class CreateUserService {
             throw new BadRequestError("Email inválido")
         }
 
-        const passwordHash = await hash(password, 8)
+        const passwordHash = await SecurityService.hash(password)
         const user = await prismaClient.user.create({
             data: {
                 name,

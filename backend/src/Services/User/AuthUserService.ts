@@ -2,6 +2,7 @@ import { compare } from "bcrypt";
 import prismaClient from "../../prisma";
 import { sign } from "jsonwebtoken";
 import { AppError } from '../../Utils/AppErrorExtend'
+import { SecurityService } from "../../classes/security";
 
 class AuthUserService {
     async execute(email: string, password: string) {
@@ -12,10 +13,20 @@ class AuthUserService {
         })
         if (!userExiste) throw new AppError("Email ou senha incorreto.", 401)
 
-        const passwordMatch = await compare(password, userExiste.password);
-        if (!passwordMatch) throw new AppError("Email ou senha incorreto.", 401)
+        //nova validação com argon2
+        const isValid = await SecurityService.verify(password, userExiste.password)
+        if (!isValid.success)
+            throw new AppError("Email ou senha incorreto.", 401)
 
-        //if (!userExiste.verified) throw new AppError("Account not verified. Please, check your email!--", 403)
+        if (isValid.rehash) {
+            await prismaClient.user.update({
+                where: { id: userExiste.id },
+                data: {
+                    password: isValid.rehash
+                }
+            })
+        }
+
 
         const token = sign(
             {
