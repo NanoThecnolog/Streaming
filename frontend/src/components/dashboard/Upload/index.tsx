@@ -26,8 +26,9 @@ export default function Upload() {
             setMessage('Por favor, selecione um arquivo.');
             return;
         }
+        debug.log(file)
 
-        if (file.type !== 'video/x-matroska') {
+        if (file.type !== 'video/x-matroska' && file.type !== 'video/matroska') {
             setMessage('Apenas arquivos .mkv são permitidos.');
             return;
         }
