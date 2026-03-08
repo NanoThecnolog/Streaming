@@ -21,14 +21,22 @@ export class SecurityService {
     }
     static verify = async (pass: string, hash: string): Promise<{ success: boolean, rehash?: string }> => {
         const isArgon = hash.startsWith('$argon2')
-        if (isArgon)
-            return { success: await argon2.verify(hash, this.applyPepper(pass)) }
+        console.log("hash verificado", hash)
+        if (isArgon) {
+            console.log("hash argon detectado")
+            const verificando = await argon2.verify(hash, this.applyPepper(pass))
+            console.log("resultado da verificação", verificando)
+            return { success: verificando }
+        }
+        console.log("hash com bcrypt")
 
         const isBcrypt = await compare(pass, hash)
-        if (!isBcrypt)
+        if (!isBcrypt) {
+            console.log("senha errada")
             return { success: false }
+        }
 
-        const rehash = await this.hash(this.applyPepper(pass))
+        const rehash = await this.hash(pass)
 
         return {
             success: true,
