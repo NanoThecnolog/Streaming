@@ -17,6 +17,7 @@ import { ADMAuth } from "./middlewares/ADMAuth";
 import rateLimit from "express-rate-limit";
 import { AccessController } from "./Controllers/User/AccessController";
 import { TrackingController } from "./Controllers/User/trackingController";
+import { ListWatchedController } from "./Controllers/User/ListWatchedController";
 
 
 const router = Router()
@@ -50,5 +51,7 @@ router.post('/ativar', new ActiveUserController().handle);
 router.post('/watchLater', Authenticate, new WatchLaterController().handle)
 router.get('/watchLater', Authenticate, new ListWatchLaterController().handle)
 router.delete('/watchLater/:id', Authenticate, new RemoveWatchLaterController().handle)
+
+router.get('/user/watched', Authenticate, new ListWatchedController().handle)
 
 export { router }
