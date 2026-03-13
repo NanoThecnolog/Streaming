@@ -16,9 +16,9 @@
             display: flex;
             align-items: center;
 
-            &:hover img {
+            /*&:hover img {
                 transform: scale(1.05);
-            }
+            }*/
 
             .cardWrapper {
                 position: relative;
@@ -40,7 +40,7 @@
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
-                    transition: transform .35 ease;
+                    transition: transform .35s ease;
                 }
 
                 .info {
@@ -59,14 +59,14 @@
                             rgba(0, 0, 0, .85),
                             rgba(0, 0, 0, .4),
                             transparent);
-                    opacity: 0;
-                    transform: translateY(10px);
+                    opacity: 1;
+                    transform: none;
                     transition: all .25s ease;
 
-                    &:hover {
+                    /*&:hover {
                         opacity: 1;
                         transform: translateY(0);
-                    }
+                    }*/
 
                     .title {
                         font-size: 1rem;
@@ -97,19 +97,34 @@
     }
 }
 
-@media(hover:none) {
+@media(min-width: 780px) {
     .carouselContainer {
         .carousel {
             .slide {
                 .cardWrapper {
+                    .link {
 
-                    .info {
-                        opacity: 1;
-                        transform: translateY(0);
+                        .info {
+                            opacity: 0;
+                            transform: translateY(10px);
+                        }
+
                     }
+                }
 
+                &:hover {
+                    .link {
+                        .info {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
                 }
             }
         }
+    }
+
+    .carouselContainer .slide:hover img {
+        transform: scale(1.05);
     }
 }
