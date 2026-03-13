@@ -20,6 +20,7 @@ import TopPopularTVShows from "@/components/TopPopularTV";
 import { DailyWarningModal } from "@/components/ui/DailyModal";
 import { useDailyModal } from "@/hooks/useDailyModal";
 import LastContentAdded from "@/components/LastContentAdded";
+import BackDropCarousel from "@/components/ui/BackDropCarousel";
 
 
 export default function Home() {
@@ -87,6 +88,7 @@ export default function Home() {
                       <HeroSection width={width} />
                     </div>
                     <div className={styles.mid} id="filmes">
+                      <BackDropCarousel title="Assistido Recentemente" />
                       <TopPopularMovies cardPerContainer={cardPerContainer} />
                       <TopPopularTVShows cardPerContainer={cardPerContainer} />
                       <TrendingCarousel cardPerContainer={cardPerContainer} />

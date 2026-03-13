@@ -63,6 +63,15 @@ export const breakpoints = [
     { width: 1855, cards: 7 },
     { width: Infinity, cards: 8 },
 ]
+export const backdropBreakPoints = [
+    { width: 560, cards: 1 },
+    { width: 780, cards: 2 },
+    { width: 915, cards: 3 },
+    { width: 1160, cards: 4 },
+    { width: 1500, cards: 4 },
+    { width: 1855, cards: 4 },
+    { width: Infinity, cards: 4 },
+]
 
 
 export const text = [
@@ -378,4 +387,15 @@ export const subscriptionMap: Record<string, string> = {
     new: "Criada",
     expired: "Finalizada",
     new_charge: "Ativa"
+}
+
+export const creditTest = {
+    brand: 'visa',
+    number: '4485785674290087',
+    cvv: '123',
+    expirationMonth: '05',
+    expirationYear: '2029',
+    holderName: 'Gorbadoc Oldbuck',
+    holderDocument: '94271564656',
+    reuse: false
 }
