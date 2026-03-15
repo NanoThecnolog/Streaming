@@ -41,6 +41,7 @@
                     height: 100%;
                     object-fit: cover;
                     transition: transform .35s ease;
+                    border-radius: .4rem;
                 }
 
                 .info {
@@ -82,6 +83,10 @@
             }
 
         }
+    }
+
+    h2 {
+        user-select: none;
     }
 }
 
