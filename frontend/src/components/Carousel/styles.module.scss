@@ -19,67 +19,7 @@
         //outline: 2px solid blue;
     }
 
-    /*
-    .buttonContainer {
-        visibility: visible;
-
-        .swiper-button-prev,
-        .swiper-button-next {
-            position: absolute;
-            top: 52px;
-            color: white;
-            border: none;
-            cursor: pointer;
-            z-index: 10;
-            height: 600px;
-            width: 100px;
-            transition: all .4s;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-
-            svg {
-                transition: .4s;
-            }
-        }
-
-        .swiper-button-prev {
-            left: -40px;
-            align-items: flex-start;
-
-            &:hover {
-                background: linear-gradient(90deg, rgba(0, 0, 0, 1)0%, transparent 100%);
-
-                svg {
-                    transform: scale(1.5);
-                }
-            }
-        }
-
-        .swiper-button-next {
-            right: -40px;
-            align-items: flex-end;
-
-            &:hover {
-                background: linear-gradient(270deg, rgba(0, 0, 0, 1)0%, transparent 100%);
-
-                svg {
-                    transform: scale(1.5)
-                }
-            }
-        }
+    h2 {
+        user-select: none;
     }
-
-
-}
-
-@media(max-width: 915px) {
-
-    .carousel-container {
-        .buttonContainer {
-            visibility: hidden;
-        }
-    }
-}
-    */
 }
