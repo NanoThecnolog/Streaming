@@ -17,7 +17,7 @@ import { fuseConfig } from "@/utils/Variaveis";
 import { debug } from "@/classes/DebugLogger";
 import { useTMDB } from "@/contexts/TMDBContext";
 import { uniqueKey } from "@/utils/UtilitiesFunctions";
-import Notifications from "../Notifications";
+import { GoHome } from "react-icons/go";
 
 export default function Header() {
     //refatorar esse componente
@@ -249,12 +249,13 @@ export default function Header() {
                 </div>
             }
             <div className={styles.dropdown}>
+                <div className={styles.dropdownIcon}>
+                    <button type="button" onClick={() => Router.push('/')}><GoHome color="white" size={25} /></button>
+                </div>
                 <div className={styles.dropdownIcon} onClick={() => handleClickHome(1)}>
                     <AlignJustify />
                     {menuvisible &&
                         <div className={styles.dropdownMenu}>
-                            <button type="button" onClick={() => Router.push('/')}>Início</button>
-                            <div className={styles.divider}></div>
                             <button type="button" onClick={() => Router.push('/movies')}>Filmes</button>
                             <div className={styles.divider}></div>
                             <button type="button" onClick={() => Router.push('/series')}>Series</button>
