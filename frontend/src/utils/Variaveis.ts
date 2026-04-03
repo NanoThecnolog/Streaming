@@ -227,7 +227,7 @@ export const faq: FAQ[] = [
     {
         question: 'A plataforma é paga?',
         answer:
-            'Sim. O acesso à FlixNext é feito por meio de uma assinatura de valor simbólico, criada exclusivamente para cobrir custos de infraestrutura, armazenamento e manutenção do projeto. <br/><br/>Os planos começam a partir de <strong>R$ 14,45</strong> e variam conforme o período escolhido (mensal, trimestral, semestral ou anual).'
+            `Sim. O acesso à FlixNext é feito por meio de uma assinatura de valor simbólico, criada exclusivamente para cobrir custos de infraestrutura, armazenamento e manutenção do projeto. <br/><br/>Os planos começam a partir de <strong>${formatPrice(planValues.mensal)}</strong> e variam conforme o período escolhido (mensal, trimestral, semestral ou anual).`
     },
     {
         question: 'Como posso ajudar o projeto?',
