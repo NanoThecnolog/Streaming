@@ -44,7 +44,9 @@ export const agp = {
     romantic: "Romântico",
     mythology: "Mitologia",
     adrenaline: "Adrenalina",
-    monster: "Monstros"
+    monster: "Monstros",
+    faroest: "Faroeste",
+    infant: "Infantil"
 }
 //temas especiais
 export const sptopc = {

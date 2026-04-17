@@ -205,6 +205,10 @@ export const faq: FAQ[] = [
             'A ativação por e-mail é uma medida de segurança. Ela garante que o endereço informado realmente pertence a você e ajuda a evitar o uso indevido de dados por terceiros.'
     },
     {
+        question: 'Fiz o pagamento e ativei minha conta, mas ainda não consigo assistir!',
+        answer: 'Tente realizar o login novamente. Saia da sua conta e faça o login com seu email e senha cadastrados, e tente novamente. Se o erro persistir, entre em contato conosco pelo email <a href="mailto:suporte@flixnext.com.br">suporte@flixnext.com.br</a>'
+    },
+    {
         question: 'Não consigo assistir a um filme ou série. O que devo fazer?',
         answer:
             'Se você estiver enfrentando qualquer problema técnico, entre em contato conosco pelo e-mail <a href="mailto:suporte@flixnext.com.br">suporte@flixnext.com.br</a>. <br/><br/>O suporte funciona todos os dias e buscamos responder o mais rápido possível.'
@@ -251,6 +255,10 @@ export const faqPlans: FAQ[] = [
         question: 'Onde posso assistir?',
         answer:
             'Você pode assistir diretamente pelo navegador, acessando sua conta em flixnext.com.br, tanto no computador quanto no celular.'
+    },
+    {
+        question: 'Fiz o pagamento e ativei minha conta, mas ainda não consigo assistir!',
+        answer: 'Tente realizar o login novamente. Saia da sua conta e faça o login com seu email e senha cadastrados, e tente novamente. Se o erro persistir, entre em contato conosco pelo email <a href="mailto:suporte@flixnext.com.br">suporte@flixnext.com.br</a>'
     },
     {
         question: 'Como funciona o cancelamento?',
