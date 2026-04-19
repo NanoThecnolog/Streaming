@@ -10,6 +10,8 @@ import { MovieTMDB } from '@/@types/Cards'
 import { TMDBSeries } from '@/@types/series'
 import Link from 'next/link'
 import { backdropBreakPoints } from '@/utils/Variaveis'
+import { useFlix } from '@/contexts/FlixContext'
+import { debug } from '@/classes/DebugLogger'
 
 interface BaseProps {
     title: string
@@ -29,8 +31,8 @@ type MapTrackingProps = {
 } | {
     name: string;
     id: string;
-    season: number | undefined;
-    episode: number | undefined;
+    season?: number | undefined;
+    episode?: number | undefined;
     type: "tv";
 }
 
@@ -38,6 +40,7 @@ type MapTrackingProps = {
 export default function BackDropCarousel({ title /*cardPerContainer*/ }: BaseProps) {
     const [cards, setCards] = useState<(MovieTMDB | TMDBSeries | undefined)[]>([])
     const { allData, serieData } = useTMDB()
+    const { user } = useFlix()
     const [cardPerContainer, setCardPerContainer] = useState(0)
     const [tracking, setTracking] = useState<MapTrackingProps[]>([])
 
@@ -59,39 +62,60 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
     }, [])
 
     useEffect(() => {
-        const teste = async () => {
-            const response = await axios.get<WatchedRes>('/api/user/watched')
-            const data = response.data
-            //console.log("resultado da req", data)
-            const idMap: MapTrackingProps[] = data.result.map(item => {
-                if (item.type === 'movie')
+        if (!user) return
+        debug.log("useEffect sendo chamado")
+
+        const controller = new AbortController()
+
+        const fetchWatched = async () => {
+            try {
+                const { data } = await axios.get<WatchedRes>(
+                    '/api/user/watched',
+                    { signal: controller.signal }
+                )
+                debug.log("data no fetch", data)
+
+                const tracking: MapTrackingProps[] = data.result.map(item => {
+                    if (item.type === 'movie')
+                        return {
+                            name: item.name,
+                            id: item.tmdbID,
+                            type: item.type
+                        }
+
                     return {
                         name: item.name,
                         id: item.tmdbID,
+                        season: item.season,
+                        episode: item.episode,
                         type: item.type
                     }
+                })
+                setTracking(tracking)
 
-                return {
-                    name: item.name,
-                    id: item.tmdbID,
-                    season: item.season,
-                    episode: item.episode,
-                    type: item.type
-                }
-            })
-            setTracking(idMap)
-            //console.log("ids mapeados", idMap)
-            const tmdbObjects = idMap.map(i => {
-                if (i.type === 'movie') return allData.find(data => Number(i.id) === data.id)
-                return serieData.find(data => Number(i.id) === data.id)
-            }).slice(0, 7)
-            console.log("dados do TMDB", tmdbObjects)
-            setCards(tmdbObjects)
+                const movieMap = new Map(allData.map(d => [d.id, d]))
+                const serieMap = new Map(serieData.map(d => [d.id, d]))
+
+                const cards = tracking.map(item =>
+                    item.type === 'movie'
+                        ? movieMap.get(Number(item.id))
+                        : serieMap.get(Number(item.id))
+                ).filter(Boolean)
+                    .slice(0, 7)
+
+                setCards(cards as typeof allData)
+
+            } catch (err) {
+                if (!axios.isCancel(err))
+                    debug.error('Erro ao buscar filmes e séries vistos', err)
+            }
         }
-        teste()
-    }, [allData, serieData])
+        fetchWatched()
+        return () => controller.abort()
+    }, [user, allData, serieData])
 
     if (!cards || cards.length === 0) return null
+
     return (
         <div className={styles.carouselContainer}>
             <h2 className={styles.contentTitle}>{title.toUpperCase()}</h2>
