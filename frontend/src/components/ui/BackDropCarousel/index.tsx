@@ -1,7 +1,7 @@
 import styles from './styles.module.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { TrackingParsed } from '@/@types/watchedResponse'
 import { uniqueKey } from '@/utils/UtilitiesFunctions'
@@ -131,7 +131,6 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
                     if (typeGuard(card)) {
                         return <SwiperSlide key={index} className={styles.slide}>
 
-
                             <div className={styles.cardWrapper}>
                                 <Link
                                     href={`/series/serie/${card.id}`}
@@ -142,11 +141,10 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
                                         <h3 className={styles.title}>{card.name}</h3>
                                         {
                                             tracking.map(item => Number(item.id) === card.id ?
-                                                <p className={styles.season} key={item.id}>
-                                                    Temporada {item.season}
-                                                    Episódio {item.episode}
-                                                </p>
-                                                : null)
+                                                <div className={styles.season} key={item.id}>
+                                                    <p>Temporada {item.season} - Episódio {item.episode}</p>
+                                                </div>
+                                                : '')
                                         }
                                     </div>
                                 </Link>
