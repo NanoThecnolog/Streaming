@@ -20,27 +20,31 @@ export default function HeroSection({ width }: HeroProps) {
 
     const ids: IDProps[] = [
         {
-            id: 1265609, // maquina de guerra
+            id: 1159559, // panico 7
             type: 'movie'
         },
         {
-            id: 223530,//star fleet
+            id: 95479,//jujutsu
             type: 'tv'
         },
         {
-            id: 129552, //agente noturno
-            type: 'tv'
-        },
-        {
-            id: 245927, //paradise
-            type: 'tv'
-        },
-        {
-            id: 1168190, // dupla perigosa
+            id: 83533, // avatar fogo e cinzas
             type: 'movie'
         },
         {
-            id: 224372, //cavaleiro dos 7 reinos
+            id: 85552, //euphoria
+            type: 'tv'
+        },
+        {
+            id: 95557, //invencivel
+            type: 'tv'
+        },
+        {
+            id: 127529, // caes de caça
+            type: 'tv'
+        },
+        {
+            id: 76479, //the boys
             type: 'tv'
         },
     ]

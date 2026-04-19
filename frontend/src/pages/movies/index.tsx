@@ -34,7 +34,7 @@ export default function Home() {
   const [visible, setvisible] = useState(false)
   const { movies, user } = useFlix()
   const { isOpen, close } = useDailyModal()
-  const tmdbid = 1168190;
+  const tmdbid = 1159559;
   const [topCard, setTopCard] = useState<CardsProps | null>(null)
 
   useEffect(() => {
@@ -42,16 +42,15 @@ export default function Home() {
     if (card && (!topCard || topCard.tmdbId !== card.tmdbId)) setTopCard(card)
   }, [movies])
 
-
-
   useEffect(() => {
     //if (allData.length > 0 && serieData.length > 0) return
     if (movies.length > 0 && allData.length === 0) flixFetcher.fetchMovieData(setAllData, movies)
     if (serieData.length === 0) flixFetcher.fetchSerieData(setSerieData)
   }, [movies, setAllData, serieData, setSerieData])
 
+
   useEffect(() => {
-    function handleResize() {
+    const handleResize = () => {
       const windowWidth = window.innerWidth;
       setWidth(windowWidth)
       const { cards } = breakpoints.find(b => windowWidth < b.width) || { cards: 5 }
@@ -61,6 +60,7 @@ export default function Home() {
     handleResize()
     return () => window.removeEventListener('resize', handleResize)
   }, [])
+
   const handleScroll = useCallback(
     debounce(() => {
       if (window.scrollY > 1500) {
@@ -71,12 +71,14 @@ export default function Home() {
     }, 200),
     []
   );
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
+
   return (
     <>
       <SEO
@@ -97,10 +99,9 @@ export default function Home() {
                       {
                         topCard && <NewTop width={width} id={tmdbid} isActive={true} type="movie" />
                       }
-
                     </div>
-                    <div className={styles.mid} id="filmes">
 
+                    <div className={styles.mid} id="filmes">
                       <TopPopularMovies cardPerContainer={cardPerContainer} />
                       {
                         divisaoPorGenero.map((sec, index) => {
@@ -114,6 +115,7 @@ export default function Home() {
                           )
                         })}
                     </div>
+
                   </>
                 }
               </div>
