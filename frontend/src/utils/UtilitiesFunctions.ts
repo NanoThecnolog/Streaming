@@ -7,7 +7,7 @@ import { stateMap } from "./Variaveis"
  * @param min Minutos
  * @returns Retorna hora e os minutos formatados
  */
-export function minToHour(min: number = 0): string {
+export const minToHour = (min: number = 0): string => {
     if (min <= 0) {
         return "--"
     }
@@ -24,7 +24,7 @@ export function minToHour(min: number = 0): string {
  * @param str palavra a ser traduzida
  * @returns retorna a tradução correspondente no array translations ou str, caso não exista tradução.
  */
-export function translate(str: string) {
+export const translate = (str: string) => {
     const translations: { [key: string]: string } = {
         "Directing": "Direção",
         "Writing": "Roteiristas",
@@ -47,7 +47,7 @@ export function translate(str: string) {
  * @returns retorna a palavra com a primeira letra maiúscula
  */
 
-export function capitalize(str: string): string {
+export const capitalize = (str: string): string => {
     if (!str) return '';
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
 }
@@ -58,7 +58,7 @@ export function capitalize(str: string): string {
  * @returns retorna a palavra sem acentos
  */
 
-export function normalizing(str: string) {
+export const normalizing = (str: string) => {
     if (!str) return ""
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
 }
@@ -69,7 +69,7 @@ export function normalizing(str: string) {
  * @returns Retorna o array embaralhado
  */
 
-export function shuffle<T>(array: T[]): T[] {
+export const shuffle = <T>(array: T[]): T[] => {
     const shuffled = [...array]
     for (let i = shuffled.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -84,7 +84,7 @@ export function shuffle<T>(array: T[]): T[] {
  * @returns Retorna uma string com a data formatada (dd/mm/aaaa)
  */
 
-export function formatedDate(date: string | Date) {
+export const formatedDate = (date: string | Date) => {
     if (typeof date === 'string') date = new Date(date)
 
     if (isNaN(date.getTime()) || !(date instanceof Date)) return
@@ -102,7 +102,7 @@ export function formatedDate(date: string | Date) {
  * @param disc desconto em porcentagem (5, 7, 10)
  * @returns retorna o preço com desconto
  */
-export function calculateDiscount(price: number, disc: number) {
+export const calculateDiscount = (price: number, disc: number) => {
     const discount = (price * disc) / 100
     const priceWithDiscount = parseFloat((price - discount).toFixed(0))
     let cents = priceWithDiscount % 100
@@ -118,7 +118,7 @@ export function calculateDiscount(price: number, disc: number) {
  * @param price Valor (1099)
  * @returns Retorna uma string
  */
-export function formatPrice(price: number) {
+export const formatPrice = (price: number) => {
     if (!price || isNaN(price)) return
 
     return Intl.NumberFormat('pt-BR', {
@@ -128,11 +128,11 @@ export function formatPrice(price: number) {
     }).format(price / 100)
 }
 
-export function getparcels(price: number, parcels: number): number {
+export const getparcels = (price: number, parcels: number): number => {
     return price / parcels
 }
 
-export function getDate() {
+export const getDate = () => {
     const hoje = new Date()
     const data = new Intl.DateTimeFormat('en-CA', {
         timeZone: 'America/Sao_Paulo',
@@ -155,7 +155,7 @@ export const expirationSlicer = (expiration: string) => {
     }
 }
 
-export function normalizeState(state: string): string {
+export const normalizeState = (state: string): string => {
     if (!state) return "";
     const cleaned = state.trim().toLowerCase();
 
@@ -167,7 +167,7 @@ export function normalizeState(state: string): string {
     return stateMap[cleaned] ?? "";
 }
 
-export function normalizeName(name: string): string {
+export const normalizeName = (name: string): string => {
     return name
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '') // remove acentos
@@ -175,7 +175,11 @@ export function normalizeName(name: string): string {
         .trim()
 }
 
-export function normalizeCPF(cpf: string): string {
+export const normalizeCPF = (cpf: string): string => {
     if (!cpf) return ''
     return cpf.replace(/\D/g, '').slice(11)
+}
+
+export const statusVerify = (res: PromiseSettledResult<any>): Boolean => {
+    return res.status === 'fulfilled' && res.value.status === 200
 }
