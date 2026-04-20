@@ -46,7 +46,9 @@ export const agp = {
     adrenaline: "Adrenalina",
     monster: "Monstros",
     faroest: "Faroeste",
-    infant: "Infantil"
+    infant: "Infantil",
+    investigation: "Investigação",
+    detective: "Detetive",
 }
 //temas especiais
 export const sptopc = {
@@ -55,7 +57,8 @@ export const sptopc = {
     paraRir: "Para rir alto",
     paraMaratonar: "Para maratonar",
     paraChorar: "Para chorar",
-    paraRelaxar: "Para relaxar"
+    paraRelaxar: "Para relaxar",
+    baseado: "Baseado no livro"
 }
 //streamings
 export const stm = {
