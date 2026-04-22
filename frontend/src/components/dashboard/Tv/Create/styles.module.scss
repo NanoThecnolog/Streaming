@@ -55,11 +55,25 @@
     .selectFaixa {
         width: 90px;
         height: 42px;
+
+        option {
+            background-color: var(--black);
+        }
     }
 
     .chosenFaixa {
         font-size: 0.75rem;
         color: rgba(255, 255, 255, 0.6);
+    }
+
+    .selectNews {
+        width: 160px;
+        height: 42px;
+
+
+        option {
+            background-color: var(--black);
+        }
     }
 
     .tmdbid {

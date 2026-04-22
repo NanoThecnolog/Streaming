@@ -25,12 +25,16 @@ export default function PutTV({ tmdbid }: PutTVProps) {
         genero: [],
         faixa: 'L',
         season: [],
+        news: 'news'
     })
     const genres = [
         ...Object.values(gen),
         ...Object.values(agp),
         ...Object.values(stm)
     ]
+    useEffect(() => {
+        debug.log(serieData)
+    }, [serieData])
     useEffect(() => {
         if (tmdbid) {
             setId(tmdbid)
@@ -217,6 +221,21 @@ export default function PutTV({ tmdbid }: PutTVProps) {
                                 )}
                             </select>
                             <span className={styles.chosenFaixa}>faixa escolhida: {serieData?.faixa}</span>
+                        </div>
+                        <div className={styles.formItem}>
+                            <label htmlFor="news">News</label>
+                            <select
+                                name="news"
+                                id="news"
+                                value={serieData.news}
+                                className={styles.selectNews}
+                                onChange={handleChange}
+
+                            >
+                                <option value="season">Nova Temporada</option>
+                                <option value="episode">Novos Episódios</option>
+                                <option value="news">Nova Série</option>
+                            </select>
                         </div>
                         <div className={styles.formItem}>
                             <h2 className="text-lg font-semibold">Temporadas</h2>
