@@ -18,11 +18,22 @@ export default function Card({ card }: CardProps) {
     const router = useRouter();
     const { allData, serieData } = useTMDB()
     const [TMDBImages, setTMDBImages] = useState<TMDBImagesProps>()
+    const [infoNews, setInfoNews] = useState<'news' | 'episode' | 'season' | null>(null)
     //debug.log("Imagens no card: ", TMDBImages)
 
     useEffect(() => {
+        if ('season' in card) {
+            if (card.news) debug.log("news no card", card.news, card.title)
+        }
+    }, [card])
+    useEffect(() => {
         async function getImage() {
             if ('season' in card) {
+
+                const news = card.news
+                setInfoNews(news ?? null)
+
+
                 const data = serieData.find(data => data.id === card.tmdbID)
                 //debug.log('serie no card: ', data)
                 const url = data ? `https://image.tmdb.org/t/p/w500${data.poster_path}` : await tmdb.fetchSeriesDetails(card.tmdbID)
@@ -56,9 +67,22 @@ export default function Card({ card }: CardProps) {
         }
     }
 
+    const newsMap: Record<string, string> = {
+        news: 'Nova Série',
+        season: 'Nova Temporada',
+        episode: 'Novos Episódios'
+    }
+
     return (
         <>
             <div className={styles.card} id={card.genero[0].toLowerCase()}>
+                {infoNews &&
+
+                    <div className={styles.newsContainer}>
+                        <p>{newsMap[infoNews]}</p>
+                    </div>
+                }
+
                 <img
                     src={TMDBImages ? TMDBImages.poster : card.overlay}
                     alt={card.title}
