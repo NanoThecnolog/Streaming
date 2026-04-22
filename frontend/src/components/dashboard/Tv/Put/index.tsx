@@ -25,7 +25,7 @@ export default function PutTV({ tmdbid }: PutTVProps) {
         genero: [],
         faixa: 'L',
         season: [],
-        news: 'news'
+
     })
     const genres = [
         ...Object.values(gen),
@@ -89,7 +89,9 @@ export default function PutTV({ tmdbid }: PutTVProps) {
         const { name, value } = e.target
         setSerieData(prev => ({
             ...prev,
-            [name]: value,
+            [name]: name === 'news'
+                ? (value || null)
+                : value
         }))
     }
 
@@ -232,6 +234,7 @@ export default function PutTV({ tmdbid }: PutTVProps) {
                                 onChange={handleChange}
 
                             >
+                                <option value="">Sem Status</option>
                                 <option value="season">Nova Temporada</option>
                                 <option value="episode">Novos Episódios</option>
                                 <option value="news">Nova Série</option>

@@ -77,7 +77,6 @@ export default function Card({ card }: CardProps) {
         <>
             <div className={styles.card} id={card.genero[0].toLowerCase()}>
                 {infoNews &&
-
                     <div className={styles.newsContainer}>
                         <p>{newsMap[infoNews]}</p>
                     </div>

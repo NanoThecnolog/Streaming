@@ -78,7 +78,9 @@ export default function CreateTV() {
         const { name, value } = e.target
         setSerieData(prev => ({
             ...prev,
-            [name]: value,
+            [name]: name === 'news'
+                ? (value || null)
+                : value
         }))
     }
 
@@ -226,6 +228,7 @@ export default function CreateTV() {
                             className={styles.selectNews}
                             onChange={handleChange}
                         >
+                            <option value="">Sem Status</option>
                             <option value="season">Nova Temporada</option>
                             <option value="episode">Novos Episódios</option>
                             <option value="news">Nova Série</option>
