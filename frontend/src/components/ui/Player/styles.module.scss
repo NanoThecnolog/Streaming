@@ -1,22 +1,32 @@
-/*.player {
-    border: none;
-    width: 100%;
-    height: 100%;
-}*/
-
 .container {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background: #000;
     cursor: pointer;
     //pointer-events: none;
+
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
 }
 
-.video {
+.player {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    display: block;
+
+    max-width: 100%;
+    max-height: 100%;
+    border: 20px solid white;
+
+    aspect-ratio: 16 / 7;
 }
 
 .controls {
@@ -32,7 +42,9 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+
         padding: 16px;
+
         background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
 
 
@@ -42,11 +54,13 @@
             position: relative;
             height: 6px;
             background: rgba(255, 255, 255, 0.3);
+            border-radius: 999px;
 
             .progress {
                 position: absolute;
                 height: 100%;
                 background: #e50914;
+                border-radius: 999px;
             }
 
             .thumb {
@@ -56,75 +70,37 @@
                 width: 14px;
                 height: 14px;
                 background: #e50914;
-                border-radius: 50%;
+                border-radius: 999px;
             }
         }
-
-
-
-        /*.progress {
-    width: 99%;
-    margin-bottom: 8px;
-    cursor: pointer;
-
-    padding: 0 7px;
-
-
-    //bolinha
-    &::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 14px;
-        height: 14px;
-        background: #e50914;
-        border-radius: 50%;
-
-        margin-top: 0px;
-        //margin-left: -7px;
-        //margin-right: -10px;
-    }
-
-    /*&::-webkit-slider-runnable-track {
-        //height: 6px;
-        background: rgba(255, 255, 255, 0.3);
-        //border-radius: 999px;
-    }
-
-    &::-moz-range-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 14px;
-        height: 14px;
-        background: #e50914;
-        border: none;
-        border-radius: 50%;
-    }*/
-
-        /*//trilho
-    &::-webkit-slider-runnable-track {
-        background-color: var(--white);
-        border-radius: 50%;
-        height: 6px;
-    }
-
-    &::-moz-range-track {
-        height: 6px;
-        background-color: var(--white);
-        border-radius: 50%;
-    }
-
-    //barra de progresso já visto
-    &::-moz-range-progress {
-        background-color: var(--red);
-        height: 6px;
-        border-radius: 50%;
-    }
-}*/
 
         .actions {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            //gap: 20px;
+
+            .volumeContainer {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 20px;
+
+            }
+
+            .volumeSlider {
+                display: flex;
+                width: 100px;
+                gap: 8px;
+
+                input {
+                    width: 100%;
+                    accent-color: #e50914;
+                    cursor: pointer;
+
+                    padding: 0;
+                }
+            }
 
             button {
                 background: none;
@@ -132,11 +108,14 @@
                 color: #fff;
                 font-size: 18px;
                 cursor: pointer;
+
+                padding: 8px;
             }
 
             span {
                 color: #fff;
                 font-size: 14px;
+                white-space: nowrap;
             }
         }
     }
@@ -148,4 +127,73 @@
 
 .hidden {
     opacity: 0;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .controls {
+        .bottom {
+            padding: 14px;
+        }
+
+        .timeline {
+            height: 7px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .controls {
+        .bottom {
+            padding: 10px;
+            gap: 8px;
+        }
+
+        .timeline {
+            height: 8px;
+            /* maior para touch */
+
+            .thumb {
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        .actions {
+            button {
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            span {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .controls {
+        .bottom {
+            padding: 8px;
+        }
+
+        .actions {
+            justify-content: center;
+            gap: 20px;
+
+            span {
+                display: none;
+                /* economiza espaço */
+            }
+        }
+
+        .timeline {
+            height: 10px;
+
+            .thumb {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
 }

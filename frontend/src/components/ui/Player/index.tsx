@@ -5,6 +5,7 @@ import NoFile from '../NoFile'
 import { FaPause, FaPlay } from 'react-icons/fa'
 import { MdFullscreen, MdFullscreenExit } from 'react-icons/md'
 import { debug } from '@/classes/DebugLogger'
+import { IoMdVolumeHigh } from 'react-icons/io'
 
 interface MoviePlayerProps {
     loading: boolean
@@ -35,6 +36,7 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
     const [duration, setDuration] = useState(0)
     const [showControls, setShowControls] = useState(true)
     const [isDragging, setIsDragging] = useState(false)
+    const [volume, setVolume] = useState(1)
 
     const [isFullscreen, setIsFullscreen] = useState(false)
 
@@ -59,6 +61,29 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
         } else {
             video.pause()
             setIsPlaying(false)
+        }
+    }
+
+    const handleVolumeChange = (value: number) => {
+        debug.log("Volume", value)
+        const video = videoRef.current
+        if (!video) return
+
+        const v = Math.max(0, Math.min(1, value))
+
+        video.volume = v
+        setVolume(v)
+    }
+    const toggleMute = () => {
+        const video = videoRef.current
+        if (!video) return
+
+        if (video.volume > 0) {
+            video.volume = 0
+            setVolume(0)
+        } else {
+            video.volume = 1
+            setVolume(1)
         }
     }
 
@@ -223,9 +248,25 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
 
                                 <span>{formatTime((progress / 100) * duration)}{' '} / {formatTime(duration)}</span>
 
-                                <button onClick={(e) => { e.stopPropagation(), toggleFullScreen() }}>
-                                    {isFullscreen ? <MdFullscreenExit size={30} /> : <MdFullscreen size={30} />}
-                                </button>
+                                <div className={styles.volumeContainer}>
+
+                                    <div className={styles.volumeSlider}>
+                                        <IoMdVolumeHigh size={30} />
+                                        <input
+                                            type="range"
+                                            min={0}
+                                            max={1}
+                                            step={0.01}
+                                            value={volume}
+                                            onClick={(e) => e.stopPropagation()}
+                                            onChange={(e) => handleVolumeChange(Number(e.target.value))}
+                                        />
+                                    </div>
+                                    <button onClick={(e) => { e.stopPropagation(), toggleFullScreen() }}>
+                                        {isFullscreen ? <MdFullscreenExit size={30} /> : <MdFullscreen size={30} />}
+                                    </button>
+
+                                </div>
                             </div>
                         </div>
                     </div>
