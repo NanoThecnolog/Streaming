@@ -1,5 +1,5 @@
 import styles from '@/styles/Watch.module.scss';
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/router";
 import { ChevronLeft } from 'lucide-react';
 import HelpFlag from "@/components/Helpflag";
@@ -43,6 +43,14 @@ export default function Watch({ userContext }: WatchProps) {
         if (user && !user.donator) router.push('/me/escolher-plano')
     }, [user])
 
+    const isDrive = useMemo(() => {
+        try {
+            return !new URL(movieData.src).hostname.includes('backblazeb2.com')
+        } catch {
+            return true
+        }
+    }, [movieData])
+
 
     useEffect(() => {
         async function getMovieMongoData() {
@@ -68,8 +76,14 @@ export default function Watch({ userContext }: WatchProps) {
     }, [])
 
     useEffect(() => {
-        debug.log("movie data ao verificar: ", movieData)
+        if (!isDrive) {
+            setShared(true)
+            return
+        }
+
+
         if (movieData.src) {
+            debug.log("movie data ao verificar: ", movieData)
             shareVerify(movieData.src)
         } else {
             setShared(false)
