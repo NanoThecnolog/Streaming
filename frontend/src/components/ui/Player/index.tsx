@@ -185,6 +185,40 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
         return hours > 0 ? `${hh}:${mm}:${ss}` : `${mm}:${ss}`
     }
 
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            const video = videoRef.current
+            if (!video) return
+
+            switch (e.code) {
+                case 'Space':
+                    e.preventDefault()
+                    togglePlay()
+                    break
+
+                case 'ArrowRight':
+                    video.currentTime = Math.min(
+                        video.duration,
+                        video.currentTime + 10
+                    )
+                    break
+
+                case 'ArrowLeft':
+                    video.currentTime = Math.max(
+                        0,
+                        video.currentTime - 10
+                    )
+                    break
+            }
+        }
+
+        window.addEventListener('keydown', handleKeyDown)
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown)
+        }
+    }, [togglePlay])
+
     if (loading) {
         return <Spinner />
     }
