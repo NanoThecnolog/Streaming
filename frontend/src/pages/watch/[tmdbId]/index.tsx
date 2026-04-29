@@ -28,7 +28,7 @@ export default function Watch({ userContext }: WatchProps) {
     const [movieData, setMovieData] = useState({ title: '', subtitle: '', src: '', tmdbId: 0 });
     const { user, setUser, movies } = useFlix()
     const [visible, setVisible] = useState(false)
-    const [shared, setShared] = useState(true)
+    const [shared, setShared] = useState<boolean | null>(null)
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
@@ -44,12 +44,13 @@ export default function Watch({ userContext }: WatchProps) {
     }, [user])
 
     const isDrive = useMemo(() => {
+        if (!movieData.src) return null
         try {
             return !new URL(movieData.src).hostname.includes('backblazeb2.com')
         } catch {
-            return true
+            return null
         }
-    }, [movieData])
+    }, [movieData.src])
 
 
     useEffect(() => {
@@ -76,24 +77,29 @@ export default function Watch({ userContext }: WatchProps) {
     }, [])
 
     useEffect(() => {
-        if (!isDrive) {
+        debug.log("drive?", isDrive)
+        debug.log("shared?", shared)
+        if (!movieData.src || isDrive === null) return
+        if (isDrive === false) {
             setShared(true)
             return
         }
+        shareVerify(movieData.src)
 
 
-        if (movieData.src) {
+        /*if (movieData.src) {
             debug.log("movie data ao verificar: ", movieData)
             shareVerify(movieData.src)
         } else {
-            setShared(false)
+            if (isDrive) setShared(false)
             debug.log("não fazer nada!")
-        }
-    }, [movieData])
+        }*/
+
+    }, [movieData.src, isDrive])
 
 
     async function shareVerify(link: string) {
-        if (loading) return
+        //if (loading) return
         setLoading(true)
 
         try {

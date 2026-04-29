@@ -6,10 +6,11 @@ import { FaPause, FaPlay } from 'react-icons/fa'
 import { MdFullscreen, MdFullscreenExit } from 'react-icons/md'
 import { debug } from '@/classes/DebugLogger'
 import { IoMdVolumeHigh } from 'react-icons/io'
+import { divide } from 'lodash'
 
 interface MoviePlayerProps {
     loading: boolean
-    shared: boolean
+    shared: boolean | null
     src: string
     title: string
 }
@@ -21,39 +22,100 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
         try {
             return !new URL(src).hostname.includes('backblazeb2.com')
         } catch {
-            return true
+            return null
         }
     }, [src])
 
 
     const videoRef = useRef<HTMLVideoElement>(null)
     const containerRef = useRef<HTMLDivElement>(null)
-    const hideTimeout = useRef<NodeJS.Timeout | null>(null)
+    const hideTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
+    const playButtonTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
     const timelineRef = useRef<HTMLDivElement>(null)
 
     const [isPlaying, setIsPlaying] = useState(false)
     const [progress, setProgress] = useState(0)
     const [duration, setDuration] = useState(0)
     const [showControls, setShowControls] = useState(true)
+    const [showPlayButton, setShowPlayButton] = useState(true)
     const [isDragging, setIsDragging] = useState(false)
     const [volume, setVolume] = useState(1)
 
     const [isFullscreen, setIsFullscreen] = useState(false)
+    const [isVideoLoading, setIsVideoLoading] = useState(true)
+    const [videoError, setVideoError] = useState(false)
+
+    useEffect(() => {
+        setVideoError(false)
+    }, [src])
+
+    const handleVideoError = () => {
+        setVideoError(true)
+        setIsVideoLoading(false)
+    }
 
 
     //const player = new VPlayer(videoRef)
 
+    useEffect(() => {
+        debug.log("video carregando?", isVideoLoading)
+    }, [isVideoLoading])
 
     useEffect(() => {
+        const video = videoRef.current
+        if (!video) return
+
         setProgress(0)
         setIsPlaying(false)
         setDuration(0)
+        setIsVideoLoading(true)
+
+        video.pause()
+        video.load()
+    }, [src])
+
+    useEffect(() => {
+        const video = videoRef.current
+        if (!video) return
+        const interval = setInterval(() => {
+            if (video.duration && Number.isFinite(video.duration)) {
+                setDuration(video.duration)
+                clearInterval(interval)
+            }
+        }, 300)
+
+        return () => clearInterval(interval)
+    }, [src])
+
+    useEffect(() => {
+        const video = videoRef.current
+        if (!video) return
+
+        const log = () => {
+            debug.log({
+                readyState: video.readyState,
+                networkState: video.networkState,
+                duration: video.duration
+            })
+        }
+
+        video.addEventListener('loadedmetadata', log)
+        video.addEventListener('canplay', log)
+        video.addEventListener('loadeddata', log)
+
+        return () => {
+            video.removeEventListener('loadedmetadata', log)
+            video.removeEventListener('canplay', log)
+            video.removeEventListener('loadeddata', log)
+        }
     }, [src])
 
 
     const togglePlay = () => {
         const video = videoRef.current
         if (!video /**|| isDrive */) return
+
+        handleBigPlayButton()
 
         if (video.paused) {
             video.play()
@@ -62,6 +124,28 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
             video.pause()
             setIsPlaying(false)
         }
+
+    }
+
+    const handleBigPlayButton = () => {
+        debug.log("chamando handleBigPlayButton")
+        setShowPlayButton(true)
+
+        const video = videoRef.current
+        if (!video) return
+
+        if (playButtonTimeout.current) {
+            clearTimeout(playButtonTimeout.current)
+        }
+
+        playButtonTimeout.current = setTimeout(() => {
+            if (video.paused) return
+            setShowPlayButton(false)
+        }, 500)
+    }
+
+    const handleCanPlay = () => {
+        setIsVideoLoading(false)
     }
 
     const handleVolumeChange = (value: number) => {
@@ -94,11 +178,15 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
         setProgress((video.currentTime / video.duration) * 100)
     }
 
+    const handleLoadedData = () => {
+        setIsVideoLoading(false)
+    }
+
     const handleLoadedMetaData = () => {
         const video = videoRef.current
         if (!video /**|| isDrive */) return
 
-        setDuration(video.duration)
+        setDuration(video.duration || 0)
     }
 
     const handleSeek = (clientX: number) => {
@@ -146,14 +234,27 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
     const handleMouseMove = () => {
         //if (isDrive) return
         setShowControls(true)
+        setShowPlayButton(true)
 
-        if (hideTimeout.current)
-            clearTimeout(hideTimeout.current)
+        const video = videoRef.current
+        if (!video) return
+
+        if (hideTimeout.current) clearTimeout(hideTimeout.current)
+        if (playButtonTimeout.current) clearTimeout(playButtonTimeout.current)
 
         hideTimeout.current = setTimeout(() => {
-            setShowControls(false)
-        }, 3000)
+            if (!video.paused) setShowControls(false)
+        }, 2000)
+        playButtonTimeout.current = setTimeout(() => {
+            if (!video.paused) setShowPlayButton(false)
+        }, 500)
     }
+    useEffect(() => {
+        return () => {
+            if (hideTimeout.current) clearTimeout(hideTimeout.current)
+            if (playButtonTimeout.current) clearTimeout(playButtonTimeout.current)
+        }
+    }, [])
 
     const toggleFullScreen = () => {
         const container = containerRef.current
@@ -219,18 +320,30 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
         }
     }, [togglePlay])
 
-    if (loading) {
-        return <Spinner />
-    }
 
-    if (!shared) {
+
+    //fallbacks
+    if (loading)
+        return <Spinner />
+
+    if (isDrive === null)
+        return <Spinner />
+
+    if (isDrive === true && shared === null)
+        return <Spinner />
+
+    if (
+        (isDrive === true && shared === false) ||
+        (isDrive === false && videoError)
+    ) {
+        debug.log(`apresentando noFile. isDrive: ${isDrive}, shared: ${shared}, videoError: ${videoError}`)
         return <NoFile type="movie" />
     }
 
     return (
 
         <>
-            {isDrive && <iframe
+            {isDrive === true && <iframe
                 title={title}
                 src={src}
                 allowFullScreen
@@ -239,71 +352,91 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
                 height="100%"
                 className={styles.player}
             />}
-            {!isDrive &&
+            {isDrive === false &&
                 <div
                     ref={containerRef}
                     className={styles.container}
                     onMouseMove={handleMouseMove}
                     onClick={togglePlay}
                 >
-                    <video
-                        ref={videoRef}
-                        className={styles.player}
-                        onTimeUpdate={handleTimeUpdate}
-                        onLoadedMetadata={handleLoadedMetaData}
-                    >
-                        <source src={src} type="video/mp4" />
-                        Seu navegador não suporta vídeo no formato mp4.
-
-                        {
-                            //adicionando legenda
-                            //<track src="URL_SUB_PT" kind="subtitles" srcLang="pt" label="Português" />
-                            //<track src="URL_SUB_EN" kind="subtitles" srcLang="en" label="English" />
-                        }
-                    </video>
-
-                    <div className={`${styles.controls} ${showControls ? styles.visible : styles.hidden}`}>
-                        <div className={styles.bottom}>
-                            <div
-                                ref={timelineRef}
-                                className={styles.timeline}
-                                onClick={(e) => {
-                                    e.stopPropagation()
-                                    handleSeek(e.clientX)
-                                    debug.log('clique')
-                                }}
+                    {isVideoLoading &&
+                        <div className={styles.loadingOverlay}>
+                            <Spinner />
+                        </div>
+                    }
+                    {
+                        isDrive === false && src &&
+                        <>
+                            <video
+                                ref={videoRef}
+                                className={styles.player}
+                                onTimeUpdate={handleTimeUpdate}
+                                onLoadedMetadata={handleLoadedMetaData}
+                                onCanPlay={handleCanPlay}
+                                onLoadedData={handleLoadedData}
+                                onError={handleVideoError}
+                                preload='metadata'//auto para priozar UX
                             >
-                                <div className={styles.track} />
-                                <div className={styles.progress} style={{ width: `${progress}%` }} />
-                                <div className={styles.thumb} style={{ left: `${progress}%` }} onMouseDown={handleMouseDown} />
-                            </div>
-                            <div className={styles.actions}>
+                                <source src={src} type="video/mp4" />
+                                Seu navegador não suporta vídeo no formato mp4.
+
+                                {
+                                    //adicionando legenda
+                                    //<track src="URL_SUB_PT" kind="subtitles" srcLang="pt" label="Português" />
+                                    //<track src="URL_SUB_EN" kind="subtitles" srcLang="en" label="English" />
+                                }
+                            </video>
+
+                            <div className={`${styles.videoPlayButton} ${showPlayButton ? styles.visible : styles.hidden}`}>
                                 <button onClick={(e) => { e.stopPropagation(), togglePlay() }}>{isPlaying ? <FaPause /> : <FaPlay />}</button>
+                            </div>
 
-                                <span>{formatTime((progress / 100) * duration)}{' '} / {formatTime(duration)}</span>
-
-                                <div className={styles.volumeContainer}>
-
-                                    <div className={styles.volumeSlider}>
-                                        <IoMdVolumeHigh size={30} />
-                                        <input
-                                            type="range"
-                                            min={0}
-                                            max={1}
-                                            step={0.01}
-                                            value={volume}
-                                            onClick={(e) => e.stopPropagation()}
-                                            onChange={(e) => handleVolumeChange(Number(e.target.value))}
-                                        />
+                            <div className={`${styles.controls} ${showControls ? styles.visible : styles.hidden}`}>
+                                <div className={styles.bottom}>
+                                    <div
+                                        ref={timelineRef}
+                                        className={styles.timeline}
+                                        onClick={(e) => {
+                                            e.stopPropagation()
+                                            handleSeek(e.clientX)
+                                            debug.log('clique')
+                                        }}
+                                    >
+                                        <div className={styles.track} />
+                                        <div className={styles.progress} style={{ width: `${progress}%` }} />
+                                        <div className={styles.thumb} style={{ left: `${progress}%` }} onMouseDown={handleMouseDown} />
                                     </div>
-                                    <button onClick={(e) => { e.stopPropagation(), toggleFullScreen() }}>
-                                        {isFullscreen ? <MdFullscreenExit size={30} /> : <MdFullscreen size={30} />}
-                                    </button>
+                                    <div className={styles.actions}>
+                                        <div className={styles.playContainer}>
+                                            <button onClick={(e) => { e.stopPropagation(), togglePlay() }}>{isPlaying ? <FaPause /> : <FaPlay />}</button>
 
+                                            <span>{formatTime((progress / 100) * duration)}{' '} / {formatTime(duration)}</span>
+                                        </div>
+
+                                        <div className={styles.volumeContainer}>
+
+                                            <div className={styles.volumeSlider}>
+                                                <IoMdVolumeHigh size={30} />
+                                                <input
+                                                    type="range"
+                                                    min={0}
+                                                    max={1}
+                                                    step={0.01}
+                                                    value={volume}
+                                                    onClick={(e) => e.stopPropagation()}
+                                                    onChange={(e) => handleVolumeChange(Number(e.target.value))}
+                                                />
+                                            </div>
+                                            <button onClick={(e) => { e.stopPropagation(), toggleFullScreen() }}>
+                                                {isFullscreen ? <MdFullscreenExit size={30} /> : <MdFullscreen size={30} />}
+                                            </button>
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </>
+                    }
                 </div>
             }
         </>
