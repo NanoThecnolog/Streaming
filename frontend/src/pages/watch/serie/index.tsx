@@ -88,7 +88,8 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
     }, [router, src, episode, season, tmdbID])
 
     const handleBack = useCallback(() => {
-        Router.push(`/series/serie/${serie?.tmdbID}`)
+
+        router.push(`/series/serie/${serie?.tmdbID}`)
     }, [router])
 
     const handleHelpModal = useCallback(() => {
