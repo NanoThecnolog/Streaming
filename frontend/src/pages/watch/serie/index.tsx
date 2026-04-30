@@ -1,7 +1,7 @@
 import Router, { useRouter } from "next/router"
 import styles from '@/styles/Watch.module.scss'
 import { ChevronLeft } from "lucide-react"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 import NextEpisode from "@/components/ui/NextEpisode"
 import PrevEpisode from "@/components/ui/PreviousEpisode"
 import SEO from "@/components/SEO"
@@ -56,12 +56,19 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
 
     useEffect(() => {
         if (user && !user.donator) router.push('/me/escolher-plano')
-        //debug.log(user.donator)
-        //debug.log(user)
     }, [user])
 
+    const isDrive = useMemo(() => {
+        if (!src) return null
+        try {
+            return !new URL(src as string).hostname.includes('backblazeb2.com')
+        } catch {
+            return null
+        }
+    }, [src])
+
     useEffect(() => {
-        async function getSerieMongoData() {
+        const getSerieMongoData = async () => {
             const serieDb = await mongoService.findOneSerieById(parseInt(tmdbID as string))
             debug.log('serieDb: ', serieDb)
             if (!serieDb) return debug.log('serieDb vazia ou null')
@@ -80,22 +87,23 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
         }
     }, [router, src, episode, season, tmdbID])
 
-    function handleBack() {
+    const handleBack = useCallback(() => {
         Router.push(`/series/serie/${serie?.tmdbID}`)
-    }
+    }, [router])
 
-    function handleHelpModal() {
+    const handleHelpModal = useCallback(() => {
         setVisible(!visible)
-    }
+    }, [])
 
     useEffect(() => {
         debug.log("episódio ao verificar: ", episodio)
-        if (episodio?.src) {
-            shareVerify(episodio.src)
-        } else {
-            debug.log("Src do episodio ausente")
+        if (!episodio?.src || isDrive === null) return
+        if (isDrive === false) {
+            setShared(true)
+            return
         }
-    }, [episodio])
+        shareVerify(episodio.src)
+    }, [episodio, isDrive])
 
     const shareVerify = async (link: string) => {
         if (loading) return
@@ -103,13 +111,12 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
         setLoading(true)
 
         try {
-            const { data } = await apiGoogle.get(
-                `/${encodeURIComponent(link)}`
-            )
+            const { data } = await apiGoogle.get(`/${encodeURIComponent(link)}`)
             debug.log('arquivo verificado: ', data)
-
             const fileCheck: CheckFileProps = data
+
             setShared(!!fileCheck.shared)
+
         } catch (error: any) {
             const status = error?.response?.status
 
@@ -121,8 +128,8 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
                         title: episodio?.title,
                         description: 'Problema com arquivo',
                         tmdbId: serie?.tmdbID,
-                        season: episodio?.season,
-                        episode: episodio?.episode,
+                        season: episodio?.season ?? '-',
+                        episode: episodio?.episode ?? '-',
                         email: user?.email
                     })
                 } catch (mailError) {
