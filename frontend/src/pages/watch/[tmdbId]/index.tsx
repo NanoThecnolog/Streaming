@@ -98,7 +98,7 @@ export default function Watch({ userContext }: WatchProps) {
     }, [movieData.src, isDrive])
 
 
-    async function shareVerify(link: string) {
+    const shareVerify = async (link: string) => {
         //if (loading) return
         setLoading(true)
 
