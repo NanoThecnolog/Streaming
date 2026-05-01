@@ -4,6 +4,7 @@
     padding: 10px;
     border-radius: .4rem;
     transition: .4s;
+    z-index: 100;
 
     &:hover {
         transform: scale(1.1);
