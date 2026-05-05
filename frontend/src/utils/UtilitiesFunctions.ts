@@ -183,3 +183,30 @@ export const normalizeCPF = (cpf: string): string => {
 export const statusVerify = (res: PromiseSettledResult<any>): Boolean => {
     return res.status === 'fulfilled' && res.value.status === 200
 }
+
+export const getClientX = (e: MouseEvent | TouchEvent | React.MouseEvent | React.TouchEvent) => {
+    if ('touches' in e)
+        return e.touches[0]?.clientX ?? 0
+
+    return (e as MouseEvent).clientX
+}
+
+/**
+ * Função para formatar duração do vídeo no player
+ * @param time tempo a ser formatado do tipo number
+ * @returns Retorna o tempo de vídeo como string (hh:mm:ss)
+ */
+export const formatTime = (time: number): string => {
+    //if (isDrive) return ''
+    if (!Number.isFinite(time)) return '00:00'
+
+    const hours = Math.floor(time / 3600)
+    const minutes = Math.floor((time % 3600) / 60)
+    const seconds = Math.floor(time % 60)
+
+    const hh = hours.toString().padStart(2, '0')
+    const mm = minutes.toString().padStart(2, '0')
+    const ss = seconds.toString().padStart(2, '0')
+
+    return hours > 0 ? `${hh}:${mm}:${ss}` : `${mm}:${ss}`
+}

@@ -7,6 +7,7 @@ import { MdFullscreen, MdFullscreenExit } from 'react-icons/md'
 import { debug } from '@/classes/DebugLogger'
 import { IoMdVolumeHigh } from 'react-icons/io'
 import { divide } from 'lodash'
+import { formatTime, getClientX } from '@/utils/UtilitiesFunctions'
 
 interface MoviePlayerProps {
     loading: boolean
@@ -45,21 +46,270 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
     const [isVideoLoading, setIsVideoLoading] = useState(true)
     const [videoError, setVideoError] = useState(false)
 
-    useEffect(() => {
-        setVideoError(false)
-    }, [src])
+    const lastTapRef = useRef<number>(0)
+    const lastTapSideRef = useRef<'left' | 'right' | 'center' | null>(null)
+    const doubleTapDelay = 300
+
+    // ======================
+    // Funções de ação
+    // ======================
+
+    // play e pause
+
+    const togglePlay = useCallback(() => {
+        const video = videoRef.current
+        if (!video) return
+
+        handleBigPlayButton()
+
+        if (video.paused) {
+            video.play()
+            setIsPlaying(true)
+        } else {
+            video.pause()
+            setIsPlaying(false)
+        }
+
+    }, [])
+
+    // Mudança de volume
+
+    const handleVolumeChange = (value: number) => {
+        debug.log("Volume", value)
+        const video = videoRef.current
+        if (!video) return
+
+        const v = Math.max(0, Math.min(1, value))
+
+        video.volume = v
+        setVolume(v)
+    }
+
+    const toggleMute = () => {
+        const video = videoRef.current
+        if (!video) return
+
+        if (video.volume > 0) {
+            video.volume = 0
+            setVolume(0)
+        } else {
+            video.volume = 1
+            setVolume(1)
+        }
+    }
+
+    // Navegação na timeline do vídeo
+
+    const handleSeek = (clientX: number) => {
+        const video = videoRef.current
+        const timeline = timelineRef.current
+        if (!video || !timeline || !video.duration) return
+
+        const rect = timeline.getBoundingClientRect()
+        let percent = (clientX - rect.left) / rect.width
+
+
+        percent = Math.max(0, Math.min(1, percent))
+        video.currentTime = percent * video.duration
+    }
+
+    //helper de double Tap pra mobile
+
+    const getTapZone = (clientX: number): 'left' | 'center' | 'right' => {
+        const container = containerRef.current
+        if (!container) return 'center'
+
+        const rect = container.getBoundingClientRect()
+        const x = clientX - rect.left
+        const width = rect.width
+
+        if (x < width * .3) return 'left'
+        if (x > width * .7) return 'right'
+        return 'center'
+    }
+
+    // Entrar e saír da tela cheia
+
+    const toggleFullScreen = () => {
+        const container = containerRef.current
+        if (!container /*|| isDrive*/) return
+
+        if (!document.fullscreenElement) {
+            container.requestFullscreen()
+            setIsFullscreen(true)
+        }
+
+        else {
+            document.exitFullscreen()
+            setIsFullscreen(false)
+        }
+    }
+
+    // ==================================
+    // Funções de handler de eventos
+    // ==================================
+
+    // handler de Erro
 
     const handleVideoError = () => {
         setVideoError(true)
         setIsVideoLoading(false)
     }
 
+    useEffect(() => {
+        setVideoError(false)
+    }, [src])
 
-    //const player = new VPlayer(videoRef)
+    // handler de double tap pra mobile
+    const handleTouchInteraction = (clientX: number) => {
+        const video = videoRef.current
+        if (!video || !video.duration) return
 
+        const now = Date.now()
+        const zone = getTapZone(clientX)
+
+        const isDoubleTap =
+            now - lastTapRef.current < doubleTapDelay &&
+            zone === lastTapSideRef.current
+
+        if (isDoubleTap) {
+            if (zone === 'left') {
+                video.currentTime = Math.max(0, video.currentTime - 10)
+            } else if (zone === 'right') {
+                video.currentTime = Math.min(video.duration, video.currentTime + 10)
+            }
+
+            handleBigPlayButton()
+            lastTapRef.current = 0
+            lastTapSideRef.current = null
+            return
+        }
+
+        // single tap → só mostra UI
+        handleMouseMove()
+
+        lastTapRef.current = now
+        lastTapSideRef.current = zone
+    }
+
+    // handler de Interação da tela de vídeo (recuar, play pause, avançar)
+
+    const handleContainerInteracton = (clientX: number) => {
+        const video = videoRef.current
+        const container = containerRef.current
+
+        if (!video || !container || !video.duration) return
+
+        const rect = container.getBoundingClientRect()
+        const x = clientX - rect.left
+        const width = rect.width
+
+        const leftZone = width * .3
+        const rightZone = width * .7
+        if (x < leftZone) {
+            video.currentTime = Math.max(0, video.currentTime - 10)
+            handleBigPlayButton()
+            return
+        }
+        if (x > rightZone) {
+            video.currentTime = Math.min(video.duration, video.currentTime + 10)
+            handleBigPlayButton()
+            return
+        }
+        togglePlay()
+    }
+
+    // Handler para efeito de mostrar/esconder botão de play/pause
+
+    const handleBigPlayButton = () => {
+        debug.log("chamando handleBigPlayButton")
+        setShowPlayButton(true)
+
+        const video = videoRef.current
+        if (!video) return
+
+        if (playButtonTimeout.current) {
+            clearTimeout(playButtonTimeout.current)
+        }
+
+        playButtonTimeout.current = setTimeout(() => {
+            if (video.paused) return
+            setShowPlayButton(false)
+        }, 500)
+    }
+
+    // Verificação de carregamento do vídeo
+    const handleCanPlay = () => {
+        setIsVideoLoading(false)
+    }
+
+    // Handler de atualização de progresso do video
+
+    const handleTimeUpdate = () => {
+        const video = videoRef.current
+        if (!video || !video.duration) return
+
+        setProgress((video.currentTime / video.duration) * 100)
+    }
+
+    // Handler de metadata
+
+    const handleLoadedData = () => {
+        setIsVideoLoading(false)
+    }
+
+    const handleLoadedMetaData = () => {
+        const video = videoRef.current
+        if (!video /**|| isDrive */) return
+
+        setDuration(video.duration || 0)
+    }
+
+    // Handlers de interação do mouse
+
+    const handleMouseDown = (e: React.MouseEvent) => {
+        e.stopPropagation()
+        setIsDragging(true)
+        handleSeek(e.clientX)
+    }
+    const handleMouseMoveGlobal = useCallback((e: MouseEvent) => {
+        if (!isDragging) return
+        handleSeek(e.clientX)
+    }, [isDragging])
+
+    const handleMouseUp = () => {
+        setIsDragging(false)
+    }
+
+    const handleMouseMove = () => {
+        setShowControls(true)
+        setShowPlayButton(true)
+
+        const video = videoRef.current
+        if (!video) return
+
+        if (hideTimeout.current) clearTimeout(hideTimeout.current)
+        if (playButtonTimeout.current) clearTimeout(playButtonTimeout.current)
+
+        hideTimeout.current = setTimeout(() => {
+            if (!video.paused) setShowControls(false)
+        }, 2000)
+        playButtonTimeout.current = setTimeout(() => {
+            if (!video.paused) setShowPlayButton(false)
+        }, 500)
+    }
+
+
+    // ===========================
+    // UseEffects
+    // ===========================
+
+    // Verificação de carregamento de vídeo
     useEffect(() => {
         debug.log("video carregando?", isVideoLoading)
     }, [isVideoLoading])
+
+    // Inicialização de States
 
     useEffect(() => {
         const video = videoRef.current
@@ -74,6 +324,8 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
         video.load()
     }, [src])
 
+    // Ajuste de renderização da duração de video
+
     useEffect(() => {
         const video = videoRef.current
         if (!video) return
@@ -86,6 +338,8 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
 
         return () => clearInterval(interval)
     }, [src])
+
+    //Listener de carregamento de Metadata do video
 
     useEffect(() => {
         const video = videoRef.current
@@ -110,115 +364,7 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
         }
     }, [src])
 
-
-    const togglePlay = () => {
-        const video = videoRef.current
-        if (!video /**|| isDrive */) return
-
-        handleBigPlayButton()
-
-        if (video.paused) {
-            video.play()
-            setIsPlaying(true)
-        } else {
-            video.pause()
-            setIsPlaying(false)
-        }
-
-    }
-
-    const handleBigPlayButton = () => {
-        debug.log("chamando handleBigPlayButton")
-        setShowPlayButton(true)
-
-        const video = videoRef.current
-        if (!video) return
-
-        if (playButtonTimeout.current) {
-            clearTimeout(playButtonTimeout.current)
-        }
-
-        playButtonTimeout.current = setTimeout(() => {
-            if (video.paused) return
-            setShowPlayButton(false)
-        }, 500)
-    }
-
-    const handleCanPlay = () => {
-        setIsVideoLoading(false)
-    }
-
-    const handleVolumeChange = (value: number) => {
-        debug.log("Volume", value)
-        const video = videoRef.current
-        if (!video) return
-
-        const v = Math.max(0, Math.min(1, value))
-
-        video.volume = v
-        setVolume(v)
-    }
-    const toggleMute = () => {
-        const video = videoRef.current
-        if (!video) return
-
-        if (video.volume > 0) {
-            video.volume = 0
-            setVolume(0)
-        } else {
-            video.volume = 1
-            setVolume(1)
-        }
-    }
-
-    const handleTimeUpdate = () => {
-        const video = videoRef.current
-        if (!video || !video.duration /**|| isDrive */) return
-
-        setProgress((video.currentTime / video.duration) * 100)
-    }
-
-    const handleLoadedData = () => {
-        setIsVideoLoading(false)
-    }
-
-    const handleLoadedMetaData = () => {
-        const video = videoRef.current
-        if (!video /**|| isDrive */) return
-
-        setDuration(video.duration || 0)
-    }
-
-    const handleSeek = (clientX: number) => {
-        const video = videoRef.current
-        const timeline = timelineRef.current
-        if (!video || !timeline /**|| isDrive */) return
-
-        const rect = timeline.getBoundingClientRect()
-
-        let percent = (clientX - rect.left) / rect.width
-
-        percent = Math.max(0, Math.min(1, percent))
-
-        video.currentTime = percent * video.duration
-        //setProgress(percent * 100)
-    }
-
-    const handleMouseDown = (e: React.MouseEvent) => {
-        //if (isDrive) return
-        e.stopPropagation()
-        setIsDragging(true)
-        handleSeek(e.clientX)
-    }
-    const handleMouseMoveGlobal = useCallback((e: MouseEvent) => {
-        if (!isDragging /**|| isDrive */) return
-        handleSeek(e.clientX)
-    }, [isDragging])
-
-    const handleMouseUp = () => {
-        //if (isDrive) return
-        setIsDragging(false)
-    }
+    //Listener do mouse
 
     useEffect(() => {
         //if (isDrive) return
@@ -231,24 +377,8 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
         }
     }, [isDragging])
 
-    const handleMouseMove = () => {
-        //if (isDrive) return
-        setShowControls(true)
-        setShowPlayButton(true)
+    //Clear de timeout
 
-        const video = videoRef.current
-        if (!video) return
-
-        if (hideTimeout.current) clearTimeout(hideTimeout.current)
-        if (playButtonTimeout.current) clearTimeout(playButtonTimeout.current)
-
-        hideTimeout.current = setTimeout(() => {
-            if (!video.paused) setShowControls(false)
-        }, 2000)
-        playButtonTimeout.current = setTimeout(() => {
-            if (!video.paused) setShowPlayButton(false)
-        }, 500)
-    }
     useEffect(() => {
         return () => {
             if (hideTimeout.current) clearTimeout(hideTimeout.current)
@@ -256,35 +386,7 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
         }
     }, [])
 
-    const toggleFullScreen = () => {
-        const container = containerRef.current
-        if (!container /*|| isDrive*/) return
-
-        if (!document.fullscreenElement) {
-            container.requestFullscreen()
-            setIsFullscreen(true)
-        }
-
-        else {
-            document.exitFullscreen()
-            setIsFullscreen(false)
-        }
-    }
-
-    const formatTime = (time: number): string => {
-        //if (isDrive) return ''
-        if (!Number.isFinite(time)) return '00:00'
-
-        const hours = Math.floor(time / 3600)
-        const minutes = Math.floor((time % 3600) / 60)
-        const seconds = Math.floor(time % 60)
-
-        const hh = hours.toString().padStart(2, '0')
-        const mm = minutes.toString().padStart(2, '0')
-        const ss = seconds.toString().padStart(2, '0')
-
-        return hours > 0 ? `${hh}:${mm}:${ss}` : `${mm}:${ss}`
-    }
+    // Listener de eventos do teclado
 
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
@@ -321,8 +423,9 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
     }, [togglePlay])
 
 
-
-    //fallbacks
+    // ===============
+    // Fallbacks
+    // ===============
     if (loading)
         return <Spinner />
 
@@ -357,7 +460,9 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
                     ref={containerRef}
                     className={styles.container}
                     onMouseMove={handleMouseMove}
-                    onClick={togglePlay}
+                    onTouchMove={handleMouseMove}
+                    onClick={(e) => handleContainerInteracton(e.clientX)}
+                    onTouchStart={(e) => handleTouchInteraction(getClientX(e))}
                 >
                     {isVideoLoading &&
                         <div className={styles.loadingOverlay}>
@@ -365,7 +470,7 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
                         </div>
                     }
                     {
-                        isDrive === false && src &&
+                        src &&
                         <>
                             <video
                                 ref={videoRef}
@@ -388,7 +493,12 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
                             </video>
 
                             <div className={`${styles.videoPlayButton} ${showPlayButton ? styles.visible : styles.hidden}`}>
-                                <button onClick={(e) => { e.stopPropagation(), togglePlay() }}>{isPlaying ? <FaPause /> : <FaPlay />}</button>
+                                <button onClick={(e) => { e.stopPropagation(), togglePlay() }}>
+                                    {isPlaying
+                                        ? <FaPause />
+                                        : <FaPlay />
+                                    }
+                                </button>
                             </div>
 
                             <div className={`${styles.controls} ${showControls ? styles.visible : styles.hidden}`}>
@@ -398,9 +508,18 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
                                         className={styles.timeline}
                                         onClick={(e) => {
                                             e.stopPropagation()
-                                            handleSeek(e.clientX)
-                                            debug.log('clique')
+                                            handleSeek(getClientX(e))
                                         }}
+                                        onTouchStart={(e) => {
+                                            e.stopPropagation()
+                                            setIsDragging(true)
+                                            handleSeek(getClientX(e))
+                                        }}
+                                        onTouchMove={(e) => {
+                                            if (!isDragging) return
+                                            handleSeek(getClientX(e))
+                                        }}
+                                        onTouchEnd={() => setIsDragging(false)}
                                     >
                                         <div className={styles.track} />
                                         <div className={styles.progress} style={{ width: `${progress}%` }} />
@@ -408,9 +527,16 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
                                     </div>
                                     <div className={styles.actions}>
                                         <div className={styles.playContainer}>
-                                            <button onClick={(e) => { e.stopPropagation(), togglePlay() }}>{isPlaying ? <FaPause /> : <FaPlay />}</button>
+                                            <button onClick={(e) => { e.stopPropagation(), togglePlay() }}>
+                                                {isPlaying
+                                                    ? <FaPause />
+                                                    : <FaPlay />
+                                                }
+                                            </button>
 
-                                            <span>{formatTime((progress / 100) * duration)}{' '} / {formatTime(duration)}</span>
+                                            <span>
+                                                {formatTime((progress / 100) * duration)}{' '} / {formatTime(duration)}
+                                            </span>
                                         </div>
 
                                         <div className={styles.volumeContainer}>
