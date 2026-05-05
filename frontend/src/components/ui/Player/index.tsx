@@ -52,6 +52,16 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
     const [isVideoLoading, setIsVideoLoading] = useState(true)
     const [videoError, setVideoError] = useState(false)
 
+    const [tapFeedback, setTapFeedback] = useState<{
+        visible: boolean
+        side: 'left' | 'right' | null
+    }>({
+        visible: false,
+        side: null
+    })
+
+    const tapFeedbackTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
+
 
 
     // ======================
@@ -180,8 +190,10 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
         if (isDoubleTap) {
             if (zone === 'left') {
                 video.currentTime = Math.max(0, video.currentTime - 10)
+                triggerTapFeedback('left')//feedback do recuo da duração
             } else if (zone === 'right') {
                 video.currentTime = Math.min(video.duration, video.currentTime + 10)
+                triggerTapFeedback('right')// feedback do avanço da duração
             }
 
             handleBigPlayButton()
@@ -213,11 +225,13 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
         const rightZone = width * .7
         if (x < leftZone) {
             video.currentTime = Math.max(0, video.currentTime - 10)
+            triggerTapFeedback('left')
             handleBigPlayButton()
             return
         }
         if (x > rightZone) {
             video.currentTime = Math.min(video.duration, video.currentTime + 10)
+            triggerTapFeedback('right')
             handleBigPlayButton()
             return
         }
@@ -431,6 +445,18 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
     // ===============
     // Fallbacks
     // ===============
+
+    const triggerTapFeedback = (side: 'left' | 'right') => {
+        setTapFeedback({ visible: true, side })
+
+        if (tapFeedbackTimeout.current) {
+            clearTimeout(tapFeedbackTimeout.current)
+        }
+        tapFeedbackTimeout.current = setTimeout(() => {
+            setTapFeedback({ visible: false, side: null })
+        }, 600)
+    }
+
     if (loading)
         return <Spinner />
 
@@ -506,6 +532,15 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
                                     //<track src="URL_SUB_EN" kind="subtitles" srcLang="en" label="English" />
                                 }
                             </video>
+                            {tapFeedback.visible && tapFeedback.side &&
+                                <div className={`${styles.tapFeedback} ${styles[tapFeedback.side]}`}>
+                                    <div className={styles.content}>
+                                        <span>
+                                            {tapFeedback.side === 'left' ? '-10s' : '+10s'}
+                                        </span>
+                                    </div>
+                                </div>
+                            }
 
                             <div className={`${styles.videoPlayButton} ${showPlayButton ? styles.visible : styles.hidden}`}>
                                 <button onClick={(e) => { e.stopPropagation(), togglePlay() }}>
