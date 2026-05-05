@@ -34,6 +34,12 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
     const playButtonTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
     const timelineRef = useRef<HTMLDivElement>(null)
 
+    const lastTapRef = useRef<number>(0)
+    const lastTapSideRef = useRef<'left' | 'right' | 'center' | null>(null)
+    const doubleTapDelay = 300
+
+    const isTouchRef = useRef<boolean>(false)
+
     const [isPlaying, setIsPlaying] = useState(false)
     const [progress, setProgress] = useState(0)
     const [duration, setDuration] = useState(0)
@@ -46,9 +52,7 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
     const [isVideoLoading, setIsVideoLoading] = useState(true)
     const [videoError, setVideoError] = useState(false)
 
-    const lastTapRef = useRef<number>(0)
-    const lastTapSideRef = useRef<'left' | 'right' | 'center' | null>(null)
-    const doubleTapDelay = 300
+
 
     // ======================
     // Funções de ação
@@ -170,7 +174,8 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
 
         const isDoubleTap =
             now - lastTapRef.current < doubleTapDelay &&
-            zone === lastTapSideRef.current
+            zone === lastTapSideRef.current &&
+            lastTapRef.current !== 0
 
         if (isDoubleTap) {
             if (zone === 'left') {
@@ -461,8 +466,18 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
                     className={styles.container}
                     onMouseMove={handleMouseMove}
                     onTouchMove={handleMouseMove}
-                    onClick={(e) => handleContainerInteracton(e.clientX)}
-                    onTouchStart={(e) => handleTouchInteraction(getClientX(e))}
+
+                    onTouchStart={(e) => {
+                        isTouchRef.current = true
+                        handleTouchInteraction(getClientX(e))
+                    }}
+                    onClick={(e) => {
+                        if (isTouchRef.current) {
+                            isTouchRef.current = false
+                            return
+                        }
+                        handleContainerInteracton(e.clientX)
+                    }}
                 >
                     {isVideoLoading &&
                         <div className={styles.loadingOverlay}>
