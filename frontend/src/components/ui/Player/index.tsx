@@ -506,6 +506,9 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
         const video = videoRef.current
         if (!video) return
 
+        //let attempts = 0
+        //const maxAttempts = 10
+
         const checkTracks = () => {
             const tracks = video.textTracks
 
@@ -517,19 +520,29 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
             let hasValidTrack = false
 
             for (let i = 0; i < tracks.length; i++) {
-                if (tracks[i].cues && tracks[i].cues!.length > 0) {
+                const track = tracks[i]
+                if (track.cues && track.cues!.length > 0) {
                     hasValidTrack = true
                     break
                 }
             }
 
+
+
             setHasSubtitle(hasValidTrack)
         }
 
         const timeout = setTimeout(checkTracks, 500)
-
         return () => clearTimeout(timeout)
-        /*const loadSubtitle = async () => {
+
+
+
+
+
+    }, [subtitleUrl])
+
+    useEffect(() => {
+        const loadSubtitle = async () => {
             if (!src) return
 
             const subUrl = getSubtitleUrl(src)
@@ -552,11 +565,11 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
             } else {
                 setSubtitleUrl(null)
                 setHasSubtitle(false)
-            }
+            }*/
         }
 
-        loadSubtitle()*/
-    }, [subtitleUrl])
+        loadSubtitle()
+    }, [src])
 
     //sincronismo de legenda após carregamento
 
@@ -677,9 +690,9 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
                                 Seu navegador não suporta vídeo no formato mp4.
 
                                 {
-                                    /*subtitleUrl &&*/ (
+                                    subtitleUrl && (
                                         <track
-                                            src={"https://f005.backblazeb2.com/file/Flixnext/videos/202555/subs/2x8/pt.vtt"/*subtitleUrl*/}
+                                            src={subtitleUrl}
                                             kind="subtitles"
                                             srcLang="pt"
                                             label="Português"
@@ -753,7 +766,7 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
 
                                         <div className={styles.volumeContainer}>
 
-                                            {hasSubtitle && (
+                                            {subtitleUrl && (
                                                 <div className={styles.subtitleButton}>
                                                     <button
                                                         onClick={(e) => {
