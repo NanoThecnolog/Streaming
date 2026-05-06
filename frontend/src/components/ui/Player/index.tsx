@@ -165,10 +165,11 @@ function Player({ loading, shared, src, title, isSerie }: MoviePlayerProps) {
             const file = parts.pop()
             if (!file) return null
 
-            const fileName = file.replace('.mp4', '')
+            if (isSerie) {
+                const fileName = file.replace('.mp4', '')
+                return `${url.origin}${parts.join('/')}/subs/${fileName}/pt.vtt`
+            }
 
-            if (isSerie) return `${url.origin}${parts.join('/')}/subs/${fileName}/pt.vtt`
-            //debug.log(`${url.origin}${parts.join('/')}/subs/pt.vtt`)
             return `${url.origin}${parts.join('/')}/subs/pt.vtt`
         } catch {
             return null
