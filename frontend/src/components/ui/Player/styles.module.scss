@@ -34,6 +34,8 @@
     }
 }
 
+
+
 .loadingOverlay {
     position: absolute;
     inset: 0;
@@ -50,12 +52,21 @@
     height: 100%;
     object-fit: contain;
     display: block;
+    //position: relative;
 
     max-width: 100%;
     max-height: 100%;
     border: 20px solid white;
 
     aspect-ratio: 16 / 7;
+
+    &::cue {
+        font-size: clamp(14px, 2vw, 22px);
+        color: var(--white);
+        background-color: rgba(0, 0, 0, .6);
+        line-height: 1.4;
+        text-shadow: 0 0 4px rgba(0, 0, 0, .8);
+    }
 }
 
 .tapFeedback {
@@ -190,6 +201,12 @@
                 flex-direction: row;
                 align-items: center;
                 gap: 20px;
+
+                .subtitleButton {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
 
             }
 

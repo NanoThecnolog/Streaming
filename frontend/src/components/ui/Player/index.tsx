@@ -3,11 +3,12 @@ import styles from './styles.module.scss'
 import Spinner from '../Loading/spinner'
 import NoFile from '../NoFile'
 import { FaPause, FaPlay } from 'react-icons/fa'
-import { MdFullscreen, MdFullscreenExit } from 'react-icons/md'
+import { MdFullscreen, MdFullscreenExit, MdSubtitles, MdSubtitlesOff } from 'react-icons/md'
 import { debug } from '@/classes/DebugLogger'
 import { IoMdVolumeHigh } from 'react-icons/io'
 import { divide } from 'lodash'
 import { formatTime, getClientX } from '@/utils/UtilitiesFunctions'
+import axios from 'axios'
 
 interface MoviePlayerProps {
     loading: boolean
@@ -51,6 +52,10 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
     const [isFullscreen, setIsFullscreen] = useState(false)
     const [isVideoLoading, setIsVideoLoading] = useState(true)
     const [videoError, setVideoError] = useState(false)
+
+    const [subtitleUrl, setSubtitleUrl] = useState<string | null>(null)
+    const [hasSubtitle, setHasSubtitle] = useState(false)
+    const [subEnabled, setSubEnabled] = useState(true)
 
     const [tapFeedback, setTapFeedback] = useState<{
         visible: boolean
@@ -125,6 +130,60 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
 
         percent = Math.max(0, Math.min(1, percent))
         video.currentTime = percent * video.duration
+    }
+
+    // ===========================
+    // Validação de legenda
+    // ===========================
+
+    /*const validateSubtitle = async (url: string) => {
+        debug.log("validação de url")
+        try {
+            const res = await fetch(url)
+            debug.log("resultado do fetch", res)
+
+            if (!res.ok) return false
+
+            const text = await res.text()
+
+            if (!text || text.length < 10) return false
+
+            if (!text.includes('WEBVTT')) return false
+
+            return text.startsWith('WEBVTT')
+        } catch {
+            return false
+        }
+    }*/
+
+    const getSubtitleUrl = (vUrl: string): string | null => {
+        try {
+            const url = new URL(vUrl)
+
+            const parts = url.pathname.split('/')
+
+            const file = parts.pop()
+            if (!file) return null
+
+            const fileName = file.replace('.mp4', '')
+
+            return `${url.origin}${parts.join('/')}/subs/${fileName}/pt.vtt`
+        } catch {
+            return null
+        }
+    }
+
+    const toggleSubtitle = () => {
+        /*const video = videoRef.current
+        if (!video) return
+
+        const track = video.textTracks[0]
+        if (!track) return
+
+        track.mode = track.mode === 'showing' ? 'hidden' : 'showing'
+
+        setSubEnabled(track.mode === 'showing')*/
+        setSubEnabled(prev => !prev)
     }
 
     //helper de double Tap pra mobile
@@ -441,6 +500,96 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
         }
     }, [togglePlay])
 
+    // Carregamento de legenda
+
+    useEffect(() => {
+        const video = videoRef.current
+        if (!video) return
+
+        const checkTracks = () => {
+            const tracks = video.textTracks
+
+            if (!tracks || tracks.length === 0) {
+                setHasSubtitle(false)
+                return
+            }
+
+            let hasValidTrack = false
+
+            for (let i = 0; i < tracks.length; i++) {
+                if (tracks[i].cues && tracks[i].cues!.length > 0) {
+                    hasValidTrack = true
+                    break
+                }
+            }
+
+            setHasSubtitle(hasValidTrack)
+        }
+
+        const timeout = setTimeout(checkTracks, 500)
+
+        return () => clearTimeout(timeout)
+        /*const loadSubtitle = async () => {
+            if (!src) return
+
+            const subUrl = getSubtitleUrl(src)
+            if (!subUrl) {
+                debug.warn("sem url de legenda")
+                setHasSubtitle(false)
+                setSubtitleUrl(null)
+                return
+            }
+            debug.log('Url de legenda', subUrl)
+
+            setSubtitleUrl(subUrl)
+            setHasSubtitle(false)
+
+            //const isValid = await validateSubtitle(subUrl)
+
+            /*if (isValid) {
+                setSubtitleUrl(subUrl)
+                setHasSubtitle(true)
+            } else {
+                setSubtitleUrl(null)
+                setHasSubtitle(false)
+            }
+        }
+
+        loadSubtitle()*/
+    }, [subtitleUrl])
+
+    //sincronismo de legenda após carregamento
+
+    useEffect(() => {
+        const video = videoRef.current
+        if (!video) return
+
+        const applyTrackState = () => {
+            const tracks = video.textTracks
+
+            //if (!track || track.length === 0) return
+
+            for (let i = 0; i < tracks.length; i++) {
+                tracks[i].mode = subEnabled ? 'showing' : 'hidden'
+            }
+
+
+            //track.mode = subEnabled ? 'showing' : 'hidden'
+        }
+
+        const interval = setInterval(applyTrackState, 300)
+
+        return () => clearInterval(interval)
+
+        /*applyTrackState()
+
+        video.addEventListener('loadedmetadata', applyTrackState)
+
+        return () => {
+            video.removeEventListener('loadedmetadata', applyTrackState)
+        }*/
+    }, [subEnabled, subtitleUrl])
+
 
     // ===============
     // Fallbacks
@@ -522,16 +671,29 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
                                 onLoadedData={handleLoadedData}
                                 onError={handleVideoError}
                                 preload='metadata'//auto para priozar UX
+                                crossOrigin='anonymous'
                             >
                                 <source src={src} type="video/mp4" />
                                 Seu navegador não suporta vídeo no formato mp4.
 
                                 {
+                                    /*subtitleUrl &&*/ (
+                                        <track
+                                            src={"https://f005.backblazeb2.com/file/Flixnext/videos/202555/subs/2x8/pt.vtt"/*subtitleUrl*/}
+                                            kind="subtitles"
+                                            srcLang="pt"
+                                            label="Português"
+                                            //onError={() => setHasSubtitle(false)}
+                                            //onLoad={() => setHasSubtitle(true)}
+                                            default
+                                        />
+                                    )
                                     //adicionando legenda
                                     //<track src="URL_SUB_PT" kind="subtitles" srcLang="pt" label="Português" />
                                     //<track src="URL_SUB_EN" kind="subtitles" srcLang="en" label="English" />
                                 }
                             </video>
+
                             {tapFeedback.visible && tapFeedback.side &&
                                 <div className={`${styles.tapFeedback} ${styles[tapFeedback.side]}`}>
                                     <div className={styles.content}>
@@ -544,7 +706,7 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
 
                             <div className={`${styles.videoPlayButton} ${showPlayButton ? styles.visible : styles.hidden}`}>
                                 <button onClick={(e) => { e.stopPropagation(), togglePlay() }}>
-                                    {isPlaying
+                                    {!isVideoLoading && isPlaying
                                         ? <FaPause />
                                         : <FaPlay />
                                     }
@@ -590,6 +752,22 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
                                         </div>
 
                                         <div className={styles.volumeContainer}>
+
+                                            {hasSubtitle && (
+                                                <div className={styles.subtitleButton}>
+                                                    <button
+                                                        onClick={(e) => {
+                                                            e.stopPropagation()
+                                                            toggleSubtitle()
+                                                        }}
+                                                    >
+                                                        {subEnabled
+                                                            ? <MdSubtitles size={20} />
+                                                            : <MdSubtitlesOff size={20} />
+                                                        }
+                                                    </button>
+                                                </div>
+                                            )}
 
                                             <div className={styles.volumeSlider}>
                                                 <IoMdVolumeHigh size={30} />
