@@ -88,9 +88,8 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
     }, [router, src, episode, season, tmdbID])
 
     const handleBack = useCallback(() => {
-
-        router.push(`/series/serie/${serie?.tmdbID}`)
-    }, [router])
+        router.push(`/series/serie/${tmdbID}`)
+    }, [router, tmdbID])
 
     const handleHelpModal = useCallback(() => {
         setVisible(!visible)
@@ -174,6 +173,7 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
                                 shared={shared}
                                 src={episodio.src}
                                 title={episodio.title}
+                                isSerie={true}
                             />
                         </div>
                         <div className={styles.buttonContainer}>

@@ -6,18 +6,17 @@ import { FaPause, FaPlay } from 'react-icons/fa'
 import { MdFullscreen, MdFullscreenExit, MdSubtitles, MdSubtitlesOff } from 'react-icons/md'
 import { debug } from '@/classes/DebugLogger'
 import { IoMdVolumeHigh } from 'react-icons/io'
-import { divide } from 'lodash'
 import { formatTime, getClientX } from '@/utils/UtilitiesFunctions'
-import axios from 'axios'
 
 interface MoviePlayerProps {
     loading: boolean
     shared: boolean | null
     src: string
     title: string
+    isSerie?: boolean
 }
 
-function Player({ loading, shared, src, title }: MoviePlayerProps) {
+function Player({ loading, shared, src, title, isSerie }: MoviePlayerProps) {
 
     //verificação se vem do drive ou do b2
     const isDrive = useMemo(() => {
@@ -157,6 +156,7 @@ function Player({ loading, shared, src, title }: MoviePlayerProps) {
     }*/
 
     const getSubtitleUrl = (vUrl: string): string | null => {
+
         try {
             const url = new URL(vUrl)
 
