@@ -1,5 +1,9 @@
 .mainPage {
     font-family: var(--font-Roboto);
+
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
 }
 
 /*
