@@ -670,7 +670,8 @@ function Player({ loading, shared, src, title, isSerie }: MoviePlayerProps) {
                         handleContainerInteracton(e.clientX)
                     }}
                 >
-                    {isVideoLoading &&
+                    {
+                        isVideoLoading &&
                         <div className={styles.loadingOverlay}>
                             <Spinner />
                         </div>
@@ -720,91 +721,96 @@ function Player({ loading, shared, src, title, isSerie }: MoviePlayerProps) {
                                 </div>
                             }
 
-                            <div className={`${styles.videoPlayButton} ${showPlayButton ? styles.visible : styles.hidden}`}>
-                                <button onClick={(e) => { e.stopPropagation(), togglePlay() }}>
-                                    {!isVideoLoading && isPlaying
-                                        ? <FaPause />
-                                        : <FaPlay />
-                                    }
-                                </button>
-                            </div>
-
-                            <div className={`${styles.controls} ${showControls ? styles.visible : styles.hidden}`}>
-                                <div className={styles.bottom}>
-                                    <div
-                                        ref={timelineRef}
-                                        className={styles.timeline}
-                                        onClick={(e) => {
-                                            e.stopPropagation()
-                                            handleSeek(getClientX(e))
-                                        }}
-                                        onTouchStart={(e) => {
-                                            e.stopPropagation()
-                                            setIsDragging(true)
-                                            handleSeek(getClientX(e))
-                                        }}
-                                        onTouchMove={(e) => {
-                                            if (!isDragging) return
-                                            handleSeek(getClientX(e))
-                                        }}
-                                        onTouchEnd={() => setIsDragging(false)}
-                                    >
-                                        <div className={styles.track} />
-                                        <div className={styles.progress} style={{ width: `${progress}%` }} />
-                                        <div className={styles.thumb} style={{ left: `${progress}%` }} onMouseDown={handleMouseDown} />
+                            {
+                                !isVideoLoading &&
+                                <>
+                                    <div className={`${styles.videoPlayButton} ${showPlayButton ? styles.visible : styles.hidden}`}>
+                                        <button onClick={(e) => { e.stopPropagation(), togglePlay() }}>
+                                            {!isVideoLoading && isPlaying
+                                                ? <FaPause />
+                                                : <FaPlay />
+                                            }
+                                        </button>
                                     </div>
-                                    <div className={styles.actions}>
-                                        <div className={styles.playContainer}>
-                                            <button onClick={(e) => { e.stopPropagation(), togglePlay() }}>
-                                                {isPlaying
-                                                    ? <FaPause />
-                                                    : <FaPlay />
-                                                }
-                                            </button>
 
-                                            <span>
-                                                {formatTime((progress / 100) * duration)}{' '} / {formatTime(duration)}
-                                            </span>
-                                        </div>
-
-                                        <div className={styles.volumeContainer}>
-
-                                            {subtitleUrl && (
-                                                <div className={styles.subtitleButton}>
-                                                    <button
-                                                        onClick={(e) => {
-                                                            e.stopPropagation()
-                                                            toggleSubtitle()
-                                                        }}
-                                                    >
-                                                        {subEnabled
-                                                            ? <MdSubtitles size={20} />
-                                                            : <MdSubtitlesOff size={20} />
+                                    <div className={`${styles.controls} ${showControls ? styles.visible : styles.hidden}`}>
+                                        <div className={styles.bottom}>
+                                            <div
+                                                ref={timelineRef}
+                                                className={styles.timeline}
+                                                onClick={(e) => {
+                                                    e.stopPropagation()
+                                                    handleSeek(getClientX(e))
+                                                }}
+                                                onTouchStart={(e) => {
+                                                    e.stopPropagation()
+                                                    setIsDragging(true)
+                                                    handleSeek(getClientX(e))
+                                                }}
+                                                onTouchMove={(e) => {
+                                                    if (!isDragging) return
+                                                    handleSeek(getClientX(e))
+                                                }}
+                                                onTouchEnd={() => setIsDragging(false)}
+                                            >
+                                                <div className={styles.track} />
+                                                <div className={styles.progress} style={{ width: `${progress}%` }} />
+                                                <div className={styles.thumb} style={{ left: `${progress}%` }} onMouseDown={handleMouseDown} />
+                                            </div>
+                                            <div className={styles.actions}>
+                                                <div className={styles.playContainer}>
+                                                    <button onClick={(e) => { e.stopPropagation(), togglePlay() }}>
+                                                        {isPlaying
+                                                            ? <FaPause />
+                                                            : <FaPlay />
                                                         }
                                                     </button>
+
+                                                    <span>
+                                                        {formatTime((progress / 100) * duration)}{' '} / {formatTime(duration)}
+                                                    </span>
                                                 </div>
-                                            )}
 
-                                            <div className={styles.volumeSlider}>
-                                                <IoMdVolumeHigh size={30} />
-                                                <input
-                                                    type="range"
-                                                    min={0}
-                                                    max={1}
-                                                    step={0.01}
-                                                    value={volume}
-                                                    onClick={(e) => e.stopPropagation()}
-                                                    onChange={(e) => handleVolumeChange(Number(e.target.value))}
-                                                />
+                                                <div className={styles.volumeContainer}>
+
+                                                    {subtitleUrl && (
+                                                        <div className={styles.subtitleButton}>
+                                                            <button
+                                                                onClick={(e) => {
+                                                                    e.stopPropagation()
+                                                                    toggleSubtitle()
+                                                                }}
+                                                            >
+                                                                {subEnabled
+                                                                    ? <MdSubtitles size={20} />
+                                                                    : <MdSubtitlesOff size={20} />
+                                                                }
+                                                            </button>
+                                                        </div>
+                                                    )}
+
+                                                    <div className={styles.volumeSlider}>
+                                                        <IoMdVolumeHigh size={30} />
+                                                        <input
+                                                            type="range"
+                                                            min={0}
+                                                            max={1}
+                                                            step={0.01}
+                                                            value={volume}
+                                                            onClick={(e) => e.stopPropagation()}
+                                                            onChange={(e) => handleVolumeChange(Number(e.target.value))}
+                                                        />
+                                                    </div>
+                                                    <button onClick={(e) => { e.stopPropagation(), toggleFullScreen() }}>
+                                                        {isFullscreen ? <MdFullscreenExit size={30} /> : <MdFullscreen size={30} />}
+                                                    </button>
+
+                                                </div>
                                             </div>
-                                            <button onClick={(e) => { e.stopPropagation(), toggleFullScreen() }}>
-                                                {isFullscreen ? <MdFullscreenExit size={30} /> : <MdFullscreen size={30} />}
-                                            </button>
-
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                </>
+                            }
                         </>
                     }
                 </div>
