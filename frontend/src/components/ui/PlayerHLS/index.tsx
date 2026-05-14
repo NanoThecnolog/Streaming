@@ -47,7 +47,7 @@ function PlayerHLS({ src }: MoviePlayerProps) {
     const [isVideoLoading, setIsVideoLoading] = useState(true)
     const [videoError, setVideoError] = useState(false)
 
-    const [subEnabled, setSubEnabled] = useState(true)
+    const [subEnabled, setSubEnabled] = useState(false)
 
     const [tapFeedback, setTapFeedback] = useState<{
         visible: boolean
@@ -131,20 +131,18 @@ function PlayerHLS({ src }: MoviePlayerProps) {
 
         if (!video) return
 
-        const tracks = video.textTracks
+        setSubEnabled((prev) => {
+            const next = !prev
 
-        for (let i = 0; i < tracks.length; i++) {
-            tracks[i].mode = subEnabled ? 'hidden' : 'showing'
-        }
+            const tracks = video.textTracks
 
-        setSubEnabled(prev => !prev)
-
-        /*
-        Preciso testar esse player com o primeiro episódio de arrow 1x1 1412
-        verificar reprodução de vídeo, troca de audio, legendas.
-        Adicionar verificação se existe arquivo de legenda separada no diretório (1412/1x1/subs/legenda)
-        ajustar para lidar com legendas fora do arquivo .m3u8
-        */
+            for (let i = 0; i < tracks.length; i++) {
+                tracks[i].mode = next
+                    ? 'showing'
+                    : 'disabled'
+            }
+            return next
+        })
     }
 
     //helper de double Tap pra mobile
