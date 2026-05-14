@@ -407,3 +407,9 @@ export const creditTest = {
     holderDocument: '94271564656',
     reuse: false
 }
+
+export const normalizeAudioTrack: Record<string, string> = {
+    por: 'português',
+    eng: 'inglês',
+    und: 'outro'
+}

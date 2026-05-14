@@ -22,6 +22,8 @@ import { GetServerSideProps } from "next"
 import axios from "axios"
 import { UserContext } from "@/@types/user"
 import { MoviePlayer } from "@/components/ui/Player"
+import { MoviePlayerHLS } from "@/components/ui/PlayerHLS"
+
 
 interface EpisodeProps {
     title: string,
@@ -57,6 +59,14 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
     useEffect(() => {
         if (user && !user.donator) router.push('/me/escolher-plano')
     }, [user])
+
+    const isHLS = useMemo(() => {
+        if (!src) return false
+        if (src.includes('.m3u8')) return true
+        return false
+
+    }, [src])
+
 
     const isDrive = useMemo(() => {
         if (!src) return null
@@ -97,12 +107,14 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
 
     useEffect(() => {
         debug.log("episódio ao verificar: ", episodio)
+        debug.log("teste de HLS", isHLS)
         if (!episodio?.src || isDrive === null) return
         if (isDrive === false) {
             setShared(true)
             return
         }
         shareVerify(episodio.src)
+
     }, [episodio, isDrive])
 
     const shareVerify = async (link: string) => {
@@ -168,13 +180,20 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
                     </div>
                     {episodio && <>
                         <div className={styles.iframe}>
-                            <MoviePlayer
-                                loading={loading}
-                                shared={shared}
-                                src={episodio.src}
-                                title={episodio.title}
-                                isSerie={true}
-                            />
+                            {
+                                isHLS
+                                    ? <MoviePlayerHLS
+                                        //loading={loading}
+                                        src={episodio.src}
+                                    />
+                                    : <MoviePlayer
+                                        loading={loading}
+                                        shared={shared}
+                                        src={episodio.src}
+                                        title={episodio.title}
+                                        isSerie={true}
+                                    />
+                            }
                         </div>
                         <div className={styles.buttonContainer}>
                             <PrevEpisode
