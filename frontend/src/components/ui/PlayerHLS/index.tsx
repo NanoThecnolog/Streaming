@@ -177,7 +177,7 @@ function PlayerHLS({ src }: MoviePlayerProps) {
         }
     }
 
-    //Troca de audio
+    //Troca de faixa de audio
 
     const changeAudioTrack = (index: number) => {
         if (!hlsRef.current) return

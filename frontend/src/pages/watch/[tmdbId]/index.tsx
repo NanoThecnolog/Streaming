@@ -18,6 +18,7 @@ import { GetServerSideProps } from 'next';
 import axios from 'axios';
 import { UserContext } from '@/@types/user';
 import { MoviePlayer } from '@/components/ui/Player';
+import { MoviePlayerHLS } from '@/components/ui/PlayerHLS';
 
 interface WatchProps {
     userContext: UserContext | null
@@ -42,6 +43,13 @@ export default function Watch({ userContext }: WatchProps) {
     useEffect(() => {
         if (user && !user.donator) router.push('/me/escolher-plano')
     }, [user])
+
+    const isHLS = useMemo(() => {
+        if (!movieData.src) return false
+        if (movieData.src.includes('.m3u8')) return true
+        return false
+
+    }, [movieData.src])
 
     const isDrive = useMemo(() => {
         if (!movieData.src) return null
@@ -160,12 +168,20 @@ export default function Watch({ userContext }: WatchProps) {
                     </div>
 
                     <div className={styles.iframe} id="iframe">
-                        <MoviePlayer
-                            loading={loading}
-                            shared={shared}
-                            src={movieData.src}
-                            title={movieData.title}
-                        />
+                        {
+                            isHLS
+                                ? <MoviePlayerHLS
+                                    //loading={loading}
+                                    src={movieData.src}
+                                />
+                                : <MoviePlayer
+                                    loading={loading}
+                                    shared={shared}
+                                    src={movieData.src}
+                                    title={movieData.title}
+                                    isSerie={true}
+                                />
+                        }
                     </div>
                     {visible && (
                         <HelpModal
