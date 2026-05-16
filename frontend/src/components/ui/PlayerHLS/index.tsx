@@ -37,6 +37,7 @@ function PlayerHLS({ src }: MoviePlayerProps) {
 
     const [isPlaying, setIsPlaying] = useState(false)
     const [progress, setProgress] = useState(0)
+    const [buffered, setBuffered] = useState(0)
     const [duration, setDuration] = useState(0)
     const [showControls, setShowControls] = useState(true)
     const [showPlayButton, setShowPlayButton] = useState(true)
@@ -135,9 +136,26 @@ function PlayerHLS({ src }: MoviePlayerProps) {
             const next = !prev
 
             const tracks = video.textTracks
+            debug.log("legendas", tracks)
+
+            //const selectedType = 'forced' | 'full'
+            const selectedType: string = 'full'
 
             for (let i = 0; i < tracks.length; i++) {
-                tracks[i].mode = next
+                const track = tracks[i]
+
+                const label = track.label.toLowerCase()
+
+                const isForced = label.includes('forced')
+                const isFull = label.includes('full')
+
+                const shouldEnable =
+                    next && (
+                        (selectedType === 'forced' && isForced) ||
+                        (selectedType === 'full' && isFull)
+                    )
+
+                tracks[i].mode = shouldEnable
                     ? 'showing'
                     : 'disabled'
             }
@@ -299,6 +317,20 @@ function PlayerHLS({ src }: MoviePlayerProps) {
         if (!video || !video.duration) return
 
         setProgress((video.currentTime / video.duration) * 100)
+    }
+
+    // Handler de buffer
+    const handleBufferProgress = () => {
+        const video = videoRef.current
+        if (!video || !video.duration) return
+
+        const bufferedEnd = video.buffered.length
+            ? video.buffered.end(video.buffered.length - 1)
+            : 0
+
+        const bufferedPercent = (bufferedEnd / video.duration) * 100
+
+        setBuffered(bufferedPercent)
     }
 
     // Handler de metadata
@@ -663,9 +695,7 @@ function PlayerHLS({ src }: MoviePlayerProps) {
                             className={styles.player}
                             onTimeUpdate={handleTimeUpdate}
                             onLoadedMetadata={handleLoadedMetaData}
-                            //onCanPlay={handleCanPlay}
-                            //onLoadedData={handleLoadedData}
-                            //onError={handleVideoError}
+                            onProgress={handleBufferProgress}
                             preload='auto'//auto para priozar UX
                             crossOrigin='anonymous'
                         >
@@ -714,6 +744,7 @@ function PlayerHLS({ src }: MoviePlayerProps) {
                                             onTouchEnd={() => setIsDragging(false)}
                                         >
 
+                                            <div className={styles.buffer} style={{ width: `${buffered}%` }} />
                                             <div className={styles.progress} style={{ width: `${progress}%` }} />
                                             <div className={styles.thumb} style={{ left: `${progress}%` }} onMouseDown={handleMouseDown} />
                                         </div>
