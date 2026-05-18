@@ -9,6 +9,7 @@ import { IoMdVolumeHigh } from 'react-icons/io'
 import { formatTime, getClientX } from '@/utils/UtilitiesFunctions'
 import Hls from 'hls.js'
 import { normalizeAudioTrack } from '@/utils/Variaveis'
+import { SubtitleTrack } from '@/@types/player'
 
 interface MoviePlayerProps {
     //loading: boolean
@@ -18,6 +19,7 @@ interface MoviePlayerProps {
 function PlayerHLS({ src }: MoviePlayerProps) {
 
 
+    //estados de referência
     const videoRef = useRef<HTMLVideoElement>(null)
     const containerRef = useRef<HTMLDivElement>(null)
     const hideTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -29,12 +31,19 @@ function PlayerHLS({ src }: MoviePlayerProps) {
     const doubleTapDelay = 300
 
     const isTouchRef = useRef<boolean>(false)
-
     const hlsRef = useRef<Hls | null>(null)
-    const [audioTracks, setAudioTracks] = useState<{ id: number; name: string; lang: string }[]>([])
 
+    //estados de audio
+    const [audioTracks, setAudioTracks] = useState<{ id: number; name: string; lang: string }[]>([])
     const [selectedAudio, setSelectedAudio] = useState(0)
 
+    //estados de legenda
+    const [subtitleTracks, setSubtitleTracks] = useState<SubtitleTrack[]>([])
+    const [selectedSubtitle, setSelectedSubtitle] = useState<number | null>(null)
+    const [selectedSubtitleType, setSelectedSubtitleType] = useState<'forced' | 'full'>('full')
+    const [subEnabled, setSubEnabled] = useState(false)
+
+    //estados de ações do player
     const [isPlaying, setIsPlaying] = useState(false)
     const [progress, setProgress] = useState(0)
     const [buffered, setBuffered] = useState(0)
@@ -45,10 +54,12 @@ function PlayerHLS({ src }: MoviePlayerProps) {
     const [volume, setVolume] = useState(1)
 
     const [isFullscreen, setIsFullscreen] = useState(false)
+
+    //estados operacionais
     const [isVideoLoading, setIsVideoLoading] = useState(true)
     const [videoError, setVideoError] = useState(false)
 
-    const [subEnabled, setSubEnabled] = useState(false)
+
 
     const [tapFeedback, setTapFeedback] = useState<{
         visible: boolean
@@ -125,43 +136,7 @@ function PlayerHLS({ src }: MoviePlayerProps) {
         video.currentTime = percent * video.duration
     }
 
-    //Ativa/desativa legenda
 
-    const toggleSubtitle = () => {
-        const video = videoRef.current
-
-        if (!video) return
-
-        setSubEnabled((prev) => {
-            const next = !prev
-
-            const tracks = video.textTracks
-            debug.log("legendas", tracks)
-
-            //const selectedType = 'forced' | 'full'
-            const selectedType: string = 'full'
-
-            for (let i = 0; i < tracks.length; i++) {
-                const track = tracks[i]
-
-                const label = track.label.toLowerCase()
-
-                const isForced = label.includes('forced')
-                const isFull = label.includes('full')
-
-                const shouldEnable =
-                    next && (
-                        (selectedType === 'forced' && isForced) ||
-                        (selectedType === 'full' && isFull)
-                    )
-
-                tracks[i].mode = shouldEnable
-                    ? 'showing'
-                    : 'disabled'
-            }
-            return next
-        })
-    }
 
     //helper de double Tap pra mobile
 
@@ -204,6 +179,109 @@ function PlayerHLS({ src }: MoviePlayerProps) {
 
         hlsRef.current.audioTrack = index
         //setSelectedAudio(index)
+    }
+
+    //TRATAMENTO DE LEGENDAS
+
+    //Leitura de legendas do vídeo
+
+    const loadSubtitleTracks = () => {
+        const video = videoRef.current
+
+        if (!video) return
+
+        const tracks = video.textTracks
+
+        const parsedTracks: SubtitleTrack[] = []
+
+        for (let i = 0; i < tracks.length; i++) {
+            const track = tracks[i]
+
+            const label = track.label.toLowerCase()
+
+            let type: SubtitleTrack['type'] = 'unknown'
+
+            if (label.includes('forced')) {
+                type = 'forced'
+            }
+
+            else if (
+                label.includes('full') ||
+                label.includes('sdh') ||
+                label.includes('complete')
+            ) {
+                type = 'full'
+            }
+
+            parsedTracks.push({
+                id: i,
+                label: track.label,
+                language: track.language,
+                type
+            })
+
+            track.mode = 'disabled'
+        }
+
+        setSubtitleTracks(parsedTracks)
+
+        debug.log("Legendas disponíveis", parsedTracks)
+    }
+    //desativa todas as legendas
+
+    const disableAllSubtitles = () => {
+        const video = videoRef.current
+        if (!video) return
+
+        const tracks = video.textTracks
+
+        for (let i = 0; i < tracks.length; i++)
+            tracks[i].mode = 'disabled'
+    }
+
+    //Seleção de legenda
+
+    const selectSubtitleTrack = (trackId: number | null) => {
+        const video = videoRef.current
+        if (!video) return
+
+        const tracks = video.textTracks
+
+        disableAllSubtitles()
+
+        if (trackId === null) {
+            setSelectedSubtitle(null)
+            setSubEnabled(false)
+            return
+        }
+
+        const track = tracks[trackId]
+        if (!track) return
+
+        track.mode = 'showing'
+
+        setSelectedSubtitle(trackId)
+        setSubEnabled(true)
+    }
+    const selectSubtitleByType = (type: 'forced' | 'full') => {
+        const track = subtitleTracks.find((item) => item.type === type)
+
+        if (!track) return disableAllSubtitles()
+
+        setSelectedSubtitleType(type)
+        selectSubtitleTrack(track.id)
+    }
+
+    //toggle simples pra legenda
+
+    const toggleSubtitle = () => {
+        if (subEnabled) {
+            disableAllSubtitles()
+            setSubEnabled(false)
+            setSelectedSubtitle(null)
+            return
+        }
+        selectSubtitleByType(selectedSubtitleType)
     }
 
 
@@ -341,9 +419,11 @@ function PlayerHLS({ src }: MoviePlayerProps) {
 
     const handleLoadedMetaData = () => {
         const video = videoRef.current
-        if (!video /**|| isDrive */) return
+        if (!video) return
 
         setDuration(video.duration || 0)
+
+        loadSubtitleTracks()
     }
 
     // Handlers de interação do mouse
@@ -788,8 +868,62 @@ function PlayerHLS({ src }: MoviePlayerProps) {
                                                     )
                                                 }
 
+                                                <div className={styles.subtitleContainer} onClick={(e) => e.stopPropagation()}>
 
-                                                <div className={styles.subtitleButton}>
+                                                    <select
+                                                        value={selectedSubtitle ?? ''}
+                                                        onChange={(e) => {
+                                                            e.stopPropagation()
+
+                                                            const value = e.target.value
+
+                                                            if (value === '') {
+                                                                disableAllSubtitles()
+                                                                setSelectedSubtitle(null)
+                                                                setSubEnabled(false)
+                                                                return
+                                                            }
+
+                                                            selectSubtitleTrack(Number(value))
+                                                        }}
+                                                    >
+                                                        <option value="">
+                                                            Sem legenda
+                                                        </option>
+
+                                                        {
+                                                            subtitleTracks.map((track) => (
+                                                                <option
+                                                                    key={track.id}
+                                                                    value={track.id}
+                                                                >
+                                                                    {track.language.toUpperCase()}
+                                                                    {' - '}
+                                                                    {track.type}
+                                                                </option>
+                                                            ))
+                                                        }
+                                                    </select>
+
+                                                    <button
+                                                        onClick={(e) => {
+                                                            e.stopPropagation()
+                                                            toggleSubtitle()
+                                                        }}
+                                                    >
+                                                        {
+                                                            subEnabled
+                                                                ? <MdSubtitles size={20} />
+                                                                : <MdSubtitlesOff size={20} />
+                                                        }
+                                                    </button>
+
+                                                </div>
+
+
+                                                {
+                                                    /*
+                                                    <div className={styles.subtitleButton}>
                                                     <button
                                                         onClick={(e) => {
                                                             e.stopPropagation()
@@ -802,6 +936,8 @@ function PlayerHLS({ src }: MoviePlayerProps) {
                                                         }
                                                     </button>
                                                 </div>
+                                                */
+                                                }
 
 
                                                 <div className={styles.volumeSlider}>

@@ -7,7 +7,12 @@
     //pointer-events: none;
 
     touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
     -webkit-tap-highlight-color: transparent;
+
 
     display: flex;
     align-items: center;
@@ -262,10 +267,77 @@
                     }
                 }
 
-                .subtitleButton {
+                .subtitleContainer {
                     display: flex;
-                    justify-content: center;
                     align-items: center;
+                    gap: 8px;
+
+                    select {
+                        height: 36px;
+                        padding: 0 12px;
+
+                        border: 1px solid rgba(255, 255, 255, 0.15);
+                        border-radius: 8px;
+
+                        background: rgba(0, 0, 0, 0.65);
+                        color: #fff;
+
+                        font-size: 14px;
+                        font-weight: 500;
+
+                        outline: none;
+                        cursor: pointer;
+
+                        transition:
+                            border-color .2s ease,
+                            background .2s ease;
+
+                        &:hover {
+                            background: rgba(0, 0, 0, 0.8);
+                        }
+
+                        &:focus {
+                            border-color: rgba(255, 255, 255, 0.35);
+                        }
+
+                        option {
+                            background: #111;
+                            color: #fff;
+                        }
+                    }
+
+                    button {
+                        width: 36px;
+                        height: 36px;
+
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        border: none;
+                        border-radius: 8px;
+
+                        background: rgba(0, 0, 0, 0.65);
+                        color: #fff;
+
+                        cursor: pointer;
+
+                        transition:
+                            background .2s ease,
+                            transform .15s ease;
+
+                        &:hover {
+                            background: rgba(255, 255, 255, 0.15);
+                        }
+
+                        &:active {
+                            transform: scale(.95);
+                        }
+
+                        svg {
+                            flex-shrink: 0;
+                        }
+                    }
                 }
 
             }
