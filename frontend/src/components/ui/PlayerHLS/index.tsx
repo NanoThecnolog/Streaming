@@ -3,13 +3,14 @@ import styles from './styles.module.scss'
 import Spinner from '../Loading/spinner'
 import NoFile from '../NoFile'
 import { FaPause, FaPlay } from 'react-icons/fa'
-import { MdFullscreen, MdFullscreenExit, MdSubtitles, MdSubtitlesOff } from 'react-icons/md'
+import { MdFullscreen, MdFullscreenExit, MdSettings, MdSubtitles, MdSubtitlesOff } from 'react-icons/md'
 import { debug } from '@/classes/DebugLogger'
 import { IoMdVolumeHigh } from 'react-icons/io'
 import { formatTime, getClientX } from '@/utils/UtilitiesFunctions'
 import Hls from 'hls.js'
 import { normalizeAudioTrack } from '@/utils/Variaveis'
-import { SubtitleTrack } from '@/@types/player'
+import { AudioTrack, SubtitleTrack } from '@/@types/player'
+import PlayerConfigModal from '../PlayerConfigModal'
 
 interface MoviePlayerProps {
     //loading: boolean
@@ -34,14 +35,16 @@ function PlayerHLS({ src }: MoviePlayerProps) {
     const hlsRef = useRef<Hls | null>(null)
 
     //estados de audio
-    const [audioTracks, setAudioTracks] = useState<{ id: number; name: string; lang: string }[]>([])
-    const [selectedAudio, setSelectedAudio] = useState(0)
+    const [audioTracks, setAudioTracks] = useState<AudioTrack[]>([])
+    const [selectedAudio, setSelectedAudio] = useState<number>(0)
 
     //estados de legenda
     const [subtitleTracks, setSubtitleTracks] = useState<SubtitleTrack[]>([])
     const [selectedSubtitle, setSelectedSubtitle] = useState<number | null>(null)
     const [selectedSubtitleType, setSelectedSubtitleType] = useState<'forced' | 'full'>('full')
-    const [subEnabled, setSubEnabled] = useState(false)
+    const [subEnabled, setSubEnabled] = useState<boolean>(false)
+
+    const [isConfigModalOpen, setIsConfigModalOpen] = useState<boolean>(false)
 
     //estados de ações do player
     const [isPlaying, setIsPlaying] = useState(false)
@@ -843,8 +846,50 @@ function PlayerHLS({ src }: MoviePlayerProps) {
                                             </div>
 
                                             <div className={styles.volumeContainer}>
+                                                <div className={styles.configButton}>
+                                                    <button
+                                                        onClick={(e) => {
+                                                            e.stopPropagation()
+                                                            setIsConfigModalOpen(true)
+                                                        }}
+                                                    >
+                                                        <MdSettings size={26} />
+                                                    </button>
+                                                    <p>Idiomas e Legendas</p>
+                                                </div>
 
                                                 {
+                                                    isConfigModalOpen && (
+                                                        <PlayerConfigModal
+                                                            audioTracks={audioTracks}
+                                                            subtitleTracks={subtitleTracks}
+
+                                                            selectedAudio={selectedAudio}
+                                                            selectedSubtitle={selectedSubtitle}
+                                                            subEnabled={subEnabled}
+
+                                                            onClose={(e) => { e.stopPropagation(), setIsConfigModalOpen(false) }}
+
+                                                            changeAudioTrack={changeAudioTrack}
+
+                                                            selectSubtitleTrack={(id) => {
+                                                                selectSubtitleTrack(id)
+                                                                setSubEnabled(true)
+                                                                setSelectedSubtitle(id)
+                                                            }}
+
+                                                            disableAllSubtitles={() => {
+                                                                disableAllSubtitles()
+                                                                setSelectedSubtitle(null)
+                                                                setSubEnabled(false)
+                                                            }}
+                                                        />
+                                                    )
+                                                }
+
+                                                {
+                                                    /*
+                                                    {
                                                     audioTracks.length > 0 && (
                                                         <select
                                                             name=""
@@ -897,7 +942,7 @@ function PlayerHLS({ src }: MoviePlayerProps) {
                                                                     key={track.id}
                                                                     value={track.id}
                                                                 >
-                                                                    {track.language.toUpperCase()}
+                                                                    {normalizeSubtitleLanguage(track.language)}
                                                                     {' - '}
                                                                     {track.type}
                                                                 </option>
@@ -919,24 +964,7 @@ function PlayerHLS({ src }: MoviePlayerProps) {
                                                     </button>
 
                                                 </div>
-
-
-                                                {
-                                                    /*
-                                                    <div className={styles.subtitleButton}>
-                                                    <button
-                                                        onClick={(e) => {
-                                                            e.stopPropagation()
-                                                            toggleSubtitle()
-                                                        }}
-                                                    >
-                                                        {subEnabled
-                                                            ? <MdSubtitles size={20} />
-                                                            : <MdSubtitlesOff size={20} />
-                                                        }
-                                                    </button>
-                                                </div>
-                                                */
+                                                    */
                                                 }
 
 

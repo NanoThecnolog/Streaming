@@ -4,3 +4,9 @@ export interface SubtitleTrack {
     language: string
     type: 'forced' | 'full' | 'unknown'
 }
+
+export interface AudioTrack {
+    id: number,
+    name: string,
+    lang: string
+}

@@ -411,5 +411,7 @@ export const creditTest = {
 export const normalizeAudioTrack: Record<string, string> = {
     por: 'português',
     eng: 'inglês',
+    jap: 'japonês',
+    nob: 'norueguês',
     und: 'outro'
 }

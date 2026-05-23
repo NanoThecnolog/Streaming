@@ -210,3 +210,98 @@ export const formatTime = (time: number): string => {
 
     return hours > 0 ? `${hh}:${mm}:${ss}` : `${mm}:${ss}`
 }
+
+
+export const normalizeLanguage = (
+    language: string,
+): string => {
+    const languages: Record<string, string> = {
+        PT: 'Português',
+        'PT-BR': 'Português',
+        POR: 'Português',
+
+        EN: 'Inglês',
+        ENG: 'Inglês',
+
+        ES: 'Espanhol',
+        SPA: 'Espanhol',
+
+        JA: 'Japonês',
+        JPN: 'Japonês',
+
+        FR: 'Francês',
+        FRE: 'Francês',
+        FRA: 'Francês',
+
+        DE: 'Alemão',
+        GER: 'Alemão',
+        DEU: 'Alemão',
+
+        IT: 'Italiano',
+        ITA: 'Italiano',
+
+        RU: 'Russo',
+        RUS: 'Russo',
+
+        KO: 'Coreano',
+        KOR: 'Coreano',
+
+        ZH: 'Chinês',
+        CHI: 'Chinês',
+        ZHO: 'Chinês',
+
+        NB: 'Norueguês',
+        NOB: 'Norueguês',
+
+        AR: 'Árabe',
+        ARA: 'Árabe',
+
+        CS: 'Tcheco',
+        CZE: 'Tcheco',
+        CES: 'Tcheco',
+
+        DA: 'Dinamarquês',
+        DAN: 'Dinamarquês',
+
+        EL: 'Grego',
+        GRE: 'Grego',
+        ELL: 'Grego',
+
+        FI: 'Finlandês',
+        FIN: 'Finlandês',
+
+        HE: 'Hebraico',
+        HEB: 'Hebraico',
+
+        HU: 'Húngaro',
+        HUN: 'Húngaro',
+
+        ID: 'Indonésio',
+        IND: 'Indonésio',
+
+        NL: 'Holandês',
+        DUT: 'Holandês',
+        NLD: 'Holandês',
+
+        PL: 'Polonês',
+        POL: 'Polonês',
+
+        RO: 'Romeno',
+        RUM: 'Romeno',
+        RON: 'Romeno',
+
+        SV: 'Sueco',
+        SWE: 'Sueco',
+
+        TH: 'Tailandês',
+        THA: 'Tailandês',
+
+        TR: 'Turco',
+        TUR: 'Turco',
+
+        VI: 'Vietnamita',
+        VIE: 'Vietnamita',
+    }
+
+    return languages[language.toUpperCase()] || language
+}
