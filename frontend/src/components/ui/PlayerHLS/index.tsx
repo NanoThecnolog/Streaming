@@ -456,7 +456,7 @@ function PlayerHLS({ src }: MoviePlayerProps) {
         if (playButtonTimeout.current) clearTimeout(playButtonTimeout.current)
 
         hideTimeout.current = setTimeout(() => {
-            if (!video.paused) setShowControls(false)
+            if (!video.paused && !isConfigModalOpen) setShowControls(false)
         }, 2000)
         playButtonTimeout.current = setTimeout(() => {
             if (!video.paused) setShowPlayButton(false)
