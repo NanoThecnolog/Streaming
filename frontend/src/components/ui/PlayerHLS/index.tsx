@@ -158,10 +158,20 @@ function PlayerHLS({ src }: MoviePlayerProps) {
 
     // Entrar e saír da tela cheia
 
-    const toggleFullScreen = () => {
+    const toggleFullScreen = async () => {
         const container = containerRef.current
-        if (!container /*|| isDrive*/) return
+        if (!container) return
 
+        try {
+            if (!document.fullscreenElement)
+                await container.requestFullscreen()
+            else
+                await document.exitFullscreen()
+        } catch (err) {
+            debug.error("Erro ao alternar fullscreen", err)
+        }
+
+        /*
         if (!document.fullscreenElement) {
             container.requestFullscreen()
             setIsFullscreen(true)
@@ -171,6 +181,7 @@ function PlayerHLS({ src }: MoviePlayerProps) {
             document.exitFullscreen()
             setIsFullscreen(false)
         }
+         */
     }
 
     //Troca de faixa de audio
@@ -604,6 +615,26 @@ function PlayerHLS({ src }: MoviePlayerProps) {
         debug.log("isVideoLoading mudando", isVideoLoading)
     }, [isVideoLoading])
 
+    useEffect(() => {
+        const handleFullScreenChange = () => {
+            const isFs = !!document.fullscreenElement
+
+            setIsFullscreen(isFs)
+
+            if (isFs) {
+                setShowControls(true)
+                setShowPlayButton(true)
+            }
+
+        }
+
+        document.addEventListener('fullscreenchange', handleFullScreenChange)
+
+        return () => {
+            document.removeEventListener('fullscreenchange', handleFullScreenChange)
+        }
+    }, [])
+
     // Ajuste de renderização da duração de video
 
     /*useEffect(() => {
@@ -748,7 +779,14 @@ function PlayerHLS({ src }: MoviePlayerProps) {
 
             <div
                 ref={containerRef}
-                className={styles.container}
+                className={
+                    `${styles.container}
+                    ${isFullscreen && !showControls && isPlaying
+                        ? styles.hideCursor
+                        : ''
+                    }
+                `
+                }
                 onMouseMove={handleMouseMove}
                 onTouchMove={handleMouseMove}
 
