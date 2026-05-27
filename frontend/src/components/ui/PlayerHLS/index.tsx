@@ -6,11 +6,11 @@ import { FaPause, FaPlay } from 'react-icons/fa'
 import { MdFullscreen, MdFullscreenExit, MdSettings, MdSubtitles, MdSubtitlesOff } from 'react-icons/md'
 import { debug } from '@/classes/DebugLogger'
 import { IoMdVolumeHigh } from 'react-icons/io'
-import { formatTime, getClientX } from '@/utils/UtilitiesFunctions'
+import { formatTime, getClientX, normalizeLanguage } from '@/utils/UtilitiesFunctions'
 import Hls from 'hls.js'
-import { normalizeAudioTrack } from '@/utils/Variaveis'
-import { AudioTrack, SubtitleTrack } from '@/@types/player'
+import { AudioTrack, PlayerPreferences, SubtitleTrack } from '@/@types/player'
 import PlayerConfigModal from '../PlayerConfigModal'
+import { CookieService } from '@/classes/CookieService'
 
 interface MoviePlayerProps {
     //loading: boolean
@@ -33,6 +33,11 @@ function PlayerHLS({ src }: MoviePlayerProps) {
 
     const isTouchRef = useRef<boolean>(false)
     const hlsRef = useRef<Hls | null>(null)
+
+    const preferencesAppliedRef = useRef(false)
+    const savedPreferencesRef = useRef<PlayerPreferences | null>(null)
+    //const isApplyingPreferencesRef = useRef(false)
+
 
     //estados de audio
     const [audioTracks, setAudioTracks] = useState<AudioTrack[]>([])
@@ -61,6 +66,7 @@ function PlayerHLS({ src }: MoviePlayerProps) {
     //estados operacionais
     const [isVideoLoading, setIsVideoLoading] = useState(true)
     const [videoError, setVideoError] = useState(false)
+    const PLAYER_PREFERENCES_COOKIE = 'player_preferences'
 
 
 
@@ -101,7 +107,7 @@ function PlayerHLS({ src }: MoviePlayerProps) {
     // Mudança de volume
 
     const handleVolumeChange = (value: number) => {
-        debug.log("Volume", value)
+        //debug.log("Volume", value)
         const video = videoRef.current
         if (!video) return
 
@@ -138,9 +144,6 @@ function PlayerHLS({ src }: MoviePlayerProps) {
         percent = Math.max(0, Math.min(1, percent))
         video.currentTime = percent * video.duration
     }
-
-
-
     //helper de double Tap pra mobile
 
     const getTapZone = (clientX: number): 'left' | 'center' | 'right' => {
@@ -170,18 +173,6 @@ function PlayerHLS({ src }: MoviePlayerProps) {
         } catch (err) {
             debug.error("Erro ao alternar fullscreen", err)
         }
-
-        /*
-        if (!document.fullscreenElement) {
-            container.requestFullscreen()
-            setIsFullscreen(true)
-        }
-
-        else {
-            document.exitFullscreen()
-            setIsFullscreen(false)
-        }
-         */
     }
 
     //Troca de faixa de audio
@@ -240,6 +231,18 @@ function PlayerHLS({ src }: MoviePlayerProps) {
         setSubtitleTracks(parsedTracks)
 
         debug.log("Legendas disponíveis", parsedTracks)
+
+        requestAnimationFrame(() => {
+            const currentAudioTracks = hlsRef.current?.audioTracks.map((track, i) => ({
+                id: i,
+                name: track.name || track.lang || `Audio ${i}`,
+                lang: track.lang || 'unknown'
+            })) || []
+            applySavedPreferences(
+                currentAudioTracks,
+                parsedTracks
+            )
+        })
     }
     //desativa todas as legendas
 
@@ -276,6 +279,17 @@ function PlayerHLS({ src }: MoviePlayerProps) {
 
         setSelectedSubtitle(trackId)
         setSubEnabled(true)
+
+        if (!preferencesAppliedRef.current) return
+
+        savePlayerPreferences({
+            audioTrack: audioTracks[selectedAudio],
+            subtitleTrack:
+                trackId !== null
+                    ? subtitleTracks.find(i => i.id === trackId)
+                    : null,
+            subtitlesEnabled: trackId !== null
+        })
     }
     const selectSubtitleByType = (type: 'forced' | 'full') => {
         const track = subtitleTracks.find((item) => item.type === type)
@@ -304,11 +318,6 @@ function PlayerHLS({ src }: MoviePlayerProps) {
     // ==================================
 
     // handler de Erro
-
-    /*const handleVideoError = () => {
-        setVideoError(true)
-        setIsVideoLoading(false)
-    }*/
 
     useEffect(() => {
         setVideoError(false)
@@ -381,7 +390,7 @@ function PlayerHLS({ src }: MoviePlayerProps) {
     // Handler para efeito de mostrar/esconder botão de play/pause
 
     const handleBigPlayButton = () => {
-        debug.log("chamando handleBigPlayButton")
+        //debug.log("chamando handleBigPlayButton")
         setShowPlayButton(true)
 
         const video = videoRef.current
@@ -474,15 +483,131 @@ function PlayerHLS({ src }: MoviePlayerProps) {
         }, 500)
     }
 
+    //=============================================================
+    // Preferências do player
+    //=============================================================
+
+    //carregamento de preferencias iniciais no ref de preferencias
+
+    useEffect(() => {
+        const preferences = CookieService.get<PlayerPreferences>(PLAYER_PREFERENCES_COOKIE)
+        savedPreferencesRef.current = preferences
+
+        debug.log("Preferencias iniciais carregadas", preferences)
+    }, [])
+
+    //salva preferencia quando troca
+
+    const savePlayerPreferences = ({
+        audioTrack,
+        subtitleTrack,
+        subtitlesEnabled
+    }: {
+        audioTrack?: AudioTrack | null,
+        subtitleTrack?: SubtitleTrack | null,
+        subtitlesEnabled?: boolean
+    }) => {
+        //debug.log("Salvando preferências do player")
+
+        /*const resolvedAudio = audioId ?? selectedAudio
+        const resolvedSubtitle = subtitleId ?? selectedSubtitle
+        const resolvedSubEnabled = subtitlesEnabled ?? subEnabled
+
+        const currentAudio = audioTracks[resolvedAudio]
+        debug.log("Audio atual", currentAudio)
+
+        const currentSubtitle = resolvedSubtitle !== null
+            ? subtitleTracks.find((item) => item.id === resolvedSubtitle)
+            : null
+
+        debug.log("legenda atual", currentSubtitle)*/
+
+        const current = CookieService.get<PlayerPreferences>(PLAYER_PREFERENCES_COOKIE)
+
+        const cookie = {
+            audioLanguage: audioTrack?.lang ?? current?.audioLanguage ?? null,
+            subtitleLanguage: subtitleTrack?.language ?? current?.subtitleLanguage ?? null,
+            subtitleType: subtitleTrack?.type ?? current?.subtitleType ?? null,
+            subtitlesEnabled: subtitlesEnabled ?? current?.subtitlesEnabled ?? false
+        }
+
+        debug.log("estrutura do cookie sendo salva", cookie)
+
+        CookieService.set<PlayerPreferences>(PLAYER_PREFERENCES_COOKIE, cookie)
+
+        /*setTimeout(() => {
+            const cookiesSalvos = CookieService.get<PlayerPreferences>(PLAYER_PREFERENCES_COOKIE)
+            debug.log(`preferencias salvas`, cookiesSalvos)
+        }, 1000)*/
+    }
+
+    //aplica preferencias existentes
+
+    const applySavedPreferences = (tracks: AudioTrack[], subtitles: SubtitleTrack[]) => {
+
+        const preferences = CookieService.get<PlayerPreferences>(PLAYER_PREFERENCES_COOKIE)
+
+        if (!preferences) {
+            preferencesAppliedRef.current = true
+            return
+        }
+        //isApplyingPreferencesRef.current = true
+        debug.log("aplicando preferencias do player", preferences)
+
+        // =========================
+        // AUDIO
+        // =========================
+
+        if (hlsRef.current && preferences.audioLanguage) {
+            const audioIndex = tracks.findIndex((track) => {
+                debug.log("comparando preferencia de audio em applySavedPreferences")
+                return (
+                    normalizeLanguage(track.lang) === normalizeLanguage(preferences.audioLanguage!)
+                )
+            })
+
+            if (audioIndex >= 0) {
+                debug.log("aplicando audio salvo em applySavedPreferences", audioIndex)
+
+                hlsRef.current.audioTrack = audioIndex
+
+                setSelectedAudio(audioIndex)
+            }
+        }
+
+        // =========================
+        // SUBTITLE
+        // =========================
+
+        debug.log("subtitlesEnabled", preferences.subtitlesEnabled, typeof preferences.subtitlesEnabled)
+
+        if (preferences.subtitlesEnabled) {
+
+            const subtitle = subtitles.find((track) => {
+                debug.log("comparando legenda em appySavedPreferences")
+                return (
+                    normalizeLanguage(track.language) === normalizeLanguage(preferences.subtitleLanguage!)
+                    &&
+                    track.type === preferences.subtitleType
+                )
+            })
+
+            if (subtitle) {
+                debug.log("aplicando legenda salva", subtitle)
+                selectSubtitleTrack(subtitle.id)
+            }
+        } else {
+            debug.warn("else em applySavedPreferences", preferences)
+        }
+
+        preferencesAppliedRef.current = true
+
+    }
+
 
     // ===========================
     // UseEffects
     // ===========================
-
-    // Verificação de carregamento de vídeo
-    /*useEffect(() => {
-        debug.log("video carregando?", isVideoLoading)
-    }, [isVideoLoading])*/
 
     // Inicialização de States e eventos do HLS
 
@@ -501,15 +626,25 @@ function PlayerHLS({ src }: MoviePlayerProps) {
         setVideoError(false)
         setIsVideoLoading(true)
 
+        preferencesAppliedRef.current = false
+
+        //??????
+        setAudioTracks([])
+        setSubtitleTracks([])
+
+        setSelectedAudio(0)
+        setSelectedSubtitle(null)
+        setSubEnabled(false)
+
         if (hlsRef.current) {
-            debug.log("ref hls aplicando .destroy()")
+            //debug.log("ref hls aplicando .destroy()")
             hlsRef.current.destroy()
             hlsRef.current = null
         }
 
         // Safari nativo
         if (isSafari && video.canPlayType('application/vnd.apple.mpegurl')) {
-            debug.log("video nativo no safari")
+            //debug.log("video nativo no safari")
             video.src = src
             video.load()
 
@@ -517,13 +652,15 @@ function PlayerHLS({ src }: MoviePlayerProps) {
             return
         }
 
-        // hls.js
+        // Socket do hls.js pra escutar eventos
         if (Hls.isSupported()) {
             const hls = new Hls({
                 enableWorker: true,
                 lowLatencyMode: false,
                 backBufferLength: 90
             })
+
+            hlsRef.current = hls
 
             hls.on(Hls.Events.MEDIA_ATTACHED, () => {
                 debug.log('MEDIA_ATTACHED')
@@ -537,14 +674,10 @@ function PlayerHLS({ src }: MoviePlayerProps) {
                 debug.log('MANIFEST_LOADED', data)
             })
 
-            hlsRef.current = hls
-
-
-
             hls.on(Hls.Events.AUDIO_TRACKS_UPDATED, (_, data) => {
                 debug.log('Audio tracks updated', data.audioTracks)
 
-                const tracks = data.audioTracks.map((track, index) => ({
+                const tracks: AudioTrack[] = data.audioTracks.map((track, index) => ({
                     id: index,
                     name: track.name || track.lang || `Audio ${index}`,
                     lang: track.lang || 'unknown'
@@ -553,13 +686,28 @@ function PlayerHLS({ src }: MoviePlayerProps) {
                 setAudioTracks(tracks)
                 debug.log("faixa atual", hls.audioTrack)
 
-                setSelectedAudio(hls.audioTrack)
+                //setSelectedAudio(hls.audioTrack)
+
+                //tentando aplicar preferencias
+                //applySavedPreferences(tracks, subtitleTracks)
             })
 
             hls.on(Hls.Events.AUDIO_TRACK_SWITCHED, (_, data) => {
                 debug.log("faixa de audio alterada", data)
 
                 setSelectedAudio(data.id)
+
+                if (!preferencesAppliedRef.current) return
+
+                debug.log("salvando preferencias no evento HLS audiotrackswitched", data.id)
+                const currentAudioTracks = hls.audioTracks.map((track, i) => ({
+                    id: i,
+                    name: track.name || track.lang || `Audio ${i}`,
+                    lang: track.lang || 'unknown'
+                }))
+                savePlayerPreferences({
+                    audioTrack: currentAudioTracks[data.id]
+                })
             })
 
             hls.on(Hls.Events.MANIFEST_PARSED, () => {
@@ -595,12 +743,9 @@ function PlayerHLS({ src }: MoviePlayerProps) {
                 setIsVideoLoading(false)
             })
 
-
-
             hls.loadSource(src)
             hls.attachMedia(video)
         }
-
 
         return () => {
             if (hlsRef.current) {
@@ -611,9 +756,9 @@ function PlayerHLS({ src }: MoviePlayerProps) {
 
     }, [src])
 
-    useEffect(() => {
+    /*useEffect(() => {
         debug.log("isVideoLoading mudando", isVideoLoading)
-    }, [isVideoLoading])
+    }, [isVideoLoading])*/
 
     useEffect(() => {
         const handleFullScreenChange = () => {
@@ -625,7 +770,6 @@ function PlayerHLS({ src }: MoviePlayerProps) {
                 setShowControls(true)
                 setShowPlayButton(true)
             }
-
         }
 
         document.addEventListener('fullscreenchange', handleFullScreenChange)
@@ -634,21 +778,6 @@ function PlayerHLS({ src }: MoviePlayerProps) {
             document.removeEventListener('fullscreenchange', handleFullScreenChange)
         }
     }, [])
-
-    // Ajuste de renderização da duração de video
-
-    /*useEffect(() => {
-        const video = videoRef.current
-        if (!video) return
-        const interval = setInterval(() => {
-            if (video.duration && Number.isFinite(video.duration)) {
-                setDuration(video.duration)
-                clearInterval(interval)
-            }
-        }, 300)
-
-        return () => clearInterval(interval)
-    }, [src])*/
 
     //Listener de carregamento de Metadata do video
 
@@ -738,12 +867,9 @@ function PlayerHLS({ src }: MoviePlayerProps) {
     }, [togglePlay])
 
 
-
     useEffect(() => {
         debug.log("Player HLS carregado", src)
     }, [src])
-
-
 
     // ===============
     // Fallbacks
@@ -759,13 +885,6 @@ function PlayerHLS({ src }: MoviePlayerProps) {
             setTapFeedback({ visible: false, side: null })
         }, 600)
     }
-
-    /*if (loading) {
-        debug.log("esperando loading", loading)
-        return <Spinner />
-    }*/
-
-
 
 
     if (videoError) {
@@ -925,87 +1044,6 @@ function PlayerHLS({ src }: MoviePlayerProps) {
                                                     )
                                                 }
 
-                                                {
-                                                    /*
-                                                    {
-                                                    audioTracks.length > 0 && (
-                                                        <select
-                                                            name=""
-                                                            id=""
-                                                            value={selectedAudio}
-                                                            onChange={(e) => changeAudioTrack(Number(e.target.value))}
-                                                            onClick={(e) => e.stopPropagation()}
-                                                            className={styles.audioTrack}
-                                                        >
-                                                            {
-                                                                audioTracks.map((track, i) =>
-                                                                    <option
-                                                                        value={i}
-                                                                        key={track.id}
-                                                                    >
-                                                                        {normalizeAudioTrack[track.lang]}
-                                                                    </option>
-                                                                )
-                                                            }
-                                                        </select>
-                                                    )
-                                                }
-
-                                                <div className={styles.subtitleContainer} onClick={(e) => e.stopPropagation()}>
-
-                                                    <select
-                                                        value={selectedSubtitle ?? ''}
-                                                        onChange={(e) => {
-                                                            e.stopPropagation()
-
-                                                            const value = e.target.value
-
-                                                            if (value === '') {
-                                                                disableAllSubtitles()
-                                                                setSelectedSubtitle(null)
-                                                                setSubEnabled(false)
-                                                                return
-                                                            }
-
-                                                            selectSubtitleTrack(Number(value))
-                                                        }}
-                                                    >
-                                                        <option value="">
-                                                            Sem legenda
-                                                        </option>
-
-                                                        {
-                                                            subtitleTracks.map((track) => (
-                                                                <option
-                                                                    key={track.id}
-                                                                    value={track.id}
-                                                                >
-                                                                    {normalizeSubtitleLanguage(track.language)}
-                                                                    {' - '}
-                                                                    {track.type}
-                                                                </option>
-                                                            ))
-                                                        }
-                                                    </select>
-
-                                                    <button
-                                                        onClick={(e) => {
-                                                            e.stopPropagation()
-                                                            toggleSubtitle()
-                                                        }}
-                                                    >
-                                                        {
-                                                            subEnabled
-                                                                ? <MdSubtitles size={20} />
-                                                                : <MdSubtitlesOff size={20} />
-                                                        }
-                                                    </button>
-
-                                                </div>
-                                                    */
-                                                }
-
-
                                                 <div className={styles.volumeSlider}>
                                                     <IoMdVolumeHigh size={30} />
                                                     <input
@@ -1021,7 +1059,6 @@ function PlayerHLS({ src }: MoviePlayerProps) {
                                                 <button onClick={(e) => { e.stopPropagation(), toggleFullScreen() }}>
                                                     {isFullscreen ? <MdFullscreenExit size={30} /> : <MdFullscreen size={30} />}
                                                 </button>
-
                                             </div>
                                         </div>
                                     </div>

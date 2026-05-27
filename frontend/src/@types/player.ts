@@ -10,3 +10,10 @@ export interface AudioTrack {
     name: string,
     lang: string
 }
+
+export interface PlayerPreferences {
+    audioLanguage: string | null
+    subtitleLanguage: string | null
+    subtitleType: 'forced' | 'full' | 'unknown' | null
+    subtitlesEnabled: boolean
+}

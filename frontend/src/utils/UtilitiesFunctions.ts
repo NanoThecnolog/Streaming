@@ -303,5 +303,5 @@ export const normalizeLanguage = (
         VIE: 'Vietnamita',
     }
 
-    return languages[language.toUpperCase()] || language
+    return languages[language?.toUpperCase()] || language
 }
