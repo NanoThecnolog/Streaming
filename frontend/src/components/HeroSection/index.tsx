@@ -28,7 +28,7 @@ export default function HeroSection({ width }: HeroProps) {
             type: 'tv'
         },
         {
-            id: 67178, // justiceiro
+            id: 1439930, // justiceiro
             type: 'movie'
         },
         {
