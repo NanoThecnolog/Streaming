@@ -20,15 +20,23 @@ export default function HeroSection({ width }: HeroProps) {
 
     const ids: IDProps[] = [
         {
-            id: 1159559, // panico 7
+            id: 1325734, // O Drama
             type: 'movie'
         },
         {
-            id: 95479,//jujutsu
+            id: 220102,//spider noir
             type: 'tv'
         },
         {
-            id: 83533, // avatar fogo e cinzas
+            id: 67178, // justiceiro
+            type: 'movie'
+        },
+        {
+            id: 273240, //off campus
+            type: 'tv'
+        },
+        {
+            id: 1304313, // maldicao mumia
             type: 'movie'
         },
         {
@@ -36,15 +44,7 @@ export default function HeroSection({ width }: HeroProps) {
             type: 'tv'
         },
         {
-            id: 95557, //invencivel
-            type: 'tv'
-        },
-        {
-            id: 127529, // caes de caça
-            type: 'tv'
-        },
-        {
-            id: 76479, //the boys
+            id: 124364, //Origem
             type: 'tv'
         },
     ]

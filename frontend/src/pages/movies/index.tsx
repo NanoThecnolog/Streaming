@@ -34,7 +34,7 @@ export default function Home() {
   const [visible, setvisible] = useState(false)
   const { movies, user } = useFlix()
   const { isOpen, close } = useDailyModal()
-  const tmdbid = 1159559;
+  const tmdbid = 67178;
   const [topCard, setTopCard] = useState<CardsProps | null>(null)
 
   useEffect(() => {
