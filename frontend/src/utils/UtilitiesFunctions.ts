@@ -301,6 +301,13 @@ export const normalizeLanguage = (
 
         VI: 'Vietnamita',
         VIE: 'Vietnamita',
+
+        UND: 'Outro',
+        UNK: 'Outro',
+
+        FULL: 'Completa',
+        FORCED: 'Forçada',
+        FOR: 'Forçada'
     }
 
     return languages[language?.toUpperCase()] || language

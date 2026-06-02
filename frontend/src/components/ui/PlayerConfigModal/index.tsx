@@ -108,7 +108,7 @@ export default function PlayerConfigModal({
                                     <span>
                                         {normalizeLanguage(track.language)}
                                         {' • '}
-                                        {track.type}
+                                        {normalizeLanguage(track.type)}
                                     </span>
 
                                     {
