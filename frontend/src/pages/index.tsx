@@ -38,16 +38,15 @@ export default function Home() {
   const { allData, setAllData, serieData, setSerieData } = useTMDB()
   const { movies, series } = useFlix()
 
+
+
   useEffect(() => {
     if (movies.length > 0 && allData.length === 0) flixFetcher.fetchMovieData(setAllData, movies)
 
   }, [movies, allData.length, setAllData])
 
   useEffect(() => {
-    if (series.length === 0) return
-    if (serieData.length > 0) return
-
-    flixFetcher.fetchSerieData(setSerieData)
+    if (series.length > 0 && serieData.length === 0) flixFetcher.fetchSerieData(setSerieData)
   }, [series.length, serieData.length, setSerieData])
 
   useEffect(() => {
@@ -94,33 +93,38 @@ export default function Home() {
         url="https://flixnext.com.br"
       />
       {
-        isReady ?
+        allData.length > 0 ?
           <>
             <Header />
             <main className={styles.main}>
               <div className={styles.content}>
-                <div className={styles.top}>
-                  <HeroSection width={width} />
-                </div>
-                <div className={styles.mid} id="filmes">
-                  <BackDropCarousel title="Assistido Recentemente" />
-                  <TopPopularMovies cardPerContainer={cardPerContainer} />
-                  <TopPopularTVShows cardPerContainer={cardPerContainer} />
-                  <TrendingCarousel cardPerContainer={cardPerContainer} />
-                  <LastContentAdded cardPerContainer={cardPerContainer} type="movie" />
-                  <LastContentAdded cardPerContainer={cardPerContainer} type="tv" />
-                  <Search />
-                  {
-                    divisaoPorGenero.map((sec, index) => {
+                {
+                  movies.length > 0 &&
+                  <>
+                    <div className={styles.top}>
+                      <HeroSection width={width} />
+                    </div>
+                    <div className={styles.mid} id="filmes">
+                      <BackDropCarousel title="Assistido Recentemente" />
+                      <TopPopularMovies cardPerContainer={cardPerContainer} />
+                      <TopPopularTVShows cardPerContainer={cardPerContainer} />
+                      <TrendingCarousel cardPerContainer={cardPerContainer} />
+                      <LastContentAdded cardPerContainer={cardPerContainer} type="movie" />
+                      <LastContentAdded cardPerContainer={cardPerContainer} type="tv" />
+                      <Search />
+                      {
+                        divisaoPorGenero.map((sec, index) => {
 
-                      return (
-                        <div key={`${sec}+${index}`}>
-                          <Carousel type="movie" section={sec} cardPerContainer={cardPerContainer} />
-                        </div>
-                      )
-                    })
-                  }
-                </div>
+                          return (
+                            <div key={`${sec}+${index}`}>
+                              <Carousel type="movie" section={sec} cardPerContainer={cardPerContainer} />
+                            </div>
+                          )
+                        })
+                      }
+                    </div>
+                  </>
+                }
               </div>
               <BackTopButton visible={visible} />
             </main>
