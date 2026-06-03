@@ -8,17 +8,12 @@ class FlixFetcher {
     private allData: MovieTMDB[]
     private serieData: TMDBSeries[]
     private maxRetries: number
-    //private setAllData: (data: MovieTMDB[]) => void
-    //private setSerieData: (data: TMDBSeries[]) => void
 
-    constructor(/*setAllData: (data: MovieTMDB[]) => void, setSerieData: (data: TMDBSeries[]) => void*/) {
-        //if (!FlixFetcher.api) debug.error("API mal configurada na classe")
+    constructor() {
         this.loading = false
         this.allData = []
         this.serieData = []
         this.maxRetries = 5
-        //this.setAllData = setAllData
-        //this.setSerieData = setSerieData
     }
 
     /**
@@ -30,7 +25,6 @@ class FlixFetcher {
 
         this.loading = true
         try {
-            //debug.log("Movies no fetchMovieData", movies)
             if (movies.length === 0) return debug.error("Lista movies vazia!", movies)
             const response = await apiTMDB.post('/all/movie', {
                 movies: movies
@@ -39,7 +33,7 @@ class FlixFetcher {
                 this.retryMovie(setAllData, attempt, movies)
                 return
             }
-            debug.log("Erros na requisição ao tmdb: ", response.data.errors)
+            debug.log("Erros na requisição ao tmdb de filmes: ", response.data.errors)
             this.allData = response.data.data as MovieTMDB[]
             setAllData(this.allData)
         } catch (err) {
@@ -51,14 +45,14 @@ class FlixFetcher {
     }
 
     async fetchSerieData(setSerieData: (data: TMDBSeries[]) => void, attempt: number = 1) {
-        if (this.loading) return
-
-        this.loading = true
         try {
+            if (this.loading) return
+            this.loading = true
             const response = await apiTMDB.get('/all/tv')
             if (response.status === 502 || !response.data) {
                 this.retrySerie(setSerieData, attempt)
             }
+            debug.log("Erros na requisição ao tmdb de séries: ", response.data.errors)
             this.serieData = response.data.data as TMDBSeries[]
             setSerieData(this.serieData)
         } catch (err) {

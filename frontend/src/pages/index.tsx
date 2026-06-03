@@ -24,22 +24,31 @@ import BackDropCarousel from "@/components/ui/BackDropCarousel";
 
 
 export default function Home() {
-  const { isOpen, close } = useDailyModal()
+  //const { isOpen, close } = useDailyModal()
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
   const [width, setWidth] = useState<number>(0)
+  const [visible, setvisible] = useState(false)
+
   const removedSections = [agp.dc, agp.marvel, agp.hero]
   const generos = Object.values(gen);
   const agrupadores = Object.values(agp);
   const combined = [...generos, ...agrupadores.filter(item => removedSections.includes(item))];
   const divisaoPorGenero = combined
+
   const { allData, setAllData, serieData, setSerieData } = useTMDB()
-  const [visible, setvisible] = useState(false)
-  const { user, movies, series } = useFlix()
+  const { movies, series } = useFlix()
 
   useEffect(() => {
     if (movies.length > 0 && allData.length === 0) flixFetcher.fetchMovieData(setAllData, movies)
-    if (serieData.length === 0) flixFetcher.fetchSerieData(setSerieData)
-  }, [movies, setAllData, serieData, setSerieData])
+
+  }, [movies, allData.length, setAllData])
+
+  useEffect(() => {
+    if (series.length === 0) return
+    if (serieData.length > 0) return
+
+    flixFetcher.fetchSerieData(setSerieData)
+  }, [series.length, serieData.length, setSerieData])
 
   useEffect(() => {
     function handleResize() {
@@ -68,6 +77,14 @@ export default function Home() {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
+
+  const isReady =
+    movies.length > 0 &&
+    series.length > 0 &&
+    allData.length > 0 &&
+    serieData.length > 0
+
+
   return (
     <>
       <SEO
@@ -77,41 +94,39 @@ export default function Home() {
         url="https://flixnext.com.br"
       />
       {
-        allData.length > 0 ?
+        isReady ?
           <>
             <Header />
             <main className={styles.main}>
               <div className={styles.content}>
-                {movies && movies.length > 0 &&
-                  <>
-                    <div className={styles.top}>
-                      <HeroSection width={width} />
-                    </div>
-                    <div className={styles.mid} id="filmes">
-                      <BackDropCarousel title="Assistido Recentemente" />
-                      <TopPopularMovies cardPerContainer={cardPerContainer} />
-                      <TopPopularTVShows cardPerContainer={cardPerContainer} />
-                      <TrendingCarousel cardPerContainer={cardPerContainer} />
-                      <LastContentAdded cardPerContainer={cardPerContainer} type="movie" />
-                      <LastContentAdded cardPerContainer={cardPerContainer} type="tv" />
-                      <Search />
-                      {
-                        divisaoPorGenero.map((sec, index) => {
+                <div className={styles.top}>
+                  <HeroSection width={width} />
+                </div>
+                <div className={styles.mid} id="filmes">
+                  <BackDropCarousel title="Assistido Recentemente" />
+                  <TopPopularMovies cardPerContainer={cardPerContainer} />
+                  <TopPopularTVShows cardPerContainer={cardPerContainer} />
+                  <TrendingCarousel cardPerContainer={cardPerContainer} />
+                  <LastContentAdded cardPerContainer={cardPerContainer} type="movie" />
+                  <LastContentAdded cardPerContainer={cardPerContainer} type="tv" />
+                  <Search />
+                  {
+                    divisaoPorGenero.map((sec, index) => {
 
-                          return (
-                            <div key={`${sec}+${index}`}>
-                              <Carousel type="movie" section={sec} cardPerContainer={cardPerContainer} />
-                            </div>
-                          )
-                        })
-                      }
-                    </div>
-                  </>
-                }
+                      return (
+                        <div key={`${sec}+${index}`}>
+                          <Carousel type="movie" section={sec} cardPerContainer={cardPerContainer} />
+                        </div>
+                      )
+                    })
+                  }
+                </div>
               </div>
               <BackTopButton visible={visible} />
             </main>
-            {user && !user?.donator && <DailyWarningModal open={isOpen} onClose={close} />}
+            {
+              //user && !user?.donator && <DailyWarningModal open={isOpen} onClose={close} />
+            }
             <Footer />
           </> :
           <div className={styles.loading}>

@@ -2,7 +2,6 @@ import { useRouter } from 'next/router'
 import styles from './styles.module.scss'
 import { useEffect, useState } from 'react';
 import { CardsProps, MovieTMDB } from '@/@types/Cards';
-import SEO from '@/components/SEO';
 import Header from '@/components/Header';
 import Stars from '@/components/ui/StarAverage';
 import Adult from '@/components/ui/Adult';
@@ -19,14 +18,12 @@ import { useFlix } from '@/contexts/FlixContext';
 import debounce from 'lodash.debounce';
 import { debug } from '@/classes/DebugLogger';
 import { tmdb } from '@/classes/TMDB';
-import { mongoService } from '@/classes/MongoContent';
 import axios from 'axios';
 import CrewContainer from '@/components/movie/CrewContainer';
 import { CrewProps } from '@/@types/movie/crew';
 import CastContainer from '@/components/movie/CastContaner';
 import RelatedCardsContainer from '@/components/movie/RelatedContainer';
 import WatchLaterContainer from '@/components/ui/ButtonWatchLater';
-
 import { GetStaticProps, GetStaticPaths } from "next";
 import { WatchLaterManager } from '@/classes/watchLaterManager';
 import Overview from '@/components/ui/overview';

@@ -40,6 +40,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 async function fetchCardData(cardId: number, retries: number = max_tentativas): Promise<any> {
 
     try {
+        //if (cardId === 0) return
         const response = await axios.get(
             `https://api.themoviedb.org/3/tv/${cardId}`,
             {
@@ -58,7 +59,7 @@ async function fetchCardData(cardId: number, retries: number = max_tentativas): 
         };
     } catch (err: any) {
         if (retries > 0) {
-            console.log(`Tentativa falha para o card ${cardId}, tentando novamente...`);
+            console.log(`Tentativa falha para a serie ${cardId}, tentando novamente...`);
             await new Promise(resolve => setTimeout(resolve, 2000));
             return fetchCardData(cardId, retries - 1);
         }

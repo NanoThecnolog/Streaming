@@ -81,6 +81,9 @@ async function fetchInBatches(items: CardsProps[], batchSize: number) {
 }
 
 async function fetchCardData(cardId: number, retries: number = maxTentativas): Promise<any> {
+
+    //if (cardId === 0) return
+
     if (cache.has(cardId)) {
         debug.log("card no cache", cardId)
         return cache.get(cardId)
@@ -101,7 +104,7 @@ async function fetchCardData(cardId: number, retries: number = maxTentativas): P
         }
     } catch (err: any) {
         if (retries > 0) {
-            debug.log(`Tentativa falha pro card ${cardId}, tentando de novo...`)
+            debug.log(`Tentativa falha pro movie ${cardId}, tentando de novo...`)
             await new Promise(resolve => setTimeout(resolve, 2000))
             return fetchCardData(cardId, retries - 1)
         }
