@@ -16,28 +16,28 @@ export default function TopPopularMovies({ cardPerContainer }: TopPopularProps) 
     useEffect(() => {
         if (trendMovies.length > 0) return
 
-        const mapMoviesDB = new Map<number, CardsProps>(movies.map(movie => [movie.tmdbId, movie]))
-        const trend: CardsProps[] = []
+        const mapMoviesDB = new Map<number, CardsProps>()
+        //const trend: CardsProps[] = []
 
         const sorted = [...allData].sort((a, b) => b.popularity - a.popularity)
 
         for (const card of sorted) {
-            const movie = mapMoviesDB.get(card.id)
-            //const movie = movies.find(m => m.tmdbId === card.id)
+            //const movie = mapMoviesDB.get(card.id)
+            const movie = movies.find(m => m.tmdbId === card.id)
 
-            if (!movie) continue
+            //if (!movie) continue
 
-            trend.push(movie)
+            //trend.push(movie)
 
-            if (trend.length === 10) break
+            //if (trend.length === 10) break
 
-            /*if (movie && !mapMoviesDB.has(movie.tmdbId)) {
+            if (movie && !mapMoviesDB.has(movie.tmdbId)) {
                 mapMoviesDB.set(movie.tmdbId, movie)
             }
-            if (mapMoviesDB.size === 10) break*/
+            if (mapMoviesDB.size === 10) break
         }
-        setTrendMovies(trend)
-    }, [movies, allData, trendMovies.length])
+        setTrendMovies(Array.from(mapMoviesDB.values()))
+    }, [movies, allData])
 
     //if (!allData || allData.length === 0) return null
     if (!trendMovies || trendMovies.length === 0) return null
