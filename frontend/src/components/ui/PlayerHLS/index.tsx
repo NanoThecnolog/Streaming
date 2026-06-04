@@ -14,7 +14,7 @@ import { CookieService } from '@/classes/CookieService'
 
 interface MoviePlayerProps {
     src: string
-    nextEp: (e: boolean) => void,
+    nextEp?: (e: boolean) => void,
     autoPlayOnLoad?: boolean
 }
 
@@ -947,7 +947,7 @@ function PlayerHLS({ src, nextEp, autoPlayOnLoad = false }: MoviePlayerProps) {
                             onTimeUpdate={handleTimeUpdate}
                             onLoadedMetadata={handleLoadedMetaData}
                             onProgress={handleBufferProgress}
-                            onEnded={() => nextEp(true)}
+                            onEnded={() => nextEp?.(true)}
                             preload='auto'//auto para priozar UX
                             crossOrigin='anonymous'
                         >
