@@ -131,30 +131,6 @@ function Player({ loading, shared, src, title, isSerie }: MoviePlayerProps) {
         video.currentTime = percent * video.duration
     }
 
-    // ===========================
-    // Validação de legenda
-    // ===========================
-
-    /*const validateSubtitle = async (url: string) => {
-        debug.log("validação de url")
-        try {
-            const res = await fetch(url)
-            debug.log("resultado do fetch", res)
-
-            if (!res.ok) return false
-
-            const text = await res.text()
-
-            if (!text || text.length < 10) return false
-
-            if (!text.includes('WEBVTT')) return false
-
-            return text.startsWith('WEBVTT')
-        } catch {
-            return false
-        }
-    }*/
-
     const getSubtitleUrl = (vUrl: string): string | null => {
 
         try {

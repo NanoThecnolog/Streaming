@@ -2,7 +2,7 @@ import Router, { useRouter } from "next/router"
 import styles from '@/styles/Watch.module.scss'
 import { ChevronLeft } from "lucide-react"
 import { useCallback, useEffect, useMemo, useState } from "react"
-import NextEpisode from "@/components/ui/NextEpisode"
+import NextEpisode, { NextEpisodeProps } from "@/components/ui/NextEpisode"
 import PrevEpisode from "@/components/ui/PreviousEpisode"
 import SEO from "@/components/SEO"
 import HelpFlag from "@/components/Helpflag"
@@ -40,13 +40,18 @@ interface WatchSerieProps {
 
 export default function WatchSerie({ userContext }: WatchSerieProps) {
     const router = useRouter()
-    const { title, subtitle, episode, src, season, tmdbID } = router.query
+
+    const { title, subtitle, episode, src, season, tmdbID, autoPlay } = router.query
+
     const [episodio, setEpisodio] = useState<EpisodeProps | null>(null)
     const [serie, setSerie] = useState<SeriesProps | null>(null)
+    const [visible, setVisible] = useState<boolean>(false)
+    const [shared, setShared] = useState<boolean>(true)
+    const [loading, setLoading] = useState<boolean>(false)
+
+    const [shouldAutoPlay, setShouldAutoPlay] = useState<boolean>(false)
+
     const { user, setUser } = useFlix()
-    const [visible, setVisible] = useState(false)
-    const [shared, setShared] = useState(true)
-    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         if (!user) {
@@ -61,17 +66,16 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
     }, [user])
 
     const isHLS = useMemo(() => {
-        if (!src) return false
-        if (src.includes('.m3u8')) return true
-        return false
+        if (!episodio?.src) return false
 
-    }, [src])
-
+        //if (src.includes('.m3u8')) return true
+        return episodio.src.includes('.m3u8')
+    }, [episodio?.src])
 
     const isDrive = useMemo(() => {
-        if (!src) return null
+        if (!episodio?.src) return null
         try {
-            return !new URL(src as string).hostname.includes('backblazeb2.com')
+            return !new URL(episodio.src).hostname.includes('backblazeb2.com')
         } catch {
             return null
         }
@@ -156,12 +160,78 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
     }
 
 
+
+
+    const nextEpisode = useMemo((): NextEpisodeProps | null => {
+        if (!serie || !episodio) return null
+
+        const ep = episodio.episode
+        const s = episodio.season
+
+        const currentSeason = serie.season[s - 1]
+        if (!currentSeason) return null
+
+        if (currentSeason.episodes.length > ep)
+            return {
+                season: currentSeason.s,
+                episode: currentSeason.episodes[ep].ep,
+                src: currentSeason.episodes[ep].src
+            }
+
+        const nextSeason = serie.season[s]
+
+        if (nextSeason && nextSeason.episodes.length > 0)
+            return {
+                season: nextSeason.s,
+                episode: nextSeason.episodes[0].ep,
+                src: nextSeason.episodes[0].src
+            }
+
+        return null
+    }, [serie, episodio])
+
+    const handleNextEpisode = (autoPlay = true) => {
+
+        if (!nextEpisode || !serie) return
+
+        const nextEpisodio: EpisodeProps = {
+            title: serie.title,
+            subtitle: serie.subtitle ?? '',
+            src: nextEpisode.src,
+            episode: nextEpisode.episode,
+            season: nextEpisode.season
+        }
+
+        setShouldAutoPlay(autoPlay)
+        setEpisodio(nextEpisodio)
+
+        const params = new URLSearchParams({
+            title: nextEpisodio.title,
+            subtitle: nextEpisodio.subtitle,
+            src: nextEpisodio.src,
+            episode: String(nextEpisodio.episode),
+            season: String(nextEpisodio.season),
+            tmdbID: String(serie.tmdbID)
+        })
+
+        router.replace(`/watch/serie?${params}`, undefined, {
+            shallow: true,
+            scroll: false
+        })
+    }
+
+    /*const nextEpisode = useMemo(
+        () => nextEpisode(),
+        [serie, episodio]
+    )*/
+    const hasNextEpisode = !!nextEpisode
+
     return (
         <>
             <Head>
                 <meta name='robots' content='noindex, nofollow' />
             </Head>
-            <SEO title={`Episódio ${episode} - ${title} ${subtitle && `- ${subtitle}`} | FlixNext`} description=" " />
+            <SEO title={`Episódio ${episodio?.episode} - ${episodio?.title} ${episodio?.subtitle && `- ${episodio.subtitle}`} | FlixNext`} description=" " />
             <div className={styles.container}>
 
                 <div className={styles.movie}>
@@ -185,6 +255,8 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
                                     ? <MoviePlayerHLS
                                         //loading={loading}
                                         src={episodio.src}
+                                        nextEp={handleNextEpisode}
+                                        autoPlayOnLoad={shouldAutoPlay}
                                     />
                                     : <MoviePlayer
                                         loading={loading}
@@ -204,11 +276,13 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
                                 serie={serie}
                             />
                             <NextEpisode
-                                title={episodio.title}
-                                subtitle={episodio.subtitle}
-                                season={episodio.season}
-                                episode={episodio.episode}
-                                serie={serie}
+                                nextEP={handleNextEpisode}
+                                hasNextEP={hasNextEpisode}
+                            /*title={episodio.title}
+                            subtitle={episodio.subtitle}
+                            season={episodio.season}
+                            episode={episodio.episode}
+                            serie={serie}*/
                             />
                         </div>
                     </>

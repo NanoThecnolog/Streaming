@@ -11,9 +11,9 @@ export default function BackTopButton({ visible }: ButtonProps) {
         window.scrollTo({ top: 0, behavior: 'smooth' })
     }
     return (
-        <button disabled={!visible} onClick={handleScrollTop} className={`${styles.backTopButton} ${visible ? styles.visible : styles.hidden}`}>
+        <button aria-label='Voltar ao topo' disabled={!visible} onClick={handleScrollTop} className={`${styles.backTopButton} ${visible ? styles.visible : styles.hidden}`}>
             <div className={styles.upIcon}>
-                <FaChevronCircleUp size={40} />
+                <FaChevronCircleUp size={40} aria-hidden="true" />
             </div>
         </button>
     )

@@ -13,11 +13,12 @@ import PlayerConfigModal from '../PlayerConfigModal'
 import { CookieService } from '@/classes/CookieService'
 
 interface MoviePlayerProps {
-    //loading: boolean
     src: string
+    nextEp: (e: boolean) => void,
+    autoPlayOnLoad?: boolean
 }
 
-function PlayerHLS({ src }: MoviePlayerProps) {
+function PlayerHLS({ src, nextEp, autoPlayOnLoad = false }: MoviePlayerProps) {
 
 
     //estados de referência
@@ -713,6 +714,16 @@ function PlayerHLS({ src }: MoviePlayerProps) {
             hls.on(Hls.Events.MANIFEST_PARSED, () => {
                 debug.log("Manifest_parsed")
                 setIsVideoLoading(false)
+
+                if (autoPlayOnLoad) {
+                    video.play()
+                        .then(() => {
+                            setIsPlaying(true)
+                        })
+                        .catch((err) => {
+                            debug.warn("Autoplay bloqueado", err)
+                        })
+                }
             })
 
             hls.on(Hls.Events.ERROR, (_, data) => {
@@ -936,6 +947,7 @@ function PlayerHLS({ src }: MoviePlayerProps) {
                             onTimeUpdate={handleTimeUpdate}
                             onLoadedMetadata={handleLoadedMetaData}
                             onProgress={handleBufferProgress}
+                            onEnded={() => nextEp(true)}
                             preload='auto'//auto para priozar UX
                             crossOrigin='anonymous'
                         >

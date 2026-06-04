@@ -37,7 +37,7 @@ export default function Header() {
     const [visible, setVisible] = useState(false)
 
     useEffect(() => {
-        async function loadConfig() {
+        const loadConfig = async () => {
             const configData = await fuseConfig()
             //setConfig(configData)
             setFuse(new Fuse(configData.dados, {
@@ -104,7 +104,7 @@ export default function Header() {
             } else {
                 setRelatedSearch([])
             }
-        }, 200), [fuse]
+        }, 300), [fuse]
     )
     const handleRelatedSearchClick = async (card: CardsProps | SeriesProps) => {
         debug.log("chamando")
@@ -250,7 +250,7 @@ export default function Header() {
             }
             <div className={styles.dropdown}>
                 <div className={styles.dropdownIcon}>
-                    <button type="button" onClick={() => Router.push('/')}><GoHome color="white" size={25} /></button>
+                    <button aria-label="Início" type="button" onClick={() => Router.push('/')}><GoHome color="white" size={25} aria-hidden="true" /></button>
                 </div>
                 <div className={styles.dropdownIcon} onClick={() => handleClickHome(1)}>
                     <AlignJustify />

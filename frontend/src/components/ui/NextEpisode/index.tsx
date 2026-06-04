@@ -5,23 +5,25 @@ import { debug } from '@/classes/DebugLogger'
 import { TbPlayerTrackNextFilled } from 'react-icons/tb'
 
 interface NextProps {
-    title: string,
+    /*title: string,
     subtitle: string,
     season: number,
     episode: number
-    serie: SeriesProps | null
+    serie: SeriesProps | null*/
+
+    nextEP: (e: boolean) => void
+    hasNextEP: boolean
 }
-interface NextEpisodeProps {
+export interface NextEpisodeProps {
     season: number,
     episode: number,
     src: string,
-
 }
 
-export default function NextEpisode({ title, subtitle, season, episode, serie }: NextProps) {
+export default function NextEpisode({ /*title, subtitle, season, episode, serie*/ nextEP, hasNextEP }: NextProps) {
     const router = useRouter()
 
-    function getNextEpisode(): NextEpisodeProps | null {
+    /*function getNextEpisode(): NextEpisodeProps | null {
         debug.log(serie)
 
         if (!serie) return null
@@ -38,25 +40,26 @@ export default function NextEpisode({ title, subtitle, season, episode, serie }:
     }
     const nextEpisode = getNextEpisode()
 
-    function handleNextEpisode() {
+    /*const handleNextEpisode = () => {
         const movie = new URLSearchParams({
             title: `${title}`,
             subtitle: `${subtitle}` || "",
             src: `${nextEpisode?.src}`,
             episode: `${nextEpisode?.episode}`,
             season: `${nextEpisode?.season}`,
-            tmdbID: `${serie?.tmdbID}`
+            tmdbID: `${serie?.tmdbID}`,
+            AutoPlay: `${false}`,
         });
         const play: string = `/watch/serie?${movie}`
         debug.log(play)
         router.replace(play)
-    }
+    }*/
     return (
         <div className={styles.container}>
             <button
                 className={styles.next}
-                onClick={handleNextEpisode}
-                disabled={!nextEpisode}
+                onClick={() => nextEP(false)}
+                disabled={!hasNextEP}
                 type='button'
             >
                 <TbPlayerTrackNextFilled size={25} />

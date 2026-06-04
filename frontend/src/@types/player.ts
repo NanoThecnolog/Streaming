@@ -3,6 +3,7 @@ export interface SubtitleTrack {
     label: string
     language: string
     type: 'forced' | 'full' | 'unknown'
+    url?: string
 }
 
 export interface AudioTrack {
@@ -16,4 +17,10 @@ export interface PlayerPreferences {
     subtitleLanguage: string | null
     subtitleType: 'forced' | 'full' | 'unknown' | null
     subtitlesEnabled: boolean
+}
+
+export interface ManualSubtitleCue {
+    start: number,
+    end: number,
+    text: string
 }
