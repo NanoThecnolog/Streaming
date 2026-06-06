@@ -41,7 +41,7 @@ interface WatchSerieProps {
 export default function WatchSerie({ userContext }: WatchSerieProps) {
     const router = useRouter()
 
-    const { title, subtitle, episode, src, season, tmdbID, autoPlay } = router.query
+    const { episode, src, season, tmdbID } = router.query
 
     const [episodio, setEpisodio] = useState<EpisodeProps | null>(null)
     const [serie, setSerie] = useState<SeriesProps | null>(null)
@@ -206,8 +206,8 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
         setEpisodio(nextEpisodio)
 
         const params = new URLSearchParams({
-            title: nextEpisodio.title,
-            subtitle: nextEpisodio.subtitle,
+            //title: nextEpisodio.title,
+            //subtitle: nextEpisodio.subtitle,
             src: nextEpisodio.src,
             episode: String(nextEpisodio.episode),
             season: String(nextEpisodio.season),
@@ -269,8 +269,8 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
                         </div>
                         <div className={styles.buttonContainer}>
                             <PrevEpisode
-                                title={episodio.title}
-                                subtitle={episodio.subtitle}
+                                //title={episodio.title}
+                                //subtitle={episodio.subtitle}
                                 season={episodio.season}
                                 episode={episodio.episode}
                                 serie={serie}

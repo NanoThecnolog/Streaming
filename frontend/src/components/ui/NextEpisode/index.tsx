@@ -5,12 +5,6 @@ import { debug } from '@/classes/DebugLogger'
 import { TbPlayerTrackNextFilled } from 'react-icons/tb'
 
 interface NextProps {
-    /*title: string,
-    subtitle: string,
-    season: number,
-    episode: number
-    serie: SeriesProps | null*/
-
     nextEP: (e: boolean) => void
     hasNextEP: boolean
 }
@@ -20,40 +14,8 @@ export interface NextEpisodeProps {
     src: string,
 }
 
-export default function NextEpisode({ /*title, subtitle, season, episode, serie*/ nextEP, hasNextEP }: NextProps) {
-    const router = useRouter()
+export default function NextEpisode({ nextEP, hasNextEP }: NextProps) {
 
-    /*function getNextEpisode(): NextEpisodeProps | null {
-        debug.log(serie)
-
-        if (!serie) return null
-
-        const currentSerie = serie.season[season - 1]
-        if (!currentSerie) return null
-
-        if (currentSerie.episodes.length > episode) return { season: currentSerie.s, episode: currentSerie.episodes[episode].ep, src: currentSerie.episodes[episode].src }
-
-        const nextSeason = serie.season[season]
-        if (nextSeason && nextSeason.episodes.length > 0) return { season: nextSeason.s, episode: nextSeason.episodes[0].ep, src: nextSeason.episodes[0].src }
-
-        return null
-    }
-    const nextEpisode = getNextEpisode()
-
-    /*const handleNextEpisode = () => {
-        const movie = new URLSearchParams({
-            title: `${title}`,
-            subtitle: `${subtitle}` || "",
-            src: `${nextEpisode?.src}`,
-            episode: `${nextEpisode?.episode}`,
-            season: `${nextEpisode?.season}`,
-            tmdbID: `${serie?.tmdbID}`,
-            AutoPlay: `${false}`,
-        });
-        const play: string = `/watch/serie?${movie}`
-        debug.log(play)
-        router.replace(play)
-    }*/
     return (
         <div className={styles.container}>
             <button

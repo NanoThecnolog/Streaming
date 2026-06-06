@@ -117,8 +117,8 @@ export default function NewTopSerie({ width, id, isActive = false }: TopSeriePro
 
     const handleWatch = () => {
         const movie = new URLSearchParams({
-            title: `${card?.title}`,
-            subtitle: `${card?.subtitle}` || "",
+            //title: `${card?.title}`,
+            //subtitle: `${card?.subtitle}` || "",
             src: `${card?.season[0].episodes[0].src}`,
             episode: `${card?.season[0].episodes[0].ep}`,
             season: `${card?.season[0].s}`

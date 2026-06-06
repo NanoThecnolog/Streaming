@@ -5,8 +5,8 @@ import { SeriesProps } from '@/@types/series'
 import { TbPlayerTrackPrevFilled } from 'react-icons/tb'
 
 interface PrevProps {
-    title: string,
-    subtitle: string,
+    //title: string,
+    //subtitle: string,
     season: number,
     episode: number
     serie: SeriesProps | null
@@ -18,7 +18,7 @@ interface PrevEpisodeProps {
     src: string,
 }
 
-export default function PrevEpisode({ title, subtitle, season, episode, serie }: PrevProps) {
+export default function PrevEpisode({ season, episode, serie }: PrevProps) {
     const router = useRouter()
 
     function getPrevEpisode(): PrevEpisodeProps | null {
@@ -49,8 +49,8 @@ export default function PrevEpisode({ title, subtitle, season, episode, serie }:
         if (!prevEpisode) return;
 
         const movie = new URLSearchParams({
-            title: `${title}`,
-            subtitle: `${subtitle}` || "",
+            //title: `${title}`,
+            //subtitle: `${subtitle}` || "",
             src: `${prevEpisode.src}`,
             episode: `${prevEpisode.episode}`,
             season: `${prevEpisode.season}`,

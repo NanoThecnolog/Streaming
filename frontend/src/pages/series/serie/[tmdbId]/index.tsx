@@ -33,6 +33,10 @@ import RelatedCardsContainer from "@/components/movie/RelatedContainer";
 import { WatchLaterManager } from "@/classes/watchLaterManager";
 import Head from "next/head";
 
+import nookies from 'nookies'
+import { verify } from "jsonwebtoken";
+import { WarningModal } from "@/components/ui/WarningModal";
+
 interface TMDBImagesProps {
     backdrop: string,
     poster: string
@@ -176,8 +180,8 @@ export default function Serie({ data, buttonVisible }: SerieProps) {
         }
         const epNumber = ep.ep
         const episode = new URLSearchParams({
-            title: `${serie?.title}`,
-            subtitle: `${serie?.subtitle}`,
+            //title: `${serie?.title}`,
+            //subtitle: `${serie?.subtitle}`,
             episode: `${epNumber}`,
             tmdbID: `${serie?.tmdbID}`,
             src: `${ep.src}`,
@@ -475,45 +479,7 @@ export default function Serie({ data, buttonVisible }: SerieProps) {
     )
 }
 
-/*export const getStaticPaths: GetStaticPaths = async () => {
-    const series = await mongoService.fetchSerieData()
-    const paths = series.map(serie => ({
-        params: { tmdbId: serie.tmdbID.toString() }
-    }))
-    return {
-        paths,
-        fallback: 'blocking'
-    }
-}
-export const getStaticProps: GetStaticProps = async (context) => {
-    const { tmdbId } = context.params as { tmdbId: string }
-    const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN
 
-    try {
-        const resSerie = await axios.get(`https://api.themoviedb.org/3/tv/${tmdbId}`, {
-            headers: {
-                Authorization: `Bearer ${tmdbToken}`
-            },
-            params: {
-                language: 'pt-BR'
-            }
-        })
-        const resCast = await axios.get(`https://api.themoviedb.org/3/tv/${tmdbId}`, {
-            headers: {
-                Authorization: `Bearer ${tmdbToken}`
-            }
-        })
-        const serieData = resSerie.data
-        const castData = resCast.data
-        const crewData = castData.crew?.length ? castData.crew : []
-    } catch (err) {
-        console.error('Erro durante a busca dos dados da série', err)
-    }
-}*/
-
-import nookies from 'nookies'
-import { verify } from "jsonwebtoken";
-import { WarningModal } from "@/components/ui/WarningModal";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const { tmdbId } = context.params as { tmdbId: string }
