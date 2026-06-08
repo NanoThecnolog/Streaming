@@ -11,6 +11,7 @@ import Hls from 'hls.js'
 import { AudioTrack, PlayerPreferences, SubtitleTrack } from '@/@types/player'
 import PlayerConfigModal from '../PlayerConfigModal'
 import { CookieService } from '@/classes/CookieService'
+import TimelineTooltip from '../TimelineTooltip'
 
 interface MoviePlayerProps {
     src: string
@@ -996,9 +997,15 @@ function PlayerHLS({ src, nextEp, autoPlayOnLoad = false }: MoviePlayerProps) {
                                             onTouchEnd={() => setIsDragging(false)}
                                         >
 
+
                                             <div className={styles.buffer} style={{ width: `${buffered}%` }} />
                                             <div className={styles.progress} style={{ width: `${progress}%` }} />
                                             <div className={styles.thumb} style={{ left: `${progress}%` }} onMouseDown={handleMouseDown} />
+                                            <TimelineTooltip
+                                                duration={duration}
+                                                containerRef={timelineRef}
+                                            />
+
                                         </div>
                                         <div className={styles.actions}>
                                             <div className={styles.playContainer}>
