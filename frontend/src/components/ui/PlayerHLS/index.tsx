@@ -1004,6 +1004,7 @@ function PlayerHLS({ src, nextEp, autoPlayOnLoad = false }: MoviePlayerProps) {
                                             <TimelineTooltip
                                                 duration={duration}
                                                 containerRef={timelineRef}
+                                                masterUrl={src}
                                             />
 
                                         </div>

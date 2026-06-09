@@ -1,15 +1,20 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from '../PlayerHLS/styles.module.scss'
+import Thumbnail from '../TimelineThumbnail'
+import { debug } from '@/classes/DebugLogger'
+import { getThumbnailUrl, hasThumb } from '@/utils/UtilitiesFunctions'
 
 interface Props {
     duration: number
     containerRef: React.RefObject<HTMLDivElement | null>
+    masterUrl?: string
 }
 
-export default function TimelineTooltip({ duration, containerRef }: Props) {
+export default function TimelineTooltip({ duration, masterUrl }: Props) {
     const [visible, setVisible] = useState<boolean>(false)
     const [position, setPosition] = useState<number>(0)
     const [time, setTime] = useState<number>(0)
+    const [thumbnailUrl, setThumbnailUrl] = useState<string>('')
 
     const formatTime = (sec: number) => {
         const h = Math.floor(sec / 3600)
@@ -35,6 +40,25 @@ export default function TimelineTooltip({ duration, containerRef }: Props) {
         setTime(percent * duration)
     }
 
+    useEffect(() => {
+        debug.log("master URL", masterUrl)
+
+        if (!masterUrl) return
+
+        const thumbnailUrl = getThumbnailUrl(masterUrl)
+        debug.log("thumbnailUrl", thumbnailUrl)
+
+        if (!hasThumb(thumbnailUrl)) return debug.warn("hasThumb deu false")
+
+        setThumbnailUrl(thumbnailUrl)
+
+
+    }, [masterUrl])
+
+    useEffect(() => {
+        debug.log("url da thumb sendo alterada", thumbnailUrl)
+    }, [thumbnailUrl])
+
     return (
         <div
             className={styles.timelineTooltipArea}
@@ -42,6 +66,16 @@ export default function TimelineTooltip({ duration, containerRef }: Props) {
             onMouseLeave={() => setVisible(false)}
             onMouseMove={handleMouseMove}
         >
+            {
+                thumbnailUrl && (
+                    <Thumbnail
+                        visible={visible}
+                        time={time}
+                        positionX={position}
+                        vttUrl={thumbnailUrl}
+                    />
+                )
+            }
             {visible && (
                 <div
                     className={styles.timeTooltip}

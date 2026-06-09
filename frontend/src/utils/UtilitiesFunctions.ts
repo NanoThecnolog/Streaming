@@ -312,3 +312,21 @@ export const normalizeLanguage = (
 
     return languages[language?.toUpperCase()] || language
 }
+
+export const getThumbnailUrl = (url: string): string => {
+    if (!url) return ''
+    return url.replace(/master\.m3u8$/, "thumbnails.vtt")
+}
+
+export const hasThumb = async (url: string): Promise<boolean> => {
+    if (!url) return false
+
+    try {
+        const response = await fetch(url, {
+            method: "HEAD"
+        })
+        return response.ok
+    } catch {
+        return false
+    }
+}
