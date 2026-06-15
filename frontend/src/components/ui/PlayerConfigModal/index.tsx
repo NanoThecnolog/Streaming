@@ -16,7 +16,7 @@ interface Props {
 
     onClose: (e: any) => void
     changeAudioTrack: (index: number) => void
-    selectSubtitleTrack: (id: number) => void
+    selectSubtitleTrack: (id: number | null) => void
     disableAllSubtitles: () => void
 }
 
@@ -32,6 +32,7 @@ export default function PlayerConfigModal({
     changeAudioTrack,
     selectSubtitleTrack,
     disableAllSubtitles }: Props) {
+
     return (
         <section
             className={styles.container}
@@ -87,7 +88,7 @@ export default function PlayerConfigModal({
 
                         <button
                             className={`${styles.item} ${selectedSubtitle === null ? styles.active : ''}`}
-                            onClick={() => disableAllSubtitles()}
+                            onClick={() => selectSubtitleTrack(null)}
                         >
                             <span>Desativadas</span>
 

@@ -217,7 +217,7 @@ export const normalizeLanguage = (
 ): string => {
     const languages: Record<string, string> = {
         PT: 'Português',
-        'PT-BR': 'Português',
+        "PT-BR": 'Português',
         POR: 'Português',
 
         EN: 'Inglês',
@@ -304,13 +304,14 @@ export const normalizeLanguage = (
 
         UND: 'Outro',
         UNK: 'Outro',
+        UNKNOWN: 'Outro',
 
         FULL: 'Completa',
         FORCED: 'Forçada',
         FOR: 'Forçada'
     }
 
-    return languages[language?.toUpperCase()] || language
+    return languages[language?.toUpperCase()] || 'Outro'
 }
 
 export const getThumbnailUrl = (url: string): string => {

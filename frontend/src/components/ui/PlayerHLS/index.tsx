@@ -254,6 +254,8 @@ function PlayerHLS({ src, nextEp, autoPlayOnLoad = false }: MoviePlayerProps) {
 
         const tracks = video.textTracks
 
+        setSubEnabled(false)
+
         for (let i = 0; i < tracks.length; i++)
             tracks[i].mode = 'disabled'
     }
@@ -271,6 +273,15 @@ function PlayerHLS({ src, nextEp, autoPlayOnLoad = false }: MoviePlayerProps) {
         if (trackId === null) {
             setSelectedSubtitle(null)
             setSubEnabled(false)
+
+            savePlayerPreferences({
+                audioTrack: audioTracks[selectedAudio],
+                subtitleTrack:
+                    trackId !== null
+                        ? subtitleTracks.find(i => i.id === trackId)
+                        : null,
+                subtitlesEnabled: false
+            })
             return
         }
 
@@ -509,27 +520,16 @@ function PlayerHLS({ src, nextEp, autoPlayOnLoad = false }: MoviePlayerProps) {
         subtitleTrack?: SubtitleTrack | null,
         subtitlesEnabled?: boolean
     }) => {
-        //debug.log("Salvando preferências do player")
 
-        /*const resolvedAudio = audioId ?? selectedAudio
-        const resolvedSubtitle = subtitleId ?? selectedSubtitle
-        const resolvedSubEnabled = subtitlesEnabled ?? subEnabled
-
-        const currentAudio = audioTracks[resolvedAudio]
-        debug.log("Audio atual", currentAudio)
-
-        const currentSubtitle = resolvedSubtitle !== null
-            ? subtitleTracks.find((item) => item.id === resolvedSubtitle)
-            : null
-
-        debug.log("legenda atual", currentSubtitle)*/
 
         const current = CookieService.get<PlayerPreferences>(PLAYER_PREFERENCES_COOKIE)
+
+        const isSubEnabled = subtitlesEnabled ?? current?.subtitlesEnabled ?? false
 
         const cookie = {
             audioLanguage: audioTrack?.lang ?? current?.audioLanguage ?? null,
             subtitleLanguage: subtitleTrack?.language ?? current?.subtitleLanguage ?? null,
-            subtitleType: subtitleTrack?.type ?? current?.subtitleType ?? null,
+            subtitleType: isSubEnabled ? subtitleTrack?.type ?? current?.subtitleType ?? null : null,
             subtitlesEnabled: subtitlesEnabled ?? current?.subtitlesEnabled ?? false
         }
 
@@ -537,10 +537,7 @@ function PlayerHLS({ src, nextEp, autoPlayOnLoad = false }: MoviePlayerProps) {
 
         CookieService.set<PlayerPreferences>(PLAYER_PREFERENCES_COOKIE, cookie)
 
-        /*setTimeout(() => {
-            const cookiesSalvos = CookieService.get<PlayerPreferences>(PLAYER_PREFERENCES_COOKIE)
-            debug.log(`preferencias salvas`, cookiesSalvos)
-        }, 1000)*/
+
     }
 
     //aplica preferencias existentes
@@ -1051,14 +1048,14 @@ function PlayerHLS({ src, nextEp, autoPlayOnLoad = false }: MoviePlayerProps) {
 
                                                             selectSubtitleTrack={(id) => {
                                                                 selectSubtitleTrack(id)
-                                                                setSubEnabled(true)
-                                                                setSelectedSubtitle(id)
+                                                                //setSubEnabled(true)
+                                                                //setSelectedSubtitle(id)
                                                             }}
 
                                                             disableAllSubtitles={() => {
                                                                 disableAllSubtitles()
                                                                 setSelectedSubtitle(null)
-                                                                setSubEnabled(false)
+                                                                //setSubEnabled(false)
                                                             }}
                                                         />
                                                     )
