@@ -218,8 +218,8 @@ export default function PutTV({ tmdbid }: PutTVProps) {
                                 className={styles.selectFaixa}
                                 onChange={handleChange}
                             >
-                                {classification.map(faixa =>
-                                    <option key={faixa.etaria} value={faixa.etaria}>{faixa.etaria}</option>
+                                {classification.map((faixa, i) =>
+                                    <option key={i} value={faixa.etaria}>{faixa.etaria}</option>
                                 )}
                             </select>
                             <span className={styles.chosenFaixa}>faixa escolhida: {serieData?.faixa}</span>
@@ -373,8 +373,8 @@ export default function PutTV({ tmdbid }: PutTVProps) {
                             value={serieData.genero}
                             onChange={handleGenres}
                         >
-                            {genres.map(gen =>
-                                <option key={gen} value={gen}>{gen}</option>
+                            {genres.map((gen, i) =>
+                                <option key={i} value={gen}>{gen}</option>
                             )}
                         </select>
                         <p>Gêneros selecionados</p>
