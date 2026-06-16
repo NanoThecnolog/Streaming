@@ -17,6 +17,9 @@ interface EpisodeProps {
 
 export default function EpisodeCard({ episodeData, handlePlay }: EpisodeProps) {
     //debug.log(episodeData)
+    //debug.log("dados do episódio???", episodeData.episode)
+
+    const type = episodeData.episode?.episode_type
     return (
         <div className={styles.episodeContainer} onClick={() => handlePlay(episodeData.data, episodeData.seasonNumber)}>
             <div
@@ -24,6 +27,9 @@ export default function EpisodeCard({ episodeData, handlePlay }: EpisodeProps) {
                 style={{ backgroundImage: `url(${episodeData.image})` }}
             >
                 <PlayIcon size={35} />
+                {
+                    type && type === 'finale' && <div className={styles.typeContainer}><span>Final de temporada</span></div>
+                }
             </div>
             <div className={styles.epiInfo}>
                 <h3>Ep.{episodeData.data.ep}: {episodeData.episode?.name}</h3>

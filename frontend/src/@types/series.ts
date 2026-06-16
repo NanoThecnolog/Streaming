@@ -26,6 +26,7 @@ export interface Episodes {
 
 export interface TMDBEpisodes {
     episode_number: number,
+    episode_type: string,
     id: number,
     name: string,
     overview: string,
@@ -35,7 +36,7 @@ export interface TMDBEpisodes {
     runtime: number
 }
 export interface TMDBSeries {
-    seasons: SeasonTMDB,
+    seasons: SeasonTMDB[],
     backdrop_path: string,
     id: number,
     name: string,
@@ -62,3 +63,29 @@ export interface SeasonTMDB {
     season_number: number,
     vote_average: number
 }
+
+/*export interface TMDBTypeEpisode {
+    air_date: Date;
+    episodes: EpisodeBySeason[];
+    name: string;
+    overview: string;
+    id: number;
+    poster_path: string;
+    season_number: number;
+    vote_average: number;
+}
+
+export interface EpisodeBySeason {
+    air_date: Date;
+    episode_number: number;
+    episode_type: string;
+    id: number;
+    name: string;
+    overview: string;
+    runtime: number;
+    season_number: number;
+    show_id: number;
+    still_path: string;
+    vote_average: number;
+    vote_count: number;
+}*/

@@ -486,7 +486,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
 
 
-    const res = await axios.get(`https://api.themoviedb.org/3/tv/${tmdbId}`, {
+    const res = await axios.get<TMDBSeries>(`https://api.themoviedb.org/3/tv/${tmdbId}`, {
         headers: {
             Authorization: `Bearer ${tmdbToken}`
         },

@@ -53,6 +53,20 @@
             }
         }
 
+        .typeContainer {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+
+            background-color: var(--red);
+            color: var(--white);
+
+            padding: 5px 10px;
+            border-radius: .4rem;
+
+            font-weight: 900;
+        }
+
 
     }
 
