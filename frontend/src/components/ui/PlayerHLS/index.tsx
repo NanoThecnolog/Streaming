@@ -1,9 +1,9 @@
-import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { memo, useCallback, useEffect, useRef, useState } from 'react'
 import styles from './styles.module.scss'
 import Spinner from '../Loading/spinner'
 import NoFile from '../NoFile'
 import { FaPause, FaPlay } from 'react-icons/fa'
-import { MdFullscreen, MdFullscreenExit, MdSettings, MdSubtitles, MdSubtitlesOff } from 'react-icons/md'
+import { MdFullscreen, MdFullscreenExit, MdSettings } from 'react-icons/md'
 import { debug } from '@/classes/DebugLogger'
 import { IoMdVolumeHigh } from 'react-icons/io'
 import { formatTime, getClientX, normalizeLanguage } from '@/utils/UtilitiesFunctions'
@@ -12,14 +12,16 @@ import { AudioTrack, PlayerPreferences, SubtitleTrack } from '@/@types/player'
 import PlayerConfigModal from '../PlayerConfigModal'
 import { CookieService } from '@/classes/CookieService'
 import TimelineTooltip from '../TimelineTooltip'
+import { useRouter } from 'next/router'
 
 interface MoviePlayerProps {
     src: string
     nextEp?: (e: boolean) => void,
+    handleEnded?: () => void,
     autoPlayOnLoad?: boolean
 }
 
-function PlayerHLS({ src, nextEp, autoPlayOnLoad = false }: MoviePlayerProps) {
+function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false }: MoviePlayerProps) {
 
 
     //estados de referência
@@ -48,7 +50,7 @@ function PlayerHLS({ src, nextEp, autoPlayOnLoad = false }: MoviePlayerProps) {
     //estados de legenda
     const [subtitleTracks, setSubtitleTracks] = useState<SubtitleTrack[]>([])
     const [selectedSubtitle, setSelectedSubtitle] = useState<number | null>(null)
-    const [selectedSubtitleType, setSelectedSubtitleType] = useState<'forced' | 'full'>('full')
+    //const [selectedSubtitleType, setSelectedSubtitleType] = useState<'forced' | 'full'>('full')
     const [subEnabled, setSubEnabled] = useState<boolean>(false)
 
     const [isConfigModalOpen, setIsConfigModalOpen] = useState<boolean>(false)
@@ -304,26 +306,7 @@ function PlayerHLS({ src, nextEp, autoPlayOnLoad = false }: MoviePlayerProps) {
             subtitlesEnabled: trackId !== null
         })
     }
-    const selectSubtitleByType = (type: 'forced' | 'full') => {
-        const track = subtitleTracks.find((item) => item.type === type)
 
-        if (!track) return disableAllSubtitles()
-
-        setSelectedSubtitleType(type)
-        selectSubtitleTrack(track.id)
-    }
-
-    //toggle simples pra legenda
-
-    const toggleSubtitle = () => {
-        if (subEnabled) {
-            disableAllSubtitles()
-            setSubEnabled(false)
-            setSelectedSubtitle(null)
-            return
-        }
-        selectSubtitleByType(selectedSubtitleType)
-    }
 
 
     // ==================================
@@ -419,10 +402,6 @@ function PlayerHLS({ src, nextEp, autoPlayOnLoad = false }: MoviePlayerProps) {
         }, 500)
     }
 
-    // Verificação de carregamento do vídeo
-    const handleCanPlay = () => {
-        setIsVideoLoading(false)
-    }
 
     // Handler de atualização de progresso do video
 
@@ -449,9 +428,6 @@ function PlayerHLS({ src, nextEp, autoPlayOnLoad = false }: MoviePlayerProps) {
 
     // Handler de metadata
 
-    const handleLoadedData = () => {
-        setIsVideoLoading(false)
-    }
 
     const handleLoadedMetaData = () => {
         const video = videoRef.current
@@ -495,6 +471,13 @@ function PlayerHLS({ src, nextEp, autoPlayOnLoad = false }: MoviePlayerProps) {
             if (!video.paused) setShowPlayButton(false)
         }, 500)
     }
+
+    const handleVideoEnded = () => {
+        if (nextEp) return nextEp(true)
+
+        if (handleEnded) return handleEnded()
+    }
+
 
     //=============================================================
     // Preferências do player
@@ -945,7 +928,7 @@ function PlayerHLS({ src, nextEp, autoPlayOnLoad = false }: MoviePlayerProps) {
                             onTimeUpdate={handleTimeUpdate}
                             onLoadedMetadata={handleLoadedMetaData}
                             onProgress={handleBufferProgress}
-                            onEnded={() => nextEp?.(true)}
+                            onEnded={() => handleVideoEnded()}
                             preload='auto'//auto para priozar UX
                             crossOrigin='anonymous'
                         >

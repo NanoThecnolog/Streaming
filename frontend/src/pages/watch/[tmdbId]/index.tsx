@@ -141,6 +141,10 @@ export default function Watch({ userContext }: WatchProps) {
         }
     }
 
+    const handleMovieEnded = () => {
+        router.back()
+    }
+
     return (
         <>
             <Head>
@@ -172,6 +176,7 @@ export default function Watch({ userContext }: WatchProps) {
                             isHLS
                                 ? <MoviePlayerHLS
                                     //loading={loading}
+                                    handleEnded={handleMovieEnded}
                                     src={movieData.src}
                                 />
                                 : <MoviePlayer

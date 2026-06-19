@@ -192,7 +192,11 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
 
     const handleNextEpisode = (autoPlay = true) => {
 
-        if (!nextEpisode || !serie) return
+        if (!serie) return
+
+        if (!nextEpisode)
+            return router.push(`/series/serie/${serie.tmdbID}`)
+
 
         const nextEpisodio: EpisodeProps = {
             title: serie.title,
