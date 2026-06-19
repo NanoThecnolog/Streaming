@@ -26,8 +26,8 @@ export function getRelatedCards(movie: CardsProps, movies: CardsProps[], allData
     const relatedCards = movies
         .filter(card => card.tmdbId !== movie.tmdbId)
         .map(card => {
-            //match por titulo inteiro, se for igual recebe 3
-            const titleMatch = card.title.toLowerCase().includes(movie.title.toLowerCase()) ? 3 : 0;
+            //match por titulo inteiro, se for igual recebe 7 (3 é o original)
+            const titleMatch = card.title.toLowerCase().includes(movie.title.toLowerCase()) ? 5 : 0;
             //match por palavras contidas no titulo, se conter alguma palavra recebe 1
             const titleKeyWords = movie.title.toLowerCase().split(" ");
             const titleKeyMatch = titleKeyWords.some(word => card.title.toLowerCase().includes(word)) ? 1 : 0;
