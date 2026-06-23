@@ -1,8 +1,5 @@
 import { CardsProps, MovieTMDB } from "@/@types/Cards";
 import { SeriesProps, TMDBSeries } from "@/@types/series";
-import { debug } from "@/classes/DebugLogger";
-import { mongoService } from "@/classes/MongoContent";
-//import { cards } from "@/data/cards";
 
 /**
  * Retorna uma lista de cards relacionados a um determinado filme com base na similaridade do título, dos gêneros e da popularidade no TMDB.
