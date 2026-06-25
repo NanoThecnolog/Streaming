@@ -50,6 +50,7 @@ export const agp = {
     investigation: "Investigação",
     detective: "Detetive",
     spy: "Espionagem",
+    young: "Drama Adolescente",
 }
 //temas especiais
 export const sptopc = {
