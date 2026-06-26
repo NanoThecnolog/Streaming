@@ -103,7 +103,7 @@ export default function Series() {
                                         {//<TopSerie width={width} />
                                         }
                                         {
-                                            <NewTopSerie width={width} id={273240} isActive={true} />
+                                            <NewTopSerie width={width} id={82452} isActive={true} />
                                         }
                                         <div className={styles.mid}>
                                             <TopPopularTVShows cardPerContainer={cardPerContainer} />

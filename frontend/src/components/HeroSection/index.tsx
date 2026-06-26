@@ -20,15 +20,19 @@ export default function HeroSection({ width }: HeroProps) {
 
     const ids: IDProps[] = [
         {
-            id: 1325734, // O Drama
-            type: 'movie'
-        },
-        {
-            id: 220102,//spider noir
+            id: 82452, // Avatar o ultimo mestre do ar
             type: 'tv'
         },
         {
-            id: 1439930, // justiceiro
+            id: 931285, // mortal kombat 2
+            type: 'movie'
+        },
+        {
+            id: 278178,//Eu vou te Encontrar
+            type: 'tv'
+        },
+        {
+            id: 1301421, // Ovelhas detetive
             type: 'movie'
         },
         {
@@ -36,17 +40,22 @@ export default function HeroSection({ width }: HeroProps) {
             type: 'tv'
         },
         {
-            id: 1304313, // maldicao mumia
+            id: 1477317, // Sua culpa londres
+            type: 'movie'
+        },
+        {
+            id: 124364, //Origem
+            type: 'tv'
+        },
+        {
+            id: 1439930, // justiceiro
             type: 'movie'
         },
         {
             id: 85552, //euphoria
             type: 'tv'
         },
-        {
-            id: 124364, //Origem
-            type: 'tv'
-        },
+
     ]
 
     const handleVideoEnded = () => {
