@@ -321,7 +321,17 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
         }
     }
 
-    return {
-        props: {}
+    try {
+        debug.log("Enviando...")
+        const sendingNotification = await apiEmail.post('notification/access/paymentpage')
+        debug.log("email notificação de acesso a pagina de pagamentos enviado", sendingNotification)
+        return {
+            props: {}
+        }
+    } catch (err) {
+        debug.log("Erro ao enviar notificação de acesso a pagina de pagamentos", err)
+        return {
+            props: {}
+        }
     }
 }
