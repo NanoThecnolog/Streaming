@@ -17,24 +17,10 @@ import { Functions } from '@/classes/Functions'
 import { Validate } from '@/classes/validator'
 import { Normalize } from '@/classes/Normalize'
 import { GetServerSideProps } from 'next'
+//import SelectPayment from '@/components/PaymentSteps'
 
-const loadingEfiPay = async () => {
-    if (typeof window !== 'undefined') {
-        const EfiPay = (await import("payment-token-efi")).default
-        return EfiPay
-    }
-    return null
-}
 
-interface CreditCardProps {
-    brand: string,
-    number: string,
-    cvv: string,
-    expirationMonth: string,
-    expirationYear: string,
-    holderName: string,
-    holderDocument: string,
-}
+import { apiEmail } from '@/services/apiMessenger'
 
 
 
