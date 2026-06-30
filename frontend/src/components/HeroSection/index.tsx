@@ -20,6 +20,10 @@ export default function HeroSection({ width }: HeroProps) {
 
     const ids: IDProps[] = [
         {
+            id: 1339713, //obsessão
+            type: 'movie'
+        },
+        {
             id: 82452, // Avatar o ultimo mestre do ar
             type: 'tv'
         },
