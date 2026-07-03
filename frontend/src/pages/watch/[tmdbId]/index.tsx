@@ -202,10 +202,7 @@ export default function Watch({ userContext }: WatchProps) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-
-    const { req } = ctx
-
-    const token = req.cookies['flix-token']
+    const token = ctx.req.cookies['flix-token']
 
     if (!token) return {
         redirect: {
@@ -213,12 +210,19 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
             permanent: false
         }
     }
-    const url = process.env.NEXT_PUBLIC_WEBSITE_LINK
+    //const url = process.env.NEXT_PUBLIC_WEBSITE_LINK
+    const url = process.env.NEXT_PUBLIC_RENDER
 
     try {
-        const userData = await axios.get<UserContext>(`${url}/api/user`)
+        const response = await axios.get<UserContext>(`${url}/user`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
 
-        if (!userData.data.donator) {
+        const user = response.data
+
+        if (user.donator !== true) {
             return {
                 redirect: {
                     destination: '/me/escolher-plano',
@@ -228,7 +232,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
         }
         return {
             props: {
-                userContext: userData.data
+                userContext: user
             }
         }
     } catch (err) {
