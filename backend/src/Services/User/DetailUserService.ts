@@ -42,15 +42,27 @@ export class DetailUserService {
     async execute({ id }: RequestProps): Promise<DetailUserProps | string> {
         //console.log("teste")
         //return 'teste'
-        const [user, watchLaterList, subscription] = await Promise.all([
+        const [user/*, watchLaterList, subscription*/] = await Promise.all([
             prismaClient.user.findUniqueOrThrow({
                 where: { id: id },
-                include: { address: true }
+                include: {
+                    address: true, subscription: true, watchLater: {
+                        select: {
+                            id: true,
+                            title: true,
+                            subtitle: true,
+                            tmdbid: true,
+                            userId: true,
+                            created_at: true
+                        }
+
+                    }
+                }
             }),
 
-            prismaClient.watchLater.findMany({
-                where: { userId: id }
-                , select: {
+            /*prismaClient.watchLater.findMany({
+                where: { userId: id },
+                select: {
                     id: true,
                     title: true,
                     subtitle: true,
@@ -59,7 +71,7 @@ export class DetailUserService {
                     created_at: true,
                 }
             }),
-            prismaClient.subscription.findUnique({ where: { userId: id } })
+            prismaClient.subscription.findUnique({ where: { userId: id } })*/
         ])
         console.log(user.id)
         await prismaClient.loginHistory.upsert({
@@ -85,9 +97,9 @@ export class DetailUserService {
             cpf: user.cpf,
             phone_number: user.phone_number,
             news: user.news,
-            watchLater: watchLaterList,
+            watchLater: user.watchLater,
             createdAt: user.created_at,
-            subscription: subscription,
+            subscription: user.subscription,
             donator: user.donator,
             address: user.address
         }

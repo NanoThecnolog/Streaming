@@ -9,7 +9,8 @@ class AuthUserService {
         const secret = process.env.SECRET_JWT;
         if (!secret) throw new AppError("Variável de ambiente não definida corretamente.", 500)
         const userExiste = await prismaClient.user.findUnique({
-            where: { email }
+            where: { email },
+            include: { watchLater: true }
         })
         if (!userExiste) throw new AppError("Email ou senha incorreto.", 401)
 
@@ -23,7 +24,7 @@ class AuthUserService {
                 where: { id: userExiste.id },
                 data: {
                     password: isValid.rehash
-                }
+                },
             })
         }
 
@@ -39,17 +40,17 @@ class AuthUserService {
                 expiresIn: '30d'
             }
         )
-        const watchLaterList = await prismaClient.watchLater.findMany({
+        /*const watchLaterList = await prismaClient.watchLater.findMany({
             where: {
                 userId: userExiste.id
             }
-        })
+        })*/
 
         return {
             id: userExiste.id,
             name: userExiste.name,
             avatar: userExiste.avatar,
-            watchLater: watchLaterList,
+            watchLater: userExiste.watchLater,
             token: token,
             //donator: userExiste.donator
         }
