@@ -101,7 +101,7 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
                         ? movieMap.get(Number(item.id))
                         : serieMap.get(Number(item.id))
                 ).filter(Boolean)
-                    .slice(0, 7)
+                    .slice(0, 12)
 
                 setCards(cards as typeof allData)
 
