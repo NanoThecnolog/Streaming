@@ -51,6 +51,9 @@ export const agp = {
     detective: "Detetive",
     spy: "Espionagem",
     young: "Drama Adolescente",
+    documentary: "Documentário",
+    vampire: "Vampiros",
+    pickpoket: "Roubo",
 }
 //temas especiais
 export const sptopc = {

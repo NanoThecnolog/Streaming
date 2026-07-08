@@ -10,7 +10,7 @@ import { agp, gen } from "@/utils/Genres";
 import BackTopButton from "@/components/ui/BackToTop";
 import debounce from "lodash.debounce";
 import Carousel from "@/components/Carousel";
-import { breakpoints } from "@/utils/Variaveis";
+import { breakpoints, trendingBreakpoints } from "@/utils/Variaveis";
 import { flixFetcher } from "@/classes/Flixclass";
 import { useFlix } from "@/contexts/FlixContext";
 import TopPopularMovies from "@/components/TopPopularMovies";
@@ -26,6 +26,7 @@ import BackDropCarousel from "@/components/ui/BackDropCarousel";
 export default function Home() {
   //const { isOpen, close } = useDailyModal()
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
+  const [trendingCardsPerContainer, setTrendingCardsPerContainer] = useState<number>(5)
   const [width, setWidth] = useState<number>(0)
   const [visible, setvisible] = useState(false)
 
@@ -50,11 +51,13 @@ export default function Home() {
   }, [series.length, serieData.length, setSerieData])
 
   useEffect(() => {
-    function handleResize() {
+    const handleResize = () => {
       const windowWidth = window.innerWidth;
       setWidth(windowWidth)
       const { cards } = breakpoints.find(b => windowWidth < b.width) || { cards: 5 }
       setCardPerContainer(cards)
+      const trendCards = trendingBreakpoints.find(b => windowWidth < b.width) || { cards: 5 }
+      setTrendingCardsPerContainer(trendCards.cards)
     }
     window.addEventListener('resize', handleResize)
     handleResize()
@@ -106,8 +109,8 @@ export default function Home() {
                     </div>
                     <div className={styles.mid} id="filmes">
                       <BackDropCarousel title="Assistido Recentemente" />
-                      <TopPopularMovies cardPerContainer={cardPerContainer} />
-                      <TopPopularTVShows cardPerContainer={cardPerContainer} />
+                      <TopPopularMovies cardPerContainer={trendingCardsPerContainer} />
+                      <TopPopularTVShows cardPerContainer={trendingCardsPerContainer} />
                       <TrendingCarousel cardPerContainer={cardPerContainer} />
                       <LastContentAdded cardPerContainer={cardPerContainer} type="movie" />
                       <LastContentAdded cardPerContainer={cardPerContainer} type="tv" />

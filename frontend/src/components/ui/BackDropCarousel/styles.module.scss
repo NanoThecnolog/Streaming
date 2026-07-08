@@ -6,7 +6,7 @@
     .contentTitle {
         font-family: var(--font-bebas);
         color: var(--white);
-        font-size: 1.8rem;
+        font-size: clamp(1.2rem, 1rem + 1vw, 1.8rem);
         letter-spacing: 4px;
     }
 

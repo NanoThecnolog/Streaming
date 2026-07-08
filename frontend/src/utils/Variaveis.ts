@@ -54,8 +54,18 @@ export const planValues = {
     anual: 11869,
 }
 
-export const breakpoints = [
+export const trendingBreakpoints = [
     { width: 560, cards: 2 },
+    { width: 780, cards: 3 },
+    { width: 915, cards: 4 },
+    { width: 1160, cards: 5 },
+    { width: 1500, cards: 6 },
+    { width: 1855, cards: 7 },
+    { width: Infinity, cards: 8 },
+]
+
+export const breakpoints = [
+    { width: 560, cards: 3 },
     { width: 780, cards: 3 },
     { width: 915, cards: 4 },
     { width: 1160, cards: 5 },
