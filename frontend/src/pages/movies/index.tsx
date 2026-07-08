@@ -10,7 +10,7 @@ import { agp, gen } from "@/utils/Genres";
 import BackTopButton from "@/components/ui/BackToTop";
 import debounce from "lodash.debounce";
 import Carousel from "@/components/Carousel";
-import { breakpoints } from "@/utils/Variaveis";
+import { breakpoints, trendingBreakpoints } from "@/utils/Variaveis";
 import { flixFetcher } from "@/classes/Flixclass";
 import { useFlix } from "@/contexts/FlixContext";
 import NewTop from "@/components/newTop";
@@ -24,6 +24,7 @@ import { Functions } from "@/classes/Functions";
 
 export default function Home() {
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
+  const [trendingCardsPerContainer, setTrendingCardsPerContainer] = useState<number>(5)
   const [width, setWidth] = useState<number>(0)
   const removedSections = [agp.dc, agp.marvel, agp.hero]
   const generos = Object.values(gen);
@@ -55,6 +56,8 @@ export default function Home() {
       setWidth(windowWidth)
       const { cards } = breakpoints.find(b => windowWidth < b.width) || { cards: 5 }
       setCardPerContainer(cards)
+      const trendCards = trendingBreakpoints.find(b => windowWidth < b.width) || { cards: 5 }
+      setTrendingCardsPerContainer(trendCards.cards)
     }
     window.addEventListener('resize', handleResize)
     handleResize()
@@ -102,7 +105,7 @@ export default function Home() {
                     </div>
 
                     <div className={styles.mid} id="filmes">
-                      <TopPopularMovies cardPerContainer={cardPerContainer} />
+                      <TopPopularMovies cardPerContainer={trendingCardsPerContainer} />
                       {
                         divisaoPorGenero.map((sec, index) => {
                           return (

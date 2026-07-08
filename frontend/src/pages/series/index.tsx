@@ -10,7 +10,7 @@ import { gen, stm } from "@/utils/Genres";
 import debounce from "lodash.debounce";
 import BackTopButton from "@/components/ui/BackToTop";
 import Carousel from "@/components/Carousel";
-import { breakpoints } from "@/utils/Variaveis";
+import { breakpoints, trendingBreakpoints } from "@/utils/Variaveis";
 import { flixFetcher } from "@/classes/Flixclass";
 import { SeriesProps } from "@/@types/series";
 import { mongoService } from "@/classes/MongoContent";
@@ -25,6 +25,7 @@ export default function Series() {
     //refatorar
     const { isOpen, close } = useDailyModal()
     const [cardPerContainer, setCardPerContainer] = useState<number>(5)
+    const [trendingCardsPerContainer, setTrendingCardsPerContainer] = useState<number>(5)
     const [width, setWidth] = useState<number>(0)
     const genres = Object.values(gen)
     const streamings = Object.values(stm)
@@ -61,6 +62,8 @@ export default function Series() {
             setWidth(windowWidth)
             const { cards } = breakpoints.find(b => windowWidth < b.width) || { cards: 5 }
             setCardPerContainer(cards)
+            const trendCards = trendingBreakpoints.find(b => windowWidth < b.width) || { cards: 5 }
+            setTrendingCardsPerContainer(trendCards.cards)
         }
         window.addEventListener('resize', handleResize)
         handleResize()
@@ -106,7 +109,7 @@ export default function Series() {
                                             <NewTopSerie width={width} id={82452} isActive={true} />
                                         }
                                         <div className={styles.mid}>
-                                            <TopPopularTVShows cardPerContainer={cardPerContainer} />
+                                            <TopPopularTVShows cardPerContainer={trendingCardsPerContainer} />
 
                                             {divisaoPorGenero.map((sec, index) => (
                                                 <div key={sec}>
