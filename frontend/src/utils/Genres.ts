@@ -54,6 +54,7 @@ export const agp = {
     documentary: "Documentário",
     vampire: "Vampiros",
     pickpoket: "Roubo",
+    pursuit: "Perseguição"
 }
 //temas especiais
 export const sptopc = {

@@ -1,6 +1,7 @@
 import { CardsProps, MovieTMDB } from "@/@types/Cards"
 import { SeriesProps, TMDBSeries } from "@/@types/series"
 import { stateMap } from "./Variaveis"
+import { debug } from "@/classes/DebugLogger"
 
 /**
  * Função que transforma minutos em horas
@@ -330,4 +331,37 @@ export const hasThumb = async (url: string): Promise<boolean> => {
     } catch {
         return false
     }
+}
+
+export const extractSeasonEpisode = (url: string) => {
+    const match = url.match(/(?:\/|^)(?:S(\d+)E(\d+)|(\d+)x(\d+))(?:\/|$)/i)
+
+    if (!match)
+        return null
+
+    const season = Number(match[1] ?? match[3])
+    const episode = Number(match[2] ?? match[4])
+
+    return {
+        season,
+        episode
+    }
+}
+
+/**
+ * Calcula progresso do video
+ * @param current progresso atual em segundos
+ * @param duration duração total em minutos
+ * @returns porcentagem assistida
+ */
+export const calculateVideoProgress = (current: number, duration: number): number => {
+    //debug.log("current vindo do banco em segundos", current, "duração total do tmdb em minutos", duration)
+    if (current <= 0 || duration <= 0) return 0
+    const durationInSeconds = duration * 60
+
+    if (!Number.isFinite(current) || !Number.isFinite(duration) || durationInSeconds <= 0)
+        return 0
+
+    const percentage = (current / durationInSeconds) * 100
+    return Math.min(100, Math.round(percentage))
 }

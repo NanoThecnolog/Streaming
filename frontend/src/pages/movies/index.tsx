@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import styles from "@/styles/Home.module.scss";
 import Search from "@/components/Searching";
 import SEO from "@/components/SEO";
@@ -16,10 +16,7 @@ import { useFlix } from "@/contexts/FlixContext";
 import NewTop from "@/components/newTop";
 import { CardsProps } from "@/@types/Cards";
 import TopPopularMovies from "@/components/TopPopularMovies";
-import { DailyWarningModal } from "@/components/ui/DailyModal";
-import { useDailyModal } from "@/hooks/useDailyModal";
-import axios from "axios";
-import { Functions } from "@/classes/Functions";
+//import { useDailyModal } from "@/hooks/useDailyModal";
 
 
 export default function Home() {
@@ -34,7 +31,7 @@ export default function Home() {
   const { allData, setAllData, serieData, setSerieData } = useTMDB()
   const [visible, setvisible] = useState(false)
   const { movies, user } = useFlix()
-  const { isOpen, close } = useDailyModal()
+  //const { isOpen, close } = useDailyModal()
   const tmdbid = 1477317;
   const [topCard, setTopCard] = useState<CardsProps | null>(null)
 

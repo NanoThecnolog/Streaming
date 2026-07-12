@@ -6,22 +6,25 @@ import { FaPause, FaPlay } from 'react-icons/fa'
 import { MdFullscreen, MdFullscreenExit, MdSettings } from 'react-icons/md'
 import { debug } from '@/classes/DebugLogger'
 import { IoMdVolumeHigh } from 'react-icons/io'
-import { formatTime, getClientX, normalizeLanguage } from '@/utils/UtilitiesFunctions'
+import { extractSeasonEpisode, formatTime, getClientX, normalizeLanguage } from '@/utils/UtilitiesFunctions'
 import Hls from 'hls.js'
 import { AudioTrack, PlayerPreferences, SubtitleTrack } from '@/@types/player'
 import PlayerConfigModal from '../PlayerConfigModal'
 import { CookieService } from '@/classes/CookieService'
 import TimelineTooltip from '../TimelineTooltip'
-import { useRouter } from 'next/router'
+import axios from 'axios'
 
 interface MoviePlayerProps {
     src: string
     nextEp?: (e: boolean) => void,
     handleEnded?: () => void,
-    autoPlayOnLoad?: boolean
+    autoPlayOnLoad?: boolean,
+    tmdbID?: number,
+    mediaType?: 'movie' | 'tv',
+    startTime?: number // em segundos
 }
 
-function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false }: MoviePlayerProps) {
+function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false, tmdbID, mediaType, startTime = 0 }: MoviePlayerProps) {
 
 
     //estados de referência
@@ -111,7 +114,6 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false }: MoviePl
     // Mudança de volume
 
     const handleVolumeChange = (value: number) => {
-        //debug.log("Volume", value)
         const video = videoRef.current
         if (!video) return
 
@@ -187,7 +189,6 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false }: MoviePl
         debug.log("Alterando faixa de audio", index)
 
         hlsRef.current.audioTrack = index
-        //setSelectedAudio(index)
     }
 
     //TRATAMENTO DE LEGENDAS
@@ -386,7 +387,6 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false }: MoviePl
     // Handler para efeito de mostrar/esconder botão de play/pause
 
     const handleBigPlayButton = () => {
-        //debug.log("chamando handleBigPlayButton")
         setShowPlayButton(true)
 
         const video = videoRef.current
@@ -435,6 +435,11 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false }: MoviePl
 
         setDuration(video.duration || 0)
 
+        /*if (startTime > 0) {
+            video.currentTime = Math.min(startTime, video.duration)
+        }*/
+        video.currentTime = Math.min(Math.max(startTime, 0), video.duration)
+
         loadSubtitleTracks()
     }
 
@@ -472,11 +477,102 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false }: MoviePl
         }, 500)
     }
 
-    const handleVideoEnded = () => {
+    const handleVideoEnded = async () => {
+        const video = videoRef.current
+
+        if (video) {
+            debug.warn('Video terminou. Salvando progresso...')
+
+            const epData = extractSeasonEpisode(src)
+
+            await axios.post('/api/watched/progress', {
+                tmdbID,
+                mediaType,
+                season: epData?.season,
+                episode: epData?.episode,
+                progress: Math.floor(video.duration),
+                completed: true
+            })
+            debug.info('Progresso salvo.')
+        }
         if (nextEp) return nextEp(true)
 
-        if (handleEnded) return handleEnded()
+        handleEnded?.()
     }
+
+    //============================================================
+    // salvando/atualizando progresso de video
+    //============================================================
+
+    const saveProgress = useCallback(async () => {
+
+        const video = videoRef.current
+        if (!video || !video.duration) return
+
+        debug.warn("salvando progresso do video")
+
+        debug.log("url atual", src)
+
+        const epData = extractSeasonEpisode(src)
+
+        try {
+            //rota api/watched/progress
+            await axios.post('/api/watched/progress', {
+                tmdbID,
+                mediaType,
+                season: epData?.season ?? 0,
+                episode: epData?.episode ?? 0,
+                progress: Math.floor(video.currentTime),
+                completed: video.currentTime >= video.duration * 0.95
+            })
+            debug.info('Progresso salvo')
+        } catch (err) {
+            debug.error('Erro ao salvar progress', err)
+        }
+    }, [tmdbID, mediaType, src])
+
+    //Ref saveProgress
+    const saveProgressRef = useRef(saveProgress)
+
+    useEffect(() => {
+        saveProgressRef.current = saveProgress
+    }, [saveProgress])
+
+    // Salvando a cada 1min
+
+    useEffect(() => {
+        debug.warn("useEffect")
+        const interval = window.setInterval(() => {
+            const video = videoRef.current
+            if (!video || video.paused || video.ended || video.currentTime <= 0) return
+
+            void saveProgress()
+        }, 60000)
+
+        return () => window.clearInterval(interval)
+    }, [saveProgress])
+
+    // Salvando quando o usuário sai da pagina
+
+    useEffect(() => {
+        const saveBeforeExit = () => {
+            void saveProgressRef.current()
+        }
+
+        window.addEventListener('beforeunload', saveBeforeExit)
+
+        return () => {
+            window.removeEventListener('beforeunload', saveBeforeExit)
+        }
+    }, [])
+
+    // Salvando quando player desmonta
+
+    useEffect(() => {
+        return () => {
+            void saveProgressRef.current()
+        }
+    }, [])
 
 
     //=============================================================
@@ -533,7 +629,6 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false }: MoviePl
             preferencesAppliedRef.current = true
             return
         }
-        //isApplyingPreferencesRef.current = true
         debug.log("aplicando preferencias do player", preferences)
 
         // =========================
@@ -610,7 +705,6 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false }: MoviePl
 
         preferencesAppliedRef.current = false
 
-        //??????
         setAudioTracks([])
         setSubtitleTracks([])
 
@@ -619,14 +713,12 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false }: MoviePl
         setSubEnabled(false)
 
         if (hlsRef.current) {
-            //debug.log("ref hls aplicando .destroy()")
             hlsRef.current.destroy()
             hlsRef.current = null
         }
 
         // Safari nativo
         if (isSafari && video.canPlayType('application/vnd.apple.mpegurl')) {
-            //debug.log("video nativo no safari")
             video.src = src
             video.load()
 
@@ -667,11 +759,6 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false }: MoviePl
 
                 setAudioTracks(tracks)
                 debug.log("faixa atual", hls.audioTrack)
-
-                //setSelectedAudio(hls.audioTrack)
-
-                //tentando aplicar preferencias
-                //applySavedPreferences(tracks, subtitleTracks)
             })
 
             hls.on(Hls.Events.AUDIO_TRACK_SWITCHED, (_, data) => {
@@ -747,10 +834,6 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false }: MoviePl
         }
 
     }, [src])
-
-    /*useEffect(() => {
-        debug.log("isVideoLoading mudando", isVideoLoading)
-    }, [isVideoLoading])*/
 
     useEffect(() => {
         const handleFullScreenChange = () => {
@@ -861,6 +944,10 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false }: MoviePl
 
     useEffect(() => {
         debug.log("Player HLS carregado", src)
+
+        /*const video = videoRef.current
+        if (!video) return
+        video.currentTime = 0*/
     }, [src])
 
     // ===============

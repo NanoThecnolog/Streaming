@@ -4,7 +4,7 @@ import { Navigation } from 'swiper/modules'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { TrackingParsed } from '@/@types/watchedResponse'
-import { uniqueKey } from '@/utils/UtilitiesFunctions'
+import { calculateVideoProgress, uniqueKey } from '@/utils/UtilitiesFunctions'
 import { useTMDB } from '@/contexts/TMDBContext'
 import { MovieTMDB } from '@/@types/Cards'
 import { TMDBSeries } from '@/@types/series'
@@ -12,6 +12,8 @@ import Link from 'next/link'
 import { backdropBreakPoints } from '@/utils/Variaveis'
 import { useFlix } from '@/contexts/FlixContext'
 import { debug } from '@/classes/DebugLogger'
+import { tmdb } from '@/classes/TMDB'
+import { ProgressResponse } from '@/@types/watchedProgress'
 
 interface BaseProps {
     title: string
@@ -37,14 +39,24 @@ type MapTrackingProps = {
 }
 
 
+
+interface CarouselCard {
+    card: MovieTMDB | TMDBSeries
+    tracking: MapTrackingProps
+    progress: number | null
+    percentage: number
+}
+
+
+
+
 export default function BackDropCarousel({ title /*cardPerContainer*/ }: BaseProps) {
-    const [cards, setCards] = useState<(MovieTMDB | TMDBSeries | undefined)[]>([])
+    //const [cards, setCards] = useState<(MovieTMDB | TMDBSeries | undefined)[]>([])
     const { allData, serieData } = useTMDB()
     const { user } = useFlix()
     const [cardPerContainer, setCardPerContainer] = useState(0)
-    const [tracking, setTracking] = useState<MapTrackingProps[]>([])
-
-    //agora só preciso estilizar o card e ajustar breakpoints e responsividade
+    //const [tracking, setTracking] = useState<MapTrackingProps[]>([])
+    const [cards, setCards] = useState<CarouselCard[]>([])
 
     const typeGuard = (card: MovieTMDB | TMDBSeries): card is TMDBSeries => {
         return 'seasons' in card
@@ -63,55 +75,180 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
 
     useEffect(() => {
         if (!user) return
-        debug.log("useEffect sendo chamado")
 
         const controller = new AbortController()
+
+        const fetchProgress = async (
+            tracking: MapTrackingProps
+        ): Promise<number | null> => {
+            try {
+                const { data } = await axios.get<ProgressResponse>(
+                    '/api/watched/progress',
+                    {
+                        params: {
+                            tmdbID: tracking.id,
+                            //mediaType: tracking.type,
+                            //season: tracking.season,
+                            //episode: tracking.episode
+                        },
+                        signal: controller.signal
+                    }
+                )
+                debug.log("resultado do tracking de progresso", data.result)
+
+                const progressEntry = data.result?.find(item => {
+                    if (item.tmdbID !== Number(tracking.id) || item.mediaType !== tracking.type) return false
+                    if (tracking.type === 'movie') return true
+
+                    return (
+                        item.season === tracking.season &&
+                        item.episode === tracking.episode
+                    )
+
+                })
+
+                debug.log(
+                    'Progresso correspondente ao tracking',
+                    progressEntry
+                )
+
+                return progressEntry?.progress ?? null
+            } catch (err) {
+                if (axios.isCancel(err))
+                    throw err
+
+                debug.error(
+                    `Erro ao buscar progresso do conteúdo ${tracking.id}`,
+                    err
+                )
+
+                return null
+            }
+        }
 
         const fetchWatched = async () => {
             try {
                 const { data } = await axios.get<WatchedRes>(
                     '/api/user/watched',
-                    { signal: controller.signal }
+                    {
+                        signal: controller.signal
+                    }
                 )
-                debug.log("data no fetch", data)
 
-                const tracking: MapTrackingProps[] = data.result.map(item => {
-                    if (item.type === 'movie')
+                const trackingList: MapTrackingProps[] = data.result.map(item => {
+                    if (item.type === 'movie') {
                         return {
                             name: item.name,
                             id: item.tmdbID,
-                            type: item.type
+                            type: 'movie'
                         }
+                    }
 
                     return {
                         name: item.name,
                         id: item.tmdbID,
                         season: item.season,
                         episode: item.episode,
-                        type: item.type
+                        type: 'tv'
                     }
                 })
-                setTracking(tracking)
 
-                const movieMap = new Map(allData.map(d => [d.id, d]))
-                const serieMap = new Map(serieData.map(d => [d.id, d]))
+                const movieMap = new Map(
+                    allData.map(movie => [movie.id, movie])
+                )
 
-                const cards = tracking.map(item =>
-                    item.type === 'movie'
-                        ? movieMap.get(Number(item.id))
-                        : serieMap.get(Number(item.id))
-                ).filter(Boolean)
+                const serieMap = new Map(
+                    serieData.map(serie => [serie.id, serie])
+                )
+
+                const availableCards = trackingList
+                    .map(tracking => {
+                        const card = tracking.type === 'movie'
+                            ? movieMap.get(Number(tracking.id))
+                            : serieMap.get(Number(tracking.id))
+
+                        if (!card)
+                            return null
+
+                        return {
+                            card,
+                            tracking
+                        }
+                    })
+                    .filter(
+                        (
+                            item
+                        ): item is {
+                            card: MovieTMDB | TMDBSeries
+                            tracking: MapTrackingProps
+                        } => item !== null
+                    )
                     .slice(0, 12)
 
-                setCards(cards as typeof allData)
+                const getRuntime = async (item: {
+                    card: MovieTMDB | TMDBSeries
+                    tracking: MapTrackingProps
+                }): Promise<number | null> => {
+                    if (
+                        item.tracking.type === 'tv' &&
+                        item.tracking.season !== undefined &&
+                        item.tracking.episode !== undefined
+                    ) {
+                        const episodes = await tmdb.fetchEpisodeData(
+                            item.card.id,
+                            item.tracking.season
+                        )
 
+                        const episode = episodes?.find(
+                            episode =>
+                                episode.episode_number === item.tracking.episode
+                        )
+
+                        return episode?.runtime ?? null
+                    }
+
+                    if ('runtime' in item.card)
+                        return item.card.runtime ?? null
+
+                    return null
+                }
+
+                const cardsWithProgress = await Promise.all(
+                    availableCards.map(async item => {
+                        const progress = await fetchProgress(item.tracking)
+                        const runtime = await getRuntime(item)
+
+                        return {
+                            ...item,
+                            progress,
+                            percentage: runtime
+                                ? calculateVideoProgress(progress ?? 0, runtime)
+                                : 25
+                        }
+                    })
+                )
+
+                if (controller.signal.aborted)
+                    return
+
+                debug.log("cards com progresso", cardsWithProgress)
+
+                setCards(cardsWithProgress)
             } catch (err) {
-                if (!axios.isCancel(err))
-                    debug.error('Erro ao buscar filmes e séries vistos', err)
+                if (!axios.isCancel(err)) {
+                    debug.error(
+                        'Erro ao buscar filmes e séries vistos',
+                        err
+                    )
+                }
             }
         }
-        fetchWatched()
-        return () => controller.abort()
+
+        void fetchWatched()
+
+        return () => {
+            controller.abort()
+        }
     }, [user, allData, serieData])
 
     if (!cards || cards.length === 0) return null
@@ -126,10 +263,10 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
                 loop={false}
                 className={styles.carousel}
             >
-                {cards.map((card, index) => {
+                {cards.map(({ card, tracking, progress, percentage }) => {
                     if (!card) return
                     if (typeGuard(card)) {
-                        return <SwiperSlide key={index} className={styles.slide}>
+                        return <SwiperSlide key={`tv-${card.id}`} className={styles.slide}>
 
                             <div className={styles.cardWrapper}>
                                 <Link
@@ -138,20 +275,30 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
                                 >
                                     <img src={`https://image.tmdb.org/t/p/w500${card.backdrop_path}`} alt={card.name} />
                                     <div className={styles.info}>
-                                        <h3 className={styles.title}>{card.name}</h3>
-                                        {
-                                            tracking.map(item => Number(item.id) === card.id ?
-                                                <div className={styles.season} key={item.id}>
-                                                    <p>Temporada {item.season} - Episódio {item.episode}</p>
-                                                </div>
-                                                : '')
-                                        }
+                                        <div className={styles.textContent}>
+                                            <h3 className={styles.title}>
+                                                {card.name}
+                                            </h3>
+                                            <p className={styles.metadata}>
+                                                <span>Temporada {tracking.season}</span>
+                                                <span className={styles.separator}>•</span>
+                                                <span>Episódio {tracking.episode}</span>
+                                            </p>
+                                        </div>
+                                        {/*<h3 className={styles.title}>{card.name}</h3>
+                                        <div className={styles.season}>
+                                            <p>Temporada {tracking.season} - Episódio {tracking.episode}</p>
+                                        </div>*/}
+
+                                    </div>
+                                    <div className={styles.progress}>
+                                        <div className={styles.progressFill} style={{ width: `${percentage}%` }} />
                                     </div>
                                 </Link>
                             </div>
                         </SwiperSlide>
                     } else {
-                        return <SwiperSlide key={index} className={styles.slide}>
+                        return <SwiperSlide key={`movie-${card.id}`} className={styles.slide}>
 
                             <div className={styles.cardWrapper}>
                                 <Link
@@ -161,9 +308,27 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
                                     <img src={`https://image.tmdb.org/t/p/w500${card.backdrop_path}`} alt={card.title} />
 
                                     <div className={styles.info}>
-                                        <h3 className={styles.title}>{card.title}</h3>
+                                        <div className={styles.textContent}>
+                                            <h3 className={styles.title}>
+                                                {card.title}
+                                            </h3>
+
+                                            <p className={styles.metadata}>
+                                                <span>Filme</span>
+                                                <span className={styles.separator}>•</span>
+                                                <span>{percentage}% assistido</span>
+                                            </p>
+                                        </div>
+
+                                        {
+                                            //<h3 className={styles.title}>{card.title}</h3>
+                                        }
+                                    </div>
+                                    <div className={styles.progress}>
+                                        <div className={styles.progressFill} style={{ width: `${percentage}%` }} />
                                     </div>
                                 </Link>
+
                             </div>
                         </SwiperSlide>
                     }

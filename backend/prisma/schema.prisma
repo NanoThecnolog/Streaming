@@ -35,6 +35,7 @@ model user {
   loginHistory loginHistory?
   subscription subscription?
   watchLater   watchLater[]
+  watched      watched[]
 
   genPreferences userGenPreference[]
 }
@@ -81,6 +82,33 @@ model tracking {
   createdAt DateTime @default(now())
 }
 
+model watched {
+  id String @id @default(uuid())
+
+  userId String
+  user   user   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  tmdbID    Int
+  mediaType WatchedMediaType
+
+  season  Int @default(0)
+  episode Int @default(0)
+
+  progress Int @default(0) //segundos assistidos
+
+  completed Boolean @default(false)
+
+  lastWatched DateTime @default(now())
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  @@unique([userId, tmdbID, season, episode])
+  @@index([userId])
+  @@index([tmdbID])
+  @@index([userId, completed])
+}
+
 model subscription {
   id        String   @id @default(uuid())
   userId    String   @unique
@@ -92,8 +120,9 @@ model subscription {
   //invoices invoice[]
   history subscriptionHistory[]
 
-  plan plan @relation(fields: [planId], references: [id])
-  user user @relation(fields: [userId], references: [id], onDelete: Cascade)
+  plan     plan      @relation(fields: [planId], references: [id])
+  user     user      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  invoices invoice[]
 
   @@index([status])
 }
@@ -108,16 +137,22 @@ model subscriptionHistory {
   subscription subscription @relation(fields: [subscriptionId], references: [id])
 }
 
-/**
- * model invoice {
- * id       String        @id @default(uuid())
- * status   InvoiceStatus // paid | pending | failed | refunded
- * chargeId Int //ID da cobrança na EFI
- * subscriptionId String?
- * subscription   subscription? @relation(fields: [subscriptionId], references: [id])
- * @@index([status])
- * }
- */
+model invoice {
+  id      String         @id @default(uuid())
+  current InvoiceStatus // paid | pending | failed | refunded
+  preview InvoiceStatus?
+
+  chargeId       Int           @unique() //ID da cobrança na EFI
+  subscriptionId String?
+  subscription   subscription? @relation(fields: [subscriptionId], references: [id])
+  dueDate        String?
+  dataPaid       String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  @@index([current, createdAt])
+}
 
 model address {
   id           String  @id @default(uuid())
@@ -200,4 +235,9 @@ enum InvoiceStatus {
   canceled //Cobrança cancelada pelo vendedor ou pelo pagador. O termo "canceled" equivale a "cancelado".
   settled //Cobrança foi confirmada manualmente. O termo "settled" equivale a "marcar como pago".
   expired //A cobrança receberá este status caso nao tenha sito realizado nenhum pagamento e a data maxima de pagamento, definica no atributo days_to_write_off, ou nas configurações da sua conta Efí, seja atingida. O termo "expired" equivale a "expirado".
+}
+
+enum WatchedMediaType {
+  movie
+  tv
 }

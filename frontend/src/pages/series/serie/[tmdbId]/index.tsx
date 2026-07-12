@@ -1,12 +1,12 @@
 import Router, { useRouter } from "next/router"
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Episodes, SeriesProps, TMDBEpisodes, TMDBSeries } from "@/@types/series";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import styles from './styles.module.scss'
 import { Play } from "lucide-react";
 import { toast } from "react-toastify";
-import { FaCheck } from "react-icons/fa";
+import { FaCheck, FaPlay } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
 import Stars from "@/components/ui/StarAverage";
 import Adult from "@/components/ui/Adult";
@@ -14,7 +14,7 @@ import EpisodeCard from "@/components/seriesComponents/EpisodeCard";
 import Spinner from "@/components/ui/Loading/spinner";
 import { useTMDB } from "@/contexts/TMDBContext";
 import { CastProps } from "@/@types/movie/cast";
-import { translate } from "@/utils/UtilitiesFunctions";
+import { calculateVideoProgress, translate } from "@/utils/UtilitiesFunctions";
 import Cast from "@/components/Cast";
 import Crew from "@/components/Crew";
 import { TrailerProps } from "@/@types/trailer";
@@ -36,6 +36,7 @@ import Head from "next/head";
 import nookies from 'nookies'
 import { verify } from "jsonwebtoken";
 import { WarningModal } from "@/components/ui/WarningModal";
+import { EpisodeProgressProps, ProgressResponse } from "@/@types/watchedProgress";
 
 interface TMDBImagesProps {
     backdrop: string,
@@ -49,6 +50,8 @@ interface SerieProps {
     data: TMDBSeries,
     buttonVisible: boolean
 }
+
+
 
 export default function Serie({ data, buttonVisible }: SerieProps) {
     //refatorar
@@ -73,6 +76,10 @@ export default function Serie({ data, buttonVisible }: SerieProps) {
     const [warningModalOpen, setWarningModalOpen] = useState(false)
 
     const watchLaterManager = new WatchLaterManager()
+
+    const [progressPercentage, setProgressPercentage] = useState(0)
+    const [episodeProgress, setEpisodeProgress] = useState<EpisodeProgressProps[]>([])
+
 
     //dados principais
     useEffect(() => {
@@ -133,6 +140,78 @@ export default function Serie({ data, buttonVisible }: SerieProps) {
         setWarningModalOpen(showingWarningModal)
     }, [user])*/
 
+    useEffect(() => {
+        const controller = new AbortController()
+
+        const fetchProgress = async () => {
+            try {
+                const response = await axios.get<ProgressResponse>('/api/watched/progress', {
+                    params: {
+                        tmdbID: data.id
+                    },
+                    signal: controller.signal
+                })
+
+
+                //const hasProgress = response.data.result.length > 0
+                const progressData = response.data.result
+                debug.log("dados do progresso da série", progressData)
+                //quero montar um objeto pra cada episódio que tem dados de progresso no banco.
+                //o objeto tem episode, season, progress e percentage
+                //pra calcular a porcentagem precisa tem progress e o runtime do episódio, que se encontra em episodesData
+
+                debug.log("episodes Data", episodesData)
+                //episodesData um array de obj, cada objeto é uma temporada com outro array com os dados dos episódios daquela temporada
+
+                debug.log("episodes to show", episodesToShow)
+
+
+                const allEpisodes = episodesData.flat()
+
+                const episodesWithProgress: EpisodeProgressProps[] =
+                    progressData.flatMap(progress => {
+                        const episode = allEpisodes.find(episode =>
+                            episode?.episode_number === progress.episode &&
+                            episode.season_number === progress.season
+                        )
+
+                        if (!episode || !episode.runtime) return []
+
+                        const percent = calculateVideoProgress(progress.progress, episode.runtime)
+
+                        return [{
+                            episode: episode.episode_number,
+                            season: episode.season_number,
+                            progress: progress.progress,
+                            percentage: percent,
+                            complete: percent > 95 ? true : false
+                        }]
+                    })
+                debug.log('Episódios com progresso calculado', episodesWithProgress)
+
+                setEpisodeProgress(episodesWithProgress)
+
+            } catch (err) {
+                if (!axios.isCancel(err))
+                    debug.error("Erro ao buscar progresso do filme", err)
+            }
+        }
+
+        void fetchProgress()
+        return () => {
+            controller.abort()
+        }
+    }, [data.id, episodesData, episodesToShow])
+
+    //map pra facilitar a busca e evitar percorrer episodeProgress várias vezes por episódio.
+    const episodesProgressMap = useMemo(() => {
+        return new Map(
+            episodeProgress.map(item => [
+                `${item.season}-${item.episode}`,
+                item
+            ])
+        )
+    }, [episodeProgress])
 
     //interação do usuario
     const handleWatchLater = async (tmdbid: number) => {
@@ -173,7 +252,7 @@ export default function Serie({ data, buttonVisible }: SerieProps) {
         } else return;
     }
 
-    const handlePlayEpisode = (ep: Episodes, season?: number) => {
+    const handlePlayEpisode = (ep: Episodes, startTime?: number, season?: number,) => {
         const showingWarningModal = !user || !user.donator
         if (showingWarningModal) {
             return setWarningModalOpen(showingWarningModal)
@@ -185,7 +264,8 @@ export default function Serie({ data, buttonVisible }: SerieProps) {
             episode: `${epNumber}`,
             tmdbID: `${serie?.tmdbID}`,
             src: `${ep.src}`,
-            season: `${season ?? seasonToShow}`
+            season: `${season ?? seasonToShow}`,
+            startTime: `${startTime ?? 0}`
         })
         Router.push(`/watch/serie?${episode}`)
     }
@@ -340,8 +420,8 @@ export default function Serie({ data, buttonVisible }: SerieProps) {
                                     </div>
                                     <div className={styles.watchButton} onClick={() => handlePlayEpisode(serie.season[0].episodes[0], serie.season[0].s)}>
                                         <button type="button" className={styles.buttonPlay}>
-                                            <Play />
-                                            <h4>Começar a Assistir</h4>
+                                            <FaPlay />
+                                            <h4>Assistir</h4>
                                         </button>
 
                                     </div>
@@ -399,20 +479,25 @@ export default function Serie({ data, buttonVisible }: SerieProps) {
                             <div className={styles.cardContainer}>
                                 {
                                     episodesToShow.map((ep, index) => {
-                                        //debug.log("episodesData: ", episodesData)
                                         const season = episodesData[seasonToShow - 1];
-                                        //debug.log("season no render: ", season)
                                         const episode = season?.find(e => e.episode_number === ep.ep)
+                                        //const progress = episodeProgress.find(item => item.season === episode?.season_number && item.episode === episode?.episode_number)
+                                        const progress = episode
+                                            ? episodesProgressMap.get(`${episode.season_number}-${episode.episode_number}`) ?? null
+                                            : null
+
                                         const image = episode ? `https://image.tmdb.org/t/p/w500${episode?.still_path}` : '/blurImage.png';
+
                                         const episodeInfo = {
                                             serieTmdbId: serie.tmdbID,
                                             seasonNumber: episode?.season_number,
                                             image: image,
                                             episode: episode,
-                                            data: ep
+                                            data: ep,
+                                            progress
                                         }
                                         return (
-                                            <div key={index} className={styles.episodeContainer}>
+                                            <div key={`${seasonToShow}-${ep.ep}`} className={styles.episodeContainer}>
                                                 <EpisodeCard episodeData={episodeInfo} handlePlay={handlePlayEpisode} />
                                             </div>
                                         )

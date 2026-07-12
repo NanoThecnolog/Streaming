@@ -25,7 +25,7 @@ interface WatchProps {
 }
 export default function Watch({ userContext }: WatchProps) {
     const router = useRouter()
-    const { tmdbId } = router.query;
+    const { tmdbId, startTime } = router.query;
     const [movieData, setMovieData] = useState({ title: '', subtitle: '', src: '', tmdbId: 0 });
     const { user, setUser, movies } = useFlix()
     const [visible, setVisible] = useState(false)
@@ -178,6 +178,9 @@ export default function Watch({ userContext }: WatchProps) {
                                     //loading={loading}
                                     handleEnded={handleMovieEnded}
                                     src={movieData.src}
+                                    tmdbID={Number(tmdbId as string)}
+                                    mediaType='movie'
+                                    startTime={Number(startTime) ?? 0}
                                 />
                                 : <MoviePlayer
                                     loading={loading}

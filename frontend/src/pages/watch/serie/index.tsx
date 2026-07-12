@@ -41,7 +41,7 @@ interface WatchSerieProps {
 export default function WatchSerie({ userContext }: WatchSerieProps) {
     const router = useRouter()
 
-    const { episode, src, season, tmdbID } = router.query
+    const { episode, src, season, tmdbID, startTime } = router.query
 
     const [episodio, setEpisodio] = useState<EpisodeProps | null>(null)
     const [serie, setSerie] = useState<SeriesProps | null>(null)
@@ -52,6 +52,10 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
     const [shouldAutoPlay, setShouldAutoPlay] = useState<boolean>(false)
 
     const { user, setUser } = useFlix()
+
+    useEffect(() => {
+        debug.log("tempo inicial", startTime)
+    }, [startTime])
 
     useEffect(() => {
         if (!user) {
@@ -261,6 +265,9 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
                                         src={episodio.src}
                                         nextEp={handleNextEpisode}
                                         autoPlayOnLoad={shouldAutoPlay}
+                                        tmdbID={Number(tmdbID as string)}
+                                        mediaType="tv"
+                                        startTime={parseFloat(startTime as string ?? 0)}
                                     />
                                     : <MoviePlayer
                                         loading={loading}

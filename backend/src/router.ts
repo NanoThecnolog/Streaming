@@ -18,6 +18,8 @@ import rateLimit from "express-rate-limit";
 import { AccessController } from "./Controllers/User/AccessController";
 import { TrackingController } from "./Controllers/User/trackingController";
 import { ListWatchedController } from "./Controllers/User/ListWatchedController";
+import { CreateWatchedController } from "./Controllers/User/CreateWatchedController";
+import { GetWatchedController } from "./Controllers/User/GetWatchedController";
 
 
 const router = Router()
@@ -53,5 +55,8 @@ router.get('/watchLater', Authenticate, new ListWatchLaterController().handle)
 router.delete('/watchLater/:id', Authenticate, new RemoveWatchLaterController().handle)
 
 router.get('/user/watched', Authenticate, new ListWatchedController().handle)
+
+router.post('/content/watched', Authenticate, new CreateWatchedController().handle)
+router.get('/content/watched', Authenticate, new GetWatchedController().handle)
 
 export { router }

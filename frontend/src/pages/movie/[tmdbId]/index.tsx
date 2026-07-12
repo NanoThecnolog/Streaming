@@ -32,6 +32,9 @@ import Details from '@/components/ui/DetailContent';
 import Title from '@/components/ui/Title';
 import Head from 'next/head';
 import { WarningModal } from '@/components/ui/WarningModal';
+import { ProgressData, ProgressEntry, ProgressResponse } from '@/@types/watchedProgress';
+import { calculateVideoProgress } from '@/utils/UtilitiesFunctions';
+import { FaCirclePlay } from 'react-icons/fa6';
 
 interface groupedByDepartment {
     [job: string]: CrewProps[]
@@ -56,6 +59,11 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
     const [loadingButton, setLoadingButton] = useState(false)
     const [warningModalOpen, setWarningModalOpen] = useState(false)
     const watchLaterManager = new WatchLaterManager()
+
+    const [isLoadingProgress, setIsLoadingProgress] = useState(false)
+    const [progressData, setProgressData] = useState<ProgressData[]>([])
+    const [progressPercentage, setProgressPercentage] = useState(0)
+
 
     //Schema para melhorar SEO do site. testando para ver se indexa mais filmes
     const movieSchema = {
@@ -132,6 +140,40 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
         setWarningModalOpen(showingWarningModal)
     }, [user])*/
 
+    useEffect(() => {
+        const controller = new AbortController()
+
+        const fetchProgress = async () => {
+            try {
+                const { data } = await axios.get<ProgressResponse>('/api/watched/progress', {
+                    params: {
+                        tmdbID: movie.id
+                    },
+                    signal: controller.signal
+                })
+                debug.log(data.result)
+                const hasProgress = data.result.length > 0
+                const progress = hasProgress
+                    ? calculateVideoProgress(data.result[0].progress, movie.runtime)
+                    : 0
+                setProgressPercentage(progress)
+                setProgressData(data.result)
+
+            } catch (err) {
+                if (!axios.isCancel(err))
+                    debug.error("Erro ao buscar progresso do filme", err)
+            } finally {
+                if (!controller.signal.aborted)
+                    setIsLoadingProgress(false)
+            }
+        }
+
+        void fetchProgress()
+        return () => {
+            controller.abort()
+        }
+    }, [movie.id])
+
     //interação do usuario
     const watchLater = () => {
         if (!movie || !filme) return
@@ -188,7 +230,10 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
         if (showingWarningModal) {
             return setWarningModalOpen(showingWarningModal)
         }
-        router.push(`/watch/${tmdbId}`)
+        const params = new URLSearchParams({
+            startTime: `${progressData[0].progress ?? 0}`
+        })
+        router.push(`/watch/${tmdbId}?${params}`)
     }
     return (
         <>
@@ -251,7 +296,28 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
                                         </div>
                                     </div>
                                     <div className={styles.buttonPlay} onClick={handlePlay}>
-                                        <button type='button'><FaPlay size={25} /><h4>Começar a Assistir</h4></button>
+                                        <button type='button'>
+                                            {
+                                                progressPercentage > 0
+                                                    ? <>
+                                                        <FaPlay size={15} />
+                                                        <h4>Continuar Assistindo</h4>
+                                                    </>
+                                                    : <>
+                                                        <FaCirclePlay size={20} />
+                                                        <h4>Começar a Assistir</h4>
+                                                    </>
+                                            }
+
+                                        </button>
+                                        <div className={styles.progressContainer}>
+                                            <div
+                                                className={styles.progressFill}
+                                                style={{
+                                                    width: `${progressPercentage}%`
+                                                }}
+                                            />
+                                        </div>
                                     </div>
                                     <div className={styles.buttonContainer}>
                                         <WatchLaterContainer loading={loadingButton} onClick={handleWatchLater} onWatchLater={onWatchLater} />
@@ -300,7 +366,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
 
     try {
-        const [resMovie, resCast] = await Promise.all([
+        const [resMovie, resCast, /*progressData*/] = await Promise.all([
             axios.get(`https://api.themoviedb.org/3/movie/${tmdbId}`, {
                 headers: { Authorization: `Bearer ${tmdbToken}` },
                 params: { language: "pt-BR" },
@@ -308,6 +374,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
             axios.get(`https://api.themoviedb.org/3/movie/${tmdbId}/credits`, {
                 headers: { Authorization: `Bearer ${tmdbToken}` },
             }),
+            /*axios.get(`${process.env.NEXT_PUBLIC_WEBSITE_LINK}/api/watched/progress`, {
+                params: {
+                    tmdbID: tmdbId
+                }
+            })*/
         ])
 
         const movieData = resMovie.data;
