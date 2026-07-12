@@ -231,7 +231,7 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
             return setWarningModalOpen(showingWarningModal)
         }
         const params = new URLSearchParams({
-            startTime: `${progressData[0].progress ?? 0}`
+            startTime: `${progressData[0]?.progress ?? 0}`
         })
         router.push(`/watch/${tmdbId}?${params}`)
     }
