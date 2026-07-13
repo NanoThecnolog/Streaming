@@ -310,7 +310,7 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
                                             }
 
                                         </button>
-                                        <div className={styles.progressContainer}>
+                                        <div className={styles.progressContainer} style={{ width: `${progressPercentage < 4 && 0}px` }}>
                                             <div
                                                 className={styles.progressFill}
                                                 style={{
