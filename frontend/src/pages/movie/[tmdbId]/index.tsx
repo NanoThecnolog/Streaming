@@ -272,9 +272,6 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
                         <div className={styles.imageContainer}>
                             <img src={getBackgroundImage()} alt="banner" />
                         </div>
-                        <div className={styles.loading}>
-                            <div className={styles.loadingContainer}><Spinner /></div>
-                        </div>
                         <div className={styles.coverContainer}>
                         </div>
                         <div className={styles.content}>
