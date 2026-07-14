@@ -324,6 +324,7 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
                                         }
                                     </div>
                                     <Overview text={movie.overview} />
+                                    <div className={styles.descriptionContainer} />
                                     {relatedCards &&
                                         <RelatedCardsContainer cards={relatedCards} />
                                     }
