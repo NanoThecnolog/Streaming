@@ -1,3 +1,4 @@
+import { debug } from '@/classes/DebugLogger';
 import { SetupAPIClient } from '@/services/api';
 import { NextApiRequest, NextApiResponse } from 'next';
 
@@ -14,6 +15,4 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     } catch (err) {
         return res.status(500).json({ error: 'Erro ao buscar watchedList' })
     }
-
-
 }

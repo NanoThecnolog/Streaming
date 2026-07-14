@@ -4,7 +4,7 @@ import { Navigation } from 'swiper/modules'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { TrackingParsed } from '@/@types/watchedResponse'
-import { calculateVideoProgress, uniqueKey } from '@/utils/UtilitiesFunctions'
+import { calculateVideoProgress } from '@/utils/UtilitiesFunctions'
 import { useTMDB } from '@/contexts/TMDBContext'
 import { MovieTMDB } from '@/@types/Cards'
 import { TMDBSeries } from '@/@types/series'
@@ -113,169 +113,6 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
             }
         }
 
-        /*const fetchProgress = async (
-            tracking: MapTrackingProps
-        ): Promise<number | null> => {
-            try {
-                const { data } = await axios.get<ProgressResponse>(
-                    '/api/watched/progress',
-                    {
-                        params: {
-                            tmdbID: tracking.id,
-                        },
-                        signal: controller.signal
-                    }
-                )
-                debug.log("resultado do tracking de progresso", data.result)
-
-                const progressEntry = data.result?.find(item => {
-                    if (item.tmdbID !== Number(tracking.id) || item.mediaType !== tracking.type) return false
-                    if (tracking.type === 'movie') return true
-
-                    return (
-                        item.season === tracking.season &&
-                        item.episode === tracking.episode
-                    )
-
-                })
-
-                debug.log(
-                    'Progresso correspondente ao tracking',
-                    progressEntry
-                )
-
-                return progressEntry?.progress ?? null
-            } catch (err) {
-                if (axios.isCancel(err))
-                    throw err
-
-                debug.error(
-                    `Erro ao buscar progresso do conteúdo ${tracking.id}`,
-                    err
-                )
-
-                return null
-            }
-        }
-
-        const fetchWatched = async () => {
-            try {
-                const { data } = await axios.get<WatchedRes>(
-                    '/api/user/watched',
-                    {
-                        signal: controller.signal
-                    }
-                )
-
-                const trackingList: MapTrackingProps[] = data.result.map(item => {
-                    if (item.type === 'movie') {
-                        return {
-                            name: item.name,
-                            id: item.tmdbID,
-                            type: 'movie'
-                        }
-                    }
-
-                    return {
-                        name: item.name,
-                        id: item.tmdbID,
-                        season: item.season,
-                        episode: item.episode,
-                        type: 'tv'
-                    }
-                })
-
-                const movieMap = new Map(
-                    allData.map(movie => [movie.id, movie])
-                )
-
-                const serieMap = new Map(
-                    serieData.map(serie => [serie.id, serie])
-                )
-
-                const availableCards = trackingList
-                    .map(tracking => {
-                        const card = tracking.type === 'movie'
-                            ? movieMap.get(Number(tracking.id))
-                            : serieMap.get(Number(tracking.id))
-
-                        if (!card)
-                            return null
-
-                        return {
-                            card,
-                            tracking
-                        }
-                    })
-                    .filter(
-                        (
-                            item
-                        ): item is {
-                            card: MovieTMDB | TMDBSeries
-                            tracking: MapTrackingProps
-                        } => item !== null
-                    )
-                    .slice(0, 12)
-
-                const getRuntime = async (item: {
-                    card: MovieTMDB | TMDBSeries
-                    tracking: MapTrackingProps
-                }): Promise<number | null> => {
-                    if (
-                        item.tracking.type === 'tv' &&
-                        item.tracking.season !== undefined &&
-                        item.tracking.episode !== undefined
-                    ) {
-                        const episodes = await tmdb.fetchEpisodeData(
-                            item.card.id,
-                            item.tracking.season
-                        )
-
-                        const episode = episodes?.find(
-                            episode =>
-                                episode.episode_number === item.tracking.episode
-                        )
-
-                        return episode?.runtime ?? null
-                    }
-
-                    if ('runtime' in item.card)
-                        return item.card.runtime ?? null
-
-                    return null
-                }
-
-                const cardsWithProgress = await Promise.all(
-                    availableCards.map(async item => {
-                        const progress = await fetchProgress(item.tracking)
-                        const runtime = await getRuntime(item)
-
-                        return {
-                            ...item,
-                            progress,
-                            percentage: runtime
-                                ? calculateVideoProgress(progress ?? 0, runtime)
-                                : 25
-                        }
-                    })
-                )
-
-                if (controller.signal.aborted)
-                    return
-
-                debug.log("cards com progresso", cardsWithProgress)
-
-                setCards(cardsWithProgress)
-            } catch (err) {
-                if (!axios.isCancel(err)) {
-                    debug.error(
-                        'Erro ao buscar filmes e séries vistos',
-                        err
-                    )
-                }
-            }
-        }*/
-
         void fetchWatched()
 
         return () => {
@@ -292,7 +129,6 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
         const movieMap = new Map(
             allData.map(movie => [movie.id, movie])
         )
-
         const serieMap = new Map(
             serieData.map(serie => [serie.id, serie])
         )
@@ -324,16 +160,6 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
         if (baseCards.length === 0) return
 
         const controller = new AbortController()
-
-        const progressRequestCache = new Map<
-            string,
-            Promise<ProgressResponse>
-        >()
-
-        const episodeRequestCache = new Map<
-            string,
-            ReturnType<typeof tmdb.fetchEpisodeData>
-        >()
 
         const fetchProgress = async (
             tracking: MapTrackingProps
@@ -445,7 +271,6 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
         return () => controller.abort()
     }, [baseCards])
 
-
     if (!cards || cards.length === 0) return null
 
     return (
@@ -480,21 +305,16 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
                                                 <span>Episódio {tracking.episode}</span>
                                             </p>
                                         </div>
-                                        {/*<h3 className={styles.title}>{card.name}</h3>
-                                        <div className={styles.season}>
-                                            <p>Temporada {tracking.season} - Episódio {tracking.episode}</p>
-                                        </div>*/}
-
                                     </div>
-                                    <div className={styles.progress}>
-                                        <div className={styles.progressFill} style={{ width: `${percentage}%` }} />
+
+                                    <div className={styles.progress} style={{ width: `${percentage > 4 ? 100 : 0}%` }}>
+                                        <div className={styles.progressFill} style={{ width: `${percentage > 95 ? 100 : percentage}%` }} />
                                     </div>
                                 </Link>
                             </div>
                         </SwiperSlide>
                     } else {
                         return <SwiperSlide key={`movie-${card.id}`} className={styles.slide}>
-
                             <div className={styles.cardWrapper}>
                                 <Link
                                     href={`/movie/${card.id}`}
@@ -510,23 +330,19 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
 
                                             <p className={styles.metadata}>
                                                 <span>Filme</span>
-
                                                 {
                                                     percentage > 4 &&
                                                     <>
                                                         <span className={styles.separator}>•</span>
-                                                        <span>{percentage}% assistido</span>
+                                                        <span>{percentage > 95 ? 100 : percentage}% assistido</span>
                                                     </>
                                                 }
                                             </p>
                                         </div>
-
-                                        {
-                                            //<h3 className={styles.title}>{card.title}</h3>
-                                        }
                                     </div>
+
                                     <div className={styles.progress} style={{ width: `${percentage > 4 ? 100 : 0}%` }}>
-                                        <div className={styles.progressFill} style={{ width: `${percentage}%` }} />
+                                        <div className={styles.progressFill} style={{ width: `${percentage > 95 ? 100 : percentage}%` }} />
                                     </div>
                                 </Link>
 
