@@ -12,6 +12,8 @@
     overflow: hidden;
     font-family: var(--font-Roboto);
 
+
+
     .imageContainer {
         position: absolute;
         top: 0;
@@ -20,6 +22,20 @@
         height: 100vh;
         overflow: hidden;
         z-index: 1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+
+            background:
+                linear-gradient(90deg,
+                    rgba(0, 0, 0, .85) 0%,
+                    rgba(0, 0, 0, .65) 35%,
+                    rgba(0, 0, 0, .15) 60%,
+                    transparent 80%);
+        }
 
         img {
             width: 100%;
@@ -55,6 +71,8 @@
         gap: 25px;
         padding-top: 10rem;
         z-index: 3;
+
+
 
         .movieInfo {
             display: flex;
@@ -147,6 +165,8 @@
         .descriptionContainer {
             margin-bottom: 100px;
         }
+
+
     }
 
     .loading {
