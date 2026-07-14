@@ -20,23 +20,39 @@ type TrackingParsed =
 
 export class ListWatchedService {
     async execute(uid: string) {
-        const extracktTmdbId = (path: string) => {
+        const extractTmdbId = (path: string) => {
             if (path.includes('?')) {
                 const query = path.split('?')[1]
                 const params = new URLSearchParams(query)
 
+                const seasonParam = params.get('season')
+                const episodeParam = params.get('episode')
                 const tmdbID = params.get('tmdbID')
-                if (!tmdbID) return null
 
-                return {
-                    type: 'tv',
-                    tmdbID,
-                    season: params.get('season')
-                        ? Number(params.get('season'))
-                        : undefined,
-                    episode: params.get('episode')
-                        ? Number(params.get('episode'))
-                        : undefined
+                const hasSeason = seasonParam !== null
+                const hasEpisode = episodeParam !== null
+
+                if (hasSeason && hasEpisode) {
+                    if (!tmdbID) return null
+
+                    const season = Number(seasonParam)
+                    const episode = Number(episodeParam)
+
+                    if (
+                        !Number.isInteger(season) ||
+                        !Number.isInteger(episode) ||
+                        Number(season) < 0 ||
+                        Number(episode) < 0
+                    ) {
+                        return null
+                    }
+
+                    return {
+                        type: 'tv',
+                        tmdbID: tmdbID,
+                        season,
+                        episode
+                    }
                 }
             }
             const match = path.match(/\/watch\/(\d+)/)
@@ -60,28 +76,28 @@ export class ListWatchedService {
         const map = new Map<string, TrackingParsed>()
 
         for (const item of dataTracked) {
-            const parsed = extracktTmdbId(item.path)
+            const parsed = extractTmdbId(item.path)
 
             if (!parsed) continue
 
-            if (map.has(parsed.tmdbID)) continue
+            if (map.has(String(parsed.tmdbID))) continue
 
             if (parsed.type === 'movie') {
-                map.set(parsed.tmdbID, {
+                map.set(String(parsed.tmdbID), {
                     id: item.id,
                     name: item.name,
                     type: 'movie',
-                    tmdbID: parsed.tmdbID,
+                    tmdbID: String(parsed.tmdbID),
                     createdAt: item.createdAt
                 })
             } else {
-                map.set(parsed.tmdbID, {
+                map.set(String(parsed.tmdbID), {
                     id: item.id,
                     name: item.name,
                     type: 'tv',
-                    tmdbID: parsed.tmdbID,
-                    season: parsed.season,
-                    episode: parsed.episode,
+                    tmdbID: String(parsed.tmdbID),
+                    season: Number(parsed.season),
+                    episode: Number(parsed.episode),
                     createdAt: item.createdAt
                 })
             }
