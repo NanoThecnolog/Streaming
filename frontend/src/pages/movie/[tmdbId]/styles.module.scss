@@ -99,6 +99,11 @@
                 //cursor: pointer;
                 transition: all .2s;
 
+                h4 {
+                    font-size: 1rem;
+                    font-family: var(--font-Roboto);
+                }
+
 
             }
 
@@ -145,21 +150,6 @@
             align-content: center;
             gap: 10px;
 
-            .buttonFavorite {
-                button {
-                    background-color: transparent;
-                    color: var(--white);
-                    border: none;
-                    border-radius: 8px;
-                    width: 180px;
-                    height: 100px;
-                    transition: all .2s;
-
-                    &:hover {
-                        background-color: #1e1e1e;
-                    }
-                }
-            }
         }
 
         .descriptionContainer {
@@ -225,7 +215,7 @@
             padding-top: 10rem;
 
             .buttonContainer {
-                flex-direction: column;
+                //flex-direction: row;
                 justify-content: center;
                 align-items: center;
                 width: 100%;

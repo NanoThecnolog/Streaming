@@ -301,7 +301,7 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
                                                         <h4>Continuar Assistindo</h4>
                                                     </>
                                                     : <>
-                                                        <FaCirclePlay size={20} />
+                                                        <FaCirclePlay size={25} />
                                                         <h4>Começar a Assistir</h4>
                                                     </>
                                             }
