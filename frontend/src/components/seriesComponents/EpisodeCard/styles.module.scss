@@ -1,6 +1,10 @@
 .episodeContainer {
-    height: 320px;
+    display: flex;
+    flex-direction: column;
+
     width: 350px;
+    height: 320px;
+
     background-color: rgba(0, 0, 0, .9);
     transition: .2s;
     cursor: pointer;
@@ -14,6 +18,8 @@
     .episodeImage {
         width: 350px;
         height: 180px;
+        flex: 0 0 180px;
+
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -88,19 +94,45 @@
     }
 
     .epiInfo {
+        flex: 1;
+        min-height: 0;
         padding: 15px 10px;
+        box-sizing: border-box;
+        overflow: hidden;
+
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        h3,
+        p {
+            margin: 0;
+        }
 
         h3 {
+            //display: -webkit-box;
+            //-webkit-box-orient: vertical;
+            //-webkit-line-clamp: 1;
+            //line-clamp: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
             font-size: clamp(0.8rem, .9vw, 1.2rem);
+            line-height: 1.3;
         }
 
         .description {
             display: -webkit-box;
             overflow: hidden;
 
+            text-overflow: ellipsis;
+
+            //margin-top: 2px;
+            font-size: 0.9rem;
             font-style: italic;
             line-height: 1.4;
-            text-overflow: ellipsis;
+
             max-height: 68px;
 
             -webkit-box-orient: vertical;

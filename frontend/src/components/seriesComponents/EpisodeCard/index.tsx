@@ -39,7 +39,7 @@ export default function EpisodeCard({ episodeData, handlePlay }: EpisodeProps) {
                 </div>
             </div>
             <div className={styles.epiInfo}>
-                <h3>Ep.{episodeData.data.ep}: {episodeData.episode?.name}</h3>
+                <h3 title={episodeData.episode?.name}>Ep.{episodeData.data.ep}: {episodeData.episode?.name}</h3>
                 <p>Duração: {episodeData.episode ? minToHour(episodeData.episode.runtime) : episodeData.data.duration ? episodeData.data.duration : "--"}</p>
                 <p className={styles.description} title={episodeData.episode?.overview}>{episodeData.episode?.overview}</p>
             </div>
