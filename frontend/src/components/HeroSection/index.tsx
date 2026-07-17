@@ -19,6 +19,15 @@ export default function HeroSection({ width }: HeroProps) {
     const [activeIndex, setActiveIndex] = useState(0)
 
     const ids: IDProps[] = [
+
+        {
+            id: 1083381, // backrooms
+            type: 'movie'
+        },
+        {
+            id: 94997, //casa do dragão
+            type: 'tv'
+        },
         {
             id: 1339713, //obsessão
             type: 'movie'
@@ -44,22 +53,13 @@ export default function HeroSection({ width }: HeroProps) {
             type: 'tv'
         },
         {
-            id: 1477317, // Sua culpa londres
+            id: 1439930, // justiceiro
             type: 'movie'
         },
         {
             id: 124364, //Origem
             type: 'tv'
         },
-        {
-            id: 1439930, // justiceiro
-            type: 'movie'
-        },
-        {
-            id: 85552, //euphoria
-            type: 'tv'
-        },
-
     ]
 
     const handleVideoEnded = () => {

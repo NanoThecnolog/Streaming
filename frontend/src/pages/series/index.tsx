@@ -37,6 +37,8 @@ export default function Series() {
     const [visible, setvisible] = useState(false)
     const { user, series, setSeries } = useFlix()
 
+    const trailerId = 94997
+
     useEffect(() => {
         async function fetchSeriesMongoDB() {
             const response: SeriesProps[] = await mongoService.fetchSerieData()
@@ -106,7 +108,7 @@ export default function Series() {
                                         {//<TopSerie width={width} />
                                         }
                                         {
-                                            <NewTopSerie width={width} id={82452} isActive={true} />
+                                            <NewTopSerie width={width} id={trailerId} isActive={true} />
                                         }
                                         <div className={styles.mid}>
                                             <TopPopularTVShows cardPerContainer={trendingCardsPerContainer} />
