@@ -90,15 +90,22 @@
     .epiInfo {
         padding: 15px 10px;
 
+        h3 {
+            font-size: clamp(0.8rem, .9vw, 1.2rem);
+        }
+
         .description {
-            font-style: italic;
-            line-clamp: 3;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            height: 55px;
             display: -webkit-box;
+            overflow: hidden;
+
+            font-style: italic;
+            line-height: 1.4;
+            text-overflow: ellipsis;
+            max-height: 68px;
+
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 3;
+            line-clamp: 3;
         }
     }
 
