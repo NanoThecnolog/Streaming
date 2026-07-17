@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "SKIP_TYPECHECK=1 next build --no-lint",
-    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
     "build:sitemap": "next-sitemap"
