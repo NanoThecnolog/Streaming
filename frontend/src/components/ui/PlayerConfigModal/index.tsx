@@ -33,6 +33,19 @@ export default function PlayerConfigModal({
     selectSubtitleTrack,
     disableAllSubtitles }: Props) {
 
+    const sortedAudio = audio.map((track, index) => ({ track, originalIndex: index }))
+        .sort((a, b) => {
+            const getPriority = (lang: string) => {
+                const normalized = normalizeLanguage(lang).toLowerCase()
+
+                if (normalized.includes('portugu')) return 0
+                if (normalized.includes('english') || normalized.includes('ingl')) return 1
+
+                return 2
+            }
+
+            return getPriority(a.track.lang) - getPriority(b.track.lang)
+        })
     return (
         <section
             className={styles.container}
@@ -51,18 +64,18 @@ export default function PlayerConfigModal({
 
                     <div className={styles.list}>
                         {
-                            audio.map((track, i) => (
+                            sortedAudio.map(({ track, originalIndex }) => (
                                 <button
                                     key={track.id}
-                                    className={`${styles.item} ${selectedAudio === i ? styles.active : ''}`}
-                                    onClick={() => changeAudioTrack(i)}
+                                    className={`${styles.item} ${selectedAudio === originalIndex ? styles.active : ''}`}
+                                    onClick={() => changeAudioTrack(originalIndex)}
                                 >
                                     <span>
                                         {normalizeLanguage(track.lang)}
                                     </span>
 
                                     {
-                                        selectedAudio === i && (
+                                        selectedAudio === originalIndex && (
                                             <MdCheck size={20} />
                                         )
                                     }
