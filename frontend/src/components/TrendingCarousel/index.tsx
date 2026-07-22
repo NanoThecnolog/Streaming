@@ -37,18 +37,6 @@ export default function TrendingCarousel({ cardPerContainer }: TrendingProps) {
             if (seriesFiltered[i]) result.push(seriesFiltered[i])
             i++
         }
-
-        /*const map = new Map<number, CardsProps | SeriesProps>()
-
-        const sorted = [...allData, ...serieData].sort((a, b) => (b.popularity ?? 0) - (a.popularity ?? 0))
-
-        for (const card of sorted) {
-            const movie = movies.find(m => m.tmdbId === card.id)
-            if (movie && !map.has(movie.tmdbId)) {
-                map.set(movie.tmdbId, movie)
-            }
-            if (map.size === 20) break
-        }*/
         setCards(result.slice(0, 20))
     }
     useEffect(() => {

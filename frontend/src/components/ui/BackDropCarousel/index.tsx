@@ -322,10 +322,11 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
                             </div>
                         </SwiperSlide>
                     } else {
+                        const path = percentage >= 92 ? 'movie' : 'watch'
                         return <SwiperSlide key={`movie-${card.id}`} className={styles.slide}>
                             <div className={styles.cardWrapper}>
                                 <Link
-                                    href={`/watch/${card.id}`}
+                                    href={`/${path}/${card.id}`}
                                     className={styles.link}
                                 >
                                     <img src={`https://image.tmdb.org/t/p/w500${card.backdrop_path}`} alt={card.title} />
@@ -342,7 +343,7 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
                                                     percentage > 4 &&
                                                     <>
                                                         <span className={styles.separator}>•</span>
-                                                        <span>{percentage > 95 ? 100 : percentage}% assistido</span>
+                                                        <span>{percentage >= 92 ? 100 : percentage}% assistido</span>
                                                     </>
                                                 }
                                             </p>
@@ -350,7 +351,7 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
                                     </div>
 
                                     <div className={styles.progress} style={{ width: `${percentage > 4 ? 100 : 0}%` }}>
-                                        <div className={styles.progressFill} style={{ width: `${percentage > 95 ? 100 : percentage}%` }} />
+                                        <div className={styles.progressFill} style={{ width: `${percentage >= 92 ? 100 : percentage}%` }} />
                                     </div>
                                 </Link>
 

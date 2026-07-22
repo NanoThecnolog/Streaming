@@ -295,15 +295,20 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
                                     <div className={styles.buttonPlay} onClick={handlePlay}>
                                         <button type='button'>
                                             {
-                                                progressPercentage > 0
+                                                progressPercentage >= 92
                                                     ? <>
-                                                        <FaPlay size={15} />
-                                                        <h4>Continuar Assistindo</h4>
-                                                    </>
-                                                    : <>
                                                         <FaCirclePlay size={25} />
-                                                        <h4>Começar a Assistir</h4>
+                                                        <h4>Recomeçar</h4>
                                                     </>
+                                                    : progressPercentage === 0
+                                                        ? <>
+                                                            <FaCirclePlay size={25} />
+                                                            <h4>Começar a assistir</h4>
+                                                        </>
+                                                        : <>
+                                                            <FaPlay size={15} />
+                                                            <h4>Continuar Assistindo</h4>
+                                                        </>
                                             }
 
                                         </button>
