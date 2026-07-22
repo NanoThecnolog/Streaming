@@ -14,6 +14,7 @@ import { useFlix } from '@/contexts/FlixContext'
 import { debug } from '@/classes/DebugLogger'
 import { tmdb } from '@/classes/TMDB'
 import { ProgressResponse } from '@/@types/watchedProgress'
+import Router from 'next/router'
 
 interface BaseProps {
     title: string
@@ -286,11 +287,18 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
                 {cards.map(({ card, tracking, progress, percentage }) => {
                     if (!card) return
                     if (typeGuard(card)) {
+                        const link = new URLSearchParams({
+                            episode: `${tracking.episode}`,
+                            tmdbID: `${card.id}`,
+                            src: `https://f005.backblazeb2.com/file/Flixnext/videos/${card.id}/${tracking.season}x${tracking.episode}/master.m3u8`,
+                            season: `${tracking.season}`,
+                            startTime: `${percentage > 95 ? 0 : progress ?? 0}`
+                        })
                         return <SwiperSlide key={`tv-${card.id}`} className={styles.slide}>
 
                             <div className={styles.cardWrapper}>
                                 <Link
-                                    href={`/series/serie/${card.id}`}
+                                    href={`/watch/serie?${link}`}
                                     className={styles.link}
                                 >
                                     <img src={`https://image.tmdb.org/t/p/w500${card.backdrop_path}`} alt={card.name} />
@@ -317,7 +325,7 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
                         return <SwiperSlide key={`movie-${card.id}`} className={styles.slide}>
                             <div className={styles.cardWrapper}>
                                 <Link
-                                    href={`/movie/${card.id}`}
+                                    href={`/watch/${card.id}`}
                                     className={styles.link}
                                 >
                                     <img src={`https://image.tmdb.org/t/p/w500${card.backdrop_path}`} alt={card.title} />
