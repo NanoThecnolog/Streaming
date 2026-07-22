@@ -1,16 +1,18 @@
 import { apiTMDB } from "@/services/apiTMDB";
 import { debug } from "./DebugLogger";
 import { CardsProps, MovieTMDB } from "@/@types/Cards";
-import { TMDBSeries } from "@/@types/series";
+import { SeriesProps, TMDBSeries } from "@/@types/series";
 
 class FlixFetcher {
-    private loading: boolean
+    private movieLoading: boolean
+    private serieLoading: boolean
     private allData: MovieTMDB[]
     private serieData: TMDBSeries[]
     private maxRetries: number
 
     constructor() {
-        this.loading = false
+        this.movieLoading = false
+        this.serieLoading = false
         this.allData = []
         this.serieData = []
         this.maxRetries = 5
@@ -21,45 +23,62 @@ class FlixFetcher {
      * @returns não retorna dado nenhum
     */
     async fetchMovieData(setAllData: (data: MovieTMDB[]) => void, movies: CardsProps[], attempt: number = 1) {
-        if (this.loading) return
+        if (this.movieLoading) return
+        if (movies.length === 0) return debug.error("Lista movies vazia!", movies)
 
-        this.loading = true
+        this.movieLoading = true
         try {
-            if (movies.length === 0) return debug.error("Lista movies vazia!", movies)
-            const response = await apiTMDB.post('/all/movie', {
-                movies: movies
+            const response = await apiTMDB.post<{ success: boolean, data: MovieTMDB[], errors: any[] }>('/all/movie', {
+                movies
             })
+
             if (response.status === 502 || !response.data) {
-                this.retryMovie(setAllData, attempt, movies)
+                await this.retryMovie(setAllData, attempt, movies)
                 return
             }
+
             debug.log("Erros na requisição ao tmdb de filmes: ", response.data.errors)
             this.allData = response.data.data as MovieTMDB[]
             setAllData(this.allData)
         } catch (err) {
             debug.error(`Erro na tentativa ${attempt}`, err)
-            this.retryMovie(setAllData, attempt, movies)
+            await this.retryMovie(setAllData, attempt, movies)
         } finally {
-            this.loading = false
+            this.movieLoading = false
         }
     }
 
-    async fetchSerieData(setSerieData: (data: TMDBSeries[]) => void, attempt: number = 1) {
+    async fetchSerieData(setSerieData: (data: TMDBSeries[]) => void, series: SeriesProps[], attempt: number = 1) {
+        if (this.serieLoading) return
+
+        this.serieLoading = true
+
+        if (!series || !series.length) {
+            debug.warn("series em fetchSeriesData vazio", series)
+            return
+        }
+
+        debug.log("Series em fecthSerieData", series)
+
         try {
-            if (this.loading) return
-            this.loading = true
-            const response = await apiTMDB.get('/all/tv')
+            const response = await apiTMDB.post('/all/tv', {
+                series
+            })
+
             if (response.status === 502 || !response.data) {
-                this.retrySerie(setSerieData, attempt)
+                await this.retrySerie(setSerieData, series, attempt)
+                return
             }
+
             debug.log("Erros na requisição ao tmdb de séries: ", response.data.errors)
+
             this.serieData = response.data.data as TMDBSeries[]
             setSerieData(this.serieData)
         } catch (err) {
             debug.error(`Erro na tentativa ${attempt}`, err)
-            this.retrySerie(setSerieData, attempt)
+            await this.retrySerie(setSerieData, series, attempt)
         } finally {
-            this.loading = false
+            this.serieLoading = false
         }
     }
 
@@ -71,10 +90,10 @@ class FlixFetcher {
             debug.log("Numero maximo de tentativas atingido.")
         }
     }
-    private retrySerie(setSerieData: (data: TMDBSeries[]) => void, attempt: number) {
+    private retrySerie(setSerieData: (data: TMDBSeries[]) => void, series: SeriesProps[], attempt: number) {
         if (attempt < this.maxRetries) {
             debug.warn(`Tentativa ${attempt}/${this.maxRetries} falhou. Tentando novamente em 4 segundos...`)
-            setTimeout(() => this.fetchSerieData(setSerieData, attempt + 1), 4000)
+            setTimeout(() => this.fetchSerieData(setSerieData, series, attempt + 1), 4000)
         } else {
             debug.log("Numero maximo de tentativas atingido.")
         }

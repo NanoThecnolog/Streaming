@@ -30,7 +30,7 @@ export default function Home() {
   const divisaoPorGenero = combined
   const { allData, setAllData, serieData, setSerieData } = useTMDB()
   const [visible, setvisible] = useState(false)
-  const { movies, user } = useFlix()
+  const { movies, series } = useFlix()
   //const { isOpen, close } = useDailyModal()
 
   const tmdbid = 1083381;
@@ -44,7 +44,7 @@ export default function Home() {
   useEffect(() => {
     //if (allData.length > 0 && serieData.length > 0) return
     if (movies.length > 0 && allData.length === 0) flixFetcher.fetchMovieData(setAllData, movies)
-    if (serieData.length === 0) flixFetcher.fetchSerieData(setSerieData)
+    if (serieData.length === 0) flixFetcher.fetchSerieData(setSerieData, series)
   }, [movies, setAllData, serieData, setSerieData])
 
 

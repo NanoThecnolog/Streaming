@@ -6,12 +6,17 @@ import type { NextApiRequest, NextApiResponse } from "next";
 const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN
 const maxTentativas = 3
 const batchSize = 90
-const cache = new Map<number, any>()
+const cache = new Map<number, CardsProps>()
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    if (req.method !== 'POST') {
+        res.setHeader('Allow', ['POST'])
+        return res.status(405).json(`Method ${req.method} Not Allowed`)
+    }
     if (!tmdbToken) {
         return res.status(401).json({ error: "TMDB token is missing" });
     }
+
     const { movies } = req.body;
 
     res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate=300')
@@ -19,6 +24,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (!movies || !Array.isArray(movies) || movies.length === 0) {
         return res.status(400).json({ error: "Nenhum filme enviado." })
     }
+    debug.time("TempoTotalDaRota")
 
     try {
         /*
@@ -40,13 +46,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         for (const movie of movies) {
             const cached = cache.get(movie.tmdbId)
             if (cached) {
-                debug.log("Cache hit:", movie.tmdbId)
+                //debug.log("Cache hit:", movie.tmdbId)
                 cachedResults.push(cached)
             } else {
                 uncachedMovies.push(movie)
             }
         }
-        const fetchedResults = await fetchInBatches(movies, batchSize)
+        //vou fazer um teste trocando movies por uncachedMovies pq faz muito mais sentido só buscar os dados de filmes não cacheados, certo?
+        const fetchedResults = await fetchInBatches(uncachedMovies, batchSize)
 
         for (const result of fetchedResults) {
             if (result.success) cache.set(result.cardId, result)
@@ -60,9 +67,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             errors: errorResults
         })
     } catch (err) {
-        debug.timeEnd("TempoTotalDaRota")
         console.error("Erro ao buscar dados:", err);
-        return res.status(500).json({ error: "Error at fetching data", details: err });
+        return res.status(500).json({ error: "Error at fetching movie data", details: err });
+    } finally {
+        debug.timeEnd("TempoTotalDaRota")
     }
 }
 
@@ -104,7 +112,7 @@ async function fetchCardData(cardId: number, retries: number = maxTentativas): P
         }
     } catch (err: any) {
         if (retries > 0) {
-            debug.log(`Tentativa falha pro movie ${cardId}, tentando de novo...`)
+            debug.log(`Tentativa falha para o movie ${cardId}, tentando de novo...`)
             await new Promise(resolve => setTimeout(resolve, 2000))
             return fetchCardData(cardId, retries - 1)
         }

@@ -47,7 +47,7 @@ export default function Home() {
   }, [movies, allData.length, setAllData])
 
   useEffect(() => {
-    if (series.length > 0 && serieData.length === 0) flixFetcher.fetchSerieData(setSerieData)
+    if (series.length > 0 && serieData.length === 0) flixFetcher.fetchSerieData(setSerieData, series)
   }, [series.length, serieData.length, setSerieData])
 
   useEffect(() => {

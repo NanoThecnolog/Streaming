@@ -54,7 +54,7 @@ export default function Series() {
             if (movies.length > 0) await flixFetcher.fetchMovieData(setAllData, movies)
         }
 
-        if (serieData.length === 0) flixFetcher.fetchSerieData(setSerieData)
+        if (serieData.length === 0) flixFetcher.fetchSerieData(setSerieData, series)
         if (allData.length === 0) fetchMoviesMongoDB()
     }, [serieData, allData])
 
