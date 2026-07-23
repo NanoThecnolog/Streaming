@@ -514,6 +514,7 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false, tmdbID, m
         debug.log("url atual", src)
 
         const epData = extractSeasonEpisode(src)
+        const completedPercentage = epData ? 0.95 : 0.90
 
         try {
             //rota api/watched/progress
@@ -523,7 +524,7 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false, tmdbID, m
                 season: epData?.season ?? 0,
                 episode: epData?.episode ?? 0,
                 progress: Math.floor(video.currentTime),
-                completed: video.currentTime >= video.duration * 0.95
+                completed: video.currentTime >= video.duration * completedPercentage
             })
             debug.info('Progresso salvo')
         } catch (err) {
