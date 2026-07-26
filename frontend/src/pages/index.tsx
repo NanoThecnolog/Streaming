@@ -24,7 +24,7 @@ import BackDropCarousel from "@/components/ui/BackDropCarousel";
 
 
 export default function Home() {
-  //const { isOpen, close } = useDailyModal()
+  const { isOpen, close } = useDailyModal()
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
   const [trendingCardsPerContainer, setTrendingCardsPerContainer] = useState<number>(5)
   const [width, setWidth] = useState<number>(0)
@@ -37,7 +37,7 @@ export default function Home() {
   const divisaoPorGenero = combined
 
   const { allData, setAllData, serieData, setSerieData } = useTMDB()
-  const { movies, series } = useFlix()
+  const { movies, series, user } = useFlix()
 
 
 
@@ -133,6 +133,7 @@ export default function Home() {
             </main>
             {
               //user && !user?.donator && <DailyWarningModal open={isOpen} onClose={close} />
+              user && <DailyWarningModal open={isOpen} onClose={close} />
             }
             <Footer />
           </> :

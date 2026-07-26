@@ -1,71 +1,159 @@
-/* Overlay com fade */
 .overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
+
+    padding: 1rem;
+
+    background:
+        radial-gradient(circle at center,
+            rgba(255, 255, 255, 0.04),
+            transparent 55%),
+        rgba(0, 0, 0, 0.82);
+
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
     font-family: var(--font-Roboto);
 
-    /* animação */
-    animation: fadeIn 0.3s ease forwards;
+    animation: overlayIn 0.25s ease-out forwards;
 
     &.closing {
-        animation: fadeOut 0.25s ease forwards;
+        animation: overlayOut 0.2s ease-in forwards;
+
+        .modal {
+            animation: modalOut 0.2s ease-in forwards;
+        }
     }
 }
 
-/* Modal */
 .modal {
-    background: var(--black);
-    padding: 2rem;
-    border-radius: 8px;
-    max-width: 620px;
-    width: 100%;
-    margin: 0 1rem;
+    position: relative;
 
-    /* leve animação de entrada */
-    animation: scaleIn 0.3s ease forwards;
+    width: min(100%, 560px);
+    max-height: calc(100dvh - 2rem);
+
+    padding: 2rem;
+
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    background:
+        linear-gradient(145deg,
+            rgba(255, 255, 255, 0.035),
+            transparent 45%),
+        var(--black);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.65),
+        0 0 0 1px rgba(255, 255, 255, 0.02);
+
+    animation: modalIn 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 999px;
+    }
 
     h2 {
-        margin-bottom: 1rem;
+        margin: 0 0 1.25rem;
+
+        color: #fff;
+
+        font-size: clamp(1.25rem, 3vw, 1.55rem);
+        font-weight: 700;
+        line-height: 1.2;
         text-align: center;
-        font-size: 1.4rem;
     }
 
     p {
-        margin-bottom: 1.25rem;
+        margin: 0 0 1rem;
+
+        color: rgba(255, 255, 255, 0.76);
+
         font-size: 0.95rem;
-        line-height: 1.5;
+        line-height: 1.65;
+
+        strong {
+            color: var(--red);
+            font-weight: 600;
+        }
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
     }
 
-    /*strong {
-        color: var(--red);
-    }*/
+    .purpose {
+        margin-top: 1.25rem;
+        padding: 1rem;
+
+        color: rgba(255, 255, 255, 0.85);
+
+        background: rgba(255, 255, 255, 0.04);
+        border-left: 3px solid var(--red);
+        border-radius: 0 8px 8px 0;
+    }
 
     .buttonContainer {
         display: flex;
-        width: 100%;
         justify-content: center;
-        margin-top: 1.5rem;
+
+        width: 100%;
+        margin-top: 1.75rem;
 
         button {
-            //width: 100%;
-            background: #000;
-            color: #fff;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.95rem;
-            transition: background 0.2s ease, transform 0.1s ease;
+            min-width: 150px;
 
-            @media(hover: hover) and (pointer:fine) {
+            padding: 0.8rem 1.75rem;
+
+            color: #fff;
+            background: var(--red);
+
+            border: 1px solid transparent;
+            border-radius: 8px;
+
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition:
+                background-color 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                transform 0.15s ease;
+
+            @media (hover: hover) and (pointer: fine) {
                 &:hover {
-                    background: #111;
+                    background: color-mix(in srgb, var(--red) 85%, white);
+                    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+                    transform: translateY(-2px);
                 }
+            }
+
+            &:focus-visible {
+                outline: 2px solid #fff;
+                outline-offset: 3px;
             }
 
             &:active {
@@ -75,47 +163,75 @@
     }
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
-    .modal {
-        padding: 1.5rem;
-        max-height: 800px;
-        overflow-y: auto;
+    .overlay {
+        align-items: flex-end;
+        padding: 0.75rem;
+    }
 
+    .modal {
+        width: 100%;
+        max-height: calc(100dvh - 1.5rem);
+
+        padding: 1.5rem;
+
+        border-radius: 14px;
 
         h2 {
-            font-size: 1.25rem;
+            margin-bottom: 1rem;
         }
 
         p {
-            font-size: 0.9rem;
+            font-size: 0.92rem;
+            line-height: 1.55;
         }
     }
 }
 
 @media (max-width: 480px) {
+    .overlay {
+        padding: 0;
+    }
+
     .modal {
+        max-height: 92dvh;
+
         padding: 1.25rem;
-        border-radius: 6px;
-        max-height: 600px;
-        overflow-y: auto;
 
-        h2 {
-            font-size: 1.15rem;
+        border-right: none;
+        border-bottom: none;
+        border-left: none;
+        border-radius: 16px 16px 0 0;
+
+        .purpose {
+            padding: 0.875rem;
         }
 
-        p {
-            font-size: 0.88rem;
-        }
+        .buttonContainer {
+            margin-top: 1.5rem;
 
-        .buttonContainer button {
-            width: 100%;
+            button {
+                width: 100%;
+            }
         }
     }
 }
 
-/* Animações */
-@keyframes fadeIn {
+@media (prefers-reduced-motion: reduce) {
+
+    .overlay,
+    .overlay.closing,
+    .modal,
+    .overlay.closing .modal {
+        animation: none;
+    }
+
+    .modal .buttonContainer button {
+        transition: none;
+    }
+}
+
+@keyframes overlayIn {
     from {
         opacity: 0;
     }
@@ -125,7 +241,7 @@
     }
 }
 
-@keyframes fadeOut {
+@keyframes overlayOut {
     from {
         opacity: 1;
     }
@@ -135,14 +251,26 @@
     }
 }
 
-@keyframes scaleIn {
+@keyframes modalIn {
     from {
         opacity: 0;
-        transform: scale(0.95);
+        transform: translateY(18px) scale(0.97);
     }
 
     to {
         opacity: 1;
-        transform: scale(1);
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes modalOut {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
     }
 }
