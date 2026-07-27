@@ -13,6 +13,7 @@ import { Functions } from "@/classes/Functions";
 import axios from "axios";
 import { GA_TRACKING_ID, pageview } from "@/utils/gtag";
 import Script from "next/script";
+import { debug } from "@/classes/DebugLogger";
 
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -25,10 +26,16 @@ export default function App({ Component, pageProps }: AppProps) {
     if (process.env.NODE_ENV !== 'production') return
 
     const trackingRoute = (url: string) => {
-      if (user?.cpf === '14510752784') return
+      //if (user?.cpf === '14510752784') return
+      //debug.log("url no tracking", url)
+      if (!url.includes('/watch')) {
+        debug.log("não é uma pagina watch")
+        return
+      }
 
       pageview(url)
       if (lastPathRef.current === url) return
+
 
       lastPathRef.current = url
       axios.post('/api/track', { path: url }).catch(() => { })
