@@ -25,10 +25,10 @@ export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     if (process.env.NODE_ENV !== 'production') return
 
-    const trackingRoute = (url: string) => {
+    const trackingRoute = async (url: string) => {
       //if (user?.cpf === '14510752784') return
       //debug.log("url no tracking", url)
-      if (!url.includes('/watch')) {
+      if (!url.includes('watch')) {
         debug.log("não é uma pagina watch")
         return
       }
@@ -38,7 +38,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
 
       lastPathRef.current = url
-      axios.post('/api/track', { path: url }).catch(() => { })
+      await axios.post('/api/track', { path: url }).catch(() => { })
     }
 
     trackingRoute(router.asPath)

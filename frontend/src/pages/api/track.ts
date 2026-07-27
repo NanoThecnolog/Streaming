@@ -15,6 +15,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(400).json({ error: 'Path Inválido' })
     }
 
+    if (!path.includes('watch')) {
+        console.log("Caminho não permitido")
+        return res.status(400).json({ error: 'Caminho não permitido' })
+    }
+
     const cookies = parseCookies({ req })
     const token = cookies['flix-token']
     if (!token) {
