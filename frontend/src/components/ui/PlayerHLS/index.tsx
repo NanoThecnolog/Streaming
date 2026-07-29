@@ -433,12 +433,16 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false, tmdbID, m
         const video = videoRef.current
         if (!video) return
 
-        setDuration(video.duration || 0)
 
-        /*if (startTime > 0) {
-            video.currentTime = Math.min(startTime, video.duration)
-        }*/
-        video.currentTime = Math.min(Math.max(startTime, 0), video.duration)
+
+        const duration = Number.isFinite(video.duration) ? video.duration : 0
+        const parsedStartTime = Number(startTime)
+
+        const normalizedStartTime = Number.isFinite(parsedStartTime) ? parsedStartTime : 0
+
+        setDuration(duration)
+
+        if (duration > 0) video.currentTime = Math.min(Math.max(normalizedStartTime, 0), duration)
 
         loadSubtitleTracks()
     }
@@ -480,7 +484,9 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false, tmdbID, m
     const handleVideoEnded = async () => {
         const video = videoRef.current
 
-        if (video) {
+
+
+        if (video && process.env.NEXT_PUBLIC_DEBUG !== 'development') {
             debug.warn('Video terminou. Salvando progresso...')
 
             const epData = extractSeasonEpisode(src)
