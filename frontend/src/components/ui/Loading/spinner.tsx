@@ -1,4 +1,4 @@
-import styles from './styles.module.scss'
+import styles from './spinner.module.scss'
 import PropagateLoader from "react-spinners/PropagateLoader"
 
 export default function Spinner() {
