@@ -17,6 +17,7 @@ import valid from 'card-validator'
 import { creditTest } from '@/utils/Variaveis'
 import { toast } from 'react-toastify'
 import PaymentLoader from '@/components/ui/PaymentLoader'
+import { PlansProps } from '@/@types/plans'
 
 export type CheckoutStep =
     | 'email'
@@ -168,7 +169,8 @@ export default function NewPaymentPage({ plans }: Props) {
 
     useEffect(() => {
         if (plans.length === 0) return
-        setSelectedPlan(plans[0])
+        const plan = plans.find(plan => plan.type === 'mensal')
+        setSelectedPlan(plan ?? plans[0])
     }, [plans])
 
     useEffect(() => {
@@ -677,7 +679,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
     const baseUrl = process.env.NEXT_PUBLIC_WEBSITE_LINK
     try {
-        const plans = await axios.get(`${baseUrl}/api/plan/list`)
+        const plans = await axios.get<PlansProps[]>(`${baseUrl}/api/plan/list`)
 
         return {
             props: {

@@ -4,6 +4,7 @@ import styles from './styles.module.scss'
 import { PlanProps } from '@/@types/payment'
 import { useEffect, useState } from 'react'
 import { formatPrice } from '@/utils/UtilitiesFunctions'
+import { debug } from '@/classes/DebugLogger'
 
 interface PlanStepProps {
     plans: PlanProps[]
@@ -64,9 +65,22 @@ const plansContent: SelectedPlan[] = [
     },
 ]
 
+type PlanType = 'mensal' | 'trimestral' | 'semestral' | 'anual'
 
 
 export function PlanStep({ plans, selectedPlan, onSelectPlan, onBack, onContinue }: PlanStepProps) {
+
+    const planOrder: Record<PlanType, number> = {
+        mensal: 1,
+        trimestral: 2,
+        semestral: 3,
+        anual: 4,
+    }
+    if (plans) { }
+    plans.sort(
+        (planA, planB) =>
+            planOrder[planA.type] - planOrder[planB.type],
+    )
 
     const periodLabel = {
         mensal: '/mês',
@@ -76,6 +90,8 @@ export function PlanStep({ plans, selectedPlan, onSelectPlan, onBack, onContinue
     } as const
 
     if (!selectedPlan) return null
+
+    debug.log("plans", plans)
 
 
     return (
