@@ -9,7 +9,7 @@ interface DetailUserProps {
     phone_number: string | null,
     avatar: string | null,
     verified: boolean,
-    birthday: Date,
+    //birthday: Date | null,
     news: boolean,
     createdAt: Date,
     watchLater: {
@@ -22,7 +22,7 @@ interface DetailUserProps {
     }[],
     subscription: SubscriptionProps | null,
     donator: boolean,
-    address: address | null
+    //address: address | null
 }
 interface RequestProps {
     id: string
@@ -46,7 +46,9 @@ export class DetailUserService {
             prismaClient.user.findUniqueOrThrow({
                 where: { id: id },
                 include: {
-                    address: true, subscription: true, watchLater: {
+                    //address: true,
+                    subscription: true,
+                    watchLater: {
                         select: {
                             id: true,
                             title: true,
@@ -93,7 +95,7 @@ export class DetailUserService {
             email: user.email,
             avatar: user.avatar,
             verified: user.verified,
-            birthday: user.birthday,
+            //birthday: user.birthday,
             cpf: user.cpf,
             phone_number: user.phone_number,
             news: user.news,
@@ -101,7 +103,7 @@ export class DetailUserService {
             createdAt: user.created_at,
             subscription: user.subscription,
             donator: user.donator,
-            address: user.address
+            //address: user.address
         }
     }
 }

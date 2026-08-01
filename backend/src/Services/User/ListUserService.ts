@@ -7,7 +7,7 @@ class ListUserService {
                 id: true,
                 name: true,
                 email: true,
-                birthday: true,
+                //birthday: true,
                 news: true,
                 watchLater: true,
                 donator: true,

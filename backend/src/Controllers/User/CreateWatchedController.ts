@@ -6,7 +6,7 @@ import { debugLog } from '../../Utils/DebugLog';
 export class CreateWatchedController {
     async handle(req: Request, res: Response) {
         try {
-            debugLog("controller createWatched iniciando")
+            //debugLog("controller createWatched iniciando")
             const watchedService = new CreateWatchedService()
             const { tmdbID, mediaType, season, episode, progress, completed } = req.body
 
@@ -19,11 +19,11 @@ export class CreateWatchedController {
                 progress,
                 completed
             }
-            debugLog("objeto recebido", data)
+            //debugLog("objeto recebido", data)
 
             const create = await watchedService.createEntry(data)
 
-            debugLog("retorno do controller", create)
+            //debugLog("retorno do controller", create)
 
             return res.status(200).json(create)
 

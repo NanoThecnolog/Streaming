@@ -29,7 +29,7 @@ class ActiveUserService {
                 id: true,
                 name: true,
                 email: true,
-                birthday: true,
+                //birthday: true,
                 donator: true,
                 avatar: true,
                 verified: true,

@@ -7,16 +7,17 @@ interface EditUserRequest {
     name?: string,
     avatar?: string,
     password?: string,
-    birthday?: Date,
+    //birthday?: Date,
     news?: boolean,
     cpf?: string,
     phone_number?: string,
-    address?: address,
-    donator?: boolean
+    //address?: address,
+    donator?: boolean,
+    /*access?: boolean*/
 }
 
 class EditUserService {
-    async execute({ id, name, avatar, password, birthday, news, cpf, phone_number, address }: EditUserRequest) {
+    async execute({ id, name, avatar, password, /*birthday,*/ news, cpf, phone_number, /*address, access*/ }: EditUserRequest) {
 
         const userExiste = await prismaClient.user.findUnique({
             where: { id },
@@ -33,11 +34,12 @@ class EditUserService {
                 name: name ?? userExiste.name,
                 avatar: avatar ?? userExiste.avatar,
                 password: passwordHash ?? userExiste.password,
-                birthday: birthday ?? userExiste.birthday,
+                //birthday: birthday ?? userExiste.birthday,
                 news: news ?? userExiste.news,
                 cpf: cpf ?? userExiste.cpf,
                 phone_number: phone_number ?? userExiste.phone_number,
-                address: address
+                /*access: access ?? userExiste.access,*/
+                /*address: address
                     ? userExiste.address
                         ? {
                             update: {
@@ -59,12 +61,12 @@ class EditUserService {
                                 complement: address.complement,
                                 zipcode: address.zipcode
                             }
-                        } : undefined
+                        } : undefined*/
             }, select: {
                 name: true,
                 email: true,
                 avatar: true,
-                birthday: true,
+                //birthday: true,
                 news: true,
                 verified: true,
                 donator: true,

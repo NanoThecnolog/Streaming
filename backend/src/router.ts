@@ -20,6 +20,7 @@ import { TrackingController } from "./Controllers/User/trackingController";
 import { ListWatchedController } from "./Controllers/User/ListWatchedController";
 import { CreateWatchedController } from "./Controllers/User/CreateWatchedController";
 import { GetWatchedController } from "./Controllers/User/GetWatchedController";
+import { EmailVerifyController } from "./Controllers/Email/EmailVerifyController";
 
 
 const router = Router()
@@ -45,6 +46,7 @@ router.get('/user', Authenticate, new DetailUserController().handle);
 router.post('/recovertoken', new GenerateRecoverTokenController().handle);
 router.put('/recover', new RecoverController().handle);
 router.post('/track', Authenticate, new TrackingController().handle)
+router.post('/user/verify', new EmailVerifyController().handle)
 
 router.get('/user/access', Authenticate, new AccessController().handle)
 

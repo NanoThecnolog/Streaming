@@ -7,7 +7,7 @@ interface UserProps {
     id: string;
     name: string;
     email: string;
-    birthday: Date;
+    birthday: Date | null;
     password: string;
     donator: boolean;
     avatar: string | null;
