@@ -108,13 +108,11 @@ export default function Home() {
                         divisaoPorGenero.map((sec, index) => {
                           return (
                             <div key={`${sec}+${index}`}>
-                              {
-                                index === 3 && width >= 915 && <Search />
-                              }
                               <Carousel type="movie" section={sec} cardPerContainer={cardPerContainer} />
                             </div>
                           )
                         })}
+                      <Search />
                     </div>
 
                   </>

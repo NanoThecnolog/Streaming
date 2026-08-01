@@ -18,7 +18,7 @@ import { useFlix } from "@/contexts/FlixContext";
 import NewTopSerie from "@/components/seriesComponents/newTopSerie";
 import TopPopularTVShows from "@/components/TopPopularTV";
 import { CardsProps } from "@/@types/Cards";
-import { DailyWarningModal } from "@/components/ui/DailyModal";
+//import { DailyWarningModal } from "@/components/ui/DailyModal";
 import { useDailyModal } from "@/hooks/useDailyModal";
 
 export default function Series() {
@@ -115,12 +115,10 @@ export default function Series() {
 
                                             {divisaoPorGenero.map((sec, index) => (
                                                 <div key={sec}>
-                                                    {
-                                                        index === 5 && width >= 915 && <Search />
-                                                    }
                                                     <Carousel type="tv" section={sec} cardPerContainer={cardPerContainer} />
                                                 </div>
                                             ))}
+                                            <Search />
                                         </div>
                                     </>
                                 }

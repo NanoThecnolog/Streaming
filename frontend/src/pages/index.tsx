@@ -17,10 +17,10 @@ import TopPopularMovies from "@/components/TopPopularMovies";
 import HeroSection from "@/components/HeroSection";
 import TrendingCarousel from "@/components/TrendingCarousel";
 import TopPopularTVShows from "@/components/TopPopularTV";
-import { DailyWarningModal } from "@/components/ui/DailyModal";
 import { useDailyModal } from "@/hooks/useDailyModal";
 import LastContentAdded from "@/components/LastContentAdded";
 import BackDropCarousel from "@/components/ui/BackDropCarousel";
+import DailyWarningModal from "@/components/ui/DailyModal";
 
 
 export default function Home() {
@@ -114,7 +114,7 @@ export default function Home() {
                       <TrendingCarousel cardPerContainer={cardPerContainer} />
                       <LastContentAdded cardPerContainer={cardPerContainer} type="movie" />
                       <LastContentAdded cardPerContainer={cardPerContainer} type="tv" />
-                      <Search />
+
                       {
                         divisaoPorGenero.map((sec, index) => {
 
@@ -125,6 +125,7 @@ export default function Home() {
                           )
                         })
                       }
+                      <Search />
                     </div>
                   </>
                 }
