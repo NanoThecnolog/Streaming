@@ -1,342 +1,463 @@
-import { FaListUl, FaSignInAlt, FaUserCircle } from "react-icons/fa";
-import Link from "next/link";
-import { CiSearch } from "react-icons/ci";
-import Router, { useRouter } from "next/router";
-import styles from './styles.module.scss'
-import { useCallback, useEffect, useMemo, useState } from "react";
-import Image from "next/image";
-import { AlignJustify, LucideLogOut, Search } from "lucide-react";
-import { useFlix } from "@/contexts/FlixContext";
-import { parseCookies } from "nookies";
-import { IoAddCircle, IoCreate } from "react-icons/io5";
+import { FormEvent, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import Fuse from 'fuse.js'
-import { CardsProps, MovieTMDB } from "@/@types/Cards";
-import debounce from "lodash.debounce";
-import { SeriesProps, TMDBSeries } from "@/@types/series";
-import { fuseConfig } from "@/utils/Variaveis";
-import { debug } from "@/classes/DebugLogger";
-import { useTMDB } from "@/contexts/TMDBContext";
-import { uniqueKey } from "@/utils/UtilitiesFunctions";
-import { GoHome } from "react-icons/go";
+import debounce from 'lodash.debounce'
+import {
+    AlignJustify,
+    Film,
+    Home,
+    Search,
+    Tv,
+    UserRound,
+    X,
+} from 'lucide-react'
+import { parseCookies } from 'nookies'
 
-export default function Header() {
-    //refatorar esse componente
-    const router = useRouter()
-    const [searchInput, setSearchInput] = useState<string>('')
-    const [relatedSearch, setRelatedSearch] = useState<(CardsProps | SeriesProps)[]>([])
-    const [loading, setLoading] = useState(false)
-    const [menuvisible, setMenuVisible] = useState<boolean>(false)
-    const [modal, setModal] = useState<boolean>(false)
-    const [searchMobileVisible, setSearchMobileVisible] = useState<boolean>(false)
-    const [dropModal, setDropModal] = useState(false)
-    //const [serverWake, setServerWake] = useState<boolean>(false)
-    const { user, setUser, signOut } = useFlix()
-    const { allData, serieData } = useTMDB()
-    const [initial, setInitial] = useState("-")
-    const [fuse, setFuse] = useState<Fuse<any> | null>(null)
-    const [visible, setVisible] = useState(false)
+import { CardsProps } from '@/@types/Cards'
+import { SeriesProps } from '@/@types/series'
+import { useFlix } from '@/contexts/FlixContext'
+import { useTMDB } from '@/contexts/TMDBContext'
+import { fuseConfig } from '@/utils/Variaveis'
+import { uniqueKey } from '@/utils/UtilitiesFunctions'
 
-    useEffect(() => {
-        const loadConfig = async () => {
-            const configData = await fuseConfig()
-            //setConfig(configData)
-            setFuse(new Fuse(configData.dados, {
-                keys: configData.chaves,
-                threshold: configData.taxa
-            }))
-        }
-        loadConfig()
-    }, [])
+import DropdownMenuModal from '../ui/DropdownMenuModal'
 
-    useEffect(() => {
-        if (!user) {
-            const { 'flix-user': userCookie } = parseCookies()
-            if (userCookie) {
-                //debug.log("user no useEffect", JSON.parse(userCookie))
-                setUser(JSON.parse(userCookie))
-            }
-        }
-        //debug.log("user no else do useEffect", user)
-    }, [user])
+import styles from './styles.module.scss'
 
-    useEffect(() => {
-        if (!user) return
-        //debug.log(user)
-        const inicial = user.name[0].toUpperCase()
-        setInitial(inicial)
-    }, [user])
+type SearchItem = CardsProps | SeriesProps
+type OpenPanel = 'navigation' | 'search' | 'profile' | null
 
-    useEffect(() => {
-        if (loading) document.body.style.cursor = "progress"
-        else document.body.style.cursor = "default"
-        return () => {
-            document.body.style.cursor = "default"
-        }
-    }, [loading])
+const NAVIGATION_ITEMS = [
+    { href: '/', label: 'Início', icon: Home },
+    { href: '/movies', label: 'Filmes', icon: Film },
+    { href: '/series', label: 'Séries', icon: Tv },
+] as const
 
-    let lastScroll = 0
-    const handleScroll = useCallback(
-        debounce(() => {
-            const currentScroll = window.scrollY
+const SEARCH_LIMIT = 8
+const SCROLL_THRESHOLD = 80
+const SCROLL_DELTA = 6
 
-            if (currentScroll > lastScroll && currentScroll > 80) {
-                debug.log("ativando efeito no header")
-                setVisible(true)
-            } else {
-                debug.log("desativando efeito no header")
-                setVisible(false)
-            }
-            lastScroll = currentScroll
-        }, 200), []
-    );
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll)
-        return () => {
-            window.removeEventListener('scroll', handleScroll)
-        }
-    }, [])
-
-    const handleSearchRelated = useMemo(() =>
-        debounce((text: string) => {
-            if (text.length > 0 && fuse) {
-                const related = fuse.search(text).map((result) => result.item)
-                setRelatedSearch(related)
-            } else {
-                setRelatedSearch([])
-            }
-        }, 300), [fuse]
-    )
-    const handleRelatedSearchClick = async (card: CardsProps | SeriesProps) => {
-        debug.log("chamando")
-        setLoading(true)
-        try {
-            setSearchInput("")
-            setRelatedSearch([])
-            if ("season" in card) await router.push(`/series/serie/${card.tmdbID}`)
-            else await router.push(`/movie/${card.tmdbId}`)
-        } finally {
-            setLoading(false)
-        }
-    }
-
-    const handleSearch = (input: string) => {
-        const search = new URLSearchParams({ input: input });
-        Router.push(`/search?${search.toString()}`);
-    }
-
-
-    const handleClickHome = (id: number) => {
-        if (id === 1) {
-            setMenuVisible(!menuvisible)
-            setDropModal(false)
-            setSearchMobileVisible(false)
-        }
-        if (id === 2) {
-            setSearchMobileVisible(!searchMobileVisible)
-            if (searchInput) {
-                setSearchInput('')
-                setRelatedSearch([])
-            }
-            setDropModal(false)
-            setMenuVisible(false)
-        }
-        if (id === 3) {
-            setDropModal(!dropModal)
-            setSearchMobileVisible(false)
-            setMenuVisible(false)
-        }
-        if (id === 4) {
-            setModal(!modal)
-        }
-    }
-    return (
-        <div className={styles.header}>
-            <div className={`${styles.brand} ${visible && styles.hidden}`} onClick={() => Router.push('/')}>
-                <h1 className={styles.red}><span>FLiX</span></h1>
-                <h1 className={styles.white}><span>NEXT</span></h1>
-            </div>
-            <div className={`${styles.main_nav} ${visible && styles.hidden}`}>
-                <Link href="/" className={styles.button_container}>
-                    <h2>INÍCIO</h2>
-                </Link>
-                <Link href="/movies" className={styles.button_container}>
-                    <h2>FILMES</h2>
-                </Link>
-                <Link href="/series" className={styles.button_container}>
-                    <h2>SERIES</h2>
-                </Link>
-                <form className={styles.formContainer} onSubmit={(e) => { e.preventDefault(); handleSearch(searchInput); }}>
-                    <input
-                        value={searchInput}
-                        onChange={(e) => { setSearchInput(e.target.value), handleSearchRelated(e.target.value) }}
-                        placeholder="buscar filme ou série"
-                        className={styles.searchInput}
-                    />
-                    {relatedSearch.length > 0 &&
-                        <ul className={styles.relatedUi}>
-                            {relatedSearch.map((card, index) => {
-                                let tmdbData: MovieTMDB | TMDBSeries | null;
-                                if ('tmdbId' in card) {
-                                    tmdbData = allData.find((db) => card.tmdbId === db.id) || null
-                                } else {
-                                    tmdbData = serieData.find((db) => card.tmdbID === db.id) || null
-                                }
-                                return (
-                                    <li style={{ cursor: loading ? "progress" : "pointer" }}
-                                        key={uniqueKey(card, 'search')}
-                                        onClick={() => handleRelatedSearchClick(card)}
-                                    >
-                                        <div className={styles.item}>
-                                            {tmdbData ? <img
-                                                src={`https://image.tmdb.org/t/p/w400${tmdbData.poster_path}`}
-                                                alt="Poster"
-                                                className={styles.imgSearch}
-                                            />
-                                                : <span>Imagem não carregada</span>
-                                            }
-                                            <h4>
-                                                {card.title} {card.subtitle ? `- ${card.subtitle}` : ""}
-                                            </h4>
-                                        </div>
-                                        <div className={styles.divider}></div>
-                                    </li>
-                                )
-                            }
-                            )}
-                        </ul>
-                    }
-                    <div className={styles.button_container} onClick={() => handleSearch(searchInput)}>
-                        <h2><CiSearch size={35} color="#fff" /></h2>
-                    </div>
-                </form>
-            </div>
-            <div className={styles.right_nav}>
-                {
-                    //<Notifications moviesTMDB={allData} seriesTMDB={serieData} />
-                }
-                <div onClick={() => handleClickHome(4)}>
-                    {
-                        user?.avatar ? (
-                            <div className={styles.avatarImage} title="Meu Perfil">
-                                <Image src={user.avatar} alt="avatar" width={45} height={45} />
-                            </div>
-                        ) : user ?
-                            <div className={styles.avatarLetter}>
-                                <span>{initial}</span>
-                            </div> :
-                            <FaUserCircle size={35} color="#fff" className={styles.loginIcon} />
-                    }
-                </div>
-            </div>
-            {
-                modal &&
-                <div className={styles.dropdownModal}>
-                    {user ?
-                        <ul>
-                            <Link href="/me"><li><FaUserCircle size={20} />Minha Conta</li></Link>
-                            <Link href="/watchlater"><li><FaListUl size={20} />Minha Lista</li></Link>
-                            {
-                                //<Link href="/request"><li><IoAddCircle size={20} />Solicitar Filme/Série</li></Link>
-                            }
-                            <li onClick={signOut}><LucideLogOut size={20} />Sair</li>
-                        </ul>
-                        :
-                        <ul>
-                            <Link href="/login"><li><FaSignInAlt size={20} />Entrar</li></Link>
-                            <Link href="/planos"><li><IoCreate size={20} />Assinar</li></Link>
-                        </ul>
-                    }
-                </div>
-            }
-            <div className={styles.dropdown}>
-                <div className={styles.dropdownIcon}>
-                    <button aria-label="Início" type="button" onClick={() => Router.push('/')}><GoHome color="white" size={25} aria-hidden="true" /></button>
-                </div>
-                <div className={styles.dropdownIcon} onClick={() => handleClickHome(1)}>
-                    <AlignJustify />
-                    {menuvisible &&
-                        <div className={styles.dropdownMenu}>
-                            <button type="button" onClick={() => Router.push('/movies')}>Filmes</button>
-                            <div className={styles.divider}></div>
-                            <button type="button" onClick={() => Router.push('/series')}>Series</button>
-                        </div>
-                    }
-                </div>
-                <div className={styles.divider}></div>
-                <div className={styles.dropdownIcon}>
-                    <div className={styles.searchIcon} onClick={() => handleClickHome(2)} >
-                        <Search />
-                    </div>
-                    {searchMobileVisible &&
-                        <>
-                            <form onSubmit={(e) => { e.preventDefault(); handleSearch(searchInput) }} className={styles.searchInputModal}>
-                                <div>
-                                    <input
-                                        value={searchInput}
-                                        onChange={(e) => { setSearchInput(e.target.value), handleSearchRelated(e.target.value) }}
-                                        placeholder="Procure seu filme"
-                                        className={styles.searchInput}
-                                    />
-                                </div>
-                                <div>
-                                    <Search onClick={() => handleSearch(searchInput)} />
-                                </div>
-                                {relatedSearch.length > 0 &&
-                                    <ul className={styles.relatedUiModal}>
-                                        {relatedSearch.map((card, index) =>
-                                            <li style={{
-                                                cursor: loading ? "progress" : "pointer"
-                                            }}
-                                                key={index}
-                                                onClick={() => handleRelatedSearchClick(card)}
-                                            >
-                                                <span className={styles.title}>
-                                                    {card.title}
-                                                    <span className={styles.subtitle}>{card.subtitle ? ` - ${card.subtitle}` : ""}</span>
-                                                </span>
-                                            </li>
-                                        )}
-                                    </ul>
-                                }
-                            </form>
-                        </>
-                    }
-                </div>
-                <div className={styles.divider}></div>
-                <div className={styles.dropdownIcon} onClick={() => handleClickHome(3)}>
-                    {
-                        user?.avatar ? (
-                            <div className={styles.dropdownAvatarImage} title="Meu Perfil">
-                                <Image src={user.avatar} alt="avatar" width={35} height={35} />
-                            </div>
-                        ) : user ?
-                            <div className={styles.avatarLetter}>
-                                <span>{initial}</span>
-                            </div> :
-                            <FaUserCircle size={35} className={styles.loginIcon} />
-                    }
-                </div>
-                {
-                    dropModal &&
-                    <div className={styles.dropModal}>
-                        {user ?
-                            <ul>
-                                <Link href="/me"><li><FaUserCircle size={20} />Minha Conta</li></Link>
-                                <Link href="/watchlater"><li><FaListUl size={20} />Minha Lista</li></Link>
-                                <Link href="/request"><li><IoAddCircle size={20} />Solicitar Filme/Série</li></Link>
-                                <li onClick={signOut}><LucideLogOut size={20} />Sair</li>
-                            </ul>
-                            :
-                            <ul>
-                                <Link href="/login"><li><FaSignInAlt size={20} />Entrar</li></Link>
-                                <Link href="/signup"><li><IoCreate size={20} />Criar Conta</li></Link>
-                            </ul>
-                        }
-                    </div>
-                }
-            </div>
-        </div>
-    )
+const isSeries = (item: SearchItem): item is SeriesProps => {
+    return 'tmdbID' in item
 }
 
+export default function Header() {
+    const router = useRouter()
+    const { user, setUser, signOut } = useFlix()
+    const { allData, serieData } = useTMDB()
 
+    const [searchInput, setSearchInput] = useState('')
+    const [relatedSearch, setRelatedSearch] = useState<SearchItem[]>([])
+    const [fuse, setFuse] = useState<Fuse<SearchItem> | null>(null)
+    const [openPanel, setOpenPanel] = useState<OpenPanel>(null)
+    const [isNavigating, setIsNavigating] = useState(false)
+    const [isCompact, setIsCompact] = useState(false)
+
+    const headerRef = useRef<HTMLElement>(null)
+    const lastScrollRef = useRef(0)
+    const animationFrameRef = useRef<number | null>(null)
+
+    const userInitial = user?.name?.trim().charAt(0).toUpperCase() || '?'
+    const hasSearchResults = searchInput.trim().length > 0 && relatedSearch.length > 0
+
+    const posterById = useMemo(() => {
+        const posters = new Map<number, string | null>()
+
+        allData.forEach(item => posters.set(item.id, item.poster_path ?? null))
+        serieData.forEach(item => posters.set(item.id, item.poster_path ?? null))
+
+        return posters
+    }, [allData, serieData])
+
+    useEffect(() => {
+        let active = true
+
+        const createSearchIndex = async (): Promise<void> => {
+            const config = await fuseConfig()
+
+            if (!active) return
+
+            setFuse(
+                new Fuse<SearchItem>(config.dados as SearchItem[], {
+                    keys: config.chaves,
+                    threshold: config.taxa,
+                }),
+            )
+        }
+
+        createSearchIndex().catch(error => {
+            console.error('Não foi possível carregar o índice de busca:', error)
+        })
+
+        return () => {
+            active = false
+        }
+    }, [])
+
+    useEffect(() => {
+        if (user) return
+
+        const userCookie = parseCookies()['flix-user']
+        if (!userCookie) return
+
+        try {
+            setUser(JSON.parse(userCookie))
+        } catch (error) {
+            console.error('Cookie de usuário inválido:', error)
+        }
+    }, [setUser, user])
+
+    useEffect(() => {
+        const handleScroll = (): void => {
+            if (animationFrameRef.current !== null) return
+
+            animationFrameRef.current = window.requestAnimationFrame(() => {
+                const currentScroll = Math.max(window.scrollY, 0)
+                const delta = currentScroll - lastScrollRef.current
+
+                if (currentScroll <= SCROLL_THRESHOLD) {
+                    setIsCompact(false)
+                } else if (Math.abs(delta) >= SCROLL_DELTA) {
+                    setIsCompact(delta > 0)
+                }
+
+                lastScrollRef.current = currentScroll
+                animationFrameRef.current = null
+            })
+        }
+
+        lastScrollRef.current = window.scrollY
+        window.addEventListener('scroll', handleScroll, { passive: true })
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+
+            if (animationFrameRef.current !== null) {
+                window.cancelAnimationFrame(animationFrameRef.current)
+            }
+        }
+    }, [])
+
+    useEffect(() => {
+        const closePanels = (): void => {
+            setOpenPanel(null)
+            setRelatedSearch([])
+            setIsNavigating(false)
+        }
+
+        const startNavigation = (): void => setIsNavigating(true)
+
+        router.events.on('routeChangeStart', startNavigation)
+        router.events.on('routeChangeComplete', closePanels)
+        router.events.on('routeChangeError', closePanels)
+
+        return () => {
+            router.events.off('routeChangeStart', startNavigation)
+            router.events.off('routeChangeComplete', closePanels)
+            router.events.off('routeChangeError', closePanels)
+        }
+    }, [router.events])
+
+    useEffect(() => {
+        const handlePointerDown = (event: MouseEvent): void => {
+            if (
+                openPanel &&
+                headerRef.current &&
+                !headerRef.current.contains(event.target as Node)
+            ) {
+                setOpenPanel(null)
+            }
+        }
+
+        const handleKeyDown = (event: KeyboardEvent): void => {
+            if (event.key === 'Escape') setOpenPanel(null)
+        }
+
+        document.addEventListener('pointerdown', handlePointerDown)
+        document.addEventListener('keydown', handleKeyDown)
+
+        return () => {
+            document.removeEventListener('pointerdown', handlePointerDown)
+            document.removeEventListener('keydown', handleKeyDown)
+        }
+    }, [openPanel])
+
+    const searchRelated = useMemo(
+        () =>
+            debounce((value: string, searchIndex: Fuse<SearchItem> | null) => {
+                const normalizedValue = value.trim()
+
+                if (!normalizedValue || !searchIndex) {
+                    setRelatedSearch([])
+                    return
+                }
+
+                setRelatedSearch(
+                    searchIndex
+                        .search(normalizedValue, { limit: SEARCH_LIMIT })
+                        .map(result => result.item),
+                )
+            }, 250),
+        [],
+    )
+
+    useEffect(() => {
+        searchRelated(searchInput, fuse)
+
+        return () => searchRelated.cancel()
+    }, [fuse, searchInput, searchRelated])
+
+    const togglePanel = useCallback((panel: Exclude<OpenPanel, null>): void => {
+        setOpenPanel(current => (current === panel ? null : panel))
+    }, [])
+
+    const handleSearchChange = (value: string): void => {
+        setSearchInput(value)
+    }
+
+    const handleSearchSubmit = async (
+        event: FormEvent<HTMLFormElement>,
+    ): Promise<void> => {
+        event.preventDefault()
+
+        const input = searchInput.trim()
+        if (!input || isNavigating) return
+
+        await router.push({
+            pathname: '/search',
+            query: { input },
+        })
+    }
+
+    const handleResultClick = async (item: SearchItem): Promise<void> => {
+        if (isNavigating) return
+
+        setIsNavigating(true)
+        setSearchInput('')
+        setRelatedSearch([])
+
+        const path = isSeries(item)
+            ? `/series/serie/${item.tmdbID}`
+            : `/movie/${item.tmdbId}`
+
+        try {
+            await router.push(path)
+        } finally {
+            setIsNavigating(false)
+        }
+    }
+
+    const isActiveRoute = (href: string): boolean => {
+        if (href === '/') return router.pathname === '/'
+        return router.pathname.startsWith(href)
+    }
+
+    const renderSearchResults = (mobile = false) => {
+        if (!hasSearchResults) return null
+
+        return (
+            <ul
+                className={mobile ? styles.mobileResults : styles.searchResults}
+                aria-label="Resultados sugeridos"
+            >
+                {relatedSearch.map(item => {
+                    const tmdbId = isSeries(item) ? item.tmdbID : item.tmdbId
+                    const posterPath = posterById.get(tmdbId)
+
+                    return (
+                        <li key={uniqueKey(item, 'header-search')}>
+                            <button
+                                type="button"
+                                disabled={isNavigating}
+                                onClick={() => handleResultClick(item)}
+                            >
+                                {!mobile && (
+                                    <span className={styles.resultPoster}>
+                                        {posterPath ? (
+                                            <img
+                                                src={`https://image.tmdb.org/t/p/w154${posterPath}`}
+                                                alt=""
+                                                loading="lazy"
+                                            />
+                                        ) : (
+                                            <Film size={22} aria-hidden="true" />
+                                        )}
+                                    </span>
+                                )}
+
+                                <span className={styles.resultContent}>
+                                    <strong>{item.title}</strong>
+                                    {item.subtitle && <small>{item.subtitle}</small>}
+                                </span>
+                            </button>
+                        </li>
+                    )
+                })}
+            </ul>
+        )
+    }
+
+    return (
+        <header
+            ref={headerRef}
+            className={`${styles.header} ${isCompact ? styles.compact : ''}`}
+            data-navigating={isNavigating}
+        >
+            <div className={styles.desktopHeader}>
+                <Link href="/" className={styles.brand} aria-label="FlixNext — início">
+                    <span className={styles.brandFlix}>FLiX</span>
+                    <span className={styles.brandNext}>NEXT</span>
+                </Link>
+
+                <nav className={styles.navigation} aria-label="Navegação principal">
+                    {NAVIGATION_ITEMS.map(item => (
+                        <Link
+                            key={item.href}
+                            href={item.href}
+                            className={isActiveRoute(item.href) ? styles.active : ''}
+                            aria-current={isActiveRoute(item.href) ? 'page' : undefined}
+                        >
+                            {item.label}
+                        </Link>
+                    ))}
+                </nav>
+
+                <form className={styles.searchForm} onSubmit={handleSearchSubmit} role="search">
+                    <Search size={18} aria-hidden="true" />
+                    <input
+                        type="search"
+                        value={searchInput}
+                        placeholder="Buscar filme ou série"
+                        aria-label="Buscar filme ou série"
+                        autoComplete="off"
+                        onChange={event => handleSearchChange(event.target.value)}
+                    />
+                    {searchInput && (
+                        <button
+                            type="button"
+                            className={styles.clearSearch}
+                            aria-label="Limpar busca"
+                            onClick={() => setSearchInput('')}
+                        >
+                            <X size={16} aria-hidden="true" />
+                        </button>
+                    )}
+                    {renderSearchResults()}
+                </form>
+
+                <div className={styles.profileArea}>
+                    <button
+                        type="button"
+                        className={styles.profileButton}
+                        aria-label={user ? 'Abrir menu do perfil' : 'Abrir opções da conta'}
+                        aria-expanded={openPanel === 'profile'}
+                        onClick={() => togglePanel('profile')}
+                    >
+                        {user?.avatar ? (
+                            <Image src={user.avatar} alt="" width={40} height={40} />
+                        ) : user ? (
+                            <span>{userInitial}</span>
+                        ) : (
+                            <UserRound size={23} aria-hidden="true" />
+                        )}
+                    </button>
+
+                    {openPanel === 'profile' && (
+                        <DropdownMenuModal user={user} signOut={signOut} />
+                    )}
+                </div>
+            </div>
+
+            <nav className={styles.mobileNavigation} aria-label="Navegação mobile">
+                <Link
+                    href="/"
+                    className={isActiveRoute('/') ? styles.active : ''}
+                    aria-label="Início"
+                >
+                    <Home size={23} aria-hidden="true" />
+                    <span>Início</span>
+                </Link>
+
+                <button
+                    type="button"
+                    className={openPanel === 'navigation' ? styles.active : ''}
+                    aria-label="Abrir navegação"
+                    aria-expanded={openPanel === 'navigation'}
+                    onClick={() => togglePanel('navigation')}
+                >
+                    <AlignJustify size={23} aria-hidden="true" />
+                    <span>Explorar</span>
+                </button>
+
+                <button
+                    type="button"
+                    className={openPanel === 'search' ? styles.active : ''}
+                    aria-label="Abrir busca"
+                    aria-expanded={openPanel === 'search'}
+                    onClick={() => togglePanel('search')}
+                >
+                    <Search size={23} aria-hidden="true" />
+                    <span>Buscar</span>
+                </button>
+
+                <button
+                    type="button"
+                    className={openPanel === 'profile' ? styles.active : ''}
+                    aria-label="Abrir perfil"
+                    aria-expanded={openPanel === 'profile'}
+                    onClick={() => togglePanel('profile')}
+                >
+                    {user?.avatar ? (
+                        <Image src={user.avatar} alt="" width={25} height={25} />
+                    ) : user ? (
+                        <span className={styles.mobileInitial}>{userInitial}</span>
+                    ) : (
+                        <UserRound size={23} aria-hidden="true" />
+                    )}
+                    <span>Perfil</span>
+                </button>
+
+                {openPanel === 'navigation' && (
+                    <div className={styles.mobilePanel}>
+                        {NAVIGATION_ITEMS.slice(1).map(item => {
+                            const Icon = item.icon
+
+                            return (
+                                <Link key={item.href} href={item.href}>
+                                    <Icon size={19} aria-hidden="true" />
+                                    {item.label}
+                                </Link>
+                            )
+                        })}
+                    </div>
+                )}
+
+                {openPanel === 'search' && (
+                    <div className={`${styles.mobilePanel} ${styles.mobileSearchPanel}`}>
+                        <form onSubmit={handleSearchSubmit} role="search">
+                            <Search size={18} aria-hidden="true" />
+                            <input
+                                type="search"
+                                value={searchInput}
+                                placeholder="Buscar filme ou série"
+                                aria-label="Buscar filme ou série"
+                                autoFocus
+                                autoComplete="off"
+                                onChange={event => handleSearchChange(event.target.value)}
+                            />
+                        </form>
+                        {renderSearchResults(true)}
+                    </div>
+                )}
+
+                {openPanel === 'profile' && (
+                    <div className={`${styles.mobilePanel} ${styles.mobileProfilePanel}`}>
+                        <DropdownMenuModal user={user} signOut={signOut} />
+                    </div>
+                )}
+            </nav>
+        </header>
+    )
+}
