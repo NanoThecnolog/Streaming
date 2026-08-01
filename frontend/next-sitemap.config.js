@@ -1,5 +1,3 @@
-const { config } = require('googleapis/build/src/apis/config');
-
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
     siteUrl: 'https://flixnext.com.br',
