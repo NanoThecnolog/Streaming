@@ -91,7 +91,7 @@ const PagePlans = ({
 
                         <div className={styles.heroActions}>
                             <Link
-                                href="#planos"
+                                href="#escolher"
                                 className={styles.primaryAction}
                             >
                                 Ver planos
