@@ -20,6 +20,7 @@ import TopPopularTVShows from "@/components/TopPopularTV";
 import { CardsProps } from "@/@types/Cards";
 //import { DailyWarningModal } from "@/components/ui/DailyModal";
 import { useDailyModal } from "@/hooks/useDailyModal";
+import NewTop from "@/components/newTop";
 
 export default function Series() {
     //refatorar
@@ -107,9 +108,12 @@ export default function Series() {
                                     <>
                                         {//<TopSerie width={width} />
                                         }
-                                        {
-                                            <NewTopSerie width={width} id={trailerId} isActive={true} />
-                                        }
+                                        <div className={styles.top}>
+                                            {
+                                                //<NewTopSerie width={width} id={trailerId} isActive={true} />
+                                                <NewTop id={trailerId} width={width} isActive={true} type="tv" />
+                                            }
+                                        </div>
                                         <div className={styles.mid}>
                                             <TopPopularTVShows cardPerContainer={trendingCardsPerContainer} />
 
