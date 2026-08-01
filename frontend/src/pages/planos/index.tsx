@@ -51,7 +51,8 @@ const PagePlans = ({
                 description="Escolha o plano ideal e assista aos seus filmes e séries favoritos no FlixNext."
             />
 
-            <Header />
+            {//<Header />
+            }
 
             <main className={styles.mainPage}>
                 <section className={styles.hero}>
@@ -194,16 +195,6 @@ const PagePlans = ({
 
                 {(tmdbMovies.length > 0 || tmdbSeries.length > 0) && (
                     <section className={styles.catalogSection}>
-                        <div className={styles.sectionHeading}>
-                            <span>Um catálogo para explorar</span>
-
-                            <h2>Veja o que espera por você</h2>
-
-                            <p>
-                                Filmes e séries para aproveitar todos os dias.
-                            </p>
-                        </div>
-
                         <Carousel
                             movies={tmdbMovies}
                             series={tmdbSeries}

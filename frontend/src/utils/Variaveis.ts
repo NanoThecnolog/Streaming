@@ -359,7 +359,7 @@ export const faqPlans: FAQ[] = [
     {
         question: 'Quais formas de pagamento são aceitas?',
         answer:
-            'Atualmente, aceitamos apenas boleto bancário. Os boletos podem ser pagos via Pix dentro do prazo informado.'
+            'Atualmente, aceitamos tanto cartão de crédito quanto boleto. Os boletos podem ser pagos via Pix e a compensação é quase imediata.'
     }
 ]
 
