@@ -110,7 +110,11 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
     }, [router, tmdbID])
 
     const handleHelpModal = useCallback(() => {
-        setVisible(!visible)
+        setVisible(prev => !prev)
+    }, [])
+
+    const handleOpenHelpModal = useCallback(() => {
+        setVisible(true)
     }, [])
 
     useEffect(() => {
@@ -254,7 +258,7 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
 
                     </div>
                     <div className={styles.flagContainer}>
-                        <HelpFlag modalVisible={handleHelpModal} />
+                        <HelpFlag modalVisible={handleOpenHelpModal} />
                     </div>
                     {episodio && <>
                         <div className={styles.iframe}>
