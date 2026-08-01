@@ -1,134 +1,487 @@
-import Header from "@/components/Header";
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import SEO from '@/components/SEO'
+import SubConfig from '@/components/ui/SubConfig'
+import Switch from '@/components/ui/Switch'
+import Avatar from '@/components/modals/Avatar'
+import EditarDados from '@/components/modals/EditarDados'
+
 import styles from './styles.module.scss'
-import Footer from "@/components/Footer";
-import { useEffect, useState } from "react";
-import { UserContext } from "@/@types/user";
-import Image from "next/image";
-import { BiSolidEditAlt } from "react-icons/bi";
-import Qrcode from "@/components/Qrcode";
-import Avatar from "@/components/modals/Avatar";
-import EditarDados from "@/components/modals/EditarDados";
-import { FaUserCircle } from "react-icons/fa";
-import SEO from "@/components/SEO";
-import Switch from "@/components/ui/Switch";
-import { toast } from "react-toastify";
-import { useFlix } from "@/contexts/FlixContext";
-import { destroyCookie, parseCookies, setCookie } from "nookies";
-import { useRouter } from "next/router";
-import { cookieOptions } from "@/utils/Variaveis";
-import SubConfig from "@/components/ui/SubConfig";
-import { formatedDate } from "@/utils/UtilitiesFunctions";
-import axios from "axios";
+
+import Image from 'next/image'
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
+
+import {
+    Bell,
+    ChevronRight,
+    Edit3,
+    LogOut,
+    Mail,
+    Settings,
+    ShieldCheck,
+    UserRound,
+} from 'lucide-react'
+
+import { FaUserCircle } from 'react-icons/fa'
+
+import { toast } from 'react-toastify'
+import { destroyCookie, parseCookies, setCookie } from 'nookies'
+import axios from 'axios'
+
+import { UserContext } from '@/@types/user'
+import { useFlix } from '@/contexts/FlixContext'
+import { cookieOptions } from '@/utils/Variaveis'
 
 export default function Me() {
-    //const [user, setUser] = useState<UserProps | null>(null)
     const router = useRouter()
-    const { user, setUser, signOut } = useFlix()
-    const [modalVisible, setModalVisible] = useState(false)
-    const [editarDados, setEditarDados] = useState(false)
-    const [loading, setLoading] = useState<boolean>(false)
-    //const client = new SetupAPIClient()
+
+    const {
+        user,
+        setUser,
+        signOut,
+    } = useFlix()
+
+    const [modalVisible, setModalVisible] =
+        useState<boolean>(false)
+
+    const [editarDados, setEditarDados] =
+        useState<boolean>(false)
+
+    const [loadingNewsletter, setLoadingNewsletter] =
+        useState<boolean>(false)
 
     useEffect(() => {
-        if (!user) {
+        if (user) return
 
-            const { 'flix-user': userCookie } = parseCookies()
-            if (!userCookie) {
-                router.push('/login')
-                return
-            }
-            //setUser(JSON.parse(userCookie))
+        const {
+            'flix-user': userCookie,
+        } = parseCookies()
+
+        if (!userCookie) {
+            router.replace('/login')
         }
-    }, [])
-    function handleOpenModal() {
+    }, [router, user])
+
+    const handleOpenAvatarModal = (): void => {
         setModalVisible(true)
     }
-    function handleCloseModal() {
+
+    const handleCloseAvatarModal = (): void => {
         setModalVisible(false)
     }
-    function openEditarDados() {
+
+    const handleOpenEditModal = (): void => {
         setEditarDados(true)
     }
-    async function closeEditarDados() {
+
+    const handleCloseEditModal = (): void => {
         setEditarDados(false)
-        if (!user) return router.push('/login')
     }
 
-    function handleLogout() {
+    const handleLogout = (): void => {
         signOut()
     }
 
+    const handleNews = async (
+        newsletter: boolean,
+    ): Promise<void> => {
+        if (loadingNewsletter || !user) return
 
-    async function handleNews(newsletter: boolean) {
-        if (loading) return
+        setLoadingNewsletter(true)
+
         try {
-            setLoading(true)
-            if (!user) {
-                toast.error("Erro ao tentar atualizar newsLetter do usuario.")
-                return
-            }
-            const userData = {
-                news: newsletter
-            }
+            const response = await axios.put(
+                '/api/user/update',
+                {
+                    news: newsletter,
+                },
+            )
 
-            //const response = await client.api.put('/user', userData)
-            const response = await axios.put('/api/user/update', userData)
-            const data: UserContext = response.data.request;
-            destroyCookie(null, 'flix-user')
-            setCookie(null, 'flix-user', JSON.stringify(data), cookieOptions)
+            const data: UserContext =
+                response.data.request
+
+            destroyCookie(
+                null,
+                'flix-user',
+                {
+                    path: '/',
+                },
+            )
+
+            setCookie(
+                null,
+                'flix-user',
+                JSON.stringify(data),
+                cookieOptions,
+            )
+
             setUser(data)
-        } catch (err) {
-            console.log("Erro ao alterar newsletter", err)
-            toast.error("Erro ao configurar o recebimento de newsletters. Tente novamente mais tarde.")
+
+            toast.success(
+                newsletter
+                    ? 'Newsletters ativadas.'
+                    : 'Newsletters desativadas.',
+            )
+        } catch (error) {
+            console.error(
+                'Erro ao alterar newsletter',
+                error,
+            )
+
+            toast.error(
+                'Não foi possível atualizar sua preferência de newsletters.',
+            )
         } finally {
-            setLoading(false)
+            setLoadingNewsletter(false)
         }
     }
+
     return (
         <>
-            <SEO title="Minha Conta | FlixNext" description="Minha Conta. Altere seus dados e seu avatar!" />
+            <SEO
+                title="Minha Conta | FlixNext"
+                description="Gerencie seus dados, avatar, preferências e assinatura."
+            />
+
             <Header />
-            <article className={styles.container}>
-                {
-                    user ?
-                        (<div className={styles.articleContainer}>
-                            <aside className={styles.asideContainer}>
-                                <div className={styles.avatar}>
-                                    <div className={styles.imgContainer}>
-                                        {user.avatar ? <Image src={user?.avatar} alt="Avatar" width={150} height={150} /> : <FaUserCircle size={150} />}
-                                        <div className={styles.editAvatar}>
-                                            <button type="button" title="Mudar Avatar" onClick={handleOpenModal}><BiSolidEditAlt size={20} /></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={styles.asideInfo}>
-                                    <h2>Nome: {user.name}</h2>
-                                    <h3>Email: {user.email}</h3>
-                                    <h3>Aniversário: <span>{user?.birthday && formatedDate(user.birthday)}</span></h3>
-                                </div>
-                                <div className={styles.button}>
-                                    <button type="button" onClick={openEditarDados}>Editar dados</button>
-                                    <button type="button" onClick={handleLogout}>Sair</button>
-                                </div>
-                                {
-                                    /*<div className={styles.donate}>
-                                    <h3>Torne-se um doador!!</h3>
-                                    <Qrcode />
-                                </div>*/
+
+            <main className={styles.container}>
+                {!user ? (
+                    <div className={styles.loadingCard}>
+                        <div className={styles.loadingSpinner} />
+
+                        <strong>
+                            Carregando sua conta
+                        </strong>
+
+                        <span>
+                            Buscando suas informações...
+                        </span>
+                    </div>
+                ) : (
+                    <div className={styles.accountLayout}>
+                        <section
+                            className={styles.profileCard}
+                        >
+                            <div
+                                className={
+                                    styles.profileBackground
                                 }
-                                <div className={styles.newsletter}>
-                                    <Switch checked={user.news} onChange={handleNews} />
-                                    <h3>Receber Newsletters</h3>
+                            />
+
+                            <div
+                                className={
+                                    styles.profileHeader
+                                }
+                            >
+                                <div
+                                    className={
+                                        styles.avatarWrapper
+                                    }
+                                >
+                                    <div
+                                        className={
+                                            styles.avatarContainer
+                                        }
+                                    >
+                                        {user.avatar ? (
+                                            <Image
+                                                src={user.avatar}
+                                                alt={`Avatar de ${user.name}`}
+                                                width={150}
+                                                height={150}
+                                                priority
+                                            />
+                                        ) : (
+                                            <FaUserCircle
+                                                size={150}
+                                            />
+                                        )}
+                                    </div>
+
+                                    <button
+                                        type="button"
+                                        className={
+                                            styles.editAvatarButton
+                                        }
+                                        onClick={
+                                            handleOpenAvatarModal
+                                        }
+                                        aria-label="Alterar avatar"
+                                        title="Alterar avatar"
+                                    >
+                                        <Edit3 size={18} />
+                                    </button>
                                 </div>
-                            </aside>
+
+                                <div
+                                    className={
+                                        styles.profileIdentity
+                                    }
+                                >
+                                    <span>
+                                        Minha conta
+                                    </span>
+
+                                    <h1>{user.name}</h1>
+
+                                    <p>{user.email}</p>
+                                </div>
+
+                                <div
+                                    className={
+                                        styles.profileStatus
+                                    }
+                                >
+                                    <ShieldCheck size={18} />
+
+                                    <span>
+                                        Conta ativa
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div
+                                className={
+                                    styles.profileActions
+                                }
+                            >
+                                <button
+                                    type="button"
+                                    className={
+                                        styles.primaryAction
+                                    }
+                                    onClick={
+                                        handleOpenEditModal
+                                    }
+                                >
+                                    <Edit3 size={18} />
+
+                                    <div>
+                                        <strong>
+                                            Editar dados
+                                        </strong>
+
+                                        <span>
+                                            Atualize suas
+                                            informações
+                                        </span>
+                                    </div>
+
+                                    <ChevronRight
+                                        size={18}
+                                    />
+                                </button>
+
+                                <button
+                                    type="button"
+                                    className={
+                                        styles.logoutAction
+                                    }
+                                    onClick={handleLogout}
+                                >
+                                    <LogOut size={18} />
+
+                                    <div>
+                                        <strong>
+                                            Sair da conta
+                                        </strong>
+
+                                        <span>
+                                            Encerrar sessão
+                                        </span>
+                                    </div>
+
+                                    <ChevronRight
+                                        size={18}
+                                    />
+                                </button>
+                            </div>
+                        </section>
+
+                        <section
+                            className={styles.detailsCard}
+                        >
+                            <div
+                                className={
+                                    styles.sectionHeading
+                                }
+                            >
+                                <div>
+                                    <span>
+                                        Informações
+                                    </span>
+
+                                    <h2>
+                                        Dados pessoais
+                                    </h2>
+                                </div>
+
+                                <UserRound size={22} />
+                            </div>
+
+                            <div
+                                className={
+                                    styles.infoGrid
+                                }
+                            >
+                                <article
+                                    className={
+                                        styles.infoItem
+                                    }
+                                >
+                                    <div
+                                        className={
+                                            styles.infoIcon
+                                        }
+                                    >
+                                        <UserRound
+                                            size={19}
+                                        />
+                                    </div>
+
+                                    <div>
+                                        <span>Nome</span>
+                                        <strong>
+                                            {user.name}
+                                        </strong>
+                                    </div>
+                                </article>
+
+                                <article
+                                    className={
+                                        styles.infoItem
+                                    }
+                                >
+                                    <div
+                                        className={
+                                            styles.infoIcon
+                                        }
+                                    >
+                                        <Mail size={19} />
+                                    </div>
+
+                                    <div>
+                                        <span>E-mail</span>
+                                        <strong>
+                                            {user.email}
+                                        </strong>
+                                    </div>
+                                </article>
+                            </div>
+                        </section>
+
+                        <section
+                            className={
+                                styles.preferencesCard
+                            }
+                        >
+                            <div
+                                className={
+                                    styles.sectionHeading
+                                }
+                            >
+                                <div>
+                                    <span>
+                                        Preferências
+                                    </span>
+
+                                    <h2>
+                                        Comunicação
+                                    </h2>
+                                </div>
+
+                                <Settings size={22} />
+                            </div>
+
+                            <div
+                                className={
+                                    styles.preferenceItem
+                                }
+                            >
+                                <div
+                                    className={
+                                        styles.preferenceIcon
+                                    }
+                                >
+                                    <Bell size={20} />
+                                </div>
+
+                                <div
+                                    className={
+                                        styles.preferenceText
+                                    }
+                                >
+                                    <strong>
+                                        Receber newsletters
+                                    </strong>
+
+                                    <span>
+                                        Receba novidades,
+                                        lançamentos e
+                                        atualizações da
+                                        plataforma.
+                                    </span>
+                                </div>
+
+                                <Switch
+                                    checked={user.news}
+                                    onChange={
+                                        handleNews
+                                    }
+                                    disabled={
+                                        loadingNewsletter
+                                    }
+                                />
+                            </div>
+                        </section>
+
+                        <section
+                            className={
+                                styles.subscriptionCard
+                            }
+                        >
+                            <div
+                                className={
+                                    styles.sectionHeading
+                                }
+                            >
+                                <div>
+                                    <span>
+                                        Assinatura
+                                    </span>
+
+                                    <h2>
+                                        Plano e pagamentos
+                                    </h2>
+                                </div>
+
+                                <ShieldCheck size={22} />
+                            </div>
+
                             <SubConfig />
-                        </div>)
-                        : "Carregando..."}
-            </article>
-            {modalVisible && <Avatar handleCloseModal={handleCloseModal} />
-            }
-            {editarDados && <EditarDados handleClose={closeEditarDados} />
-            }
+                        </section>
+                    </div>
+                )}
+            </main>
+
+            {modalVisible && (
+                <Avatar
+                    handleCloseModal={
+                        handleCloseAvatarModal
+                    }
+                />
+            )}
+
+            {editarDados && (
+                <EditarDados
+                    handleClose={
+                        handleCloseEditModal
+                    }
+                />
+            )}
+
             <Footer />
         </>
     )

@@ -100,33 +100,6 @@ export default function NewTop({ width, id, isActive = false, onVideoEnded, disa
     }, [isActive, width, card, disableVideoOnFirst])
 
 
-
-    /*useEffect(() => {
-        const card = movies.find((card) => card.tmdbId === id)
-        if (!card) return debug.error("card do movie nao encontrado. componente newTop")
-        setCard(card)
-        //debug.log("movie card", card)
-    }, [movies, id])*/
-
-    /*useEffect(() => {
-        if (!videoRef.current) return
-        const video = videoRef.current
-
-        if (isActive) {
-            if (width > 915) {
-                handleTrailer()
-                video.play().catch(() => null)
-                animateInfo()
-            }
-
-        } else {
-            setShowVideo(false)
-            video.pause()
-            video.currentTime = 0
-        }
-
-    }, [videoRef, width, isActive, card])*/
-
     useEffect(() => {
         if (!card) return
 
@@ -153,22 +126,6 @@ export default function NewTop({ width, id, isActive = false, onVideoEnded, disa
         load()
     }, [type, card])
 
-    /*useEffect(() => {
-        const getImages = async () => {
-            if (!card) return
-            const data = allData.find(data => data.id === card.tmdbId)
-            if (data) {
-                setTMDBMovie(data)
-                setTMDBImages({ backdrop: `https://image.tmdb.org/t/p/original${data.backdrop_path}`, poster: `https://image.tmdb.org/t/p/original${data.poster_path}` })
-            } else {
-                const movie = await tmdb.fetchMovieDetails(card.tmdbId)
-                setTMDBMovie(movie)
-                setTMDBImages({ backdrop: `https://image.tmdb.org/t/p/original${movie?.backdrop_path}`, poster: `https://image.tmdb.org/t/p/original${movie?.poster_path}` })
-            }
-        }
-        getImages()
-    }, [allData, card])*/
-
     const getBackgroundImage = () => {
         if (card) {
             return width && width <= 780
@@ -187,9 +144,6 @@ export default function NewTop({ width, id, isActive = false, onVideoEnded, disa
         )
     }
 
-    /*const handleMoreInfo = () => {
-        router.push(`/movie/${card?.tmdbId}`)
-    }*/
     const handleWatch = () => {
         if (!card) return
 
@@ -243,10 +197,6 @@ export default function NewTop({ width, id, isActive = false, onVideoEnded, disa
             setIsMuted(!isMuted)
         }
     }
-    /*const handleClick = () => {
-        if (width >= 768) return
-        router.push(`/movie/${card?.tmdbId}`)
-    }*/
 
     if (!card) return
 

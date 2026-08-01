@@ -2,7 +2,7 @@ export interface PlanProps {
     name: string;
     id: string;
     price: number;
-    type: string;
+    type: "mensal" | "trimestral" | "semestral" | "anual";
     planId: number;
     created_at: Date;
     updated_at: Date;
@@ -13,9 +13,9 @@ export interface UserDataProps {
     cpf: string,
     email: string,
     telefone: string,
-    birthday: string,
+    //birthday: string,
     password: string,
-    address: {
+    /*address: {
         street: string,
         number: string,
         neighborhood: string,
@@ -23,7 +23,7 @@ export interface UserDataProps {
         city: string,
         complement: string,
         state: string
-    }
+    }*/
 }
 export interface CreditPayment {
     brand: string,

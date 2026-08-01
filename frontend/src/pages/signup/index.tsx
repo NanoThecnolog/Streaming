@@ -22,7 +22,7 @@ export default function Signup() {
     const [confirmPassword, setConfirmPassword] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
     const login = "/login";
-    const [user, setUser] = useState<NewUserProps>({ name: '', birthday: '', email: '', password: '', cpf: '', phone_number: '' })
+    const [user, setUser] = useState<NewUserProps>({ name: '', email: '', password: '', cpf: '', phone_number: '' })
 
     const validate = new Validate()
     function formatDate(date: unknown): string {
@@ -38,7 +38,6 @@ export default function Signup() {
 
         const campos = [
             { value: user.name, message: "Digite seu nome!" },
-            { value: user.birthday, message: "Coloque sua data de nascimento!" },
             { value: user.email, message: "Digite seu email!" },
             { value: user.password, message: "Digite uma senha para cadastrar!" },
             { value: confirmPassword, message: "Confirme a senha para cadastrar!" }
@@ -55,10 +54,10 @@ export default function Signup() {
             return;
         }
 
-        if (!validate.samePassword(user.password, confirmPassword)) {
+        /*if (!validate.samePassword(user.password, confirmPassword)) {
             toast.warning("As senhas não são iguais.")
             return;
-        }
+        }*/
 
         try {
             setLoading(true)
@@ -82,7 +81,7 @@ export default function Signup() {
     }
 
     return (
-        <>
+        <>{/*
             <SEO title='Criar conta | FlixNext' description='Crie sua conta e começe a assistir hoje mesmo!' />
             <div className={styles.container}>
                 <div className={styles.loginContainer}>
@@ -171,7 +170,7 @@ export default function Signup() {
                         <Link href={login}><h3>Entrar com uma conta</h3></Link>
                     </div>
                 </div>
-            </div>
+            </div>*/}
         </>
     )
 }

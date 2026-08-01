@@ -1,3 +1,5 @@
+import { NewUserProps } from "../userTypes/signUp";
+
 export interface PixDto {
     expires_in: number;
 }
@@ -9,8 +11,9 @@ export interface CreditCardDto {
         cpf: string;
         email: string;
         phone_number: string;
+        /*
         birth: string | Date;
-        address: {
+        address?: {
             street: string;
             number: string;
             neighborhood: string;
@@ -19,10 +22,11 @@ export interface CreditCardDto {
             complement?: string;
             state: string;
         };
+        */
     };
-    installments: number;
-    capture: boolean;
-    billing_address: {
+    installments?: number;
+    capture?: boolean;
+    /*billing_address: {
         street: string;
         number: string;
         neighborhood: string;
@@ -30,14 +34,15 @@ export interface CreditCardDto {
         city: string;
         complement?: string;
         state: string;
-    };
-    card: {
+    };*/
+    card?: {
         number: string;
         holder_name: string;
         exp_month: string;
         exp_year: string;
         cvv: string;
     };
+    payment_token: string
 }
 
 
@@ -47,6 +52,7 @@ export interface BankingBilletDto {
         cpf: string;
         email: string;
         phone_number: string;
+        /*
         birth: string | Date;
         address: {
             street: string;
@@ -57,12 +63,14 @@ export interface BankingBilletDto {
             complement?: string;
             state: string;
         };
+        */
     };
     expire_at: string;
 }
 
 
 export interface CreateSubscriptionDto {
+    user: NewUserProps
     planId: number;
 
     items: Array<{
@@ -87,8 +95,39 @@ export interface CreateSubscriptionDto {
     };
 
     payment: {
-        banking_billet: BankingBilletDto;
+        banking_billet?: BankingBilletDto;
         credit_card?: CreditCardDto;
-        pix?: PixDto;
+        //pix?: PixDto;
+    };
+}
+export interface EditSubscriptionDto {
+    user?: NewUserProps
+    planId: number;
+
+    items: Array<{
+        name: string;
+        value: number;
+        amount: number;
+        marketplace?: {
+            payee_code: string;
+            percentage?: number;
+        };
+    }>;
+
+    shippings?: Array<{
+        name: string;
+        value: number;
+        payee_code?: string;
+    }>;
+
+    metadata?: {
+        custom_id?: string;
+        notification_url?: string;
+    };
+
+    payment: {
+        banking_billet?: BankingBilletDto;
+        credit_card?: CreditCardDto;
+        //pix?: PixDto;
     };
 }

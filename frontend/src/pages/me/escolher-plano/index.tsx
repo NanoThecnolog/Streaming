@@ -25,7 +25,7 @@ export interface DataUserPaymentProps {
     nome: string,
     cpf: string,
     telefone: string,
-    birthday: string,
+    /*birthday: string,
     address: {
         street: string,
         number: string,
@@ -34,7 +34,7 @@ export interface DataUserPaymentProps {
         city: string,
         complement: string | null,
         state: string
-    }
+    }*/
 }
 export default function PaymentUserPage({ plans }: PageProps) {
     const router = useRouter()
@@ -50,7 +50,7 @@ export default function PaymentUserPage({ plans }: PageProps) {
             nome: "",
             cpf: "",
             telefone: "",
-            birthday: '',
+            /*birthday: '',
             address: {
                 street: "",
                 number: "",
@@ -59,7 +59,7 @@ export default function PaymentUserPage({ plans }: PageProps) {
                 city: "",
                 complement: "",
                 state: "",
-            },
+            },*/
         }
     )
 
@@ -69,7 +69,7 @@ export default function PaymentUserPage({ plans }: PageProps) {
     useEffect(() => {
         debug.log(dataUser)
     }, [dataUser])
-    useEffect(() => {
+    /*useEffect(() => {
         const getAddress = async () => {
             if (dataUser.address.zipcode.length !== 8) return
             const data = await Functions.getAddress(dataUser.address.zipcode)
@@ -81,7 +81,7 @@ export default function PaymentUserPage({ plans }: PageProps) {
             setDataUser((prev) => ({ ...prev, address: { ...prev.address, neighborhood: data.bairro, street: data.logradouro, city: data.localidade, state: data.estado } }))
         }
         getAddress()
-    }, [dataUser.address.zipcode])
+    }, [dataUser.address.zipcode])*/
 
 
     useEffect(() => {
@@ -90,9 +90,9 @@ export default function PaymentUserPage({ plans }: PageProps) {
         setDataUser({
             nome: user.name,
             cpf: user.cpf ?? "",
-            telefone: user.phone_number ?? "",
-            birthday: String(user.birthday),
-            address: {
+            telefone: user.phone_number ?? ""
+            //birthday: String(user.birthday),
+            /*address: {
                 street: user.address?.street ?? "",
                 number: user.address?.number ?? "",
                 neighborhood: user.address?.neighborhood ?? "",
@@ -100,7 +100,7 @@ export default function PaymentUserPage({ plans }: PageProps) {
                 city: user.address?.city ?? "",
                 complement: user.address?.complement ?? "",
                 state: user.address?.state ?? "",
-            },
+            },*/
         })
     }, [user])
 
@@ -130,10 +130,10 @@ export default function PaymentUserPage({ plans }: PageProps) {
                 valid: Validate.phone(dataUser.telefone),
                 message: 'Telefone precisa ser no formato DDD+Número (21991234567)'
             },
-            {
+            /*{
                 valid: Validate.cep(dataUser.address.zipcode),
                 message: 'Cep inválido. Verifique e tente novamente!'
-            },
+            },*/
 
         ]
 
@@ -149,7 +149,7 @@ export default function PaymentUserPage({ plans }: PageProps) {
             email: user.email,
             cpf: Normalize.cpf(dataUser.cpf),
             phone_number: Normalize.phone(dataUser.telefone),
-            birthday: dataUser.birthday,
+            /*birthday: dataUser.birthday,
             address: {
                 street: dataUser.address.street,
                 number: dataUser.address.number,
@@ -158,7 +158,7 @@ export default function PaymentUserPage({ plans }: PageProps) {
                 city: dataUser.address.city,
                 state: Normalize.state(dataUser.address.state),
                 complement: dataUser.address.complement
-            }
+            }*/
         }
         const payload = {
             planId: planIdSelected,
@@ -267,7 +267,7 @@ export default function PaymentUserPage({ plans }: PageProps) {
                             />
                         </div>
 
-                        <div className={styles.field}>
+                        {/*<div className={styles.field}>
                             <label htmlFor="zipcode">CEP</label>
                             <input
                                 id="zipcode"
@@ -356,7 +356,7 @@ export default function PaymentUserPage({ plans }: PageProps) {
                                 }
                                 required
                             />
-                        </div>
+                        </div>*/}
                     </section>
                 </section>
                 <aside className={styles.summary}>

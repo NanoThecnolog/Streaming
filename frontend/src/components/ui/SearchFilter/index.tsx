@@ -1,91 +1,210 @@
+import { FormEvent } from 'react'
+import {
+    Search,
+    SlidersHorizontal,
+    X,
+} from 'lucide-react'
+
+import { gen, stm } from '@/utils/Genres'
 import { capitalize } from '@/utils/UtilitiesFunctions'
+import { classification } from '@/utils/Variaveis'
+
 import styles from './styles.module.scss'
-import { gen, stm } from '@/utils/Genres';
-import { classification } from '@/utils/Variaveis';
 
 interface FilterProps {
-    title: string | null,
-    genre: string | null,
-    streaming: string | null,
-    faixa: string | null
+    title: string
+    genre: string
+    streaming: string
+    faixa: string
 
-    setTitle: (e: string) => void;
-    setGenre: (e: string) => void;
-    setStreaming: (e: string) => void;
-    setFaixa: (e: string) => void;
+    setTitle: (value: string) => void
+    setGenre: (value: string) => void
+    setStreaming: (value: string) => void
+    setFaixa: (value: string) => void
 
-    handleFilter: () => void;
+    handleFilter: () => void
 }
 
-export default function Filter({ title, genre, streaming, faixa, setTitle, setGenre, setStreaming, setFaixa, handleFilter }: FilterProps) {
+export default function Filter({
+    title,
+    genre,
+    streaming,
+    faixa,
+    setTitle,
+    setGenre,
+    setStreaming,
+    setFaixa,
+    handleFilter,
+}: FilterProps) {
     const generos = Object.values(gen)
     const streamings = Object.values(stm)
-    /*const faixas = [
-        "L",
-        "10",
-        "A12",
-        "A14",
-        "A16",
-        "18"
-    ]*/
-    const faixas = classification.map((c) => c.etaria)
+    const faixas = classification.map(
+        (classificationItem) => classificationItem.etaria,
+    )
+
+    const hasFilters = Boolean(
+        title || genre || streaming || faixa,
+    )
+
+    const handleSubmit = (
+        event: FormEvent<HTMLFormElement>,
+    ): void => {
+        event.preventDefault()
+        handleFilter()
+    }
+
+    const clearFilters = (): void => {
+        setTitle('')
+        setGenre('')
+        setStreaming('')
+        setFaixa('')
+    }
 
     return (
         <div className={styles.container}>
-            <form onSubmit={(e) => { e.preventDefault(); handleFilter }}>
-                <div className={styles.filter}>
-                    <label htmlFor="title">Nome</label>
-                    <input
-                        id="title"
-                        type="text"
-                        value={title || ''}
-                        onChange={(e) => setTitle(e.target.value)}
+            <div className={styles.header}>
+                <span className={styles.headerIcon}>
+                    <SlidersHorizontal
+                        size={19}
+                        aria-hidden="true"
                     />
+                </span>
+
+                <div>
+                    <h2>Filtrar catálogo</h2>
+
+                    <p>
+                        Combine os campos para encontrar um conteúdo.
+                    </p>
                 </div>
-                <div className={styles.filter}>
-                    <label htmlFor="Genre">Gênero</label>
-                    <select
-                        id='Genre'
-                        title='Genero'
-                        value={genre || ''}
-                        onChange={(e) => setGenre(e.target.value)}
-                    >
-                        <option value={''}>Selecionar</option>
-                        {generos.map((gen, index) =>
-                            <option key={index} value={gen}>{capitalize(gen)}</option>
+            </div>
+
+            <form onSubmit={handleSubmit}>
+                <label className={styles.searchField}>
+                    <span>Nome do conteúdo</span>
+
+                    <div className={styles.inputContainer}>
+                        <Search
+                            size={18}
+                            aria-hidden="true"
+                        />
+
+                        <input
+                            type="search"
+                            value={title}
+                            placeholder="Ex.: Batman"
+                            autoComplete="off"
+                            onChange={(event) =>
+                                setTitle(event.target.value)
+                            }
+                        />
+
+                        {title && (
+                            <button
+                                type="button"
+                                className={styles.clearInput}
+                                aria-label="Limpar nome"
+                                onClick={() => setTitle('')}
+                            >
+                                <X
+                                    size={17}
+                                    aria-hidden="true"
+                                />
+                            </button>
                         )}
-                    </select>
-                </div>
-                <div className={styles.filter}>
-                    <label htmlFor="Company">Streaming</label>
+                    </div>
+                </label>
+
+                <label className={styles.filter}>
+                    <span>Gênero</span>
+
                     <select
-                        id='Company'
-                        title='Streaming'
-                        value={streaming || ''}
-                        onChange={(e) => setStreaming(e.target.value)}
+                        value={genre}
+                        aria-label="Selecionar gênero"
+                        onChange={(event) =>
+                            setGenre(event.target.value)
+                        }
                     >
-                        <option value={''}>Selecionar</option>
-                        {streamings.map((strm, index) =>
-                            <option key={index} value={strm}>{capitalize(strm)}</option>
-                        )}
+                        <option value="">Todos os gêneros</option>
+
+                        {generos.map((genero) => (
+                            <option
+                                key={genero}
+                                value={genero}
+                            >
+                                {capitalize(genero)}
+                            </option>
+                        ))}
                     </select>
-                </div>
-                <div className={styles.filter}>
-                    <label htmlFor="faixa">Faixa</label>
+                </label>
+
+                <label className={styles.filter}>
+                    <span>Streaming</span>
+
                     <select
-                        id='faixa'
-                        title='Faixa'
-                        value={faixa || ''}
-                        onChange={(e) => setFaixa(e.target.value)}
+                        value={streaming}
+                        aria-label="Selecionar streaming"
+                        onChange={(event) =>
+                            setStreaming(event.target.value)
+                        }
                     >
-                        <option value={''}>Selecionar</option>
-                        {faixas.map((fx, index) =>
-                            <option key={index} value={fx}>{fx}</option>
-                        )}
+                        <option value="">Todos</option>
+
+                        {streamings.map((streamingItem) => (
+                            <option
+                                key={streamingItem}
+                                value={streamingItem}
+                            >
+                                {capitalize(streamingItem)}
+                            </option>
+                        ))}
                     </select>
-                </div>
-                <div className={styles.buttonContainer}>
-                    <button onClick={handleFilter}>
+                </label>
+
+                <label className={styles.filter}>
+                    <span>Classificação</span>
+
+                    <select
+                        value={faixa}
+                        aria-label="Selecionar classificação"
+                        onChange={(event) =>
+                            setFaixa(event.target.value)
+                        }
+                    >
+                        <option value="">Todas as faixas</option>
+
+                        {faixas.map((classificacao) => (
+                            <option
+                                key={classificacao}
+                                value={classificacao}
+                            >
+                                {classificacao}
+                            </option>
+                        ))}
+                    </select>
+                </label>
+
+                <div className={styles.actions}>
+                    {hasFilters && (
+                        <button
+                            type="button"
+                            className={styles.clearButton}
+                            onClick={clearFilters}
+                        >
+                            Limpar
+                        </button>
+                    )}
+
+                    <button
+                        type="submit"
+                        className={styles.searchButton}
+                        disabled={!hasFilters}
+                    >
+                        <Search
+                            size={17}
+                            aria-hidden="true"
+                        />
+
                         Buscar
                     </button>
                 </div>

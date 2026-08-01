@@ -1,4 +1,3 @@
-//import { verifyAllDataFiles } from '@/services/googleCheck';
 import { apiGoogle } from '@/services/apiGoogle'
 import styles from './styles.module.scss'
 import { debug } from '@/classes/DebugLogger'
@@ -19,7 +18,7 @@ export default function TestPage() {
     const { movies, setMovies, series, setSeries } = useFlix()
     //const [card, setCard] = useState<CardsProps>()
 
-    async function verify(type: 'movie' | 'tv') {
+    const verify = async (type: 'movie' | 'tv') => {
         setType(type)
         if (loading) return
         setLoading(true)

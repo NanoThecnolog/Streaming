@@ -1,10 +1,13 @@
+import { debug } from "@/classes/DebugLogger";
 import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const { name } = req.query;
+    const { id } = req.query;
+
+    debug.log(id)
 
     if (!tmdbToken) {
         res.status(500).json({ error: "TMDB token is missing" });
@@ -12,7 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     try {
-        const response = await axios.get(`https://api.themoviedb.org/3/search/collection?query=${name}`, {
+        const response = await axios.get(`https://api.themoviedb.org/3/collection/${id}`, {
             headers: {
                 Authorization: `Bearer ${tmdbToken}`
             },

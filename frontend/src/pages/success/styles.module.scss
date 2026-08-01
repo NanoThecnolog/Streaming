@@ -201,3 +201,35 @@
         gap: 6px;
     }
 }
+
+.paymentInfo {
+    margin-top: 16px;
+    line-height: 1.6;
+    font-size: 16px;
+    color: #d1d1d1;
+    text-align: start;
+
+    strong {
+        color: var(--white);
+        font-weight: 600;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 15px;
+    }
+}
+
+.success {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background-color: rgba(0, 200, 83, 0.15);
+    color: #00c853;
+    font-weight: 600;
+    font-size: 14px;
+
+    @media (max-width: 480px) {
+        font-size: 13px;
+    }
+}

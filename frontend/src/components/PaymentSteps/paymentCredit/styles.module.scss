@@ -1,10 +1,11 @@
 .container {
-    background: var(--white);
+    //background: var(--white);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
+    //color: var(--black);
 
     .headerContainer {
         display: flex;
@@ -19,7 +20,7 @@
             font-size: 1.4rem;
             text-align: center;
             //margin-bottom: 20px;
-            color: var(--black);
+            color: var(--white);
             width: 100%;
         }
     }
@@ -101,7 +102,16 @@
 
         p {
             font-size: .7rem;
+            line-height: 1.3rem;
             text-align: justify;
+            color: #444;
+
+            strong {
+                a {
+                    color: var(--red);
+                }
+
+            }
         }
     }
 }

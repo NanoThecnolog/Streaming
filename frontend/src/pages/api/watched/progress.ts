@@ -43,6 +43,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     if (req.method === 'POST') {
+        //if (process.env.NEXT_PUBLIC_DEBUG === 'development') return res.status(200).json({})
+
         const { tmdbID, mediaType, completed, episode, season, progress }: watchedProgressEntry = req.body
 
         //debug.log("body recebido na rota api/watched/progress", req.body)

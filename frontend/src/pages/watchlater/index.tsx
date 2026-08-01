@@ -1,164 +1,309 @@
-import Header from '@/components/Header'
-import styles from './styles.module.scss'
-import { useEffect, useMemo, useState } from 'react';
-import SEO from '@/components/SEO';
-import { useFlix } from '@/contexts/FlixContext';
-import { parseCookies } from 'nookies';
-import { WatchLaterContext } from '@/@types/contexts/flixContext';
-import { CardsProps } from '@/@types/Cards';
-import { SeriesProps } from '@/@types/series';
-import Card from '@/components/Card';
-import Footer from '@/components/Footer';
-import { mongoService } from '@/classes/MongoContent';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import { debug } from '@/classes/DebugLogger';
-import { GetServerSideProps } from 'next';
-import axios from 'axios';
-import { WatchLaterProps } from '@/@types/watchLater';
-import { SetupAPIClient } from '@/services/api';
+import { useEffect, useMemo, useState } from 'react'
+import { Bookmark, Film, LoaderCircle, Tv } from 'lucide-react'
+import { GetServerSideProps } from 'next'
 
-interface ListsProps {
-    movies: CardsProps[]
-    series: SeriesProps[]
-}
+import Card from '@/components/Card'
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
+import SEO from '@/components/SEO'
+
+import { useFlix } from '@/contexts/FlixContext'
+
+import { mongoService } from '@/classes/MongoContent'
+import { SetupAPIClient } from '@/services/api'
+
+import { WatchLaterProps } from '@/@types/watchLater'
+
+import styles from './styles.module.scss'
 
 interface PageProps {
     list: WatchLaterProps[]
 }
 
 export default function WatchLater({ list }: PageProps) {
+    const {
+        movies,
+        series,
+        setMovies,
+        setSeries,
+    } = useFlix()
 
-    const { movies, series, setMovies, setSeries } = useFlix()
-    const [cardPerContainer, setCardPerContainer] = useState(10)
+    const [isLoading, setIsLoading] = useState(
+        movies.length === 0 || series.length === 0,
+    )
 
     useEffect(() => {
-        debug.log("Lista", list)
-    }, [list])
+        const getContentData = async (): Promise<void> => {
+            try {
+                const requests: Promise<void>[] = []
 
-    useEffect(() => {
-        const getMongoData = async () => {
-            const [movies, series] = await Promise.all([
-                mongoService.fetchMovieData(),
-                mongoService.fetchSerieData()
-            ])
+                if (movies.length === 0) {
+                    requests.push(
+                        mongoService
+                            .fetchMovieData()
+                            .then(movieData => setMovies(movieData)),
+                    )
+                }
 
-            setMovies(movies)
-            setSeries(series)
+                if (series.length === 0) {
+                    requests.push(
+                        mongoService
+                            .fetchSerieData()
+                            .then(serieData => setSeries(serieData)),
+                    )
+                }
+
+                await Promise.all(requests)
+            } catch (error) {
+                console.error(
+                    'Erro ao carregar os conteúdos da Minha Lista:',
+                    error,
+                )
+            } finally {
+                setIsLoading(false)
+            }
         }
 
-        if (movies.length === 0 || series.length === 0) getMongoData()
+        if (movies.length === 0 || series.length === 0) {
+            getContentData()
+            return
+        }
 
-    }, [movies, series])
-
-
+        setIsLoading(false)
+    }, [movies.length, series.length, setMovies, setSeries])
 
     const watchLaterList = useMemo(() => {
-        if (!list.length) {
-            return { movies: [], series: [] }
-        }
-        const tmdbIdSet = new Set(list?.map(i => i.tmdbid))
+        const savedIds = new Set(
+            list.map(item => Number(item.tmdbid)),
+        )
 
         return {
-            movies: movies.filter(m => tmdbIdSet.has(m.tmdbId)),
-            series: series.filter(s => tmdbIdSet.has(s.tmdbID))
+            movies: movies.filter(movie =>
+                savedIds.has(Number(movie.tmdbId)),
+            ),
+            series: series.filter(serie =>
+                savedIds.has(Number(serie.tmdbID)),
+            ),
         }
     }, [list, movies, series])
 
-    useEffect(() => {
-        function handleResize() {
-            const windowWidth = window.innerWidth;
-            const breakpoints = [
-                { width: 560, cards: 2 },
-                { width: 780, cards: 3 },
-                { width: 915, cards: 4 },
-                { width: 1160, cards: 5 },
-                { width: 1500, cards: 6 },
-                { width: 1855, cards: 7 },
-                { width: Infinity, cards: 8 },
-            ]
-            const { cards } = breakpoints.find(b => windowWidth < b.width) || { cards: 5 }
-            setCardPerContainer(cards)
-        }
-        window.addEventListener('resize', handleResize)
-        handleResize()
-        return () => window.removeEventListener('resize', handleResize)
-    }, [])
+    const totalItems =
+        watchLaterList.movies.length + watchLaterList.series.length
+
+    const hasMovies = watchLaterList.movies.length > 0
+    const hasSeries = watchLaterList.series.length > 0
+    const isEmpty = !isLoading && totalItems === 0
+
     return (
         <>
-            <SEO title='Minha Lista - FlixNext' description='Filmes e séries para assistir mais tarde' />
+            <SEO
+                title="Minha Lista | FlixNext"
+                description="Filmes e séries salvos para assistir mais tarde."
+            />
+
             <Header />
-            <main className={styles.mainContainer}>
-                <article className={styles.articleContainer}>
-                    <h1>Minha Lista</h1>
 
-                    <section className={styles.listContainer}>
-                        <h2>Filmes</h2>
+            <main className={styles.page}>
+                <header className={styles.hero}>
+                    <div className={styles.heroContent}>
+                        <span className={styles.eyebrow}>
+                            Sua seleção
+                        </span>
 
-                        <div className={styles.cardsContainer}>
-                            <Swiper
-                                spaceBetween={5}
-                                slidesPerView={cardPerContainer}
-                                loop={watchLaterList.movies.length > cardPerContainer}
-                                className={styles.carousel}
-                            >
-                                {watchLaterList.movies.map(movie => (
-                                    <SwiperSlide key={movie.tmdbId}>
-                                        <Card card={movie} />
-                                    </SwiperSlide>
-                                ))}
-                            </Swiper>
+                        <h1>Minha Lista</h1>
+
+                        <p>
+                            Todos os filmes e séries que você separou para
+                            assistir depois.
+                        </p>
+                    </div>
+
+                    {!isLoading && totalItems > 0 && (
+                        <div className={styles.summary}>
+                            <Bookmark
+                                size={18}
+                                aria-hidden="true"
+                            />
+
+                            <span>
+                                {totalItems}{' '}
+                                {totalItems === 1
+                                    ? 'título salvo'
+                                    : 'títulos salvos'}
+                            </span>
                         </div>
+                    )}
+                </header>
 
-                        <h2>Séries</h2>
+                {isLoading && (
+                    <section
+                        className={styles.feedback}
+                        aria-live="polite"
+                    >
+                        <LoaderCircle
+                            className={styles.spinner}
+                            size={34}
+                            aria-hidden="true"
+                        />
 
-                        <div className={styles.cardsContainer}>
-                            <Swiper
-                                spaceBetween={5}
-                                slidesPerView={cardPerContainer}
-                                loop={watchLaterList.series.length > cardPerContainer}
-                                className={styles.carousel}
-                            >
-                                {watchLaterList.series.map(serie => (
-                                    <SwiperSlide key={serie.tmdbID}>
-                                        <Card card={serie} />
-                                    </SwiperSlide>
-                                ))}
-                            </Swiper>
-                        </div>
+                        <strong>Carregando sua lista</strong>
+
+                        <p>
+                            Estamos buscando os títulos que você salvou.
+                        </p>
                     </section>
-                </article>
+                )}
+
+                {isEmpty && (
+                    <section className={styles.emptyState}>
+                        <div className={styles.emptyIcon}>
+                            <Bookmark
+                                size={34}
+                                aria-hidden="true"
+                            />
+                        </div>
+
+                        <h2>Sua lista ainda está vazia</h2>
+
+                        <p>
+                            Ao encontrar um filme ou série interessante,
+                            adicione-o à sua lista para acessar mais tarde.
+                        </p>
+
+                        <a href="/">
+                            Explorar catálogo
+                        </a>
+                    </section>
+                )}
+
+                {!isLoading && totalItems > 0 && (
+                    <div className={styles.content}>
+                        {hasMovies && (
+                            <section
+                                className={styles.category}
+                                aria-labelledby="movies-title"
+                            >
+                                <header className={styles.categoryHeader}>
+                                    <div>
+                                        <span className={styles.categoryIcon}>
+                                            <Film
+                                                size={20}
+                                                aria-hidden="true"
+                                            />
+                                        </span>
+
+                                        <div>
+                                            <h2 id="movies-title">
+                                                Filmes
+                                            </h2>
+
+                                            <p>
+                                                {watchLaterList.movies.length}{' '}
+                                                {watchLaterList.movies.length === 1
+                                                    ? 'filme salvo'
+                                                    : 'filmes salvos'}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </header>
+
+                                <div className={styles.cardsGrid}>
+                                    {watchLaterList.movies.map(movie => (
+                                        <div
+                                            key={movie.tmdbId}
+                                            className={styles.cardItem}
+                                        >
+                                            <Card card={movie} />
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+                        )}
+
+                        {hasSeries && (
+                            <section
+                                className={styles.category}
+                                aria-labelledby="series-title"
+                            >
+                                <header className={styles.categoryHeader}>
+                                    <div>
+                                        <span className={styles.categoryIcon}>
+                                            <Tv
+                                                size={20}
+                                                aria-hidden="true"
+                                            />
+                                        </span>
+
+                                        <div>
+                                            <h2 id="series-title">
+                                                Séries
+                                            </h2>
+
+                                            <p>
+                                                {watchLaterList.series.length}{' '}
+                                                {watchLaterList.series.length === 1
+                                                    ? 'série salva'
+                                                    : 'séries salvas'}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </header>
+
+                                <div className={styles.cardsGrid}>
+                                    {watchLaterList.series.map(serie => (
+                                        <div
+                                            key={serie.tmdbID}
+                                            className={styles.cardItem}
+                                        >
+                                            <Card card={serie} />
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+                        )}
+                    </div>
+                )}
             </main>
+
             <Footer />
         </>
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps<PageProps> = async ctx => {
+    const token = ctx.req.cookies['flix-token']
 
-    const { req } = ctx
-
-    const token = req.cookies['flix-token']
-    if (!token) return {
-        redirect: {
-            destination: '/login',
-            permanent: false
-        },
+    if (!token) {
+        return {
+            redirect: {
+                destination: '/login',
+                permanent: false,
+            },
+        }
     }
 
     try {
         const client = new SetupAPIClient(ctx)
-        const { data } = await client.api.get<WatchLaterProps[]>('/watchLater')
+
+        const { data } = await client.api.get<WatchLaterProps[]>(
+            '/watchLater',
+        )
 
         return {
-            props: { list: data }
+            props: {
+                list: Array.isArray(data) ? data : [],
+            },
         }
-    } catch (err) {
-        console.log("Erro ao buscar lista de assistir mais tarde")
+    } catch (error) {
+        console.error(
+            'Erro ao buscar a lista de assistir mais tarde:',
+            error,
+        )
+
         return {
             props: {
-                list: []
-            }
+                list: [],
+            },
         }
     }
 }

@@ -1,0 +1,239 @@
+.card {
+    padding: 42px;
+
+    background: rgba(24, 24, 27, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+    backdrop-filter: blur(18px);
+}
+
+.header {
+    span {
+        color: var(--red-light);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1.1px;
+        text-transform: uppercase;
+    }
+
+    h1 {
+        margin: 10px 0;
+
+        color: #fafafa;
+        font-size: clamp(28px, 4vw, 40px);
+        letter-spacing: -1.2px;
+    }
+
+    p {
+        margin: 0;
+
+        color: #a1a1aa;
+        font-size: 15px;
+        line-height: 1.6;
+    }
+}
+
+.plans {
+    margin-top: 32px;
+
+    display: grid;
+    gap: 16px;
+}
+
+.plan {
+    width: 100%;
+    padding: 22px;
+
+    color: inherit;
+    text-align: left;
+
+    background: rgba(9, 9, 11, 0.5);
+    border: 1px solid #3f3f46;
+    border-radius: 16px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        border-color: #52525b;
+        background: rgba(9, 9, 11, 0.75);
+    }
+
+    ul {
+        margin: 20px 0 0;
+        padding: 18px 0 0;
+
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px 16px;
+
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        list-style: none;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        color: #a1a1aa;
+        font-size: 13px;
+
+        span {
+            color: #86efac;
+            font-weight: 700;
+        }
+    }
+}
+
+.selected {
+    background: rgba(237, 58, 61, 0.09);
+    border-color: #f65c66;
+    box-shadow: 0 0 0 4px rgba(237, 58, 58, 0.1);
+
+    .radio {
+        border-color: var(--red); //8b5cf6
+
+        &::after {
+            transform: scale(1);
+        }
+    }
+}
+
+.planHeader {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 14px;
+    align-items: center;
+
+    strong {
+        color: #fafafa;
+        font-size: 16px;
+    }
+
+    p {
+        margin: 5px 0 0;
+
+        color: #71717a;
+        font-size: 13px;
+    }
+}
+
+.radio {
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #52525b;
+    border-radius: 50%;
+
+    &::after {
+        content: '';
+
+        width: 10px;
+        height: 10px;
+
+        background: var(--red); //8b5cf6
+        border-radius: 50%;
+
+        transform: scale(0);
+        transition: transform 0.2s ease;
+    }
+}
+
+.price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+
+    strong {
+        font-size: 19px;
+    }
+
+    span {
+        color: #71717a;
+        font-size: 11px;
+    }
+}
+
+.actions {
+    margin-top: 30px;
+
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+
+    button {
+        min-height: 48px;
+        padding: 0 22px;
+
+        border-radius: 11px;
+
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+
+        transition:
+            transform 0.2s ease,
+            filter 0.2s ease,
+            background 0.2s ease;
+    }
+}
+
+.back {
+    color: #d4d4d8;
+    background: transparent;
+    border: 1px solid #3f3f46;
+
+    &:hover {
+        background: #27272a;
+    }
+}
+
+.continue {
+    color: #ffffff;
+    background: var(--red); //7c3aed
+    border: 1px solid var(--red);
+
+    &:hover {
+        filter: brightness(1.1);
+        transform: translateY(-1px);
+    }
+}
+
+@media (max-width: 640px) {
+    .card {
+        padding: 28px 20px;
+    }
+
+    .plan {
+        ul {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .planHeader {
+        grid-template-columns: auto 1fr;
+
+        .price {
+            grid-column: 2;
+            align-items: flex-start;
+        }
+    }
+
+    .actions {
+        button {
+            flex: 1;
+        }
+    }
+}

@@ -8,7 +8,7 @@ export interface UserProps {
     avatar: string,
     token: string,
     verified: boolean,
-    birthday: Date,
+    //birthday: Date,
     news: boolean,
     access: boolean,
     myList: MyListPorps[]
@@ -23,13 +23,13 @@ export interface UserContext {
     phone_number: string | null,
     avatar: string | null,
     verified: boolean,
-    birthday: Date,
+    //birthday: Date,
     news: boolean,
     createdAt: Date,
     watchLater: MyListPorps[],
     subscription: SubscriptionProps,
     donator: boolean,
-    address: Address | null
+    //address: Address | null
 }
 export interface SubscriptionProps {
     id: string,
@@ -44,7 +44,7 @@ export interface UserCookiesProps {
     email: string,
     avatar: string | null,
     verified: boolean,
-    birthday: Date,
+    //birthday: Date,
     news: boolean,
     createdAt: Date,
     subscription: SubscriptionProps,

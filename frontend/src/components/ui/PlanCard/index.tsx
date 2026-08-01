@@ -51,7 +51,7 @@ export default function PlanCard({ plan, method }: PlanCardProps) {
                     method &&
                     <div className={styles.method}>
                         <p>Forma de Pagamento</p>
-                        <p>{method === 'billet' ? 'boleto' : method === 'credit' && '1x crédito à vista'}</p>
+                        <p>{method === 'billet' ? 'Boleto' : method === 'credit' && 'Crédito'}</p>
                     </div>
                 }
                 <div className={styles.totalContainer}>

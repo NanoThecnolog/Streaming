@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import styles from './styles.module.scss'
 import { useCallback, useEffect, useState } from "react";
-import Search from "@/components/Searching";
+import Search from "@/pages/api/Searching";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { useTMDB } from "@/contexts/TMDBContext";

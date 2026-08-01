@@ -7,15 +7,26 @@ import { CreditPayment } from '@/@types/payment'
 import { FaCcDinersClub, FaCcMastercard, FaCcVisa } from 'react-icons/fa'
 import { CardNumberVerification } from 'card-validator/dist/card-number'
 import { SiAmericanexpress } from 'react-icons/si'
-import { IoIosArrowBack } from "react-icons/io";
+import { expirationSlicer } from '@/utils/UtilitiesFunctions'
+import { creditTest } from '@/utils/Variaveis'
+
+const loadingEfiPay = async () => {
+    if (typeof window !== 'undefined') {
+        const EfiPay = (await import("payment-token-efi")).default
+        return EfiPay
+    }
+    return null
+}
 
 interface PaymentProps {
     credit: CreditPayment | null | undefined,
-    setCredit: React.Dispatch<React.SetStateAction<CreditPayment | null | undefined>>
-    setMethod: React.Dispatch<React.SetStateAction<"credit" | "billet" | null>>
+    setCredit: React.Dispatch<React.SetStateAction<CreditPayment | null>>
+    check?: (a: boolean) => void
+    setToken?: (s: string) => void
+    //setMethod?: React.Dispatch<React.SetStateAction<"credit" | "billet" | null>>
 }
 
-export default function PaymentCredit({ credit, setCredit, setMethod }: PaymentProps) {
+export default function PaymentCredit({ credit, setCredit, /*check, setToken*/ }: PaymentProps) {
     const [brand, setBrand] = useState<string | null>(null)
     const [validExpiration, setValidExpiration] = useState<boolean | null>(null)
     const [validCVV, setValidCVV] = useState<boolean | null>(null)
@@ -23,17 +34,67 @@ export default function PaymentCredit({ credit, setCredit, setMethod }: PaymentP
     const [checked, setChecked] = useState(false)
 
     const initialCredit = {
-        brand: '',
-        number: '',
-        cvv: '',
-        expiration: '',
-        expirationMonth: '',
-        expirationYear: '',
-        holderName: '',
-        holderDocument: '',
+        brand: creditTest.brand,
+        number: creditTest.number,
+        cvv: creditTest.cvv,
+        expiration: `${creditTest.expiryMonth}/${creditTest.expiryYear}`,
+        expirationMonth: creditTest.expiryMonth,
+        expirationYear: creditTest.expiryYear,
+        holderName: creditTest.holderName,
+        holderDocument: creditTest.holderDocument,
         reuse: false,
         fullComplete: false
     }
+
+    useEffect(() => {
+        loadingEFI()
+    }, [])
+
+    const loadingEFI = () => {
+        let token
+        loadingEfiPay().then((EfiPay) => {
+            if (EfiPay) {
+                token = getToken(EfiPay) //ta gerando token
+            }
+        })
+    }
+
+    const getToken = async (EfiPay: any) => {
+        if (typeof window === 'undefined') return
+
+        //if (!credit || !credit?.expiration || credit.expiration.length !== 4) return
+
+        //const expirationMonth = expirationSlicer(credit.expiration).month
+        //const expirationYear = expirationSlicer(credit.expiration).year
+
+        try {
+            const result = await EfiPay.CreditCard
+                .setAccount(process.env.NEXT_PUBLIC_EFI_ACCOUNT_ID)
+                .setEnvironment(process.env.NEXT_PUBLIC_EFI_ENV)
+                .setCreditCardData({
+                    brand: initialCredit.brand,
+                    number: initialCredit.number,
+                    cvv: initialCredit.cvv,
+                    expirationMonth: initialCredit.expirationMonth,
+                    expirationYear: initialCredit.expirationYear,
+                    holderName: initialCredit.holderName,
+                    holderDocument: initialCredit.holderDocument,
+                    reuse: false,
+                })
+                .getPaymentToken();
+
+            if ("payment_token" in result && "card_mask" in result) {
+                debug.log(`token: ${result.payment_token}`)
+                debug.log(`mask: ${result.card_mask}`)
+                //setToken(result.payment_token)
+            }
+            debug.log('até aqui')
+        } catch (err) {
+            debug.log("Erro ao gerar token", err)
+        }
+    }
+
+
 
     const bandeiras: Record<string, JSX.Element> = {
         'mastercard': <FaCcMastercard size={40} />,
@@ -120,13 +181,13 @@ export default function PaymentCredit({ credit, setCredit, setMethod }: PaymentP
         })
     }, [checked, credit?.number, credit?.expiration, credit?.cvv])
 
+    /*useEffect(() => {
+        check(checked)
+    }, [checked])*/
+
 
     return (
         <section className={styles.container}>
-            <div className={styles.headerContainer}>
-                <IoIosArrowBack onClick={() => setMethod(null)} size={30} style={{ cursor: 'pointer' }} title='voltar' />
-                <h2 className={styles.title}>Pagamento Cartão de Crédito</h2>
-            </div>
             <div className={styles.form}>
                 <div className={styles.input}>
                     <label htmlFor="card-name">Nome do Titular</label>
@@ -134,7 +195,7 @@ export default function PaymentCredit({ credit, setCredit, setMethod }: PaymentP
                         id='card-name'
                         type="text"
                         required
-                        placeholder='Nome do Titular como está no cartão'
+                        placeholder='Titular do Cartão'
                         value={credit?.holderName ?? ""}
                         onChange={handleChange}
                         name='holderName'
@@ -202,8 +263,12 @@ export default function PaymentCredit({ credit, setCredit, setMethod }: PaymentP
                 </div>
             </div>
             <div className={styles.aviso}>
-                <label htmlFor="check">
-                    <input type="checkbox" onChange={(e) => setChecked(e.target.checked)} id="check" />
+                <label htmlFor="checkCredit">
+                    <input
+                        type="checkbox"
+                        onChange={(e) => setChecked(e.target.checked)}
+                        id="checkCredit"
+                    />
                     <p>Concordo com os Termos de Uso e Política de Privacidade.</p>
                 </label>
                 <p>

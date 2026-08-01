@@ -124,7 +124,7 @@ class TMDBService {
     }
     /**
      * Busca informações de um episódio.
-     * @param tmdbID Id do episódio no TMDB
+     * @param tmdbID Id da serie no TMDB
      * @param season Número da Temporada do episódio
      * @returns Retorna um objeto com as informações do episódio.
      */
@@ -180,14 +180,14 @@ class TMDBService {
         }
     }
 
-    async getTrendingMovies() {
+    /*async getTrendingMovies() {
         try {
 
         } catch (err) {
             debug.error("Erro ao buscar trendingMovies", err)
             return null
         }
-    }
+    }*/
 }
 
 export const tmdb = new TMDBService()

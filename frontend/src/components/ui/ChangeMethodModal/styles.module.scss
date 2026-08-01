@@ -1,0 +1,46 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+
+
+    .card {
+        width: 100%;
+        max-width: 600px;
+        height: 100%;
+        max-height: 600px;
+        background-color: var(--black);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        border-radius: .4rem;
+
+        .buttonContainer {
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+
+            button {
+                border-radius: .4rem;
+                color: var(--white);
+                padding: 10px 15px;
+
+            }
+
+            .cancel {
+                background-color: var(--red);
+            }
+
+            .confirm {
+                background-color: var(--green);
+            }
+        }
+    }
+}

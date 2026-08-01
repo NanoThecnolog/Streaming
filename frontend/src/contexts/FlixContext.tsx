@@ -72,7 +72,7 @@ export function FlixProvider({ children }: ContextProviderProps) {
                 name: data.name,
                 email: data.email,
                 avatar: data.avatar,
-                birthday: data.birthday,
+                //birthday: data.birthday,
                 news: data.news,
                 verified: data.verified,
                 createdAt: data.createdAt,
@@ -135,8 +135,11 @@ export function FlixProvider({ children }: ContextProviderProps) {
         const getUserDetails = async () => {
             try {
                 const userData = await axios.get<UserContext>('/api/user')
-                setUser(userData.data)
-                setSubscription(userData.data.subscription)
+                if (userData) {
+                    setUser(userData.data)
+                    setSubscription(userData.data.subscription)
+                }
+
 
             } catch (err) {
                 debug.error("Sem dados do usuário")

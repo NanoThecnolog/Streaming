@@ -486,7 +486,7 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false, tmdbID, m
 
 
 
-        if (video && process.env.NEXT_PUBLIC_DEBUG !== 'development') {
+        if (video /*&& process.env.NEXT_PUBLIC_DEBUG !== 'development'*/) {
             debug.warn('Video terminou. Salvando progresso...')
 
             const epData = extractSeasonEpisode(src)

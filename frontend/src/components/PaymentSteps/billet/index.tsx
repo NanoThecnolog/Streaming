@@ -5,33 +5,29 @@ import Link from 'next/link';
 
 interface PaymentProps {
     setCheck: (e: boolean) => void
-    check: boolean
 }
 
-export default function PaymentBillet({ setCheck, check }: PaymentProps) {
+export default function PaymentBillet({ setCheck }: PaymentProps) {
 
 
-    const handleCheck = () => {
-        setCheck(!check)
+    const handleCheck = (e: boolean) => {
+        setCheck(e)
+
     }
 
     return (
         <section className={styles.container}>
-            <div className={styles.header}>
-                <h2>Pagamento com Boleto bancário</h2>
-            </div>
             <div className={styles.billet}>
                 <AiOutlineBarcode size={100} />
             </div>
             <p>Seu boleto será gerado após finalizar sua assinatura!</p>
 
             <div className={styles.aviso}>
-                <label htmlFor="check">
+                <label htmlFor="checkBillet">
                     <input
                         type="checkbox"
-                        onChange={handleCheck}
-                        id="check"
-                        checked={check}
+                        onChange={(e) => handleCheck(e.target.checked)}
+                        id="checkBillet"
                     />
                     <p>Concordo com os Termos de Uso e Política de Privacidade.</p>
                 </label>

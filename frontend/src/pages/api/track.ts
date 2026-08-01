@@ -1,3 +1,4 @@
+import { debug } from '@/classes/DebugLogger';
 import { SetupAPIClient } from '@/services/api';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { parseCookies } from 'nookies';
@@ -8,8 +9,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(405).end(`Method ${req.method} Not Allowed`)
     }
 
+    debug.log("iniciando chamada da rota de track")
     const { path } = req.body;
-    //console.log("path recebido: ", path)
+    debug.log("path recebido: ", path)
     if (!path || typeof path !== 'string') {
         console.log("Erro com path recebido na rota de tracking")
         return res.status(400).json({ error: 'Path Inválido' })
@@ -23,11 +25,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const cookies = parseCookies({ req })
     const token = cookies['flix-token']
     if (!token) {
+        debug.log("sem token")
         return res.status(204).end()
     }
 
     const client = new SetupAPIClient({ req })
     try {
+        debug.log('registrando track')
         await client.api.post('/track', { path })
         return res.status(200).json({ message: 'ok' })
     } catch (err) {

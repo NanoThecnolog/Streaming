@@ -1,6 +1,6 @@
 import { Address } from '@/@types/efi/chargeEfi';
 import { PlanProps } from '@/@types/payment';
-import { CreateSubscriptionDto } from '@/@types/subscriptions/createSubscription';
+import { CreateSubscriptionDto, EditSubscriptionDto } from '@/@types/subscriptions/createSubscription';
 import { debug } from '@/classes/DebugLogger';
 import { Functions } from '@/classes/Functions';
 import { Normalize } from '@/classes/Normalize';
@@ -15,11 +15,11 @@ export interface EditUserRequest {
     name?: string,
     avatar?: string,
     password?: string,
-    birthday?: Date,
+    //birthday?: Date,
     news?: boolean,
     cpf?: string,
     phone_number?: string,
-    address?: Address,
+    //address?: Address,
     donator?: boolean
 }
 
@@ -30,7 +30,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     const data = req.body
-    if (!data.customer || !data.customer.address)
+    if (!data.customer)
         return res.status(400).json({ error: "Dados do cliente inválidos" })
 
     const token = req.cookies['flix-token']
@@ -46,34 +46,34 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             return res.status(401).json({ error: "ID do usuário não encontrado" })
 
         //busca de planos
-        const plans = await apiSub.get<PlanProps[]>('/plans/database')
+        const { data: planData } = await apiSub.get<PlanProps>(`/plans/database/${data.planId}`)
         //console.log(plans.data)
 
-        const planData = plans.data.find(p => p.planId === data.planId)
+        //const planData = plans.data.find(p => p.planId === data.planId)
         //console.log(planData)
 
         if (!planData) return res.status(400).json({ message: "Plano não encontrado" })
 
         const customer = data.customer
-        const address = customer.address
+        //const address = customer.address
 
         if (!Validate.cpf(customer.cpf))
             return res.status(400).json({ message: "CPF inválido!" })
 
         const normalizeData = {
             name: Normalize.names(customer.name),
-            birth: Functions.formatBirth(customer.birthday ?? ""),
+            //birth: Functions.formatBirth(customer.birthday ?? ""),
             cpf: Normalize.cpf(customer.cpf),
             phone_number: Normalize.phone(customer.phone_number),
-            cep: Normalize.cep(address.zipcode),
-            state: Normalize.state(address.state)
+            //cep: Normalize.cep(address.zipcode),
+            //state: Normalize.state(address.state)
         }
-        if (!/^\d{4}-\d{2}-\d{2}$/.test(normalizeData.birth)) {
+        /*if (!/^\d{4}-\d{2}-\d{2}$/.test(normalizeData.birth)) {
             return res.status(400).json({ message: "Data de nascimento no formato incorreto." })
-        }
+        }*/
         const user = {
             name: normalizeData.name,
-            address,
+            //address,
             phone_number: normalizeData.phone_number,
             cpf: normalizeData.cpf,
         }
@@ -91,7 +91,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 cpf: normalizeData.cpf,
                 email: customer.email,
                 phone_number: normalizeData.phone_number,
-                birth: normalizeData.birth,
+                /*birth: normalizeData.birth,
                 address: {
                     street: address.street,
                     number: address.number,
@@ -100,12 +100,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     city: address.city,
                     complement: address.complement ?? "",
                     state: normalizeData.state,
-                }
+                }*/
             },
             expire_at: expireAt,
         }
 
-        const body: CreateSubscriptionDto = {
+        const body: EditSubscriptionDto = {
             planId: planData.planId,
             items: [
                 {

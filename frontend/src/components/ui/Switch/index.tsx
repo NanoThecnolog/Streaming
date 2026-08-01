@@ -4,6 +4,7 @@ import styles from './styles.module.scss'
 interface SwitchProps {
     checked: boolean;
     onChange?: (checked: boolean) => void;
+    disabled: boolean
 }
 
 export default function Switch({ checked, onChange }: SwitchProps) {

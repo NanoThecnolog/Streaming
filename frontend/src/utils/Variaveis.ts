@@ -3,6 +3,9 @@
 import { mongoService } from "@/classes/MongoContent"
 import { FAQ } from "@/pages/faq"
 import { formatPrice } from "./UtilitiesFunctions"
+import { IconType } from "react-icons/lib"
+import { FaCcDinersClub, FaCcMastercard, FaCcVisa } from "react-icons/fa"
+import { SiAmericanexpress } from "react-icons/si"
 
 export const cookieOptions = {
     maxAge: 15 * 24 * 60 * 60 * 1000,
@@ -484,11 +487,19 @@ export const creditTest = {
     brand: 'visa',
     number: '4485785674290087',
     cvv: '123',
-    expirationMonth: '05',
-    expirationYear: '2029',
+    expiryMonth: '05',
+    expiryYear: '2029',
     holderName: 'Gorbadoc Oldbuck',
     holderDocument: '94271564656',
     reuse: false
+}
+
+export const brands: Record<string, IconType> = {
+    'mastercard': FaCcMastercard,
+    'visa': FaCcVisa,
+    'maestro': FaCcMastercard,
+    'diners-club': FaCcDinersClub,
+    'american-express': SiAmericanexpress,
 }
 
 export const normalizeAudioTrack: Record<string, string> = {

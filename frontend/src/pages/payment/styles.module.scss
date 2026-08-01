@@ -1,211 +1,99 @@
-.mainPage {
-    //background-color: var(--white);
-    //height: 100%;
+.container {
+    min-height: 100vh;
+    padding: 0 24px 40px;
+
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    //flex-wrap: wrap;
-    padding: 140px 20px;
-    gap: 30px;
+    flex-direction: column;
+
+    color: #f4f4f5;
+    background:
+        radial-gradient(circle at top left,
+            rgba(126, 34, 206, 0.14),
+            transparent 34%),
+        radial-gradient(circle at top right,
+            rgba(220, 38, 38, 0.1),
+            transparent 30%),
+        #09090b;
+
     font-family: var(--font-Roboto);
-    position: relative;
+}
 
+.checkout {
+    width: 100%;
+    max-width: 1180px;
+    margin: 36px auto 0;
+}
 
-    .articleContainer {
-        background-color: var(--white);
-        color: var(--black);
-        height: auto;
-        //width: 1020px;
-        width: 100%;
-        max-width: 800px;
-        //padding: 20px;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+.content {
+    margin-top: 28px;
 
-        h2 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 28px;
+    align-items: start;
+}
 
-        .payOptions {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            //margin-bottom: 20px;
-            flex-wrap: wrap;
+.formArea,
+.summaryArea {
+    min-width: 0;
+}
 
-            .methodButton {
-                width: 180px;
-                height: 45px;
-                border-radius: 2rem;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-weight: 700;
-                background-color: var(--red);
-                color: var(--white);
-                transition: .4s cubic-bezier(.2, 0, .2, 1);
+.footer {
+    width: 100%;
+    max-width: 1180px;
+    margin: auto auto 0;
+    padding-top: 48px;
 
-                &:hover {
-                    background-color: var(--red-selected);
-                    transform: scale(1.02);
-                }
-            }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
 
-        }
+    color: #71717a;
+    font-size: 13px;
 
-        .formContainer {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-
-            .form {
-                display: flex;
-                flex-direction: column;
-                gap: 30px;
-
-                .paymentContainer {
-                    width: 100%;
-                    display: flex;
-                    justify-content: center;
-                    padding: 40px 0;
-                }
-            }
-
-            .buttonContainer {
-                display: flex;
-                justify-content: center;
-
-                button {
-                    width: 100%;
-                    max-width: 350px;
-                    height: 55px;
-                    border-radius: 2rem;
-                    font-size: 1rem;
-                    font-weight: 700;
-                    background-color: var(--red);
-                    color: var(--white);
-                    transition: .4s;
-
-                    &:hover:enabled {
-                        //transform: scale(1.05);
-                        transform: translateY(-3px)
-                    }
-                }
-
-                .disabled {
-                    background-color: #ccc;
-                    cursor: not-allowed;
-                    color: #666;
-                }
-            }
-        }
+    p,
+    span {
+        margin: 0;
     }
 
-    .asideContainer {
-        background-color: var(--white);
-        width: 100%;
-        max-width: 320px;
-        padding: 20px;
-        border-radius: .4rem;
-        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
-        color: var(--black);
-        position: sticky;
-        top: 120px;
+    span {
+        text-align: right;
     }
 }
 
-@media (max-width: 1024px) {
-    .mainPage {
-        flex-direction: column;
-        align-items: center;
-
-        .asideContainer {
-            position: relative;
-            top: 0;
-            max-width: 100%;
-        }
-    }
-}
-
-@media(max-width: 768px) {
-    .mainPage {
-        //flex-direction: column;
-        //align-items: center;
-        padding: 120px 15px 60px 15px;
-        gap: 20px;
-
-        .articleContainer {
-            width: 100%;
-            max-width: 100%;
-            padding: 20px;
-        }
-
-        .payOptions {
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-
-            .methodButton {
-                width: 100%;
-            }
-        }
-
-        .asideContainer {
-            width: 100%;
-            height: auto;
-            text-align: center;
-
-            .planCard {
-                min-height: 300px;
-            }
-        }
-    }
-
-    .sectionContainer {
-        width: 100%;
-    }
-
-
-}
-
-@media (max-width: 480px) {
-    .mainPage * {
-        max-width: 100%;
-        box-sizing: border-box;
-
-    }
-
-    .mainPage {
-        flex-direction: column-reverse;
-    }
-
-    .formContainer {
-        gap: 20px;
-
-        .form {
-            gap: 25px;
-        }
-
-        .buttonContainer button {
-            max-width: 100%;
-        }
-    }
-
-    .payOptions {
-        flex-direction: column;
-
-        .methodButton {
-            width: 100%;
-        }
-    }
-
-    .addressGrid {
+@media (max-width: 940px) {
+    .content {
         grid-template-columns: 1fr;
     }
 
-    .articleContainer {
-        padding: 15px;
+    .summaryArea {
+        order: -1;
+    }
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: 0 16px 32px;
+    }
+
+    .checkout {
+        margin-top: 22px;
+    }
+
+    .content {
+        margin-top: 20px;
+        gap: 20px;
+    }
+
+    .footer {
+        padding-top: 32px;
+
+        flex-direction: column;
+        align-items: flex-start;
+
+        span {
+            text-align: left;
+        }
     }
 }

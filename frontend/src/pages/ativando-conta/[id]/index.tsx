@@ -17,7 +17,7 @@ interface ReturnProps {
     email: string;
     addressId: string | null;
     name: string;
-    birthday: Date;
+    //birthday: Date;
     cpf: string | null;
     phone_number: string | null;
     password: string;
@@ -25,7 +25,7 @@ interface ReturnProps {
     avatar: string | null;
     verified: boolean;
     news: boolean;
-    access: boolean;
+    //access: boolean;
     resetToken: string | null;
     resetTokenExpire: Date | null;
     created_at: Date;

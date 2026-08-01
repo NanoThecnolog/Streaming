@@ -1,0 +1,243 @@
+.card {
+    padding: 42px;
+
+    background: rgba(24, 24, 27, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+    backdrop-filter: blur(18px);
+}
+
+.header {
+    span {
+        color: var(--red-light); //a78bfa
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1.1px;
+        text-transform: uppercase;
+    }
+
+    h1 {
+        margin: 10px 0;
+
+        color: #fafafa;
+        font-size: clamp(28px, 4vw, 40px);
+        letter-spacing: -1.2px;
+    }
+
+    p {
+        margin: 0;
+
+        color: #a1a1aa;
+        font-size: 15px;
+    }
+}
+
+.options {
+    margin-top: 32px;
+
+    display: grid;
+    gap: 14px;
+}
+
+.option {
+    width: 100%;
+    padding: 18px 20px;
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 14px;
+    align-items: center;
+
+    color: inherit;
+    text-align: left;
+
+    background: rgba(9, 9, 11, 0.5);
+    border: 1px solid #3f3f46;
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+
+    &:hover {
+        background: rgba(9, 9, 11, 0.78);
+        border-color: #52525b;
+        transform: translateY(-1px);
+    }
+}
+
+.icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--red-light); //c4b5fd
+    background: rgba(237, 58, 58, 0.13);
+    border-radius: 11px;
+
+    font-size: 18px;
+}
+
+.optionContent {
+    p {
+        margin: 5px 0 0;
+
+        color: #71717a;
+        font-size: 13px;
+    }
+}
+
+.optionTitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    strong {
+        color: #f4f4f5;
+        font-size: 15px;
+    }
+
+    span {
+        padding: 4px 7px;
+
+        color: #86efac;
+        background: rgba(34, 197, 94, 0.12);
+        border-radius: 20px;
+
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: none;
+        letter-spacing: 0;
+    }
+}
+
+.radio {
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #52525b;
+    border-radius: 50%;
+
+    &::after {
+        content: '';
+
+        width: 10px;
+        height: 10px;
+
+        background: var(--red); //8b5cf6
+        border-radius: 50%;
+
+        transform: scale(0);
+        transition: transform 0.2s ease;
+    }
+}
+
+.selected {
+    background: rgba(237, 58, 58, 0.09);
+    border-color: var(--red); //8b5cf6
+
+    .radio {
+        border-color: var(--red); //8b5cf6
+
+        &::after {
+            transform: scale(1);
+        }
+    }
+}
+
+.notice {
+    margin-top: 24px;
+    padding: 14px 16px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #a1a1aa;
+    background: rgba(34, 197, 94, 0.07);
+    border: 1px solid rgba(34, 197, 94, 0.15);
+    border-radius: 12px;
+
+    >span {
+        color: #86efac;
+        font-weight: 700;
+    }
+
+    p {
+        margin: 0;
+
+        font-size: 12px;
+        line-height: 1.5;
+    }
+}
+
+.actions {
+    margin-top: 30px;
+
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+
+    button {
+        min-height: 48px;
+        padding: 0 22px;
+
+        border-radius: 11px;
+
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+}
+
+.back {
+    color: #d4d4d8;
+    background: transparent;
+    border: 1px solid #3f3f46;
+
+    &:hover {
+        background: #27272a;
+    }
+}
+
+.continue {
+    color: #ffffff;
+    background: var(--red);
+    border: 1px solid var(--red);
+
+    &:hover {
+        filter: brightness(1.1);
+    }
+}
+
+@media (max-width: 640px) {
+    .card {
+        padding: 28px 20px;
+    }
+
+    .option {
+        padding: 16px;
+    }
+
+    .optionTitle {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .actions {
+        button {
+            flex: 1;
+        }
+    }
+}

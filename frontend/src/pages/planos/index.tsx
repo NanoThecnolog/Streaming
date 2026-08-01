@@ -59,7 +59,7 @@ export default function PagePlans({ plans, tmdbMovies, tmdbSeries }: PagePlansPr
         </>
     )
 }
-//colocar perguntas frequêntes com informações sobre os planos
+//colocar perguntas frequêntes com informações sobre os planos - check
 //melhorar a propaganda
 //antes das perguntas frequentes colocar um comparativo de gasto - check
 export const getServerSideProps: GetServerSideProps = async (ctx) => {

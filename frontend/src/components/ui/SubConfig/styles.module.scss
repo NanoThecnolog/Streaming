@@ -1,130 +1,536 @@
-.sectionContainer {
-    //background-color: green;
-    padding: 5px;
+.subscriptionWrapper,
+.loadingContainer,
+.feedbackContainer,
+.lifetimeContainer,
+.noSubscriptionContainer {
+    width: 100%;
+    box-sizing: border-box;
+}
 
+.subscriptionWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
 
+.subscriptionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
 
-    .accountContainer {
-        //background-color: #771085;
+    padding: 18px;
+
+    background:
+        linear-gradient(135deg,
+            rgba(79, 125, 243, 0.12),
+            rgba(79, 125, 243, 0.025));
+
+    border: 1px solid rgba(79, 125, 243, 0.2);
+    border-radius: 15px;
+
+    @media (max-width: 550px) {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+.planIdentity {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    min-width: 0;
+
+    >div:last-child {
+        min-width: 0;
+    }
+
+    span {
+        display: block;
+        margin-bottom: 3px;
+
+        color: rgba(255, 255, 255, 0.48);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+    }
+
+    h3 {
+        margin: 0;
+
+        font-size: 1.15rem;
+        font-weight: 650;
+        overflow-wrap: anywhere;
+    }
+
+    p {
+        margin: 5px 0 0;
+
+        color: rgba(255, 255, 255, 0.42);
+        font-size: 0.77rem;
+    }
+}
+
+.planIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 46px;
+    height: 46px;
+
+    flex: 0 0 46px;
+
+    color: #91aaff;
+    background: rgba(79, 125, 243, 0.14);
+
+    border: 1px solid rgba(79, 125, 243, 0.18);
+    border-radius: 12px;
+}
+
+.statusBadge {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 7px 11px;
+
+    border: 1px solid transparent;
+    border-radius: 999px;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.statusActive {
+    color: #79e6ad;
+    background: rgba(32, 181, 104, 0.12);
+    border-color: rgba(32, 181, 104, 0.24);
+}
+
+.statusPending {
+    color: #f1ca65;
+    background: rgba(224, 167, 35, 0.12);
+    border-color: rgba(224, 167, 35, 0.24);
+}
+
+.statusCanceled,
+.statusExpired {
+    color: #ff8181;
+    background: rgba(228, 61, 61, 0.12);
+    border-color: rgba(228, 61, 61, 0.24);
+}
+
+.statusInactive,
+.statusDefault {
+    color: rgba(255, 255, 255, 0.65);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.subscriptionSummary {
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    gap: 10px;
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.summaryItem {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    min-width: 0;
+    padding: 14px;
+
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+
+    transition:
+        background-color 0.2s,
+        border-color 0.2s;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.055);
+        border-color: rgba(255, 255, 255, 0.11);
+    }
+
+    >div:last-child {
+        min-width: 0;
+    }
+
+    span {
+        display: block;
+        margin-bottom: 4px;
+
+        color: rgba(255, 255, 255, 0.44);
+        font-size: 0.75rem;
+    }
+
+    strong {
+        display: block;
+
+        font-size: 0.88rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.summaryIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 37px;
+    height: 37px;
+
+    flex: 0 0 37px;
+
+    color: #87a4fa;
+    background: rgba(79, 125, 243, 0.1);
+    border-radius: 10px;
+}
+
+.manageButton {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 13px;
+
+    width: 100%;
+    min-width: 0;
+    padding: 15px;
+
+    color: #fff;
+    text-align: left;
+
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 13px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        border-color 0.2s,
+        transform 0.2s;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(255, 255, 255, 0.12);
+        transform: translateX(3px);
+
+        .manageArrow {
+            transform: translateX(2px);
+        }
+    }
+}
+
+.manageButtonIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 41px;
+    height: 41px;
+
+    color: #88a5fb;
+    background: rgba(79, 125, 243, 0.1);
+    border-radius: 11px;
+}
+
+.manageButtonText {
+    min-width: 0;
+
+    strong,
+    span {
+        display: block;
+    }
+
+    strong {
+        font-size: 0.9rem;
+    }
+
+    span {
+        margin-top: 4px;
+
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 0.76rem;
+        line-height: 1.4;
+    }
+}
+
+.manageArrow {
+    color: rgba(255, 255, 255, 0.4);
+    transition: transform 0.2s;
+}
+
+.loadingContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+
+    min-height: 140px;
+    padding: 28px;
+
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 14px;
+
+    >div {
+
+        strong,
+        span {
+            display: block;
+        }
+
+        strong {
+            font-size: 0.9rem;
+        }
+
+        span {
+            margin-top: 4px;
+
+            color: rgba(255, 255, 255, 0.46);
+            font-size: 0.78rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.spinner {
+    flex: 0 0 auto;
+
+    color: #84a2ff;
+    animation: spin 0.85s linear infinite;
+}
+
+.feedbackContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 30px 20px;
+
+    color: rgba(255, 255, 255, 0.48);
+    text-align: center;
+
+    background: rgba(217, 65, 65, 0.035);
+    border: 1px dashed rgba(217, 65, 65, 0.2);
+    border-radius: 14px;
+
+    svg {
+        margin-bottom: 11px;
+        color: #ee7676;
+    }
+
+    strong {
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 0.9rem;
+    }
+
+    span {
+        max-width: 440px;
+        margin-top: 6px;
+
+        font-size: 0.78rem;
+        line-height: 1.5;
+    }
+}
+
+.lifetimeContainer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(135deg,
+            rgba(173, 120, 35, 0.14),
+            rgba(173, 120, 35, 0.025));
+
+    border: 1px solid rgba(220, 171, 76, 0.22);
+    border-radius: 15px;
+
+    @media (max-width: 520px) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.lifetimeIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 52px;
+    height: 52px;
+
+    flex: 0 0 52px;
+
+    color: #e6bc68;
+    background: rgba(220, 171, 76, 0.11);
+    border-radius: 13px;
+}
+
+.lifetimeContent {
+    min-width: 0;
+
+    >span {
+        display: block;
+        margin-bottom: 3px;
+
+        color: #e4bd70;
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+    }
+
+    h3 {
+        margin: 0;
+        font-size: 1.08rem;
+    }
+
+    p {
+        max-width: 600px;
+        margin: 7px 0 0;
+
+        color: rgba(255, 255, 255, 0.52);
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+
+    small {
+        display: block;
+        margin-top: 9px;
+
+        color: rgba(255, 255, 255, 0.38);
+        font-size: 0.72rem;
+    }
+}
+
+.noSubscriptionContainer {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 16px;
+
+    padding: 19px;
+
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px dashed rgba(255, 255, 255, 0.12);
+    border-radius: 15px;
+
+    @media (max-width: 700px) {
+        grid-template-columns: auto 1fr;
+
+        .choosePlanButton {
+            grid-column: 1 / -1;
+        }
+    }
+
+    @media (max-width: 480px) {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: flex-start;
-        gap: 20px;
-
-        .loadingContainer {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 3rem;
-            gap: 1rem;
-        }
-
-        .spinner {
-            width: 32px;
-            height: 32px;
-            border: 3px solid rgba(255, 255, 255, 0.2);
-            border-top-color: #fff;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .headContainer {
-            h1 {
-                font-size: 3rem;
-                letter-spacing: 3px;
-            }
-
-            p {
-                font-weight: 700;
-            }
-
-        }
-
-        .subscriptionContainer {
-            padding: 10px;
-            border: 1px solid var(--grey);
-            background-color: var(--black);
-            border-radius: .5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 200px;
-            width: 100%;
-
-            .subSince {
-                margin: 15px 0 0 -10px;
-                background-color: var(--red-selected);
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                width: 80%;
-                height: 40px;
-                border-radius: 0 2rem 2rem 0;
-
-                p {
-                    padding-left: 10px;
-                }
-            }
-
-            .subInfo {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
-                letter-spacing: 1.3px;
-                height: 100px;
-                border-bottom: 1px solid rgba(255, 255, 255, .1);
-            }
-
-            .subConfig {
-                display: flex;
-                justify-content: space-between;
-                border-radius: .2rem;
-                padding: 0 7px;
-                align-items: center;
-                cursor: pointer;
-                height: 40px;
-                transition: .4s;
-
-                p {
-                    font-weight: 700;
-                }
-
-                &:hover {
-                    background-color: var(--background-gray-light);
-                }
-            }
-        }
     }
 }
 
+.noSubscriptionIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-@media(max-width: 700px) {
-    .sectionContainer {
-        width: 100%;
-        align-items: center;
+    width: 49px;
+    height: 49px;
+
+    flex: 0 0 49px;
+
+    color: #8da8fa;
+    background: rgba(79, 125, 243, 0.1);
+    border-radius: 13px;
+}
+
+.noSubscriptionContent {
+    min-width: 0;
+
+    >span {
+        display: block;
+        margin-bottom: 3px;
+
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+    }
+
+    h3 {
+        margin: 0;
+        font-size: 0.98rem;
+    }
+
+    p {
+        margin: 6px 0 0;
+
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 0.77rem;
+        line-height: 1.45;
     }
 }
 
-@media (min-width: 701px) and (max-width: 999px) {
-    .sectionContainer {
+.choosePlanButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-height: 40px;
+    padding: 9px 14px;
+
+    color: #fff;
+    background: #4f7df3;
+
+    border: 0;
+    border-radius: 10px;
+
+    font-size: 0.82rem;
+    font-weight: 600;
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        transform 0.2s;
+
+    &:hover {
+        background: #608af5;
+        transform: translateY(-1px);
+    }
+
+    @media (max-width: 480px) {
         width: 100%;
-        align-items: center;
-        justify-content: center;
     }
 }
 
-@media (min-width: 1000px) and (max-width: 1280px) {
-    .sectionContainer {
-        width: 100%;
-        align-items: center;
-        justify-content: center;
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
     }
 }

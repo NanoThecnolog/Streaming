@@ -23,15 +23,15 @@ export default function App({ Component, pageProps }: AppProps) {
   const { user } = useFlix()
 
   useEffect(() => {
-    if (process.env.NODE_ENV !== 'production') return
+    //if (process.env.NODE_ENV !== 'production') return
 
     const trackingRoute = async (url: string) => {
       //if (user?.cpf === '14510752784') return
       //debug.log("url no tracking", url)
-      if (!url.includes('watch')) {
+      /*if (!url.includes('watch')) {
         debug.log("não é uma pagina watch")
         return
-      }
+      }*/
 
       pageview(url)
       if (lastPathRef.current === url) return

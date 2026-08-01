@@ -50,43 +50,46 @@ export default function Prices({ plans, setPlanSelected }: PricesProps) {
                         plans ?
                             <div className={styles.plansContainer}>
                                 {
-                                    plans.length > 0 && plans.sort((a, b) => a.price - b.price).filter(plan => plan.id !== "b7c7a2d4-9b6c-4f9c-9b0e-123456789abc").map(p => (
-                                        <div
-                                            className={`${styles.plan}
+                                    plans.length > 0 && plans
+                                        .sort((a, b) => a.price - b.price)
+                                        .filter(plan => plan.id !== (process.env.NODE_ENV === 'production' ? "b7c7a2d4-9b6c-4f9c-9b0e-123456789abc" : ""))
+                                        .map(p => (
+                                            <div
+                                                className={`${styles.plan}
                                             ${p.type === "semestral" && styles.border}`}
-                                            key={p.planId}
-                                            onClick={() => handlePlanClick(p.planId)}
-                                        >
-                                            {p.type === "semestral" && <div className={styles.recomended}>Mais Recomendado</div>}
-                                            <div className={styles.infoPlan}>
-                                                <div className={styles.planDetails}>
-                                                    <p className={styles.planName}>
-                                                        {p.name}
-                                                    </p>
-                                                    <p className={styles.planPrice}>
-                                                        {handlePrice(p.price, p.type)}/mês
-                                                    </p>
-                                                    {desconto[p.type] > 0 ? <p className={styles.priceDiscount}>{desconto[p.type]}% OFF</p> : <p className={styles.priceDiscount}></p>}
-                                                    <p className={styles.planType}>
-                                                        Plano <span>{p.type}</span>
-                                                    </p>
+                                                key={p.planId}
+                                                onClick={() => handlePlanClick(p.planId)}
+                                            >
+                                                {p.type === "semestral" && <div className={styles.recomended}>Mais Recomendado</div>}
+                                                <div className={styles.infoPlan}>
+                                                    <div className={styles.planDetails}>
+                                                        <p className={styles.planName}>
+                                                            {p.name}
+                                                        </p>
+                                                        <p className={styles.planPrice}>
+                                                            {handlePrice(p.price, p.type)}/mês
+                                                        </p>
+                                                        {desconto[p.type] > 0 ? <p className={styles.priceDiscount}>{desconto[p.type]}% OFF</p> : <p className={styles.priceDiscount}></p>}
+                                                        <p className={styles.planType}>
+                                                            Plano <span>{p.type}</span>
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <ul>
+                                                            <li>Acesso a filmes e séries raros</li>
+                                                            <li>Mais de 800 títulos disponíveis, incluindo obras difíceis de encontrar</li>
+                                                            <li>Atualizações frequentes com novos conteúdos</li>
+                                                            <li>Plataforma estável, organizada e sem anúncios invasivos</li>
+                                                            <li>Suporte humano e direto, todos os dias</li>
+                                                            <li>Cancele sua assinatura quando quiser, sem burocracia</li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
-                                                <div>
-                                                    <ul>
-                                                        <li>Acesso a filmes e séries raros</li>
-                                                        <li>Mais de 800 títulos disponíveis, incluindo obras difíceis de encontrar</li>
-                                                        <li>Atualizações frequentes com novos conteúdos</li>
-                                                        <li>Plataforma estável, organizada e sem anúncios invasivos</li>
-                                                        <li>Suporte humano e direto, todos os dias</li>
-                                                        <li>Cancele sua assinatura quando quiser, sem burocracia</li>
-                                                    </ul>
+                                                <div className={styles.buttonContainer}>
+                                                    <button onClick={() => handleClick(p.id)}>Escolha seu plano</button>
                                                 </div>
                                             </div>
-                                            <div className={styles.buttonContainer}>
-                                                <button onClick={() => handleClick(p.id)}>Escolha seu plano</button>
-                                            </div>
-                                        </div>
-                                    ))
+                                        ))
                                 }
                             </div> : <div className={styles.loader}>
                                 <Spinner />

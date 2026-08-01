@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 import { UserProps } from "@/@types/user";
-import { NewUserProps } from "@/@types/userTypes/signUp";
+import { NewUserProps, SignUpMethodResponse } from "@/@types/userTypes/signUp";
 import { SetupAPIClient } from "@/services/api";
 import { apiSub } from "@/services/apiSubManager";
 import { SubDetailsResponseProps } from "@/@types/subscriptions/subDetails";
@@ -24,18 +24,18 @@ export class UserMethods {
             return null
         }
     }
-    public async signUp(user: NewUserProps) {
+    public async signUp(user: NewUserProps): Promise<SignUpMethodResponse> {
         const userData = {
             name: user.name,
             email: user.email,
-            birthday: new Date(user.birthday).toISOString(),
+            //birthday: new Date(user.birthday).toISOString(),
             password: user.password,
             cpf: user.cpf,
             phone_number: user.phone_number,
-            address: user.address
+            //address: user.address
         }
-        const response = await this.client.api.post('/user', userData)
-        return response.data
+        const create = await this.client.api.post<SignUpMethodResponse>('/user', userData)
+        return create.data
     }
 
     async getSubscriptionDetails(id: number) {

@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useCallback, useEffect, useState } from "react";
 import styles from "@/styles/Home.module.scss";
-import Search from "@/components/Searching";
+import Search from "@/pages/api/Searching";
 import SEO from "@/components/SEO";
 import { useTMDB } from "@/contexts/TMDBContext";
 import Loading from "@/components/ui/Loading";

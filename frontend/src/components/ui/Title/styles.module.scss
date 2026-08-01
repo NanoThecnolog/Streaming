@@ -3,6 +3,14 @@
         margin: 0;
         font-size: 3rem;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
+        color: var(--white);
+        mix-blend-mode: difference;
+        //outline: 2px solid red;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
     }
 
     .harryFont {
@@ -21,8 +29,5 @@
         text-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
     }
 
-    h3 {
-        font-size: 1.5rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
-    }
+
 }

@@ -1,321 +1,692 @@
-import { useRouter } from 'next/router'
+import Head from 'next/head'
+import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
-import { FormEvent, useEffect, useState } from 'react'
-import Header from '@/components/Header'
-import SEO from '@/components/SEO'
-import Footer from '@/components/Footer'
-import { debug } from '@/classes/DebugLogger'
-import PlanCard from '@/components/ui/PlanCard'
-import User from '@/components/PaymentSteps/User'
-import PaymentBillet from '@/components/PaymentSteps/billet'
-import { CreditPayment, PlanProps, UserDataProps } from '@/@types/payment'
-import axios from 'axios'
-import PaymentLoader from '@/components/ui/PaymentLoader'
-import { toast } from 'react-toastify'
-import { useFlix } from '@/contexts/FlixContext'
-import { Functions } from '@/classes/Functions'
-import { Validate } from '@/classes/validator'
-import { Normalize } from '@/classes/Normalize'
+import { EmailStep } from '@/components/ui/Pagamentos/EmailStep'
+import { PlanStep } from '@/components/ui/Pagamentos/PlanStep'
+import { PaymentMethodStep } from '@/components/ui/Pagamentos/PaymentMethodStep'
+import { CheckoutHeader } from '@/components/ui/Pagamentos/CheckoutHeader'
+import { CheckoutSteps } from '@/components/ui/Pagamentos/CheckoutSteps'
+import { OrderSummary } from '@/components/ui/Pagamentos/OrderSummary'
+import { PersonalDataStep } from '@/components/ui/Pagamentos/PersonalDataStep'
+import { ConfirmationStep } from '@/components/ui/Pagamentos/ConfirmationStep'
 import { GetServerSideProps } from 'next'
-//import SelectPayment from '@/components/PaymentSteps'
+import axios, { AxiosError } from 'axios'
+import { debug } from '@/classes/DebugLogger'
+import { PlanProps } from '@/@types/payment'
+import valid from 'card-validator'
+import { creditTest } from '@/utils/Variaveis'
+import { toast } from 'react-toastify'
+import PaymentLoader from '@/components/ui/PaymentLoader'
 
+export type CheckoutStep =
+    | 'email'
+    | 'plan'
+    | 'payment'
+    | 'personal-data'
+    | 'confirmation'
+/*| 'password'*/
 
-import { apiEmail } from '@/services/apiMessenger'
+export type PaymentMethod =
+    | 'pix'
+    | 'credit-card'
+    | 'billet'
 
+export type PaymentStatus =
+    | 'idle'
+    | 'processing'
+    | 'pending'
+    | 'confirmed'
+    | 'failed'
 
+export interface SelectedPlan {
+    type: string
+    name: string
+    description: string
+    features: string[]
+}
 
-export default function Payment() {
-    const { user, subscription } = useFlix()
+export interface PersonalData {
+    name: string
+    cpf: string
+    phoneNumber: string
+    password: string
+    confirmPassword: string
+}
 
-    //descomentar quando for implementar
-    /*useEffect(() => {
-        if (user || subscription)
-            router.push('/me')
-    }, [user, subscription])*/
+export interface CreditCardData {
+    brand: string
+    holderName: string
+    number: string
+    expiryMonth: string
+    expiryYear: string
+    cvv: string
+}
 
-    const router = useRouter()
-    //const { user } = useFlix()
-    const { id } = router.query
-    const [isLoading, setIsLoading] = useState(false)
-    const [plan, setPlan] = useState<PlanProps>()
-    const [method, setMethod] = useState<'credit' | 'billet' | null>('billet')
-    const [checked, setChecked] = useState(false)
-    const [validation, setValidation] = useState<boolean>(true)
-    const [confirmarSenha, setConfirmarSenha] = useState('')
-    const [dataUser, setDataUser] = useState<UserDataProps>(
+export interface PaymentApiResponse {
+    subscription: {
+        code: number
+        data: PaymentResponseData
+    }
+    user: {
+        systemNotify: string,
+        user: {
+            cpf: string,
+            email: string,
+            id: string,
+            name: string,
+            phone_number: string
+        }
+        userNotify: string
+    }
+}
+
+export interface PaymentResponseData {
+    subscription_id: number
+    status: string
+
+    barcode?: string
+
+    pix?: {
+        qrcode: string
+        qrcode_image: string
+    }
+
+    link?: string
+    billet_link?: string
+
+    pdf?: {
+        charge: string
+    }
+
+    expire_at?: string
+
+    plan: {
+        id: number
+        interval: number
+        repeats: number | null
+    }
+
+    charge: {
+        id: number
+        status: string
+        parcel: number
+        total: number
+    }
+
+    first_execution: string
+    total: number
+
+    payment:
+    | 'credit_card'
+    | 'banking_billet'
+}
+
+interface Props {
+    plans: PlanProps[]
+}
+
+const loadingEfiPay = async () => {
+    if (typeof window !== 'undefined') {
+        const EfiPay = (await import("payment-token-efi")).default
+        return EfiPay
+    }
+    return null
+}
+
+export default function NewPaymentPage({ plans }: Props) {
+    //debug.log("planos recebidos na pagina", plans)
+
+    //const [token, setToken] = useState<string>('')
+    const [currentStep, setCurrentStep] = useState<CheckoutStep>('email')
+
+    const [email, setEmail] = useState('')
+    const [personalData, setPersonalData] = useState<PersonalData>(
         {
-            nome: "",
-            cpf: "",
-            email: "",
-            telefone: "",
-            birthday: '',
+            name: '', cpf: '',
+            phoneNumber: '',
             password: '',
-            address: {
-                street: "",
-                number: "",
-                neighborhood: "",
-                zipcode: "",
-                city: "",
-                complement: "",
-                state: "",
-            },
+            confirmPassword: ''
         }
     )
-    const getPlans = async () => {
-        try {
-            const plans = await axios.get('/api/plan/list')
-            const data: PlanProps[] = plans.data
-            const plan = data.find(p => p.id === id)
-            setPlan(plan)
-        } catch (err) {
-            debug.error("Erro ao buscar planos", err)
+    const [creditCard, setCreditCard] = useState<CreditCardData>(
+        {
+            brand: creditTest.brand ?? '',
+            holderName: creditTest.holderName ?? '',
+            number: creditTest.number ?? '',
+            expiryMonth: creditTest.expiryMonth ?? '',
+            expiryYear: creditTest.expiryYear ?? '',
+            cvv: creditTest.cvv ?? ''
+        })
+
+    const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>('credit-card')
+    const [paymentStatus, setPaymentStatus] = useState<PaymentStatus>('idle')
+    const [selectedPlan, setSelectedPlan] = useState<PlanProps | null>(null)
+
+    const [isProcessing, setIsProcessing] = useState(false)
+    const [paymentError, setPaymentError] = useState<string | null>(null)
+    const [paymentResult, setPaymentResult] = useState<PaymentApiResponse | null>(null)
+
+    useEffect(() => {
+        if (plans.length === 0) return
+        setSelectedPlan(plans[0])
+    }, [plans])
+
+    useEffect(() => {
+        const validate = valid.number(creditCard.number)
+        setCreditCard(prev => ({ ...prev, brand: validate.card?.type || "" }))
+    }, [creditCard.number])
+
+
+    const renderCurrentStep = () => {
+        switch (currentStep) {
+            case 'email':
+                return (
+                    <EmailStep
+                        email={email}
+                        onEmailChange={setEmail}
+                        onContinue={() => setCurrentStep('plan')}
+                    />
+                )
+
+            case 'plan':
+                return (
+                    <PlanStep
+                        plans={plans}
+                        selectedPlan={selectedPlan}
+                        onSelectPlan={setSelectedPlan}
+                        onBack={() => setCurrentStep('email')}
+                        onContinue={() => setCurrentStep('payment')}
+                    />
+                )
+
+            case 'payment':
+                return (
+                    <PaymentMethodStep
+                        selectedMethod={paymentMethod}
+                        onSelectMethod={setPaymentMethod}
+                        onBack={() => setCurrentStep('plan')}
+                        onContinue={() => setCurrentStep('personal-data')}
+                    />
+                )
+            case 'personal-data':
+                return (
+                    <PersonalDataStep
+                        data={personalData}
+                        creditCard={creditCard}
+                        paymentMethod={paymentMethod}
+                        onDataChange={setPersonalData}
+                        onCreditCardChange={setCreditCard}
+                        onBack={() =>
+                            setCurrentStep('payment')
+                        }
+                        onContinue={processPayment}
+                        isProcessing={isProcessing}
+                        paymentError={paymentError}
+                    />
+                )
+
+            case 'confirmation':
+                return (
+                    <ConfirmationStep
+                        email={email}
+                        paymentMethod={paymentMethod}
+                        paymentStatus={paymentStatus}
+                        paymentResult={
+                            paymentResult
+                        }
+                        onBack={() =>
+                            setCurrentStep('personal-data')
+                        }
+                    />
+                )
+
+            /*case 'password':
+                return (
+                    <PasswordStep
+                        email={email}
+                        onBack={() =>
+                            setCurrentStep('confirmation')
+                        }
+                        onFinish={(password) => {
+                            console.log({
+                                email,
+                                password,
+                            })
+                        }}
+                    />
+                )*/
+
+            default:
+                return (
+                    <EmailStep
+                        email={email}
+                        onEmailChange={setEmail}
+                        onContinue={() => setCurrentStep('plan')}
+                    />
+                )
         }
     }
 
-    const handleForm = async (e: FormEvent) => {
-        e.preventDefault()
+    //=====================================================================================================================
+    //============================ Processamento da EFI ===================================================================
+    //=====================================================================================================================
 
-        if (confirmarSenha != dataUser.password) {
-            setValidation(false)
+    const createEfiPaymentToken =
+        async (): Promise<string> => {
+            if (typeof window === 'undefined') {
+                throw new Error(
+                    'A tokenização do cartão precisa ser executada no navegador.',
+                )
+            }
+
+            const cardNumber = onlyNumbers(
+                creditCard.number,
+            )
+
+            const cardValidation =
+                valid.number(cardNumber)
+
+            if (!cardValidation.isValid ||
+                !cardValidation.card) {
+                throw new Error(
+                    'Número do cartão inválido.',
+                )
+            }
+
+            const cpf = onlyNumbers(
+                personalData.cpf,
+            )
+
+            if (cpf.length !== 11) {
+                throw new Error(
+                    'CPF do titular inválido.',
+                )
+            }
+
+            const EfiPay = await loadingEfiPay()
+
+            if (!EfiPay) {
+                throw new Error(
+                    'Não foi possível carregar o serviço de pagamento.',
+                )
+            }
+
+            const accountId = process.env.NEXT_PUBLIC_EFI_ACCOUNT_ID
+
+            const environment = process.env.NEXT_PUBLIC_EFI_ENV as 'production' | 'sandbox'
+
+            if (!accountId || !environment) {
+                throw new Error(
+                    'A configuração da EFI está incompleta.',
+                )
+            }
+
+            const result =
+                await EfiPay.CreditCard
+                    .setAccount(accountId)
+                    .setEnvironment(environment)
+                    .setCreditCardData({
+                        brand:
+                            cardValidation.card.type,
+                        number: cardNumber,
+                        cvv: onlyNumbers(
+                            creditCard.cvv,
+                        ),
+                        expirationMonth:
+                            creditCard.expiryMonth,
+                        expirationYear:
+                            creditCard.expiryYear,
+                        holderName:
+                            creditCard.holderName
+                                .trim(),
+                        holderDocument: cpf,
+                        reuse: false,
+                    })
+                    .getPaymentToken()
+
+            if (
+                !result ||
+                !('payment_token' in result) ||
+                typeof result.payment_token !==
+                'string'
+            ) {
+                throw new Error(
+                    'A EFI não retornou o token do cartão.',
+                )
+            }
+
+            return result.payment_token
+        }
+
+
+    const buildPaymentPayload = (paymentToken?: string) => {
+        if (!selectedPlan) {
+            toast.warning('Selecione um plano antes de continuar.')
             return
         }
-        if (!plan || !plan.planId) return debug.error("Plano inválido")
 
+        const method = getApiPaymentMethod(paymentMethod)
 
-        /*if (method === "credit") {
-            let token
-            loadingEfiPay().then((EfiPay) => {
-                if (EfiPay) {
-                    token = getToken(EfiPay) //ta gerando token
-                }
-            })
-            try {
-                const response = await axios.post('/api/payment', {
+        return {
+            planId: selectedPlan.planId,
+            method,
 
-                })
-            } catch (err) {
+            customer: {
+                name: personalData.name.trim(),
+                email: normalizeEmail(email),
 
-            }
-        }*/
-        //logica para boleto
-        // montagem do customer
-        const validations = [
-            {
-                valid: Validate.fullName(dataUser.nome),
-                message: 'Nome inválido! O nome precisa ter nome e sobrenome'
-            },
-            {
-                valid: Validate.email(dataUser.email),
-                message: 'Email inválido. Tente novamente ou entre em contato conosco!'
-            },
-            {
-                valid: Validate.cpf(dataUser.cpf),
-                message: 'CPF inválido. Tente novamente ou entre em contato conosco!'
-            },
-            {
-                valid: Validate.phone(dataUser.telefone),
-                message: 'Telefone precisa ser no formato DDD+Número (21991234567)'
-            },
-            {
-                valid: Validate.password(dataUser.password),
-                message: 'A senha precisa ter mais de 6 caracteres, maiúsculas, minúsculas, numeros e caracteres especiais'
-            },
-            {
-                valid: Validate.cep(dataUser.address.zipcode),
-                message: 'Cep inválido. Verifique e tente novamente!'
-            },
+                cpf: onlyNumbers(
+                    personalData.cpf,
+                ),
 
-        ]
+                phone_number: onlyNumbers(
+                    personalData.phoneNumber,
+                ),
 
-        for (const { valid, message } of validations) {
-            if (!valid) {
-                toast.error(message)
-                return
-            }
+                password:
+                    personalData.password,
+
+                ...(paymentToken
+                    ? {
+                        payment_token:
+                            paymentToken,
+                    }
+                    : {}),
+            },
         }
-
-
-        const customer = {
-            name: Normalize.names(dataUser.nome),
-            email: dataUser.email,
-            cpf: Normalize.cpf(dataUser.cpf),
-            phone_number: Normalize.phone(dataUser.telefone),
-            birthday: dataUser.birthday,
-            password: dataUser.password,
-            address: {
-                street: dataUser.address.street,
-                number: dataUser.address.number,
-                neighborhood: dataUser.address.neighborhood,
-                zipcode: Normalize.cep(dataUser.address.zipcode),
-                city: dataUser.address.city,
-                state: Normalize.state(dataUser.address.state),
-                complement: dataUser.address.complement
-            }
-        }
-
-        const payload = {
-            planId: plan.planId,
-            customer
-        }
-        debug.log(payload)
-        setIsLoading(true)
-        try {
-            debug.log("Dados do customer", customer)
-            const response = await axios.post('/api/payment', payload)
-            debug.log("Assinatura criada", response.data)
-            if (response.data?.subscription) {
-                debug.log("Assinatura criada com sucesso!")
-            }
-            toast.success("Assinatura criada com sucesso!")
-            const subData = response.data.subscription.data
-            const params = {
-                pdf: subData.pdf.charge,
-                pix: subData.pix.qrcode_image,
-                barcode: subData.barcode
-            }
-            router.push(`/success?${new URLSearchParams(params).toString()}`)
-
-        } catch (err) {
-            toast.error("Erro ao criar assinatura!")
-            debug.log("Erro ao chamar rota de pagamento", err)
-        } finally {
-            setIsLoading(false)
-            //router.push('/success')
-        }
-
     }
 
-    /*const getToken = async (EfiPay: any) => {
+    /*useEffect(() => {
+        loadingEFI()
+    }, [])
 
+    const loadingEFI = () => {
+        let token
+        loadingEfiPay().then((EfiPay) => {
+            if (EfiPay) {
+                token = getToken(EfiPay) // ta gerando token
+            }
+        })
+    }
+
+    const getToken = async (EfiPay: any) => {
         if (typeof window === 'undefined') return
-        if (!credit || !credit?.expiration || credit.expiration.length !== 4) return
-        const expirationMonth = expirationSlicer(credit.expiration).month
-        const expirationYear = expirationSlicer(credit.expiration).year
+        let brand
+        const validation = valid.number(creditTest.number)
+        if (validation.card) brand = validation.card.type
+        else brand = null
+
+        //if (!credit || !credit?.expiration || credit.expiration.length !== 4) return
+
+        //const expirationMonth = expirationSlicer(credit.expiration).month
+        //const expirationYear = expirationSlicer(credit.expiration).year
 
         try {
             const result = await EfiPay.CreditCard
                 .setAccount(process.env.NEXT_PUBLIC_EFI_ACCOUNT_ID)
                 .setEnvironment(process.env.NEXT_PUBLIC_EFI_ENV)
                 .setCreditCardData({
-                    brand: credit?.brand,
-                    number: credit?.number,
-                    cvv: credit?.cvv,
-                    expirationMonth,
-                    expirationYear,
-                    holderName: credit.holderName ?? dataUser.nome,
-                    holderDocument: dataUser.cpf,
-                    reuse: false,
+                    brand,
+                    number: creditCard.number,
+                    cvv: creditCard.cvv,
+                    expirationMonth: creditCard.expiryMonth,
+                    expirationYear: creditCard.expiryYear,
+                    holderName: creditCard.holderName,
+                    holderDocument: personalData.cpf,
+                    reuse: true,
                 })
                 .getPaymentToken();
+
             if ("payment_token" in result && "card_mask" in result) {
                 debug.log(`token: ${result.payment_token}`)
                 debug.log(`mask: ${result.card_mask}`)
+                //setToken(result.payment_token)
             }
+
+            debug.log('até aqui ok')
         } catch (err) {
             debug.log("Erro ao gerar token", err)
         }
     }*/
+    //===============================================================
+    //===============================================================
 
-    useEffect(() => {
-        const getAddressInfo = async () => {
-            if (dataUser.address.zipcode.length === 8) {
-                const data = await Functions.getAddress(dataUser.address.zipcode)
-                if (!data || data.erro) {
-                    setDataUser((prev) => ({ ...prev, address: { ...prev.address, neighborhood: "", street: "", city: "", state: "" } }))
-                    return
-                }
-                setDataUser((prev) => ({ ...prev, address: { ...prev.address, neighborhood: data.bairro, street: data.logradouro, city: data.localidade, state: data.estado } }))
+    const onlyNumbers = (value: string): string => {
+        return value.replace(/\D/g, '')
+    }
+
+    const normalizeEmail = (value: string): string => {
+        return value.trim().toLowerCase()
+    }
+
+    const validatePassword = (): boolean => {
+        const password =
+            personalData.password
+
+        const confirmation =
+            personalData.confirmPassword
+
+        return (
+            password.length >= 8 &&
+            /[A-Z]/.test(password) &&
+            /[a-z]/.test(password) &&
+            /\d/.test(password) &&
+            password === confirmation
+        )
+    }
+
+    const getApiPaymentMethod = (method: PaymentMethod): 'credit' | 'billet' => {
+        switch (method) {
+            case 'credit-card':
+                return 'credit'
+
+            case 'billet':
+                return 'billet'
+
+            case 'pix':
+                throw new Error(
+                    'O pagamento por Pix ainda não está disponível nesta rota.',
+                )
+
+            default:
+                throw new Error(
+                    'Forma de pagamento inválida.',
+                )
+        }
+    }
+
+    //==================================================================================================================
+    //====================================Processamento de Pagamento ===================================================
+    //==================================================================================================================
+
+    const processPayment = async () => {
+        if (isProcessing) return
+
+        setPaymentError(null)
+        setPaymentResult(null)
+
+        if (!selectedPlan) {
+            setPaymentError(
+                'Selecione um plano antes de continuar.',
+            )
+            return
+        }
+
+        if (!validatePassword()) {
+            setPaymentError(
+                'A senha não atende aos requisitos informados.',
+            )
+            return
+        }
+
+        const phoneNumber = onlyNumbers(
+            personalData.phoneNumber,
+        )
+
+        if (!/^[1-9]{2}9\d{8}$/.test(phoneNumber)) {
+            setPaymentError(
+                'Informe um número de celular válido com DDD.',
+            )
+            return
+        }
+
+        try {
+            setIsProcessing(true)
+            setPaymentStatus('processing')
+
+            let paymentToken:
+                | string
+                | undefined
+
+            if (paymentMethod === 'credit-card') {
+                paymentToken = await createEfiPaymentToken()
             }
+
+            const payload = buildPaymentPayload(paymentToken)
+
+            const response = await axios.post<PaymentApiResponse>('/api/payment',
+                payload,
+                {
+                    headers: {
+                        'Content-Type':
+                            'application/json',
+                    },
+                },
+            )
+            debug.log("resultado da chamada a api/payment", response.data)
+
+            setPaymentResult(response.data)
+
+
+            const paymentType =
+                response.data.subscription.data.payment
+
+            if (paymentType === 'credit_card') {
+                setPaymentStatus('confirmed')
+            } else if (
+                paymentType === 'banking_billet'
+            ) {
+                setPaymentStatus('pending')
+            } else {
+                throw new Error(
+                    'A API retornou uma forma de pagamento desconhecida.',
+                )
+            }
+
+            setCurrentStep('confirmation')
+        } catch (error: unknown) {
+            setPaymentStatus('failed')
+
+            let message =
+                'Não foi possível processar o pagamento.'
+
+            if (axios.isAxiosError(error)) {
+                const axiosError =
+                    error as AxiosError<{
+                        message?: string
+                        error?: string
+                    }>
+
+                message =
+                    axiosError.response?.data
+                        ?.message ??
+                    axiosError.response?.data
+                        ?.error ??
+                    message
+
+                debug.error(
+                    'Erro retornado pela rota /api/payment',
+                    {
+                        status:
+                            axiosError.response
+                                ?.status,
+                        message,
+                    },
+                )
+            } else if (error instanceof Error) {
+                message = error.message
+
+                debug.error(
+                    'Erro durante o pagamento',
+                    error.message,
+                )
+            }
+
+            setPaymentError(message)
+        } finally {
+            setIsProcessing(false)
         }
-        getAddressInfo()
-    }, [dataUser.address.zipcode])
+    }
 
-    useEffect(() => {
-        if (id) {
-            getPlans()
-        }
-    }, [id])
-
-
-    /*useEffect(() => {
-        debug.log("Dados do user no context", user)
-        if (user) setDataUser((prev) => ({
-            ...prev,
-            nome: user.name,
-            email: user.email,
-            birthday: user.birthday.toString(),
-        }))
-    }, [user])*/
-
-    if (!router.isReady) return <></>
+    //===============================================================
+    //===============================================================
 
     return (
         <>
-            <SEO title='Finalizando Assinatura | FlixNext' description='' />
-            <Header />
-            <main className={styles.mainPage}>
-                <article className={styles.articleContainer}>
-                    <section className={styles.formContainer}>
-                        <form className={styles.form} onSubmit={handleForm}>
-                            <User
-                                data={dataUser}
-                                setDataUser={setDataUser}
-                                senha={confirmarSenha}
-                                confirmarSenha={setConfirmarSenha}
-                                valid={validation}
-                            />
-                            <div className={styles.paymentContainer}>
-                                <PaymentBillet setCheck={setChecked} check={checked} />
-                            </div>
-                            <div className={styles.buttonContainer}>
-                                <button
-                                    type='submit'
-                                    disabled={checked ? false : true}
-                                    className={`${checked ? '' : styles.disabled}`}
-                                >
-                                    Finalizar Assinatura
-                                </button>
-                            </div>
-                        </form>
-                    </section>
-                </article>
-                <aside className={styles.asideContainer}>
-                    {plan && (
-                        <PlanCard plan={plan} method={method} />
-                    )}
-                </aside>
+            <Head>
+                <title>Assine a FlixNext</title>
+                <meta
+                    name="description"
+                    content="Escolha seu plano e conclua sua assinatura."
+                />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+                />
+            </Head>
+            <main className={styles.container}>
+                <CheckoutHeader />
+                <section className={styles.checkout}>
+                    <CheckoutSteps currentStep={currentStep} />
+
+                    <div className={styles.content}>
+                        <section className={styles.formArea}>
+                            {renderCurrentStep()}
+                        </section>
+
+                        {
+                            paymentResult ? null : <aside className={styles.summaryArea}>
+                                <OrderSummary
+                                    plan={selectedPlan}
+                                    email={email}
+                                />
+                            </aside>
+                        }
+                    </div>
+                </section>
+
+                <footer className={styles.footer}>
+                    <p>
+                        Pagamento protegido e processado em ambiente
+                        seguro.
+                    </p>
+
+                    <span>
+                        Ao continuar, você concorda com os termos de uso e
+                        a política de privacidade.
+                    </span>
+                </footer>
             </main>
-            <Footer />
-            {isLoading && <PaymentLoader />}
+
+            {isProcessing && <PaymentLoader />}
         </>
     )
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
-    const { req } = ctx
+    const baseUrl = process.env.NEXT_PUBLIC_WEBSITE_LINK
+    try {
+        const plans = await axios.get(`${baseUrl}/api/plan/list`)
 
-    const token = req.cookies['flix-token']
-
-    if (token) {
-        console.log('token encontrado')
         return {
-            redirect: {
-                destination: '/me',
-                permanent: false
+            props: {
+                plans: plans.data
             }
         }
-    }
 
-    try {
-        debug.log("Enviando...")
-        const sendingNotification = await apiEmail.post('notification/access/paymentpage')
-        debug.log("email notificação de acesso a pagina de pagamentos enviado", sendingNotification)
-        return {
-            props: {}
-        }
     } catch (err) {
-        debug.log("Erro ao enviar notificação de acesso a pagina de pagamentos", err)
+        debug.error('Erro ao buscar dados dos planos', err)
         return {
             props: {}
         }

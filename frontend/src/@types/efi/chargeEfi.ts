@@ -1,9 +1,9 @@
 export interface ChargeDetailResponse {
     code: number;
-    data: Data;
+    data: ChargeData;
 }
 
-export interface Data {
+export interface ChargeData {
     charge_id: number;
     total: number;
     status: string;
@@ -20,10 +20,10 @@ export interface Data {
 export interface Customer {
     name: string;
     cpf: string;
-    birth: Date;
+    //birth: Date;
     email: string;
     phone_number: string;
-    address: Address;
+    //address: Address;
 }
 
 export interface Address {
@@ -50,8 +50,9 @@ export interface Item {
 export interface Payment {
     method: string;
     created_at: Date;
-    message: null;
-    banking_billet: BankingBillet;
+    message: string | null;
+    banking_billet?: BankingBillet;
+    credit_card?: CreditBillet;
 }
 
 export interface BankingBillet {
@@ -61,6 +62,14 @@ export interface BankingBillet {
     billet_link: string;
     pdf: PDF;
     expire_at: Date;
+}
+
+export interface CreditBillet {
+    holder_document: string,
+    holder_name: string,
+    installment_value: number
+    installments: number
+    mask: string
 }
 
 export interface PDF {

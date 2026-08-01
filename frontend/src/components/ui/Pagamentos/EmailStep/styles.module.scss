@@ -1,0 +1,244 @@
+.card {
+    width: 100%;
+    min-width: 0;
+    padding: 42px;
+    box-sizing: border-box;
+
+    background: rgba(24, 24, 27, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+    box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+    backdrop-filter: blur(18px);
+}
+
+.header {
+    width: 100%;
+    min-width: 0;
+    max-width: 640px;
+
+    h1 {
+        margin: 10px 0 12px;
+
+        color: #fafafa;
+        font-size: clamp(28px, 4vw, 42px);
+        line-height: 1.08;
+        letter-spacing: -1.4px;
+        overflow-wrap: anywhere;
+    }
+
+    p {
+        width: 100%;
+        max-width: 560px;
+        margin: 0;
+
+        color: #a1a1aa;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+}
+
+.eyebrow {
+    color: var(--red-light);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.form {
+    width: 100%;
+    min-width: 0;
+    max-width: 560px;
+    margin-top: 34px;
+
+    display: flex;
+    flex-direction: column;
+
+    label {
+        margin-bottom: 9px;
+
+        color: #d4d4d8;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    button {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        min-height: 52px;
+        margin-top: 16px;
+        padding: 0 24px;
+        box-sizing: border-box;
+
+        color: #ffffff;
+        background:
+            linear-gradient(135deg,
+                var(--red),
+                var(--red-light));
+        border: 0;
+        border-radius: 12px;
+
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+
+        box-shadow: 0 12px 28px rgba(237, 76, 58, 0.24);
+
+        transition:
+            transform 0.2s ease,
+            filter 0.2s ease,
+            box-shadow 0.2s ease,
+            opacity 0.2s ease;
+
+        &:hover:not(:disabled) {
+            filter: brightness(1.08);
+            transform: translateY(-1px);
+            box-shadow: 0 16px 32px rgba(237, 58, 70, 0.3);
+        }
+
+        &:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        &:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+    }
+}
+
+.inputWrapper {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    input {
+        display: block;
+
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        min-height: 54px;
+        padding: 0 16px;
+        box-sizing: border-box;
+
+        color: #f4f4f5;
+        background: rgba(9, 9, 11, 0.7);
+        border: 1px solid #3f3f46;
+        border-radius: 12px;
+        outline: none;
+
+        font-size: 15px;
+
+        transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease,
+            background 0.2s ease;
+
+        &::placeholder {
+            color: #52525b;
+        }
+
+        &:hover {
+            border-color: #52525b;
+        }
+
+        &:focus {
+            background: rgba(9, 9, 11, 0.92);
+            border-color: var(--red);
+            box-shadow: 0 0 0 4px rgba(246, 92, 92, 0.14);
+        }
+    }
+}
+
+.login {
+    width: 100%;
+    min-width: 0;
+    margin-top: 22px;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+
+    color: #71717a;
+    font-size: 13px;
+
+    a {
+        color: var(--red-light);
+        font-weight: 600;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.information {
+    width: 100%;
+    min-width: 0;
+    margin-top: 34px;
+    padding: 14px 16px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+
+    color: #a1a1aa;
+    background: rgba(39, 39, 42, 0.64);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+
+    >span {
+        width: 22px;
+        height: 22px;
+        flex: 0 0 22px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: var(--red);
+        background: rgba(237, 58, 58, 0.15);
+        border-radius: 50%;
+
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    p {
+        min-width: 0;
+        margin: 0;
+
+        font-size: 12px;
+        line-height: 1.6;
+        overflow-wrap: anywhere;
+    }
+}
+
+@media (max-width: 640px) {
+    .card {
+        padding: 28px 20px;
+        border-radius: 18px;
+    }
+
+    .form {
+        margin-top: 28px;
+    }
+}
+
+@media (max-width: 420px) {
+    .card {
+        padding: 24px 14px;
+    }
+
+    .information {
+        padding: 12px;
+    }
+}

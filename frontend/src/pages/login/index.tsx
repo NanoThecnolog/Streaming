@@ -1,87 +1,226 @@
+import { FormEvent, useMemo, useState } from 'react'
 import Link from 'next/link'
+import { Eye, EyeOff, LockKeyhole, Mail } from 'lucide-react'
+import { FaSpinner } from 'react-icons/fa'
+
+import ForgetPass from '@/components/modals/ForgetPassword'
+import SEO from '@/components/SEO'
+import { useFlix } from '@/contexts/FlixContext'
+
 import styles from './styles.module.scss'
-import { FormEvent, useEffect, useState } from 'react';
-import { FaEye, FaEyeSlash, FaSpinner } from 'react-icons/fa';
-import ForgetPass from '@/components/modals/ForgetPassword';
-import SEO from '@/components/SEO';
-import { useFlix } from '@/contexts/FlixContext';
-import { debug } from '@/classes/DebugLogger';
+
+interface LoginCredentials {
+    email: string
+    password: string
+}
 
 export default function Login() {
-    //refatorar esse componente
-    const [email, setEmail] = useState<string>('')
-    const [password, setPassword] = useState<string>('')
-    const [loading, setLoading] = useState<boolean>(false)
-    const [modalVisible, setModalVisible] = useState<boolean>(false)
-    const newAccount = "/planos";
     const { signIn } = useFlix()
-    const [revelio, setRevelio] = useState(false)
 
-    async function handleLogin(e: FormEvent) {
-        e.preventDefault()
-        if (loading) return
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const [showPassword, setShowPassword] = useState(false)
+    const [loading, setLoading] = useState(false)
+    const [modalVisible, setModalVisible] = useState(false)
+
+    const normalizedEmail = email.trim().toLowerCase()
+
+    const canSubmit = useMemo(() => {
+        return (
+            normalizedEmail.length > 0 &&
+            password.length > 0 &&
+            !loading
+        )
+    }, [loading, normalizedEmail, password])
+
+    const handleLogin = async (
+        event: FormEvent<HTMLFormElement>,
+    ): Promise<void> => {
+        event.preventDefault()
+
+        if (!canSubmit) return
+
+        const credentials: LoginCredentials = {
+            email: normalizedEmail,
+            password,
+        }
+
         try {
             setLoading(true)
-            const credentials = { email, password }
             await signIn(credentials)
-        } catch (err) {
-            console.log('Erro ao realizar login', err)
+        } catch (error) {
+            console.error('Erro ao realizar login:', error)
         } finally {
             setLoading(false)
         }
     }
-    function handleOpen() {
-        setModalVisible(true)
-    }
-    function handleClose() {
-        setModalVisible(false)
-    }
+
     return (
         <>
-            <SEO title='Login | FlixNext' description='Faça login na nossa plataforma e aproveite os nossos conteúdos!' />
-            <div className={styles.container}>
-                <div className={styles.loginContainer}>
-                    <h1><span className={styles.white}>FLIX</span><span className={styles.red}>NEXT</span></h1>
-                    <form onSubmit={handleLogin} className={styles.formulario}>
-                        <div className={styles.emailContainer}>
-                            <h2>Email:</h2>
-                            <input
-                                type='email'
-                                required
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
+            <SEO
+                title="Login | FlixNext"
+                description="Entre na sua conta FlixNext e continue assistindo aos seus conteúdos."
+            />
+
+            <main className={styles.page}>
+                <div className={styles.backgroundOverlay} />
+
+                <section
+                    className={styles.loginCard}
+                    aria-labelledby="login-title"
+                >
+                    <header className={styles.header}>
+                        <Link
+                            href="/"
+                            className={styles.logo}
+                            aria-label="Ir para a página inicial"
+                        >
+                            <span>FLIX</span>
+                            <strong>NEXT</strong>
+                        </Link>
+
+                        <div className={styles.heading}>
+                            <span className={styles.eyebrow}>
+                                Bem-vindo
+                            </span>
+
+                            <h1 id="login-title">
+                                Acesse sua conta
+                            </h1>
+
+                            <p>
+                                Entre para continuar de onde parou.
+                            </p>
                         </div>
-                        <div className={styles.passwordContainer}>
-                            <h2>Senha:</h2>
-                            <div className={styles.passwordInput}>
-                                <input
-                                    type={revelio ? "text" : "password"}
-                                    required
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
+                    </header>
+
+                    <form
+                        className={styles.form}
+                        onSubmit={handleLogin}
+                    >
+                        <label className={styles.field}>
+                            <span>E-mail</span>
+
+                            <div className={styles.inputContainer}>
+                                <Mail
+                                    size={19}
+                                    aria-hidden="true"
                                 />
-                                <div className={styles.revelio} onClick={() => setRevelio(!revelio)}>
-                                    {revelio ? <FaEyeSlash /> : <FaEye />}
-                                </div>
+
+                                <input
+                                    type="email"
+                                    value={email}
+                                    placeholder="seuemail@exemplo.com"
+                                    autoComplete="email"
+                                    inputMode="email"
+                                    disabled={loading}
+                                    required
+                                    onChange={(event) =>
+                                        setEmail(event.target.value)
+                                    }
+                                />
                             </div>
-                        </div>
-                        <div className={styles.buttonContainer}>
-                            <button type='submit' disabled={loading}>{loading ? (
-                                <span>Carregando... <FaSpinner /></span>
-                            ) : <span>Acessar</span>}</button>
-                        </div>
+                        </label>
+
+                        <label className={styles.field}>
+                            <div className={styles.fieldHeader}>
+                                <span>Senha</span>
+
+                                <button
+                                    type="button"
+                                    className={styles.forgotPassword}
+                                    disabled={loading}
+                                    onClick={() =>
+                                        setModalVisible(true)
+                                    }
+                                >
+                                    Esqueceu a senha?
+                                </button>
+                            </div>
+
+                            <div className={styles.inputContainer}>
+                                <LockKeyhole
+                                    size={19}
+                                    aria-hidden="true"
+                                />
+
+                                <input
+                                    type={
+                                        showPassword
+                                            ? 'text'
+                                            : 'password'
+                                    }
+                                    value={password}
+                                    placeholder="Digite sua senha"
+                                    autoComplete="current-password"
+                                    disabled={loading}
+                                    required
+                                    onChange={(event) =>
+                                        setPassword(event.target.value)
+                                    }
+                                />
+
+                                <button
+                                    type="button"
+                                    className={styles.passwordToggle}
+                                    aria-label={
+                                        showPassword
+                                            ? 'Ocultar senha'
+                                            : 'Mostrar senha'
+                                    }
+                                    aria-pressed={showPassword}
+                                    disabled={loading}
+                                    onClick={() =>
+                                        setShowPassword(
+                                            (current) => !current,
+                                        )
+                                    }
+                                >
+                                    {showPassword ? (
+                                        <EyeOff size={19} />
+                                    ) : (
+                                        <Eye size={19} />
+                                    )}
+                                </button>
+                            </div>
+                        </label>
+
+                        <button
+                            type="submit"
+                            className={styles.submitButton}
+                            disabled={!canSubmit}
+                        >
+                            {loading ? (
+                                <>
+                                    <FaSpinner
+                                        size={17}
+                                        className={styles.spinner}
+                                    />
+
+                                    Entrando...
+                                </>
+                            ) : (
+                                'Acessar'
+                            )}
+                        </button>
                     </form>
-                    <div className={styles.linksContainer}>
-                        <button type='button' onClick={handleOpen}><h3>Esqueceu sua senha?</h3></button>
-                        <Link href={newAccount}><h3>Criar conta</h3></Link>
-                    </div>
-                </div>
-                {
-                    modalVisible &&
-                    <ForgetPass handleClose={handleClose} />
-                }
-            </div>
+
+                    <footer className={styles.footer}>
+                        <span>Ainda não possui uma conta?</span>
+
+                        <Link href="/planos">
+                            Conheça nossos planos
+                        </Link>
+                    </footer>
+                </section>
+            </main>
+
+            {modalVisible && (
+                <ForgetPass
+                    handleClose={() => setModalVisible(false)}
+                />
+            )}
         </>
     )
 }

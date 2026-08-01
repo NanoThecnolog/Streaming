@@ -10,8 +10,7 @@ export default function Streaming() {
                 <h2>Um acervo reunido em um só lugar</h2>
                 <p>
                     A FlixNext organiza e disponibiliza conteúdos que passaram — ou ainda passam —
-                    por grandes plataformas de streaming, reunindo tudo em uma experiência simples,
-                    contínua e sem fragmentação.
+                    por grandes plataformas de streaming, reunindo tudo num só lugar.
                 </p>
 
                 <div className={styles.streamBrand}>

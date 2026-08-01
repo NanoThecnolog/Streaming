@@ -1,74 +1,183 @@
-import { X } from 'lucide-react';
-import styles from './styles.module.scss';
-import { toast } from 'react-toastify';
-import { SetupAPIClient } from '@/services/api';
-import Router from 'next/router';
-import Image from 'next/image';
-import { avatares, cookieOptions } from '@/utils/Variaveis';
-import { useState } from 'react';
-import { destroyCookie, parseCookies, setCookie } from 'nookies';
-import { UserContext } from '@/@types/user';
-import { useFlix } from '@/contexts/FlixContext';
-import axios from 'axios';
-import { debug } from '@/classes/DebugLogger';
+import axios from 'axios'
+import Image from 'next/image'
+import Router from 'next/router'
+import { useState } from 'react'
+import { X } from 'lucide-react'
+import { destroyCookie, parseCookies, setCookie } from 'nookies'
+import { toast } from 'react-toastify'
+
+import { UserContext } from '@/@types/user'
+import { useFlix } from '@/contexts/FlixContext'
+import { avatares, cookieOptions } from '@/utils/Variaveis'
+
+import styles from './styles.module.scss'
 
 interface AvatarProps {
-    handleCloseModal: () => void;
+    handleCloseModal: () => void
 }
 
-export default function Avatar({ handleCloseModal }: AvatarProps) {
-    const [loading, setLoading] = useState(false)
-    const { user, setUser } = useFlix()
-    const client = new SetupAPIClient()
+export default function Avatar({
+    handleCloseModal,
+}: AvatarProps) {
+    const [selectedAvatar, setSelectedAvatar] = useState<string | null>(null)
 
-    async function handleChangeAvatar(url: string) {
-        if (loading) return
+    const { user, setUser } = useFlix()
+
+    const updateUserCookie = (updatedUser: UserContext): void => {
+        const userCookie = {
+            name: updatedUser.name,
+            email: updatedUser.email,
+            avatar: updatedUser.avatar,
+            verified: updatedUser.verified,
+            news: updatedUser.news,
+            createdAt: updatedUser.createdAt,
+            subscription: updatedUser.subscription,
+            donator: updatedUser.donator,
+        }
+
+        destroyCookie(null, 'flix-user')
+
+        setCookie(
+            null,
+            'flix-user',
+            JSON.stringify(userCookie),
+            cookieOptions,
+        )
+    }
+
+    const handleChangeAvatar = async (avatarUrl: string): Promise<void> => {
+        if (selectedAvatar) return
+        if (avatarUrl === user?.avatar) return
+
         const { 'flix-user': userCookie } = parseCookies()
 
-        if (!userCookie) return Router.push('/login')
-        const user = JSON.parse(userCookie)
+        if (!userCookie) {
+            await Router.push('/login')
+            return
+        }
 
         try {
-            setLoading(true)
-            const userData = { avatar: url }
-            const response = await axios.put('/api/user/update', userData)
-            //debug.log("Resposta da atualização", response.data)
-            const user = await axios.get<UserContext>('/api/user')
-            //debug.log("User buscado", user.data)
-            setUser(user.data)
-            const userCookie = {
-                name: user.data.name,
-                email: user.data.email,
-                avatar: user.data.avatar,
-                verified: user.data.verified,
-                birthday: user.data.birthday,
-                news: user.data.news,
-                createdAt: user.data.createdAt,
-                subscription: user.data.subscription,
-                donator: user.data.donator,
-            }
-            destroyCookie(null, 'flix-user')
-            setCookie(null, 'flix-user', JSON.stringify(userCookie), cookieOptions)
-            toast.success("Avatar alterado!")
+            setSelectedAvatar(avatarUrl)
+
+            await axios.put('/api/user/update', {
+                avatar: avatarUrl,
+            })
+
+            const { data: updatedUser } = await axios.get<UserContext>(
+                '/api/user',
+            )
+
+            setUser(updatedUser)
+            updateUserCookie(updatedUser)
+
+            toast.success('Avatar alterado!')
+            handleCloseModal()
         } catch (err) {
-            console.log("Erro ao tentar atualizar avatar. ", err)
-            toast.error("Erro ao alterar o avatar. Tente novamente mais tarde.")
+            console.error('Erro ao tentar atualizar o avatar:', err)
+
+            toast.error(
+                'Erro ao alterar o avatar. Tente novamente mais tarde.',
+            )
         } finally {
-            setLoading(false)
+            setSelectedAvatar(null)
+        }
+    }
+
+    const handleOverlayClick = (
+        event: React.MouseEvent<HTMLDivElement>,
+    ): void => {
+        if (event.target === event.currentTarget && !selectedAvatar) {
+            handleCloseModal()
         }
     }
 
     return (
-        <div className={styles.container}>
-            <div className={styles.avatarContainer}>
-                <X size={30} className={styles.closeButton} onClick={handleCloseModal} />
-                <h1>Escolha seu novo avatar</h1>
+        <div
+            className={styles.overlay}
+            role="presentation"
+            onMouseDown={handleOverlayClick}
+        >
+            <section
+                className={styles.modal}
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="avatar-modal-title"
+            >
+                <header className={styles.header}>
+                    <div>
+                        <span className={styles.eyebrow}>
+                            Personalização
+                        </span>
+
+                        <h1 id="avatar-modal-title">
+                            Escolha seu novo avatar
+                        </h1>
+
+                        <p>
+                            Selecione uma imagem para representar seu perfil.
+                        </p>
+                    </div>
+
+                    <button
+                        type="button"
+                        className={styles.closeButton}
+                        aria-label="Fechar seleção de avatar"
+                        disabled={Boolean(selectedAvatar)}
+                        onClick={handleCloseModal}
+                    >
+                        <X size={24} />
+                    </button>
+                </header>
+
                 <div className={styles.avatars}>
-                    {avatares.map((img, index) => (
-                        <Image src={img} alt="avatar" key={index} width={100} height={100} onClick={() => handleChangeAvatar(img)} />
-                    ))}
+                    {avatares.map((avatarUrl) => {
+                        const isCurrent = avatarUrl === user?.avatar
+                        const isLoading = avatarUrl === selectedAvatar
+                        const isDisabled = Boolean(selectedAvatar) || isCurrent
+
+                        return (
+                            <button
+                                key={avatarUrl}
+                                type="button"
+                                className={`${styles.avatarButton} ${isCurrent ? styles.current : ''
+                                    }`}
+                                aria-label={
+                                    isCurrent
+                                        ? 'Avatar atual'
+                                        : 'Selecionar avatar'
+                                }
+                                aria-pressed={isCurrent}
+                                disabled={isDisabled}
+                                onClick={() =>
+                                    handleChangeAvatar(avatarUrl)
+                                }
+                            >
+                                <span className={styles.imageWrapper}>
+                                    <Image
+                                        src={avatarUrl}
+                                        alt=""
+                                        fill
+                                        sizes="(max-width: 480px) 72px, 96px"
+                                    />
+
+                                    {isLoading && (
+                                        <span
+                                            className={styles.loader}
+                                            aria-label="Alterando avatar"
+                                        />
+                                    )}
+                                </span>
+
+                                {isCurrent && (
+                                    <span className={styles.currentLabel}>
+                                        Atual
+                                    </span>
+                                )}
+                            </button>
+                        )
+                    })}
                 </div>
-            </div>
+            </section>
         </div>
     )
 }

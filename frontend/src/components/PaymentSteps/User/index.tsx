@@ -69,7 +69,7 @@ export default function User({ data, setDataUser, senha, confirmarSenha }: UserS
                         </label>
                     </div>
                     <div>
-                        <label htmlFor='birthday'>
+                        {/*<label htmlFor='birthday'>
                             Data de Nascimento
                             <input
                                 type="date"
@@ -81,7 +81,7 @@ export default function User({ data, setDataUser, senha, confirmarSenha }: UserS
                                 value={data.birthday}
                                 onChange={(e) => setDataUser((prev) => ({ ...prev, birthday: e.target.value }))}
                             />
-                        </label>
+                        </label>*/}
                         <label htmlFor='senha'>
                             Senha
 
@@ -130,7 +130,7 @@ export default function User({ data, setDataUser, senha, confirmarSenha }: UserS
                     </div>
                 </div>
             </div>
-            <div className={styles.userData}>
+            {/*<div className={styles.userData}>
                 <h4>Endereço</h4>
                 <div className={styles.addressGrid}>
                     <label htmlFor="zipcode">
@@ -206,7 +206,7 @@ export default function User({ data, setDataUser, senha, confirmarSenha }: UserS
                         />
                     </label>
                 </div>
-            </div>
+            </div>*/}
         </>
     )
 }
