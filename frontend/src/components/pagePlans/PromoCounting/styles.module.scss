@@ -1,120 +1,493 @@
-.container {
+.comparisonSection {
+    position: relative;
+    isolation: isolate;
 
-    background: linear-gradient(180deg, #0f0f0f 0%, #111 100%);
-    padding: 3rem 2rem;
-    border-radius: 20px;
-    max-width: 1300px;
-    margin: 0 auto;
+    width: 100%;
+
+    padding: 0 clamp(1.1rem, 4vw, 3rem);
+
+    box-sizing: border-box;
+}
+
+.backgroundGlow {
+    position: absolute;
+    z-index: -1;
+    top: 55%;
+    left: 50%;
+
+    width: min(900px, 90vw);
+    height: 520px;
+
+    pointer-events: none;
+
+    background: radial-gradient(circle,
+            rgba(229, 9, 20, 0.09),
+            transparent 68%);
+    filter: blur(24px);
+    transform: translate(-50%, -50%);
+}
+
+.header {
+    max-width: 720px;
+
+    margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+
     text-align: center;
 
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.6),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    h2 {
+        margin: 0.8rem 0 0;
 
-    .streamingList {
-        width: 100%;
-        max-width: 520px;
-        list-style: none;
-        padding: 0;
-        margin: 2.5rem auto;
+        font-size: clamp(2.2rem, 5vw, 4rem);
+        line-height: 1.04;
+        letter-spacing: -0.05em;
+
+        text-wrap: balance;
+
+        span {
+            color: rgba(255, 255, 255, 0.42);
+        }
+    }
+
+    p {
+        max-width: 590px;
+
+        margin: 1.25rem auto 0;
+
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.88rem;
+        line-height: 1.7;
+    }
+}
+
+.eyebrow {
+    color: #ff737b;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.comparison {
+    width: 100%;
+    max-width: 1000px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 54px minmax(0, 1fr);
+    align-items: stretch;
+
+    margin: 0 auto;
+}
+
+.streamingCard,
+.flixnextCard {
+    min-width: 0;
+
+    padding: clamp(1.5rem, 3vw, 2.2rem);
+
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+.streamingCard {
+    background:
+        linear-gradient(145deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.018));
+    border: 1px solid rgba(255, 255, 255, 0.085);
+}
+
+.flixnextCard {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    background:
+        radial-gradient(circle at 50% 0%,
+            rgba(229, 9, 20, 0.2),
+            transparent 43%),
+        linear-gradient(145deg,
+            rgba(255, 255, 255, 0.075),
+            rgba(255, 255, 255, 0.025));
+    border: 1px solid rgba(229, 9, 20, 0.58);
+
+    box-shadow:
+        0 28px 75px rgba(0, 0, 0, 0.3),
+        0 0 40px rgba(229, 9, 20, 0.07);
+}
+
+.cardHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+
+    h3 {
+        margin: 6px 0 0;
+
+        font-size: clamp(1.3rem, 2vw, 1.65rem);
+        letter-spacing: -0.025em;
+    }
+}
+
+.cardLabel {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.63rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.serviceCount {
+    flex: 0 0 auto;
+
+    padding: 6px 9px;
+
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.6rem;
+    font-weight: 700;
+
+    background: rgba(255, 255, 255, 0.055);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+}
+
+.streamingList {
+    display: flex;
+    flex-direction: column;
+
+    margin: 1.6rem 0 0;
+    padding: 0;
+
+    list-style: none;
+
+    li {
+        min-height: 43px;
 
         display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
 
-        li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        color: rgba(255, 255, 255, 0.54);
+        font-size: 0.75rem;
 
-            padding: 0.6rem 0.2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.065);
 
-            span:first-child {
-                color: rgba(255, 255, 255, 0.75);
-            }
-
-            span:last-child {
-                font-weight: 500;
-                color: #fff;
-            }
+        strong {
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 0.72rem;
+            font-weight: 700;
+            white-space: nowrap;
         }
+    }
+}
+
+.total {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+
+    margin-top: 1.5rem;
+    padding-top: 1.4rem;
+
+    span {
+        color: rgba(255, 255, 255, 0.48);
+        font-size: 0.7rem;
+    }
+
+    strong {
+        color: rgba(255, 255, 255, 0.92);
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        letter-spacing: -0.04em;
+    }
+}
+
+.priceNotice {
+    margin: 1.2rem 0 0;
+
+    color: rgba(255, 255, 255, 0.25);
+    font-size: 0.56rem;
+    line-height: 1.5;
+}
+
+.versus {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+        width: 42px;
+        height: 42px;
+
+        display: grid;
+        place-items: center;
+
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 0.62rem;
+        font-weight: 800;
+        text-transform: uppercase;
+
+        background: #151515;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+}
+
+.savingsBadge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    min-height: 30px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    padding: 0 14px;
+
+    color: var(--white);
+    font-size: 0.6rem;
+    font-weight: 850;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    background: var(--red);
+    border-radius: 0 0 8px 8px;
+
+    transform: translateX(-50%);
+
+    svg {
+        font-size: 0.85rem;
+    }
+}
+
+.flixnextCard {
+    >.cardLabel {
+        margin-top: 0.75rem;
+    }
+
+    >h3 {
+        margin: 7px 0 0;
+
+        font-size: clamp(1.7rem, 3vw, 2.2rem);
+        letter-spacing: -0.035em;
+    }
+}
+
+.description {
+    margin: 1rem 0 0;
+
+    color: rgba(255, 255, 255, 0.53);
+    font-size: 0.76rem;
+    line-height: 1.65;
+}
+
+.price {
+    margin-top: 1.8rem;
+
+    >span {
+        display: block;
+
+        margin-bottom: 7px;
+
+        color: rgba(255, 255, 255, 0.38);
+        font-size: 0.65rem;
+    }
+
+    >div {
+        display: flex;
+        align-items: flex-end;
+        gap: 7px;
+    }
+
+    strong {
+        font-size: clamp(2.5rem, 5vw, 3.6rem);
+        line-height: 0.95;
+        letter-spacing: -0.06em;
+    }
+
+    small {
+        margin-bottom: 5px;
+
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 0.7rem;
+    }
+}
+
+.savings {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: 1.3rem;
+    padding: 0.85rem 1rem;
+
+    color: #7fe2a2;
+
+    background: rgba(51, 194, 102, 0.075);
+    border: 1px solid rgba(51, 194, 102, 0.14);
+    border-radius: 10px;
+
+    >svg {
+        flex: 0 0 auto;
+
+        font-size: 1.1rem;
+    }
+
+    p {
+        margin: 0;
+
+        color: rgba(255, 255, 255, 0.56);
+        font-size: 0.67rem;
+
+        strong {
+            color: #7fe2a2;
+        }
+    }
+}
+
+.benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+
+    margin: 1.6rem 0 1.8rem;
+    padding: 0;
+
+    list-style: none;
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+
+        color: rgba(255, 255, 255, 0.65);
+        font-size: 0.71rem;
+
+        svg {
+            flex: 0 0 auto;
+
+            color: #ff7c84;
+            font-size: 0.95rem;
+            stroke-width: 3;
+        }
+    }
+}
+
+.action {
+    width: 100%;
+    min-height: 50px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    margin-top: auto;
+    padding: 0 20px;
+
+    box-sizing: border-box;
+
+    color: var(--white);
+    font-size: 0.76rem;
+    font-weight: 800;
+    text-decoration: none;
+
+    background: var(--red);
+    border: 1px solid var(--red);
+    border-radius: 9px;
+    box-shadow: 0 12px 30px rgba(229, 9, 20, 0.2);
+
+    transition:
+        background-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+
+    svg {
+        font-size: 1rem;
+
+        transition: transform 0.2s ease;
+    }
+
+    &:hover {
+        background: var(--red-selected);
+
+        box-shadow: 0 16px 38px rgba(229, 9, 20, 0.32);
+        transform: translateY(-2px);
+
+        svg {
+            transform: translateX(3px);
+        }
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--white);
+        outline-offset: 3px;
+    }
+}
+
+@media (max-width: 780px) {
+    .comparison {
+        max-width: 560px;
+
+        grid-template-columns: 1fr;
+    }
+
+    .versus {
+        height: 62px;
+    }
+}
+
+@media (max-width: 520px) {
+    .comparisonSection {
+        padding: 0 1.1rem;
+    }
+
+    .streamingCard,
+    .flixnextCard {
+        padding: 1.4rem;
+
+        border-radius: 17px;
+    }
+
+    .cardHeader {
+        flex-direction: column;
+    }
+
+    .savingsBadge {
+        max-width: calc(100% - 32px);
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
     }
 
     .total {
-        margin: 1.5rem 0;
-        font-size: 1.25rem;
-
-        strong {
-            color: var(--red);
-            font-weight: 600;
-        }
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 7px;
     }
-
-
-    .divider {
-        height: 1px;
-        background: linear-gradient(90deg,
-                transparent,
-                rgba(255, 255, 255, 0.15),
-                transparent);
-        margin: 2.5rem 0;
-    }
-
-
-    .solution {
-        padding: 1.5rem 1rem;
-        border-radius: 14px;
-
-        p {
-            max-width: 520px;
-            margin: 0 auto 0.8rem;
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        h3 {
-            font-size: 1.6rem;
-            font-weight: 500;
-
-            span {
-                color: var(--red);
-                font-weight: 700;
-            }
-        }
-
-        button {
-            margin-top: 1.5rem;
-            background: var(--red-selected);
-            color: #fff;
-            padding: 0.85rem 1.6rem;
-            border: none;
-            border-radius: 2rem;
-
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-
-            transition: transform 0.25s ease, background-color 0.25s ease;
-
-            &:hover {
-                transform: translateY(-2px);
-                background-color: var(--red);
-            }
-        }
-    }
-
 }
 
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0px rgba(255, 0, 0, 0.2);
+@media (prefers-reduced-motion: reduce) {
+
+    .action,
+    .action svg {
+        transition: none;
     }
 
-    50% {
-        box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
-    }
-
-    100% {
-        box-shadow: 0 0 0px rgba(255, 0, 0, 0.2);
+    .action:hover,
+    .action:hover svg {
+        transform: none;
     }
 }

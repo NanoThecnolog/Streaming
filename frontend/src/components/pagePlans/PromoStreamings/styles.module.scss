@@ -1,396 +1,441 @@
-.contentPromoContainer {
+.streamingSection {
+    position: relative;
+    isolation: isolate;
+
+    width: 100%;
+
+    padding: 0 clamp(1.1rem, 4vw, 3rem);
+
+    box-sizing: border-box;
+}
+
+.backgroundGlow {
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+
+    width: min(900px, 90vw);
+    height: 500px;
+
+    pointer-events: none;
+
+    background: radial-gradient(circle,
+            rgba(229, 9, 20, 0.1),
+            transparent 68%);
+    filter: blur(20px);
+    transform: translate(-50%, -50%);
+}
+
+.content {
+    width: 100%;
+    max-width: 1180px;
+
+    display: grid;
+    grid-template-columns: minmax(260px, 0.75fr) minmax(0, 1.25fr);
+    gap: clamp(3rem, 8vw, 7rem);
+    align-items: center;
+
+    margin: 0 auto;
+    padding: clamp(2rem, 5vw, 4.5rem);
+
+    box-sizing: border-box;
+
+    background:
+        radial-gradient(circle at 100% 0%,
+            rgba(229, 9, 20, 0.09),
+            transparent 35%),
+        rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+}
+
+.textContent {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 200px;
+    align-items: flex-start;
+}
 
-    .content {
+.eyebrow {
+    color: #ff737b;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.textContent h2 {
+    margin: 0.8rem 0 0;
+
+    font-size: clamp(2rem, 4vw, 3.6rem);
+    line-height: 1.03;
+    letter-spacing: -0.05em;
+
+    text-wrap: balance;
+
+    span {
+        color: rgba(255, 255, 255, 0.42);
+    }
+}
+
+.description {
+    max-width: 500px;
+
+    margin: 1.25rem 0 0;
+
+    color: rgba(255, 255, 255, 0.52);
+    font-size: 0.85rem;
+    line-height: 1.7;
+}
+
+.highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+
+    margin: 1.6rem 0 0;
+    padding: 0;
+
+    list-style: none;
+
+    li {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
         align-items: center;
-        gap: 20px;
-        width: 100%;
-        height: 100vh;
-        margin-top: 100px;
+        gap: 10px;
 
-        h2 {
-            text-align: center;
-            font-size: 2.5rem;
-        }
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.76rem;
 
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 50px;
-            flex-wrap: wrap;
-            padding: 0 20px;
-            text-align: center;
-        }
+        >span {
+            width: 20px;
+            height: 20px;
 
-        .streamBrand {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: auto;
-            max-width: min(90%, 1500px);
+            flex: 0 0 20px;
+            place-items: center;
 
-            .logo {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                text-align: center;
-                width: 100%;
-                max-width: 200px;
-                transition: transform 0.3s ease-in-out;
+            color: #ff737b;
 
-                &:hover {
-                    transform: scale(1.1)
-                }
-            }
-
+            background: rgba(229, 9, 20, 0.13);
+            border-radius: 50%;
 
             svg {
-                height: 120px;
-                width: 100%;
-                transition: .4s;
-            }
-
-            p {
-                text-align: center;
-                margin-top: 10px;
-                font-family: var(--font-bebas);
-                font-size: 1.9rem;
-            }
-
-            .netflix {
-                svg {
-                    &:hover {
-                        color: var(--red);
-                        filter: brightness(1.2) drop-shadow(0 0 10px var(--red));
-                    }
-                }
-            }
-
-            .hbo {
-                svg {
-                    &:hover {
-                        color: var(--blue-hbo);
-                        filter: brightness(1.2) drop-shadow(0 0 10px var(--blue-hbo));
-                    }
-                }
-
-                p {
-                    font-family: var(--font-Poppins);
-                    font-weight: 700;
-                    letter-spacing: -2px;
-                }
-            }
-
-            .prime {
-                svg {
-                    &:hover {
-                        color: var(--blue-prime);
-                        filter: brightness(1.2) drop-shadow(0 0 10px var(--blue-prime));
-                    }
-                }
-
-                p {
-                    font-family: var(--font-Noto);
-                    font-weight: 700;
-                    letter-spacing: -2px;
-                }
-            }
-
-            .disney {
-                svg {
-                    &:hover {
-                        color: var(--blue-disney);
-                        filter: brightness(2) drop-shadow(0 0 10px var(--blue-disney));
-                    }
-                }
-
-                p {
-                    font-family: var(--font-Mouse);
-
-                }
-            }
-
-            .sky {
-                svg {
-                    &:hover {
-                        color: var(--red-sky);
-                        filter: brightness(1) drop-shadow(0 0 10px var(--red-sky));
-                    }
-                }
-
-                p {
-                    font-family: var(--font-Nunito);
-                    font-weight: 700;
-                }
-            }
-
-            .apple {
-                svg {
-                    &:hover {
-                        color: white;
-                        filter: brightness(2) drop-shadow(0 0 10px white);
-                    }
-                }
-
-                p {
-                    font-family: var(--font-Inter);
-                    font-weight: 500;
-                }
-            }
-
-            .paramount {
-                svg {
-                    &:hover {
-                        filter: brightness(2) drop-shadow(0 0 30px var(--blue-paramount));
-                    }
-                }
-
-                p {
-                    font-family: var(--font-Poppins);
-                    font-weight: 500;
-                    font-style: italic;
-                }
-            }
-
-            .globo {
-                p {
-                    transition: .4s;
-                    position: relative;
-                    font-family: var(--font-Nunito);
-                    font-weight: 900;
-                    font-size: 4rem;
-                    background: var(--orange-globo-gradient);
-                    background-clip: text;
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-
-                    &:hover {
-                        filter: brightness(1.2) drop-shadow(0 0 10px var(--red-globo));
-                    }
-
-                    span {
-                        position: absolute;
-                        top: 50px;
-                        left: 60px;
-                        background: inherit;
-                    }
-                }
-            }
-
-            .starz {
-                svg {
-                    &:hover {
-                        color: var(--blue-starz-2);
-                        filter: brightness(1.2) drop-shadow(0 0 10px var(--blue-starz-1));
-                    }
-                }
-            }
-
-        }
-
-        .buttonActionContainer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            margin: 100px 0;
-
-            button {
-                background-color: var(--red-selected);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 300px;
-                height: 60px;
-                border-radius: 2rem;
-                color: var(--white);
-                font-size: 1.5rem;
-                font-weight: 900;
-                transition: .4s;
-
-                &:hover {
-                    transform: scale(1.05);
-                    background-color: var(--red);
-                }
+                font-size: 0.75rem;
+                stroke-width: 3;
             }
         }
+    }
+}
+
+.action {
+    min-height: 48px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    margin-top: 2rem;
+    padding: 0 22px;
+
+    color: var(--white);
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-decoration: none;
+
+    background: var(--red);
+    border: 1px solid var(--red);
+    border-radius: 9px;
+    box-shadow: 0 12px 32px rgba(229, 9, 20, 0.2);
+
+    transition:
+        background-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+
+    svg {
+        font-size: 1rem;
+
+        transition: transform 0.2s ease;
+    }
+
+    &:hover {
+        background: var(--red-selected);
+        box-shadow: 0 16px 38px rgba(229, 9, 20, 0.32);
+        transform: translateY(-2px);
+
+        svg {
+            transform: translateX(3px);
+        }
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--white);
+        outline-offset: 3px;
+    }
+}
+
+.brands {
+    min-width: 0;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.brandCard {
+    --brand-color: rgba(255, 255, 255, 0.8);
+    --brand-glow: rgba(255, 255, 255, 0.08);
+
+    min-width: 0;
+    min-height: 125px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    padding: 1rem;
+
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 13px;
+
+    transition:
+        background-color 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease,
+        transform 0.22s ease;
+
+    svg {
+        width: 100%;
+        max-width: 72px;
+        height: 39px;
+
+        color: rgba(255, 255, 255, 0.55);
+
+        transition:
+            color 0.22s ease,
+            filter 0.22s ease,
+            transform 0.22s ease;
+    }
+
+    >span {
+        overflow: hidden;
+
+        width: 100%;
+
+        color: rgba(255, 255, 255, 0.42);
+        font-size: 0.65rem;
+        font-weight: 650;
+        text-align: center;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &:hover {
+        background: var(--brand-glow);
+        border-color: color-mix(in srgb,
+                var(--brand-color) 38%,
+                transparent);
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.2);
+        transform: translateY(-4px);
+
+        svg {
+            color: var(--brand-color);
+            filter: drop-shadow(0 0 10px var(--brand-color));
+            transform: scale(1.06);
+        }
+
+        >span {
+            color: rgba(255, 255, 255, 0.75);
+        }
+    }
+}
+
+.netflix {
+    --brand-color: #e50914;
+    --brand-glow: rgba(229, 9, 20, 0.08);
+}
+
+.hbo {
+    --brand-color: #9f72ff;
+    --brand-glow: rgba(110, 68, 255, 0.08);
+}
+
+.prime {
+    --brand-color: #00a8e1;
+    --brand-glow: rgba(0, 168, 225, 0.08);
+}
+
+.disney {
+    --brand-color: #5c8cff;
+    --brand-glow: rgba(17, 60, 207, 0.09);
+}
+
+.sky {
+    --brand-color: #ff4b62;
+    --brand-glow: rgba(255, 75, 98, 0.08);
+}
+
+.apple {
+    --brand-color: #ffffff;
+    --brand-glow: rgba(255, 255, 255, 0.07);
+}
+
+.paramount {
+    --brand-color: #448aff;
+    --brand-glow: rgba(36, 107, 253, 0.08);
+}
+
+.starz {
+    --brand-color: #00d0ff;
+    --brand-glow: rgba(0, 208, 255, 0.07);
+}
+
+.globoplay {
+    --brand-color: #ff4b35;
+    --brand-glow: rgba(255, 75, 53, 0.08);
+
+    strong {
+        color: rgba(255, 255, 255, 0.55);
+        font-family: var(--font-Nunito);
+        font-size: clamp(1.2rem, 2vw, 1.65rem);
+        font-weight: 900;
+        letter-spacing: -0.08em;
+
+        transition:
+            filter 0.22s ease,
+            transform 0.22s ease;
+
+        span {
+            color: #ff4b35;
+        }
+    }
+
+    &:hover {
+        strong {
+            filter: drop-shadow(0 0 10px rgba(255, 75, 53, 0.7));
+            transform: scale(1.06);
+        }
+    }
+}
+
+.disclaimer {
+    max-width: 820px;
+
+    margin: 1.1rem auto 0;
+
+    color: rgba(255, 255, 255, 0.24);
+    font-size: 0.58rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
     }
 
     .textContent {
-        margin-top: 200px;
-        padding: 0 20px;
-        height: 200px;
-        display: flex;
-        flex-direction: column;
+        max-width: 620px;
+
         align-items: center;
-        justify-content: center;
-        gap: 20px;
 
-        h2 {
-            font-size: 2.2rem;
-        }
+        margin: 0 auto;
 
-        h4 {
-            font-size: 1.2rem;
-            text-align: center;
-            flex-wrap: wrap;
-        }
+        text-align: center;
     }
 
-    .cardContainer {
-        height: 310px;
-        width: 100vw;
-        overflow-x: hidden;
-        transition: .4s;
+    .highlights {
+        align-items: flex-start;
+    }
 
-        .card {
-            img {
-                height: 300px;
-                width: 200px;
-                object-fit: cover;
-                object-position: center;
-            }
+    .brands {
+        width: 100%;
+        max-width: 680px;
+
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 620px) {
+    .streamingSection {
+        padding: 0 1.1rem;
+    }
+
+    .content {
+        gap: 2.5rem;
+
+        padding: 1.5rem;
+
+        border-radius: 17px;
+    }
+
+    .textContent h2 {
+        font-size: clamp(2rem, 10vw, 2.8rem);
+    }
+
+    .action {
+        width: 100%;
+
+        box-sizing: border-box;
+    }
+
+    .brands {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+    }
+
+    .brandCard {
+        min-height: 105px;
+
+        svg {
+            max-width: 62px;
+            height: 32px;
         }
     }
 }
 
-@media (max-width: 375px) {
-    .contentPromoContainer {
-        .content {
-            margin-top: 100px;
+@media (max-width: 360px) {
+    .content {
+        padding: 1.25rem;
+    }
 
-            .streamBrand {
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-                gap: 8px;
+    .brandCard {
+        min-height: 95px;
+        padding: 0.75rem;
+    }
 
-                h2 {
-                    font-size: 2rem;
-                }
-
-                svg {
-                    height: 70px;
-                }
-
-                p {
-                    font-size: 1rem;
-                }
-
-                .globo {
-                    p {
-                        font-size: 1.5rem;
-
-                        span {
-                            top: 20px;
-                            left: 22px;
-                        }
-                    }
-                }
-            }
+    .highlights {
+        li {
+            font-size: 0.7rem;
         }
     }
 }
 
-@media (min-width: 375.1px) and (max-width: 560px) {
-    .contentPromoContainer {
-        .content {
-            margin-top: 150px;
+@media (prefers-reduced-motion: reduce) {
 
-            .streamBrand {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                gap: 10px;
+    .action,
+    .action svg,
+    .brandCard,
+    .brandCard svg,
+    .globoplay strong {
+        transition: none;
+    }
 
-                h2 {
-                    font-size: 2rem;
-                }
+    .action:hover,
+    .brandCard:hover {
+        transform: none;
+    }
 
-                p {
-                    font-size: 1rem;
-                }
-
-                svg {
-                    height: 70px;
-                }
-
-                .globo {
-                    p {
-                        font-size: 1.8rem;
-
-                        span {
-                            top: 23px;
-                            left: 27px;
-                        }
-                    }
-                }
-            }
-        }
+    .action:hover svg,
+    .brandCard:hover svg,
+    .globoplay:hover strong {
+        transform: none;
     }
 }
-
-@media (min-width: 560.1px) and (max-width: 768px) {
-    .contentPromoContainer {
-        .content {
-            margin-top: 100px;
-
-            .streamBrand {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                gap: 10px;
-
-                svg {
-                    height: 80px;
-                }
-
-                p {
-                    font-size: 1.5rem;
-                }
-
-                .globo {
-                    p {
-                        font-size: 2rem;
-
-                        span {
-                            top: 23px;
-                            left: 30px;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-@media (min-width: 768px) and (max-width: 915px) {
-    .contentPromoContainer {
-        .content {
-            margin-top: 200px;
-
-            .streamBrand {
-                .globo {
-                    p {
-                        font-size: 2.5rem;
-
-                        span {
-                            top: 30px;
-                            left: 37px;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-@media (max-width: 1280px) {}
-
-@media (max-width: 1440px) {}
-
-@media (max-width: 1920px) {}

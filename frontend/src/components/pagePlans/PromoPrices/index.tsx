@@ -1,102 +1,261 @@
-import Spinner from '@/components/ui/Loading/spinner'
-import styles from './styles.module.scss'
-import { calculateDiscount, formatPrice } from '@/utils/UtilitiesFunctions'
+import { useMemo } from 'react'
+import { useRouter } from 'next/router'
+import {
+    FiCheck,
+    FiCreditCard,
+    FiShield,
+} from 'react-icons/fi'
+
+import { PlanProp } from '@/@types/plans'
+import { formatPrice } from '@/utils/UtilitiesFunctions'
 import { desconto } from '@/utils/Variaveis'
-import { PlanProp, PlansProps } from '@/@types/plans'
-import { useRouter } from 'next/navigation'
+
+import styles from './styles.module.scss'
 
 interface PricesProps {
-    plans: PlanProp[];
-    setPlanSelected?: (e: number) => void
+    plans: PlanProp[]
+    setPlanSelected?: (planId: number) => void
 }
 
-export default function Prices({ plans, setPlanSelected }: PricesProps) {
+type PlanType = 'mensal' | 'trimestral' | 'semestral' | 'anual'
 
+interface PlanMetadata {
+    months: number
+    periodLabel: string
+    description: string
+}
+
+const recommendedPlan: PlanType = 'semestral'
+
+const hiddenProductionPlanId =
+    'b7c7a2d4-9b6c-4f9c-9b0e-123456789abc'
+
+const planMetadata: Record<PlanType, PlanMetadata> = {
+    mensal: {
+        months: 1,
+        periodLabel: 'Cobrança mensal',
+        description: 'Flexibilidade para começar sem compromisso.',
+    },
+    trimestral: {
+        months: 3,
+        periodLabel: 'Cobrança a cada 3 meses',
+        description: 'Mais economia para aproveitar por mais tempo.',
+    },
+    semestral: {
+        months: 6,
+        periodLabel: 'Cobrança a cada 6 meses',
+        description: 'O melhor equilíbrio entre preço e duração.',
+    },
+    anual: {
+        months: 12,
+        periodLabel: 'Cobrança anual',
+        description: 'A maior economia para o ano inteiro.',
+    },
+}
+
+const benefits = [
+    'Acesso ao catálogo completo',
+    'Mais de 800 filmes e séries',
+    'Conteúdos raros e difíceis de encontrar',
+    'Novos títulos adicionados frequentemente',
+    'Experiência sem anúncios invasivos',
+    'Suporte humano todos os dias',
+]
+
+const isPlanType = (type: string): type is PlanType => {
+    return type in planMetadata
+}
+
+const Prices = ({
+    plans,
+    setPlanSelected,
+}: PricesProps) => {
     const router = useRouter()
 
-    function handlePrice(price: number, planType: string) {
-        switch (planType) {
-            case 'mensal':
-                return formatPrice(price)
-            case 'trimestral':
-                return formatPrice(price / 3)
-            case 'semestral':
-                return formatPrice(price / 6)
-            case 'anual':
-                return formatPrice(price / 12)
-        }
-    }
-    function handleClick(id: string) {
+    const visiblePlans = useMemo(() => {
+        return [...plans]
+            .filter((plan) => {
+                if (process.env.NODE_ENV !== 'production') {
+                    return true
+                }
+
+                return plan.id !== hiddenProductionPlanId
+            })
+            .sort((firstPlan, secondPlan) => {
+                const firstType = isPlanType(firstPlan.type)
+                    ? planMetadata[firstPlan.type]
+                    : null
+
+                const secondType = isPlanType(secondPlan.type)
+                    ? planMetadata[secondPlan.type]
+                    : null
+
+                const firstMonthlyPrice = firstType
+                    ? firstPlan.price / firstType.months
+                    : firstPlan.price
+
+                const secondMonthlyPrice = secondType
+                    ? secondPlan.price / secondType.months
+                    : secondPlan.price
+
+                return firstMonthlyPrice - secondMonthlyPrice
+            })
+    }, [plans])
+
+    const handlePlanSelection = async (plan: PlanProp) => {
         if (setPlanSelected) {
-            router.push('/me/assinatura/user#form')
-        } else {
-            router.push(`/payment?id=${id}`)
+            setPlanSelected(plan.planId)
+
+            await router.push(
+                {
+                    pathname: router.pathname,
+                    query: router.query,
+                    hash: 'form',
+                },
+                undefined,
+                {
+                    shallow: true,
+                    scroll: true,
+                },
+            )
+
+            return
         }
+
+        await router.push({
+            pathname: '/payment',
+            query: {
+                id: plan.id,
+            },
+        })
     }
 
-    const handlePlanClick = (id: number) => {
-        if (setPlanSelected)
-            setPlanSelected(id)
+    if (visiblePlans.length === 0) {
+        return (
+            <div className={styles.emptyState}>
+                <strong>Nenhum plano disponível no momento</strong>
+
+                <p>
+                    Tente novamente dentro de alguns instantes.
+                </p>
+            </div>
+        )
     }
+
     return (
-        <>
+        <div className={styles.prices}>
+            <div
+                className={styles.plansGrid}
+                aria-label="Planos de assinatura disponíveis"
+            >
+                {visiblePlans.map((plan) => {
+                    const type = isPlanType(plan.type)
+                        ? plan.type
+                        : 'mensal'
 
-            <section className={styles.sectionContainer}>
-                <div className={styles.contentContainer}>
-                    <div className={styles.title}>
-                        <h1>Escolha o melhor plano para você</h1>
-                    </div>
-                    {
-                        plans ?
-                            <div className={styles.plansContainer}>
-                                {
-                                    plans.length > 0 && plans
-                                        .sort((a, b) => a.price - b.price)
-                                        .filter(plan => plan.id !== (process.env.NODE_ENV === 'production' ? "b7c7a2d4-9b6c-4f9c-9b0e-123456789abc" : ""))
-                                        .map(p => (
-                                            <div
-                                                className={`${styles.plan}
-                                            ${p.type === "semestral" && styles.border}`}
-                                                key={p.planId}
-                                                onClick={() => handlePlanClick(p.planId)}
-                                            >
-                                                {p.type === "semestral" && <div className={styles.recomended}>Mais Recomendado</div>}
-                                                <div className={styles.infoPlan}>
-                                                    <div className={styles.planDetails}>
-                                                        <p className={styles.planName}>
-                                                            {p.name}
-                                                        </p>
-                                                        <p className={styles.planPrice}>
-                                                            {handlePrice(p.price, p.type)}/mês
-                                                        </p>
-                                                        {desconto[p.type] > 0 ? <p className={styles.priceDiscount}>{desconto[p.type]}% OFF</p> : <p className={styles.priceDiscount}></p>}
-                                                        <p className={styles.planType}>
-                                                            Plano <span>{p.type}</span>
-                                                        </p>
-                                                    </div>
-                                                    <div>
-                                                        <ul>
-                                                            <li>Acesso a filmes e séries raros</li>
-                                                            <li>Mais de 800 títulos disponíveis, incluindo obras difíceis de encontrar</li>
-                                                            <li>Atualizações frequentes com novos conteúdos</li>
-                                                            <li>Plataforma estável, organizada e sem anúncios invasivos</li>
-                                                            <li>Suporte humano e direto, todos os dias</li>
-                                                            <li>Cancele sua assinatura quando quiser, sem burocracia</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div className={styles.buttonContainer}>
-                                                    <button onClick={() => handleClick(p.id)}>Escolha seu plano</button>
-                                                </div>
-                                            </div>
-                                        ))
-                                }
-                            </div> : <div className={styles.loader}>
-                                <Spinner />
+                    const metadata = planMetadata[type]
+                    const monthlyPrice =
+                        plan.price / metadata.months
+
+                    const discount = desconto[type] ?? 0
+                    const isRecommended =
+                        type === recommendedPlan
+
+                    return (
+                        <article
+                            key={plan.id}
+                            className={`${styles.planCard} ${isRecommended
+                                    ? styles.recommendedCard
+                                    : ''
+                                }`}
+                        >
+                            {isRecommended && (
+                                <div className={styles.recommendedBadge}>
+                                    Mais recomendado
+                                </div>
+                            )}
+
+                            <div className={styles.planHeader}>
+                                <div>
+                                    <p className={styles.planPeriod}>
+                                        Plano {type}
+                                    </p>
+
+                                    <h3>{plan.name}</h3>
+                                </div>
+
+                                {discount > 0 && (
+                                    <span className={styles.discount}>
+                                        Economize {discount}%
+                                    </span>
+                                )}
                             </div>
-                    }
-                </div>
-            </section>
-        </>
+
+                            <p className={styles.description}>
+                                {metadata.description}
+                            </p>
+
+                            <div className={styles.price}>
+
+
+                                <strong>
+                                    {formatPrice(monthlyPrice)}
+                                </strong>
+
+                                <span className={styles.pricePeriod}>
+                                    /mês
+                                </span>
+                            </div>
+
+                            <p className={styles.billing}>
+                                {metadata.periodLabel} de{' '}
+                                <strong>
+                                    {formatPrice(plan.price)}
+                                </strong>
+                            </p>
+
+                            <div className={styles.divider} />
+
+                            <ul className={styles.benefits}>
+                                {benefits.map((benefit) => (
+                                    <li key={benefit}>
+                                        <span className={styles.check}>
+                                            <FiCheck aria-hidden="true" />
+                                        </span>
+
+                                        {benefit}
+                                    </li>
+                                ))}
+                            </ul>
+
+                            <button
+                                type="button"
+                                className={styles.selectButton}
+                                onClick={() =>
+                                    handlePlanSelection(plan)
+                                }
+                                aria-label={`Escolher o plano ${plan.name}`}
+                            >
+                                Escolher este plano
+                            </button>
+                        </article>
+                    )
+                })}
+            </div>
+
+            <div className={styles.securityNotice}>
+                <span>
+                    <FiShield aria-hidden="true" />
+                    Pagamento protegido
+                </span>
+
+                <span>
+                    <FiCreditCard aria-hidden="true" />
+                    Cancele quando quiser
+                </span>
+            </div>
+        </div>
     )
 }
+
+export default Prices

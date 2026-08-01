@@ -1,72 +1,167 @@
 import Link from 'next/link'
-import styles from './styles.module.scss'
-import { SiAppletv, SiHbo, SiNetflix, SiParamountplus, SiPrimevideo, SiSky, SiStarz } from 'react-icons/si'
+import { IconType } from 'react-icons'
+import {
+    SiAppletv,
+    SiHbo,
+    SiNetflix,
+    SiParamountplus,
+    SiPrimevideo,
+    SiSky,
+    SiStarz,
+} from 'react-icons/si'
 import { TbBrandDisney } from 'react-icons/tb'
+import { FiArrowRight, FiCheck } from 'react-icons/fi'
 
-export default function Streaming() {
+import styles from './styles.module.scss'
+
+type BrandTheme =
+    | 'netflix'
+    | 'hbo'
+    | 'prime'
+    | 'disney'
+    | 'sky'
+    | 'apple'
+    | 'paramount'
+    | 'starz'
+
+interface StreamingBrand {
+    name: string
+    icon: IconType
+    theme: BrandTheme
+}
+
+const streamingBrands: StreamingBrand[] = [
+    {
+        name: 'Netflix',
+        icon: SiNetflix,
+        theme: 'netflix',
+    },
+    {
+        name: 'HBO Max',
+        icon: SiHbo,
+        theme: 'hbo',
+    },
+    {
+        name: 'Prime Video',
+        icon: SiPrimevideo,
+        theme: 'prime',
+    },
+    {
+        name: 'Disney+',
+        icon: TbBrandDisney,
+        theme: 'disney',
+    },
+    {
+        name: 'Sky+',
+        icon: SiSky,
+        theme: 'sky',
+    },
+    {
+        name: 'Apple TV+',
+        icon: SiAppletv,
+        theme: 'apple',
+    },
+    {
+        name: 'Paramount+',
+        icon: SiParamountplus,
+        theme: 'paramount',
+    },
+    {
+        name: 'Starz',
+        icon: SiStarz,
+        theme: 'starz',
+    },
+]
+
+const highlights = [
+    'Um único catálogo para explorar',
+    'Filmes e séries difíceis de encontrar',
+    'Novos conteúdos adicionados regularmente',
+]
+
+const Streaming = () => {
     return (
-        <section className={styles.contentPromoContainer}>
+        <section
+            className={styles.streamingSection}
+            aria-labelledby="streaming-title"
+        >
+            <div className={styles.backgroundGlow} aria-hidden="true" />
+
             <div className={styles.content}>
-                <h2>Um acervo reunido em um só lugar</h2>
-                <p>
-                    A FlixNext organiza e disponibiliza conteúdos que passaram — ou ainda passam —
-                    por grandes plataformas de streaming, reunindo tudo num só lugar.
-                </p>
+                <div className={styles.textContent}>
+                    <span className={styles.eyebrow}>
+                        Tudo em um só lugar
+                    </span>
 
-                <div className={styles.streamBrand}>
-                    <div className={`${styles.logo} ${styles.netflix}`}>
-                        <SiNetflix />
-                        <p>Netflix</p>
-                    </div>
+                    <h2 id="streaming-title">
+                        Menos tempo procurando.
+                        <span> Mais tempo assistindo.</span>
+                    </h2>
 
-                    <div className={`${styles.logo} ${styles.hbo}`}>
-                        <SiHbo />
-                        <p>HBO Max</p>
-                    </div>
+                    <p className={styles.description}>
+                        Explore um catálogo organizado com filmes e séries
+                        encontrados em diferentes serviços de streamings.
+                    </p>
 
-                    <div className={`${styles.logo} ${styles.prime}`}>
-                        <SiPrimevideo />
-                        <p>Prime Video</p>
-                    </div>
+                    <ul className={styles.highlights}>
+                        {highlights.map((highlight) => (
+                            <li key={highlight}>
+                                <span>
+                                    <FiCheck aria-hidden="true" />
+                                </span>
 
-                    <div className={`${styles.logo} ${styles.disney}`}>
-                        <TbBrandDisney />
-                        <p>Disney+</p>
-                    </div>
+                                {highlight}
+                            </li>
+                        ))}
+                    </ul>
 
-                    <div className={`${styles.logo} ${styles.sky}`}>
-                        <SiSky />
-                        <p>Sky+</p>
-                    </div>
-
-                    <div className={`${styles.logo} ${styles.apple}`}>
-                        <SiAppletv />
-                        <p>Apple TV+</p>
-                    </div>
-
-                    <div className={`${styles.logo} ${styles.paramount}`}>
-                        <SiParamountplus />
-                        <p>Paramount+</p>
-                    </div>
-
-                    <div className={`${styles.logo} ${styles.globo}`}>
-                        <p>
-                            globo<span>play</span>
-                        </p>
-                    </div>
-
-                    <div className={`${styles.logo} ${styles.starz}`}>
-                        <SiStarz />
-                        <p>Starz</p>
-                    </div>
-                </div>
-
-                <div className={styles.buttonActionContainer}>
-                    <Link href="/planos/#escolher">
-                        <button>Escolher um plano</button>
+                    <Link
+                        href="/planos/#escolher"
+                        className={styles.action}
+                    >
+                        Escolher um plano
+                        <FiArrowRight aria-hidden="true" />
                     </Link>
                 </div>
+
+                <div
+                    className={styles.brands}
+                    aria-label="Plataformas e distribuidoras"
+                >
+                    {streamingBrands.map((brand) => {
+                        const Icon = brand.icon
+
+                        return (
+                            <article
+                                key={brand.name}
+                                className={`${styles.brandCard} ${styles[brand.theme]
+                                    }`}
+                            >
+                                <Icon aria-hidden="true" />
+
+                                <span>{brand.name}</span>
+                            </article>
+                        )
+                    })}
+
+                    <article
+                        className={`${styles.brandCard} ${styles.globoplay}`}
+                    >
+                        <strong aria-hidden="true">
+                            globo<span>play</span>
+                        </strong>
+
+                        <span>Globoplay</span>
+                    </article>
+                </div>
             </div>
+
+            <p className={styles.disclaimer}>
+                As marcas exibidas pertencem aos seus respectivos
+                proprietários e são apresentadas apenas como referência.
+            </p>
         </section>
     )
 }
+
+export default Streaming
