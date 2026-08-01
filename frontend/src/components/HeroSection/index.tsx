@@ -1,111 +1,137 @@
-import { Swiper, SwiperSlide } from 'swiper/react'
-import styles from './styles.module.scss'
-import { Navigation, Pagination } from 'swiper/modules'
-import NewTop from '../newTop'
 import { useState } from 'react'
-import NewTopSerie from '../seriesComponents/newTopSerie'
 import type { Swiper as SwiperType } from 'swiper'
+import { Navigation, Pagination } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+import NewTop from '../newTop'
+
+import styles from './styles.module.scss'
 
 interface HeroProps {
     width: number
 }
-type IDProps = {
-    id: number,
-    type: "movie" | "tv"
+
+type ContentType = 'movie' | 'tv'
+
+interface HeroItem {
+    id: number
+    type: ContentType
 }
 
-export default function HeroSection({ width }: HeroProps) {
-    const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null)
+const MOBILE_BREAKPOINT = 780
+
+const HeroSection = ({ width }: HeroProps) => {
+    const [swiperInstance, setSwiperInstance] =
+        useState<SwiperType | null>(null)
+
     const [activeIndex, setActiveIndex] = useState(0)
 
-    const ids: IDProps[] = [
+    const isMobile = width <= MOBILE_BREAKPOINT
 
+    const ids: HeroItem[] = [
         {
-            id: 1083381, // backrooms
-            type: 'movie'
+            id: 1083381,
+            type: 'movie',
         },
         {
-            id: 94997, //casa do dragão
-            type: 'tv'
+            id: 94997,
+            type: 'tv',
         },
         {
-            id: 1339713, //obsessão
-            type: 'movie'
+            id: 1339713,
+            type: 'movie',
         },
         {
-            id: 82452, // Avatar o ultimo mestre do ar
-            type: 'tv'
+            id: 82452,
+            type: 'tv',
         },
         {
-            id: 931285, // mortal kombat 2
-            type: 'movie'
+            id: 931285,
+            type: 'movie',
         },
         {
-            id: 278178,//Eu vou te Encontrar
-            type: 'tv'
+            id: 278178,
+            type: 'tv',
         },
         {
-            id: 1301421, // Ovelhas detetive
-            type: 'movie'
+            id: 1301421,
+            type: 'movie',
         },
         {
-            id: 273240, //off campus
-            type: 'tv'
+            id: 273240,
+            type: 'tv',
         },
         {
-            id: 1439930, // justiceiro
-            type: 'movie'
+            id: 1439930,
+            type: 'movie',
         },
         {
-            id: 124364, //Origem
-            type: 'tv'
+            id: 124364,
+            type: 'tv',
         },
     ]
 
     const handleVideoEnded = () => {
         if (!swiperInstance) return
 
-        setTimeout(() => {
+        window.setTimeout(() => {
             const isLastSlide = activeIndex === ids.length - 1
 
-            if (isLastSlide) swiperInstance.slideToLoop(0)
-            else swiperInstance.slideNext()
+            if (isLastSlide) {
+                swiperInstance.slideToLoop(0)
+
+                return
+            }
+
+            swiperInstance.slideNext()
         }, 3000)
     }
 
-
     return (
-        <section className={styles.container}>
+        <section
+            className={styles.container}
+            aria-label="Conteúdos em destaque"
+        >
             <Swiper
-                speed={1500}
-                modules={[Navigation, Pagination]}
-                navigation
-                pagination={{
-                    clickable: true,
-                    bulletClass: 'swiper-pagination-bullet',
-                    bulletActiveClass: 'swiper-pagination-bullet-active',
-                }}
-                loop
-                slidesPerView={1}
-                onSwiper={setSwiperInstance}
-                onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
                 className={styles.carousel}
-            >
-                {
-                    ids.map((item, index) => (
-                        <SwiperSlide key={index}>
-                            <NewTop
-                                width={width}
-                                id={item.id}
-                                isActive={activeIndex === index}
-                                onVideoEnded={handleVideoEnded}
-                                disableVideoOnFirst={/*activeIndex === ids.length - 1 */false}
-                                type={item.type}
-                            />
-                        </SwiperSlide>
-                    ))
+                modules={[Navigation, Pagination]}
+                speed={1500}
+                slidesPerView={1}
+                loop
+                navigation={!isMobile}
+                pagination={
+                    isMobile
+                        ? false
+                        : {
+                            clickable: true,
+                            bulletClass: 'swiper-pagination-bullet',
+                            bulletActiveClass:
+                                'swiper-pagination-bullet-active',
+                        }
                 }
+                onSwiper={setSwiperInstance}
+                onSlideChange={(swiper) => {
+                    setActiveIndex(swiper.realIndex)
+                }}
+            >
+                {ids.map((item, index) => (
+                    <SwiperSlide
+                        key={`${item.type}-${item.id}`}
+                        className={styles.slide}
+                    >
+                        <NewTop
+                            width={width}
+                            id={item.id}
+                            type={item.type}
+                            isActive={activeIndex === index}
+                            onVideoEnded={handleVideoEnded}
+                            disableVideoOnFirst={false}
+                        />
+                    </SwiperSlide>
+                ))}
             </Swiper>
         </section>
     )
 }
+
+export default HeroSection
