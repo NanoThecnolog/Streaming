@@ -10,7 +10,14 @@ class AuthUserService {
         if (!secret) throw new AppError("Variável de ambiente não definida corretamente.", 500)
         const userExiste = await prismaClient.user.findUnique({
             where: { email },
-            include: { watchLater: true }
+            select: {
+                id: true,
+                name: true,
+                avatar: true,
+                watchLater: true,
+                password: true,
+                email: true,
+            }
         })
         if (!userExiste) throw new AppError("Email ou senha incorreto.", 401)
 
