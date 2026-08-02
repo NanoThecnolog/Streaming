@@ -214,13 +214,22 @@ const PagePlans = ({
 
 export default PagePlans
 
-export const getServerSideProps: GetServerSideProps<
-    PagePlansProps
-> = async () => {
+export const getServerSideProps: GetServerSideProps<PagePlansProps> = async () => {
+    const url = process.env.NEXT_PUBLIC_WEBSITE_LINK
+    if (!url) {
+        console.log("WEBSITE_LINK não definido nas variaveis de ambiente.")
+        return {
+            props: {
+                plans: [],
+                tmdbMovies: [],
+                tmdbSeries: [],
+            }
+        }
+    }
     try {
         const [plansResponse, movies, series] = await Promise.all([
             axios.get<PlanProp[]>(
-                'https://flixnext.com.br/api/plan/list',
+                `${url}/api/plan/list`,
             ),
             mongoService.fetchMovieData(),
             mongoService.fetchSerieData(),
@@ -232,13 +241,13 @@ export const getServerSideProps: GetServerSideProps<
         const [tmdbMoviesResponse, tmdbSeriesResponse] =
             await Promise.all([
                 axios.post(
-                    'https://flixnext.com.br/api/tmdb/all/movie',
+                    `${url}/api/tmdb/all/movie`,
                     {
                         movies: moviesToFetch,
                     },
                 ),
                 axios.post(
-                    'https://flixnext.com.br/api/tmdb/all/tv',
+                    `${url}/api/tmdb/all/tv`,
                     {
                         series: seriesToFetch,
                     },

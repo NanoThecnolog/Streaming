@@ -18,6 +18,7 @@ import { creditTest } from '@/utils/Variaveis'
 import { toast } from 'react-toastify'
 import PaymentLoader from '@/components/ui/PaymentLoader'
 import { PlansProps } from '@/@types/plans'
+import { useRouter } from 'next/router'
 
 export type CheckoutStep =
     | 'email'
@@ -135,9 +136,10 @@ const loadingEfiPay = async () => {
 }
 
 export default function NewPaymentPage({ plans }: Props) {
-    //debug.log("planos recebidos na pagina", plans)
 
-    //const [token, setToken] = useState<string>('')
+    const router = useRouter()
+    const [queryPlan, setQueryPlan] = useState<number | null>(null)
+
     const [currentStep, setCurrentStep] = useState<CheckoutStep>('email')
 
     const [email, setEmail] = useState('')
@@ -168,10 +170,34 @@ export default function NewPaymentPage({ plans }: Props) {
     const [paymentResult, setPaymentResult] = useState<PaymentApiResponse | null>(null)
 
     useEffect(() => {
-        if (plans.length === 0) return
+
+        if (!router) return
+        debug.log("queries:", router.query)
+        const planID = router.query.id
+        debug.log("planID", planID)
+        debug.log("planos: ", plans)
+        if (!planID) {
+            debug.log("id do plano não recebido")
+            return
+        }
+        if (Array.isArray(planID)) {
+            debug.log("mais de um id recebido")
+            return
+        }
+        setQueryPlan(parseInt(planID as string))
+
+    }, [router, router.query])
+
+    useEffect(() => {
+        if (plans && plans.length === 0) return
+        if (queryPlan) {
+            const plan = plans.find(plan => plan.planId === queryPlan)
+            setSelectedPlan(plan ?? plans[0])
+            return
+        }
         const plan = plans.find(plan => plan.type === 'mensal')
         setSelectedPlan(plan ?? plans[0])
-    }, [plans])
+    }, [plans, queryPlan])
 
     useEffect(() => {
         const validate = valid.number(creditCard.number)
@@ -637,7 +663,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     } catch (err) {
         debug.error('Erro ao buscar dados dos planos', err)
         return {
-            props: {}
+            props: {
+                plans: []
+            }
         }
     }
 }

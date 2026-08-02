@@ -125,7 +125,7 @@ const Prices = ({
         await router.push({
             pathname: '/payment',
             query: {
-                id: plan.id,
+                id: plan.planId,
             },
         })
     }
@@ -165,8 +165,8 @@ const Prices = ({
                         <article
                             key={plan.id}
                             className={`${styles.planCard} ${isRecommended
-                                    ? styles.recommendedCard
-                                    : ''
+                                ? styles.recommendedCard
+                                : ''
                                 }`}
                         >
                             {isRecommended && (
