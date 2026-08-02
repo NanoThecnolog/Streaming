@@ -123,9 +123,9 @@ export default function Login() {
                             </div>
                         </label>
 
-                        <label className={styles.field}>
+                        <div className={styles.field}>
                             <div className={styles.fieldHeader}>
-                                <span>Senha</span>
+                                <label>Senha</label>
 
                                 <button
                                     type="button"
@@ -186,7 +186,7 @@ export default function Login() {
                                     )}
                                 </button>
                             </div>
-                        </label>
+                        </div>
 
                         <button
                             type="submit"
