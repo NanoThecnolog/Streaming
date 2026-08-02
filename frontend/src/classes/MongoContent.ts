@@ -71,6 +71,18 @@ class MongoContentService {
             return null
         }
     }
+    async deleteMovie(id: number) {
+        try {
+            const response = await apiManager.delete(`/movie/${id}`)
+            const data: CardsProps = response.data
+            return data
+        } catch (err) {
+            debug.error(err)
+            return null
+        }
+    }
+
+
     async createSerie(serie: TVProps): Promise<SeriesProps | null> {
         try {
             const response = await apiManager.post('/serie', serie)
@@ -91,6 +103,16 @@ class MongoContentService {
             return null
         }
     }
+    async deleteSerie(id: number) {
+        try {
+            const response = await apiManager.delete(`/serie/${id}`)
+            const data: SeriesProps = response.data
+            return data
+        } catch (err) {
+            debug.error(err)
+            return null
+        }
+    }
 
     async getMapId() {
         try {
@@ -102,5 +124,7 @@ class MongoContentService {
             return []
         }
     }
+
+
 }
 export const mongoService = new MongoContentService()

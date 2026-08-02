@@ -1,382 +1,1049 @@
-import { FormEvent, useEffect, useState } from 'react'
-import styles from './styles.module.scss'
+import {
+    ChangeEvent,
+    FormEvent,
+    useEffect,
+    useMemo,
+    useState,
+} from 'react'
+import debounce from 'lodash.debounce'
+import { toast } from 'react-toastify'
+
+import { Episodes, Seasons } from '@/@types/series'
 import { debug } from '@/classes/DebugLogger'
 import { mongoService } from '@/classes/MongoContent'
-import { toast } from 'react-toastify'
-import { classification } from '@/utils/Variaveis'
-import { agp, gen, stm } from '@/utils/Genres'
-import { Episodes, Seasons } from '@/@types/series'
-import debounce from 'lodash.debounce'
 import { tmdb } from '@/classes/TMDB'
+import { agp, gen, stm } from '@/utils/Genres'
+import { classification } from '@/utils/Variaveis'
+
+import styles from './styles.module.scss'
+
+type TVNews = '' | 'season' | 'episode' | 'news'
 
 export interface TVProps {
-    background: string,
-    overlay: string,
-    tmdbID: number,
-    title: string,
-    subtitle: string,
-    description: string,
-    genero: string[],
-    faixa: string,
+    background: string
+    overlay: string
+    tmdbID: number
+    title: string
+    subtitle: string
+    description: string
+    genero: string[]
+    faixa: string
     season: Seasons[]
-    news?: "season" | "episode" | "news"
-
+    news: TVNews
 }
 
-export default function CreateTV() {
-    const [loading, setLoading] = useState(false)
-    const [serieData, setSerieData] = useState<TVProps>({
-        background: '/fundo-largo.jpg',
-        overlay: '/fundo-alto.jpg',
-        tmdbID: 0,
-        title: '',
-        subtitle: '',
-        description: '',
-        genero: [],
-        faixa: 'L',
-        season: [],
-        news: 'news'
-    })
+type FormFieldElement =
+    | HTMLInputElement
+    | HTMLTextAreaElement
+    | HTMLSelectElement
 
-    const genres = [
-        ...Object.values(gen),
-        ...Object.values(agp),
-        ...Object.values(stm)
-    ]
+const initialSerieData: TVProps = {
+    background: '/fundo-largo.jpg',
+    overlay: '/fundo-alto.jpg',
+    tmdbID: 0,
+    title: '',
+    subtitle: '',
+    description: '',
+    genero: [],
+    faixa: 'L',
+    season: [],
+    news: 'news',
+}
 
-    const handleSubmit = async (e: FormEvent) => {
-        e.preventDefault()
-        debug.log(serieData)
-        if (loading) return debug.log('calma q ta indo')
-        setLoading(true)
-        //debug.log(movieData)
-        try {
-            const response = await mongoService.createSerie(serieData)
-            debug.log('Resposta da requisição: ', response)
-            setSerieData(
-                {
-                    background: '/fundo-largo.jpg',
-                    overlay: '/fundo-alto.jpg',
-                    tmdbID: 0,
-                    title: '',
-                    subtitle: '',
-                    description: '',
-                    faixa: 'L',
-                    genero: [],
-                    season: []
-                }
-            )
-            toast.success("Ae bobão, série adicionada!")
-        } catch (err) {
-            toast.error("Erro ao adicionar série, vai ver oq aconteceu!")
-        } finally {
-            setLoading(false)
+const createEpisode = (episodeNumber: number): Episodes => ({
+    ep: episodeNumber,
+    src: '',
+    duration: '',
+})
+
+const createSeason = (seasonNumber: number): Seasons => ({
+    s: seasonNumber,
+    lang: 'Dublado',
+    episodes: [createEpisode(1)],
+})
+
+const CreateTV = () => {
+    const [serieData, setSerieData] =
+        useState<TVProps>(initialSerieData)
+
+    const [saving, setSaving] = useState(false)
+    const [loadingTMDB, setLoadingTMDB] = useState(false)
+
+    const genres = useMemo(() => {
+        return [
+            ...new Set([
+                ...Object.values(gen),
+                ...Object.values(agp),
+                ...Object.values(stm),
+            ]),
+        ]
+    }, [])
+
+    useEffect(() => {
+        if (serieData.tmdbID <= 0) return
+
+        const fetchTMDBData = debounce(async () => {
+            setLoadingTMDB(true)
+
+            try {
+                const data = await tmdb.fetchSeriesDetails(
+                    serieData.tmdbID,
+                )
+
+                if (!data) return
+
+                setSerieData((previousData) => ({
+                    ...previousData,
+                    title: data.name ?? '',
+                    description: data.overview ?? '',
+                    genero: data.genres.map(({ name }) => {
+                        return name === 'Thriller'
+                            ? 'Suspense'
+                            : name
+                    }),
+                }))
+            } catch (error) {
+                debug.log(
+                    'Erro ao buscar série no TMDB:',
+                    error,
+                )
+
+                toast.error(
+                    'Não foi possível buscar os dados no TMDB.',
+                )
+            } finally {
+                setLoadingTMDB(false)
+            }
+        }, 800)
+
+        fetchTMDBData()
+
+        return () => {
+            fetchTMDBData.cancel()
         }
+    }, [serieData.tmdbID])
+
+    const updateSeasons = (
+        updater: (seasons: Seasons[]) => Seasons[],
+    ) => {
+        setSerieData((previousData) => ({
+            ...previousData,
+            season: updater(previousData.season),
+        }))
     }
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        const { name, value } = e.target
-        setSerieData(prev => ({
-            ...prev,
-            [name]: name === 'news'
-                ? (value || null)
-                : value
+    const handleChange = (
+        event: ChangeEvent<FormFieldElement>,
+    ) => {
+        const { name, value } = event.target
+
+        setSerieData((previousData) => ({
+            ...previousData,
+            [name]: name === 'tmdbID'
+                ? Number(value)
+                : value,
+        }))
+    }
+
+    const handleGenres = (
+        event: ChangeEvent<HTMLSelectElement>,
+    ) => {
+        const genero = Array.from(
+            event.target.selectedOptions,
+            ({ value }) => value,
+        )
+
+        setSerieData((previousData) => ({
+            ...previousData,
+            genero,
         }))
     }
 
     const handleAddSeason = () => {
-        setSerieData((prev) => ({
-            ...prev,
-            season: [
-                ...prev.season,
-                { s: prev.season.length + 1, lang: "Dublado", episodes: [{ ep: 1, src: "", duration: "" }] },
-            ],
-        }))
-    }
-    const handleRemoveSeason = (seasonIndex: number) => {
-        const updateSeasons = serieData.season.filter((_, i) => i !== seasonIndex)
-        setSerieData((prev) => ({ ...prev, season: updateSeasons }))
+        updateSeasons((seasons) => {
+            const greatestSeasonNumber = seasons.reduce(
+                (greatest, season) => Math.max(greatest, season.s),
+                0,
+            )
+
+            return [
+                ...seasons,
+                createSeason(greatestSeasonNumber + 1),
+            ]
+        })
     }
 
-    const handleAddEpisode = (seasonIndex: number) => {
-        const updatedSeasons = [...serieData.season];
-        updatedSeasons[seasonIndex].episodes.push({
-            ep: updatedSeasons[seasonIndex].episodes.length + 1,
-            src: "",
-            duration: "",
+    const handleRemoveSeason = (seasonIndex: number) => {
+        updateSeasons((seasons) => {
+            return seasons.filter(
+                (_, index) => index !== seasonIndex,
+            )
         })
-        setSerieData((prev) => ({ ...prev, season: updatedSeasons }))
-    }
-    const handleRemoveEpisode = (seasonIndex: number, episodeIndex: number) => {
-        const updatedSeasons = [...serieData.season]
-        updatedSeasons[seasonIndex].episodes = updatedSeasons[seasonIndex].episodes.filter((_, i) => i !== episodeIndex)
-        setSerieData((prev) => ({ ...prev, season: updatedSeasons }))
     }
 
     const handleSeasonChange = <K extends keyof Seasons>(
         seasonIndex: number,
         field: K,
-        value: any
+        value: Seasons[K],
     ) => {
-        const updatedSeasons = [...serieData.season];
-        updatedSeasons[seasonIndex][field] = value;
-        setSerieData((prev) => ({ ...prev, season: updatedSeasons }));
-    };
+        updateSeasons((seasons) => {
+            return seasons.map((season, index) => {
+                if (index !== seasonIndex) return season
 
-    const handleEpisodeChange = <K extends keyof Episodes>(
+                return {
+                    ...season,
+                    [field]: value,
+                }
+            })
+        })
+    }
+
+    const handleAddEpisode = (seasonIndex: number) => {
+        updateSeasons((seasons) => {
+            return seasons.map((season, index) => {
+                if (index !== seasonIndex) return season
+
+                const greatestEpisodeNumber =
+                    season.episodes.reduce(
+                        (greatest, episode) => {
+                            return Math.max(
+                                greatest,
+                                episode.ep,
+                            )
+                        },
+                        0,
+                    )
+
+                return {
+                    ...season,
+                    episodes: [
+                        ...season.episodes,
+                        createEpisode(
+                            greatestEpisodeNumber + 1,
+                        ),
+                    ],
+                }
+            })
+        })
+    }
+
+    const handleRemoveEpisode = (
+        seasonIndex: number,
+        episodeIndex: number,
+    ) => {
+        updateSeasons((seasons) => {
+            return seasons.map((season, index) => {
+                if (index !== seasonIndex) return season
+
+                if (season.episodes.length === 1) {
+                    toast.info(
+                        'A temporada precisa ter pelo menos um episódio.',
+                    )
+
+                    return season
+                }
+
+                return {
+                    ...season,
+                    episodes: season.episodes.filter(
+                        (_, index) => index !== episodeIndex,
+                    ),
+                }
+            })
+        })
+    }
+
+    const handleEpisodeChange = <
+        K extends keyof Episodes,
+    >(
         seasonIndex: number,
         episodeIndex: number,
         field: K,
-        value: Episodes[K]
+        value: Episodes[K],
     ) => {
-        const updatedSeasons = [...serieData.season];
-        updatedSeasons[seasonIndex].episodes[episodeIndex][field] = value;
-        setSerieData((prev) => ({ ...prev, season: updatedSeasons }));
-    };
+        updateSeasons((seasons) => {
+            return seasons.map(
+                (season, currentSeasonIndex) => {
+                    if (
+                        currentSeasonIndex !== seasonIndex
+                    ) {
+                        return season
+                    }
 
-    const handleGenres = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        const selectedOptions = Array.from(e.target.selectedOptions).map(option => option.value);
-        setSerieData(prev => ({
-            ...prev,
-            genero: selectedOptions
-        }));
+                    return {
+                        ...season,
+                        episodes: season.episodes.map(
+                            (
+                                episode,
+                                currentEpisodeIndex,
+                            ) => {
+                                if (
+                                    currentEpisodeIndex !==
+                                    episodeIndex
+                                ) {
+                                    return episode
+                                }
+
+                                return {
+                                    ...episode,
+                                    [field]: value,
+                                }
+                            },
+                        ),
+                    }
+                },
+            )
+        })
     }
 
-    useEffect(() => {
-        const getTMDBData = debounce(async () => {
-            const dataTMDB = await tmdb.fetchSeriesDetails(serieData.tmdbID)
-            if (!dataTMDB) return
-            setSerieData(prev => ({
-                ...prev,
-                title: dataTMDB.name,
-                description: dataTMDB.overview,
-                genero: dataTMDB.genres.map(gen =>
-                    gen.name === 'Thriller'
-                        ? 'Suspense'
-                        : gen.name
+    const validateSerie = (): boolean => {
+        if (serieData.tmdbID <= 0) {
+            toast.warning('Informe um TMDB ID válido.')
+            return false
+        }
+
+        if (!serieData.title.trim()) {
+            toast.warning('Informe o título da série.')
+            return false
+        }
+
+        if (serieData.genero.length === 0) {
+            toast.warning(
+                'Selecione pelo menos um gênero.',
+            )
+
+            return false
+        }
+
+        if (serieData.season.length === 0) {
+            toast.warning(
+                'Adicione pelo menos uma temporada.',
+            )
+
+            return false
+        }
+
+        const seasonNumbers = serieData.season.map(
+            ({ s }) => s,
+        )
+
+        const hasDuplicatedSeason =
+            new Set(seasonNumbers).size !==
+            seasonNumbers.length
+
+        if (hasDuplicatedSeason) {
+            toast.warning(
+                'Existem temporadas com o mesmo número.',
+            )
+
+            return false
+        }
+
+        for (const season of serieData.season) {
+            if (season.episodes.length === 0) {
+                toast.warning(
+                    `A temporada ${season.s} precisa possuir pelo menos um episódio.`,
                 )
-            }))
-        }, 2000)
-        if (serieData.tmdbID && serieData.tmdbID > 0) getTMDBData()
-    }, [serieData.tmdbID])
+
+                return false
+            }
+
+            const episodeNumbers = season.episodes.map(
+                ({ ep }) => ep,
+            )
+
+            const hasDuplicatedEpisode =
+                new Set(episodeNumbers).size !==
+                episodeNumbers.length
+
+            if (hasDuplicatedEpisode) {
+                toast.warning(
+                    `Existem episódios repetidos na temporada ${season.s}.`,
+                )
+
+                return false
+            }
+
+            const hasEpisodeWithoutSource =
+                season.episodes.some(
+                    ({ src }) => !src.trim(),
+                )
+
+            if (hasEpisodeWithoutSource) {
+                toast.warning(
+                    `Preencha os links dos episódios da temporada ${season.s}.`,
+                )
+
+                return false
+            }
+        }
+
+        return true
+    }
+
+    const handleSubmit = async (
+        event: FormEvent<HTMLFormElement>,
+    ) => {
+        event.preventDefault()
+
+        if (
+            saving ||
+            loadingTMDB ||
+            !validateSerie()
+        ) {
+            return
+        }
+
+        const payload: TVProps = {
+            ...serieData,
+            title: serieData.title.trim(),
+            subtitle: serieData.subtitle.trim(),
+            description: serieData.description.trim(),
+            season: serieData.season.map((season) => ({
+                ...season,
+                episodes: season.episodes.map(
+                    (episode) => ({
+                        ...episode,
+                        src: episode.src.trim(),
+                        duration:
+                            episode.duration.trim(),
+                    }),
+                ),
+            })),
+        }
+
+        setSaving(true)
+
+        try {
+            const response =
+                await mongoService.createSerie(payload)
+
+            debug.log('Série criada:', response)
+
+            setSerieData(initialSerieData)
+
+            toast.success(
+                'Série adicionada ao catálogo!',
+            )
+        } catch (error) {
+            debug.log(
+                'Erro ao adicionar série:',
+                error,
+            )
+
+            toast.error(
+                'Não foi possível adicionar a série.',
+            )
+        } finally {
+            setSaving(false)
+        }
+    }
+
     return (
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form
+            className={styles.form}
+            onSubmit={handleSubmit}
+        >
             <div className={styles.formRow}>
                 <div>
                     <div className={styles.formItem}>
-                        <label htmlFor="title">Título</label>
+                        <label htmlFor="title">
+                            Título
+                        </label>
+
                         <input
-                            type="text"
                             id="title"
-                            name='title'
-                            value={serieData.title || ''}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className={styles.formItem}>
-                        <label htmlFor="subtitle">Subtítulo</label>
-                        <input
                             type="text"
-                            id="subtitle"
-                            name='subtitle'
-                            value={serieData.subtitle || ''}
+                            name="title"
+                            value={serieData.title}
+                            disabled={saving}
+                            required
                             onChange={handleChange}
                         />
                     </div>
+
                     <div className={styles.formItem}>
-                        <label htmlFor="description">Descrição</label>
-                        <textarea
-                            rows={4}
-                            id="description"
-                            name='description'
-                            value={serieData.description || ''}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className={styles.formItem}>
-                        <label htmlFor="tmdbID">TMDBID</label>
+                        <label htmlFor="subtitle">
+                            Subtítulo
+                        </label>
+
                         <input
-                            type="number"
-                            id="tmdbid"
-                            className={styles.tmdbid}
-                            name='tmdbID'
-                            value={serieData.tmdbID}
+                            id="subtitle"
+                            type="text"
+                            name="subtitle"
+                            value={serieData.subtitle}
+                            disabled={saving}
                             onChange={handleChange}
                         />
                     </div>
+
                     <div className={styles.formItem}>
-                        <label htmlFor="faixa">Faixa</label>
+                        <label htmlFor="description">
+                            Descrição
+                        </label>
+
+                        <textarea
+                            id="description"
+                            name="description"
+                            rows={4}
+                            value={serieData.description}
+                            disabled={saving}
+                            onChange={handleChange}
+                        />
+                    </div>
+
+                    <div className={styles.formItem}>
+                        <label htmlFor="tmdbID">
+                            TMDB ID
+                        </label>
+
+                        <input
+                            id="tmdbID"
+                            className={styles.tmdbid}
+                            type="number"
+                            name="tmdbID"
+                            min={1}
+                            value={serieData.tmdbID || ''}
+                            disabled={saving}
+                            required
+                            onChange={handleChange}
+                        />
+
+                        {loadingTMDB && (
+                            <small>
+                                Buscando dados no TMDB...
+                            </small>
+                        )}
+                    </div>
+
+                    <div className={styles.formItem}>
+                        <label htmlFor="faixa">
+                            Classificação
+                        </label>
+
                         <select
                             id="faixa"
-                            name='faixa'
-                            value={serieData.faixa}
                             className={styles.selectFaixa}
+                            name="faixa"
+                            value={serieData.faixa}
+                            disabled={saving}
                             onChange={handleChange}
                         >
-                            {classification.map(faixa =>
-                                <option key={faixa.etaria} value={faixa.etaria}>{faixa.etaria}</option>
+                            {classification.map(
+                                ({ etaria }) => (
+                                    <option
+                                        key={etaria}
+                                        value={etaria}
+                                    >
+                                        {etaria}
+                                    </option>
+                                ),
                             )}
                         </select>
-                        <span className={styles.chosenFaixa}>faixa escolhida: {serieData?.faixa}</span>
+
+                        <span
+                            className={
+                                styles.chosenFaixa
+                            }
+                        >
+                            Classificação escolhida:{' '}
+                            {serieData.faixa}
+                        </span>
                     </div>
+
                     <div className={styles.formItem}>
-                        <label htmlFor="news">News</label>
+                        <label htmlFor="news">
+                            Status
+                        </label>
+
                         <select
-                            name="news"
                             id="news"
-                            value={serieData.news}
                             className={styles.selectNews}
+                            name="news"
+                            value={serieData.news}
+                            disabled={saving}
                             onChange={handleChange}
                         >
-                            <option value="">Sem Status</option>
-                            <option value="season">Nova Temporada</option>
-                            <option value="episode">Novos Episódios</option>
-                            <option value="news">Nova Série</option>
+                            <option value="">
+                                Sem status
+                            </option>
+
+                            <option value="season">
+                                Nova temporada
+                            </option>
+
+                            <option value="episode">
+                                Novos episódios
+                            </option>
+
+                            <option value="news">
+                                Nova série
+                            </option>
                         </select>
                     </div>
-                    <div className={styles.formItem}>
-                        <h2 className="text-lg font-semibold">Temporadas</h2>
-                        {serieData.season.map((season, seasonIndex) => (
-                            <div key={seasonIndex} className={styles.seasonForm}>
-                                <div>
-                                    <label htmlFor='seasonNumber'>
-                                        Nº Temporada:
-                                    </label>
-                                    <input
-                                        id='seasonNumber'
-                                        className={styles.seasonNumber}
-                                        type="number"
-                                        value={season.s}
-                                        onChange={(e) =>
-                                            handleSeasonChange(seasonIndex, "s", Number(e.target.value))
-                                        }
-                                    />
-                                    <label htmlFor='lang'>
-                                        Idioma:
-                                    </label>
-                                    <select
-                                        id='lang'
-                                        className={styles.seasonLang}
-                                        value={season.lang}
-                                        onChange={(e) =>
-                                            handleSeasonChange(seasonIndex, "lang", e.target.value)
-                                        }
-                                    >
-                                        <option value="Dublado">Dublado</option>
-                                        <option value="Legendado">Legendado</option>
-                                    </select>
-                                </div>
-                                <div className={styles.buttonSeason}>
-                                    <button
-                                        onClick={() => handleRemoveSeason(seasonIndex)}
-                                    >
-                                        Remover temporada
-                                    </button>
-                                </div>
 
-                                <h3 className="text-md mt-2">Episódios</h3>
-                                {season.episodes.map((episode, episodeIndex) => (
-                                    <>
-                                        <div key={episodeIndex} className={styles.episodeForm}>
-                                            <div className={styles.field}>
-                                                <label htmlFor='epNumber'>
-                                                    Nº Episódio:
-                                                </label>
-                                                <input
-                                                    id='epNumber'
-                                                    className={styles.episodeNumber}
-                                                    type="number"
-                                                    value={episode.ep}
-                                                    onChange={(e) =>
-                                                        handleEpisodeChange(
-                                                            seasonIndex,
-                                                            episodeIndex,
-                                                            "ep",
-                                                            Number(e.target.value)
-                                                        )
-                                                    }
-                                                />
-                                            </div>
-                                            <div className={styles.field}>
-                                                <label htmlFor='epSrc'>
-                                                    Link:
-                                                </label>
-                                                <input
-                                                    id='epSrc'
-                                                    type="text"
-                                                    value={episode.src}
-                                                    onChange={(e) =>
-                                                        handleEpisodeChange(
-                                                            seasonIndex,
-                                                            episodeIndex,
-                                                            "src",
-                                                            e.target.value
-                                                        )
-                                                    }
-                                                />
-                                            </div>
-                                            <div className={styles.field}>
-                                                <label htmlFor='epDuration'>
-                                                    Duração:
-                                                </label>
-                                                <input
-                                                    id='epDuration'
-                                                    type="text"
-                                                    value={episode.duration}
-                                                    onChange={(e) =>
-                                                        handleEpisodeChange(
-                                                            seasonIndex,
-                                                            episodeIndex,
-                                                            "duration",
-                                                            e.target.value
-                                                        )
-                                                    }
-                                                />
-                                            </div>
-                                        </div>
-                                        <div className={styles.buttonEpisode}>
-                                            <button
-                                                onClick={() =>
-                                                    handleRemoveEpisode(seasonIndex, episodeIndex)
-                                                }
-                                                className="text-red-500"
-                                            >
-                                                Remover
-                                            </button>
-                                        </div>
-                                    </>
-                                ))}
-                                <div className={styles.buttonEpisode}>
-                                    <button type='button' onClick={() => handleAddEpisode(seasonIndex)}>+ Episódio</button>
-                                </div>
+                    <div className={styles.formItem}>
+                        <div
+                            className={
+                                styles.sectionHeader
+                            }
+                        >
+                            <div>
+                                <span>Conteúdo</span>
+
+                                <h2>
+                                    Temporadas e episódios
+                                </h2>
+
+                                <p>
+                                    Configure os episódios
+                                    disponíveis em cada
+                                    temporada.
+                                </p>
                             </div>
-                        ))}
-                        <div className={styles.buttonSeason}>
-                            <button type="button" onClick={handleAddSeason}>+ Temporada</button>
+
+                            <button
+                                type="button"
+                                className={
+                                    styles.addButton
+                                }
+                                disabled={saving}
+                                onClick={handleAddSeason}
+                            >
+                                + Adicionar temporada
+                            </button>
                         </div>
 
+                        {serieData.season.length ===
+                            0 && (
+                                <div
+                                    className={
+                                        styles.emptySeasons
+                                    }
+                                >
+                                    <strong>
+                                        Nenhuma temporada
+                                        adicionada
+                                    </strong>
+
+                                    <p>
+                                        Adicione uma temporada
+                                        para começar a cadastrar
+                                        os episódios.
+                                    </p>
+                                </div>
+                            )}
+
+                        {serieData.season.map(
+                            (season, seasonIndex) => {
+                                const seasonKey =
+                                    `season-${seasonIndex}`
+
+                                return (
+                                    <section
+                                        key={seasonKey}
+                                        className={
+                                            styles.seasonForm
+                                        }
+                                    >
+                                        <header
+                                            className={
+                                                styles.seasonHeader
+                                            }
+                                        >
+                                            <div
+                                                className={
+                                                    styles.seasonTitle
+                                                }
+                                            >
+                                                <span>
+                                                    {seasonIndex +
+                                                        1}
+                                                </span>
+
+                                                <div>
+                                                    <h3>
+                                                        Temporada{' '}
+                                                        {season.s}
+                                                    </h3>
+
+                                                    <small>
+                                                        {
+                                                            season
+                                                                .episodes
+                                                                .length
+                                                        }{' '}
+                                                        {season
+                                                            .episodes
+                                                            .length ===
+                                                            1
+                                                            ? 'episódio'
+                                                            : 'episódios'}
+                                                    </small>
+                                                </div>
+                                            </div>
+
+                                            <button
+                                                type="button"
+                                                className={
+                                                    styles.removeButton
+                                                }
+                                                disabled={
+                                                    saving
+                                                }
+                                                onClick={() => {
+                                                    handleRemoveSeason(
+                                                        seasonIndex,
+                                                    )
+                                                }}
+                                            >
+                                                Remover
+                                                temporada
+                                            </button>
+                                        </header>
+
+                                        <div
+                                            className={
+                                                styles.seasonSettings
+                                            }
+                                        >
+                                            <div>
+                                                <label
+                                                    htmlFor={`${seasonKey}-number`}
+                                                >
+                                                    Nº da
+                                                    temporada
+                                                </label>
+
+                                                <input
+                                                    id={`${seasonKey}-number`}
+                                                    className={
+                                                        styles.seasonNumber
+                                                    }
+                                                    type="number"
+                                                    min={0}
+                                                    value={
+                                                        season.s
+                                                    }
+                                                    disabled={
+                                                        saving
+                                                    }
+                                                    onChange={(
+                                                        event,
+                                                    ) => {
+                                                        handleSeasonChange(
+                                                            seasonIndex,
+                                                            's',
+                                                            Number(
+                                                                event
+                                                                    .target
+                                                                    .value,
+                                                            ),
+                                                        )
+                                                    }}
+                                                />
+                                            </div>
+
+                                            <div>
+                                                <label
+                                                    htmlFor={`${seasonKey}-lang`}
+                                                >
+                                                    Idioma
+                                                </label>
+
+                                                <select
+                                                    id={`${seasonKey}-lang`}
+                                                    className={
+                                                        styles.seasonLang
+                                                    }
+                                                    value={
+                                                        season.lang
+                                                    }
+                                                    disabled={
+                                                        saving
+                                                    }
+                                                    onChange={(
+                                                        event,
+                                                    ) => {
+                                                        handleSeasonChange(
+                                                            seasonIndex,
+                                                            'lang',
+                                                            event
+                                                                .target
+                                                                .value,
+                                                        )
+                                                    }}
+                                                >
+                                                    <option value="Dublado">
+                                                        Dublado
+                                                    </option>
+
+                                                    <option value="Legendado">
+                                                        Legendado
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <h3>Episódios</h3>
+
+                                        {season.episodes.map(
+                                            (
+                                                episode,
+                                                episodeIndex,
+                                            ) => {
+                                                const episodeKey =
+                                                    `${seasonKey}-episode-${episodeIndex}`
+
+                                                const disableRemoval =
+                                                    saving ||
+                                                    season
+                                                        .episodes
+                                                        .length ===
+                                                    1
+
+                                                return (
+                                                    <div
+                                                        key={
+                                                            episodeKey
+                                                        }
+                                                        className={
+                                                            styles.episodeContainer
+                                                        }
+                                                    >
+                                                        <div
+                                                            className={
+                                                                styles.episodeForm
+                                                            }
+                                                        >
+                                                            <div
+                                                                className={
+                                                                    styles.field
+                                                                }
+                                                            >
+                                                                <label
+                                                                    htmlFor={`${episodeKey}-number`}
+                                                                >
+                                                                    Nº do
+                                                                    episódio
+                                                                </label>
+
+                                                                <input
+                                                                    id={`${episodeKey}-number`}
+                                                                    className={
+                                                                        styles.episodeNumber
+                                                                    }
+                                                                    type="number"
+                                                                    min={
+                                                                        1
+                                                                    }
+                                                                    value={
+                                                                        episode.ep
+                                                                    }
+                                                                    disabled={
+                                                                        saving
+                                                                    }
+                                                                    onChange={(
+                                                                        event,
+                                                                    ) => {
+                                                                        handleEpisodeChange(
+                                                                            seasonIndex,
+                                                                            episodeIndex,
+                                                                            'ep',
+                                                                            Number(
+                                                                                event
+                                                                                    .target
+                                                                                    .value,
+                                                                            ),
+                                                                        )
+                                                                    }}
+                                                                />
+                                                            </div>
+
+                                                            <div
+                                                                className={
+                                                                    styles.field
+                                                                }
+                                                            >
+                                                                <label
+                                                                    htmlFor={`${episodeKey}-src`}
+                                                                >
+                                                                    Link
+                                                                </label>
+
+                                                                <input
+                                                                    id={`${episodeKey}-src`}
+                                                                    type="url"
+                                                                    placeholder="https://..."
+                                                                    value={
+                                                                        episode.src
+                                                                    }
+                                                                    disabled={
+                                                                        saving
+                                                                    }
+                                                                    required
+                                                                    onChange={(
+                                                                        event,
+                                                                    ) => {
+                                                                        handleEpisodeChange(
+                                                                            seasonIndex,
+                                                                            episodeIndex,
+                                                                            'src',
+                                                                            event
+                                                                                .target
+                                                                                .value,
+                                                                        )
+                                                                    }}
+                                                                />
+                                                            </div>
+
+                                                            <div
+                                                                className={
+                                                                    styles.field
+                                                                }
+                                                            >
+                                                                <label
+                                                                    htmlFor={`${episodeKey}-duration`}
+                                                                >
+                                                                    Duração
+                                                                </label>
+
+                                                                <input
+                                                                    id={`${episodeKey}-duration`}
+                                                                    type="text"
+                                                                    placeholder="00m"
+                                                                    value={
+                                                                        episode.duration
+                                                                    }
+                                                                    disabled={
+                                                                        saving
+                                                                    }
+                                                                    onChange={(
+                                                                        event,
+                                                                    ) => {
+                                                                        handleEpisodeChange(
+                                                                            seasonIndex,
+                                                                            episodeIndex,
+                                                                            'duration',
+                                                                            event
+                                                                                .target
+                                                                                .value,
+                                                                        )
+                                                                    }}
+                                                                />
+                                                            </div>
+                                                        </div>
+
+                                                        <div
+                                                            className={
+                                                                styles.buttonEpisode
+                                                            }
+                                                        >
+                                                            <button
+                                                                type="button"
+                                                                disabled={
+                                                                    disableRemoval
+                                                                }
+                                                                title={
+                                                                    season
+                                                                        .episodes
+                                                                        .length ===
+                                                                        1
+                                                                        ? 'A temporada precisa ter pelo menos um episódio'
+                                                                        : 'Remover episódio'
+                                                                }
+                                                                onClick={() => {
+                                                                    handleRemoveEpisode(
+                                                                        seasonIndex,
+                                                                        episodeIndex,
+                                                                    )
+                                                                }}
+                                                            >
+                                                                Remover
+                                                                episódio
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                )
+                                            },
+                                        )}
+
+                                        <div
+                                            className={
+                                                styles.buttonSeason
+                                            }
+                                        >
+                                            <button
+                                                type="button"
+                                                disabled={
+                                                    saving
+                                                }
+                                                onClick={() => {
+                                                    handleAddEpisode(
+                                                        seasonIndex,
+                                                    )
+                                                }}
+                                            >
+                                                + Adicionar
+                                                episódio
+                                            </button>
+                                        </div>
+                                    </section>
+                                )
+                            },
+                        )}
                     </div>
                 </div>
 
-                <div className={styles.formItem}>
-                    <label htmlFor="genres">Gênero</label>
+                <aside className={styles.formItem}>
+                    <label htmlFor="genres">
+                        Gêneros
+                    </label>
+
                     <select
-                        id='genres'
+                        id="genres"
                         multiple
                         value={serieData.genero}
+                        disabled={saving}
                         onChange={handleGenres}
                     >
-                        {genres.map(gen =>
-                            <option key={gen} value={gen}>{gen}</option>
-                        )}
+                        {genres.map((genre) => (
+                            <option
+                                key={genre}
+                                value={genre}
+                            >
+                                {genre}
+                            </option>
+                        ))}
                     </select>
+
                     <p>Gêneros selecionados</p>
-                    <p>{serieData.genero.join(', ')}</p>
-                </div>
+
+                    <p>
+                        {serieData.genero.length > 0
+                            ? serieData.genero.join(', ')
+                            : 'Nenhum gênero selecionado'}
+                    </p>
+                </aside>
             </div>
+
             <div className={styles.buttonContainer}>
-                <button type='submit'>Adicionar Série</button>
+                <button
+                    type="submit"
+                    disabled={
+                        saving ||
+                        loadingTMDB ||
+                        serieData.tmdbID <= 0 ||
+                        !serieData.title.trim()
+                    }
+                >
+                    {saving
+                        ? 'Adicionando série...'
+                        : 'Adicionar série'}
+                </button>
             </div>
         </form>
     )
 }
+
+export default CreateTV
