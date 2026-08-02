@@ -3,6 +3,7 @@ import { setCookie } from 'nookies'
 import { LoginProps } from '@/@types/user'
 import { debug } from '@/classes/DebugLogger'
 import { SetupAPIClient } from '@/services/api'
+import { isAxiosError } from 'axios'
 
 export default async function loginHandler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== 'POST') return res.status(405).end()
@@ -26,7 +27,23 @@ export default async function loginHandler(req: NextApiRequest, res: NextApiResp
         })
 
         return res.status(200).json({ data: { avatar, watchLater, name, id }, success: true })
-    } catch (err) {
-        return res.status(401).json({ error: err, message: 'Login inválido' })
+    } catch (err: unknown) {
+        if (isAxiosError(err)) {
+            debug.error("Erro ao fazer login", err.response)
+            return res
+                .status(err.response?.status ?? 502)
+                .json({
+                    error:
+                        err.response?.data?.error ??
+                        err.message,
+                    message:
+                        err.response?.data?.message ??
+                        'Login inválido',
+                })
+        }
+
+        return res.status(500).json({
+            message: 'Erro interno do servidor',
+        })
     }
 }

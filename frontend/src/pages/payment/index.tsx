@@ -151,12 +151,12 @@ export default function NewPaymentPage({ plans }: Props) {
     )
     const [creditCard, setCreditCard] = useState<CreditCardData>(
         {
-            brand: creditTest.brand ?? '',
-            holderName: creditTest.holderName ?? '',
-            number: creditTest.number ?? '',
-            expiryMonth: creditTest.expiryMonth ?? '',
-            expiryYear: creditTest.expiryYear ?? '',
-            cvv: creditTest.cvv ?? ''
+            brand: '',
+            holderName: '',
+            number: '',
+            expiryMonth: '',
+            expiryYear: '',
+            cvv: ''
         })
 
     const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>('credit-card')
@@ -342,7 +342,7 @@ export default function NewPaymentPage({ plans }: Props) {
                             creditCard.holderName
                                 .trim(),
                         holderDocument: cpf,
-                        reuse: false,
+                        reuse: true,
                     })
                     .getPaymentToken()
 
@@ -397,59 +397,6 @@ export default function NewPaymentPage({ plans }: Props) {
             },
         }
     }
-
-    /*useEffect(() => {
-        loadingEFI()
-    }, [])
-
-    const loadingEFI = () => {
-        let token
-        loadingEfiPay().then((EfiPay) => {
-            if (EfiPay) {
-                token = getToken(EfiPay) // ta gerando token
-            }
-        })
-    }
-
-    const getToken = async (EfiPay: any) => {
-        if (typeof window === 'undefined') return
-        let brand
-        const validation = valid.number(creditTest.number)
-        if (validation.card) brand = validation.card.type
-        else brand = null
-
-        //if (!credit || !credit?.expiration || credit.expiration.length !== 4) return
-
-        //const expirationMonth = expirationSlicer(credit.expiration).month
-        //const expirationYear = expirationSlicer(credit.expiration).year
-
-        try {
-            const result = await EfiPay.CreditCard
-                .setAccount(process.env.NEXT_PUBLIC_EFI_ACCOUNT_ID)
-                .setEnvironment(process.env.NEXT_PUBLIC_EFI_ENV)
-                .setCreditCardData({
-                    brand,
-                    number: creditCard.number,
-                    cvv: creditCard.cvv,
-                    expirationMonth: creditCard.expiryMonth,
-                    expirationYear: creditCard.expiryYear,
-                    holderName: creditCard.holderName,
-                    holderDocument: personalData.cpf,
-                    reuse: true,
-                })
-                .getPaymentToken();
-
-            if ("payment_token" in result && "card_mask" in result) {
-                debug.log(`token: ${result.payment_token}`)
-                debug.log(`mask: ${result.card_mask}`)
-                //setToken(result.payment_token)
-            }
-
-            debug.log('até aqui ok')
-        } catch (err) {
-            debug.log("Erro ao gerar token", err)
-        }
-    }*/
     //===============================================================
     //===============================================================
 
