@@ -100,8 +100,7 @@ export function EmailStep({ email, onEmailChange, onContinue, }: EmailStepProps)
 
                 <p>
                     Seu e-mail também será usado para enviar a
-                    confirmação do pagamento e o link de criação da
-                    senha.
+                    confirmação do pagamento.
                 </p>
             </div>
         </section>
