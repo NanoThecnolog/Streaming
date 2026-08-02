@@ -156,8 +156,10 @@ export default function Login() {
                                     autoComplete="current-password"
                                     disabled={loading}
                                     required
-                                    onChange={(event) =>
-                                        setPassword(event.target.value)
+                                    onChange={(event) => {
+                                        event.stopPropagation(),
+                                            setPassword(event.target.value)
+                                    }
                                     }
                                 />
 
