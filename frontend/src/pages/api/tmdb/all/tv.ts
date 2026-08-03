@@ -1,111 +1,300 @@
-import { SeriesProps } from "@/@types/series";
-import { debug } from "@/classes/DebugLogger";
-import { mongoService } from "@/classes/MongoContent";
-import axios from "axios";
-import type { NextApiRequest, NextApiResponse } from "next";
+import { SeriesProps, TMDBSeries } from '@/@types/series'
+import { debug } from '@/classes/DebugLogger'
+import axios, { AxiosError } from 'axios'
+import type { NextApiRequest, NextApiResponse } from 'next'
 
-const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
-const maxTentativas = 3
+//const tmdbToken = process.env.TMDB_TOKEN
+
+const maxAttempts = 3
 const batchSize = 90
-const cache = new Map<number, SeriesProps>()
+const requestTimeout = 8_000
+const batchInterval = 500
+const retryInterval = 2_000
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    if (req.method !== 'POST') {
-        res.setHeader('Allow', ['POST'])
-        return res.status(405).json(`Method ${req.method} Not Allowed`)
+const cache = new Map<number, TMDBSeries>()
+
+interface SeriesRequestBody {
+    series?: SeriesProps[]
+}
+
+interface CardDataSuccess {
+    success: true
+    cardId: number
+    data: TMDBSeries
+}
+
+interface CardDataFailure {
+    success: false
+    cardId: number
+    error: string
+}
+
+type CardDataResponse = CardDataSuccess | CardDataFailure
+
+interface HandlerResponse {
+    success: boolean
+    data?: TMDBSeries[]
+    errors?: CardDataFailure[]
+    error?: string
+}
+
+const getTmdbToken = (): string => {
+    const token = process.env.NEXT_PUBLIC_TMDB_TOKEN?.trim()
+
+    if (!token) {
+        throw new Error('TMDB_TOKEN não configurado')
     }
-    if (!tmdbToken) {
-        return res.status(401).json({ error: "TMDB token is missing" });
+
+    return token
+}
+
+const sleep = async (milliseconds: number): Promise<void> => {
+    await new Promise(resolve => setTimeout(resolve, milliseconds))
+}
+
+const shouldRetry = (error: unknown): boolean => {
+    if (!axios.isAxiosError(error)) {
+        return false
     }
 
-    const { series } = req.body;
-
-    res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate=300')
-
-    if (!series || !Array.isArray(series) || series.length === 0) {
-        return res.status(400).json({ error: "Nenhuma série enviada." })
+    if (
+        error.code === AxiosError.ECONNABORTED ||
+        error.code === 'ETIMEDOUT' ||
+        error.code === 'ECONNRESET'
+    ) {
+        return true
     }
+
+    const status = error.response?.status
+
+    if (!status) {
+        return true
+    }
+
+    return status === 429 || status >= 500
+}
+
+const getErrorMessage = (error: unknown): string => {
+    if (!axios.isAxiosError(error)) {
+        return error instanceof Error
+            ? error.message
+            : 'Erro desconhecido'
+    }
+
+    const responseData = error.response?.data
+
+    if (typeof responseData === 'string') {
+        return responseData
+    }
+
+    if (
+        responseData &&
+        typeof responseData === 'object' &&
+        'status_message' in responseData &&
+        typeof responseData.status_message === 'string'
+    ) {
+        return responseData.status_message
+    }
+
+    return error.message
+}
+
+const fetchCardData = async (
+    cardId: number,
+    token: string,
+    attempt = 1,
+
+): Promise<CardDataResponse> => {
+    const cached = cache.get(cardId)
+
+    if (cached) {
+        debug.log('Série encontrada no cache', cardId)
+
+        return {
+            success: true,
+            cardId,
+            data: cached,
+        }
+    }
+
+
 
     try {
-        const cachedResults: any[] = []
-        const uncachedSeries: SeriesProps[] = []
-        for (const serie of series) {
-            const cached = cache.get(serie.tmdbId)
-            if (cached) {
-                cachedResults.push(cached)
-            } else {
-                uncachedSeries.push(serie)
-            }
-        }
-        const fetchedResults = await fetchInBatches(uncachedSeries, batchSize)
+        const response = await axios.get<TMDBSeries>(
+            `https://api.themoviedb.org/3/tv/${cardId}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+                params: {
+                    language: 'pt-BR',
+                },
+                timeout: requestTimeout,
+            },
+        )
 
-        for (const result of fetchedResults) {
-            if (result.success) cache.set(result.cardId, result)
-        }
-        const allResults = [...cachedResults, ...fetchedResults.filter(r => r.success)]
-        const errorResults = fetchedResults.filter(r => !r.success)
+        cache.set(cardId, response.data)
 
-        return res.status(200).json({
+        return {
             success: true,
-            data: allResults.map(r => r.data),
-            errors: errorResults
-        })
+            cardId,
+            data: response.data,
+        }
+    } catch (error: unknown) {
+        const canRetry =
+            attempt < maxAttempts &&
+            shouldRetry(error)
 
-    } catch (err) {
-        console.error("Erro ao buscar dados:", err);
-        return res.status(500).json({ error: "Error fetching TV data", details: err });
+        if (canRetry) {
+            debug.log(
+                `Tentativa ${attempt} falhou para a série ${cardId}. Tentando novamente...`,
+            )
+
+            await sleep(retryInterval * attempt)
+
+            return fetchCardData(cardId, token, attempt + 1)
+        }
+
+        return {
+            success: false,
+            cardId,
+            error: getErrorMessage(error),
+        }
     }
 }
 
-async function fetchInBatches(items: SeriesProps[], batchSize: number) {
-    const results: any[] = []
-    for (let i = 0; i < items.length; i += batchSize) {
-        const batch = items.slice(i, i + batchSize)
+const fetchInBatches = async (
+    items: SeriesProps[],
+    size: number,
+    token: string
+): Promise<CardDataResponse[]> => {
+    const results: CardDataResponse[] = []
+
+    for (let index = 0; index < items.length; index += size) {
+        const batch = items.slice(index, index + size)
 
         const batchResults = await Promise.all(
-            batch.map(card => fetchCardData(card.tmdbID, maxTentativas))
+            batch.map(serie => fetchCardData(serie.tmdbID, token)),
         )
+
         results.push(...batchResults)
 
-        const hasNext = i + batchSize < items.length
+        const hasNextBatch = index + size < items.length
 
-        if (hasNext)
-            await new Promise(resolve => setTimeout(resolve, 500))
+        if (hasNextBatch) {
+            await sleep(batchInterval)
+        }
     }
+
     return results
 }
 
-async function fetchCardData(cardId: number, retries: number = maxTentativas): Promise<any> {
+export default async function handler(
+    req: NextApiRequest,
+    res: NextApiResponse<HandlerResponse>,
+): Promise<void> {
+    if (req.method !== 'POST') {
+        res.setHeader('Allow', ['POST'])
 
-    if (cache.has(cardId)) {
-        debug.log("card no cache", cardId)
-        return cache.get(cardId)
+        res.status(405).json({
+            success: false,
+            error: `Method ${req.method} Not Allowed`,
+        })
+
+        return
+    }
+
+    const token: string = getTmdbToken()
+
+    if (!token) {
+        res.status(500).json({
+            success: false,
+            error: 'TMDB token is missing',
+        })
+
+        return
+    }
+
+    const { series } = req.body as SeriesRequestBody
+
+    if (!Array.isArray(series) || series.length === 0) {
+        res.status(400).json({
+            success: false,
+            error: 'Nenhuma série enviada.',
+        })
+
+        return
+    }
+
+    const validSeries = series.filter(serie => {
+        return (
+            Number.isInteger(serie.tmdbID) &&
+            serie.tmdbID > 0
+        )
+    })
+
+    if (validSeries.length === 0) {
+        res.status(400).json({
+            success: false,
+            error: 'Nenhuma série possui um tmdbID válido.',
+        })
+
+        return
     }
 
     try {
-        //if (cardId === 0) return
-        const response = await axios.get(
-            `https://api.themoviedb.org/3/tv/${cardId}`,
-            {
-                headers: { Authorization: `Bearer ${tmdbToken}` },
-                params: { language: "pt-BR" },
-            }
+        const uniqueSeries = Array.from(
+            new Map(
+                validSeries.map(serie => [
+                    serie.tmdbID,
+                    serie,
+                ]),
+            ).values(),
         )
-        return {
+
+        const results = await fetchInBatches(
+            uniqueSeries,
+            batchSize,
+            token
+        )
+
+        const successfulById = new Map<number, TMDBSeries>()
+
+        const errors: CardDataFailure[] = []
+
+        for (const result of results) {
+            if (result.success) {
+                successfulById.set(
+                    result.cardId,
+                    result.data,
+                )
+
+                continue
+            }
+
+            errors.push(result)
+        }
+
+        const data = validSeries.flatMap(serie => {
+            const result = successfulById.get(serie.tmdbID)
+
+            return result ? [result] : []
+        })
+
+        res.status(200).json({
             success: true,
-            data: response.data,
-            cardId
-        }
-    } catch (err: any) {
-        if (retries > 0) {
-            debug.log(`Tentativa falha para a serie ${cardId}, tentando novamente...`);
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            return fetchCardData(cardId, retries - 1);
-        }
-        return {
+            data,
+            errors,
+        })
+    } catch (error: unknown) {
+        console.error(
+            'Erro inesperado ao buscar dados das séries:',
+            error,
+        )
+
+        res.status(500).json({
             success: false,
-            error: err.response?.data || err.message,
-            cardId
-        };
+            error: 'Erro interno ao buscar dados das séries.',
+        })
     }
 }
