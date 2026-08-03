@@ -93,17 +93,15 @@ const normalizeDocument = (document: string): string => {
     return document.replace(/\D/g, '')
 }
 
-const ChangeMethodModal = ({
-    closeModal,
-    before,
-    setNewMethod,
-}: ModalProps) => {
+const ChangeMethodModal = ({ closeModal, before, setNewMethod }: ModalProps) => {
     const { user } = useFlix()
 
     const [credit, setCredit] =
         useState<CreditPayment | null>(null)
 
     const [submitting, setSubmitting] = useState(false)
+
+    const isFinish = false
 
     const newMethod: PaymentMethod =
         before === 'billet' ? 'credit' : 'billet'
@@ -314,106 +312,111 @@ const ChangeMethodModal = ({
                     event.stopPropagation()
                 }}
             >
-                <header className={styles.header}>
-                    <div className={styles.heading}>
-                        <span className={styles.methodIcon}>
-                            <Icon aria-hidden="true" />
-                        </span>
+                {isFinish ?
+                    <>
+                        <header className={styles.header}>
+                            <div className={styles.heading}>
+                                <span className={styles.methodIcon}>
+                                    <Icon aria-hidden="true" />
+                                </span>
 
-                        <div>
-                            <h2 id="change-method-title">
-                                {title}
-                            </h2>
+                                <div>
+                                    <h2 id="change-method-title">
+                                        {title}
+                                    </h2>
 
-                            <p>{description}</p>
-                        </div>
-                    </div>
+                                    <p>{description}</p>
+                                </div>
+                            </div>
 
-                    <button
-                        type="button"
-                        className={styles.closeButton}
-                        aria-label="Fechar modal"
-                        disabled={submitting}
-                        onClick={closeModal}
-                    >
-                        <MdClose aria-hidden="true" />
-                    </button>
-                </header>
+                            <button
+                                type="button"
+                                className={styles.closeButton}
+                                aria-label="Fechar modal"
+                                disabled={submitting}
+                                onClick={closeModal}
+                            >
+                                <MdClose aria-hidden="true" />
+                            </button>
+                        </header>
 
-                <div className={styles.content}>
-                    {newMethod === 'credit' ? (
-                        <>
-                            {!user?.cpf && (
-                                <div
-                                    className={styles.warning}
-                                    role="alert"
-                                >
-                                    Cadastre seu CPF antes de
-                                    adicionar um cartão.
+                        <div className={styles.content}>
+                            {newMethod === 'credit' ? (
+                                <>
+                                    {!user?.cpf && (
+                                        <div
+                                            className={styles.warning}
+                                            role="alert"
+                                        >
+                                            Cadastre seu CPF antes de
+                                            adicionar um cartão.
+                                        </div>
+                                    )}
+
+                                    <PaymentCredit
+                                        credit={credit}
+                                        setCredit={setCredit}
+                                    />
+
+                                    <div className={styles.security}>
+                                        <MdLock aria-hidden="true" />
+
+                                        <span>
+                                            Os dados do cartão são
+                                            enviados diretamente para
+                                            a processadora de pagamentos.
+                                        </span>
+                                    </div>
+                                </>
+                            ) : (
+                                <div className={styles.billetNotice}>
+                                    <MdReceiptLong
+                                        aria-hidden="true"
+                                    />
+
+                                    <div>
+                                        <strong>
+                                            Pagamento por boleto
+                                        </strong>
+
+                                        <p>
+                                            Após a confirmação, as
+                                            próximas cobranças da
+                                            assinatura serão emitidas
+                                            como boleto bancário.
+                                        </p>
+                                    </div>
                                 </div>
                             )}
-
-                            <PaymentCredit
-                                credit={credit}
-                                setCredit={setCredit}
-                            />
-
-                            <div className={styles.security}>
-                                <MdLock aria-hidden="true" />
-
-                                <span>
-                                    Os dados do cartão são
-                                    enviados diretamente para
-                                    a processadora de pagamentos.
-                                </span>
-                            </div>
-                        </>
-                    ) : (
-                        <div className={styles.billetNotice}>
-                            <MdReceiptLong
-                                aria-hidden="true"
-                            />
-
-                            <div>
-                                <strong>
-                                    Pagamento por boleto
-                                </strong>
-
-                                <p>
-                                    Após a confirmação, as
-                                    próximas cobranças da
-                                    assinatura serão emitidas
-                                    como boleto bancário.
-                                </p>
-                            </div>
                         </div>
-                    )}
-                </div>
 
-                <footer className={styles.actions}>
-                    <button
-                        type="button"
-                        className={styles.cancelButton}
-                        disabled={submitting}
-                        onClick={closeModal}
-                    >
-                        Cancelar
-                    </button>
+                        <footer className={styles.actions}>
+                            <button
+                                type="button"
+                                className={styles.cancelButton}
+                                disabled={submitting}
+                                onClick={closeModal}
+                            >
+                                Cancelar
+                            </button>
 
-                    <button
-                        type="button"
-                        className={styles.confirmButton}
-                        disabled={
-                            submitting ||
-                            !hasValidCreditData
-                        }
-                        onClick={handleChangeMethod}
-                    >
-                        {submitting
-                            ? 'Alterando...'
-                            : buttonLabel}
-                    </button>
-                </footer>
+                            <button
+                                type="button"
+                                className={styles.confirmButton}
+                                disabled={
+                                    submitting ||
+                                    !hasValidCreditData
+                                }
+                                onClick={handleChangeMethod}
+                            >
+                                {submitting
+                                    ? 'Alterando...'
+                                    : buttonLabel}
+                            </button>
+                        </footer>
+                    </>
+                    : <div>Função em desenvolvimento. Em breve você poderá alterar o método de pagamento da sua assinatura!</div>
+                }
             </section>
         </div>
     )
