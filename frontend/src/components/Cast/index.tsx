@@ -1,35 +1,68 @@
+import { useState } from 'react'
+import Image from 'next/image'
+import { FaCircleUser } from 'react-icons/fa6'
+
 import { CastingProps } from '@/@types/movie/cast'
+
 import styles from './styles.module.scss'
-import Image from 'next/image';
-import { FaCircleUser } from 'react-icons/fa6';
 
 interface CastComponentProps {
-    actor: CastingProps;
+    actor: CastingProps
 }
 
-export default function Cast({ actor }: CastComponentProps) {
+export default function Cast({
+    actor,
+}: CastComponentProps) {
+    const [imageError, setImageError] = useState(false)
+
+    const character = actor.character?.trim()
+
+    const hasProfileImage =
+        Boolean(actor.profile_path) &&
+        !imageError
+
+    const profileImage = actor.profile_path
+        ? `https://image.tmdb.org/t/p/w342${actor.profile_path}`
+        : null
+
     return (
-        <div key={actor.cast_id}>
-            <div className={styles.castImage} title={actor.name}>
-                {
-                    actor.profile_path ?
-                        <Image
-                            fill
-                            quality={20}
-                            priority
-                            sizes="100%"
-                            alt={actor.name}
-                            src={actor.profile_path ? `https://image.tmdb.org/t/p/original/${actor.profile_path}` : '/fundo-alto.jpg'}
-                            placeholder="blur"
-                            blurDataURL="/blurImage.png"
-                        />
-                        : <FaCircleUser />
-                }
+        <article className={styles.castCard}>
+            <div className={styles.castImage}>
+                {hasProfileImage && profileImage ? (
+                    <Image
+                        fill
+                        quality={65}
+                        sizes="
+                            (max-width: 570px) 46vw,
+                            (max-width: 915px) 25vw,
+                            150px
+                        "
+                        src={profileImage}
+                        alt={`Foto de ${actor.name}`}
+                        className={styles.profileImage}
+                        placeholder="blur"
+                        blurDataURL="/blurImage.png"
+                        onError={() => setImageError(true)}
+                    />
+                ) : (
+                    <FaCircleUser
+                        className={styles.placeholderIcon}
+                        aria-hidden="true"
+                    />
+                )}
             </div>
+
             <div className={styles.castInfo}>
-                <h4>{actor.name}</h4>
-                <h6>{actor.character}</h6>
+                <h3 className={styles.name}>
+                    {actor.name}
+                </h3>
+
+                {character && (
+                    <p className={styles.character}>
+                        {character}
+                    </p>
+                )}
             </div>
-        </div>
+        </article>
     )
 }

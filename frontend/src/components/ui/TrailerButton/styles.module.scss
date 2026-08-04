@@ -1,13 +1,98 @@
 .buttonTrailer {
-    button {
-        color: var(--white);
-        border-radius: 8px;
-        width: 180px;
-        height: 100px;
-        transition: all .2s;
+    box-sizing: border-box;
 
-        &:hover {
-            background-color: #1e1e1e;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+
+    width: auto;
+    max-width: 100%;
+    min-width: 150px;
+    min-height: 48px;
+    padding: 0.75rem 1.1rem;
+
+    color: rgba(255, 255, 255, 0.88);
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 9px;
+
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+
+    transition:
+        color 160ms ease,
+        background-color 160ms ease,
+        border-color 160ms ease,
+        box-shadow 160ms ease,
+        transform 160ms ease;
+
+    &:hover {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.14);
+        border-color: rgba(255, 255, 255, 0.25);
+
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        transform: translateY(-2px);
+
+        .externalIcon {
+            opacity: 1;
+            transform: translate(1px, -1px);
         }
+    }
+
+    &:active {
+        transform: translateY(0) scale(0.985);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--red-selected);
+        outline-offset: 3px;
+    }
+}
+
+.movieIcon {
+    flex: 0 0 auto;
+
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.externalIcon {
+    flex: 0 0 auto;
+
+    width: 0.78rem;
+    height: 0.78rem;
+
+    opacity: 0.48;
+
+    transition:
+        opacity 160ms ease,
+        transform 160ms ease;
+}
+
+@media (max-width: 570px) {
+    .buttonTrailer {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding-inline: 0.8rem;
+
+        font-size: 0.82rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .buttonTrailer,
+    .externalIcon {
+        transition: none;
     }
 }

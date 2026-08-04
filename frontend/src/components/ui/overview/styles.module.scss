@@ -1,10 +1,122 @@
 .descriptionContainer {
-    margin-bottom: 100px;
-    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.55rem;
+
+    width: 100%;
+    max-width: 720px;
+    margin: 0;
 }
 
-@media(max-width: 915px) {
+.title {
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.68);
+
+    font-size: 0.72rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.description {
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.82);
+
+    font-size: clamp(0.92rem, 1.6vw, 1.05rem);
+    font-weight: 400;
+    line-height: 1.62;
+
+    overflow-wrap: break-word;
+    text-wrap: pretty;
+
+    text-shadow:
+        0 2px 7px rgba(0, 0, 0, 0.62),
+        0 5px 20px rgba(0, 0, 0, 0.25);
+}
+
+.collapsed {
+    display: -webkit-box;
+
+    overflow: hidden;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+}
+
+.toggleButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    min-height: 28px;
+    padding: 0;
+
+    color: rgba(255, 255, 255, 0.66);
+    background: transparent;
+
+    border: 0;
+
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        color 160ms ease,
+        transform 160ms ease;
+
+    svg {
+        width: 0.95rem;
+        height: 0.95rem;
+
+        transition: transform 160ms ease;
+    }
+
+    &:hover {
+        color: #fff;
+
+        svg {
+            transform: translateY(1px);
+        }
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--red-selected);
+        outline-offset: 4px;
+        border-radius: 2px;
+    }
+
+    &:active {
+        transform: scale(0.98);
+    }
+}
+
+@media (max-width: 570px) {
     .descriptionContainer {
         max-width: 100%;
+    }
+
+    .description {
+        font-size: 0.9rem;
+        line-height: 1.55;
+    }
+
+    .collapsed {
+        -webkit-line-clamp: 5;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .toggleButton,
+    .toggleButton svg {
+        transition: none;
     }
 }

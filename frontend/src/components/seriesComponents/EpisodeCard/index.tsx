@@ -1,48 +1,219 @@
+import {
+    useEffect,
+    useState,
+} from 'react'
+import Image from 'next/image'
 import { PlayIcon } from 'lucide-react'
-import styles from './styles.module.scss'
-import { Episodes, TMDBEpisodes } from '@/@types/series'
-import { minToHour } from '@/utils/UtilitiesFunctions'
-import { debug } from '@/classes/DebugLogger'
+
+import {
+    Episodes,
+    TMDBEpisodes,
+} from '@/@types/series'
 import { EpisodeProgressProps } from '@/@types/watchedProgress'
+import { minToHour } from '@/utils/UtilitiesFunctions'
+
+import styles from './styles.module.scss'
 
 interface EpisodeProps {
     episodeData: {
-        serieTmdbId: number,
-        seasonNumber: number | undefined,
-        image: string,
-        episode: TMDBEpisodes | undefined,
-        data: Episodes,
+        serieTmdbId: number
+        seasonNumber?: number
+        image: string
+        episode?: TMDBEpisodes
+        data: Episodes
         progress: EpisodeProgressProps | null
-    },
-    handlePlay: (ep: Episodes, startTime?: number, season?: number) => void
+    }
+    handlePlay: (
+        episode: Episodes,
+        startTime?: number,
+        season?: number,
+    ) => void
 }
 
-export default function EpisodeCard({ episodeData, handlePlay }: EpisodeProps) {
-    //debug.log("info do episodio recebido", episodeData)
-    //debug.log("dados do episódio???", episodeData.episode)
+const normalizePercentage = (
+    percentage?: number,
+): number => {
+    if (
+        typeof percentage !== 'number' ||
+        !Number.isFinite(percentage)
+    ) {
+        return 0
+    }
 
-    const type = episodeData.episode?.episode_type
-    const isComplete = episodeData.progress?.complete
+    return Math.min(Math.max(percentage, 0), 100)
+}
+
+const getEpisodeDuration = (
+    episode?: TMDBEpisodes,
+    internalDuration?: string,
+): string => {
+    if (
+        typeof episode?.runtime === 'number' &&
+        Number.isFinite(episode.runtime) &&
+        episode.runtime > 0
+    ) {
+        return minToHour(episode.runtime)
+    }
+
+    const duration = internalDuration?.trim()
+
+    return duration || 'Duração não informada'
+}
+
+export default function EpisodeCard({
+    episodeData,
+    handlePlay,
+}: EpisodeProps) {
+    const [imageError, setImageError] = useState(false)
+
+    const {
+        data,
+        episode,
+        progress,
+        seasonNumber,
+    } = episodeData
+
+    useEffect(() => {
+        setImageError(false)
+    }, [episodeData.image])
+
+    const episodeName =
+        episode?.name?.trim() ||
+        `Episódio ${data.ep}`
+
+    const overview = episode?.overview?.trim()
+
+    const isFinale =
+        episode?.episode_type
+            ?.toLocaleLowerCase('en-US') ===
+        'finale'
+
+    const isComplete = Boolean(progress?.complete)
+
+    const progressPercentage = isComplete
+        ? 100
+        : normalizePercentage(progress?.percentage)
+
+    const startTime = isComplete
+        ? 0
+        : progress?.progress ?? 0
+
+    const duration = getEpisodeDuration(
+        episode,
+        data.duration,
+    )
+
+    const imageSource = imageError
+        ? '/blurImage.png'
+        : episodeData.image
+
+    const actionLabel = isComplete
+        ? 'Assistir novamente'
+        : progressPercentage > 0
+            ? 'Continuar assistindo'
+            : 'Assistir episódio'
+
+    const handleEpisodePlay = () => {
+        handlePlay(
+            data,
+            startTime,
+            seasonNumber,
+        )
+    }
 
     return (
-        <div className={styles.episodeContainer} onClick={() => handlePlay(episodeData.data, isComplete ? 0 : episodeData.progress?.progress, episodeData.seasonNumber)}>
-            <div
-                className={styles.episodeImage}
-                style={{ backgroundImage: `url(${episodeData.image})` }}
-            >
-                <PlayIcon size={35} />
-                {
-                    type && type === 'finale' && <div className={styles.typeContainer}><span>Final de temporada</span></div>
-                }
-                <div className={styles.progress}>
-                    <div className={styles.progressFill} style={{ width: `${episodeData.progress ? isComplete ? 100 : episodeData.progress.percentage : 0}%` }} />
+        <article className={styles.episodeContainer}>
+            <div className={styles.episodeImage}>
+                <Image
+                    fill
+                    quality={65}
+                    sizes="
+                        (max-width: 570px) calc(100vw - 2rem),
+                        (max-width: 915px) 46vw,
+                        340px
+                    "
+                    src={imageSource}
+                    alt=""
+                    className={styles.image}
+                    placeholder="blur"
+                    blurDataURL="/blurImage.png"
+                    onError={() => setImageError(true)}
+                />
+
+                <div
+                    className={styles.imageOverlay}
+                    aria-hidden="true"
+                />
+
+                <span
+                    className={styles.playIndicator}
+                    aria-hidden="true"
+                >
+                    <PlayIcon />
+                </span>
+
+                {isFinale && (
+                    <span className={styles.typeContainer}>
+                        Final da temporada
+                    </span>
+                )}
+
+                {progress && (
+                    <div
+                        className={styles.progress}
+                        role="progressbar"
+                        aria-label={`${Math.round(progressPercentage)}% assistido`}
+                        aria-valuemin={0}
+                        aria-valuemax={100}
+                        aria-valuenow={Math.round(
+                            progressPercentage,
+                        )}
+                    >
+                        <div
+                            className={styles.progressFill}
+                            style={{
+                                width: `${progressPercentage}%`,
+                            }}
+                        />
+                    </div>
+                )}
+            </div>
+
+            <div className={styles.episodeInfo}>
+                <h3 className={styles.episodeTitle}>
+                    <span className={styles.episodeNumber}>
+                        Episódio {data.ep}
+                    </span>
+
+                    <span className={styles.episodeName}>
+                        {episodeName}
+                    </span>
+                </h3>
+
+                <div className={styles.metadata}>
+                    <span>{duration}</span>
+
+                    {isComplete && (
+                        <span className={styles.completed}>
+                            Assistido
+                        </span>
+                    )}
                 </div>
+
+                {overview && (
+                    <p className={styles.description}>
+                        {overview}
+                    </p>
+                )}
             </div>
-            <div className={styles.epiInfo}>
-                <h3 title={episodeData.episode?.name}>Ep.{episodeData.data.ep}: {episodeData.episode?.name}</h3>
-                <p>Duração: {episodeData.episode ? minToHour(episodeData.episode.runtime) : episodeData.data.duration ? episodeData.data.duration : "--"}</p>
-                <p className={styles.description} title={episodeData.episode?.overview}>{episodeData.episode?.overview}</p>
-            </div>
-        </div>
+
+            <button
+                type="button"
+                className={styles.cardAction}
+                onClick={handleEpisodePlay}
+                aria-label={`${actionLabel}: episódio ${data.ep}, ${episodeName}`}
+                title={`${actionLabel}: ${episodeName}`}
+            />
+        </article>
     )
 }

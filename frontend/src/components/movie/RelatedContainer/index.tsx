@@ -1,63 +1,99 @@
-import { CardsProps } from '@/@types/Cards'
-import styles from './styles.module.scss'
-import Card from '@/components/Card'
-import { useEffect, useState } from 'react'
+import { useId } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
+
+import { CardsProps } from '@/@types/Cards'
 import { SeriesProps } from '@/@types/series'
-import { debug } from '@/classes/DebugLogger'
-import 'swiper/css';
-import debounce from 'lodash.debounce'
+import Card from '@/components/Card'
+
+import 'swiper/css'
+
+import styles from './styles.module.scss'
 
 interface RelatedProps {
-    cards: CardsProps[] | SeriesProps[]
+    cards: Array<CardsProps | SeriesProps>
 }
 
-export default function RelatedCardsContainer({ cards }: RelatedProps) {
-    const [cardPerContainer, setCardPerContainer] = useState(2)
+const isSeries = (
+    card: CardsProps | SeriesProps,
+): card is SeriesProps => {
+    return 'season' in card
+}
 
-    useEffect(() => {
-        const handleResize = debounce(() => {
-            const windowWidth = window.innerWidth;
-            const breakpoints = [
-                { width: 560, cards: 2 },
-                { width: 780, cards: 2 },
-                { width: 915, cards: 3 },
-                { width: 1160, cards: 4 },
-                { width: 1500, cards: 5 },
-                { width: 1855, cards: 6 },
-                { width: Infinity, cards: 7 },
-            ]
-            const { cards } = breakpoints.find(b => windowWidth < b.width) || { cards: 2 }
-            setCardPerContainer(cards)
-        }, 1000)
-        window.addEventListener('resize', handleResize)
-        handleResize()
-        return () => window.removeEventListener('resize', handleResize)
-    }, [])
+const getCardKey = (
+    card: CardsProps | SeriesProps,
+): string => {
+    return isSeries(card)
+        ? `series-${card.tmdbID}`
+        : `movie-${card.tmdbId}`
+}
+
+export default function RelatedCardsContainer({
+    cards,
+}: RelatedProps) {
+    const titleId = useId()
+
+    if (cards.length === 0) return null
+
+    const enableLoop = cards.length > 7
 
     return (
-        <div className={styles.container}>
-            <h2>Você também vai gostar</h2>
+        <section
+            className={styles.container}
+            aria-labelledby={titleId}
+        >
+            <header className={styles.header}>
+                <h2
+                    id={titleId}
+                    className={styles.title}
+                >
+                    Você também vai gostar
+                </h2>
+            </header>
+
             <div className={styles.cardContainer}>
                 <Swiper
-                    spaceBetween={5}
-                    slidesPerView={cardPerContainer || 2}
-                    loop={true}
-                    className={styles.slide}
+                    className={styles.slider}
+                    slidesPerView={2}
+                    slidesPerGroup={1}
+                    spaceBetween={10}
+                    grabCursor
+                    watchOverflow
+                    centerInsufficientSlides
+                    loop={enableLoop}
+                    breakpoints={{
+                        780: {
+                            slidesPerView: 3,
+                            spaceBetween: 12,
+                        },
+                        915: {
+                            slidesPerView: 4,
+                            spaceBetween: 14,
+                        },
+                        1160: {
+                            slidesPerView: 5,
+                            spaceBetween: 16,
+                        },
+                        1500: {
+                            slidesPerView: 6,
+                            spaceBetween: 18,
+                        },
+                        1855: {
+                            slidesPerView: 7,
+                            spaceBetween: 18,
+                        },
+                    }}
+                    aria-label="Conteúdos relacionados"
                 >
-                    {cards.map((card) => {
-                        if ('season' in card) {
-                            return <SwiperSlide key={card.tmdbID}>
-                                <Card card={card} />
-                            </SwiperSlide>
-                        } else {
-                            return <SwiperSlide key={card.tmdbId}>
-                                <Card card={card} />
-                            </SwiperSlide>
-                        }
-                    })}
+                    {cards.map(card => (
+                        <SwiperSlide
+                            key={getCardKey(card)}
+                            className={styles.cardSlide}
+                        >
+                            <Card card={card} />
+                        </SwiperSlide>
+                    ))}
                 </Swiper>
             </div>
-        </div>
+        </section>
     )
 }

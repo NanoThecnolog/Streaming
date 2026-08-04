@@ -5,7 +5,6 @@ import { CardsProps, MovieTMDB } from '@/@types/Cards';
 import Header from '@/components/Header';
 import Stars from '@/components/ui/StarAverage';
 import Adult from '@/components/ui/Adult';
-import { FaPlay } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import { CastingProps } from '@/@types/movie/cast';
 import Footer from '@/components/Footer';
@@ -15,7 +14,6 @@ import TrailerButton from '@/components/ui/TrailerButton';
 import { getRelatedCards } from '@/utils/CardsManipulation';
 import { useTMDB } from '@/contexts/TMDBContext';
 import { useFlix } from '@/contexts/FlixContext';
-import debounce from 'lodash.debounce';
 import { debug } from '@/classes/DebugLogger';
 import { tmdb } from '@/classes/TMDB';
 import axios from 'axios';
@@ -35,6 +33,7 @@ import { WarningModal } from '@/components/ui/WarningModal';
 import { ProgressData, ProgressEntry, ProgressResponse } from '@/@types/watchedProgress';
 import { calculateVideoProgress } from '@/utils/UtilitiesFunctions';
 import { FaCirclePlay } from 'react-icons/fa6';
+import { FaPlay } from 'react-icons/fa';
 
 interface groupedByDepartment {
     [job: string]: CrewProps[]
@@ -48,7 +47,6 @@ interface MovieProps {
 
 export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
     const router = useRouter()
-    const [showPoster, setShowPoster] = useState(false)
     const { tmdbId } = router.query;
     const { allData } = useTMDB()
     const { user, movies, setMovies } = useFlix()
@@ -60,7 +58,7 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
     const [warningModalOpen, setWarningModalOpen] = useState(false)
     const watchLaterManager = new WatchLaterManager()
 
-    const [isLoadingProgress, setIsLoadingProgress] = useState(false)
+    const [isLoadingProgress, setIsLoadingProgress] = useState(true)
     const [progressData, setProgressData] = useState<ProgressData[]>([])
     const [progressPercentage, setProgressPercentage] = useState(0)
 
@@ -144,6 +142,8 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
         const controller = new AbortController()
 
         const fetchProgress = async () => {
+            //if(isLoadingProgress) return
+            setIsLoadingProgress(true)
             try {
                 const { data } = await axios.get<ProgressResponse>('/api/watched/progress', {
                     params: {
@@ -173,6 +173,36 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
             controller.abort()
         }
     }, [movie.id])
+
+    //==================================================================================================================
+    //==========================================Dados Derivados=========================================================
+    //==================================================================================================================
+    const backdropImage = movie.backdrop_path
+        ? `https://image.tmdb.org/t/p/original${movie.backdrop_path}`
+        : filme?.background ?? '/fundo-largo.jpg'
+
+    const posterImage = movie.poster_path
+        ? `https://image.tmdb.org/t/p/w780${movie.poster_path}`
+        : backdropImage
+
+    const safeProgressPercentage = Math.min(
+        Math.max(progressPercentage, 0),
+        100,
+    )
+
+    const hasProgress =
+        safeProgressPercentage > 0 &&
+        safeProgressPercentage < 92
+
+    const playLabel = safeProgressPercentage >= 92
+        ? 'Assistir novamente'
+        : hasProgress
+            ? 'Continuar assistindo'
+            : 'Começar a assistir'
+
+    const PlayIcon = hasProgress
+        ? FaPlay
+        : FaCirclePlay
 
     //interação do usuario
     const watchLater = () => {
@@ -204,27 +234,10 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
         }
     }
 
-    //responsividade de interface
-    const handleWidth = debounce(() => {
-        if (window.innerWidth <= 915) {
-            debug.log(window.innerWidth)
-            setShowPoster(true)
-        } else {
-            setShowPoster(false)
-        }
-    }, 500)
-    useEffect(() => {
-        window.addEventListener('resize', handleWidth)
-        handleWidth()
-        return () => window.removeEventListener('resize', handleWidth)
-
-    }, [handleWidth])
 
 
-    //auxiliares
-    const getBackgroundImage = () => {
-        return movie ? `https://image.tmdb.org/t/p/original${showPoster ? movie.poster_path : movie.backdrop_path}` : filme ? filme.background : "/fundo-largo.jpg"
-    }
+
+    //auxiliares    
     const handlePlay = () => {
         const showingWarningModal = !user || !user.donator
         if (showingWarningModal) {
@@ -266,91 +279,136 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
                 />
             </Head>
             <Header />
-            {
-                movie && filme ? (
-                    <section className={styles.container}>
-                        <div className={styles.imageContainer}>
-                            <img src={getBackgroundImage()} alt="banner" />
-                        </div>
-                        <div className={styles.coverContainer}>
-                        </div>
-                        <div className={styles.content}>
-                            {movie && (
-                                <>
-                                    <Title title={filme.title} subtitle={filme.subtitle} />
-                                    <div>
-                                        <Details
-                                            title={filme.title}
-                                            duration={filme.duration}
-                                            runtime={movie.runtime}
-                                            releaseDate={movie.release_date}
-                                            language={filme.lang}
-                                        />
-                                        <Genre genres={movie.genres} />
-                                        <div className={styles.movieInfo}>
-                                            <Stars average={movie.vote_average} />
-                                            <Adult faixa={filme.faixa} />
-                                        </div>
-                                    </div>
-                                    <div className={styles.buttonPlay} onClick={handlePlay}>
-                                        <button type='button'>
-                                            {
-                                                progressPercentage >= 92
-                                                    ? <>
-                                                        <FaCirclePlay size={25} />
-                                                        <h4>Recomeçar</h4>
-                                                    </>
-                                                    : progressPercentage === 0
-                                                        ? <>
-                                                            <FaCirclePlay size={25} />
-                                                            <h4>Começar a assistir</h4>
-                                                        </>
-                                                        : <>
-                                                            <FaPlay size={15} />
-                                                            <h4>Continuar Assistindo</h4>
-                                                        </>
-                                            }
+            {movie && filme ? (
+                <main className={styles.container}>
+                    <section className={styles.hero}>
+                        <div
+                            className={styles.imageContainer}
+                            aria-hidden="true"
+                        >
+                            <picture>
+                                <source
+                                    media="(max-width: 915px)"
+                                    srcSet={posterImage}
+                                />
 
-                                        </button>
-                                        <div className={styles.progressContainer} style={{ width: `${progressPercentage < 4 && 0}px` }}>
-                                            <div
-                                                className={styles.progressFill}
-                                                style={{
-                                                    width: `${progressPercentage}%`
-                                                }}
-                                            />
-                                        </div>
+                                <img
+                                    src={backdropImage}
+                                    alt=""
+                                    loading="eager"
+                                    decoding="async"
+                                />
+                            </picture>
+                        </div>
+
+                        <div className={styles.heroOverlay} />
+
+                        <div className={styles.heroContent}>
+                            <div className={styles.mainInformation}>
+                                <Title
+                                    title={filme.title}
+                                    subtitle={filme.subtitle}
+                                />
+
+                                <div className={styles.metadata}>
+                                    <Details
+                                        //title={filme.title}
+                                        duration={filme.duration}
+                                        runtime={movie.runtime}
+                                        releaseDate={movie.release_date}
+                                        language={filme.lang}
+                                    />
+
+                                    <Genre genres={movie.genres} />
+
+                                    <div className={styles.movieInfo}>
+                                        <Stars average={movie.vote_average} />
+                                        <Adult faixa={filme.faixa} />
                                     </div>
+                                </div>
+
+                                <Overview text={movie.overview} />
+
+                                <div className={styles.actions}>
+                                    <button
+                                        type="button"
+                                        className={styles.buttonPlay}
+                                        onClick={handlePlay}
+                                        disabled={isLoadingProgress}
+                                        aria-busy={isLoadingProgress}
+                                    >
+                                        <PlayIcon aria-hidden="true" size={30} />
+
+                                        <span>
+                                            {isLoadingProgress
+                                                ? 'Carregando progresso...'
+                                                : playLabel}
+                                        </span>
+
+                                        {hasProgress && (
+                                            <span
+                                                className={styles.progressContainer}
+                                                role="progressbar"
+                                                aria-label={`${Math.round(safeProgressPercentage)}% assistido`}
+                                                aria-valuemin={0}
+                                                aria-valuemax={100}
+                                                aria-valuenow={Math.round(safeProgressPercentage)}
+                                            >
+                                                <span
+                                                    className={styles.progressFill}
+                                                    style={{
+                                                        width: `${safeProgressPercentage}%`,
+                                                    }}
+                                                />
+                                            </span>
+                                        )}
+                                    </button>
+
                                     <div className={styles.buttonContainer}>
-                                        <WatchLaterContainer loading={loadingButton} onClick={handleWatchLater} onWatchLater={onWatchLater} />
-                                        {
-                                            trailer && trailer.results.length > 0 &&
+                                        <WatchLaterContainer
+                                            loading={loadingButton}
+                                            onClick={handleWatchLater}
+                                            onWatchLater={onWatchLater}
+                                        />
+
+                                        {trailer && trailer.results.length > 0 && (
                                             <TrailerButton trailer={trailer} />
-                                        }
+                                        )}
                                     </div>
-                                    <Overview text={movie.overview} />
-                                    <div className={styles.descriptionContainer} />
-                                    {relatedCards &&
-                                        <RelatedCardsContainer cards={relatedCards} />
-                                    }
-                                    {cast &&
-                                        <CastContainer cast={cast} />
-                                    }
-                                    {crewByDepartment &&
-                                        <CrewContainer crewDepartment={crewByDepartment} />
-                                    }
-                                </>
-                            )}
+                                </div>
+                            </div>
                         </div>
                     </section>
-                ) :
-                    <div className={styles.loading}>
-                        <div className={styles.loadingContainer}>
-                            <Spinner />
-                        </div>
+
+                    <section className={styles.additionalContent}>
+                        {relatedCards.length > 0 && (
+                            <RelatedCardsContainer cards={relatedCards} />
+                        )}
+
+                        {cast.length > 0 && (
+                            <CastContainer cast={cast} />
+                        )}
+
+                        {crewByDepartment && (
+                            <CrewContainer
+                                crewDepartment={crewByDepartment}
+                            />
+                        )}
+                    </section>
+                </main>
+            ) : (
+                <main className={styles.loading}>
+                    <div className={styles.loadingContainer}>
+                        <Spinner />
                     </div>
-            }
-            <WarningModal open={warningModalOpen} onClose={() => setWarningModalOpen(false)} />
+                </main>
+            )}
+
+            <WarningModal
+                open={warningModalOpen}
+                onClose={() => setWarningModalOpen(false)}
+            />
+
             <Footer />
         </>
     )

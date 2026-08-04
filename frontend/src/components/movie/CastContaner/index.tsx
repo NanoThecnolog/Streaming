@@ -1,24 +1,47 @@
-import { CastingProps, CastProps } from '@/@types/movie/cast'
-import styles from './styles.module.scss'
+import { useId } from 'react'
+
+import { CastingProps } from '@/@types/movie/cast'
 import Cast from '@/components/Cast'
+
+import styles from './styles.module.scss'
 
 interface CastContainerProps {
     cast: CastingProps[]
+    limit?: number
 }
 
-export default function CastContainer({ cast }: CastContainerProps) {
+export default function CastContainer({
+    cast,
+    limit = 20,
+}: CastContainerProps) {
+    const titleId = useId()
+
+    if (cast.length === 0) return null
+
+    const visibleCast = cast.slice(0, limit)
+
     return (
-        <div className={styles.cast}>
-            {cast && cast.length > 0 &&
-                <>
-                    <h2>Elenco</h2>
-                    <div className={styles.castContainer}>
-                        {cast.slice(0, 20).map((actor, index) =>
-                            <Cast actor={actor} key={index} />
-                        )}
-                    </div>
-                </>
-            }
-        </div>
+        <section
+            className={styles.cast}
+            aria-labelledby={titleId}
+        >
+            <header className={styles.header}>
+                <h2
+                    id={titleId}
+                    className={styles.title}
+                >
+                    Elenco
+                </h2>
+            </header>
+
+            <div className={styles.castContainer}>
+                {visibleCast.map(actor => (
+                    <Cast
+                        key={actor.id}
+                        actor={actor}
+                    />
+                ))}
+            </div>
+        </section>
     )
 }

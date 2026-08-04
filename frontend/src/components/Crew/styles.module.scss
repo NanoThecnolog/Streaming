@@ -1,38 +1,152 @@
 .crewMember {
-    display: flex;
-    flex-direction: column;
+    box-sizing: border-box;
+
+    position: relative;
+
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
-    text-align: center;
+    gap: 0.75rem;
 
-    .crewImage {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 150px;
-        height: 200px;
-        border: 2px solid transparent;
-        border-radius: .5rem;
-        overflow: hidden;
-        transition: all .4s;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 72px;
+    height: 100%;
+    padding: 0.75rem;
 
-        &:hover {
-            border: 2px solid white;
-        }
+    background:
+        linear-gradient(145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.015)),
+        rgba(20, 20, 22, 0.75);
 
-        img {
-            object-fit: cover;
-            object-position: center;
-        }
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
 
-        svg {
-            height: 100%;
-            width: 60%;
-            color: #242424;
-        }
+    overflow: hidden;
+
+    transition:
+        background-color 160ms ease,
+        border-color 160ms ease,
+        box-shadow 160ms ease,
+        transform 160ms ease;
+
+    &::before {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+
+        width: 2px;
+
+        background: var(--red-selected);
+        opacity: 0;
+
+        transition: opacity 160ms ease;
     }
 
-    .crewInfo {
-        padding: 8px 0 0 5px;
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.055);
+        border-color: rgba(255, 255, 255, 0.16);
+
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+        transform: translateY(-2px);
+
+        &::before {
+            opacity: 1;
+        }
+    }
+}
+
+.initials {
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+
+    width: 38px;
+    height: 38px;
+
+    color: rgba(255, 255, 255, 0.82);
+    //background: rgba(229, 9, 20, 0.11);
+
+    //border: 1px solid rgba(229, 9, 20, 0.22);
+    border-radius: 50%;
+
+    font-size: 1rem;
+    font-weight: 750;
+    letter-spacing: 0.02em;
+}
+
+.crewInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+
+    min-width: 0;
+}
+
+.name,
+.job {
+    display: -webkit-box;
+
+    margin: 0;
+    overflow: hidden;
+
+    overflow-wrap: break-word;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.name {
+    color: rgba(255, 255, 255, 0.9);
+
+    font-size: clamp(0.78rem, 1.2vw, 0.88rem);
+    font-weight: 650;
+    line-height: 1.3;
+}
+
+.job {
+    color: rgba(255, 255, 255, 0.48);
+
+    font-size: clamp(0.67rem, 1vw, 0.74rem);
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+@media (max-width: 570px) {
+    .crewMember {
+        gap: 0.55rem;
+
+        min-height: 68px;
+        padding: 0.6rem;
+
+        border-radius: 8px;
+    }
+
+    .initials {
+        width: 33px;
+        height: 33px;
+
+        font-size: 0.62rem;
+    }
+
+    .name {
+        font-size: 0.72rem;
+    }
+
+    .job {
+        font-size: 0.63rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .crewMember,
+    .crewMember::before {
+        transition: none;
     }
 }
