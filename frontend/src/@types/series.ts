@@ -47,7 +47,9 @@ export interface TMDBSeries {
         id: number,
         name: string
     }[]
-    popularity: number
+    popularity: number,
+    first_air_date: string
+
 }
 export interface DubbedEpisode {
     tmdbID: number,

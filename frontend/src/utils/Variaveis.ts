@@ -6,6 +6,8 @@ import { formatPrice } from "./UtilitiesFunctions"
 import { IconType } from "react-icons/lib"
 import { FaCcDinersClub, FaCcMastercard, FaCcVisa } from "react-icons/fa"
 import { SiAmericanexpress } from "react-icons/si"
+import { CheckoutStep, PaymentMethod } from "@/pages/payment"
+import { CheckoutTrackStep } from "@/@types/checkoutEvents/types"
 
 export const cookieOptions = {
     maxAge: 15 * 24 * 60 * 60 * 1000,
@@ -365,38 +367,58 @@ export const faqPlans: FAQ[] = [
 
 
 
+interface ContentClassification {
+    etaria: string
+    label: string
+    cor: string
+    textColor: string
+    msg: string
+}
+
 export const classification = [
     {
-        etaria: "L",
-        cor: "var(--green)",
-        msg: "Indicado para todos os públicos."
+        etaria: 'L',
+        label: 'L',
+        cor: 'var(--green)',
+        textColor: '#fff',
+        msg: 'Conteúdo livre para todos os públicos.',
     },
     {
-        etaria: "10",
-        cor: "var(--blue)",
-        msg: "Pode conter linguagem e violência leve."
+        etaria: '10',
+        label: '10',
+        cor: 'var(--blue)',
+        textColor: '#fff',
+        msg: 'Não recomendado para menores de 10 anos.',
     },
     {
-        etaria: "A12",
-        cor: "var(--yellow)",
-        msg: "Pode conter linguagem imprópria, violência moderada."
+        etaria: 'A12',
+        label: '12',
+        cor: 'var(--yellow)',
+        textColor: '#111',
+        msg: 'Não recomendado para menores de 12 anos.',
     },
     {
-        etaria: "A14",
-        cor: "var(--orange)",
-        msg: "Pode conter violência, cenas de sexo e drogas."
+        etaria: 'A14',
+        label: '14',
+        cor: 'var(--orange)',
+        textColor: '#111',
+        msg: 'Não recomendado para menores de 14 anos.',
     },
     {
-        etaria: "A16",
-        cor: "var(--red)",
-        msg: "Pode conter violência explícita, cenas de sexo explícito e consumo explícito de drogas."
+        etaria: 'A16',
+        label: '16',
+        cor: 'var(--red)',
+        textColor: '#fff',
+        msg: 'Não recomendado para menores de 16 anos.',
     },
     {
-        etaria: "18",
-        cor: "var(--black)",
-        msg: "Pode conter conteúdo extremo, violência explícita, sexo explícito e apologia às drogas."
-    }
-]
+        etaria: '18',
+        label: '18',
+        cor: 'var(--black)',
+        textColor: '#fff',
+        msg: 'Não recomendado para menores de 18 anos.',
+    },
+] satisfies ContentClassification[]
 
 export const blockedDomains = [
     "teste.com",
@@ -508,4 +530,24 @@ export const normalizeAudioTrack: Record<string, string> = {
     jap: 'japonês',
     nob: 'norueguês',
     und: 'outro'
+}
+
+export const checkoutStepMap: Record<
+    CheckoutStep,
+    CheckoutTrackStep
+> = {
+    email: 'EMAIL',
+    plan: 'PLAN',
+    payment: 'PAYMENT_METHOD',
+    'personal-data': 'PERSONAL_DATA',
+    confirmation: 'CONFIRMATION',
+}
+
+export const paymentMethodMap: Record<
+    PaymentMethod,
+    'PIX' | 'CREDIT_CARD' | 'BILLET'
+> = {
+    pix: 'PIX',
+    'credit-card': 'CREDIT_CARD',
+    billet: 'BILLET',
 }

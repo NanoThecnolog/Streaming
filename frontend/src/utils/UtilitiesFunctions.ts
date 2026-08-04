@@ -2,6 +2,7 @@ import { CardsProps, MovieTMDB } from "@/@types/Cards"
 import { SeriesProps, TMDBSeries } from "@/@types/series"
 import { stateMap } from "./Variaveis"
 import { debug } from "@/classes/DebugLogger"
+import axios from "axios"
 
 /**
  * Função que transforma minutos em horas
@@ -364,4 +365,42 @@ export const calculateVideoProgress = (current: number, duration: number): numbe
 
     const percentage = (current / durationInSeconds) * 100
     return Math.min(100, Math.round(percentage))
+}
+
+
+export const getDeviceType = ():
+    | 'MOBILE'
+    | 'TABLET'
+    | 'DESKTOP'
+    | 'UNKNOWN' => {
+    if (typeof navigator === 'undefined') {
+        return 'UNKNOWN'
+    }
+
+    const userAgent = navigator.userAgent
+
+    if (/tablet|ipad/i.test(userAgent)) {
+        return 'TABLET'
+    }
+
+    if (/mobile|android|iphone/i.test(userAgent)) {
+        return 'MOBILE'
+    }
+
+    return 'DESKTOP'
+}
+export const shouldRetry = (error: unknown): boolean => {
+    if (!axios.isAxiosError(error)) {
+        return false
+    }
+
+    if (error.code === 'ECONNABORTED') {
+        return true
+    }
+
+    if (!error.response) {
+        return true
+    }
+
+    return [429, 500, 502, 503, 504].includes(error.response.status)
 }

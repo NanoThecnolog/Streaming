@@ -11,6 +11,6 @@ export interface VideoProps {
     size: number,
     type: string,
     official: boolean,
-    published_at: Date,
+    published_at: string,
     id: string
 }
