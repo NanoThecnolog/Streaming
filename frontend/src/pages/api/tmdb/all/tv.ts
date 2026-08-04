@@ -225,6 +225,7 @@ export default async function handler(
 
         return
     }
+    res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate=300')
 
     const validSeries = series.filter(serie => {
         return (

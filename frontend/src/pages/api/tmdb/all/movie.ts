@@ -4,7 +4,7 @@ import axios, { AxiosError } from 'axios'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 const maxAttempts = 3
-const batchSize = 50
+const batchSize = 90
 const requestTimeout = 8_000
 const batchInterval = 500
 const retryInterval = 2_000
@@ -212,6 +212,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
         return
     }
+
+    res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate=300')
 
     const validMovies = movies.filter(movie => {
         return (
