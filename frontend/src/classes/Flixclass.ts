@@ -58,7 +58,7 @@ class FlixFetcher {
             return
         }
 
-        debug.log("Series em fecthSerieData", series)
+        //debug.log("Series em fecthSerieData", series)
 
         try {
             const response = await apiTMDB.post('/all/tv', {
