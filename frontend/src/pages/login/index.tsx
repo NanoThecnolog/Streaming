@@ -45,12 +45,11 @@ export default function Login() {
             email: normalizedEmail,
             password,
         }
-
         try {
             setLoading(true)
             await signIn(credentials)
         } catch (error) {
-            console.error('Erro ao realizar login:', error)
+            console.error('Erro ao realizar login.')
         } finally {
             setLoading(false)
         }

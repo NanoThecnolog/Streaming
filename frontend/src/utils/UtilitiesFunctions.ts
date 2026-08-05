@@ -3,6 +3,7 @@ import { SeriesProps, TMDBSeries } from "@/@types/series"
 import { stateMap } from "./Variaveis"
 import { debug } from "@/classes/DebugLogger"
 import axios from "axios"
+import { SubDataEFIReponse } from "@/@types/subscriptions/subDetails"
 
 /**
  * Função que transforma minutos em horas
@@ -403,4 +404,50 @@ export const shouldRetry = (error: unknown): boolean => {
     }
 
     return [429, 500, 502, 503, 504].includes(error.response.status)
+}
+
+export interface TrialInfo {
+    endsAt: string
+    remainingDays: number
+}
+
+const DAY_IN_MS = 24 * 60 * 60 * 1000
+
+export const getTrialInfo = (subscription: SubDataEFIReponse): TrialInfo | null => {
+    const { trial_days, payment_method, created_at } = subscription
+    debug.info("subscription em getTrialInfo", subscription)
+
+    if (
+        payment_method !== 'credit_card' ||
+        !trial_days ||
+        trial_days <= 0
+    ) {
+        return null
+    }
+
+    const createdAt = new Date(created_at)
+
+    if (Number.isNaN(createdAt.getTime())) {
+        return null
+    }
+
+    const endsAt = new Date(createdAt)
+
+    endsAt.setUTCDate(
+        endsAt.getUTCDate() + trial_days,
+    )
+
+    const remainingMilliseconds =
+        endsAt.getTime() - Date.now()
+
+    if (remainingMilliseconds <= 0) {
+        return null
+    }
+
+    return {
+        endsAt: endsAt.toISOString(),
+        remainingDays: Math.ceil(
+            remainingMilliseconds / DAY_IN_MS,
+        ),
+    }
 }

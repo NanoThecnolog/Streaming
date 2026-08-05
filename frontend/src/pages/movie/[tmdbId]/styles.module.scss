@@ -89,6 +89,8 @@
 }
 
 .heroContent {
+    box-sizing: border-box;
+
     position: relative;
     z-index: 1;
 
@@ -321,7 +323,7 @@
 @media (max-width: 570px) {
     .heroContent {
         width: calc(100% - 2rem);
-        padding-top: max(24rem, 52svh);
+        padding-top: clamp(14rem, 38svh, 19rem);
         padding-bottom: 2.5rem;
     }
 

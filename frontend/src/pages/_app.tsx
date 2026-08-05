@@ -94,9 +94,18 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [])
 
   useEffect(() => {
-    Router.events.on("routeChangeStart", () => NProgress.start())
-    Router.events.on("routeChangeComplete", () => NProgress.done())
-    Router.events.on("routeChangeError", () => NProgress.done())
+    const handleStart = () => NProgress.start()
+    const handleDone = () => NProgress.done()
+
+    Router.events.on("routeChangeStart", () => handleStart)
+    Router.events.on("routeChangeComplete", () => handleDone)
+    Router.events.on("routeChangeError", () => handleDone)
+
+    return () => {
+      Router.events.off('routeChangeStart', handleStart)
+      Router.events.off('routeChangeComplete', handleDone)
+      Router.events.off('routeChangeError', handleDone)
+    }
 
   }, [])
 
