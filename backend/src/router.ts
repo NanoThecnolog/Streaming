@@ -28,8 +28,11 @@ const router = Router()
 
 const loginRateLimit = rateLimit({
     windowMs: 15 * 60 * 1000,
-    max: 10,
-    message: { error: "Max attempts exceed. Please try later.--" }
+    limit: 10,
+    skipSuccessfulRequests: true,
+    standardHeaders: 'draft-8',
+    legacyHeaders: false,
+    message: { error: "Max attempts exceed. Please try later." }
 })
 
 router.get('/acordar', (req, res) => {
