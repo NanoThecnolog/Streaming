@@ -1,0 +1,11 @@
+export type CheckoutField =
+    | 'email'
+    | 'plan'
+    | 'name'
+    | 'cpf'
+    | 'phone'
+    | 'password'
+    | 'card_number'
+    | 'card_expiry'
+    | 'card_holder'
+    | 'card_cvv'

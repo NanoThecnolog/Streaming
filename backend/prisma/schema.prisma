@@ -20,7 +20,7 @@ model user {
   news     Boolean @default(true)
   access   Boolean @default(false)
 
-  cpf          String  @unique
+  cpf          String? @unique
   phone_number String?
 
   created_at DateTime @default(now())
@@ -240,4 +240,142 @@ enum InvoiceStatus {
 enum WatchedMediaType {
   movie
   tv
+}
+
+enum CheckoutStatus {
+  STARTED
+  IN_PROGRESS
+  PAYMENT_PENDING
+  COMPLETED
+  ABANDONED
+  FAILED
+}
+
+enum CheckoutStep {
+  EMAIL
+  PLAN
+  PAYMENT_METHOD
+  PERSONAL_DATA
+  PAYMENT_DATA
+  CONFIRMATION
+  PASSWORD
+  COMPLETED
+}
+
+enum CheckoutPaymentMethod {
+  PIX
+  CREDIT_CARD
+  BILLET
+}
+
+enum CheckoutDevice {
+  MOBILE
+  TABLET
+  DESKTOP
+  UNKNOWN
+}
+
+model CheckoutTrack {
+  id        String @id @default(uuid())
+  sessionId String @unique
+
+  // Identificação opcional
+  userId    String?
+  emailHash String?
+
+  // Estado atual
+  status      CheckoutStatus @default(STARTED)
+  currentStep CheckoutStep   @default(EMAIL)
+  highestStep CheckoutStep   @default(EMAIL)
+
+  // Escolhas
+  planId        Int?
+  paymentMethod CheckoutPaymentMethod?
+
+  // Campos preenchidos
+  emailFilled      Boolean @default(false)
+  planSelected     Boolean @default(false)
+  nameFilled       Boolean @default(false)
+  cpfFilled        Boolean @default(false)
+  phoneFilled      Boolean @default(false)
+  passwordCreated  Boolean @default(false)
+  cardNumberFilled Boolean @default(false)
+  cardExpiryFilled Boolean @default(false)
+  cardHolderFilled Boolean @default(false)
+  cardCvvFilled    Boolean @default(false)
+
+  // Resultado do pagamento
+  paymentAttempted Boolean       @default(false)
+  paymentApproved  Boolean       @default(false)
+  subscriptionId   String?
+  paymentId        String?
+  errorCode        String?
+  errorMessage     String?
+  failedStep       CheckoutStep?
+
+  // Origem do usuário
+  source      String?
+  medium      String?
+  campaign    String?
+  content     String?
+  referrer    String?
+  landingPage String?
+
+  // Contexto técnico
+  device  CheckoutDevice @default(UNKNOWN)
+  browser String?
+  os      String?
+
+  // Métricas de tempo
+  startedAt   DateTime  @default(now())
+  completedAt DateTime?
+  abandonedAt DateTime?
+  lastEventAt DateTime  @default(now())
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  events CheckoutTrackEvent[]
+
+  @@index([status])
+  @@index([currentStep])
+  @@index([planId])
+  @@index([paymentMethod])
+  @@index([createdAt])
+}
+
+enum CheckoutEventType {
+  CHECKOUT_STARTED
+  STEP_VIEWED
+  FIELD_COMPLETED
+  STEP_COMPLETED
+  STEP_RETURNED
+  VALIDATION_ERROR
+  PAYMENT_ATTEMPTED
+  PAYMENT_FAILED
+  PAYMENT_APPROVED
+  CHECKOUT_COMPLETED
+  CHECKOUT_ABANDONED
+}
+
+model CheckoutTrackEvent {
+  id         String @id @default(uuid())
+  checkoutId String
+
+  type       CheckoutEventType
+  step       CheckoutStep
+  field      String?
+  durationMs Int?
+
+  errorCode    String?
+  errorMessage String?
+  metadata     Json?
+
+  createdAt DateTime @default(now())
+
+  checkout CheckoutTrack @relation(fields: [checkoutId], references: [id], onDelete: Cascade)
+
+  @@index([checkoutId, createdAt])
+  @@index([type, createdAt])
+  @@index([step, type])
 }

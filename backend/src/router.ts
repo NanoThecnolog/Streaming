@@ -21,6 +21,7 @@ import { ListWatchedController } from "./Controllers/User/ListWatchedController"
 import { CreateWatchedController } from "./Controllers/User/CreateWatchedController";
 import { GetWatchedController } from "./Controllers/User/GetWatchedController";
 import { EmailVerifyController } from "./Controllers/Email/EmailVerifyController";
+import { CheckoutEventController } from "./Controllers/CheckoutEvent/CheckoutEventController";
 
 
 const router = Router()
@@ -60,5 +61,7 @@ router.get('/user/watched', Authenticate, new ListWatchedController().handle)
 
 router.post('/content/watched', Authenticate, new CreateWatchedController().handle)
 router.get('/content/watched', Authenticate, new GetWatchedController().handle)
+
+router.post('/checkout/events', new CheckoutEventController().handle.bind(CheckoutEventController))
 
 export { router }
