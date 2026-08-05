@@ -124,6 +124,8 @@ model subscription {
   user     user      @relation(fields: [userId], references: [id], onDelete: Cascade)
   invoices invoice[]
 
+  trial Int?
+
   @@index([status])
 }
 
