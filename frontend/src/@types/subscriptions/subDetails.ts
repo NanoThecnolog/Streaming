@@ -24,4 +24,5 @@ export interface SubDataEFIReponse {
         status: string;
         created_at: string;
     }[];
+    trial_days?: number
 }
