@@ -819,8 +819,7 @@ export default function Serie({
                 />
             </Head>
 
-            {//<Header />
-            }
+            <Header />
 
             {serie ? (
                 <main className={styles.container}>
