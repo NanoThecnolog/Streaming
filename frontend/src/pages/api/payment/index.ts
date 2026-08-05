@@ -110,8 +110,8 @@ function buildPayment(method: CheckoutMethod, checkout: NormalizedCheckout): Cre
     return {
         credit_card: {
             customer: customerBase,
-            payment_token:
-                customer.payment_token,
+            payment_token: customer.payment_token,
+            trial_days: 3,
             /*billing_address:
                 addressBase,*/
         },

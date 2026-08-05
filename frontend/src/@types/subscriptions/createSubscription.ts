@@ -42,7 +42,8 @@ export interface CreditCardDto {
         exp_year: string;
         cvv: string;
     };
-    payment_token: string
+    payment_token: string,
+    trial_days?: number
 }
 
 
