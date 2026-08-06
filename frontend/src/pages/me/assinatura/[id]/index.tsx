@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import {
     ArrowLeft,
@@ -15,6 +15,7 @@ import {
     ReceiptText,
     ShieldCheck,
     XCircle,
+    Hourglass,
 } from 'lucide-react'
 
 import styles from './styles.module.scss'
@@ -37,7 +38,7 @@ import { Normalize } from '@/classes/Normalize'
 import { debug } from '@/classes/DebugLogger'
 
 import { apiSub } from '@/services/apiSubManager'
-import { formatedDate } from '@/utils/UtilitiesFunctions'
+import { formatedDate, getTrialInfo, TrialInfo } from '@/utils/UtilitiesFunctions'
 
 import { toast } from 'react-toastify'
 
@@ -88,55 +89,41 @@ const isSubscriptionActive = (status: string): boolean => {
     return ['active', 'new_charge'].includes(status)
 }
 
-export default function SubscriptionPage({
-    subscription,
-}: SubscriptionPageProps) {
+export default function SubscriptionPage({ subscription }: SubscriptionPageProps) {
     const router = useRouter()
 
-    const [assinatura, setAssinatura] =
-        useState<SubDataEFIReponse | null>(
-            subscription.data ?? null,
-        )
+    const [assinatura, setAssinatura] = useState<SubDataEFIReponse | null>(subscription.data ?? null,)
 
-    const [showCancelModal, setShowCancelModal] =
-        useState<boolean>(false)
+    const [showCancelModal, setShowCancelModal] = useState<boolean>(false)
+    const [changeMethodModal, setChangeMethodModal] = useState<boolean>(false)
 
-    const [changeMethodModal, setChangeMethodModal] =
-        useState<boolean>(false)
+    const [chargeModalOpen, setChargeModalOpen] = useState<boolean>(false)
+    const [chargeDetails, setChargeDetails] = useState<ChargeDetailResponse | null>(null)
 
-    const [chargeModalOpen, setChargeModalOpen] =
-        useState<boolean>(false)
+    const [loadingCharge, setLoadingCharge] = useState<boolean>(false)
+    const [cancelling, setCancelling] = useState<boolean>(false)
 
-    const [chargeDetails, setChargeDetails] =
-        useState<ChargeDetailResponse | null>(null)
+    const [trialInfo, setTrialInfo] = useState<TrialInfo | null>(null)
 
-    const [loadingCharge, setLoadingCharge] =
-        useState<boolean>(false)
+    useEffect(() => {
+        if (!assinatura) return
+        const trialInfo = getTrialInfo(assinatura)
+        setTrialInfo(trialInfo)
+    }, [assinatura])
 
-    const [cancelling, setCancelling] =
-        useState<boolean>(false)
-
-    const openChargeModal = async (
-        chargeId: number,
-    ): Promise<void> => {
+    const openChargeModal = async (chargeId: number,): Promise<void> => {
         setChargeModalOpen(true)
         setLoadingCharge(true)
         setChargeDetails(null)
 
         try {
-            const response =
-                await userMethod.getChargeDetails(chargeId)
+            const response = await userMethod.getChargeDetails(chargeId)
 
             setChargeDetails(response)
         } catch (error) {
-            debug.log(
-                'Erro ao buscar detalhes da cobrança',
-                error,
-            )
+            debug.log('Erro ao buscar detalhes da cobrança', error,)
 
-            toast.error(
-                'Não foi possível carregar os detalhes da cobrança.',
-            )
+            toast.error('Não foi possível carregar os detalhes da cobrança.',)
 
             setChargeModalOpen(false)
         } finally {
@@ -152,14 +139,14 @@ export default function SubscriptionPage({
     const refreshSubscription = async (): Promise<void> => {
         if (!assinatura) return
 
-        const response =
-            await userMethod.getSubscriptionDetails(
-                assinatura.subscription_id,
-            )
+        const response = await userMethod.getSubscriptionDetails(assinatura.subscription_id)
 
         if (!response?.data) return
 
         setAssinatura(response.data)
+
+
+
     }
 
     const handleConfirmCancel = async (): Promise<void> => {
@@ -168,9 +155,7 @@ export default function SubscriptionPage({
         setCancelling(true)
 
         try {
-            await apiSub.delete(
-                `/subscription/${assinatura.subscription_id}`,
-            )
+            await apiSub.delete(`/subscription/${assinatura.subscription_id}`,)
 
             await refreshSubscription()
 
@@ -219,14 +204,10 @@ export default function SubscriptionPage({
         )
     }
 
-    const active = isSubscriptionActive(
-        assinatura.status,
-    )
+    const active = isSubscriptionActive(assinatura.status,)
 
     const subscriptionStatus =
-        Normalize.subscriptionStatus(
-            assinatura.status,
-        )
+        Normalize.subscriptionStatus(assinatura.status,)
 
     return (
         <>
@@ -311,6 +292,28 @@ export default function SubscriptionPage({
                             <small>por ciclo de cobrança</small>
                         </div>
                     </section>
+                    {trialInfo && (
+                        <section className={styles.trialNotice}>
+                            <div className={styles.trialIcon}>
+                                <Hourglass size={22} />
+                            </div>
+
+                            <div className={styles.trialContent}>
+                                <span>Período gratuito ativo</span>
+
+                                <strong>
+                                    {trialInfo.remainingDays === 1
+                                        ? '1 dia de teste restante'
+                                        : `${trialInfo.remainingDays} dias de teste restantes`}
+                                </strong>
+
+                                <p>
+                                    Seu período gratuito termina em{' '}
+                                    {formatedDate(trialInfo.endsAt)}.
+                                </p>
+                            </div>
+                        </section>
+                    )}
 
                     <section className={styles.summaryGrid}>
                         <article className={styles.summaryCard}>
@@ -329,23 +332,31 @@ export default function SubscriptionPage({
                             </div>
                         </article>
 
-                        <article className={styles.summaryCard}>
-                            <div className={styles.summaryIcon}>
-                                <CalendarDays size={21} />
-                            </div>
 
-                            <div>
-                                <span>Próximo vencimento</span>
 
-                                <strong>
-                                    {assinatura.next_expire_at
-                                        ? formatedDate(
-                                            assinatura.next_expire_at,
-                                        )
-                                        : 'Não definido'}
-                                </strong>
-                            </div>
-                        </article>
+
+                        {
+                            active ?
+                                <article className={styles.summaryCard}>
+                                    <div className={styles.summaryIcon}>
+                                        <CalendarDays size={21} />
+                                    </div>
+
+                                    <div>
+                                        <span>Próximo vencimento</span>
+
+                                        <strong>
+                                            {assinatura.next_expire_at
+                                                ? formatedDate(
+                                                    assinatura.next_expire_at,
+                                                )
+                                                : 'Não definido'}
+                                        </strong>
+                                    </div>
+                                </article>
+                                : <></>
+                        }
+
 
                         <article className={styles.summaryCard}>
                             <div className={styles.summaryIcon}>
@@ -468,182 +479,200 @@ export default function SubscriptionPage({
                         </div>
 
                         <div className={styles.infoGrid}>
-                            <div className={styles.infoItem}>
-                                <span>Identificador</span>
+                            {active ?
+                                <>
+                                    <div className={styles.infoItem}>
+                                        <span>Identificador</span>
 
-                                <strong>
-                                    #
-                                    {
-                                        assinatura.subscription_id
-                                    }
-                                </strong>
-                            </div>
+                                        <strong>
+                                            #
+                                            {
+                                                assinatura.subscription_id
+                                            }
+                                        </strong>
+                                    </div>
 
-                            <div className={styles.infoItem}>
-                                <span>Status</span>
+                                    <div className={styles.infoItem}>
+                                        <span>Status</span>
 
-                                <strong>
-                                    {subscriptionStatus}
-                                </strong>
-                            </div>
+                                        <strong>
+                                            {subscriptionStatus}
+                                        </strong>
+                                    </div>
 
-                            <div className={styles.infoItem}>
-                                <span>Plano contratado</span>
+                                    <div className={styles.infoItem}>
+                                        <span>Plano contratado</span>
 
-                                <strong>
-                                    {assinatura.plan.name}
-                                </strong>
-                            </div>
+                                        <strong>
+                                            {assinatura.plan.name}
+                                        </strong>
+                                    </div>
 
-                            <div className={styles.infoItem}>
-                                <span>Valor</span>
+                                    <div className={styles.infoItem}>
+                                        <span>Valor</span>
 
-                                <strong>
-                                    {formatCurrency(
-                                        assinatura.value,
-                                    )}
-                                </strong>
-                            </div>
+                                        <strong>
+                                            {formatCurrency(
+                                                assinatura.value,
+                                            )}
+                                        </strong>
+                                    </div>
 
-                            <div className={styles.infoItem}>
-                                <span>Forma de pagamento</span>
+                                    <div className={styles.infoItem}>
+                                        <span>Forma de pagamento</span>
 
-                                <strong>
-                                    {getPaymentMethodLabel(
-                                        assinatura.payment_method || '',
-                                    )}
-                                </strong>
-                            </div>
+                                        <strong>
+                                            {getPaymentMethodLabel(
+                                                assinatura.payment_method || '',
+                                            )}
+                                        </strong>
+                                    </div>
 
-                            <div className={styles.infoItem}>
-                                <span>Próximo vencimento</span>
+                                    <div className={styles.infoItem}>
+                                        <span>Próximo vencimento</span>
 
-                                <strong>
-                                    {assinatura.next_expire_at
-                                        ? formatedDate(
-                                            assinatura.next_expire_at,
-                                        )
-                                        : 'Não definido'}
-                                </strong>
-                            </div>
+                                        <strong>
+                                            {assinatura.next_expire_at
+                                                ? formatedDate(
+                                                    assinatura.next_expire_at,
+                                                )
+                                                : 'Não definido'}
+                                        </strong>
+                                    </div>
+                                </>
+                                : <>
+                                    <div className={styles.infoItem}>
+                                        <span>Status</span>
+
+                                        <strong>
+                                            {subscriptionStatus}
+                                        </strong>
+                                    </div>
+                                </>
+                            }
                         </div>
                     </section>
 
-                    <section className={styles.section}>
-                        <div className={styles.sectionHeading}>
-                            <div>
-                                <span>Cobranças</span>
-                                <h2>Histórico de pagamentos</h2>
-                            </div>
+                    {
+                        active ? <>
+                            <section className={styles.section}>
+                                <div className={styles.sectionHeading}>
+                                    <div>
+                                        <span>Cobranças</span>
+                                        <h2>Histórico de pagamentos</h2>
+                                    </div>
 
-                            <History size={22} />
-                        </div>
+                                    <History size={22} />
+                                </div>
 
-                        {assinatura.history.length > 0 ? (
-                            <div className={styles.historyList}>
-                                {assinatura.history.map(
-                                    (item, index) => {
-                                        const status =
-                                            Normalize.billetStatus(
-                                                item.status,
-                                            )
-
-                                        return (
-                                            <button
-                                                type="button"
-                                                key={`${item.charge_id}-${index}`}
-                                                className={
-                                                    styles.historyItem
-                                                }
-                                                onClick={() =>
-                                                    openChargeModal(
-                                                        item.charge_id,
+                                {assinatura.history.length > 0 ? (
+                                    <div className={styles.historyList}>
+                                        {assinatura.history.map(
+                                            (item, index) => {
+                                                const status =
+                                                    Normalize.billetStatus(
+                                                        item.status,
                                                     )
-                                                }
-                                            >
-                                                <div
-                                                    className={
-                                                        styles.chargeIcon
-                                                    }
-                                                >
-                                                    <CircleDollarSign
-                                                        size={21}
-                                                    />
-                                                </div>
 
-                                                <div
-                                                    className={
-                                                        styles.chargeMain
-                                                    }
-                                                >
-                                                    <span>
-                                                        Cobrança
-                                                    </span>
-
-                                                    <strong>
-                                                        #
-                                                        {
-                                                            item.charge_id
+                                                return (
+                                                    <button
+                                                        type="button"
+                                                        key={`${item.charge_id}-${index}`}
+                                                        className={
+                                                            styles.historyItem
                                                         }
-                                                    </strong>
-                                                </div>
+                                                        onClick={() =>
+                                                            openChargeModal(
+                                                                item.charge_id,
+                                                            )
+                                                        }
+                                                    >
+                                                        <div
+                                                            className={
+                                                                styles.chargeIcon
+                                                            }
+                                                        >
+                                                            <CircleDollarSign
+                                                                size={21}
+                                                            />
+                                                        </div>
 
-                                                <div
-                                                    className={
-                                                        styles.chargeDetail
-                                                    }
-                                                >
-                                                    <span>
-                                                        Status
-                                                    </span>
+                                                        <div
+                                                            className={
+                                                                styles.chargeMain
+                                                            }
+                                                        >
+                                                            <span>
+                                                                Cobrança
+                                                            </span>
 
-                                                    <strong>
-                                                        {status}
-                                                    </strong>
-                                                </div>
+                                                            <strong>
+                                                                #
+                                                                {
+                                                                    item.charge_id
+                                                                }
+                                                            </strong>
+                                                        </div>
 
-                                                <div
-                                                    className={
-                                                        styles.chargeDetail
-                                                    }
-                                                >
-                                                    <span>
-                                                        Emitida em
-                                                    </span>
+                                                        <div
+                                                            className={
+                                                                styles.chargeDetail
+                                                            }
+                                                        >
+                                                            <span>
+                                                                Status
+                                                            </span>
 
-                                                    <strong>
-                                                        {formatedDate(
-                                                            item.created_at,
-                                                        )}
-                                                    </strong>
-                                                </div>
+                                                            <strong>
+                                                                {status}
+                                                            </strong>
+                                                        </div>
 
-                                                <ChevronRight
-                                                    size={20}
-                                                    className={
-                                                        styles.chargeArrow
-                                                    }
-                                                />
-                                            </button>
-                                        )
-                                    },
+                                                        <div
+                                                            className={
+                                                                styles.chargeDetail
+                                                            }
+                                                        >
+                                                            <span>
+                                                                Emitida em
+                                                            </span>
+
+                                                            <strong>
+                                                                {formatedDate(
+                                                                    item.created_at,
+                                                                )}
+                                                            </strong>
+                                                        </div>
+
+                                                        <ChevronRight
+                                                            size={20}
+                                                            className={
+                                                                styles.chargeArrow
+                                                            }
+                                                        />
+                                                    </button>
+                                                )
+                                            },
+                                        )}
+                                    </div>
+                                ) : (
+                                    <div className={styles.emptyHistory}>
+                                        <ReceiptText size={28} />
+
+                                        <strong>
+                                            Nenhuma cobrança encontrada
+                                        </strong>
+
+                                        <span>
+                                            O histórico aparecerá quando
+                                            uma cobrança for gerada.
+                                        </span>
+                                    </div>
                                 )}
-                            </div>
-                        ) : (
-                            <div className={styles.emptyHistory}>
-                                <ReceiptText size={28} />
-
-                                <strong>
-                                    Nenhuma cobrança encontrada
-                                </strong>
-
-                                <span>
-                                    O histórico aparecerá quando
-                                    uma cobrança for gerada.
-                                </span>
-                            </div>
-                        )}
-                    </section>
+                            </section>
+                        </> : <>
+                        </>
+                    }
                 </div>
 
                 {showCancelModal && (
@@ -737,256 +766,3 @@ export const getServerSideProps:
             }
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*import Head from 'next/head'
-import styles from './styles.module.scss'
-import { GetServerSideProps } from 'next'
-import { userMethod } from '@/classes/userMethods'
-import { SubDataEFIReponse, SubDetailsResponseProps } from '@/@types/subscriptions/subDetails'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import { ArrowLeft, CreditCard, FileDown, Info, XCircle } from 'lucide-react'
-import { useEffect, useState } from 'react'
-import { toast } from 'react-toastify'
-import { apiSub } from '@/services/apiSubManager'
-import { debug } from '@/classes/DebugLogger'
-import CancelSubModal from '@/components/ui/CancelSubModal'
-import { useRouter } from 'next/navigation'
-import { formatedDate } from '@/utils/UtilitiesFunctions'
-import { ChargeDetailResponse } from '@/@types/efi/chargeEfi'
-import ChargeModal from '@/components/ui/ChargeModal'
-import { IoIosArrowBack } from 'react-icons/io'
-import { Normalize } from '@/classes/Normalize'
-import { FaExchangeAlt } from 'react-icons/fa'
-import ChangeMethodModal from '@/components/ui/ChangeMethodModal'
-
-interface SubscriptionPageProps {
-    subscription: SubDetailsResponseProps
-}
-
-export default function SubscriptionPage({ subscription }: SubscriptionPageProps) {
-    const router = useRouter()
-
-    const [showCancelModal, setShowCancelModal] = useState<boolean>(false)
-
-    const [chargeModalOpen, setChargeModalOpen] = useState<boolean>(false)
-    const [chargeDetails, setChargeDetails] = useState<ChargeDetailResponse | null>(null)
-    const [loadingCharge, setLoadingCharge] = useState<boolean>(false)
-    const [cancelling, setCancelling] = useState<boolean>(false)
-    const [changeMethodModal, setChangeMethodModal] = useState<boolean>(false)
-
-    const [assinatura, setAssinatura] = useState<SubDataEFIReponse | null>(null)
-
-    useEffect(() => {
-        if (!subscription.data) return
-        const data = subscription.data
-        setAssinatura(data)
-    }, [subscription])
-
-    const openChargeModal = async (chargeId: number) => {
-        setChargeModalOpen(true)
-        setLoadingCharge(true)
-
-        try {
-            const response = await userMethod.getChargeDetails(chargeId)
-            setChargeDetails(response)
-
-        } catch (err) {
-            console.log("Erro ao buscar detalhes da cobrança", err)
-        } finally {
-            setLoadingCharge(false)
-        }
-    }
-    const closeChargeModal = () => {
-        setChargeModalOpen(false)
-        setChargeDetails(null)
-    }
-
-    const handleShowCancelModal = () => {
-        setShowCancelModal(!showCancelModal)
-    }
-
-    const handleConfirmCancel = async () => {
-        if (cancelling) return
-        setCancelling(true)
-        try {
-            const cancelar = await apiSub.delete(`/subscription/${assinatura?.subscription_id}`)
-            toast.success("Assinatura cancelada!")
-            debug.log("Assinatura cancelada", cancelar.data)
-            //router.refresh()
-            const refreshData = await userMethod.getSubscriptionDetails(assinatura?.subscription_id ?? 0)
-            if (!refreshData) return
-            setAssinatura(refreshData.data)
-
-        } catch (err) {
-            toast.error("Ocorreu um erro ao cancelar sua assinatura. Tente novamente mais tarde, ou entre em contato!")
-            debug.log("Erro ao cancelar assinatura", err)
-        } finally {
-            setCancelling(false)
-            setShowCancelModal(false)
-            //router.refresh()
-        }
-    }
-
-    const changePayment = () => {
-        setChangeMethodModal(true)
-        try {
-
-            //toast.success("Metodo alterado com sucesso")
-        } catch (err) {
-            debug.log("Erro ao alterar metodo de pagamento.", err)
-            toast.error("Erro ao alterar método de pagamento. Tente novamente mais tarde ou entre me contato com o suporte.")
-        } finally {
-            //setChangeMethodModal(false)
-        }
-    }
-
-    return (
-        <>
-            <Head>
-                <title>Gerencie sua Assinatura</title>
-                <meta name='description' content='Pagina de gerenciamento de assinatura' />
-                <meta name='viewport' content='width=device-width, initial-scale=1' />
-            </Head>
-            <Header />
-            <main className={styles.container}>
-                {assinatura ?
-                    <div className={styles.card}>
-                        <h1 className={styles.title}>
-                            <IoIosArrowBack size={35} onClick={() => router.push('/me')} />
-                            Detalhes da Assinatura
-                        </h1>
-
-                        <div className={styles.actions}>
-                            {
-                                assinatura.status === "active" || "new_charge" ?
-                                    <>
-                                        {
-                                            /*
-                                            <button className={styles.actionPrimary}>
-                                            <CreditCard size={18} />
-                                            Atualizar Plano
-                                        </button>
-
-                                        <button className={styles.actionSecondary}>
-                                            <FileDown size={18} />
-                                            Baixar Último Boleto
-                                        </button>
-                                            
-                                        }
-
-                                        <button className={styles.actionDanger} onClick={handleShowCancelModal}>
-                                            <XCircle size={18} />
-                                            Cancelar Assinatura
-                                        </button>
-                                    </>
-                                    : <>
-                                        <button className={styles.actionPrimary} onClick={() => router.push('/me/escolher-plano')}>
-                                            <CreditCard size={18} />
-                                            Reativar Assinatura
-                                        </button>
-                                    </>
-                            }
-                        </div>
-                        <section className={styles.section}>
-                            <h2 className={styles.sectionTitle}>Informações gerais</h2>
-
-                            <div className={styles.infoGrid}>
-                                <div className={styles.infoItem}>
-                                    <span>Valor</span>
-                                    <strong>R$ {(assinatura.value / 100).toFixed(2)}</strong>
-                                </div>
-
-                                <div className={styles.infoItem}>
-                                    <span>Status</span>
-                                    <strong>{Normalize.subscriptionStatus(assinatura.status)}</strong>
-                                </div>
-
-                                <div className={styles.infoItem}>
-                                    <span>Método de Pagamento <FaExchangeAlt onClick={changePayment} title="Alterar método de pagamento" /></span>
-                                    <strong>{assinatura.payment_method === "banking_billet" ? "Boleto Bancário" : "Cartão de Crédito"}</strong>
-                                </div>
-
-                                <div className={styles.infoItem}>
-                                    <span>Próximo Vencimento</span>
-                                    <strong>{formatedDate(assinatura.next_expire_at ?? "")}</strong>
-                                </div>
-
-                                <div className={styles.infoItem}>
-                                    <span>Plano</span>
-                                    <strong>{assinatura.plan.name}</strong>
-                                </div>
-
-                                <div className={styles.infoItem}>
-                                    <span>Criado em</span>
-                                    <strong>{formatedDate(assinatura.created_at)}</strong>
-                                </div>
-                            </div>
-                        </section>
-
-                        <section className={styles.section}>
-                            <h2 className={styles.sectionTitle}>Histórico</h2>
-
-                            <ul className={styles.historyList}>
-                                {assinatura.history.map((item, index) => {
-                                    const status = Normalize.billetStatus(item.status)
-                                    return (
-                                        <li
-                                            key={index}
-                                            className={styles.historyItem}
-                                            onClick={() => openChargeModal(item.charge_id)}
-                                        >
-                                            <div>
-                                                <p className={styles.historyLabel}>Cobrança</p>
-                                                <p className={styles.historyValue}>{item.charge_id}</p>
-                                            </div>
-                                            <div>
-                                                <p className={styles.historyLabel}>Status</p>
-                                                <p className={styles.historyValue}>{status}</p>
-                                            </div>
-                                            <div>
-                                                <p className={styles.historyLabel}>Data de Emissão</p>
-                                                <p className={styles.historyValue}>{formatedDate(item.created_at)}</p>
-                                            </div>
-                                        </li>
-                                    )
-                                })}
-                            </ul>
-                        </section>
-                        {showCancelModal && <CancelSubModal handleConfirmCancel={handleConfirmCancel} handleShowCancelModal={handleShowCancelModal} cancelling={cancelling} />}
-                        {chargeModalOpen && <ChargeModal chargeDetails={chargeDetails} method={assinatura.payment_method} closeChargeModal={closeChargeModal} loadingCharge={loadingCharge} />}
-                    </div>
-                    : <div>Carregando...</div>
-                }
-                {changeMethodModal && <ChangeMethodModal closeModal={() => setChangeMethodModal(false)} before={assinatura?.payment_method === 'banking_billet' ? 'billet' : 'credit'} setNewMethod={() => { }} />}
-            </main>
-            <Footer />
-        </>
-    )
-}
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-    const { id } = context.params as { id: string };
-
-    const subscription = await userMethod.getSubscriptionDetails(Number(id))
-    return {
-        props: {
-            subscription
-        }
-    }
-}*/

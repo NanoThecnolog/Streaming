@@ -4,6 +4,7 @@ import { stateMap } from "./Variaveis"
 import { debug } from "@/classes/DebugLogger"
 import axios from "axios"
 import { SubDataEFIReponse } from "@/@types/subscriptions/subDetails"
+import { UserContext } from "@/@types/user"
 
 /**
  * Função que transforma minutos em horas
@@ -450,4 +451,17 @@ export const getTrialInfo = (subscription: SubDataEFIReponse): TrialInfo | null 
             remainingMilliseconds / DAY_IN_MS,
         ),
     }
+}
+
+export const hasAccess = (user: UserContext): boolean => {
+    if (user.donator) return true
+
+    const accessUntil = user.subscription?.accessUntil
+        ? new Date(user.subscription.accessUntil).getTime()
+        : Number.NaN
+
+    return (
+        Number.isFinite(accessUntil)
+        && accessUntil > Date.now()
+    )
 }

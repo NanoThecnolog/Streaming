@@ -7,7 +7,7 @@ import { debug } from "@/classes/DebugLogger";
 import { mongoService } from "@/classes/MongoContent";
 import { apiEmail } from "@/services/apiMessenger";
 import { cookieOptions } from "@/utils/Variaveis";
-import axios from "axios";
+import axios, { isAxiosError } from "axios";
 import { useRouter } from "next/navigation";
 import { destroyCookie, setCookie } from "nookies";
 import { createContext, useContext, useEffect, useState } from "react";
@@ -83,7 +83,13 @@ export function FlixProvider({ children }: ContextProviderProps) {
             toast.success(`Olá, ${data.name}. Bem vindo!`)
             router.push('/')
         } catch (err) {
-            console.log("Erro ao autenticar usuário.")
+            if (isAxiosError(err)) {
+                if (err.status === 429) {
+                    toast.error('Muitas tentativas de login. Tente novamente mais tarde.')
+                    return
+                }
+            }
+            debug.log("Erro ao autenticar usuário.")
             toast.error("Erro ao tentar realizar login. Verifique seu email e sua senha, e tente novamente")
             return
         }

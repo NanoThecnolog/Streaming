@@ -17,9 +17,7 @@ interface ConfirmationStepProps {
     email: string
     paymentMethod: PaymentMethod
     paymentStatus: PaymentStatus
-    paymentResult:
-    | PaymentApiResponse
-    | null
+    paymentResult: | PaymentApiResponse | null
     onBack: () => void
 }
 

@@ -15,10 +15,11 @@ import { mongoService } from '@/classes/MongoContent';
 import { apiEmail } from '@/services/apiMessenger';
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
-import axios from 'axios';
-import { UserContext } from '@/@types/user';
+import axios, { AxiosError } from 'axios';
+import { SubscriptionProps, UserContext } from '@/@types/user';
 import { MoviePlayer } from '@/components/ui/Player';
 import { MoviePlayerHLS } from '@/components/ui/PlayerHLS';
+import { hasAccess } from '@/utils/UtilitiesFunctions';
 
 interface WatchProps {
     userContext: UserContext | null
@@ -214,18 +215,20 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
         }
     }
     //const url = process.env.NEXT_PUBLIC_WEBSITE_LINK
-    const url = process.env.NEXT_PUBLIC_RENDER
+    const userBackendUrl = process.env.NEXT_PUBLIC_RENDER
+
+    if (!userBackendUrl) throw new Error('URL Backend não configuradas corretamente')
+
+    const headers = {
+        Authorization: `Bearer ${token}`
+    }
 
     try {
-        const response = await axios.get<UserContext>(`${url}/user`, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        })
-
+        const response = await axios.get<UserContext>(`${userBackendUrl}/user`, { headers })
         const user = response.data
 
-        if (user.donator !== true) {
+        const access = hasAccess(user)
+        if (!access) {
             return {
                 redirect: {
                     destination: '/me/escolher-plano',
@@ -239,11 +242,36 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
             }
         }
     } catch (err) {
-        debug.log("Erro ao buscar dados do usuario na pagina /watch")
-        return {
-            props: {
-                userContext: null
+        if (err instanceof AxiosError) {
+            if (err.response?.status === 401) {
+                return {
+                    redirect: {
+                        destination: '/login',
+                        permanent: false,
+                    },
+                }
             }
+
+            if (err.response?.status === 404) {
+                return {
+                    redirect: {
+                        destination: '/me/escolher-plano',
+                        permanent: false,
+                    },
+                }
+            }
+        }
+
+        console.error(
+            'Erro ao validar usuário e assinatura na página /watch',
+            err,
+        )
+
+        return {
+            redirect: {
+                destination: '/me',
+                permanent: false,
+            },
         }
     }
 }

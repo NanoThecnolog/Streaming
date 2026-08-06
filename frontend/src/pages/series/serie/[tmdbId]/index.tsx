@@ -57,6 +57,7 @@ import { debug } from '@/classes/DebugLogger'
 import { getRelatedSerieCards } from '@/utils/CardsManipulation'
 import {
     calculateVideoProgress,
+    hasAccess,
 } from '@/utils/UtilitiesFunctions'
 
 import styles from './styles.module.scss'
@@ -95,51 +96,27 @@ export default function Serie({
     const { user, series, setSeries } = useFlix()
     const { serieData } = useTMDB()
 
-    const watchLaterManager = useMemo(
-        () => new WatchLaterManager(),
-        [],
-    )
+    const watchLaterManager = useMemo(() => new WatchLaterManager(), [])
 
-    const [serie, setSerie] =
-        useState<SeriesProps | null>(null)
+    const [serie, setSerie] = useState<SeriesProps | null>(null)
+    const [seasonToShow, setSeasonToShow] = useState(1)
+    const [episodesToShow, setEpisodesToShow] = useState<Episodes[]>([])
+    const [episodesData, setEpisodesData] = useState<Array<TMDBEpisodes[] | null>>([])
+    const [episodeProgress, setEpisodeProgress] = useState<EpisodeProgressProps[]>([])
 
-    const [seasonToShow, setSeasonToShow] =
-        useState(1)
+    const [onWatchLater, setOnWatchLater] = useState(false)
 
-    const [episodesToShow, setEpisodesToShow] =
-        useState<Episodes[]>([])
+    const [relatedCards, setRelatedCards] = useState<SeriesProps[]>([])
 
-    const [episodesData, setEpisodesData] =
-        useState<Array<TMDBEpisodes[] | null>>([])
+    const [cast, setCast] = useState<CastProps[]>([])
+    const [crewDepartment, setCrewDepartment] = useState<groupedByDepartment>({})
+    const [castLoading, setCastLoading] = useState(true)
 
-    const [episodeProgress, setEpisodeProgress] =
-        useState<EpisodeProgressProps[]>([])
+    const [loadingButton, setLoadingButton] = useState(false)
 
-    const [onWatchLater, setOnWatchLater] =
-        useState(false)
+    const [trailer, setTrailer] = useState<TrailerProps | null>(null)
 
-    const [relatedCards, setRelatedCards] =
-        useState<SeriesProps[]>([])
-
-    const [cast, setCast] =
-        useState<CastProps[]>([])
-
-    const [crewDepartment, setCrewDepartment] =
-        useState<groupedByDepartment>({})
-
-    const [castLoading, setCastLoading] =
-        useState(true)
-
-    const [loadingButton, setLoadingButton] =
-        useState(false)
-
-    const [trailer, setTrailer] =
-        useState<TrailerProps | null>(null)
-
-    const [
-        warningModalOpen,
-        setWarningModalOpen,
-    ] = useState(false)
+    const [warningModalOpen, setWarningModalOpen,] = useState(false)
 
     /*
      * Busca os dados internos da série.
@@ -667,20 +644,10 @@ export default function Serie({
         }
     }
 
-    const handlePlayEpisode = (
-        episodeData: Episodes,
-        startTime = 0,
-        seasonNumber = seasonToShow,
-    ) => {
+    const handlePlayEpisode = (episodeData: Episodes, startTime = 0, seasonNumber = seasonToShow) => {
         if (!serie) return
 
-        const requiresSubscription =
-            !user || !user.donator
-
-        if (requiresSubscription) {
-            setWarningModalOpen(true)
-            return
-        }
+        if (!user || !hasAccess(user)) return setWarningModalOpen(true)
 
         const params = new URLSearchParams({
             episode: `${episodeData.ep}`,
@@ -690,39 +657,22 @@ export default function Serie({
             startTime: `${startTime}`,
         })
 
-        void router.push(
-            `/watch/serie?${params.toString()}`,
-        )
+        void router.push(`/watch/serie?${params.toString()}`)
     }
 
     const firstSeason = serie?.season[0]
     const firstEpisode = firstSeason?.episodes[0]
 
-    const seasonsAmount =
-        serie?.season.length ?? 0
+    const seasonsAmount = serie?.season.length ?? 0
+    const seasonsLabel = seasonsAmount === 1 ? '1 temporada' : `${seasonsAmount} temporadas`
 
-    const seasonsLabel = seasonsAmount === 1
-        ? '1 temporada'
-        : `${seasonsAmount} temporadas`
+    const releaseYear = data.first_air_date?.match(/^(\d{4})/)?.[1] ?? null
 
-    const releaseYear =
-        data.first_air_date
-            ?.match(/^(\d{4})/)?.[1] ?? null
+    const backdropImage = data.backdrop_path ? `https://image.tmdb.org/t/p/original${data.backdrop_path}` : serie?.background ?? '/fundo-largo.jpg'
+    const posterImage = data.poster_path ? `https://image.tmdb.org/t/p/w780${data.poster_path}` : backdropImage
+    const socialImage = data.backdrop_path ? `https://image.tmdb.org/t/p/w500${data.backdrop_path}` : 'https://flixnext.com.br/fundo-largo.jpg'
 
-    const backdropImage = data.backdrop_path
-        ? `https://image.tmdb.org/t/p/original${data.backdrop_path}`
-        : serie?.background ?? '/fundo-largo.jpg'
-
-    const posterImage = data.poster_path
-        ? `https://image.tmdb.org/t/p/w780${data.poster_path}`
-        : backdropImage
-
-    const socialImage = data.backdrop_path
-        ? `https://image.tmdb.org/t/p/w500${data.backdrop_path}`
-        : 'https://flixnext.com.br/fundo-largo.jpg'
-
-    const genres = data.genres?.length
-        ? data.genres
+    const genres = data.genres?.length ? data.genres
         : (
             serie?.genero.map((name, index) => ({
                 id: -(index + 1),
@@ -730,24 +680,17 @@ export default function Serie({
             })) ?? []
         )
 
-    const overview =
-        serie?.description?.trim() ||
-        data.overview?.trim() ||
-        ''
+    const overview = serie?.description?.trim() || data.overview?.trim() || ''
 
     const selectedSeasonIndex = serie
-        ? serie.season.findIndex(
-            season => season.s === seasonToShow,
-        )
+        ? serie.season.findIndex(season => season.s === seasonToShow,)
         : -1
 
-    const selectedSeasonEpisodes =
-        selectedSeasonIndex >= 0
-            ? episodesData[selectedSeasonIndex]
-            : null
+    const selectedSeasonEpisodes = selectedSeasonIndex >= 0
+        ? episodesData[selectedSeasonIndex]
+        : null
 
-    const hasCrew =
-        Object.keys(crewDepartment).length > 0
+    const hasCrew = Object.keys(crewDepartment).length > 0
 
     return (
         <>
@@ -921,12 +864,8 @@ export default function Serie({
                                 >
                                     <button
                                         type="button"
-                                        className={
-                                            styles.buttonPlay
-                                        }
-                                        disabled={
-                                            !firstEpisode
-                                        }
+                                        className={styles.buttonPlay}
+                                        disabled={!firstEpisode}
                                         onClick={() => {
                                             if (
                                                 !firstEpisode ||
@@ -942,51 +881,28 @@ export default function Serie({
                                             )
                                         }}
                                     >
-                                        <FaPlay
-                                            aria-hidden="true"
-                                        />
+                                        <FaPlay aria-hidden="true" />
 
                                         <span>
                                             Assistir
                                         </span>
                                     </button>
 
-                                    <div
-                                        className={
-                                            styles.buttonContainer
-                                        }
-                                    >
-                                        <WatchLaterContainer
-                                            loading={
-                                                loadingButton
-                                            }
-                                            onWatchLater={
-                                                onWatchLater
-                                            }
-                                            onClick={() => {
-                                                void handleWatchLater()
-                                            }}
+                                    <div className={styles.buttonContainer}                                    >
+                                        <WatchLaterContainer loading={loadingButton}
+                                            onWatchLater={onWatchLater}
+                                            onClick={() => { void handleWatchLater() }}
                                         />
 
                                         {trailer && (
-                                            <TrailerButton
-                                                trailer={
-                                                    trailer
-                                                }
-                                            />
+                                            <TrailerButton trailer={trailer} />
                                         )}
 
                                         {buttonVisible && (
                                             <button
                                                 type="button"
-                                                className={
-                                                    styles.editButton
-                                                }
-                                                onClick={() => {
-                                                    void router.push(
-                                                        `/dashboard?id=${data.id}`,
-                                                    )
-                                                }}
+                                                className={styles.editButton}
+                                                onClick={() => { void router.push(`/dashboard?id=${data.id}`) }}
                                             >
                                                 Editar série
                                             </button>
@@ -998,41 +914,23 @@ export default function Serie({
                     </section>
 
                     <section
-                        className={
-                            styles.episodesSection
-                        }
+                        className={styles.episodesSection}
                         aria-labelledby="episodes-title"
                     >
-                        <header
-                            className={
-                                styles.episodesHeader
-                            }
-                        >
+                        <header className={styles.episodesHeader}>
                             <h2
                                 id="episodes-title"
-                                className={
-                                    styles.sectionTitle
-                                }
+                                className={styles.sectionTitle}
                             >
                                 Episódios
                             </h2>
 
-                            <div
-                                className={
-                                    styles.seasonControl
-                                }
-                            >
-                                <label
-                                    htmlFor="season-select"
-                                >
+                            <div className={styles.seasonControl}>
+                                <label htmlFor="season-select">
                                     Temporada
                                 </label>
 
-                                <div
-                                    className={
-                                        styles.selectWrapper
-                                    }
-                                >
+                                <div className={styles.selectWrapper}>
                                     <select
                                         id="season-select"
                                         value={
@@ -1050,19 +948,12 @@ export default function Serie({
                                     >
                                         {serie.season.map(
                                             season => {
-                                                const language =
-                                                    getSeasonLanguage(
-                                                        season.lang,
-                                                    )
+                                                const language = getSeasonLanguage(season.lang)
 
                                                 return (
                                                     <option
-                                                        key={
-                                                            season.s
-                                                        }
-                                                        value={
-                                                            season.s
-                                                        }
+                                                        key={season.s}
+                                                        value={season.s}
                                                     >
                                                         {
                                                             `Temporada ${season.s}${language
@@ -1079,11 +970,7 @@ export default function Serie({
                             </div>
                         </header>
 
-                        <div
-                            className={
-                                styles.cardContainer
-                            }
-                        >
+                        <div className={styles.cardContainer}>
                             {episodesToShow.map(
                                 internalEpisode => {
                                     const episode =

@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import styles from './styles.module.scss'
 import { EmailStep } from '@/components/ui/Pagamentos/EmailStep'
 import { PlanStep } from '@/components/ui/Pagamentos/PlanStep'
@@ -14,11 +14,14 @@ import axios, { AxiosError } from 'axios'
 import { debug } from '@/classes/DebugLogger'
 import { PlanProps } from '@/@types/payment'
 import valid from 'card-validator'
-import { creditTest } from '@/utils/Variaveis'
+import { checkoutStepMap, creditTest, paymentMethodMap } from '@/utils/Variaveis'
 import { toast } from 'react-toastify'
 import PaymentLoader from '@/components/ui/PaymentLoader'
 import { PlansProps } from '@/@types/plans'
 import { useRouter } from 'next/router'
+import { CheckoutTrackField, CheckoutTrackPayload } from '@/@types/checkoutEvents/types'
+import { getDeviceType } from '@/utils/UtilitiesFunctions'
+import EfiPay from 'payment-token-efi'
 
 export type CheckoutStep =
     | 'email'
@@ -169,6 +172,173 @@ export default function NewPaymentPage({ plans }: Props) {
     const [paymentError, setPaymentError] = useState<string | null>(null)
     const [paymentResult, setPaymentResult] = useState<PaymentApiResponse | null>(null)
 
+
+
+
+    //==================================================================================================================
+    //=====================================Tracking do Checkout=========================================================
+    //==================================================================================================================
+
+    const checkoutSessionIdRef = useRef<string | null>(null)
+    const stepStartedAtRef = useRef<number>(Date.now())
+
+    const getCheckoutSessionId = (): string => {
+        if (checkoutSessionIdRef.current) {
+            return checkoutSessionIdRef.current
+        }
+
+        const storageKey = 'flixnext-checkout-session'
+        const storedSessionId =
+            sessionStorage.getItem(storageKey)
+
+        const sessionId =
+            storedSessionId ?? crypto.randomUUID()
+
+        if (!storedSessionId) {
+            sessionStorage.setItem(storageKey, sessionId)
+        }
+
+        checkoutSessionIdRef.current = sessionId
+
+        return sessionId
+    }
+
+    const trackCheckoutEvent = async (payload: CheckoutTrackPayload): Promise<void> => {
+        if (typeof window === 'undefined') return
+
+        try {
+            await axios.post('/api/events/checkout', {
+                sessionId: getCheckoutSessionId(),
+                ...payload,
+            })
+        } catch (error) {
+            debug.error('Erro ao registrar evento do checkout', error)
+        }
+    }
+
+    useEffect(() => {
+        if (!router.isReady) return
+
+        const params = new URLSearchParams(
+            window.location.search,
+        )
+
+        void trackCheckoutEvent({
+            type: 'CHECKOUT_STARTED',
+            step: 'EMAIL',
+
+            source: params.get('utm_source') ?? undefined,
+            medium: params.get('utm_medium') ?? undefined,
+            campaign:
+                params.get('utm_campaign') ?? undefined,
+            content: params.get('utm_content') ?? undefined,
+
+            referrer: document.referrer || undefined,
+            landingPage: window.location.pathname,
+
+            device: getDeviceType(),
+            browser: navigator.userAgent,
+        })
+    }, [router.isReady])
+
+    useEffect(() => {
+        stepStartedAtRef.current = Date.now()
+
+        void trackCheckoutEvent({
+            type: 'STEP_VIEWED',
+            step: checkoutStepMap[currentStep],
+        })
+    }, [currentStep])
+
+    const goToStep = (nextStep: CheckoutStep, direction: 'continue' | 'back' = 'continue'): void => {
+        const durationMs = Date.now() - stepStartedAtRef.current
+
+        void trackCheckoutEvent({
+            type:
+                direction === 'continue'
+                    ? 'STEP_COMPLETED'
+                    : 'STEP_RETURNED',
+            step: checkoutStepMap[currentStep],
+            durationMs,
+            email:
+                currentStep === 'email'
+                    ? normalizeEmail(email)
+                    : undefined,
+            planId: selectedPlan?.planId,
+            paymentMethod:
+                paymentMethodMap[paymentMethod],
+        })
+
+        setCurrentStep(nextStep)
+        //goToStep(nextStep)
+    }
+
+    const trackCompletedFields = (): void => {
+        const fields: CheckoutTrackField[] = []
+
+        if (personalData.name.trim()) {
+            fields.push('name')
+        }
+
+        if (onlyNumbers(personalData.cpf).length === 11) {
+            fields.push('cpf')
+        }
+
+        if (onlyNumbers(personalData.phoneNumber)) {
+            fields.push('phone')
+        }
+
+        if (personalData.password) {
+            fields.push('password')
+        }
+
+        if (paymentMethod === 'credit-card') {
+            if (onlyNumbers(creditCard.number)) {
+                fields.push('card_number')
+            }
+
+            if (
+                creditCard.expiryMonth &&
+                creditCard.expiryYear
+            ) {
+                fields.push('card_expiry')
+            }
+
+            if (creditCard.holderName.trim()) {
+                fields.push('card_holder')
+            }
+
+            if (creditCard.cvv) {
+                fields.push('card_cvv')
+            }
+        }
+
+        fields.forEach((field) => {
+            void trackCheckoutEvent({
+                type: 'FIELD_COMPLETED',
+                step:
+                    field.startsWith('card_')
+                        ? 'PAYMENT_DATA'
+                        : 'PERSONAL_DATA',
+                field,
+            })
+        })
+    }
+
+    const trackValidationError = (errorCode: string, errorMessage: string): void => {
+        void trackCheckoutEvent({
+            type: 'VALIDATION_ERROR',
+            step: 'PERSONAL_DATA',
+            errorCode,
+            errorMessage,
+        })
+    }
+    //==================================================================================================================
+    //==================================================================================================================
+    //==================================================================================================================
+    //==================================================================================================================
+    //==================================================================================================================
+
     useEffect(() => {
 
         if (!router) return
@@ -212,7 +382,7 @@ export default function NewPaymentPage({ plans }: Props) {
                     <EmailStep
                         email={email}
                         onEmailChange={setEmail}
-                        onContinue={() => setCurrentStep('plan')}
+                        onContinue={() => goToStep('plan')}
                     />
                 )
 
@@ -222,8 +392,8 @@ export default function NewPaymentPage({ plans }: Props) {
                         plans={plans}
                         selectedPlan={selectedPlan}
                         onSelectPlan={setSelectedPlan}
-                        onBack={() => setCurrentStep('email')}
-                        onContinue={() => setCurrentStep('payment')}
+                        onBack={() => goToStep('email', 'back')}
+                        onContinue={() => goToStep('payment')}
                     />
                 )
 
@@ -232,8 +402,8 @@ export default function NewPaymentPage({ plans }: Props) {
                     <PaymentMethodStep
                         selectedMethod={paymentMethod}
                         onSelectMethod={setPaymentMethod}
-                        onBack={() => setCurrentStep('plan')}
-                        onContinue={() => setCurrentStep('personal-data')}
+                        onBack={() => goToStep('plan', 'back')}
+                        onContinue={() => goToStep('personal-data')}
                     />
                 )
             case 'personal-data':
@@ -245,7 +415,7 @@ export default function NewPaymentPage({ plans }: Props) {
                         onDataChange={setPersonalData}
                         onCreditCardChange={setCreditCard}
                         onBack={() =>
-                            setCurrentStep('payment')
+                            goToStep('payment', 'back')
                         }
                         onContinue={processPayment}
                         isProcessing={isProcessing}
@@ -259,9 +429,7 @@ export default function NewPaymentPage({ plans }: Props) {
                         email={email}
                         paymentMethod={paymentMethod}
                         paymentStatus={paymentStatus}
-                        paymentResult={
-                            paymentResult
-                        }
+                        paymentResult={paymentResult}
                         onBack={() =>
                             setCurrentStep('personal-data')
                         }
@@ -289,7 +457,7 @@ export default function NewPaymentPage({ plans }: Props) {
                     <EmailStep
                         email={email}
                         onEmailChange={setEmail}
-                        onContinue={() => setCurrentStep('plan')}
+                        onContinue={() => goToStep('plan')}
                     />
                 )
         }
@@ -349,28 +517,37 @@ export default function NewPaymentPage({ plans }: Props) {
                 )
             }
 
-            const result =
-                await EfiPay.CreditCard
-                    .setAccount(accountId)
-                    .setEnvironment(environment)
-                    .setCreditCardData({
-                        brand:
-                            cardValidation.card.type,
-                        number: cardNumber,
-                        cvv: onlyNumbers(
-                            creditCard.cvv,
-                        ),
-                        expirationMonth:
-                            creditCard.expiryMonth,
-                        expirationYear:
-                            creditCard.expiryYear,
-                        holderName:
-                            creditCard.holderName
-                                .trim(),
-                        holderDocument: cpf,
-                        reuse: true,
-                    })
-                    .getPaymentToken()
+            //try {
+            const result = await EfiPay.CreditCard
+                .setAccount(accountId)
+                .setEnvironment(environment)
+                .setCreditCardData({
+                    brand: cardValidation.card.type,
+                    number: cardNumber,
+                    cvv: onlyNumbers(creditCard.cvv,),
+                    expirationMonth: creditCard.expiryMonth,
+                    expirationYear: creditCard.expiryYear,
+                    holderName: creditCard.holderName.trim(),
+                    holderDocument: cpf,
+                    reuse: true,
+                })
+                .getPaymentToken()
+
+            /* if ("payment_token" in result && "card_mask" in result) {
+
+
+
+                 debug.log("payment_token", result.payment_token);
+                 debug.log("card_mask", result.card_mask);
+                 return result.payment_token
+             }
+         } catch (err: any) {
+             debug.log(err);
+             debug.log("Código: ", err.code);
+             debug.log("Nome: ", err.error);
+             debug.log("Mensagem: ", err.error_description);
+         }*/
+            //return ''
 
             if (
                 !result ||
@@ -382,13 +559,13 @@ export default function NewPaymentPage({ plans }: Props) {
                     'A EFI não retornou o token do cartão.',
                 )
             }
-
             return result.payment_token
         }
 
 
     const buildPaymentPayload = (paymentToken?: string) => {
         if (!selectedPlan) {
+
             toast.warning('Selecione um plano antes de continuar.')
             return
         }
@@ -480,17 +657,23 @@ export default function NewPaymentPage({ plans }: Props) {
         setPaymentError(null)
         setPaymentResult(null)
 
+        trackCompletedFields()
+
         if (!selectedPlan) {
-            setPaymentError(
-                'Selecione um plano antes de continuar.',
-            )
+            const message = 'Selecione um plano antes de continuar.'
+
+            setPaymentError(message)
+
+            trackValidationError('PLAN_NOT_SELECTED', message)
             return
         }
 
         if (!validatePassword()) {
-            setPaymentError(
-                'A senha não atende aos requisitos informados.',
-            )
+            const message = 'A senha não atende aos requisitos informados.'
+
+            setPaymentError(message)
+
+            trackValidationError('INVALID_PASSWORD', message)
             return
         }
 
@@ -499,9 +682,11 @@ export default function NewPaymentPage({ plans }: Props) {
         )
 
         if (!/^[1-9]{2}9\d{8}$/.test(phoneNumber)) {
-            setPaymentError(
-                'Informe um número de celular válido com DDD.',
-            )
+            const message = 'Informe um número de celular válido com DDD.'
+
+            setPaymentError(message)
+
+            trackValidationError('INVALID_PHONE', message)
             return
         }
 
@@ -509,9 +694,7 @@ export default function NewPaymentPage({ plans }: Props) {
             setIsProcessing(true)
             setPaymentStatus('processing')
 
-            let paymentToken:
-                | string
-                | undefined
+            let paymentToken: string | undefined
 
             if (paymentMethod === 'credit-card') {
                 paymentToken = await createEfiPaymentToken()
@@ -519,73 +702,97 @@ export default function NewPaymentPage({ plans }: Props) {
 
             const payload = buildPaymentPayload(paymentToken)
 
+            if (!payload) {
+                throw new Error('Não foi possível montar os dados do pagamento.')
+            }
+            void trackCheckoutEvent({
+                type: 'PAYMENT_ATTEMPTED',
+                step: 'PAYMENT_DATA',
+                planId: selectedPlan.planId,
+                paymentMethod:
+                    paymentMethodMap[paymentMethod],
+            })
+
             const response = await axios.post<PaymentApiResponse>('/api/payment',
                 payload,
                 {
-                    headers: {
-                        'Content-Type':
-                            'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                 },
             )
             debug.log("resultado da chamada a api/payment", response.data)
 
             setPaymentResult(response.data)
 
+            const subscription = response.data.subscription.data
 
-            const paymentType =
-                response.data.subscription.data.payment
+            const paymentType = subscription.payment
 
             if (paymentType === 'credit_card') {
                 setPaymentStatus('confirmed')
-            } else if (
-                paymentType === 'banking_billet'
-            ) {
+
+                void trackCheckoutEvent({
+                    type: 'PAYMENT_APPROVED',
+                    step: 'PAYMENT_DATA',
+                    paymentId: String(subscription.charge.id),
+                    planId: selectedPlan.planId,
+                    paymentMethod: 'CREDIT_CARD',
+                })
+            } else if (paymentType === 'banking_billet') {
                 setPaymentStatus('pending')
             } else {
-                throw new Error(
-                    'A API retornou uma forma de pagamento desconhecida.',
-                )
+                throw new Error('A API retornou uma forma de pagamento desconhecida.')
             }
+
+            void trackCheckoutEvent({
+                type: 'CHECKOUT_COMPLETED',
+                step: 'COMPLETED',
+                subscriptionId: String(
+                    subscription.subscription_id,
+                ),
+                paymentId: String(subscription.charge.id),
+                planId: selectedPlan.planId,
+                paymentMethod:
+                    paymentMethodMap[paymentMethod],
+            })
+
+            sessionStorage.removeItem(
+                'flixnext-checkout-session',
+            )
 
             setCurrentStep('confirmation')
         } catch (error: unknown) {
             setPaymentStatus('failed')
 
-            let message =
-                'Não foi possível processar o pagamento.'
+            let message = 'Não foi possível processar o pagamento.'
+
+            let errorCode = 'PAYMENT_PROCESSING_ERROR'
 
             if (axios.isAxiosError(error)) {
-                const axiosError =
-                    error as AxiosError<{
-                        message?: string
-                        error?: string
-                    }>
+                const axiosError = error as AxiosError<{ message?: string, error?: string }>
 
-                message =
-                    axiosError.response?.data
-                        ?.message ??
-                    axiosError.response?.data
-                        ?.error ??
-                    message
+                message = axiosError.response?.data?.message ?? axiosError.response?.data?.error ?? message
 
-                debug.error(
-                    'Erro retornado pela rota /api/payment',
-                    {
-                        status:
-                            axiosError.response
-                                ?.status,
-                        message,
-                    },
-                )
+                debug.error('Erro retornado pela rota /api/payment', { status: axiosError.response?.status, message })
+
+                errorCode = error.response?.status
+                    ? `HTTP_${error.response.status}`
+                    : 'PAYMENT_API_UNAVAILABLE'
+
             } else if (error instanceof Error) {
                 message = error.message
 
-                debug.error(
-                    'Erro durante o pagamento',
-                    error.message,
-                )
+                debug.error('Erro durante o pagamento', error.message)
             }
+
+            void trackCheckoutEvent({
+                type: 'PAYMENT_FAILED',
+                step: 'PAYMENT_DATA',
+                planId: selectedPlan?.planId,
+                paymentMethod:
+                    paymentMethodMap[paymentMethod],
+                errorCode,
+                errorMessage: message,
+            })
 
             setPaymentError(message)
         } finally {

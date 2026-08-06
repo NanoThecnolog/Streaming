@@ -88,8 +88,8 @@ function buildPayment(method: CheckoutMethod, checkout: NormalizedCheckout): Cre
         name: customer.name,
         cpf: customer.cpf,
         email: customer.email,
-        phone_number:
-            customer.phone_number,
+        phone_number: customer.phone_number,
+        //donate: false
     }
 
     if (method === 'billet') {
@@ -101,11 +101,14 @@ function buildPayment(method: CheckoutMethod, checkout: NormalizedCheckout): Cre
         }
     }
 
+
     if (!customer.payment_token) {
         throw new Error(
             'Token do cartão não informado',
         )
     }
+
+    //customerBase.donate = true
 
     return {
         credit_card: {
@@ -118,17 +121,7 @@ function buildPayment(method: CheckoutMethod, checkout: NormalizedCheckout): Cre
     }
 }
 
-function buildSubscriptionPayload({
-    plan,
-    userPayload,
-    method,
-    checkout,
-}: {
-    plan: PlanProps
-    userPayload: NewUserProps
-    method: CheckoutMethod
-    checkout: NormalizedCheckout
-}): CreateSubscriptionDto {
+function buildSubscriptionPayload({ plan, userPayload, method, checkout }: { plan: PlanProps, userPayload: NewUserProps, method: CheckoutMethod, checkout: NormalizedCheckout }): CreateSubscriptionDto {
     const url = process.env.NOTIFICATION_URL
     if (!url) debug.log("url de notificação não definida")
     return {
@@ -155,13 +148,8 @@ function buildSubscriptionPayload({
     }
 }
 
-async function findPlan(
-    planId: string,
-): Promise<PlanProps | null> {
-    const response =
-        await apiSub.get<PlanProps>(
-            `/plans/database/${planId}`,
-        )
+async function findPlan(planId: string): Promise<PlanProps | null> {
+    const response = await apiSub.get<PlanProps>(`/plans/database/${planId}`)
 
     debug.log("plano buscado", planId, response.data)
     return response.data

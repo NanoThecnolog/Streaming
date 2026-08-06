@@ -38,6 +38,11 @@ export interface SubscriptionProps {
     planId: string,
     startedAt: string | Date,
     status: string
+    trial?: number
+    accessUntil?: string | Date,
+    trialEndsAt?: string | Date,
+    updatedAt?: string | Date,
+    statusUpdatedAt?: string | Date
 }
 export interface UserCookiesProps {
     name: string,

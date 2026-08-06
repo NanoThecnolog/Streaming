@@ -18,6 +18,7 @@ interface PersonalDataStepProps {
 
     isProcessing: boolean
     paymentError: string | null
+    requirePassword?: boolean
 }
 
 const paymentLabels: Record<PaymentMethod, string> = {
@@ -89,7 +90,7 @@ const formatPhone = (value: string): string => {
     )
 }
 
-export function PersonalDataStep({ data, creditCard, paymentMethod, onDataChange, onCreditCardChange, onBack, onContinue, isProcessing, paymentError }: PersonalDataStepProps) {
+export function PersonalDataStep({ data, creditCard, paymentMethod, requirePassword = true, onDataChange, onCreditCardChange, onBack, onContinue, isProcessing, paymentError }: PersonalDataStepProps) {
 
     const [showCvv, setShowCvv] = useState(false)
     const isCreditCard = paymentMethod === 'credit-card'
@@ -97,8 +98,7 @@ export function PersonalDataStep({ data, creditCard, paymentMethod, onDataChange
     const creditCardIsValid = Validate.creditCard(creditCard)
 
 
-    const [showPassword, setShowPassword] =
-        useState(false)
+    const [showPassword, setShowPassword] = useState(false)
 
     const passwordRequirements = useMemo(() => {
         const password = data.password
@@ -122,7 +122,8 @@ export function PersonalDataStep({ data, creditCard, paymentMethod, onDataChange
         passwordRequirements,
     ).every(Boolean)
 
-    const canContinue = personalDataIsValid && passwordIsValid && (!isCreditCard || creditCardIsValid) && !isProcessing
+    //const canContinue = personalDataIsValid && requirePassword ? passwordIsValid && (!isCreditCard || creditCardIsValid) && !isProcessing : (!isCreditCard || creditCardIsValid) && !isProcessing
+    const canContinue = personalDataIsValid && (!requirePassword || passwordIsValid) && (!isCreditCard || creditCardIsValid) && !isProcessing
 
     const Icon = creditCard.brand
         ? brands[creditCard.brand]
@@ -271,122 +272,128 @@ export function PersonalDataStep({ data, creditCard, paymentMethod, onDataChange
                                 Informe o celular com DDD.
                             </small>
                         </div>
-                        <div className={styles.field}>
-                            <label htmlFor="password">
-                                Senha
-                            </label>
+                        {
+                            requirePassword &&
+                            <>
+                                <div className={styles.field}>
+                                    <label htmlFor="password">
+                                        Senha
+                                    </label>
 
-                            <div className={styles.passwordInput}>
-                                <input
-                                    id="password"
-                                    name="password"
-                                    type={
-                                        showPassword
-                                            ? 'text'
-                                            : 'password'
-                                    }
-                                    value={data.password}
-                                    onChange={(event) =>
-                                        updatePersonalData(
-                                            'password',
-                                            event.target.value,
-                                        )
-                                    }
-                                    placeholder="Mínimo de 8 caracteres"
-                                    autoComplete="new-password"
-                                    minLength={8}
-                                    required
-                                />
+                                    <div className={styles.passwordInput}>
+                                        <input
+                                            id="password"
+                                            name="password"
+                                            type={
+                                                showPassword
+                                                    ? 'text'
+                                                    : 'password'
+                                            }
+                                            value={data.password}
+                                            onChange={(event) =>
+                                                updatePersonalData(
+                                                    'password',
+                                                    event.target.value,
+                                                )
+                                            }
+                                            placeholder="Mínimo de 8 caracteres"
+                                            autoComplete="new-password"
+                                            minLength={8}
+                                            required
+                                        />
 
-                                <button
-                                    type="button"
-                                    onClick={() =>
-                                        setShowPassword(
-                                            current => !current,
-                                        )
-                                    }
-                                >
-                                    {showPassword
-                                        ? 'Ocultar'
-                                        : 'Mostrar'}
-                                </button>
-                            </div>
-                        </div>
+                                        <button
+                                            type="button"
+                                            onClick={() =>
+                                                setShowPassword(
+                                                    current => !current,
+                                                )
+                                            }
+                                        >
+                                            {showPassword
+                                                ? 'Ocultar'
+                                                : 'Mostrar'}
+                                        </button>
+                                    </div>
+                                </div>
 
-                        <div className={styles.field}>
-                            <label htmlFor="confirmPassword">
-                                Confirme a senha
-                            </label>
+                                <div className={styles.field}>
+                                    <label htmlFor="confirmPassword">
+                                        Confirme a senha
+                                    </label>
 
-                            <div className={styles.passwordInput}>
-                                <input
-                                    id="confirmPassword"
-                                    name="confirmPassword"
-                                    type={
-                                        showPassword
-                                            ? 'text'
-                                            : 'password'
-                                    }
-                                    value={data.confirmPassword}
-                                    onChange={(event) =>
-                                        updatePersonalData(
-                                            'confirmPassword',
-                                            event.target.value,
-                                        )
-                                    }
-                                    placeholder="Digite a senha novamente"
-                                    autoComplete="new-password"
-                                    minLength={8}
-                                    required
-                                />
+                                    <div className={styles.passwordInput}>
+                                        <input
+                                            id="confirmPassword"
+                                            name="confirmPassword"
+                                            type={
+                                                showPassword
+                                                    ? 'text'
+                                                    : 'password'
+                                            }
+                                            value={data.confirmPassword}
+                                            onChange={(event) =>
+                                                updatePersonalData(
+                                                    'confirmPassword',
+                                                    event.target.value,
+                                                )
+                                            }
+                                            placeholder="Digite a senha novamente"
+                                            autoComplete="new-password"
+                                            minLength={8}
+                                            required
+                                        />
 
 
-                            </div>
+                                    </div>
 
-                            {data.confirmPassword &&
-                                data.password !==
-                                data.confirmPassword && (
-                                    <small className={styles.error}>
-                                        As senhas não coincidem.
-                                    </small>
-                                )}
-                        </div>
-                        <ul className={styles.requirements}>
-                            <Requirement
-                                valid={
-                                    passwordRequirements.length
-                                }
-                                label="Pelo menos 8 caracteres"
-                            />
+                                    {data.confirmPassword &&
+                                        data.password !==
+                                        data.confirmPassword && (
+                                            <small className={styles.error}>
+                                                As senhas não coincidem.
+                                            </small>
+                                        )}
+                                </div>
+                                <ul className={styles.requirements}>
+                                    <Requirement
+                                        valid={
+                                            passwordRequirements.length
+                                        }
+                                        label="Pelo menos 8 caracteres"
+                                    />
 
-                            <Requirement
-                                valid={
-                                    passwordRequirements.uppercase
-                                }
-                                label="Uma letra maiúscula"
-                            />
+                                    <Requirement
+                                        valid={
+                                            passwordRequirements.uppercase
+                                        }
+                                        label="Uma letra maiúscula"
+                                    />
 
-                            <Requirement
-                                valid={
-                                    passwordRequirements.lowercase
-                                }
-                                label="Uma letra minúscula"
-                            />
+                                    <Requirement
+                                        valid={
+                                            passwordRequirements.lowercase
+                                        }
+                                        label="Uma letra minúscula"
+                                    />
 
-                            <Requirement
-                                valid={
-                                    passwordRequirements.number
-                                }
-                                label="Um número"
-                            />
+                                    <Requirement
+                                        valid={
+                                            passwordRequirements.number
+                                        }
+                                        label="Um número"
+                                    />
 
-                            <Requirement
-                                valid={
-                                    passwordRequirements.matches
-                                }
-                                label="As senhas são iguais"
-                            />
-                        </ul>
+                                    <Requirement
+                                        valid={
+                                            passwordRequirements.matches
+                                        }
+                                        label="As senhas são iguais"
+                                    />
+                                </ul>
+                            </>
+                        }
+
                     </div>
                 </fieldset>
 
@@ -626,8 +633,7 @@ export function PersonalDataStep({ data, creditCard, paymentMethod, onDataChange
                         {
                             isProcessing
                                 ? 'Processando...'
-                                : paymentMethod ===
-                                    'credit-card'
+                                : paymentMethod === 'credit-card'
                                     ? 'Confirmar'
                                     : 'Confirmar e gerar pagamento'
                         }

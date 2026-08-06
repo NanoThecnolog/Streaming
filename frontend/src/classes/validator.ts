@@ -20,8 +20,6 @@ export class Validate {
     private static readonly emailRegex =
         /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-    private static readonly phoneRegex =
-        /^21\d{9}$/
 
     private static onlyNumbers(value: string): string {
         return value.replace(/\D/g, '')
@@ -92,6 +90,7 @@ export class Validate {
     }
 
     static cpf(cpf: string): boolean {
+        if (cpf === '') return false
         const cleaned = this.onlyNumbers(cpf)
 
         if (cleaned.length !== 11) {
@@ -295,9 +294,7 @@ export class Validate {
         )
     }
 
-    static personalData(
-        data: PersonalDataValidation,
-    ): boolean {
+    static personalData(data: PersonalDataValidation): boolean {
         return (
             this.fullName(data.name) &&
             this.cpf(data.cpf) &&

@@ -199,6 +199,78 @@
     }
 }
 
+.trialNotice {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    margin-top: 14px;
+    padding: 16px 18px;
+
+    background:
+        linear-gradient(135deg,
+            rgba(224, 167, 35, 0.14),
+            rgba(224, 167, 35, 0.035));
+
+    border: 1px solid rgba(224, 167, 35, 0.25);
+    border-radius: 13px;
+
+    @media (max-width: 500px) {
+        align-items: flex-start;
+        padding: 15px;
+    }
+}
+
+.trialIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    flex: 0 0 42px;
+
+    color: #f2c968;
+    background: rgba(224, 167, 35, 0.12);
+
+    border: 1px solid rgba(224, 167, 35, 0.16);
+    border-radius: 11px;
+}
+
+.trialContent {
+    min-width: 0;
+
+    span,
+    strong {
+        display: block;
+    }
+
+    span {
+        margin-bottom: 3px;
+
+        color: #f2c968;
+        font-size: 0.74rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+    }
+
+    strong {
+        color: #fff;
+        font-size: 0.96rem;
+        line-height: 1.35;
+    }
+
+    p {
+        margin: 5px 0 0;
+
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 0.79rem;
+        line-height: 1.45;
+    }
+}
+
 .planInfo {
     display: flex;
     align-items: center;

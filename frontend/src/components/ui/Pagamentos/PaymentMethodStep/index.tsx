@@ -11,6 +11,7 @@ type PaymentMethod =
 
 interface PaymentMethodStepProps {
     selectedMethod: PaymentMethod
+    allowedMethods?: PaymentMethod[]
     onSelectMethod: (method: PaymentMethod) => void
     onBack: () => void
     onContinue: () => void
@@ -47,12 +48,11 @@ const paymentOptions: PaymentOption[] = [
     },
 ]
 
-export function PaymentMethodStep({
-    selectedMethod,
-    onSelectMethod,
-    onBack,
-    onContinue,
-}: PaymentMethodStepProps) {
+export function PaymentMethodStep({ selectedMethod, allowedMethods, onSelectMethod, onBack, onContinue }: PaymentMethodStepProps) {
+
+
+    const methodsToShow = paymentOptions.filter(method => allowedMethods ? allowedMethods.includes(method.id) : true,
+    )
 
     return (
         <section className={styles.card}>
@@ -68,9 +68,8 @@ export function PaymentMethodStep({
             </header>
 
             <div className={styles.options}>
-                {paymentOptions.map((option) => {
-                    const isSelected =
-                        option.id === selectedMethod
+                {methodsToShow.map((option) => {
+                    const isSelected = option.id === selectedMethod
 
                     const Icon = option.icon
 

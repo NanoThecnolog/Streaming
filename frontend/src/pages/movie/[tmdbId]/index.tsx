@@ -31,9 +31,10 @@ import Title from '@/components/ui/Title';
 import Head from 'next/head';
 import { WarningModal } from '@/components/ui/WarningModal';
 import { ProgressData, ProgressEntry, ProgressResponse } from '@/@types/watchedProgress';
-import { calculateVideoProgress } from '@/utils/UtilitiesFunctions';
+import { calculateVideoProgress, hasAccess } from '@/utils/UtilitiesFunctions';
 import { FaCirclePlay } from 'react-icons/fa6';
 import { FaPlay } from 'react-icons/fa';
+import { SubscriptionProps } from '@/@types/user';
 
 interface groupedByDepartment {
     [job: string]: CrewProps[]
@@ -239,10 +240,9 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
 
     //auxiliares    
     const handlePlay = () => {
-        const showingWarningModal = !user || !user.donator
-        if (showingWarningModal) {
-            return setWarningModalOpen(showingWarningModal)
-        }
+
+        if (!user || !hasAccess(user)) return setWarningModalOpen(true)
+
         const params = new URLSearchParams({
             startTime: `${progressData[0]?.progress ?? 0}`
         })
