@@ -22,6 +22,7 @@ import { CreateWatchedController } from "./Controllers/User/CreateWatchedControl
 import { GetWatchedController } from "./Controllers/User/GetWatchedController";
 import { EmailVerifyController } from "./Controllers/Email/EmailVerifyController";
 import { CheckoutEventController } from "./Controllers/CheckoutEvent/CheckoutEventController";
+import { DashboardController } from "./Controllers/Dashboard/DashboardController";
 
 
 const router = Router()
@@ -66,5 +67,8 @@ router.post('/content/watched', Authenticate, new CreateWatchedController().hand
 router.get('/content/watched', Authenticate, new GetWatchedController().handle)
 
 router.post('/checkout/events', new CheckoutEventController().handle.bind(CheckoutEventController))
+
+router.get('/admin/dashboard', ADMAuth, new DashboardController().handle)
+
 
 export { router }
