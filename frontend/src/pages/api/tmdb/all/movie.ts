@@ -97,7 +97,7 @@ const fetchMovieData = async (movieId: number, token: string, attempt = 1): Prom
     const cachedMovie = cache.get(movieId)
 
     if (cachedMovie) {
-        debug.log('Filme encontrado no cache:', movieId)
+        //debug.log('Filme encontrado no cache:', movieId)
 
         return {
             success: true,

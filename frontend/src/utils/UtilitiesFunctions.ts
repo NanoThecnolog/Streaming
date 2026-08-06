@@ -434,22 +434,15 @@ export const getTrialInfo = (subscription: SubDataEFIReponse): TrialInfo | null 
 
     const endsAt = new Date(createdAt)
 
-    endsAt.setUTCDate(
-        endsAt.getUTCDate() + trial_days,
-    )
+    endsAt.setUTCDate(endsAt.getUTCDate() + trial_days)
 
-    const remainingMilliseconds =
-        endsAt.getTime() - Date.now()
+    const remainingMilliseconds = endsAt.getTime() - Date.now()
 
-    if (remainingMilliseconds <= 0) {
-        return null
-    }
+    if (remainingMilliseconds <= 0) return null
 
     return {
         endsAt: endsAt.toISOString(),
-        remainingDays: Math.ceil(
-            remainingMilliseconds / DAY_IN_MS,
-        ),
+        remainingDays: Math.ceil(remainingMilliseconds / DAY_IN_MS),
     }
 }
 

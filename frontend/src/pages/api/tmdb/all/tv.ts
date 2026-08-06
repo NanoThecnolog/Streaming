@@ -108,7 +108,7 @@ const fetchCardData = async (
     const cached = cache.get(cardId)
 
     if (cached) {
-        debug.log('Série encontrada no cache', cardId)
+        //debug.log('Série encontrada no cache', cardId)
 
         return {
             success: true,

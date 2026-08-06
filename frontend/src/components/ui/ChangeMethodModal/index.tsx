@@ -415,7 +415,7 @@ const ChangeMethodModal = ({ closeModal, before, setNewMethod }: ModalProps) => 
                             </button>
                         </footer>
                     </>
-                    : <div>Função em desenvolvimento. Em breve você poderá alterar o método de pagamento da sua assinatura!</div>
+                    : <div className={styles.dev}>Função em desenvolvimento. Em breve você poderá alterar o método de pagamento da sua assinatura!</div>
                 }
             </section>
         </div>

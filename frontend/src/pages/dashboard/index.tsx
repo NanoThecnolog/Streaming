@@ -183,8 +183,8 @@ const Dashboard = () => {
                                         key={item.type}
                                         type="button"
                                         className={`${styles.menuItem} ${isActive
-                                                ? styles.active
-                                                : ''
+                                            ? styles.active
+                                            : ''
                                             }`}
                                         aria-current={
                                             isActive ? 'page' : undefined
@@ -256,9 +256,7 @@ const Dashboard = () => {
 
 export default Dashboard
 
-export const getServerSideProps: GetServerSideProps = async (
-    context,
-) => {
+export const getServerSideProps: GetServerSideProps = async (context,) => {
     const client = new SetupAPIClient(context)
 
     try {

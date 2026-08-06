@@ -1,0 +1,79 @@
+import { DashboardOverview } from "@/@types/Dashboard/dashboard";
+
+export const dashboardOverviewMock: DashboardOverview = {
+  updatedAt: "06 ago. 2026, 16:42",
+  metrics: [
+    {
+      label: "Receita recorrente",
+      value: "R$ 1.846,90",
+      variation: 12.8,
+      comparison: "vs. período anterior",
+    },
+    {
+      label: "Assinaturas ativas",
+      value: "127",
+      variation: 8.5,
+      comparison: "10 novas assinaturas",
+    },
+    {
+      label: "Conversão do checkout",
+      value: "18,4%",
+      variation: 3.1,
+      comparison: "228 sessões iniciadas",
+    },
+    {
+      label: "Churn",
+      value: "3,2%",
+      variation: -0.7,
+      comparison: "4 cancelamentos",
+    },
+  ],
+  revenue: [
+    { label: "09 jul", revenue: 780, subscriptions: 72 },
+    { label: "13 jul", revenue: 920, subscriptions: 79 },
+    { label: "17 jul", revenue: 1010, subscriptions: 83 },
+    { label: "21 jul", revenue: 980, subscriptions: 89 },
+    { label: "25 jul", revenue: 1250, subscriptions: 101 },
+    { label: "29 jul", revenue: 1390, subscriptions: 108 },
+    { label: "02 ago", revenue: 1580, subscriptions: 116 },
+    { label: "06 ago", revenue: 1847, subscriptions: 127 },
+  ],
+  subscriptionStatus: [
+    { label: "Ativas", value: 106, color: "#ff2d67" },
+    { label: "Em teste", value: 21, color: "#8b5cf6" },
+    { label: "Inativas", value: 9, color: "#f59e0b" },
+    { label: "Canceladas", value: 13, color: "#3f4350" },
+  ],
+  checkoutFunnel: [
+    { step: "E-mail", sessions: 228, percentage: 100 },
+    { step: "Plano", sessions: 191, percentage: 83.8 },
+    { step: "Método", sessions: 157, percentage: 68.9 },
+    { step: "Dados pessoais", sessions: 106, percentage: 46.5 },
+    { step: "Pagamento", sessions: 51, percentage: 22.4 },
+    { step: "Concluído", sessions: 42, percentage: 18.4 },
+  ],
+  recentInvoices: [
+    { id: "#934821", customer: "Lucas Andrade", initials: "LA", plan: "Anual", paymentMethod: "Cartão", value: 99, status: "paid", date: "Hoje, 15:38" },
+    { id: "#934817", customer: "Mariana Costa", initials: "MC", plan: "Mensal", paymentMethod: "Pix", value: 14.9, status: "paid", date: "Hoje, 14:12" },
+    { id: "#934804", customer: "Rafael Lima", initials: "RL", plan: "Trimestral", paymentMethod: "Boleto", value: 35, status: "waiting", date: "Hoje, 11:46" },
+    { id: "#934799", customer: "Paula Gomes", initials: "PG", plan: "Semestral", paymentMethod: "Cartão", value: 59, status: "unpaid", date: "Ontem, 22:09" },
+    { id: "#934785", customer: "Bruno Souza", initials: "BS", plan: "Mensal", paymentMethod: "Pix", value: 14.9, status: "refunded", date: "Ontem, 18:25" },
+  ],
+  popularContent: [
+    { title: "Ruptura", type: "Série", views: 418, completion: 84 },
+    { title: "Duna: Parte Dois", type: "Filme", views: 376, completion: 79 },
+    { title: "The Last of Us", type: "Série", views: 341, completion: 72 },
+    { title: "Oppenheimer", type: "Filme", views: 298, completion: 67 },
+    { title: "Silo", type: "Série", views: 264, completion: 62 },
+  ],
+  issues: [
+    { title: "Vídeo não reproduziu", reference: "TMDB 157336 · T2 E4", status: "open", reportedAt: "há 12 min" },
+    { title: "Áudio dessincronizado", reference: "TMDB 693134 · Filme", status: "checking", reportedAt: "há 48 min" },
+    { title: "Legenda indisponível", reference: "TMDB 1399 · T4 E8", status: "open", reportedAt: "há 2 h" },
+  ],
+  operationalStatus: [
+    { label: "Notificações Efí", value: "99,2%", detail: "123 processadas", tone: "success" },
+    { label: "Falhas pendentes", value: "2", detail: "nova tentativa em fila", tone: "warning" },
+    { label: "Problemas abertos", value: "6", detail: "2 em verificação", tone: "danger" },
+  ],
+};
