@@ -110,50 +110,131 @@ model watched {
 }
 
 model subscription {
-  id        String   @id @default(uuid())
-  userId    String   @unique
-  subId     Int      @unique
-  status    String
-  planId    String
-  startedAt DateTime @default(now())
-
-  //invoices invoice[]
-  history subscriptionHistory[]
-
-  plan     plan      @relation(fields: [planId], references: [id])
-  user     user      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  invoices invoice[]
-
-  trial Int?
+  id                  String                @id @default(uuid())
+  userId              String                @unique
+  subId               Int                   @unique
+  planId              String
+  startedAt           DateTime              @default(now())
+  status              String
+  statusUpdatedAt     DateTime?
+  trial               Int?
+  trialEndsAt         DateTime?
+  accessUntil         DateTime?
+  updatedAt           DateTime              @updatedAt
+  invoice             invoice[]
+  plan                plan                  @relation(fields: [planId], references: [id])
+  user                user                  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  subscriptionHistory subscriptionHistory[]
 
   @@index([status])
+  @@index([accessUntil])
 }
+
+/**
+ * model subscription {
+ * id        String   @id @default(uuid())
+ * userId    String   @unique
+ * subId     Int      @unique
+ * status    String
+ * planId    String
+ * startedAt DateTime @default(now())
+ * //invoices invoice[]
+ * history subscriptionHistory[]
+ * plan     plan      @relation(fields: [planId], references: [id])
+ * user     user      @relation(fields: [userId], references: [id], onDelete: Cascade)
+ * invoices invoice[]
+ * trial       Int?
+ * trialEndsAt DateTime?
+ * accessUntil DateTime?
+ * updatedAt DateTime @default(now())
+ * @@index([status])
+ * @@index([accessUntil])
+ * }
+ */
 
 model subscriptionHistory {
-  id             String   @id @default(uuid())
-  subscriptionId String
-  fromStatus     String
-  toStatus       String
-  changedAt      DateTime @default(now())
+  id                String       @id @default(uuid())
+  subscriptionId    String
+  fromStatus        String?
+  toStatus          String
+  notificationToken String?
+  efiEventId        Int?
+  changedAt         DateTime     @default(now())
+  subscription      subscription @relation(fields: [subscriptionId], references: [id])
 
-  subscription subscription @relation(fields: [subscriptionId], references: [id])
+  @@unique([notificationToken, efiEventId])
+  @@index([subscriptionId, changedAt])
 }
 
-model invoice {
-  id      String         @id @default(uuid())
-  current InvoiceStatus // paid | pending | failed | refunded
-  preview InvoiceStatus?
+/**
+ * model subscriptionHistory {
+ * id             String   @id @default(uuid())
+ * subscriptionId String
+ * fromStatus     String
+ * toStatus       String
+ * changedAt      DateTime @default(now())
+ * subscription subscription @relation(fields: [subscriptionId], references: [id])
+ * @@index([subscriptionId, changedAt])
+ * }
+ */
 
-  chargeId       Int           @unique() //ID da cobrança na EFI
+model invoice {
+  id             String         @id @default(uuid())
+  current        InvoiceStatus
+  preview        InvoiceStatus?
+  chargeId       Int            @unique
   subscriptionId String?
-  subscription   subscription? @relation(fields: [subscriptionId], references: [id])
+  paymentMethod  String?
+  value          Int?
   dueDate        String?
   dataPaid       String?
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  lastEventId    Int            @default(0)
+  accessStartsAt DateTime?
+  accessEndsAt   DateTime?
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  subscription   subscription?  @relation(fields: [subscriptionId], references: [id])
 
   @@index([current, createdAt])
+  @@index([subscriptionId])
+}
+
+/**
+ * model invoice {
+ * id      String         @id @default(uuid())
+ * current InvoiceStatus // paid | pending | failed | refunded
+ * preview InvoiceStatus?
+ * chargeId Int @unique() //ID da cobrança na EFI
+ * subscriptionId String?
+ * subscription   subscription? @relation(fields: [subscriptionId], references: [id])
+ * dueDate  DateTime?
+ * dataPaid DateTime?
+ * createdAt DateTime @default(now())
+ * updatedAt DateTime @default(now())
+ * @@index([current, createdAt])
+ * }
+ */
+
+model EfiNotification {
+  id          String                @id @default(uuid())
+  token       String                @unique
+  status      EfiNotificationStatus @default(PENDING)
+  lastEventId Int                   @default(0)
+  attempts    Int                   @default(0)
+  payload     Json?
+  lastError   String?
+  processedAt DateTime?
+  createdAt   DateTime              @default(now())
+  updatedAt   DateTime              @updatedAt
+
+  @@index([status, updatedAt])
+}
+
+enum EfiNotificationStatus {
+  PENDING
+  PROCESSING
+  PROCESSED
+  FAILED
 }
 
 model address {
