@@ -602,7 +602,7 @@ export class DashboardService {
             _count: { _all: number }
         }>,
     ) {
-        const active = this.countSubscriptionStatuses(groups, ['active'])
+        const active = this.countSubscriptionStatuses(groups, ['active', 'new_charge'])
         const trial = this.countSubscriptionStatuses(groups, ['trial'])
 
         const canceled = this.countSubscriptionStatuses(
