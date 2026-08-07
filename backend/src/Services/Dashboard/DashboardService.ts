@@ -32,257 +32,239 @@ export class DashboardService {
         const period = this.normalizePeriod(periodValue)
         const now = new Date()
 
-        const {
-            start,
-            previousStart,
-        } = this.getPeriodRange(period, now)
+        const { start, previousStart } = this.getPeriodRange(period, now)
 
-        const [
-            currentRevenueInvoices,
-            previousRevenueInvoices,
-            subscriptionGroups,
-            currentStartedSubscriptions,
-            previousStartedSubscriptions,
-            currentSubscriptionChanges,
-            previousSubscriptionChanges,
-            currentCheckouts,
-            previousCheckouts,
-            recentInvoices,
-            watchedGroups,
-            recentIssues,
-            openedProblemsCount,
-            checkingProblemsCount,
-            notificationGroups,
-        ] = await Promise.all([
-            prismaClient.invoice.findMany({
-                where: {
-                    current: {
-                        in: ['paid', 'settled'],
+        const [currentRevenueInvoices, previousRevenueInvoices, subscriptionGroups, currentStartedSubscriptions, previousStartedSubscriptions, currentSubscriptionChanges, previousSubscriptionChanges, currentCheckouts, previousCheckouts, recentInvoices, watchedGroups, recentIssues, openedProblemsCount, checkingProblemsCount, notificationGroups] =
+            await Promise.all([
+                prismaClient.invoice.findMany({
+                    where: {
+                        current: {
+                            in: ['paid', 'settled'],
+                        },
+                        updatedAt: {
+                            gte: start,
+                            lte: now,
+                        },
                     },
-                    updatedAt: {
-                        gte: start,
-                        lte: now,
+                    select: {
+                        value: true,
+                        updatedAt: true,
                     },
-                },
-                select: {
-                    value: true,
-                    updatedAt: true,
-                },
-            }),
+                }),
 
-            prismaClient.invoice.findMany({
-                where: {
-                    current: {
-                        in: ['paid', 'settled'],
+                prismaClient.invoice.findMany({
+                    where: {
+                        current: {
+                            in: ['paid', 'settled'],
+                        },
+                        updatedAt: {
+                            gte: previousStart,
+                            lt: start,
+                        },
                     },
-                    updatedAt: {
-                        gte: previousStart,
-                        lt: start,
+                    select: {
+                        value: true,
+                        updatedAt: true,
                     },
-                },
-                select: {
-                    value: true,
-                    updatedAt: true,
-                },
-            }),
+                }),
 
-            prismaClient.subscription.groupBy({
-                by: ['status'],
-                _count: {
-                    _all: true,
-                },
-            }),
-
-            prismaClient.subscription.findMany({
-                where: {
-                    startedAt: {
-                        gte: start,
-                        lte: now,
+                prismaClient.subscription.groupBy({
+                    by: ['status'],
+                    _count: {
+                        _all: true,
                     },
-                },
-                select: {
-                    startedAt: true,
-                },
-            }),
+                }),
 
-            prismaClient.subscription.findMany({
-                where: {
-                    startedAt: {
-                        gte: previousStart,
-                        lt: start,
+                prismaClient.subscription.findMany({
+                    where: {
+                        startedAt: {
+                            gte: start,
+                            lte: now,
+                        },
                     },
-                },
-                select: {
-                    startedAt: true,
-                },
-            }),
-
-            prismaClient.subscriptionHistory.findMany({
-                where: {
-                    changedAt: {
-                        gte: start,
-                        lte: now,
+                    select: {
+                        startedAt: true,
                     },
-                },
-                select: {
-                    subscriptionId: true,
-                    toStatus: true,
-                },
-            }),
+                }),
 
-            prismaClient.subscriptionHistory.findMany({
-                where: {
-                    changedAt: {
-                        gte: previousStart,
-                        lt: start,
+                prismaClient.subscription.findMany({
+                    where: {
+                        startedAt: {
+                            gte: previousStart,
+                            lt: start,
+                        },
                     },
-                },
-                select: {
-                    subscriptionId: true,
-                    toStatus: true,
-                },
-            }),
-
-            prismaClient.checkoutTrack.findMany({
-                where: {
-                    createdAt: {
-                        gte: start,
-                        lte: now,
+                    select: {
+                        startedAt: true,
                     },
-                },
-                select: {
-                    status: true,
-                    planId: true,
-                    paymentMethod: true,
-                    planSelected: true,
-                    nameFilled: true,
-                    cpfFilled: true,
-                    phoneFilled: true,
-                    paymentAttempted: true,
-                    completedAt: true,
-                },
-            }),
+                }),
 
-            prismaClient.checkoutTrack.findMany({
-                where: {
-                    createdAt: {
-                        gte: previousStart,
-                        lt: start,
+                prismaClient.subscriptionHistory.findMany({
+                    where: {
+                        changedAt: {
+                            gte: start,
+                            lte: now,
+                        },
                     },
-                },
-                select: {
-                    status: true,
-                    planId: true,
-                    paymentMethod: true,
-                    planSelected: true,
-                    nameFilled: true,
-                    cpfFilled: true,
-                    phoneFilled: true,
-                    paymentAttempted: true,
-                    completedAt: true,
-                },
-            }),
+                    select: {
+                        subscriptionId: true,
+                        toStatus: true,
+                    },
+                }),
 
-            prismaClient.invoice.findMany({
-                orderBy: {
-                    updatedAt: 'desc',
-                },
-                take: 5,
-                include: {
-                    subscription: {
-                        select: {
-                            user: {
-                                select: {
-                                    name: true,
+                prismaClient.subscriptionHistory.findMany({
+                    where: {
+                        changedAt: {
+                            gte: previousStart,
+                            lt: start,
+                        },
+                    },
+                    select: {
+                        subscriptionId: true,
+                        toStatus: true,
+                    },
+                }),
+
+                prismaClient.checkoutTrack.findMany({
+                    where: {
+                        createdAt: {
+                            gte: start,
+                            lte: now,
+                        },
+                    },
+                    select: {
+                        status: true,
+                        planId: true,
+                        paymentMethod: true,
+                        planSelected: true,
+                        nameFilled: true,
+                        cpfFilled: true,
+                        phoneFilled: true,
+                        paymentAttempted: true,
+                        completedAt: true,
+                    },
+                }),
+
+                prismaClient.checkoutTrack.findMany({
+                    where: {
+                        createdAt: {
+                            gte: previousStart,
+                            lt: start,
+                        },
+                    },
+                    select: {
+                        status: true,
+                        planId: true,
+                        paymentMethod: true,
+                        planSelected: true,
+                        nameFilled: true,
+                        cpfFilled: true,
+                        phoneFilled: true,
+                        paymentAttempted: true,
+                        completedAt: true,
+                    },
+                }),
+
+                prismaClient.invoice.findMany({
+                    orderBy: {
+                        updatedAt: 'desc',
+                    },
+                    take: 5,
+                    include: {
+                        subscription: {
+                            select: {
+                                user: {
+                                    select: {
+                                        name: true,
+                                    },
                                 },
-                            },
-                            plan: {
-                                select: {
-                                    name: true,
-                                    price: true,
+                                plan: {
+                                    select: {
+                                        name: true,
+                                        price: true,
+                                    },
                                 },
                             },
                         },
                     },
-                },
-            }),
+                }),
 
-            prismaClient.watched.groupBy({
-                by: ['tmdbID', 'mediaType', 'completed'],
-                where: {
-                    lastWatched: {
-                        gte: start,
-                        lte: now,
+                prismaClient.watched.groupBy({
+                    by: ['tmdbID', 'mediaType', 'completed'],
+                    where: {
+                        lastWatched: {
+                            gte: start,
+                            lte: now,
+                        },
                     },
-                },
-                _count: {
-                    _all: true,
-                },
-            }),
+                    _count: {
+                        _all: true,
+                    },
+                }),
 
-            prismaClient.problem.findMany({
-                where: {
-                    status: {
-                        notIn: [
-                            'resolved',
-                            'closed',
-                            'RESOLVED',
-                            'CLOSED',
-                        ],
+                prismaClient.problem.findMany({
+                    where: {
+                        status: {
+                            notIn: [
+                                'resolved',
+                                'closed',
+                                'RESOLVED',
+                                'CLOSED',
+                            ],
+                        },
                     },
-                },
-                orderBy: {
-                    created_at: 'desc',
-                },
-                take: 3,
-            }),
+                    orderBy: {
+                        created_at: 'desc',
+                    },
+                    take: 3,
+                }),
 
-            prismaClient.problem.count({
-                where: {
-                    status: {
-                        notIn: [
-                            'resolved',
-                            'closed',
-                            'RESOLVED',
-                            'CLOSED',
-                        ],
+                prismaClient.problem.count({
+                    where: {
+                        status: {
+                            notIn: [
+                                'resolved',
+                                'closed',
+                                'RESOLVED',
+                                'CLOSED',
+                            ],
+                        },
                     },
-                },
-            }),
+                }),
 
-            prismaClient.problem.count({
-                where: {
-                    status: {
-                        in: [
-                            'checking',
-                            'in_progress',
-                            'CHECKING',
-                            'IN_PROGRESS',
-                        ],
+                prismaClient.problem.count({
+                    where: {
+                        status: {
+                            in: [
+                                'checking',
+                                'in_progress',
+                                'CHECKING',
+                                'IN_PROGRESS',
+                            ],
+                        },
                     },
-                },
-            }),
+                }),
 
-            prismaClient.efiNotification.groupBy({
-                by: ['status'],
-                where: {
-                    updatedAt: {
-                        gte: start,
-                        lte: now,
+                prismaClient.efiNotification.groupBy({
+                    by: ['status'],
+                    where: {
+                        updatedAt: {
+                            gte: start,
+                            lte: now,
+                        },
                     },
-                },
-                _count: {
-                    _all: true,
-                },
-            }),
-        ])
+                    _count: {
+                        _all: true,
+                    },
+                }),
+            ])
 
         const currentRevenue = this.sumRevenue(currentRevenueInvoices)
         const previousRevenue = this.sumRevenue(previousRevenueInvoices)
 
         const activeSubscriptions = this.countSubscriptionStatuses(
             subscriptionGroups,
-            ['active', 'trial'],
+            ['active', 'trial', 'new_charge'],
         )
 
         const currentLostSubscriptions = this.getChangedSubscriptionIds(
@@ -419,8 +401,7 @@ export class DashboardService {
                 period,
             ),
 
-            subscriptionStatus:
-                this.buildSubscriptionStatus(subscriptionGroups),
+            subscriptionStatus: this.buildSubscriptionStatus(subscriptionGroups),
 
             checkoutFunnel: currentCheckoutFunnel,
 
@@ -550,13 +531,7 @@ export class DashboardService {
         return this.round(value / 100, 2)
     }
 
-    private buildRevenuePoints(
-        invoices: RevenueInvoice[],
-        subscriptions: StartedSubscription[],
-        start: Date,
-        end: Date,
-        period: DashboardPeriod,
-    ) {
+    private buildRevenuePoints(invoices: RevenueInvoice[], subscriptions: StartedSubscription[], start: Date, end: Date, period: DashboardPeriod) {
         const revenueBuckets = Array<number>(REVENUE_BUCKETS).fill(0)
         const subscriptionBuckets = Array<number>(REVENUE_BUCKETS).fill(0)
 
@@ -849,6 +824,7 @@ export class DashboardService {
 
         return contents.map(content => ({
             title: titles.get(content.tmdbID) ?? `TMDB ${content.tmdbID}`,
+            tmdbId: content.tmdbID,
             type: content.mediaType === 'tv'
                 ? 'Série' as const
                 : 'Filme' as const,
