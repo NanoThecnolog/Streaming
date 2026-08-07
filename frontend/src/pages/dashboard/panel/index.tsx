@@ -33,7 +33,6 @@ interface AccessResponse {
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
     const client = new SetupAPIClient(ctx)
-
     try {
         const response = await client.api.get<AccessResponse>(
             '/user/access',
@@ -57,9 +56,11 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
         }
     } catch (err) {
         return {
-            props: {
-                overview: null
-            }
+            redirect: {
+                destination: '/',
+                permanent: false,
+            },
         }
     }
 }
+

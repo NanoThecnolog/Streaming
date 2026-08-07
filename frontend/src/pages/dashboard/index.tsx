@@ -44,9 +44,7 @@ const MENU_ITEMS: MenuItem[] = [
     },
 ]
 
-const isDashboardContentType = (
-    value: unknown,
-): value is DashboardContentType => {
+const isDashboardContentType = (value: unknown,): value is DashboardContentType => {
     return value === 'movie' || value === 'tv'
 }
 
@@ -86,9 +84,7 @@ const Dashboard = () => {
         return item.type === type
     })
 
-    const handleTypeChange = async (
-        selectedType: DashboardContentType,
-    ) => {
+    const handleTypeChange = async (selectedType: DashboardContentType,) => {
         setType(selectedType)
 
         const nextQuery: Record<string, string> = {
