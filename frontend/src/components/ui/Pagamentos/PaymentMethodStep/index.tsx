@@ -37,7 +37,7 @@ const paymentOptions: PaymentOption[] = [
         id: 'credit-card',
         name: 'Cartão de crédito',
         description: 'Pagamento processado imediatamente',
-        badge: 'Recomendado',
+        badge: 'Recomendado - 3 dias de trial',
         icon: FaCreditCard,
     },
     {
@@ -110,7 +110,7 @@ export function PaymentMethodStep({ selectedMethod, allowedMethods, onSelectMeth
                 <span>✓</span>
 
                 <p>
-                    A assinatura será ativada após a confirmação do
+                    O acesso será liberado após a confirmação do
                     pagamento.
                 </p>
             </div>

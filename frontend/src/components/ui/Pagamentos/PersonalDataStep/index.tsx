@@ -589,7 +589,7 @@ export function PersonalDataStep({ data, creditCard, paymentMethod, requirePassw
                             <p>
                                 Os dados do cartão serão utilizados
                                 somente para processar o pagamento.
-                                Eles não serão armazenados em nenhum lugar.
+                                Eles não são armazenados em nossa plataforma.
                             </p>
                         </div>
                     </fieldset>

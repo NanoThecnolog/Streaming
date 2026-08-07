@@ -40,6 +40,7 @@ export interface RecentInvoice {
 
 export interface PopularContent {
   title: string;
+  tmdbId: number,
   type: "Filme" | "Série";
   views: number;
   completion: number;

@@ -4,6 +4,10 @@ import styles from "./styles.module.scss";
 import { DashboardOverview, DashboardPeriod, RevenuePoint } from "@/@types/Dashboard/dashboard";
 import { dashboardService } from "@/classes/DashboardService";
 import { debug } from "@/classes/DebugLogger";
+import { useTMDB } from "@/contexts/TMDBContext";
+import { SeriesProps, TMDBSeries } from "@/@types/series";
+import { CardsProps, MovieTMDB } from "@/@types/Cards";
+import { useFlix } from "@/contexts/FlixContext";
 
 const navigation = [
   { label: "Visão geral", icon: Gauge, active: true },
@@ -46,6 +50,52 @@ const getRevenuePath = (points: RevenuePoint[]) => {
     .join(" ");
 };
 
+type RevenueItem = DashboardOverview['revenue'][number]
+
+interface RevenueChartPoint extends RevenueItem {
+  x: number
+  y: number
+}
+
+const getRevenueCoordinates = (
+  revenue: RevenueItem[],
+): RevenueChartPoint[] => {
+  if (revenue.length === 0) return []
+
+  const values = revenue.map(point => Number(point.revenue) || 0)
+
+  const max = Math.max(...values)
+  const min = Math.min(...values)
+  const range = max - min
+
+  return revenue.map((point, index) => {
+    const value = Number(point.revenue) || 0
+
+    const x = revenue.length === 1
+      ? 360
+      : 32 + index * (656 / (revenue.length - 1))
+
+    const y = range === 0
+      ? 135
+      : 214 - ((value - min) / range) * 158
+
+    return {
+      ...point,
+      x,
+      y,
+    }
+  })
+}
+
+
+
+
+
+
+
+
+
+
 interface Props {
   overview: DashboardOverview
 }
@@ -57,18 +107,26 @@ export const Dashboard = ({ overview }: Props) => {
   const [data, setData] = useState<DashboardOverview | null>(null);
   const [requestError, setRequestError] = useState<string | null>(null);
   const [totalSubscriptions, setTotalsubscriptions] = useState<number>(0)
+  const [popularContent, setPopularContent] = useState()
 
+  //const { allData, serieData } = useTMDB()
+  const { movies, series } = useFlix()
+
+  //-------------------Carregamento inicial de dados-----------------------------------------
   useEffect(() => {
     if (!overview) return
     debug.log('Alimentando com primeiros dados', overview)
     setData(overview)
   }, [overview])
 
-  const revenuePath = useMemo(() =>
-    getRevenuePath(data?.revenue ?? []),
-    [data?.revenue]
-  )
+  //------------------------Carregando populares----------------------------
+  /*  useEffect(() => {
+      if (!data) return
+      
+      const popularMovies = 
+    },[data, allData, serieData])*/
 
+  //--------------------------Total de assinaturas--------------------------
   useEffect(() => {
     if (!data) return
 
@@ -81,7 +139,7 @@ export const Dashboard = ({ overview }: Props) => {
   }, [data])
 
 
-
+  //--------------Atualização dos dados---------------------------
   const handleRefresh = async () => {
     setIsRefreshing(true);
     setRequestError(null);
@@ -96,6 +154,67 @@ export const Dashboard = ({ overview }: Props) => {
       setIsRefreshing(false);
     }
   };
+
+
+
+
+
+
+  /*const revenuePath = useMemo(() =>
+    getRevenuePath(data?.revenue ?? []),
+    [data?.revenue]
+  )*/
+
+  const revenueMetric = useMemo(
+    () => data?.metrics.find(
+      metric => metric.label === 'Receita recorrente',
+    ) ?? null,
+    [data?.metrics],
+  )
+
+  const revenueVariation = revenueMetric?.variation ?? 0
+
+  const formattedRevenueVariation = `${revenueVariation > 0 ? '+' : ''}${revenueVariation.toFixed(1).replace('.', ',')}%`
+
+  const revenuePoints = useMemo(
+    () => getRevenueCoordinates(data?.revenue ?? []),
+    [data?.revenue],
+  )
+
+  const revenuePath = useMemo(
+    () => revenuePoints
+      .map((point, index) => {
+        const command = index === 0 ? 'M' : 'L'
+
+        return `${command} ${point.x} ${point.y}`
+      })
+      .join(' '),
+    [revenuePoints],
+  )
+
+  const firstRevenuePoint = revenuePoints[0]
+  const lastRevenuePoint = revenuePoints[revenuePoints.length - 1]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <div className={styles.dashboard}>
@@ -228,12 +347,21 @@ export const Dashboard = ({ overview }: Props) => {
             <section className={styles.overviewGrid}>
               <article className={`${styles.panel} ${styles.revenuePanel}`}>
                 <div className={styles.panelHeading}>
-                  <div><h2>Receita recorrente</h2><p>Evolução da receita no período</p></div>
-                  <div className={styles.chartLegend}><span />Receita</div>
+                  <div>
+                    <h2>Receita recorrente</h2>
+                    <p>Evolução da receita no período</p>
+                  </div>
+
+                  <div className={styles.chartLegend}>
+                    <span />Receita
+                  </div>
                 </div>
+
                 <div className={styles.chartValue}>
-                  <strong>R$ 1.846,90</strong><span>+12,8%</span>
+                  <strong>{revenueMetric?.value ?? 'R$ 0'}</strong>
+                  <span>{formattedRevenueVariation}</span>
                 </div>
+
                 <div className={styles.chart}>
                   <div className={styles.yAxis}>
                     <span>{formatCurrencyShort(1900)}</span>
@@ -241,25 +369,72 @@ export const Dashboard = ({ overview }: Props) => {
                     <span>{formatCurrencyShort(900)}</span>
                     <span>R$ 0</span>
                   </div>
-                  <svg viewBox="0 0 720 250" role="img" aria-label="Crescimento da receita">
+                  <svg
+                    viewBox="0 0 720 250"
+                    role="img"
+                    aria-label="Crescimento da receita"
+                  >
                     <defs>
-                      <linearGradient id="revenueArea" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#ff2d67" stopOpacity="0.32" />
-                        <stop offset="100%" stopColor="#ff2d67" stopOpacity="0" />
+                      <linearGradient
+                        id="revenueArea"
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="1"
+                      >
+                        <stop
+                          offset="0%"
+                          stopColor="#ff2d67"
+                          stopOpacity="0.32"
+                        />
+
+                        <stop
+                          offset="100%"
+                          stopColor="#ff2d67"
+                          stopOpacity="0"
+                        />
                       </linearGradient>
                     </defs>
-                    {[56, 108, 160, 212].map((y) => (
-                      <line key={y} x1="32" x2="688" y1={y} y2={y} className={styles.gridLine} />
+
+                    {[56, 108, 160, 212].map(y => (
+                      <line
+                        key={y}
+                        x1="32"
+                        x2="688"
+                        y1={y}
+                        y2={y}
+                        className={styles.gridLine}
+                      />
                     ))}
-                    <path d={`${revenuePath} L 688 226 L 32 226 Z`} fill="url(#revenueArea)" />
-                    <path d={revenuePath} className={styles.chartLine} />
-                    {data.revenue.map((point, index) => {
-                      const max = Math.max(...data.revenue.map((item) => item.revenue));
-                      const min = Math.min(...data.revenue.map((item) => item.revenue));
-                      const x = 32 + index * (656 / (data.revenue.length - 1));
-                      const y = 214 - ((point.revenue - min) / (max - min)) * 158;
-                      return <circle key={point.label} cx={x} cy={y} r="4" className={styles.chartDot} />;
-                    })}
+
+                    {revenuePoints.length > 1 && (
+                      <>
+                        <path
+                          d={`
+                    ${revenuePath}
+                    L ${lastRevenuePoint.x} 226
+                    L ${firstRevenuePoint.x} 226
+                    Z
+                `}
+                          fill="url(#revenueArea)"
+                        />
+
+                        <path
+                          d={revenuePath}
+                          className={styles.chartLine}
+                        />
+                      </>
+                    )}
+
+                    {revenuePoints.map((point, index) => (
+                      <circle
+                        key={`${point.label}-${index}`}
+                        cx={point.x}
+                        cy={point.y}
+                        r="4"
+                        className={styles.chartDot}
+                      />
+                    ))}
                   </svg>
                   <div className={styles.xAxis}>
                     {data.revenue.map((point) => <span key={point.label}>{point.label}</span>)}
@@ -310,25 +485,44 @@ export const Dashboard = ({ overview }: Props) => {
                 </div>
               </article>
 
+
+
               <article className={`${styles.panel} ${styles.popularPanel}`}>
                 <div className={styles.panelHeading}>
                   <div><h2>Mais assistidos</h2><p>Conteúdos com mais reproduções</p></div>
                   <button type="button">Ver catálogo</button>
                 </div>
                 <div className={styles.popularList}>
-                  {data.popularContent.map((content, index) => (
-                    <div key={content.title}>
-                      <span className={styles.rank}>{String(index + 1).padStart(2, "0")}</span>
-                      <div className={styles.contentInfo}>
-                        <strong>{content.title}</strong>
-                        <span>{content.type} · {content.views} reproduções</span>
-                      </div>
-                      <div className={styles.completion}>
-                        <span>{content.completion}%</span>
-                        <div><i style={{ width: `${content.completion}%` }} /></div>
-                      </div>
-                    </div>
-                  ))}
+
+
+
+                  {data.popularContent.map((content, index) => {
+
+                    const tmdbInfo: | CardsProps | SeriesProps | undefined =
+                      content.type === 'Filme' ?
+                        movies.find(movie => movie.tmdbId === content.tmdbId)
+                        : series.find(serie => serie.tmdbID === content.tmdbId)
+                        || undefined
+                    const title = tmdbInfo ? tmdbInfo.title : content.title
+
+
+                    return (
+                      (
+                        <div key={content.title ?? content.tmdbId}>
+                          <span className={styles.rank}>{String(index + 1).padStart(2, "0")}</span>
+                          <div className={styles.contentInfo}>
+                            <strong>{title}</strong>
+                            <span>{content.type} · {content.views} reproduções</span>
+                          </div>
+
+                          <div className={styles.completion}>
+                            <span>{content.completion}%</span>
+                            <div><i style={{ width: `${content.completion}%` }} /></div>
+                          </div>
+                        </div>
+                      )
+                    )
+                  })}
                 </div>
               </article>
             </section>
