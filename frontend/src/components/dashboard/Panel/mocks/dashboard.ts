@@ -60,11 +60,11 @@ export const dashboardOverviewMock: DashboardOverview = {
     { id: "#934785", customer: "Bruno Souza", initials: "BS", plan: "Mensal", paymentMethod: "Pix", value: 14.9, status: "refunded", date: "Ontem, 18:25" },
   ],
   popularContent: [
-    { title: "Ruptura", type: "Série", views: 418, completion: 84 },
-    { title: "Duna: Parte Dois", type: "Filme", views: 376, completion: 79 },
-    { title: "The Last of Us", type: "Série", views: 341, completion: 72 },
-    { title: "Oppenheimer", type: "Filme", views: 298, completion: 67 },
-    { title: "Silo", type: "Série", views: 264, completion: 62 },
+    { title: "Ruptura", tmdbId: 95396, type: "Série", views: 418, completion: 84 },
+    { title: "Duna: Parte Dois", tmdbId: 693134, type: "Filme", views: 376, completion: 79 },
+    { title: "The Last of Us", tmdbId: 100088, type: "Série", views: 341, completion: 72 },
+    { title: "Oppenheimer", tmdbId: 872585, type: "Filme", views: 298, completion: 67 },
+    { title: "Silo", tmdbId: 125988, type: "Série", views: 264, completion: 62 },
   ],
   issues: [
     { title: "Vídeo não reproduziu", reference: "TMDB 157336 · T2 E4", status: "open", reportedAt: "há 12 min" },
