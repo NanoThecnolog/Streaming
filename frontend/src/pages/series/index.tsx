@@ -21,6 +21,7 @@ import { CardsProps } from "@/@types/Cards";
 //import { DailyWarningModal } from "@/components/ui/DailyModal";
 import { useDailyModal } from "@/hooks/useDailyModal";
 import NewTop from "@/components/newTop";
+import HeroSection from "@/components/HeroSection";
 
 export default function Series() {
     //refatorar
@@ -111,7 +112,8 @@ export default function Series() {
                                         <div className={styles.top}>
                                             {
                                                 //<NewTopSerie width={width} id={trailerId} isActive={true} />
-                                                <NewTop id={trailerId} width={width} isActive={true} type="tv" />
+                                                //<NewTop id={trailerId} width={width} isActive={true} type="tv" />
+                                                <HeroSection width={width} page={'tv'} />
                                             }
                                         </div>
                                         <div className={styles.mid}>

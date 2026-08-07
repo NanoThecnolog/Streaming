@@ -16,6 +16,7 @@ import { useFlix } from "@/contexts/FlixContext";
 import NewTop from "@/components/newTop";
 import { CardsProps } from "@/@types/Cards";
 import TopPopularMovies from "@/components/TopPopularMovies";
+import HeroSection from "@/components/HeroSection";
 //import { useDailyModal } from "@/hooks/useDailyModal";
 
 
@@ -33,7 +34,7 @@ export default function Home() {
   const { movies, series } = useFlix()
   //const { isOpen, close } = useDailyModal()
 
-  const tmdbid = 1083381;
+  const tmdbid = 1314481;
   const [topCard, setTopCard] = useState<CardsProps | null>(null)
 
   useEffect(() => {
@@ -98,7 +99,8 @@ export default function Home() {
                   <>
                     <div className={styles.top}>
                       {
-                        topCard && <NewTop width={width} id={tmdbid} isActive={true} type="movie" />
+                        //topCard && <NewTop width={width} id={tmdbid} isActive={true} type="movie" />
+                        <HeroSection width={width} page={'movie'} />
                       }
                     </div>
 

@@ -46,9 +46,7 @@ const translateGenre = (genre: string): string => {
         ?? normalizedGenre
 }
 
-export default function Genre({
-    genres = [],
-}: GenreProps) {
+export default function Genre({ genres = [], }: GenreProps) {
     const translatedGenres = Array.from(
         new Set(
             genres
