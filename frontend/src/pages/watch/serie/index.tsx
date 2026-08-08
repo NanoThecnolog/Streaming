@@ -377,7 +377,7 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
                             <StillWatchingModal
                                 title={serie?.title}
                                 onContinue={handleContinueWatching}
-                                onStop={() => router.push('/')}
+                                onStop={() => router.push(`/series/serie/${tmdbID}`)}
                             />,
                             modalContainer,
                         )

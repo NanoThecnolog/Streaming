@@ -17,23 +17,44 @@
 }
 
 .progress {
-    width: 100%;
+    width: 0;
     height: 100%;
 
-    background: linear-gradient(90deg,
-            #e50914,
-            #ff4751);
+    background: linear-gradient(90deg, var(--red), var(--red-selected));
 
-    box-shadow:
-        0 0 8px rgba(229, 9, 20, 0.8),
-        0 0 16px rgba(229, 9, 20, 0.45);
-
-    transform: scaleX(0);
-    transform-origin: left center;
+    box-shadow: 0 0 8px rgba(229, 9, 20, 0.8), 0 0 16px rgba(229, 9, 20, 0.45);
 
     transition:
-        transform 180ms ease-out,
+        width 180ms ease-out,
         opacity 150ms ease;
+}
+
+.spinner {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+
+    width: 14px;
+    height: 14px;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    //border-top-color: #af0d0d;
+    border-right-color: #e50914;
+    //border-bottom-color: #6e0404;
+    border-radius: 50%;
+
+    box-shadow: 0 0 8px rgba(229, 9, 20, 0.65);
+    animation: spin 650ms linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -41,5 +62,9 @@
     .container,
     .progress {
         transition: none;
+    }
+
+    .spinner {
+        animation: none;
     }
 }

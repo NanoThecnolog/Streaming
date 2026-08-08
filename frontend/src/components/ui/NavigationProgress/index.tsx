@@ -75,9 +75,10 @@ const NavigationProgress = () => {
             <div
                 className={styles.progress}
                 style={{
-                    transform: `scaleX(${progress / 100})`,
+                    width: `${progress}%`,
                 }}
             />
+            <span className={styles.spinner} />
         </div>
     )
 }
