@@ -59,7 +59,7 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
     const [warningModalOpen, setWarningModalOpen] = useState(false)
     const watchLaterManager = new WatchLaterManager()
 
-    const [isLoadingProgress, setIsLoadingProgress] = useState(true)
+    const [isLoadingProgress, setIsLoadingProgress] = useState(false)
     const [progressData, setProgressData] = useState<ProgressData[]>([])
     const [progressPercentage, setProgressPercentage] = useState(0)
 
