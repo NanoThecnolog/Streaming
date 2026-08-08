@@ -7,13 +7,14 @@ import { useEffect, useRef } from "react";
 import ErrorBoundary from "@/components/Errors/ErrorBoundary";
 import { FlixProvider, useFlix } from "@/contexts/FlixContext";
 import Router, { useRouter } from "next/router";
-import NProgress from "nprogress"
-import "nprogress/nprogress.css";
-import { Functions } from "@/classes/Functions";
+//import NProgress from "nprogress"
+//import "nprogress/nprogress.css";
+//import { Functions } from "@/classes/Functions";
 import axios from "axios";
 import { GA_TRACKING_ID, pageview } from "@/utils/gtag";
 import Script from "next/script";
 import { debug } from "@/classes/DebugLogger";
+import NavigationProgress from "@/components/ui/NavigationProgress";
 
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -93,7 +94,7 @@ export default function App({ Component, pageProps }: AppProps) {
     };
   }, [])
 
-  useEffect(() => {
+  /*useEffect(() => {
     const handleStart = () => NProgress.start()
     const handleDone = () => NProgress.done()
 
@@ -107,7 +108,7 @@ export default function App({ Component, pageProps }: AppProps) {
       Router.events.off('routeChangeError', handleDone)
     }
 
-  }, [])
+  }, [])*/
 
 
 
@@ -133,6 +134,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Script>
       <FlixProvider>
         <TMDBProvider>
+          <NavigationProgress />
           <Component {...pageProps} />
           <ToastContainer autoClose={3500} />
         </TMDBProvider>

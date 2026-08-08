@@ -26,6 +26,7 @@ import { MoviePlayerHLS } from "@/components/ui/PlayerHLS"
 import { hasAccess } from "@/utils/UtilitiesFunctions"
 import { useStillWatching } from "@/hooks/useStillWatching"
 import StillWatchingModal from "@/components/ui/StillWatchingModal"
+import { createPortal } from "react-dom"
 
 
 interface EpisodeProps {
@@ -51,6 +52,8 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
     const [visible, setVisible] = useState<boolean>(false)
     const [shared, setShared] = useState<boolean>(true)
     const [loading, setLoading] = useState<boolean>(false)
+
+    const [modalContainer, setModalContainer] = useState<Element | null>(null)
 
     const [shouldAutoPlay, setShouldAutoPlay] = useState<boolean>(false)
 
@@ -135,6 +138,24 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
         shareVerify(episodio.src)
 
     }, [episodio, isDrive])
+
+
+
+    useEffect(() => {
+        const updateModalContainer = () => {
+            setModalContainer(
+                document.fullscreenElement ?? document.body,
+            )
+        }
+
+        updateModalContainer()
+
+        document.addEventListener('fullscreenchange', updateModalContainer)
+
+        return () => {
+            document.removeEventListener('fullscreenchange', updateModalContainer)
+        }
+    }, [])
 
     const shareVerify = async (link: string) => {
         if (loading) return
@@ -350,13 +371,17 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
                             episode={Number(episode)}
                         />
                     )}
-                    {showStillWatching && (
-                        <StillWatchingModal
-                            title={serie?.title}
-                            onContinue={handleContinueWatching}
-                            onStop={() => router.push(`/series/serie/${serie?.tmdbID}`)}
-                        />
-                    )}
+                    {showStillWatching &&
+                        modalContainer &&
+                        createPortal(
+                            <StillWatchingModal
+                                title={serie?.title}
+                                onContinue={handleContinueWatching}
+                                onStop={() => router.push('/')}
+                            />,
+                            modalContainer,
+                        )
+                    }
                 </div>
             </div>
         </>
