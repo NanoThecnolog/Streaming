@@ -6,7 +6,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 //const tmdbToken = process.env.TMDB_TOKEN
 
 const maxAttempts = 3
-const batchSize = 90
+const batchSize = 30
 const requestTimeout = 8_000
 const batchInterval = 500
 const retryInterval = 2_000
@@ -129,7 +129,7 @@ const fetchCardData = async (
                 params: {
                     language: 'pt-BR',
                 },
-                timeout: requestTimeout,
+                //timeout: requestTimeout,
             },
         )
 
@@ -146,9 +146,7 @@ const fetchCardData = async (
             shouldRetry(error)
 
         if (canRetry) {
-            debug.log(
-                `Tentativa ${attempt} falhou para a série ${cardId}. Tentando novamente...`,
-            )
+            //debug.log(                `Tentativa ${attempt} falhou para a série ${cardId}. Tentando novamente...`,            )
 
             await sleep(retryInterval * attempt)
 

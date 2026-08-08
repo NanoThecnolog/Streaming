@@ -4,8 +4,8 @@ import axios, { AxiosError } from 'axios'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 const maxAttempts = 3
-const batchSize = 90
-const requestTimeout = 8_000
+const batchSize = 50
+const requestTimeout = 15_000
 const batchInterval = 500
 const retryInterval = 2_000
 
@@ -117,7 +117,7 @@ const fetchMovieData = async (movieId: number, token: string, attempt = 1): Prom
                 params: {
                     language: 'pt-BR',
                 },
-                timeout: requestTimeout,
+                //timeout: requestTimeout,
             },
         )
 
@@ -132,7 +132,7 @@ const fetchMovieData = async (movieId: number, token: string, attempt = 1): Prom
         const canRetry = attempt < maxAttempts && shouldRetry(error)
 
         if (canRetry) {
-            debug.log(`Tentativa ${attempt} falhou para o filme ${movieId}. Tentando novamente...`)
+            //debug.log(`Tentativa ${attempt} falhou para o filme ${movieId}. Tentando novamente...`)
 
             await sleep(retryInterval * attempt)
 
@@ -231,7 +231,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         return
     }
 
-    debug.time('TempoTotalDaRotaMovies')
+    //debug.time('TempoTotalDaRotaMovies')
 
     try {
         /*

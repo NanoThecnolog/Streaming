@@ -539,8 +539,8 @@ export const Dashboard = ({ overview }: Props) => {
                       <tr><th>Cliente</th><th>Plano</th><th>Pagamento</th><th>Valor</th><th>Status</th><th>Data</th></tr>
                     </thead>
                     <tbody>
-                      {data.recentInvoices.map((invoice) => (
-                        <tr key={invoice.id}>
+                      {data.recentInvoices.map((invoice, i) => (
+                        <tr key={`${invoice.id}-${i}`}>
                           <td>
                             <span className={styles.customerAvatar}>{invoice.initials}</span>
                             <span><strong>{invoice.customer}</strong><small>{invoice.id}</small></span>

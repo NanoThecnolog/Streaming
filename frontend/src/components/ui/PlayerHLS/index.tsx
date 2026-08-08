@@ -18,13 +18,20 @@ interface MoviePlayerProps {
     src: string
     nextEp?: (e: boolean) => void,
     handleEnded?: () => void,
+
+    handlePlayBackStarted?: () => void
+    handleUserPause?: () => void
+    handleUserInteraction?: () => void
+    pauseForStillWatching?: boolean
+
+
     autoPlayOnLoad?: boolean,
     tmdbID?: number,
     mediaType?: 'movie' | 'tv',
     startTime?: number // em segundos
 }
 
-function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false, tmdbID, mediaType, startTime = 0 }: MoviePlayerProps) {
+function PlayerHLS({ src, nextEp, handleEnded, handlePlayBackStarted, handleUserPause, handleUserInteraction, pauseForStillWatching, autoPlayOnLoad = false, tmdbID, mediaType, startTime = 0 }: MoviePlayerProps) {
 
 
     //estados de referência
@@ -103,10 +110,13 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false, tmdbID, m
 
         if (video.paused) {
             video.play()
+            //handlePlayBackStarted?.()
             setIsPlaying(true)
         } else {
             video.pause()
             setIsPlaying(false)
+            //if (video.ended || pauseForStillWatching) return
+            //handleUserPause?.()
         }
 
     }, [])
@@ -116,6 +126,7 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false, tmdbID, m
     const handleVolumeChange = (value: number) => {
         const video = videoRef.current
         if (!video) return
+        handleUserInteraction?.()
 
         const v = Math.max(0, Math.min(1, value))
 
@@ -320,6 +331,46 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false, tmdbID, m
         setVideoError(false)
     }, [src])
 
+    const shouldResumeAfterModalRef = useRef(false)
+
+    //handler de continuar assistindo
+
+    useEffect(() => {
+        const video = videoRef.current
+
+        if (!video) {
+            return
+        }
+
+        if (pauseForStillWatching) {
+            if (!video.paused && !video.ended) {
+                shouldResumeAfterModalRef.current = true
+            }
+
+            video.pause()
+            return
+        }
+
+        if (!shouldResumeAfterModalRef.current) {
+            return
+        }
+
+        shouldResumeAfterModalRef.current = false
+
+        const resumePlayback = async () => {
+            try {
+                await video.play()
+            } catch (error) {
+                debug.error(
+                    'Não foi possível continuar a reprodução',
+                    error,
+                )
+            }
+        }
+
+        resumePlayback()
+    }, [pauseForStillWatching])
+
     // handler de double tap pra mobile
     const handleTouchInteraction = (clientX: number) => {
         const video = videoRef.current
@@ -334,6 +385,7 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false, tmdbID, m
             lastTapRef.current !== 0
 
         if (isDoubleTap) {
+            handleUserInteraction?.()
             if (zone === 'left') {
                 video.currentTime = Math.max(0, video.currentTime - 10)
                 triggerTapFeedback('left')//feedback do recuo da duração
@@ -347,6 +399,8 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false, tmdbID, m
             lastTapSideRef.current = null
             return
         }
+
+
 
         // single tap → só mostra UI
         handleMouseMove()
@@ -369,6 +423,8 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false, tmdbID, m
 
         const leftZone = width * .3
         const rightZone = width * .7
+
+        handleUserInteraction?.()
         if (x < leftZone) {
             video.currentTime = Math.max(0, video.currentTime - 10)
             triggerTapFeedback('left')
@@ -483,8 +539,6 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false, tmdbID, m
 
     const handleVideoEnded = async () => {
         const video = videoRef.current
-
-
 
         if (video /*&& process.env.NEXT_PUBLIC_DEBUG !== 'development'*/) {
             debug.warn('Video terminou. Salvando progresso...')
@@ -922,21 +976,28 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false, tmdbID, m
             switch (e.code) {
                 case 'Space':
                     e.preventDefault()
+                    handleUserInteraction?.()
                     togglePlay()
                     break
 
                 case 'ArrowRight':
+                    handleUserInteraction?.()
+
                     video.currentTime = Math.min(
                         video.duration,
                         video.currentTime + 10
                     )
+
                     break
 
                 case 'ArrowLeft':
+                    handleUserInteraction?.()
+
                     video.currentTime = Math.max(
                         0,
                         video.currentTime - 10
                     )
+
                     break
             }
         }
@@ -1022,6 +1083,13 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false, tmdbID, m
                             onTimeUpdate={handleTimeUpdate}
                             onLoadedMetadata={handleLoadedMetaData}
                             onProgress={handleBufferProgress}
+                            onPlay={() => handlePlayBackStarted?.()}
+                            onPause={(e) => {
+                                const video = e.currentTarget
+
+                                if (video.ended || pauseForStillWatching) return
+                                handleUserPause?.()
+                            }}
                             onEnded={() => handleVideoEnded()}
                             preload='auto'//auto para priozar UX
                             crossOrigin='anonymous'
@@ -1042,7 +1110,11 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false, tmdbID, m
                             !isVideoLoading &&
                             <>
                                 <div className={`${styles.videoPlayButton} ${showPlayButton ? styles.visible : styles.hidden}`}>
-                                    <button onClick={(e) => { e.stopPropagation(), togglePlay() }}>
+                                    <button onClick={(e) => {
+                                        e.stopPropagation()
+                                        handleUserInteraction?.()
+                                        togglePlay()
+                                    }}>
                                         {!isVideoLoading && isPlaying
                                             ? <FaPause />
                                             : <FaPlay />
@@ -1057,6 +1129,7 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false, tmdbID, m
                                             className={styles.timeline}
                                             onClick={(e) => {
                                                 e.stopPropagation()
+                                                handleUserInteraction?.()
                                                 handleSeek(getClientX(e))
                                             }}
                                             onTouchStart={(e) => {
@@ -1068,7 +1141,10 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false, tmdbID, m
                                                 if (!isDragging) return
                                                 handleSeek(getClientX(e))
                                             }}
-                                            onTouchEnd={() => setIsDragging(false)}
+                                            onTouchEnd={() => {
+                                                handleUserInteraction?.()
+                                                setIsDragging(false)
+                                            }}
                                         >
 
 
@@ -1084,7 +1160,11 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false, tmdbID, m
                                         </div>
                                         <div className={styles.actions}>
                                             <div className={styles.playContainer}>
-                                                <button onClick={(e) => { e.stopPropagation(), togglePlay() }}>
+                                                <button onClick={(e) => {
+                                                    e.stopPropagation()
+                                                    handleUserInteraction?.()
+                                                    togglePlay()
+                                                }}>
                                                     {isPlaying
                                                         ? <FaPause />
                                                         : <FaPlay />
@@ -1101,6 +1181,7 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false, tmdbID, m
                                                     <button
                                                         onClick={(e) => {
                                                             e.stopPropagation()
+                                                            handleUserInteraction?.()
                                                             setIsConfigModalOpen(true)
                                                         }}
                                                     >
@@ -1119,7 +1200,10 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false, tmdbID, m
                                                             selectedSubtitle={selectedSubtitle}
                                                             subEnabled={subEnabled}
 
-                                                            onClose={(e) => { e.stopPropagation(), setIsConfigModalOpen(false) }}
+                                                            onClose={(e) => {
+                                                                e.stopPropagation()
+                                                                setIsConfigModalOpen(false)
+                                                            }}
 
                                                             changeAudioTrack={changeAudioTrack}
 
@@ -1150,7 +1234,11 @@ function PlayerHLS({ src, nextEp, handleEnded, autoPlayOnLoad = false, tmdbID, m
                                                         onChange={(e) => handleVolumeChange(Number(e.target.value))}
                                                     />
                                                 </div>
-                                                <button onClick={(e) => { e.stopPropagation(), toggleFullScreen() }}>
+                                                <button onClick={(e) => {
+                                                    e.stopPropagation()
+                                                    handleUserInteraction?.()
+                                                    toggleFullScreen()
+                                                }}>
                                                     {isFullscreen ? <MdFullscreenExit size={30} /> : <MdFullscreen size={30} />}
                                                 </button>
                                             </div>

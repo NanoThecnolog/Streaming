@@ -1,7 +1,7 @@
 import Router, { useRouter } from "next/router"
 import styles from '@/styles/Watch.module.scss'
 import { ChevronLeft } from "lucide-react"
-import { useCallback, useEffect, useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import NextEpisode, { NextEpisodeProps } from "@/components/ui/NextEpisode"
 import PrevEpisode from "@/components/ui/PreviousEpisode"
 import SEO from "@/components/SEO"
@@ -24,6 +24,8 @@ import { SubscriptionProps, UserContext } from "@/@types/user"
 import { MoviePlayer } from "@/components/ui/Player"
 import { MoviePlayerHLS } from "@/components/ui/PlayerHLS"
 import { hasAccess } from "@/utils/UtilitiesFunctions"
+import { useStillWatching } from "@/hooks/useStillWatching"
+import StillWatchingModal from "@/components/ui/StillWatchingModal"
 
 
 interface EpisodeProps {
@@ -52,7 +54,11 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
 
     const [shouldAutoPlay, setShouldAutoPlay] = useState<boolean>(false)
 
+    const pendingNextEpisodeRef = useRef(false)
+
     const { user, setUser } = useFlix()
+    const { showStillWatching, registerPlaybackStarted, registerUserPause, registerUserInteraction, registerEpisodeFinished, confirmWatching } =
+        useStillWatching({ maxEpisodes: 5, maxContinuousPlaybackMs: 90 * 60 * 1000 })
 
     useEffect(() => {
         debug.log("tempo inicial", startTime)
@@ -206,6 +212,8 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
         if (!nextEpisode)
             return router.push(`/series/serie/${serie.tmdbID}`)
 
+        debug.log("chamando próximo episódio")
+
 
         const nextEpisodio: EpisodeProps = {
             title: serie.title,
@@ -231,6 +239,31 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
             shallow: true,
             scroll: false
         })
+    }
+
+
+    const handleEpisodeEnded = async () => {
+        const shouldPausePlayback = registerEpisodeFinished()
+
+        if (shouldPausePlayback) {
+            pendingNextEpisodeRef.current = true
+            return
+        }
+        pendingNextEpisodeRef.current = false
+
+        await handleNextEpisode()
+    }
+
+    const handleContinueWatching = async () => {
+        const shouldGoToNextEpisode = pendingNextEpisodeRef.current
+
+        pendingNextEpisodeRef.current = false
+
+        confirmWatching()
+
+        if (shouldGoToNextEpisode) {
+            await handleNextEpisode()
+        }
     }
 
     /*const nextEpisode = useMemo(
@@ -268,11 +301,15 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
                                     ? <MoviePlayerHLS
                                         //loading={loading}
                                         src={episodio.src}
-                                        nextEp={handleNextEpisode}
+                                        nextEp={handleEpisodeEnded}//handleNextEpisode
                                         autoPlayOnLoad={shouldAutoPlay}
                                         tmdbID={Number(tmdbID as string)}
                                         mediaType="tv"
                                         startTime={parseFloat(startTime as string ?? 0)}
+                                        pauseForStillWatching={showStillWatching}
+                                        handlePlayBackStarted={registerPlaybackStarted}
+                                        handleUserPause={registerUserPause}
+                                        handleUserInteraction={registerUserInteraction}
                                     />
                                     : <MoviePlayer
                                         loading={loading}
@@ -283,7 +320,7 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
                                     />
                             }
                         </div>
-                        <div className={styles.buttonContainer}>
+                        <div className={styles.buttonContainer} onClickCapture={registerUserInteraction}>
                             <PrevEpisode
                                 //title={episodio.title}
                                 //subtitle={episodio.subtitle}
@@ -311,6 +348,13 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
                             serie={serie}
                             season={Number(season)}
                             episode={Number(episode)}
+                        />
+                    )}
+                    {showStillWatching && (
+                        <StillWatchingModal
+                            title={serie?.title}
+                            onContinue={handleContinueWatching}
+                            onStop={() => router.push(`/series/serie/${serie?.tmdbID}`)}
                         />
                     )}
                 </div>
