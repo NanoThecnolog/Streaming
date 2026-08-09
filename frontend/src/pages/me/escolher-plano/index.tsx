@@ -50,6 +50,7 @@ const initialPersonalData: PersonalData = {
 const initialCreditCard: CreditCardData = {
     brand: '',
     holderName: '',
+    holderDocument: '',
     number: '',
     expiryMonth: '',
     expiryYear: '',
@@ -160,15 +161,9 @@ export default function ChoosePlanPage({
             return
         }
 
-        const subscription = result.data.subscription.data
-
         setPaymentResult(result.data)
 
-        setPaymentStatus(
-            subscription.payment === 'credit_card'
-                ? 'confirmed'
-                : 'pending',
-        )
+        setPaymentStatus('pending')
 
         setCurrentStep('confirmation')
     }
@@ -236,6 +231,7 @@ export default function ChoosePlanPage({
                         onBack={() =>
                             setCurrentStep('personal-data')
                         }
+                        mode="reactivation"
                     />
                 )
         }
@@ -259,24 +255,53 @@ export default function ChoosePlanPage({
             <main
                 className={[
                     styles.container,
-                    paymentResult ? styles.singleColumn : '',
+                    currentStep === 'confirmation' ? styles.singleColumn : '',
+                    currentStep === 'confirmation' ? styles.confirmationPage : '',
                 ].join(' ')}
             >
                 <section className={styles.content}>
-                    <header className={styles.userInfo}>
+                    <header
+                        className={[
+                            styles.userInfo,
+                            currentStep === 'confirmation'
+                                ? styles.confirmationHeader
+                                : '',
+                            currentStep === 'confirmation' &&
+                                paymentStatus === 'pending'
+                                ? styles.pendingHeader
+                                : '',
+                        ].join(' ')}
+                    >
                         <span className={styles.status}>
-                            Assinatura inativa
+                            {currentStep === 'confirmation'
+                                ? paymentMethod === 'credit-card'
+                                    ? 'Pagamento em processamento'
+                                    : 'Pagamento pendente'
+                                : 'Assinatura inativa'}
                         </span>
 
-                        <h1>Reative sua assinatura</h1>
+                        <h1>
+                            {currentStep === 'confirmation'
+                                ? paymentMethod === 'credit-card'
+                                    ? 'Estamos processando seu pagamento'
+                                    : 'Conclua o pagamento'
+                                : 'Reative sua assinatura'}
+                        </h1>
 
                         <p>
-                            Escolha um plano e uma forma de pagamento
-                            para continuar.
+                            {currentStep === 'confirmation'
+                                ? paymentMethod === 'credit-card'
+                                    ? 'Sua solicitação foi recebida. Acompanhe a confirmação na página da sua assinatura.'
+                                    : 'Sua solicitação foi registrada. O acesso será liberado após a confirmação do pagamento.'
+                                : 'Escolha um plano e uma forma de pagamento para continuar.'}
                         </p>
                     </header>
 
-                    <section className={styles.formArea}>
+                    <section
+                        className={`${styles.formArea} ${currentStep === 'confirmation'
+                            ? styles.confirmationArea
+                            : ''}`}
+                    >
                         {renderCurrentStep()}
                     </section>
                 </section>

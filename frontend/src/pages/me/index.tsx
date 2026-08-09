@@ -36,27 +36,18 @@ import { cookieOptions } from '@/utils/Variaveis'
 export default function Me() {
     const router = useRouter()
 
-    const {
-        user,
-        setUser,
-        signOut,
-    } = useFlix()
+    const { user, setUser, signOut } = useFlix()
 
-    const [modalVisible, setModalVisible] =
-        useState<boolean>(false)
+    const [modalVisible, setModalVisible] = useState<boolean>(false)
 
-    const [editarDados, setEditarDados] =
-        useState<boolean>(false)
+    const [editarDados, setEditarDados] = useState<boolean>(false)
 
-    const [loadingNewsletter, setLoadingNewsletter] =
-        useState<boolean>(false)
+    const [loadingNewsletter, setLoadingNewsletter] = useState<boolean>(false)
 
     useEffect(() => {
         if (user) return
 
-        const {
-            'flix-user': userCookie,
-        } = parseCookies()
+        const { 'flix-user': userCookie, } = parseCookies()
 
         if (!userCookie) {
             router.replace('/login')
@@ -83,9 +74,7 @@ export default function Me() {
         signOut()
     }
 
-    const handleNews = async (
-        newsletter: boolean,
-    ): Promise<void> => {
+    const handleNews = async (newsletter: boolean): Promise<void> => {
         if (loadingNewsletter || !user) return
 
         setLoadingNewsletter(true)

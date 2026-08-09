@@ -56,10 +56,8 @@ export class SubscriptionPaymentService {
         )
     }
 
-    private validateInput = (
-        input: SubscriptionPaymentInput,
-    ): void => {
-        const { personalData, includePassword } = input
+    private validateInput = (input: SubscriptionPaymentInput): void => {
+        const { personalData, includePassword, paymentMethod, creditCard } = input
 
         if (!Validate.fullName(personalData.name)) {
             throw new Error(
@@ -71,22 +69,48 @@ export class SubscriptionPaymentService {
             throw new Error('Informe um CPF válido.')
         }
 
+
         if (!Validate.phone(personalData.phoneNumber)) {
             throw new Error(
                 'Informe um celular válido com DDD.',
             )
         }
 
-        if (
-            includePassword &&
-            !this.validatePassword(
-                personalData.password,
-                personalData.confirmPassword,
-            )
-        ) {
+        if (includePassword && !this.validatePassword(personalData.password, personalData.confirmPassword)) {
             throw new Error(
                 'A senha não atende aos requisitos informados.',
             )
+        }
+        if (paymentMethod === 'credit-card') {
+            if (!Validate.cardHolderName(creditCard.holderName)) {
+                throw new Error(
+                    'Informe o nome do titular do cartão.',
+                )
+            }
+
+            if (!Validate.cardHolderDocument(creditCard.holderDocument)) {
+                throw new Error(
+                    'Informe um CPF válido para o titular do cartão.',
+                )
+            }
+
+            if (!Validate.creditCardNumber(creditCard.number)) {
+                throw new Error(
+                    'Informe um número de cartão válido.',
+                )
+            }
+
+            if (!Validate.cardExpiry(creditCard.expiryMonth, creditCard.expiryYear)) {
+                throw new Error(
+                    'Informe uma validade de cartão válida.',
+                )
+            }
+
+            if (!Validate.cvv(creditCard.cvv)) {
+                throw new Error(
+                    'Informe um código de segurança válido.',
+                )
+            }
         }
     }
 
@@ -102,39 +126,25 @@ export class SubscriptionPaymentService {
         ).default
     }
 
-    private createEfiPaymentToken = async (
-        creditCard: CreditCardData,
-        customerCpf: string,
-    ): Promise<string> => {
+    private createEfiPaymentToken = async (creditCard: CreditCardData, holderDocument: string): Promise<string> => {
         const cardNumber = onlyNumbers(creditCard.number)
         const cardValidation = valid.number(cardNumber)
 
-        if (
-            !cardValidation.isValid ||
-            !cardValidation.card
-        ) {
+        if (!cardValidation.isValid || !cardValidation.card) {
             throw new Error('Número do cartão inválido.')
         }
 
-        const cpf = onlyNumbers(customerCpf)
+        const cpf = onlyNumbers(holderDocument)
 
         if (cpf.length !== 11) {
             throw new Error('CPF do titular inválido.')
         }
 
-        const accountId =
-            process.env.NEXT_PUBLIC_EFI_ACCOUNT_ID
+        const accountId = process.env.NEXT_PUBLIC_EFI_ACCOUNT_ID
 
-        const environment =
-            process.env.NEXT_PUBLIC_EFI_ENV
+        const environment = process.env.NEXT_PUBLIC_EFI_ENV
 
-        if (
-            !accountId ||
-            (
-                environment !== 'production' &&
-                environment !== 'sandbox'
-            )
-        ) {
+        if (!accountId || (environment !== 'production' && environment !== 'sandbox')) {
             throw new Error(
                 'A configuração da Efí está incompleta.',
             )
@@ -157,11 +167,7 @@ export class SubscriptionPaymentService {
             })
             .getPaymentToken()
 
-        if (
-            !result ||
-            !('payment_token' in result) ||
-            typeof result.payment_token !== 'string'
-        ) {
+        if (!result || !('payment_token' in result) || typeof result.payment_token !== 'string') {
             throw new Error(
                 'A Efí não retornou o token do cartão.',
             )
@@ -170,9 +176,7 @@ export class SubscriptionPaymentService {
         return result.payment_token
     }
 
-    public process = async <TResponse>(
-        input: SubscriptionPaymentInput,
-    ): Promise<TResponse> => {
+    public process = async <TResponse>(input: SubscriptionPaymentInput): Promise<TResponse> => {
         this.validateInput(input)
 
         const {
@@ -185,13 +189,12 @@ export class SubscriptionPaymentService {
             includePassword,
         } = input
 
-        const paymentToken =
-            paymentMethod === 'credit-card'
-                ? await this.createEfiPaymentToken(
-                    creditCard,
-                    personalData.cpf,
-                )
-                : undefined
+        const paymentToken = paymentMethod === 'credit-card'
+            ? await this.createEfiPaymentToken(
+                creditCard,
+                creditCard.holderDocument,
+            )
+            : undefined
 
         const payload = {
             planId,

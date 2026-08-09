@@ -56,9 +56,7 @@ export const useSubscriptionPayment = () => {
     const [paymentError, setPaymentError] =
         useState<string | null>(null)
 
-    const processPayment = async <TResponse>(
-        input: ProcessPaymentInput,
-    ): Promise<PaymentExecutionResult<TResponse>> => {
+    const processPayment = async <TResponse>(input: ProcessPaymentInput): Promise<PaymentExecutionResult<TResponse>> => {
         if (processingRef.current) {
             return {
                 success: false,

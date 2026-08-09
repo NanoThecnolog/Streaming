@@ -61,6 +61,7 @@ export interface PersonalData {
 export interface CreditCardData {
     brand: string
     holderName: string
+    holderDocument: string
     number: string
     expiryMonth: string
     expiryYear: string
@@ -158,6 +159,7 @@ export default function NewPaymentPage({ plans }: Props) {
         {
             brand: '',
             holderName: '',
+            holderDocument: '',
             number: '',
             expiryMonth: '',
             expiryYear: '',
@@ -296,11 +298,11 @@ export default function NewPaymentPage({ plans }: Props) {
             if (onlyNumbers(creditCard.number)) {
                 fields.push('card_number')
             }
+            if (onlyNumbers(creditCard.holderDocument).length === 11) {
+                fields.push('card_document')
+            }
 
-            if (
-                creditCard.expiryMonth &&
-                creditCard.expiryYear
-            ) {
+            if (creditCard.expiryMonth && creditCard.expiryYear) {
                 fields.push('card_expiry')
             }
 
@@ -342,10 +344,10 @@ export default function NewPaymentPage({ plans }: Props) {
     useEffect(() => {
 
         if (!router) return
-        debug.log("queries:", router.query)
+        //debug.log("queries:", router.query)
         const planID = router.query.id
-        debug.log("planID", planID)
-        debug.log("planos: ", plans)
+        //debug.log("planID", planID)
+        //debug.log("planos: ", plans)
         if (!planID) {
             debug.log("id do plano não recebido")
             return
@@ -475,23 +477,17 @@ export default function NewPaymentPage({ plans }: Props) {
                 )
             }
 
-            const cardNumber = onlyNumbers(
-                creditCard.number,
-            )
+            const cardNumber = onlyNumbers(creditCard.number)
 
-            const cardValidation =
-                valid.number(cardNumber)
+            const cardValidation = valid.number(cardNumber)
 
-            if (!cardValidation.isValid ||
-                !cardValidation.card) {
+            if (!cardValidation.isValid || !cardValidation.card) {
                 throw new Error(
                     'Número do cartão inválido.',
                 )
             }
 
-            const cpf = onlyNumbers(
-                personalData.cpf,
-            )
+            const cpf = onlyNumbers(creditCard.holderDocument)
 
             if (cpf.length !== 11) {
                 throw new Error(

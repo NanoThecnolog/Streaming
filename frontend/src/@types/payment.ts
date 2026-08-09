@@ -65,6 +65,7 @@ export interface PersonalData {
 export interface CreditCardData {
     brand: string
     holderName: string
+    holderDocument: string
     number: string
     expiryMonth: string
     expiryYear: string

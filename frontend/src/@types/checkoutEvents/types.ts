@@ -32,6 +32,7 @@ export type CheckoutTrackField =
     | 'card_expiry'
     | 'card_holder'
     | 'card_cvv'
+    | 'card_document'
 
 export interface CheckoutTrackPayload {
     type: CheckoutTrackEvent

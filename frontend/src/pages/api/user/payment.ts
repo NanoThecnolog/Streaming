@@ -85,24 +85,32 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             return res.status(500).json({ error: "Erro ao gerar data de vencimento." })
 
         //Construção do body
-        const banking_billet = {
-            customer: {
-                name: normalizeData.name,
-                cpf: normalizeData.cpf,
-                email: customer.email,
-                phone_number: normalizeData.phone_number,
-                /*birth: normalizeData.birth,
-                address: {
-                    street: address.street,
-                    number: address.number,
-                    neighborhood: address.neighborhood,
-                    zipcode: normalizeData.cep,
-                    city: address.city,
-                    complement: address.complement ?? "",
-                    state: normalizeData.state,
-                }*/
-            },
-            expire_at: expireAt,
+        const paymentCustomer = {
+            name: normalizeData.name,
+            cpf: normalizeData.cpf,
+            email: customer.email,
+            phone_number: normalizeData.phone_number,
+        }
+
+        const payment: EditSubscriptionDto['payment'] =
+            data.method === 'credit'
+                ? {
+                    credit_card: {
+                        customer: paymentCustomer,
+                        payment_token: customer.payment_token,
+                    },
+                }
+                : {
+                    banking_billet: {
+                        customer: paymentCustomer,
+                        expire_at: expireAt,
+                    },
+                }
+
+        if (data.method === 'credit' && !customer.payment_token) {
+            return res.status(422).json({
+                message: 'Token do cartão não informado',
+            })
         }
 
         const body: EditSubscriptionDto = {
@@ -117,18 +125,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 custom_id: userId, //ID do usuario no banco de dados
                 notification_url: process.env.NOTIFICATION_URL
             },
-            payment: {
-                banking_billet
-            }
+            payment,
         }
 
         //console.log(body)
         //console.log(body.payment.banking_billet.customer)
-        const response = await apiSub.post('/subscription', body)
+        const response = await apiSub.post(`/subscription/${userId}/reactivate`,
+            body,
+        )
 
         return res.status(200).json({
             user,
-            subscription: response.data
+            subscription: response.data.subscription
         })
 
 

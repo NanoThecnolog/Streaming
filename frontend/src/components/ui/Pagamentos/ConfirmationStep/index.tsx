@@ -19,6 +19,7 @@ interface ConfirmationStepProps {
     paymentStatus: PaymentStatus
     paymentResult: | PaymentApiResponse | null
     onBack: () => void
+    mode?: 'signup' | 'reactivation'
 }
 
 export function ConfirmationStep({
@@ -27,6 +28,7 @@ export function ConfirmationStep({
     paymentStatus,
     paymentResult,
     onBack,
+    mode = 'signup',
 }: ConfirmationStepProps) {
     if (
         paymentStatus === 'idle' ||
@@ -57,6 +59,7 @@ export function ConfirmationStep({
             <BilletContent
                 email={email}
                 data={paymentData}
+                mode={mode}
             />
         )
     }
@@ -66,9 +69,10 @@ export function ConfirmationStep({
         'credit_card'
     ) {
         return (
-            <CreditCardConfirmedContent
+            <CreditCardProcessingContent
                 email={email}
                 data={paymentData}
+                mode={mode}
             />
         )
     }
@@ -174,33 +178,36 @@ function FailedContent({
     )
 }
 
-interface CreditCardConfirmedContentProps {
+interface CreditCardProcessingContentProps {
     email: string
     data: PaymentResponseData
+    mode: 'signup' | 'reactivation'
 }
 
-function CreditCardConfirmedContent({
+function CreditCardProcessingContent({
     email,
     data,
-}: CreditCardConfirmedContentProps) {
+    mode,
+}: CreditCardProcessingContentProps) {
     const formattedTotal =
         formatCurrency(data.total)
+    const isReactivation = mode === 'reactivation'
 
     return (
         <section className={styles.card}>
             <header className={styles.header}>
                 <span className={styles.eyebrow}>
-                    Pagamento confirmado
+                    Pagamento em processamento
                 </span>
 
                 <h1>
-                    Assinatura criada com sucesso
+                    {isReactivation
+                        ? 'Reativação em processamento'
+                        : 'Assinatura em processamento'}
                 </h1>
 
                 <p>
-                    O pagamento por cartão foi
-                    processado e sua assinatura foi
-                    criada.
+                    Recebemos os dados do pagamento. A confirmação será feita após o processamento da Efí.
                 </p>
             </header>
 
@@ -211,10 +218,10 @@ function CreditCardConfirmedContent({
             >
                 <div
                     className={
-                        styles.successIcon
+                        styles.pendingIcon
                     }
                 >
-                    ✓
+                    …
                 </div>
 
                 <div
@@ -223,12 +230,13 @@ function CreditCardConfirmedContent({
                     }
                 >
                     <strong>
-                        Assinatura liberada
+                        Aguardando confirmação
                     </strong>
 
                     <p>
-                        Os dados da assinatura serão
-                        enviados para:
+                        {isReactivation
+                            ? 'Você pode acompanhar o status na página da assinatura. Os dados também serão enviados para:'
+                            : 'A confirmação e os dados da assinatura serão enviados para:'}
                     </p>
 
                     <span>{email}</span>
@@ -241,17 +249,19 @@ function CreditCardConfirmedContent({
                 >
                     <li>
                         <span>✓</span>
-                        Conta criada
+                        {isReactivation
+                            ? 'Conta identificada'
+                            : 'Conta criada'}
                     </li>
 
                     <li>
                         <span>✓</span>
-                        Pagamento processado
+                        Dados do pagamento recebidos
                     </li>
 
                     <li>
-                        <span>✓</span>
-                        Assinatura criada
+                        <span>○</span>
+                        Aguardando confirmação do pagamento
                     </li>
                 </ul>
 
@@ -292,14 +302,14 @@ function CreditCardConfirmedContent({
 
                 <div className={styles.actions}>
                     <Link
-                        href="/login"
+                        href={isReactivation ? '/me' : '/login'}
                         className={
                             styles.primaryAction
                         }
-                        target='_blank'
-                        rel='noopener noferrer'
                     >
-                        Entrar na conta
+                        {isReactivation
+                            ? 'Acompanhar minha assinatura'
+                            : 'Entrar na conta'}
                     </Link>
 
                     <Link
@@ -321,9 +331,10 @@ function CreditCardConfirmedContent({
 interface BilletContentProps {
     email: string
     data: PaymentResponseData
+    mode: 'signup' | 'reactivation'
 }
 
-function BilletContent({ email, data }: BilletContentProps) {
+function BilletContent({ email, data, mode }: BilletContentProps) {
     const [copiedField, setCopiedField] = useState<'barcode' | 'pix' | null>(null)
 
     const barcode = data.barcode
@@ -340,6 +351,7 @@ function BilletContent({ email, data }: BilletContentProps) {
 
     const formattedExpiration =
         formatDate(data.expire_at)
+    const isReactivation = mode === 'reactivation'
 
     useEffect(() => {
         if (!copiedField) return
@@ -379,12 +391,15 @@ function BilletContent({ email, data }: BilletContentProps) {
                 </span>
 
                 <h1>
-                    Sua assinatura foi criada
+                    {isReactivation
+                        ? 'Reativação aguardando pagamento'
+                        : 'Sua assinatura foi criada'}
                 </h1>
 
                 <p>
-                    Realize o pagamento para liberar
-                    o acesso à assinatura.
+                    {isReactivation
+                        ? 'Pague o boleto para concluir a reativação da sua assinatura.'
+                        : 'Realize o pagamento para liberar o acesso à assinatura.'}
                 </p>
             </header>
 
@@ -606,14 +621,16 @@ function BilletContent({ email, data }: BilletContentProps) {
 
                 <div className={styles.actions}>
                     <Link
-                        href="/login"
+                        href={isReactivation ? '/me' : '/login'}
                         className={
-                            styles.secondaryAction
+                            isReactivation
+                                ? styles.primaryAction
+                                : styles.secondaryAction
                         }
-                        target='_blank'
-                        rel='noopener noreferrer'
                     >
-                        Ir para o login
+                        {isReactivation
+                            ? 'Voltar para minha conta'
+                            : 'Ir para o login'}
                     </Link>
 
                     <Link

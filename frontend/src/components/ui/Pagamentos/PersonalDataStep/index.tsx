@@ -148,13 +148,8 @@ export function PersonalDataStep({ data, creditCard, paymentMethod, requirePassw
         onContinue()
     }
 
-    const handlePhoneChange = (
-        event: ChangeEvent<HTMLInputElement>,
-    ) => {
-        updatePersonalData(
-            'phoneNumber',
-            formatPhone(event.target.value),
-        )
+    const handlePhoneChange = (event: ChangeEvent<HTMLInputElement>) => {
+        updatePersonalData('phoneNumber', formatPhone(event.target.value))
     }
 
     return (
@@ -419,9 +414,7 @@ export function PersonalDataStep({ data, creditCard, paymentMethod, requirePassw
                                 </label>
 
                                 <div
-                                    className={
-                                        styles.inputWithIcon
-                                    }
+                                    className={styles.inputWithIcon}
                                 >
                                     <input
                                         id="cardNumber"
@@ -452,9 +445,7 @@ export function PersonalDataStep({ data, creditCard, paymentMethod, requirePassw
                                 </div>
                             </div>
 
-                            <div
-                                className={`${styles.field} ${styles.fullWidth}`}
-                            >
+                            <div className={`${styles.field} ${styles.fullWidth}`}>
                                 <label htmlFor="holderName">
                                     Nome impresso no cartão
                                 </label>
@@ -475,6 +466,31 @@ export function PersonalDataStep({ data, creditCard, paymentMethod, requirePassw
                                     }
                                     placeholder="NOME COMO ESTÁ NO CARTÃO"
                                     autoComplete="cc-name"
+                                    required
+                                />
+                            </div>
+                            <div className={`${styles.field} ${styles.fullWidth}`}>
+                                <label htmlFor="holderDocument">
+                                    CPF do titular do cartão
+                                </label>
+
+                                <input
+                                    id="holderDocument"
+                                    name="holderDocument"
+                                    type="text"
+                                    value={
+                                        creditCard.holderDocument
+                                    }
+                                    onChange={(event) =>
+                                        updateCreditCard(
+                                            'holderDocument',
+                                            formatCpf(event.target.value),
+                                        )
+                                    }
+                                    autoComplete="cc-cpf"
+                                    placeholder="000.000.000-00"
+                                    inputMode="numeric"
+                                    maxLength={14}
                                     required
                                 />
                             </div>
