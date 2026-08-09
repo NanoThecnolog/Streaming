@@ -412,6 +412,15 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
         const access = hasAccess(user)
         if (!access) {
+            if (user.subscription.subId && user.subscription.subId > 0) {
+                const subId = user.subscription.subId
+                return {
+                    redirect: {
+                        destination: `/me/assinatura/${subId}`,
+                        permanent: false
+                    }
+                }
+            }
             return {
                 redirect: {
                     destination: '/me/escolher-plano',
@@ -439,7 +448,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
             if (err.response?.status === 404) {
                 return {
                     redirect: {
-                        destination: '/me/escolher-plano',
+                        destination: '/me',
                         permanent: false,
                     },
                 }

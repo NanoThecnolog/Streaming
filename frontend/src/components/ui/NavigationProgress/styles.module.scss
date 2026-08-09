@@ -14,7 +14,10 @@
     &.visible {
         opacity: 1;
     }
+
 }
+
+
 
 .progress {
     width: 0;
@@ -37,7 +40,7 @@
     width: 14px;
     height: 14px;
 
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    border: 2px solid rgba(255, 255, 255, 0.35);
     //border-top-color: #af0d0d;
     border-right-color: #e50914;
     //border-bottom-color: #6e0404;
