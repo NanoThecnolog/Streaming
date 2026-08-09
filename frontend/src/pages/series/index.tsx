@@ -1,129 +1,132 @@
-import Header from "@/components/Header";
+import Header from '@/components/Header'
 import styles from './styles.module.scss'
-import { useCallback, useEffect, useState } from "react";
-import Search from "@/pages/api/Searching";
-import Footer from "@/components/Footer";
-import SEO from "@/components/SEO";
-import { useTMDB } from "@/contexts/TMDBContext";
-import Loading from "@/components/ui/Loading";
-import { gen, stm } from "@/utils/Genres";
-import debounce from "lodash.debounce";
-import BackTopButton from "@/components/ui/BackToTop";
-import Carousel from "@/components/Carousel";
-import { breakpoints, trendingBreakpoints } from "@/utils/Variaveis";
-import { SeriesProps } from "@/@types/series";
-import { mongoService } from "@/classes/MongoContent";
-import { useFlix } from "@/contexts/FlixContext";
-import NewTopSerie from "@/components/seriesComponents/newTopSerie";
-import TopPopularTVShows from "@/components/TopPopularTV";
+import { useCallback, useEffect, useState } from 'react'
+import Search from '@/pages/api/Searching'
+import Footer from '@/components/Footer'
+import SEO from '@/components/SEO'
+import { useTMDB } from '@/contexts/TMDBContext'
+import Loading from '@/components/ui/Loading'
+import { gen, stm } from '@/utils/Genres'
+import debounce from 'lodash.debounce'
+import BackTopButton from '@/components/ui/BackToTop'
+import Carousel from '@/components/Carousel'
+import { breakpoints, trendingBreakpoints } from '@/utils/Variaveis'
+import { SeriesProps } from '@/@types/series'
+import { mongoService } from '@/classes/MongoContent'
+import { useFlix } from '@/contexts/FlixContext'
+import NewTopSerie from '@/components/seriesComponents/newTopSerie'
+import TopPopularTVShows from '@/components/TopPopularTV'
 //import { DailyWarningModal } from "@/components/ui/DailyModal";
-import { useDailyModal } from "@/hooks/useDailyModal";
-import NewTop from "@/components/newTop";
-import HeroSection from "@/components/HeroSection";
+import { useDailyModal } from '@/hooks/useDailyModal'
+import NewTop from '@/components/newTop'
+import HeroSection from '@/components/HeroSection'
 
 export default function Series() {
-    //refatorar
-    const { isOpen, close } = useDailyModal()
-    const [cardPerContainer, setCardPerContainer] = useState<number>(5)
-    const [trendingCardsPerContainer, setTrendingCardsPerContainer] = useState<number>(5)
-    const [width, setWidth] = useState<number>(0)
-    const genres = Object.values(gen)
-    const streamings = Object.values(stm)
-    const combined = [...streamings, ...genres]
-    const removedSections = ["Romance", "Terror", "Globo Play", "Paramount", "StarZ", "SKY"]
-    const divisaoPorGenero = combined.filter(item => !removedSections.includes(item))
-    //const [loading, setLoading] = useState(false)
-    const { serieData } = useTMDB()
-    const [visible, setvisible] = useState(false)
-    const { user, series, setSeries } = useFlix()
+  //refatorar
+  const { isOpen, close } = useDailyModal()
+  const [cardPerContainer, setCardPerContainer] = useState<number>(5)
+  const [trendingCardsPerContainer, setTrendingCardsPerContainer] = useState<number>(5)
+  const [width, setWidth] = useState<number>(0)
+  const genres = Object.values(gen)
+  const streamings = Object.values(stm)
+  const combined = [...streamings, ...genres]
+  const removedSections = ['Romance', 'Terror', 'Globo Play', 'Paramount', 'StarZ', 'SKY']
+  const divisaoPorGenero = combined.filter((item) => !removedSections.includes(item))
+  //const [loading, setLoading] = useState(false)
+  const { serieData } = useTMDB()
+  const [visible, setvisible] = useState(false)
+  const { user, series, setSeries } = useFlix()
 
-    const trailerId = 94997
+  const trailerId = 94997
 
-    useEffect(() => {
-        async function fetchSeriesMongoDB() {
-            const response: SeriesProps[] = await mongoService.fetchSerieData()
-            if (response.length > 0) setSeries(response)
-        }
-        if (series.length === 0) fetchSeriesMongoDB()
-    }, [series])
+  useEffect(() => {
+    async function fetchSeriesMongoDB() {
+      const response: SeriesProps[] = await mongoService.fetchSerieData()
+      if (response.length > 0) setSeries(response)
+    }
+    if (series.length === 0) fetchSeriesMongoDB()
+  }, [series])
 
-    useEffect(() => {
-        function handleResize() {
-            const windowWidth = window.innerWidth;
-            setWidth(windowWidth)
-            const { cards } = breakpoints.find(b => windowWidth < b.width) || { cards: 5 }
-            setCardPerContainer(cards)
-            const trendCards = trendingBreakpoints.find(b => windowWidth < b.width) || { cards: 5 }
-            setTrendingCardsPerContainer(trendCards.cards)
-        }
-        window.addEventListener('resize', handleResize)
-        handleResize()
-        return () => window.removeEventListener('resize', handleResize)
-    }, [])
-    const handleScroll = useCallback(
-        debounce(() => {
-            if (window.scrollY > 1500) {
-                setvisible(true)
-            } else {
-                setvisible(false)
-            }
-        }, 200),
-        []
-    );
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll)
-        return () => {
-            window.removeEventListener('scroll', handleScroll)
-        }
-    }, [])
+  useEffect(() => {
+    function handleResize() {
+      const windowWidth = window.innerWidth
+      setWidth(windowWidth)
+      const { cards } = breakpoints.find((b) => windowWidth < b.width) || { cards: 5 }
+      setCardPerContainer(cards)
+      const trendCards = trendingBreakpoints.find((b) => windowWidth < b.width) || { cards: 5 }
+      setTrendingCardsPerContainer(trendCards.cards)
+    }
+    window.addEventListener('resize', handleResize)
+    handleResize()
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+  const handleScroll = useCallback(
+    debounce(() => {
+      if (window.scrollY > 1500) {
+        setvisible(true)
+      } else {
+        setvisible(false)
+      }
+    }, 200),
+    [],
+  )
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
-    return (
+  return (
+    <>
+      <SEO
+        title="Series | FlixNext"
+        description="Várias séries para maratonar!"
+        image="https://flixnext.com.br/blurImage.png"
+        url="https://flixnext.com.br"
+      />
+      {serieData.length > 0 ? (
         <>
-            <SEO
-                title="Series | FlixNext"
-                description="Várias séries para maratonar!"
-                image="https://flixnext.com.br/blurImage.png"
-                url="https://flixnext.com.br"
-            />
-            {
-                serieData.length > 0 ?
-                    <>
-                        <Header />
-                        <main className={styles.main} id="series">
-                            <div className={styles.content}>
-                                {
-                                    series && series.length > 0 &&
-                                    <>
-                                        {//<TopSerie width={width} />
-                                        }
-                                        <div className={styles.top}>
-                                            {
-                                                //<NewTopSerie width={width} id={trailerId} isActive={true} />
-                                                //<NewTop id={trailerId} width={width} isActive={true} type="tv" />
-                                                <HeroSection width={width} page={'tv'} />
-                                            }
-                                        </div>
-                                        <div className={styles.mid}>
-                                            <TopPopularTVShows cardPerContainer={trendingCardsPerContainer} />
+          <Header />
+          <main className={styles.main} id="series">
+            <div className={styles.content}>
+              {series && series.length > 0 && (
+                <>
+                  {
+                    //<TopSerie width={width} />
+                  }
+                  <div className={styles.top}>
+                    {
+                      //<NewTopSerie width={width} id={trailerId} isActive={true} />
+                      //<NewTop id={trailerId} width={width} isActive={true} type="tv" />
+                      <HeroSection width={width} page={'tv'} />
+                    }
+                  </div>
+                  <div className={styles.mid}>
+                    <TopPopularTVShows cardPerContainer={trendingCardsPerContainer} />
 
-                                            {divisaoPorGenero.map((sec, index) => (
-                                                <div key={sec}>
-                                                    <Carousel type="tv" section={sec} cardPerContainer={cardPerContainer} />
-                                                </div>
-                                            ))}
-                                            <Search />
-                                        </div>
-                                    </>
-                                }
-                            </div>
-                            <BackTopButton visible={visible} />
-                        </main>
-                        {
-                            //!user?.donator && <DailyWarningModal open={isOpen} onClose={close} />
-                        }
-                        <Footer />
-                    </> : <div className={styles.loading}><Loading /></div>
-            }
+                    {divisaoPorGenero.map((sec, index) => (
+                      <div key={sec}>
+                        <Carousel type="tv" section={sec} cardPerContainer={cardPerContainer} />
+                      </div>
+                    ))}
+                    <Search />
+                  </div>
+                </>
+              )}
+            </div>
+            <BackTopButton visible={visible} />
+          </main>
+          {
+            //!user?.donator && <DailyWarningModal open={isOpen} onClose={close} />
+          }
+          <Footer />
         </>
-    )
+      ) : (
+        <div className={styles.loading}>
+          <Loading />
+        </div>
+      )}
+    </>
+  )
 }

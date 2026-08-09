@@ -1,4 +1,3 @@
-
 import { SelectedPlan } from '@/pages/payment'
 import styles from './styles.module.scss'
 import { PlanProps } from '@/@types/payment'
@@ -7,177 +6,150 @@ import { formatPrice } from '@/utils/UtilitiesFunctions'
 import { debug } from '@/classes/DebugLogger'
 
 interface PlanStepProps {
-    plans: PlanProps[]
-    selectedPlan: PlanProps | null
-    onSelectPlan: (plan: PlanProps) => void
-    onBack: () => void
-    onContinue: () => void
+  plans: PlanProps[]
+  selectedPlan: PlanProps | null
+  onSelectPlan: (plan: PlanProps) => void
+  onBack: () => void
+  onContinue: () => void
 }
 
 const plansContent: SelectedPlan[] = [
-    {
-        type: 'mensal',
-        name: 'Plano mensal',
-        description: 'Acesso completo por 30 dias',
-        features: [
-            'Acesso completo ao catálogo',
-            'Filmes, séries e animações',
-            'Continue assistindo de onde parou',
-            'Atualizações frequentes no catálogo',
-            'Cancelamento a qualquer momento',
-        ],
-    },
-    {
-        type: 'trimestral',
-        name: 'Plano trimestral',
-        description: 'Acesso completo por 3 meses',
-        features: [
-            'Acesso completo ao catálogo',
-            'Filmes, séries e animações',
-            'Continue assistindo de onde parou',
-            'Menor custo mensal que o plano mensal',
-            'Renovação a cada 3 meses',
-        ],
-    },
-    {
-        type: 'semestral',
-        name: 'Plano semestral',
-        description: 'Acesso completo por 6 meses',
-        features: [
-            'Acesso completo ao catálogo',
-            'Filmes, séries e animações',
-            'Continue assistindo de onde parou',
-            'Mais economia no valor por mês',
-            'Renovação a cada 6 meses',
-        ],
-    },
-    {
-        type: 'anual',
-        name: 'Plano anual',
-        description: 'Acesso completo por 12 meses',
-        features: [
-            'Acesso completo ao catálogo',
-            'Filmes, séries e animações',
-            'Continue assistindo de onde parou',
-            'Melhor custo-benefício entre os planos',
-            'Renovação a cada 12 meses',
-        ],
-    },
+  {
+    type: 'mensal',
+    name: 'Plano mensal',
+    description: 'Acesso completo por 30 dias',
+    features: [
+      'Acesso completo ao catálogo',
+      'Filmes, séries e animações',
+      'Continue assistindo de onde parou',
+      'Atualizações frequentes no catálogo',
+      'Cancelamento a qualquer momento',
+    ],
+  },
+  {
+    type: 'trimestral',
+    name: 'Plano trimestral',
+    description: 'Acesso completo por 3 meses',
+    features: [
+      'Acesso completo ao catálogo',
+      'Filmes, séries e animações',
+      'Continue assistindo de onde parou',
+      'Menor custo mensal que o plano mensal',
+      'Renovação a cada 3 meses',
+    ],
+  },
+  {
+    type: 'semestral',
+    name: 'Plano semestral',
+    description: 'Acesso completo por 6 meses',
+    features: [
+      'Acesso completo ao catálogo',
+      'Filmes, séries e animações',
+      'Continue assistindo de onde parou',
+      'Mais economia no valor por mês',
+      'Renovação a cada 6 meses',
+    ],
+  },
+  {
+    type: 'anual',
+    name: 'Plano anual',
+    description: 'Acesso completo por 12 meses',
+    features: [
+      'Acesso completo ao catálogo',
+      'Filmes, séries e animações',
+      'Continue assistindo de onde parou',
+      'Melhor custo-benefício entre os planos',
+      'Renovação a cada 12 meses',
+    ],
+  },
 ]
 
 type PlanType = 'mensal' | 'trimestral' | 'semestral' | 'anual'
 
-
 export function PlanStep({ plans, selectedPlan, onSelectPlan, onBack, onContinue }: PlanStepProps) {
+  const planOrder: Record<PlanType, number> = {
+    mensal: 1,
+    trimestral: 2,
+    semestral: 3,
+    anual: 4,
+  }
+  if (plans) {
+  }
+  plans.sort((planA, planB) => planOrder[planA.type] - planOrder[planB.type])
 
-    const planOrder: Record<PlanType, number> = {
-        mensal: 1,
-        trimestral: 2,
-        semestral: 3,
-        anual: 4,
-    }
-    if (plans) { }
-    plans.sort(
-        (planA, planB) =>
-            planOrder[planA.type] - planOrder[planB.type],
-    )
+  const periodLabel = {
+    mensal: '/mês',
+    trimestral: '/trimestre',
+    semestral: '/semestre',
+    anual: '/ano',
+  } as const
 
-    const periodLabel = {
-        mensal: '/mês',
-        trimestral: '/trimestre',
-        semestral: '/semestre',
-        anual: '/ano'
-    } as const
+  if (!selectedPlan) return null
 
-    if (!selectedPlan) return null
+  debug.log('plans', plans)
 
-    debug.log("plans", plans)
+  return (
+    <section className={styles.card}>
+      <header className={styles.header}>
+        <span>Escolha seu acesso</span>
 
+        <h1>Selecione o plano ideal</h1>
 
-    return (
-        <section className={styles.card}>
-            <header className={styles.header}>
-                <span>Escolha seu acesso</span>
+        <p>Você poderá revisar todas as informações antes de gerar o pagamento.</p>
+      </header>
 
-                <h1>Selecione o plano ideal</h1>
+      <div className={styles.plans}>
+        {plans.map((plan) => {
+          const isSelected = selectedPlan.id === plan.id
 
-                <p>
-                    Você poderá revisar todas as informações antes de
-                    gerar o pagamento.
-                </p>
-            </header>
+          const content = plansContent.find(
+            (content) => content.type.toLowerCase() === plan.type.toLowerCase(),
+          )
 
-            <div className={styles.plans}>
-                {plans.map((plan) => {
-                    const isSelected =
-                        selectedPlan.id === plan.id
+          return (
+            <button
+              key={plan.id}
+              type="button"
+              className={[styles.plan, isSelected ? styles.selected : ''].join(' ')}
+              onClick={() => onSelectPlan(plan)}
+            >
+              <div className={styles.planHeader}>
+                <span className={styles.radio} aria-hidden="true" />
 
-                    const content = plansContent.find(content => content.type.toLowerCase() === plan.type.toLowerCase())
+                <div>
+                  <strong>{plan.name}</strong>
+                  <p>{content?.description}</p>
+                </div>
 
-                    return (
-                        <button
-                            key={plan.id}
-                            type="button"
-                            className={[
-                                styles.plan,
-                                isSelected
-                                    ? styles.selected
-                                    : '',
-                            ].join(' ')}
-                            onClick={() => onSelectPlan(plan)}
-                        >
-                            <div className={styles.planHeader}>
-                                <span
-                                    className={styles.radio}
-                                    aria-hidden="true"
-                                />
+                <div className={styles.price}>
+                  <strong>{formatPrice(plan.price)}</strong>
 
-                                <div>
-                                    <strong>{plan.name}</strong>
-                                    <p>{content?.description}</p>
-                                </div>
+                  <span>{periodLabel[plan.type]}</span>
+                </div>
+              </div>
 
-                                <div className={styles.price}>
-                                    <strong>
-                                        {formatPrice(plan.price)}
-                                    </strong>
+              <ul>
+                {content?.features.map((feature) => (
+                  <li key={feature}>
+                    <span>✓</span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </button>
+          )
+        })}
+      </div>
 
-                                    <span>
-                                        {periodLabel[plan.type]}
-                                    </span>
-                                </div>
-                            </div>
+      <div className={styles.actions}>
+        <button type="button" className={styles.back} onClick={onBack}>
+          Voltar
+        </button>
 
-                            <ul>
-                                {content?.features.map((feature) => (
-                                    <li key={feature}>
-                                        <span>✓</span>
-                                        {feature}
-                                    </li>
-                                ))}
-                            </ul>
-                        </button>
-                    )
-                })}
-            </div>
-
-            <div className={styles.actions}>
-                <button
-                    type="button"
-                    className={styles.back}
-                    onClick={onBack}
-                >
-                    Voltar
-                </button>
-
-                <button
-                    type="button"
-                    className={styles.continue}
-                    onClick={onContinue}
-                >
-                    Continuar
-                </button>
-            </div>
-        </section>
-    )
+        <button type="button" className={styles.continue} onClick={onContinue}>
+          Continuar
+        </button>
+      </div>
+    </section>
+  )
 }

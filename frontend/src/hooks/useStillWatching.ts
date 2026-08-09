@@ -3,251 +3,223 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 type StillWatchingReason = 'episodes' | 'time'
 
 interface UseStillWatchingOptions {
-    maxEpisodes?: number
-    maxContinuousPlaybackMs?: number
+  maxEpisodes?: number
+  maxContinuousPlaybackMs?: number
 }
 
 const ONE_HOUR_IN_MS = 3 * 60 * 60 * 1000
 
-export const useStillWatching = ({ maxEpisodes = 5, maxContinuousPlaybackMs = ONE_HOUR_IN_MS }: UseStillWatchingOptions = {}) => {
-    const [showStillWatching, setShowStillWatching] = useState(false)
+export const useStillWatching = ({
+  maxEpisodes = 5,
+  maxContinuousPlaybackMs = ONE_HOUR_IN_MS,
+}: UseStillWatchingOptions = {}) => {
+  const [showStillWatching, setShowStillWatching] = useState(false)
 
+  const [triggerReason, setTriggerReason] = useState<StillWatchingReason | null>(null)
 
+  const watchedEpisodesRef = useRef(0)
+  const accumulatedPlaybackMsRef = useRef(0)
+  const playbackStartedAtRef = useRef<number | null>(null)
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const timeLimitReachedRef = useRef(false)
+  const modalIsOpenRef = useRef(false)
 
-    const [triggerReason, setTriggerReason] = useState<StillWatchingReason | null>(null)
+  const clearTimer = useCallback(() => {
+    if (timerRef.current === null) {
+      return
+    }
 
-    const watchedEpisodesRef = useRef(0)
-    const accumulatedPlaybackMsRef = useRef(0)
-    const playbackStartedAtRef = useRef<number | null>(null)
-    const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-    const timeLimitReachedRef = useRef(false)
-    const modalIsOpenRef = useRef(false)
+    clearTimeout(timerRef.current)
+    timerRef.current = null
+  }, [])
 
-    const clearTimer = useCallback(() => {
-        if (timerRef.current === null) {
-            return
-        }
+  const openStillWatchingModal = useCallback(
+    (reason: StillWatchingReason) => {
+      if (modalIsOpenRef.current) {
+        return
+      }
 
-        clearTimeout(timerRef.current)
-        timerRef.current = null
-    }, [])
+      modalIsOpenRef.current = true
+      playbackStartedAtRef.current = null
 
+      clearTimer()
+      setTriggerReason(reason)
+      setShowStillWatching(true)
+    },
+    [clearTimer],
+  )
 
+  const checkShouldOpenModal = useCallback(
+    (reason: StillWatchingReason) => {
+      const episodesLimitReached = watchedEpisodesRef.current >= maxEpisodes
 
-    const openStillWatchingModal = useCallback((
-        reason: StillWatchingReason,
-    ) => {
-        if (modalIsOpenRef.current) {
-            return
-        }
+      const timeLimitReached = timeLimitReachedRef.current
 
-        modalIsOpenRef.current = true
-        playbackStartedAtRef.current = null
+      if (!episodesLimitReached || !timeLimitReached) {
+        return false
+      }
 
-        clearTimer()
-        setTriggerReason(reason)
-        setShowStillWatching(true)
-    }, [clearTimer])
+      openStillWatchingModal(reason)
+      return true
+    },
+    [maxEpisodes, openStillWatchingModal],
+  )
 
-    const checkShouldOpenModal = useCallback((
-        reason: StillWatchingReason,
-    ) => {
-        const episodesLimitReached =
-            watchedEpisodesRef.current >= maxEpisodes
+  const registerTimeLimitReached = useCallback(() => {
+    timeLimitReachedRef.current = true
 
-        const timeLimitReached =
-            timeLimitReachedRef.current
+    checkShouldOpenModal('time')
+  }, [checkShouldOpenModal])
 
-        if (
-            !episodesLimitReached ||
-            !timeLimitReached
-        ) {
-            return false
-        }
+  const schedulePlaybackTimer = useCallback(() => {
+    clearTimer()
 
-        openStillWatchingModal(reason)
-        return true
-    }, [
-        maxEpisodes,
-        openStillWatchingModal,
-    ])
+    if (
+      modalIsOpenRef.current ||
+      playbackStartedAtRef.current === null ||
+      timeLimitReachedRef.current
+    ) {
+      return
+    }
 
-    const registerTimeLimitReached = useCallback(() => {
-        timeLimitReachedRef.current = true
+    const currentPlaybackMs =
+      accumulatedPlaybackMsRef.current + (Date.now() - playbackStartedAtRef.current)
 
-        checkShouldOpenModal('time')
+    const remainingPlaybackMs = maxContinuousPlaybackMs - currentPlaybackMs
 
-    }, [checkShouldOpenModal])
+    if (remainingPlaybackMs <= 0) {
+      //openStillWatchingModal('time')
+      registerTimeLimitReached()
+      return
+    }
 
+    timerRef.current = setTimeout(() => {
+      //openStillWatchingModal('time')
+      registerTimeLimitReached()
+    }, remainingPlaybackMs)
+  }, [
+    clearTimer,
+    maxContinuousPlaybackMs,
+    //openStillWatchingModal,
+    registerTimeLimitReached,
+  ])
 
+  const registerUserInteraction = useCallback(() => {
+    if (modalIsOpenRef.current) {
+      return
+    }
+    //debug.log('resetando depois de uma interação')
 
-    const schedulePlaybackTimer = useCallback(() => {
-        clearTimer()
+    const playbackIsActive = playbackStartedAtRef.current !== null
 
-        if (modalIsOpenRef.current || playbackStartedAtRef.current === null || timeLimitReachedRef.current) {
-            return
-        }
+    clearTimer()
 
-        const currentPlaybackMs = accumulatedPlaybackMsRef.current + (Date.now() - playbackStartedAtRef.current)
+    watchedEpisodesRef.current = 0
+    accumulatedPlaybackMsRef.current = 0
+    timeLimitReachedRef.current = false
 
-        const remainingPlaybackMs = maxContinuousPlaybackMs - currentPlaybackMs
+    playbackStartedAtRef.current = playbackIsActive ? Date.now() : null
 
-        if (remainingPlaybackMs <= 0) {
-            //openStillWatchingModal('time')
-            registerTimeLimitReached()
-            return
-        }
+    if (playbackIsActive) {
+      schedulePlaybackTimer()
+    }
+  }, [clearTimer, schedulePlaybackTimer])
 
-        timerRef.current = setTimeout(() => {
-            //openStillWatchingModal('time')
-            registerTimeLimitReached()
-        }, remainingPlaybackMs)
-    }, [
-        clearTimer,
-        maxContinuousPlaybackMs,
-        //openStillWatchingModal,
-        registerTimeLimitReached
-    ])
+  const registerPlaybackStarted = useCallback(() => {
+    if (modalIsOpenRef.current || playbackStartedAtRef.current !== null) {
+      return
+    }
 
+    playbackStartedAtRef.current = Date.now()
+    schedulePlaybackTimer()
+  }, [schedulePlaybackTimer])
 
+  const accumulateCurrentPlayback = useCallback(() => {
+    if (playbackStartedAtRef.current === null) {
+      return
+    }
 
-    const registerUserInteraction = useCallback(() => {
-        if (modalIsOpenRef.current) {
-            return
-        }
-        //debug.log('resetando depois de uma interação')
+    accumulatedPlaybackMsRef.current += Date.now() - playbackStartedAtRef.current
 
-        const playbackIsActive = playbackStartedAtRef.current !== null
+    playbackStartedAtRef.current = null
+  }, [])
 
-        clearTimer()
+  /**
+   * Deve ser chamado apenas quando o usuário pausar manualmente.
+   * A interação confirma que ele ainda está presente.
+   */
+  const registerUserPause = useCallback(() => {
+    if (modalIsOpenRef.current) {
+      return
+    }
 
-        watchedEpisodesRef.current = 0
-        accumulatedPlaybackMsRef.current = 0
-        timeLimitReachedRef.current = false
+    clearTimer()
 
-        playbackStartedAtRef.current = playbackIsActive
-            ? Date.now()
-            : null
+    watchedEpisodesRef.current = 0
+    accumulatedPlaybackMsRef.current = 0
+    playbackStartedAtRef.current = null
+    timeLimitReachedRef.current = false
+  }, [clearTimer])
 
-        if (playbackIsActive) {
-            schedulePlaybackTimer()
-        }
-    }, [
-        clearTimer,
-        schedulePlaybackTimer,
-    ])
+  /**
+   * Retorna true quando o próximo episódio não deve ser iniciado.
+   */
+  const registerEpisodeFinished = useCallback(() => {
+    if (modalIsOpenRef.current) {
+      return true
+    }
 
-    const registerPlaybackStarted = useCallback(() => {
-        if (
-            modalIsOpenRef.current ||
-            playbackStartedAtRef.current !== null
-        ) {
-            return
-        }
+    accumulateCurrentPlayback()
+    clearTimer()
 
-        playbackStartedAtRef.current = Date.now()
-        schedulePlaybackTimer()
-    }, [schedulePlaybackTimer])
+    watchedEpisodesRef.current += 1
 
-    const accumulateCurrentPlayback = useCallback(() => {
-        if (playbackStartedAtRef.current === null) {
-            return
-        }
+    if (accumulatedPlaybackMsRef.current >= maxContinuousPlaybackMs) {
+      //openStillWatchingModal('time')
+      //return true
+      timeLimitReachedRef.current = true
+    }
 
-        accumulatedPlaybackMsRef.current +=
-            Date.now() - playbackStartedAtRef.current
-
-        playbackStartedAtRef.current = null
-    }, [])
-
-    /**
-     * Deve ser chamado apenas quando o usuário pausar manualmente.
-     * A interação confirma que ele ainda está presente.
-     */
-    const registerUserPause = useCallback(() => {
-        if (modalIsOpenRef.current) {
-            return
-        }
-
-        clearTimer()
-
-        watchedEpisodesRef.current = 0
-        accumulatedPlaybackMsRef.current = 0
-        playbackStartedAtRef.current = null
-        timeLimitReachedRef.current = false
-    }, [clearTimer])
-
-    /**
-     * Retorna true quando o próximo episódio não deve ser iniciado.
-     */
-    const registerEpisodeFinished = useCallback(() => {
-        if (modalIsOpenRef.current) {
-            return true
-        }
-
-        accumulateCurrentPlayback()
-        clearTimer()
-
-        watchedEpisodesRef.current += 1
-
-        if (
-            accumulatedPlaybackMsRef.current >=
-            maxContinuousPlaybackMs
-        ) {
-            //openStillWatchingModal('time')
-            //return true
-            timeLimitReachedRef.current = true
-        }
-
-
-
-
-        /*if (watchedEpisodesRef.current >= maxEpisodes) {
+    /*if (watchedEpisodesRef.current >= maxEpisodes) {
             openStillWatchingModal('episodes')
             return true
         }*/
 
-        //return false
-        return checkShouldOpenModal('episodes')
-    }, [
-        accumulateCurrentPlayback,
-        checkShouldOpenModal,
-        clearTimer,
-        maxContinuousPlaybackMs
-    ])
+    //return false
+    return checkShouldOpenModal('episodes')
+  }, [accumulateCurrentPlayback, checkShouldOpenModal, clearTimer, maxContinuousPlaybackMs])
 
-    const confirmWatching = useCallback(() => {
-        clearTimer()
+  const confirmWatching = useCallback(() => {
+    clearTimer()
 
-        modalIsOpenRef.current = false
-        watchedEpisodesRef.current = 0
-        accumulatedPlaybackMsRef.current = 0
-        playbackStartedAtRef.current = null
-        timeLimitReachedRef.current = false
+    modalIsOpenRef.current = false
+    watchedEpisodesRef.current = 0
+    accumulatedPlaybackMsRef.current = 0
+    playbackStartedAtRef.current = null
+    timeLimitReachedRef.current = false
 
-        setTriggerReason(null)
-        setShowStillWatching(false)
-    }, [clearTimer])
+    setTriggerReason(null)
+    setShowStillWatching(false)
+  }, [clearTimer])
 
-    const resetStillWatching = useCallback(() => {
-        confirmWatching()
-    }, [confirmWatching])
+  const resetStillWatching = useCallback(() => {
+    confirmWatching()
+  }, [confirmWatching])
 
-    useEffect(() => {
-        return () => {
-            clearTimer()
-        }
-    }, [clearTimer])
-
-    return {
-        showStillWatching,
-        triggerReason,
-        registerPlaybackStarted,
-        registerUserPause,
-        registerEpisodeFinished,
-        registerUserInteraction,
-        confirmWatching,
-        resetStillWatching,
-
+  useEffect(() => {
+    return () => {
+      clearTimer()
     }
+  }, [clearTimer])
+
+  return {
+    showStillWatching,
+    triggerReason,
+    registerPlaybackStarted,
+    registerUserPause,
+    registerEpisodeFinished,
+    registerUserInteraction,
+    confirmWatching,
+    resetStillWatching,
+  }
 }

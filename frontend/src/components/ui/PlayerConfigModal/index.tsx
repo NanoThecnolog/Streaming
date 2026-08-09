@@ -7,136 +7,108 @@ import { MdSubtitles, MdSubtitlesOff, MdCheck } from 'react-icons/md'
 import { normalizeAudioTrack } from '@/utils/Variaveis'
 
 interface Props {
-    audioTracks: AudioTrack[]
-    subtitleTracks: SubtitleTrack[]
+  audioTracks: AudioTrack[]
+  subtitleTracks: SubtitleTrack[]
 
-    selectedAudio: number
-    selectedSubtitle: number | null
-    subEnabled: boolean
+  selectedAudio: number
+  selectedSubtitle: number | null
+  subEnabled: boolean
 
-    onClose: (e: any) => void
-    changeAudioTrack: (index: number) => void
-    selectSubtitleTrack: (id: number | null) => void
-    disableAllSubtitles: () => void
+  onClose: (e: any) => void
+  changeAudioTrack: (index: number) => void
+  selectSubtitleTrack: (id: number | null) => void
+  disableAllSubtitles: () => void
 }
 
 export default function PlayerConfigModal({
-    audioTracks: audio,
-    subtitleTracks: sub,
+  audioTracks: audio,
+  subtitleTracks: sub,
 
-    selectedAudio,
-    selectedSubtitle,
-    subEnabled,
+  selectedAudio,
+  selectedSubtitle,
+  subEnabled,
 
-    onClose,
-    changeAudioTrack,
-    selectSubtitleTrack,
-    disableAllSubtitles }: Props) {
+  onClose,
+  changeAudioTrack,
+  selectSubtitleTrack,
+  disableAllSubtitles,
+}: Props) {
+  const sortedAudio = audio
+    .map((track, index) => ({ track, originalIndex: index }))
+    .sort((a, b) => {
+      const getPriority = (lang: string) => {
+        const normalized = normalizeLanguage(lang).toLowerCase()
 
-    const sortedAudio = audio.map((track, index) => ({ track, originalIndex: index }))
-        .sort((a, b) => {
-            const getPriority = (lang: string) => {
-                const normalized = normalizeLanguage(lang).toLowerCase()
+        if (normalized.includes('portugu')) return 0
+        if (normalized.includes('english') || normalized.includes('ingl')) return 1
 
-                if (normalized.includes('portugu')) return 0
-                if (normalized.includes('english') || normalized.includes('ingl')) return 1
+        return 2
+      }
 
-                return 2
-            }
+      return getPriority(a.track.lang) - getPriority(b.track.lang)
+    })
+  return (
+    <section className={styles.container} onClick={onClose}>
+      <div className={styles.configContainer} onClick={(e) => e.stopPropagation()}>
+        <div className={styles.column}>
+          <div className={styles.title}>
+            <HiMiniSpeakerWave size={20} />
+            <span>Áudio</span>
+          </div>
 
-            return getPriority(a.track.lang) - getPriority(b.track.lang)
-        })
-    return (
-        <section
-            className={styles.container}
-            onClick={onClose}
-        >
-            <div
-                className={styles.configContainer}
-                onClick={(e) => e.stopPropagation()}
-            >
+          <div className={styles.list}>
+            {sortedAudio.map(({ track, originalIndex }) => (
+              <button
+                key={track.id}
+                className={`${styles.item} ${selectedAudio === originalIndex ? styles.active : ''}`}
+                onClick={() => changeAudioTrack(originalIndex)}
+              >
+                <span>{normalizeLanguage(track.lang)}</span>
 
-                <div className={styles.column}>
-                    <div className={styles.title}>
-                        <HiMiniSpeakerWave size={20} />
-                        <span>Áudio</span>
-                    </div>
+                {selectedAudio === originalIndex && <MdCheck size={20} />}
+              </button>
+            ))}
+          </div>
+        </div>
 
-                    <div className={styles.list}>
-                        {
-                            sortedAudio.map(({ track, originalIndex }) => (
-                                <button
-                                    key={track.id}
-                                    className={`${styles.item} ${selectedAudio === originalIndex ? styles.active : ''}`}
-                                    onClick={() => changeAudioTrack(originalIndex)}
-                                >
-                                    <span>
-                                        {normalizeLanguage(track.lang)}
-                                    </span>
-
-                                    {
-                                        selectedAudio === originalIndex && (
-                                            <MdCheck size={20} />
-                                        )
-                                    }
-                                </button>
-                            ))
-                        }
-                    </div>
-                </div>
-
-                <div className={styles.column}>
-                    <div className={styles.title}>
-                        <MdSubtitles size={20} />
-                        {
-                            /*subEnabled
+        <div className={styles.column}>
+          <div className={styles.title}>
+            <MdSubtitles size={20} />
+            {/*subEnabled
                                 ? <MdSubtitles size={20} />
-                                : <MdSubtitlesOff size={20} />*/
-                        }
+                                : <MdSubtitlesOff size={20} />*/}
 
-                        <span>Legendas</span>
-                    </div>
+            <span>Legendas</span>
+          </div>
 
-                    <div className={styles.list}>
+          <div className={styles.list}>
+            <button
+              className={`${styles.item} ${selectedSubtitle === null ? styles.active : ''}`}
+              onClick={() => selectSubtitleTrack(null)}
+            >
+              <span>Desativadas</span>
 
-                        <button
-                            className={`${styles.item} ${selectedSubtitle === null ? styles.active : ''}`}
-                            onClick={() => selectSubtitleTrack(null)}
-                        >
-                            <span>Desativadas</span>
+              {selectedSubtitle === null && <MdCheck size={20} />}
+            </button>
 
-                            {
-                                selectedSubtitle === null && (
-                                    <MdCheck size={20} />
-                                )
-                            }
-                        </button>
+            {sub.map((track) => (
+              <button
+                key={track.id}
+                className={`${styles.item} ${selectedSubtitle === track.id ? styles.active : ''}`}
+                onClick={() => selectSubtitleTrack(track.id)}
+              >
+                <span>
+                  {normalizeLanguage(track.language)}
+                  {' • '}
+                  {normalizeLanguage(track.type)}
+                </span>
 
-                        {
-                            sub.map((track) => (
-                                <button
-                                    key={track.id}
-                                    className={`${styles.item} ${selectedSubtitle === track.id ? styles.active : ''}`}
-                                    onClick={() => selectSubtitleTrack(track.id)}
-                                >
-                                    <span>
-                                        {normalizeLanguage(track.language)}
-                                        {' • '}
-                                        {normalizeLanguage(track.type)}
-                                    </span>
-
-                                    {
-                                        selectedSubtitle === track.id && (
-                                            <MdCheck size={20} />
-                                        )
-                                    }
-                                </button>
-                            ))
-                        }
-                    </div>
-                </div>
-
-            </div>
-        </section>
-    )
+                {selectedSubtitle === track.id && <MdCheck size={20} />}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
 }

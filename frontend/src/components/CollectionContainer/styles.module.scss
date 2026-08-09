@@ -1,85 +1,81 @@
 .content_area {
-    width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+
+  .content_title {
+    font-family: var(--font-bebas);
+    font-size: 35px;
+    letter-spacing: 5px;
+    padding-left: 40px;
+  }
+
+  .card_carousel {
     display: flex;
-    flex-direction: column;
-    margin-bottom: 40px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    //height: 610px;
+    margin: 25px 0;
+    transition: all 0.5s;
+    position: relative;
+    gap: 5px;
 
-    .content_title {
-        font-family: var(--font-bebas);
-        font-size: 35px;
-        letter-spacing: 5px;
-        padding-left: 40px;
+    .cardContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      //background-color: red;
+      width: 100%;
     }
 
-    .card_carousel {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        //height: 610px;
-        margin: 25px 0;
-        transition: all .5s;
-        position: relative;
-        gap: 5px;
+    button {
+      background-color: transparent;
+      border: none;
+      padding: 8px 16px;
+      cursor: pointer;
 
-        .cardContainer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 5px;
-            //background-color: red;
-            width: 100%;
+      &:disabled {
+        background-color: transparent;
+        cursor: not-allowed;
+
+        &:hover {
+          background-color: transparent;
         }
-
-        button {
-            background-color: transparent;
-            border: none;
-            padding: 8px 16px;
-            cursor: pointer;
-
-
-            &:disabled {
-                background-color: transparent;
-                cursor: not-allowed;
-
-                &:hover {
-                    background-color: transparent;
-                }
-            }
-        }
-
-        .beforeButton {
-            position: absolute;
-            top: 0;
-            right: 99%;
-            color: white;
-            height: 600px;
-            margin: 0 0.4rem;
-            transition: all 0.2s;
-
-            &:hover {
-                background-color: #c0c0c0;
-                color: #000;
-            }
-        }
-
-        .nextButton {
-            position: absolute;
-            color: white;
-            top: 0;
-            left: 99%;
-            border-radius: 4px;
-            height: 600px;
-            margin: 0 0.2rem;
-            transition: all 0.2s;
-
-
-            &:hover {
-                background-color: #c0c0c0;
-                color: #000;
-            }
-        }
-
-
+      }
     }
+
+    .beforeButton {
+      position: absolute;
+      top: 0;
+      right: 99%;
+      color: white;
+      height: 600px;
+      margin: 0 0.4rem;
+      transition: all 0.2s;
+
+      &:hover {
+        background-color: #c0c0c0;
+        color: #000;
+      }
+    }
+
+    .nextButton {
+      position: absolute;
+      color: white;
+      top: 0;
+      left: 99%;
+      border-radius: 4px;
+      height: 600px;
+      margin: 0 0.2rem;
+      transition: all 0.2s;
+
+      &:hover {
+        background-color: #c0c0c0;
+        color: #000;
+      }
+    }
+  }
 }

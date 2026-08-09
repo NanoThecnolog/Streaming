@@ -1,553 +1,536 @@
 //import { cards } from "@/data/cards"
 //import { series } from "@/data/series"
-import { mongoService } from "@/classes/MongoContent"
-import { FAQ } from "@/pages/faq"
-import { formatPrice } from "./UtilitiesFunctions"
-import { IconType } from "react-icons/lib"
-import { FaCcDinersClub, FaCcMastercard, FaCcVisa } from "react-icons/fa"
-import { SiAmericanexpress } from "react-icons/si"
-import { CheckoutStep, PaymentMethod } from "@/pages/payment"
-import { CheckoutTrackStep } from "@/@types/checkoutEvents/types"
+import { mongoService } from '@/classes/MongoContent'
+import { FAQ } from '@/pages/faq'
+import { formatPrice } from './UtilitiesFunctions'
+import { IconType } from 'react-icons/lib'
+import { FaCcDinersClub, FaCcMastercard, FaCcVisa } from 'react-icons/fa'
+import { SiAmericanexpress } from 'react-icons/si'
+import { CheckoutStep, PaymentMethod } from '@/pages/payment'
+import { CheckoutTrackStep } from '@/@types/checkoutEvents/types'
 
 export const cookieOptions = {
-    maxAge: 15 * 24 * 60 * 60 * 1000,
-    path: '/',
+  maxAge: 15 * 24 * 60 * 60 * 1000,
+  path: '/',
 }
 export const avatares = [
-    "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP.rNB7dRXNr_bc-QBtmKKSOQAAAA%3Fcb%3Ducfimg2%26pid%3DApi%26ucfimg%3D1&f=1&ipt=1be26557538abe169ec2a999323ac52962edfc4bad0a275ea162700699f935d9&ipo=images",
-    "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP._1uY1oOBX100k4M7dawzCgAAAA%3Fcb%3Ducfimg2%26pid%3DApi%26ucfimg%3D1&f=1&ipt=934100d98edfc9fa6eec360c8e41ea29bf290334ead64c5116974c69cf31610e&ipo=images",
-    "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP.x7P2AOw64cuakMxtkamYGgAAAA%3Fcb%3Ducfimg2%26pid%3DApi%26ucfimg%3D1&f=1&ipt=45e3eba9c95c30bdfa633a3c53d1ec392a96ece1b9f796b37395257e8032b868&ipo=images",
-    "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.tJyI68Iw7tzLR6W2EtlfrwAAAA%3Fcb%3Ducfimg2%26pid%3DApi%26ucfimg%3D1&f=1&ipt=b5f5e921f89024cb1e4ae15b12ef14999aa1692307278315d69f5e0b5c5c0c04&ipo=images",
-    "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.zqNHr_Wa5RXQ_mwlw2gLJwHaHi%3Fcb%3Ducfimg2%26pid%3DApi%26ucfimg%3D1&f=1&ipt=630b31e820384bd6f8648b983cf93a01611193e18c5d2fe6b8048f8fda1937d2&ipo=images",
-    "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.woueb.net%2Fimages%2Fmanga%2Fromain-manga.jpg&f=1&nofb=1&ipt=44ff213852ef9a7bbcf72a0c9e624c3e2a880f7e2c5852e751ff6a047b5d561e&ipo=images",
-    "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F4.bp.blogspot.com%2F-ik64bZYvKVs%2FTqmIccMI0gI%2FAAAAAAAAAgk%2FKhs8LaJTzPg%2Fs1600%2Favatar3.PNG&f=1&nofb=1&ipt=bdf3f948941d1dcc7ff7df54560175d3a814fe3f015e2fcfdfcca9ec8cb08888&ipo=images",
-    "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F94%2Ff6%2Fa6%2F94f6a63dd9704cae40c3675fe8e7409f.png&f=1&nofb=1&ipt=0d9db133e6d1e4636668e15cc5f409567d72cf9d7099647434e9fe9f582198e7&ipo=images",
-    "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F4.bp.blogspot.com%2F_X0x5Kbc6cU4%2FSD62SRkO0mI%2FAAAAAAAAAHM%2FWMKHvjyRlzU%2Fs200%2Fmetalozaru%2540gmail.com_20080529_75244834.jpg&f=1&nofb=1&ipt=ee67735d2f8e8e471fd3e5c6cff4ec4abbbf39701762e9d6ac216c99c1b46430&ipo=images",
-    "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.giardiniblog.it%2Fwp-content%2Fuploads%2F2009%2F02%2Fmangavatar.jpg&f=1&nofb=1&ipt=c75632be0173882a8ecf16fd1985f61c7b33c55adf3c39b89d4b50947fd6e879&ipo=images",
-    "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F4.bp.blogspot.com%2F-3sSGU0Zkaqs%2FTenH0sC3YZI%2FAAAAAAAAAFg%2FK-NBKWorVXE%2Fs1600%2FAVATAR%2BSILVIA.jpg&f=1&nofb=1&ipt=0c92d97c1a82b264fbd78ef56dc567541e95c5d8e3e6b089c82cd6ebe8830b7e&ipo=images",
-    "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthypix.com%2Fwp-content%2Fuploads%2F2021%2F10%2Fmanga-profile-picture-92-150x150.jpg&f=1&nofb=1&ipt=f23e792a0b68556d2a391bb33d9e80fa7dc8297aa087d42c89e7ce139f7acd8e&ipo=images",
-    "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.polymerclaydaily.com%2Fimages%2Ftinapple_manga.jpg&f=1&nofb=1&ipt=c269e6060e950e008a2c0e2631ed18779fc93f95efab9092debd744757ae8907&ipo=images",
-    "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F002%2F275%2F847%2Foriginal%2Fmale-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg&f=1&nofb=1&ipt=6e0ae00a4e223ccdf20fd5deae051af89d4a4e9b1002e1ff36d6e1345a4674ea&ipo=images",
-    "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fdf%2F5f%2F5b%2Fdf5f5b1b174a2b4b6026cc6c8f9395c1.jpg&f=1&nofb=1&ipt=005ecb7710f06341543ada561e1d3b0ddec5f32f967be43547ed3f735127f5d4&ipo=images",
-    "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F8a%2F55%2F99%2F8a5599792c0d7b0a02377b97fafe76a9.jpg&f=1&nofb=1&ipt=2c8805c79cab54dbdcf4399dc01a9b9841c8741e9f0b40ee273373949daf6cfb&ipo=images",
-    "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fe3%2F63%2F16%2Fe36316cfd05ca21e44d8fabcf1a192be.jpg&f=1&nofb=1&ipt=09ccaab8cadd62e6e5b1045246049efcd0dd87b55744e33453b3e27cddf8f1a9&ipo=images",
-    "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fopenclipart.org%2Fimage%2F800px%2F313668&f=1&nofb=1&ipt=5669ff93e5d8b8aa18a3f36cad75a2110fc0875775e36df75800a3734514b377&ipo=images",
-    "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F12%2Fc9%2Fd8%2F12c9d84f6be4493161938ce036f54fcc.jpg&f=1&nofb=1&ipt=44a514170a249169bfc036fe63d0a6808447ce5b7776507423367b83db6f006a&ipo=images",
-    "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn2.iconfinder.com%2Fdata%2Ficons%2Fteen-people-face-avatar-1%2F500%2Fhigh_99-1024.png&f=1&nofb=1&ipt=de39bc34c9a6dd311f9de6063c677b0e54b5b35f1cc771658380e0164832045b&ipo=images",
-    "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F019%2F494%2F963%2Fnon_2x%2Fman-boy-avatar-user-person-people-curly-hair-black-colored-outline-style-vector.jpg&f=1&nofb=1&ipt=7bba4bf362237dae90fe104070b7789adf4f51a16313b84c53e6ee94c2269c06&ipo=images",
-    "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fd0%2F6b%2F43%2Fd06b43ef4fc9ed6d78ac7a925923b303.jpg&f=1&nofb=1&ipt=0d226e44feaa2d58f84ed2d37d01244f226b56cf4d9ee5d1953961db640fbe3d&ipo=images",
+  'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP.rNB7dRXNr_bc-QBtmKKSOQAAAA%3Fcb%3Ducfimg2%26pid%3DApi%26ucfimg%3D1&f=1&ipt=1be26557538abe169ec2a999323ac52962edfc4bad0a275ea162700699f935d9&ipo=images',
+  'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP._1uY1oOBX100k4M7dawzCgAAAA%3Fcb%3Ducfimg2%26pid%3DApi%26ucfimg%3D1&f=1&ipt=934100d98edfc9fa6eec360c8e41ea29bf290334ead64c5116974c69cf31610e&ipo=images',
+  'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP.x7P2AOw64cuakMxtkamYGgAAAA%3Fcb%3Ducfimg2%26pid%3DApi%26ucfimg%3D1&f=1&ipt=45e3eba9c95c30bdfa633a3c53d1ec392a96ece1b9f796b37395257e8032b868&ipo=images',
+  'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.tJyI68Iw7tzLR6W2EtlfrwAAAA%3Fcb%3Ducfimg2%26pid%3DApi%26ucfimg%3D1&f=1&ipt=b5f5e921f89024cb1e4ae15b12ef14999aa1692307278315d69f5e0b5c5c0c04&ipo=images',
+  'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.zqNHr_Wa5RXQ_mwlw2gLJwHaHi%3Fcb%3Ducfimg2%26pid%3DApi%26ucfimg%3D1&f=1&ipt=630b31e820384bd6f8648b983cf93a01611193e18c5d2fe6b8048f8fda1937d2&ipo=images',
+  'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.woueb.net%2Fimages%2Fmanga%2Fromain-manga.jpg&f=1&nofb=1&ipt=44ff213852ef9a7bbcf72a0c9e624c3e2a880f7e2c5852e751ff6a047b5d561e&ipo=images',
+  'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F4.bp.blogspot.com%2F-ik64bZYvKVs%2FTqmIccMI0gI%2FAAAAAAAAAgk%2FKhs8LaJTzPg%2Fs1600%2Favatar3.PNG&f=1&nofb=1&ipt=bdf3f948941d1dcc7ff7df54560175d3a814fe3f015e2fcfdfcca9ec8cb08888&ipo=images',
+  'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F94%2Ff6%2Fa6%2F94f6a63dd9704cae40c3675fe8e7409f.png&f=1&nofb=1&ipt=0d9db133e6d1e4636668e15cc5f409567d72cf9d7099647434e9fe9f582198e7&ipo=images',
+  'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F4.bp.blogspot.com%2F_X0x5Kbc6cU4%2FSD62SRkO0mI%2FAAAAAAAAAHM%2FWMKHvjyRlzU%2Fs200%2Fmetalozaru%2540gmail.com_20080529_75244834.jpg&f=1&nofb=1&ipt=ee67735d2f8e8e471fd3e5c6cff4ec4abbbf39701762e9d6ac216c99c1b46430&ipo=images',
+  'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.giardiniblog.it%2Fwp-content%2Fuploads%2F2009%2F02%2Fmangavatar.jpg&f=1&nofb=1&ipt=c75632be0173882a8ecf16fd1985f61c7b33c55adf3c39b89d4b50947fd6e879&ipo=images',
+  'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F4.bp.blogspot.com%2F-3sSGU0Zkaqs%2FTenH0sC3YZI%2FAAAAAAAAAFg%2FK-NBKWorVXE%2Fs1600%2FAVATAR%2BSILVIA.jpg&f=1&nofb=1&ipt=0c92d97c1a82b264fbd78ef56dc567541e95c5d8e3e6b089c82cd6ebe8830b7e&ipo=images',
+  'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthypix.com%2Fwp-content%2Fuploads%2F2021%2F10%2Fmanga-profile-picture-92-150x150.jpg&f=1&nofb=1&ipt=f23e792a0b68556d2a391bb33d9e80fa7dc8297aa087d42c89e7ce139f7acd8e&ipo=images',
+  'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.polymerclaydaily.com%2Fimages%2Ftinapple_manga.jpg&f=1&nofb=1&ipt=c269e6060e950e008a2c0e2631ed18779fc93f95efab9092debd744757ae8907&ipo=images',
+  'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F002%2F275%2F847%2Foriginal%2Fmale-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg&f=1&nofb=1&ipt=6e0ae00a4e223ccdf20fd5deae051af89d4a4e9b1002e1ff36d6e1345a4674ea&ipo=images',
+  'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fdf%2F5f%2F5b%2Fdf5f5b1b174a2b4b6026cc6c8f9395c1.jpg&f=1&nofb=1&ipt=005ecb7710f06341543ada561e1d3b0ddec5f32f967be43547ed3f735127f5d4&ipo=images',
+  'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F8a%2F55%2F99%2F8a5599792c0d7b0a02377b97fafe76a9.jpg&f=1&nofb=1&ipt=2c8805c79cab54dbdcf4399dc01a9b9841c8741e9f0b40ee273373949daf6cfb&ipo=images',
+  'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fe3%2F63%2F16%2Fe36316cfd05ca21e44d8fabcf1a192be.jpg&f=1&nofb=1&ipt=09ccaab8cadd62e6e5b1045246049efcd0dd87b55744e33453b3e27cddf8f1a9&ipo=images',
+  'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fopenclipart.org%2Fimage%2F800px%2F313668&f=1&nofb=1&ipt=5669ff93e5d8b8aa18a3f36cad75a2110fc0875775e36df75800a3734514b377&ipo=images',
+  'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F12%2Fc9%2Fd8%2F12c9d84f6be4493161938ce036f54fcc.jpg&f=1&nofb=1&ipt=44a514170a249169bfc036fe63d0a6808447ce5b7776507423367b83db6f006a&ipo=images',
+  'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn2.iconfinder.com%2Fdata%2Ficons%2Fteen-people-face-avatar-1%2F500%2Fhigh_99-1024.png&f=1&nofb=1&ipt=de39bc34c9a6dd311f9de6063c677b0e54b5b35f1cc771658380e0164832045b&ipo=images',
+  'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F019%2F494%2F963%2Fnon_2x%2Fman-boy-avatar-user-person-people-curly-hair-black-colored-outline-style-vector.jpg&f=1&nofb=1&ipt=7bba4bf362237dae90fe104070b7789adf4f51a16313b84c53e6ee94c2269c06&ipo=images',
+  'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fd0%2F6b%2F43%2Fd06b43ef4fc9ed6d78ac7a925923b303.jpg&f=1&nofb=1&ipt=0d226e44feaa2d58f84ed2d37d01244f226b56cf4d9ee5d1953961db640fbe3d&ipo=images',
 ]
 /**
  * config do fuse
  */
 export const fuseConfig = async () => {
-    const [movies, series] = await Promise.all([
-        mongoService.fetchMovieData(),
-        mongoService.fetchSerieData()
-    ])
-    return {
-        dados: [...movies, ...series],
-        chaves: ["title", "subtitle"],
-        taxa: 0.3
-    }
+  const [movies, series] = await Promise.all([
+    mongoService.fetchMovieData(),
+    mongoService.fetchSerieData(),
+  ])
+  return {
+    dados: [...movies, ...series],
+    chaves: ['title', 'subtitle'],
+    taxa: 0.3,
+  }
 }
 
 export const planValues = {
-    mensal: 1099,
-    trimestral: 3132,
-    semestral: 6132,
-    anual: 11869,
+  mensal: 1099,
+  trimestral: 3132,
+  semestral: 6132,
+  anual: 11869,
 }
 
 export const trendingBreakpoints = [
-    { width: 560, cards: 2 },
-    { width: 780, cards: 3 },
-    { width: 915, cards: 4 },
-    { width: 1160, cards: 5 },
-    { width: 1500, cards: 6 },
-    { width: 1855, cards: 7 },
-    { width: Infinity, cards: 8 },
+  { width: 560, cards: 2 },
+  { width: 780, cards: 3 },
+  { width: 915, cards: 4 },
+  { width: 1160, cards: 5 },
+  { width: 1500, cards: 6 },
+  { width: 1855, cards: 7 },
+  { width: Infinity, cards: 8 },
 ]
 
 export const breakpoints = [
-    { width: 560, cards: 3 },
-    { width: 780, cards: 3 },
-    { width: 915, cards: 4 },
-    { width: 1160, cards: 5 },
-    { width: 1500, cards: 6 },
-    { width: 1855, cards: 7 },
-    { width: Infinity, cards: 8 },
+  { width: 560, cards: 3 },
+  { width: 780, cards: 3 },
+  { width: 915, cards: 4 },
+  { width: 1160, cards: 5 },
+  { width: 1500, cards: 6 },
+  { width: 1855, cards: 7 },
+  { width: Infinity, cards: 8 },
 ]
 export const backdropBreakPoints = [
-    { width: 560, cards: 1 },
-    { width: 780, cards: 2 },
-    { width: 915, cards: 3 },
-    { width: 1160, cards: 4 },
-    { width: 1500, cards: 4 },
-    { width: 1855, cards: 4 },
-    { width: Infinity, cards: 4 },
+  { width: 560, cards: 1 },
+  { width: 780, cards: 2 },
+  { width: 915, cards: 3 },
+  { width: 1160, cards: 4 },
+  { width: 1500, cards: 4 },
+  { width: 1855, cards: 4 },
+  { width: Infinity, cards: 4 },
 ]
 
-
 export const text = [
-    "Carregando filmes",
-    "Sincronizando som e imagem",
-    "Ajustando qualidade",
-    "Gerando lista de episódios das séries",
-    "Lutando contra monstros",
-    "Expansão de domínio, Fukuma Mizushi",
-    "Expansão de domínio, Moryo Kusho",
-    "Elevação pélvica",
-    "Extraindo romances",
-    "Preparando filmes de ação com Jason Statham",
-    "Ficando com medo dos filmes de terror",
-    "Chorando com o Jack na água Tinha espaço Rose, tinha espaço",
-    "Rindo com As Branquelas",
-    "Fingindo ser John Wick",
-    "Correndo pelo labirinto",
-    "Procurando o Nemo também",
-    "Ameaça no Ar, que filme ruim",
-    "Aprendendo a sobreviver ao apocalipse zumbie",
-    "Dumbledore tinha segredos",
-    "SHAZAM!!!",
-    "BANKAI!",
-    "Esperando o L encontrar as pistas",
-    "Consultando o Oráculo",
-    "Carrie era muito estranha",
-    "Buscando wallpapers",
-    "Carregando muitos arquivos",
-    'Como o "Bodycount" da Jane era 312?',
-    "Procurando filmes com a Ana de Armas",
-    "Chamando o Alfred",
-    "Tem um filme do Plankton agora?",
-    "Procurando filmes baseados em livros",
-    "Matrix é o melhor filme de ficção científica e só minha opinião importa",
-    "Ficando impressionado com os filmes do Jason Statham",
-    "Fingindo não gostar de comédia romântica",
-    "Pedindo para esquecer Uma Sombra na Nuvem",
-    "Torcendo pelo Frodo",
-    "Escrevendo no Death Note",
-    "Crepúsculo é ruim",
-    "Ajustando o capacitor de fluxo",
-    "Voltando para 1985",
-    "Chamando os Ghostbusters",
-    "Não cruze os feixes",
-    "Preparando a armadilha de fantasmas",
-    "Sobrevivendo aos Jogos Vorazes",
-    "Tentando resolver um puzzle sem olhar o tutorial",
-    "Distribuindo pontos de habilidade",
-    "Patrulhando Gotham",
-    "Entrando em dobra espacial",
-    "Escaneando formas de vida",
-    "Transportando a tripulação",
-    "Desviando das balas",
-    "Derretendo um T-1000",
-    "Coletando insígnias",
-    "DC é melhor que Marvel",
-    "Esperando o Ash finalmente envelhecer",
-    "Escolhendo o Pokémon inicial",
-    "Procurando séries baseadas em livros",
-    "Instalando legendas",
-    "Carregando informações do TMDB",
-    "Excedendo limites com Bradley Cooper",
-    "Encarando as bochechas do Ben Affleck como Batman",
-    "Robert Pattison ficou bom como Batman e ninguém pode negar",
-    "Que a força esteja com o carregamento",
-    "Estalando os dedos como o Thanos",
-    "Tocando a abertura de Game of Thrones mentalmente",
-    "Preparando o traje do Homem de Ferro",
-    "Dizendo 'eu sou seu pai' fora de contexto",
-    "Entrando no mundo invertido",
-    "Carregando mais rápido que o Flash (ou tentando)",
-    "Convocando os Vingadores",
-    "Fazendo parkour como em Assassins Creed",
-    "Aguardando o inverno que está chegando",
-    "Invocando um dragão só pra acelerar",
-    "Indo para Hogwarts, plataforma 9¾",
-    "Sobrevivendo sem tomar uma flechada no joelho",
-    "Entrando na sala do trono",
-    "Dizendo 'isso é cinema' mentalmente",
-    "Rodando o dado crítico",
-    "Escolhendo a casa errada em Hogwarts",
-    "Tentando não morrer na primeira temporada",
-    "Carregando mais episódios automaticamente",
-    "Preparando o discurso final do vilão",
-    "Ativando modo maratona",
-    "Esperando a cena pós-créditos",
-    "Carregando mais rápido que um Toretto falando de família",
-    "Testando se isso é real ou um sonho dentro de um sonho",
-    "Entrando na cápsula antes que o titã acorde",
-    "Sobrevivendo mais 5 minutos sem o Saul Goodman",
-    "Rodando o portal errado de propósito",
-    "Ligando o sabre de luz dramaticamente",
-    "Evitando spoilers como se fossem zumbis",
-    "Ignorando o chamado do herói",
-    "Tentando não morrer no episódio piloto",
-    "Preparando o discurso motivacional antes da batalha final",
-    "Correndo do T-Rex com salto alto",
-    "Esperando o CGI terminar de renderizar",
-    "Entrando no ônibus errado em velocidade máxima",
-    "Tentando não piscar agora",
-    "Fazendo pose de herói antes do impacto",
-    "Checando se o vilão morreu mesmo",
-    "Sobrevivendo ao plano que sempre dá errado",
-    "Repetindo a mesma missão até dar certo",
-    "Ativando o modo 'isso vai dar ruim'",
-    "Carregando como se fosse temporada final",
-    "Esperando a reviravolta no último minuto",
-    "Fingindo que entendeu o final",
-    "Tentando não quebrar a quarta parede",
-    "Ignorando completamente as leis da física",
-    "Esperando alguém gritar ‘é agora!’",
-    "Confiando num plano que não foi explicado",
-    "Seja um apoiador! Mantenha esse projeto vivo",
-    "É sério, o dinheiro ta acabando, preciso de apoiadores",
-    "Vamos lá! Escolha seu plano",
-    "Seja um apoiador. Siga o coelho branco",
-    "Esperando Aquele que Permanece aparecer",
-    "Atravessando o multiverso",
-    "Abrindo um portal interdimensional",
-    "Sincronizando linhas do tempo",
-    "Chamando o Doutor Estranho",
-    "Compilando teorias de fãs",
-    "Esperando o episódio da praia",
-    "Reunindo as Esferas do Dragão",
-    "Esperando o chefe revelar a segunda forma",
-    "Preparando o chefão final",
-    "Farmando XP",
-    "Conseguindo loot raro",
-    "Calculando dano crítico",
-    "Recarregando mana",
-    "Preparando a poção de cura",
-    "Treinando o protagonista antes do torneio",
-    "Carregando poder do protagonismo",
-    "Esperando o discurso sobre amizade",
-    "Destravando um flashback importante",
-    "Esperando a abertura terminar",
-    "Pulando a abertura... ou não",
-    "Preparando o próximo arco",
-    "Sincronizando a cena pós-créditos",
-    "Escondendo spoilers",
-    "Calculando teorias para o próximo episódio",
-    "Preparando a próxima temporada",
-    "Esperando a renovação da série",
-    "Fingindo que o final foi planejado desde o início",
-    "Carregando nostalgia",
-    "Rebobinando a fita VHS",
-    "Esperando a cortina abrir",
-    "Luzes, câmera... carregando",
-    "Aguardando o diretor dizer 'ação!'",
-    "Preparando a claquete",
-    "Renderizando explosões desnecessárias",
-    "Verificando se o cachorro sobrevive",
-    "Confirmando que ninguém ficou preso no mundo invertido",
-    "Descobrindo quem realmente é o vilão",
-    "Esperando o alívio cômico aparecer",
-    "Fazendo suspense desnecessário",
-    "Preparando a trilha sonora épica",
-    "Esperando o protagonista acordar",
-    "Consertando um paradoxo temporal",
-    "Sincronizando legendas em 0,001 segundo",
-    "Remasterizando mentalmente em 4K",
-    "Buscando aquela série que você esqueceu o nome",
-    "Recomendando 'só mais um episódio'",
-    "Carregando pipoca virtual",
-    "Escolhendo o melhor lugar no sofá",
-    "Silenciando quem fala durante o filme",
-    "Diminuindo as luzes da sala",
+  'Carregando filmes',
+  'Sincronizando som e imagem',
+  'Ajustando qualidade',
+  'Gerando lista de episódios das séries',
+  'Lutando contra monstros',
+  'Expansão de domínio, Fukuma Mizushi',
+  'Expansão de domínio, Moryo Kusho',
+  'Elevação pélvica',
+  'Extraindo romances',
+  'Preparando filmes de ação com Jason Statham',
+  'Ficando com medo dos filmes de terror',
+  'Chorando com o Jack na água Tinha espaço Rose, tinha espaço',
+  'Rindo com As Branquelas',
+  'Fingindo ser John Wick',
+  'Correndo pelo labirinto',
+  'Procurando o Nemo também',
+  'Ameaça no Ar, que filme ruim',
+  'Aprendendo a sobreviver ao apocalipse zumbie',
+  'Dumbledore tinha segredos',
+  'SHAZAM!!!',
+  'BANKAI!',
+  'Esperando o L encontrar as pistas',
+  'Consultando o Oráculo',
+  'Carrie era muito estranha',
+  'Buscando wallpapers',
+  'Carregando muitos arquivos',
+  'Como o "Bodycount" da Jane era 312?',
+  'Procurando filmes com a Ana de Armas',
+  'Chamando o Alfred',
+  'Tem um filme do Plankton agora?',
+  'Procurando filmes baseados em livros',
+  'Matrix é o melhor filme de ficção científica e só minha opinião importa',
+  'Ficando impressionado com os filmes do Jason Statham',
+  'Fingindo não gostar de comédia romântica',
+  'Pedindo para esquecer Uma Sombra na Nuvem',
+  'Torcendo pelo Frodo',
+  'Escrevendo no Death Note',
+  'Crepúsculo é ruim',
+  'Ajustando o capacitor de fluxo',
+  'Voltando para 1985',
+  'Chamando os Ghostbusters',
+  'Não cruze os feixes',
+  'Preparando a armadilha de fantasmas',
+  'Sobrevivendo aos Jogos Vorazes',
+  'Tentando resolver um puzzle sem olhar o tutorial',
+  'Distribuindo pontos de habilidade',
+  'Patrulhando Gotham',
+  'Entrando em dobra espacial',
+  'Escaneando formas de vida',
+  'Transportando a tripulação',
+  'Desviando das balas',
+  'Derretendo um T-1000',
+  'Coletando insígnias',
+  'DC é melhor que Marvel',
+  'Esperando o Ash finalmente envelhecer',
+  'Escolhendo o Pokémon inicial',
+  'Procurando séries baseadas em livros',
+  'Instalando legendas',
+  'Carregando informações do TMDB',
+  'Excedendo limites com Bradley Cooper',
+  'Encarando as bochechas do Ben Affleck como Batman',
+  'Robert Pattison ficou bom como Batman e ninguém pode negar',
+  'Que a força esteja com o carregamento',
+  'Estalando os dedos como o Thanos',
+  'Tocando a abertura de Game of Thrones mentalmente',
+  'Preparando o traje do Homem de Ferro',
+  "Dizendo 'eu sou seu pai' fora de contexto",
+  'Entrando no mundo invertido',
+  'Carregando mais rápido que o Flash (ou tentando)',
+  'Convocando os Vingadores',
+  'Fazendo parkour como em Assassins Creed',
+  'Aguardando o inverno que está chegando',
+  'Invocando um dragão só pra acelerar',
+  'Indo para Hogwarts, plataforma 9¾',
+  'Sobrevivendo sem tomar uma flechada no joelho',
+  'Entrando na sala do trono',
+  "Dizendo 'isso é cinema' mentalmente",
+  'Rodando o dado crítico',
+  'Escolhendo a casa errada em Hogwarts',
+  'Tentando não morrer na primeira temporada',
+  'Carregando mais episódios automaticamente',
+  'Preparando o discurso final do vilão',
+  'Ativando modo maratona',
+  'Esperando a cena pós-créditos',
+  'Carregando mais rápido que um Toretto falando de família',
+  'Testando se isso é real ou um sonho dentro de um sonho',
+  'Entrando na cápsula antes que o titã acorde',
+  'Sobrevivendo mais 5 minutos sem o Saul Goodman',
+  'Rodando o portal errado de propósito',
+  'Ligando o sabre de luz dramaticamente',
+  'Evitando spoilers como se fossem zumbis',
+  'Ignorando o chamado do herói',
+  'Tentando não morrer no episódio piloto',
+  'Preparando o discurso motivacional antes da batalha final',
+  'Correndo do T-Rex com salto alto',
+  'Esperando o CGI terminar de renderizar',
+  'Entrando no ônibus errado em velocidade máxima',
+  'Tentando não piscar agora',
+  'Fazendo pose de herói antes do impacto',
+  'Checando se o vilão morreu mesmo',
+  'Sobrevivendo ao plano que sempre dá errado',
+  'Repetindo a mesma missão até dar certo',
+  "Ativando o modo 'isso vai dar ruim'",
+  'Carregando como se fosse temporada final',
+  'Esperando a reviravolta no último minuto',
+  'Fingindo que entendeu o final',
+  'Tentando não quebrar a quarta parede',
+  'Ignorando completamente as leis da física',
+  'Esperando alguém gritar ‘é agora!’',
+  'Confiando num plano que não foi explicado',
+  'Seja um apoiador! Mantenha esse projeto vivo',
+  'É sério, o dinheiro ta acabando, preciso de apoiadores',
+  'Vamos lá! Escolha seu plano',
+  'Seja um apoiador. Siga o coelho branco',
+  'Esperando Aquele que Permanece aparecer',
+  'Atravessando o multiverso',
+  'Abrindo um portal interdimensional',
+  'Sincronizando linhas do tempo',
+  'Chamando o Doutor Estranho',
+  'Compilando teorias de fãs',
+  'Esperando o episódio da praia',
+  'Reunindo as Esferas do Dragão',
+  'Esperando o chefe revelar a segunda forma',
+  'Preparando o chefão final',
+  'Farmando XP',
+  'Conseguindo loot raro',
+  'Calculando dano crítico',
+  'Recarregando mana',
+  'Preparando a poção de cura',
+  'Treinando o protagonista antes do torneio',
+  'Carregando poder do protagonismo',
+  'Esperando o discurso sobre amizade',
+  'Destravando um flashback importante',
+  'Esperando a abertura terminar',
+  'Pulando a abertura... ou não',
+  'Preparando o próximo arco',
+  'Sincronizando a cena pós-créditos',
+  'Escondendo spoilers',
+  'Calculando teorias para o próximo episódio',
+  'Preparando a próxima temporada',
+  'Esperando a renovação da série',
+  'Fingindo que o final foi planejado desde o início',
+  'Carregando nostalgia',
+  'Rebobinando a fita VHS',
+  'Esperando a cortina abrir',
+  'Luzes, câmera... carregando',
+  "Aguardando o diretor dizer 'ação!'",
+  'Preparando a claquete',
+  'Renderizando explosões desnecessárias',
+  'Verificando se o cachorro sobrevive',
+  'Confirmando que ninguém ficou preso no mundo invertido',
+  'Descobrindo quem realmente é o vilão',
+  'Esperando o alívio cômico aparecer',
+  'Fazendo suspense desnecessário',
+  'Preparando a trilha sonora épica',
+  'Esperando o protagonista acordar',
+  'Consertando um paradoxo temporal',
+  'Sincronizando legendas em 0,001 segundo',
+  'Remasterizando mentalmente em 4K',
+  'Buscando aquela série que você esqueceu o nome',
+  "Recomendando 'só mais um episódio'",
+  'Carregando pipoca virtual',
+  'Escolhendo o melhor lugar no sofá',
+  'Silenciando quem fala durante o filme',
+  'Diminuindo as luzes da sala',
 ]
 
 export const desconto: Record<string, number> = {
-    mensal: 0,
-    trimestral: 5,
-    semestral: 7,
-    anual: 10,
+  mensal: 0,
+  trimestral: 5,
+  semestral: 7,
+  anual: 10,
 }
 
 export const swiperBreakpoints = {
-    400: { slidesPerView: 2 },
-    568: { slidesPerView: 2 },
-    620: { slidesPerView: 3 },
-    830: { slidesPerView: 4 },
-    1024: { slidesPerView: 5 },
-    1250: { slidesPerView: 6 },
-    1440: { slidesPerView: 7 },
-    1650: { slidesPerView: 8 },
-    1810: { slidesPerView: 9 },
+  400: { slidesPerView: 2 },
+  568: { slidesPerView: 2 },
+  620: { slidesPerView: 3 },
+  830: { slidesPerView: 4 },
+  1024: { slidesPerView: 5 },
+  1250: { slidesPerView: 6 },
+  1440: { slidesPerView: 7 },
+  1650: { slidesPerView: 8 },
+  1810: { slidesPerView: 9 },
 }
 
 export const faq: FAQ[] = [
-    {
-        question: 'O que é o Projeto FlixNext?',
-        answer:
-            'A FlixNext nasceu como um projeto pessoal, criado inicialmente para amigos e familiares, com o objetivo de facilitar o acesso a filmes e séries difíceis de encontrar. <br/><br/>Com o crescimento inesperado da plataforma, o propósito evoluiu para algo maior: preservar e disponibilizar um acervo de obras raras, muitas delas fora dos catálogos dos streamings tradicionais, de forma organizada, segura e acessível. <br/><br/>A plataforma busca oferecer uma alternativa estável e segura, evitando que usuários precisem recorrer a sites maliciosos ou inseguros em busca desse tipo de conteúdo.'
-    },
-    {
-        question: 'Como faço para criar uma conta?',
-        answer:
-            'Para criar sua conta, basta realizar o cadastro na plataforma preenchendo seus dados básicos e utilizando um e-mail válido. <br/><br/>Após o cadastro, você receberá um e-mail com um link de ativação. Depois de ativar sua conta, é só fazer login e começar a explorar o catálogo.'
-    },
-    {
-        question: 'Por que preciso ativar minha conta?',
-        answer:
-            'A ativação por e-mail é uma medida de segurança. Ela garante que o endereço informado realmente pertence a você e ajuda a evitar o uso indevido de dados por terceiros.'
-    },
-    {
-        question: 'Fiz o pagamento e ativei minha conta, mas ainda não consigo assistir!',
-        answer: 'Tente realizar o login novamente. Saia da sua conta e faça o login com seu email e senha cadastrados, e tente novamente. Se o erro persistir, entre em contato conosco pelo email <a href="mailto:suporte@flixnext.com.br">suporte@flixnext.com.br</a>'
-    },
-    {
-        question: 'Não consigo assistir a um filme ou série. O que devo fazer?',
-        answer:
-            'Se você estiver enfrentando qualquer problema técnico, entre em contato conosco pelo e-mail <a href="mailto:suporte@flixnext.com.br">suporte@flixnext.com.br</a>. <br/><br/>O suporte funciona todos os dias e buscamos responder o mais rápido possível.'
-    },
-    {
-        question: 'De onde vêm os filmes e séries disponíveis na plataforma?',
-        answer:
-            'Os conteúdos são obtidos a partir de fontes externas e acervos digitais disponíveis publicamente. <br/><br/>Embora não sejamos os detentores dos arquivos originais, realizamos uma curadoria cuidadosa antes de disponibilizar qualquer conteúdo, priorizando qualidade, organização e segurança.'
-    },
-    {
-        question: 'Como funcionam as legendas?',
-        answer:
-            'Na maioria dos conteúdos legendados, as legendas já vêm ativadas automaticamente. <br/><br/>Em alguns casos específicos, é possível ativá-las manualmente nos controles do player. Se tiver dificuldades, nossa equipe de suporte pode ajudar.'
-    },
-    {
-        question: 'Posso sugerir filmes ou séries para o catálogo?',
-        answer:
-            'Sim! Com sua conta ativa, você pode solicitar novos títulos através do e-mail <a href="mailto:suporte@flixnext.com.br">suporte@flixnext.com.br</a>. Nos envie o nome e ano de lançamento da obra, para que possamos verificar a disponibilidade.'
-    },
-    {
-        question: 'A plataforma é paga?',
-        answer:
-            `Sim. O acesso à FlixNext é feito por meio de uma assinatura de valor simbólico, criada exclusivamente para cobrir custos de infraestrutura, armazenamento e manutenção do projeto. <br/><br/>Os planos começam a partir de <strong>${formatPrice(planValues.mensal)}</strong> e variam conforme o período escolhido (mensal, trimestral, semestral ou anual).`
-    },
-    {
-        question: 'Como posso ajudar o projeto?',
-        answer:
-            'Você pode contribuir enviando sugestões, feedbacks ou relatando problemas pelo e-mail <a href="mailto:contato@flixnext.com.br">contato@flixnext.com.br</a>. <br/><br/>A participação da comunidade é essencial para a evolução contínua da plataforma.'
-    }
+  {
+    question: 'O que é o Projeto FlixNext?',
+    answer:
+      'A FlixNext nasceu como um projeto pessoal, criado inicialmente para amigos e familiares, com o objetivo de facilitar o acesso a filmes e séries difíceis de encontrar. <br/><br/>Com o crescimento inesperado da plataforma, o propósito evoluiu para algo maior: preservar e disponibilizar um acervo de obras raras, muitas delas fora dos catálogos dos streamings tradicionais, de forma organizada, segura e acessível. <br/><br/>A plataforma busca oferecer uma alternativa estável e segura, evitando que usuários precisem recorrer a sites maliciosos ou inseguros em busca desse tipo de conteúdo.',
+  },
+  {
+    question: 'Como faço para criar uma conta?',
+    answer:
+      'Para criar sua conta, basta realizar o cadastro na plataforma preenchendo seus dados básicos e utilizando um e-mail válido. <br/><br/>Após o cadastro, você receberá um e-mail com um link de ativação. Depois de ativar sua conta, é só fazer login e começar a explorar o catálogo.',
+  },
+  {
+    question: 'Por que preciso ativar minha conta?',
+    answer:
+      'A ativação por e-mail é uma medida de segurança. Ela garante que o endereço informado realmente pertence a você e ajuda a evitar o uso indevido de dados por terceiros.',
+  },
+  {
+    question: 'Fiz o pagamento e ativei minha conta, mas ainda não consigo assistir!',
+    answer:
+      'Tente realizar o login novamente. Saia da sua conta e faça o login com seu email e senha cadastrados, e tente novamente. Se o erro persistir, entre em contato conosco pelo email <a href="mailto:suporte@flixnext.com.br">suporte@flixnext.com.br</a>',
+  },
+  {
+    question: 'Não consigo assistir a um filme ou série. O que devo fazer?',
+    answer:
+      'Se você estiver enfrentando qualquer problema técnico, entre em contato conosco pelo e-mail <a href="mailto:suporte@flixnext.com.br">suporte@flixnext.com.br</a>. <br/><br/>O suporte funciona todos os dias e buscamos responder o mais rápido possível.',
+  },
+  {
+    question: 'De onde vêm os filmes e séries disponíveis na plataforma?',
+    answer:
+      'Os conteúdos são obtidos a partir de fontes externas e acervos digitais disponíveis publicamente. <br/><br/>Embora não sejamos os detentores dos arquivos originais, realizamos uma curadoria cuidadosa antes de disponibilizar qualquer conteúdo, priorizando qualidade, organização e segurança.',
+  },
+  {
+    question: 'Como funcionam as legendas?',
+    answer:
+      'Na maioria dos conteúdos legendados, as legendas já vêm ativadas automaticamente. <br/><br/>Em alguns casos específicos, é possível ativá-las manualmente nos controles do player. Se tiver dificuldades, nossa equipe de suporte pode ajudar.',
+  },
+  {
+    question: 'Posso sugerir filmes ou séries para o catálogo?',
+    answer:
+      'Sim! Com sua conta ativa, você pode solicitar novos títulos através do e-mail <a href="mailto:suporte@flixnext.com.br">suporte@flixnext.com.br</a>. Nos envie o nome e ano de lançamento da obra, para que possamos verificar a disponibilidade.',
+  },
+  {
+    question: 'A plataforma é paga?',
+    answer: `Sim. O acesso à FlixNext é feito por meio de uma assinatura de valor simbólico, criada exclusivamente para cobrir custos de infraestrutura, armazenamento e manutenção do projeto. <br/><br/>Os planos começam a partir de <strong>${formatPrice(planValues.mensal)}</strong> e variam conforme o período escolhido (mensal, trimestral, semestral ou anual).`,
+  },
+  {
+    question: 'Como posso ajudar o projeto?',
+    answer:
+      'Você pode contribuir enviando sugestões, feedbacks ou relatando problemas pelo e-mail <a href="mailto:contato@flixnext.com.br">contato@flixnext.com.br</a>. <br/><br/>A participação da comunidade é essencial para a evolução contínua da plataforma.',
+  },
 ]
 
 export const faqPlans: FAQ[] = [
-    {
-        question: 'O que é a FlixNext?',
-        answer:
-            'A FlixNext é uma plataforma de streaming independente, focada em preservar e disponibilizar filmes e séries que muitas vezes não estão presentes nos catálogos tradicionais. <br/><br/>O projeto prioriza organização, estabilidade e acesso contínuo ao acervo.'
-    },
-    {
-        question: 'Quanto custa para assinar?',
-        answer:
-            `Os planos de acesso começam a partir de ${formatPrice(planValues.mensal)}. O valor varia de acordo com o período de assinatura escolhido e existe apenas para manter a plataforma ativa e em constante evolução.`
-    },
-    {
-        question: 'Onde posso assistir?',
-        answer:
-            'Você pode assistir diretamente pelo navegador, acessando sua conta em flixnext.com.br, tanto no computador quanto no celular.'
-    },
-    {
-        question: 'Fiz o pagamento e ativei minha conta, mas ainda não consigo assistir!',
-        answer: 'Tente realizar o login novamente. Saia da sua conta e faça o login com seu email e senha cadastrados, e tente novamente. Se o erro persistir, entre em contato conosco pelo email <a href="mailto:suporte@flixnext.com.br">suporte@flixnext.com.br</a>'
-    },
-    {
-        question: 'Como funciona o cancelamento?',
-        answer:
-            'Não há contratos ou fidelidade. Você pode cancelar sua assinatura a qualquer momento e continuará com acesso até o fim do período já pago.'
-    },
-    {
-        question: 'O que posso assistir na FlixNext?',
-        answer:
-            'O catálogo conta com filmes e séries de diferentes épocas e gêneros, incluindo obras raras e difíceis de encontrar em outras plataformas.'
-    },
-    {
-        question: 'Quais formas de pagamento são aceitas?',
-        answer:
-            'Atualmente, aceitamos tanto cartão de crédito quanto boleto. Os boletos podem ser pagos via Pix e a compensação é quase imediata.'
-    }
+  {
+    question: 'O que é a FlixNext?',
+    answer:
+      'A FlixNext é uma plataforma de streaming independente, focada em preservar e disponibilizar filmes e séries que muitas vezes não estão presentes nos catálogos tradicionais. <br/><br/>O projeto prioriza organização, estabilidade e acesso contínuo ao acervo.',
+  },
+  {
+    question: 'Quanto custa para assinar?',
+    answer: `Os planos de acesso começam a partir de ${formatPrice(planValues.mensal)}. O valor varia de acordo com o período de assinatura escolhido e existe apenas para manter a plataforma ativa e em constante evolução.`,
+  },
+  {
+    question: 'Onde posso assistir?',
+    answer:
+      'Você pode assistir diretamente pelo navegador, acessando sua conta em flixnext.com.br, tanto no computador quanto no celular.',
+  },
+  {
+    question: 'Fiz o pagamento e ativei minha conta, mas ainda não consigo assistir!',
+    answer:
+      'Tente realizar o login novamente. Saia da sua conta e faça o login com seu email e senha cadastrados, e tente novamente. Se o erro persistir, entre em contato conosco pelo email <a href="mailto:suporte@flixnext.com.br">suporte@flixnext.com.br</a>',
+  },
+  {
+    question: 'Como funciona o cancelamento?',
+    answer:
+      'Não há contratos ou fidelidade. Você pode cancelar sua assinatura a qualquer momento e continuará com acesso até o fim do período já pago.',
+  },
+  {
+    question: 'O que posso assistir na FlixNext?',
+    answer:
+      'O catálogo conta com filmes e séries de diferentes épocas e gêneros, incluindo obras raras e difíceis de encontrar em outras plataformas.',
+  },
+  {
+    question: 'Quais formas de pagamento são aceitas?',
+    answer:
+      'Atualmente, aceitamos tanto cartão de crédito quanto boleto. Os boletos podem ser pagos via Pix e a compensação é quase imediata.',
+  },
 ]
 
-
-
 interface ContentClassification {
-    etaria: string
-    label: string
-    cor: string
-    textColor: string
-    msg: string
+  etaria: string
+  label: string
+  cor: string
+  textColor: string
+  msg: string
 }
 
 export const classification = [
-    {
-        etaria: 'L',
-        label: 'L',
-        cor: 'var(--green)',
-        textColor: '#fff',
-        msg: 'Conteúdo livre para todos os públicos.',
-    },
-    {
-        etaria: '10',
-        label: '10',
-        cor: 'var(--blue)',
-        textColor: '#fff',
-        msg: 'Não recomendado para menores de 10 anos.',
-    },
-    {
-        etaria: 'A12',
-        label: '12',
-        cor: 'var(--yellow)',
-        textColor: '#111',
-        msg: 'Não recomendado para menores de 12 anos.',
-    },
-    {
-        etaria: 'A14',
-        label: '14',
-        cor: 'var(--orange)',
-        textColor: '#111',
-        msg: 'Não recomendado para menores de 14 anos.',
-    },
-    {
-        etaria: 'A16',
-        label: '16',
-        cor: 'var(--red)',
-        textColor: '#fff',
-        msg: 'Não recomendado para menores de 16 anos.',
-    },
-    {
-        etaria: '18',
-        label: '18',
-        cor: 'var(--black)',
-        textColor: '#fff',
-        msg: 'Não recomendado para menores de 18 anos.',
-    },
+  {
+    etaria: 'L',
+    label: 'L',
+    cor: 'var(--green)',
+    textColor: '#fff',
+    msg: 'Conteúdo livre para todos os públicos.',
+  },
+  {
+    etaria: '10',
+    label: '10',
+    cor: 'var(--blue)',
+    textColor: '#fff',
+    msg: 'Não recomendado para menores de 10 anos.',
+  },
+  {
+    etaria: 'A12',
+    label: '12',
+    cor: 'var(--yellow)',
+    textColor: '#111',
+    msg: 'Não recomendado para menores de 12 anos.',
+  },
+  {
+    etaria: 'A14',
+    label: '14',
+    cor: 'var(--orange)',
+    textColor: '#111',
+    msg: 'Não recomendado para menores de 14 anos.',
+  },
+  {
+    etaria: 'A16',
+    label: '16',
+    cor: 'var(--red)',
+    textColor: '#fff',
+    msg: 'Não recomendado para menores de 16 anos.',
+  },
+  {
+    etaria: '18',
+    label: '18',
+    cor: 'var(--black)',
+    textColor: '#fff',
+    msg: 'Não recomendado para menores de 18 anos.',
+  },
 ] satisfies ContentClassification[]
 
 export const blockedDomains = [
-    "teste.com",
-    "abc.com",
-    "123.com",
-    "mail.com",
-    "email.com",
-    "test.com",
-    "t.tr",
-    "example.com"
+  'teste.com',
+  'abc.com',
+  '123.com',
+  'mail.com',
+  'email.com',
+  'test.com',
+  't.tr',
+  'example.com',
 ]
 
-export const fakePatterns = [
-    "teste",
-    "test",
-    "abc",
-    "123",
-    "fake"
-];
+export const fakePatterns = ['teste', 'test', 'abc', '123', 'fake']
 
 export const streamingPrices = [
-    { name: 'Netflix', price: 4490 },
-    { name: 'Prime Video', price: 1990 },
-    { name: 'HBO Max', price: 3490 },
-    { name: 'Disney+', price: 4690 },
-    { name: 'Sky+', price: 4950 },
-    { name: 'Apple TV+', price: 2990 },
-    { name: 'Paramount+', price: 2790 },
-    { name: 'Globoplay', price: 3990 },
-    { name: 'StarZ', price: 5390 },
+  { name: 'Netflix', price: 4490 },
+  { name: 'Prime Video', price: 1990 },
+  { name: 'HBO Max', price: 3490 },
+  { name: 'Disney+', price: 4690 },
+  { name: 'Sky+', price: 4950 },
+  { name: 'Apple TV+', price: 2990 },
+  { name: 'Paramount+', price: 2790 },
+  { name: 'Globoplay', price: 3990 },
+  { name: 'StarZ', price: 5390 },
 ]
 
-
-
 export const stateMap: Record<string, string> = {
-    "acre": "AC",
-    "alagoas": "AL",
-    "amapá": "AP",
-    "amazonas": "AM",
-    "bahia": "BA",
-    "ceará": "CE",
-    "distrito federal": "DF",
-    "espírito santo": "ES",
-    "goiás": "GO",
-    "maranhão": "MA",
-    "mato grosso": "MT",
-    "mato grosso do sul": "MS",
-    "minas gerais": "MG",
-    "pará": "PA",
-    "paraíba": "PB",
-    "paraná": "PR",
-    "pernambuco": "PE",
-    "piauí": "PI",
-    "rio de janeiro": "RJ",
-    "rio grande do norte": "RN",
-    "rio grande do sul": "RS",
-    "rondônia": "RO",
-    "roraima": "RR",
-    "santa catarina": "SC",
-    "são paulo": "SP",
-    "sergipe": "SE",
-    "tocantins": "TO",
-};
+  acre: 'AC',
+  alagoas: 'AL',
+  amapá: 'AP',
+  amazonas: 'AM',
+  bahia: 'BA',
+  ceará: 'CE',
+  'distrito federal': 'DF',
+  'espírito santo': 'ES',
+  goiás: 'GO',
+  maranhão: 'MA',
+  'mato grosso': 'MT',
+  'mato grosso do sul': 'MS',
+  'minas gerais': 'MG',
+  pará: 'PA',
+  paraíba: 'PB',
+  paraná: 'PR',
+  pernambuco: 'PE',
+  piauí: 'PI',
+  'rio de janeiro': 'RJ',
+  'rio grande do norte': 'RN',
+  'rio grande do sul': 'RS',
+  rondônia: 'RO',
+  roraima: 'RR',
+  'santa catarina': 'SC',
+  'são paulo': 'SP',
+  sergipe: 'SE',
+  tocantins: 'TO',
+}
 
 export const billetMap: Record<string, string> = {
-    paid: "Pago",
-    unpaid: "Inadimplente",
-    waiting: "Aguardando Pagamento",
-    new: "Boleto Gerado",
-    identified: "Processando Pagamento",
-    approved: "Pagamento Aprovado",
-    settled: "Pagamento Processado",
-    expired: "Boleto Vencido",
-    canceled: "Boleto Cancelado",
-    refunded: "Boleto extornado",
-    contested: "Contestado",
+  paid: 'Pago',
+  unpaid: 'Inadimplente',
+  waiting: 'Aguardando Pagamento',
+  new: 'Boleto Gerado',
+  identified: 'Processando Pagamento',
+  approved: 'Pagamento Aprovado',
+  settled: 'Pagamento Processado',
+  expired: 'Boleto Vencido',
+  canceled: 'Boleto Cancelado',
+  refunded: 'Boleto extornado',
+  contested: 'Contestado',
 }
 export const subscriptionMap: Record<string, string> = {
-    active: "Ativa",
-    inactive: "Inativa",
-    canceled: "Cancelada",
-    new: "Criada",
-    expired: "Finalizada",
-    new_charge: "Ativa"
+  active: 'Ativa',
+  inactive: 'Inativa',
+  canceled: 'Cancelada',
+  new: 'Criada',
+  expired: 'Finalizada',
+  new_charge: 'Ativa',
 }
 
 export const creditTest = {
-    brand: 'visa',
-    number: '4485785674290087',
-    cvv: '123',
-    expiryMonth: '05',
-    expiryYear: '2029',
-    holderName: 'Gorbadoc Oldbuck',
-    holderDocument: '94271564656',
-    reuse: false
+  brand: 'visa',
+  number: '4485785674290087',
+  cvv: '123',
+  expiryMonth: '05',
+  expiryYear: '2029',
+  holderName: 'Gorbadoc Oldbuck',
+  holderDocument: '94271564656',
+  reuse: false,
 }
 
 export const brands: Record<string, IconType> = {
-    'mastercard': FaCcMastercard,
-    'visa': FaCcVisa,
-    'maestro': FaCcMastercard,
-    'diners-club': FaCcDinersClub,
-    'american-express': SiAmericanexpress,
+  mastercard: FaCcMastercard,
+  visa: FaCcVisa,
+  maestro: FaCcMastercard,
+  'diners-club': FaCcDinersClub,
+  'american-express': SiAmericanexpress,
 }
 
 export const normalizeAudioTrack: Record<string, string> = {
-    por: 'português',
-    eng: 'inglês',
-    jap: 'japonês',
-    nob: 'norueguês',
-    und: 'outro'
+  por: 'português',
+  eng: 'inglês',
+  jap: 'japonês',
+  nob: 'norueguês',
+  und: 'outro',
 }
 
-export const checkoutStepMap: Record<
-    CheckoutStep,
-    CheckoutTrackStep
-> = {
-    email: 'EMAIL',
-    plan: 'PLAN',
-    payment: 'PAYMENT_METHOD',
-    'personal-data': 'PERSONAL_DATA',
-    confirmation: 'CONFIRMATION',
+export const checkoutStepMap: Record<CheckoutStep, CheckoutTrackStep> = {
+  email: 'EMAIL',
+  plan: 'PLAN',
+  payment: 'PAYMENT_METHOD',
+  'personal-data': 'PERSONAL_DATA',
+  confirmation: 'CONFIRMATION',
 }
 
-export const paymentMethodMap: Record<
-    PaymentMethod,
-    'PIX' | 'CREDIT_CARD' | 'BILLET'
-> = {
-    pix: 'PIX',
-    'credit-card': 'CREDIT_CARD',
-    billet: 'BILLET',
+export const paymentMethodMap: Record<PaymentMethod, 'PIX' | 'CREDIT_CARD' | 'BILLET'> = {
+  pix: 'PIX',
+  'credit-card': 'CREDIT_CARD',
+  billet: 'BILLET',
 }

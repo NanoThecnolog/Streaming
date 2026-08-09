@@ -1,417 +1,409 @@
 .prices {
-    width: 100%;
+  width: 100%;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
 }
 
 .plansGrid {
-    width: 100%;
+  width: 100%;
 
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 16px;
-    align-items: stretch;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  align-items: stretch;
 }
 
 .planCard {
-    position: relative;
+  position: relative;
 
-    min-width: 0;
-    min-height: 590px;
+  min-width: 0;
+  min-height: 590px;
 
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    padding: 1.65rem;
+  padding: 1.65rem;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-    color: var(--white);
+  color: var(--white);
 
-    background:
-        linear-gradient(145deg,
-            rgba(255, 255, 255, 0.075),
-            rgba(255, 255, 255, 0.025));
-    border: 1px solid rgba(255, 255, 255, 0.11);
-    border-radius: 18px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025));
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 18px;
 
-    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.22);
 
-    transition:
-        transform 0.22s ease,
-        border-color 0.22s ease,
-        background-color 0.22s ease,
-        box-shadow 0.22s ease;
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    background-color 0.22s ease,
+    box-shadow 0.22s ease;
 
-    &:hover {
-        border-color: rgba(255, 255, 255, 0.22);
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.22);
 
-        box-shadow: 0 26px 65px rgba(0, 0, 0, 0.34);
-        transform: translateY(-6px);
-    }
+    box-shadow: 0 26px 65px rgba(0, 0, 0, 0.34);
+    transform: translateY(-6px);
+  }
 }
 
 .recommendedCard {
-    background:
-        radial-gradient(circle at 50% 0%,
-            rgba(229, 9, 20, 0.22),
-            transparent 38%),
-        linear-gradient(145deg,
-            rgba(255, 255, 255, 0.085),
-            rgba(255, 255, 255, 0.025));
-    border-color: rgba(229, 9, 20, 0.72);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(229, 9, 20, 0.22), transparent 38%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.025));
+  border-color: rgba(229, 9, 20, 0.72);
 
-    box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.32),
-        0 0 35px rgba(229, 9, 20, 0.08);
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.32),
+    0 0 35px rgba(229, 9, 20, 0.08);
 
-    &:hover {
-        border-color: var(--red);
-    }
+  &:hover {
+    border-color: var(--red);
+  }
 }
 
 .recommendedBadge {
-    position: absolute;
-    top: 0;
-    left: 50%;
+  position: absolute;
+  top: 0;
+  left: 50%;
 
-    min-height: 29px;
+  min-height: 29px;
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-    padding: 0 15px;
+  padding: 0 15px;
 
-    color: var(--white);
-    font-size: 0.62rem;
-    font-weight: 850;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    white-space: nowrap;
+  color: var(--white);
+  font-size: 0.62rem;
+  font-weight: 850;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  white-space: nowrap;
 
-    background: var(--red);
-    border-radius: 0 0 8px 8px;
+  background: var(--red);
+  border-radius: 0 0 8px 8px;
 
-    transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 .planHeader {
-    min-height: 82px;
+  min-height: 82px;
 
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 12px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
 
-    padding-top: 0.5rem;
+  padding-top: 0.5rem;
 
-    h3 {
-        margin: 6px 0 0;
+  h3 {
+    margin: 6px 0 0;
 
-        font-size: clamp(1.35rem, 2vw, 1.7rem);
-        line-height: 1.15;
-        letter-spacing: -0.025em;
-    }
+    font-size: clamp(1.35rem, 2vw, 1.7rem);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+  }
 }
 
 .planPeriod {
-    margin: 0;
+  margin: 0;
 
-    color: rgba(255, 255, 255, 0.45);
-    font-size: 0.65rem;
-    font-weight: 750;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.65rem;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
 }
 
 .discount {
-    flex: 0 0 auto;
+  flex: 0 0 auto;
 
-    padding: 6px 8px;
+  padding: 6px 8px;
 
-    color: #ff9ca2;
-    font-size: 0.58rem;
-    font-weight: 850;
-    white-space: nowrap;
+  color: #ff9ca2;
+  font-size: 0.58rem;
+  font-weight: 850;
+  white-space: nowrap;
 
-    background: rgba(229, 9, 20, 0.13);
-    border: 1px solid rgba(229, 9, 20, 0.28);
-    border-radius: 999px;
+  background: rgba(229, 9, 20, 0.13);
+  border: 1px solid rgba(229, 9, 20, 0.28);
+  border-radius: 999px;
 }
 
 .description {
-    min-height: 42px;
+  min-height: 42px;
 
-    margin: 0.8rem 0 0;
+  margin: 0.8rem 0 0;
 
-    color: rgba(255, 255, 255, 0.48);
-    font-size: 0.74rem;
-    line-height: 1.55;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.74rem;
+  line-height: 1.55;
 }
 
 .price {
-    display: flex;
-    align-items: flex-start;
+  display: flex;
+  align-items: flex-start;
 
-    margin-top: 1.55rem;
+  margin-top: 1.55rem;
 
-    line-height: 1;
+  line-height: 1;
 
-    strong {
-        font-size: clamp(2.25rem, 3.4vw, 3rem);
-        font-weight: 850;
-        letter-spacing: -0.055em;
-    }
+  strong {
+    font-size: clamp(2.25rem, 3.4vw, 3rem);
+    font-weight: 850;
+    letter-spacing: -0.055em;
+  }
 }
 
 .currency {
-    margin: 5px 5px 0 0;
+  margin: 5px 5px 0 0;
 
-    color: rgba(255, 255, 255, 0.65);
-    font-size: 0.78rem;
-    font-weight: 750;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.78rem;
+  font-weight: 750;
 }
 
 .pricePeriod {
-    align-self: flex-end;
+  align-self: flex-end;
 
-    margin: 0 0 5px 6px;
+  margin: 0 0 5px 6px;
 
-    color: rgba(255, 255, 255, 0.42);
-    font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.68rem;
 }
 
 .billing {
-    min-height: 19px;
+  min-height: 19px;
 
-    margin: 0.75rem 0 0;
+  margin: 0.75rem 0 0;
 
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.65rem;
 
-    strong {
-        color: rgba(255, 255, 255, 0.65);
-        font-weight: 650;
-    }
+  strong {
+    color: rgba(255, 255, 255, 0.65);
+    font-weight: 650;
+  }
 }
 
 .divider {
-    width: 100%;
-    height: 1px;
+  width: 100%;
+  height: 1px;
 
-    margin: 1.35rem 0;
+  margin: 1.35rem 0;
 
-    background: rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.09);
 }
 
 .benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  margin: 0 0 1.75rem;
+  padding: 0;
+
+  list-style: none;
+
+  li {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    align-items: flex-start;
+    gap: 9px;
 
-    margin: 0 0 1.75rem;
-    padding: 0;
-
-    list-style: none;
-
-    li {
-        display: flex;
-        align-items: flex-start;
-        gap: 9px;
-
-        color: rgba(255, 255, 255, 0.67);
-        font-size: 0.7rem;
-        line-height: 1.45;
-    }
+    color: rgba(255, 255, 255, 0.67);
+    font-size: 0.7rem;
+    line-height: 1.45;
+  }
 }
 
 .check {
-    width: 18px;
-    height: 18px;
+  width: 18px;
+  height: 18px;
 
-    display: grid;
-    flex: 0 0 18px;
-    place-items: center;
+  display: grid;
+  flex: 0 0 18px;
+  place-items: center;
 
-    margin-top: 1px;
+  margin-top: 1px;
 
-    color: #ff7c84;
+  color: #ff7c84;
 
-    background: rgba(229, 9, 20, 0.13);
-    border-radius: 50%;
+  background: rgba(229, 9, 20, 0.13);
+  border-radius: 50%;
 
-    svg {
-        font-size: 0.75rem;
-        stroke-width: 3;
-    }
+  svg {
+    font-size: 0.75rem;
+    stroke-width: 3;
+  }
 }
 
 .selectButton {
-    width: 100%;
-    min-height: 48px;
+  width: 100%;
+  min-height: 48px;
 
-    margin-top: auto;
-    padding: 0 16px;
+  margin-top: auto;
+  padding: 0 16px;
 
-    color: var(--white);
-    font-family: inherit;
-    font-size: 0.76rem;
-    font-weight: 800;
+  color: var(--white);
+  font-family: inherit;
+  font-size: 0.76rem;
+  font-weight: 800;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    background: rgba(255, 255, 255, 0.09);
-    border: 1px solid rgba(255, 255, 255, 0.13);
-    border-radius: 9px;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 9px;
 
-    transition:
-        background-color 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 
-    &:hover {
-        background: var(--red);
-        border-color: var(--red);
+  &:hover {
+    background: var(--red);
+    border-color: var(--red);
 
-        box-shadow: 0 12px 30px rgba(229, 9, 20, 0.24);
-        transform: translateY(-2px);
-    }
+    box-shadow: 0 12px 30px rgba(229, 9, 20, 0.24);
+    transform: translateY(-2px);
+  }
 
-    &:active {
-        transform: translateY(0);
-    }
+  &:active {
+    transform: translateY(0);
+  }
 
-    &:focus-visible {
-        outline: 2px solid var(--white);
-        outline-offset: 3px;
-    }
+  &:focus-visible {
+    outline: 2px solid var(--white);
+    outline-offset: 3px;
+  }
 }
 
 .recommendedCard {
-    .selectButton {
-        background: var(--red);
-        border-color: var(--red);
+  .selectButton {
+    background: var(--red);
+    border-color: var(--red);
 
-        box-shadow: 0 10px 28px rgba(229, 9, 20, 0.2);
+    box-shadow: 0 10px 28px rgba(229, 9, 20, 0.2);
 
-        &:hover {
-            background: var(--red-selected);
-            border-color: var(--red-selected);
+    &:hover {
+      background: var(--red-selected);
+      border-color: var(--red-selected);
 
-            box-shadow: 0 14px 35px rgba(229, 9, 20, 0.32);
-        }
+      box-shadow: 0 14px 35px rgba(229, 9, 20, 0.32);
     }
+  }
 }
 
 .securityNotice {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 0.66rem;
+
+  span {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
+    gap: 7px;
+  }
 
-    color: rgba(255, 255, 255, 0.38);
-    font-size: 0.66rem;
-
-    span {
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-    }
-
-    svg {
-        color: rgba(255, 255, 255, 0.55);
-        font-size: 0.9rem;
-    }
+  svg {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.9rem;
+  }
 }
 
 .emptyState {
-    max-width: 520px;
+  max-width: 520px;
 
-    margin: 0 auto;
-    padding: 2rem;
+  margin: 0 auto;
+  padding: 2rem;
 
-    text-align: center;
+  text-align: center;
 
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 14px;
 
-    strong {
-        font-size: 1rem;
-    }
+  strong {
+    font-size: 1rem;
+  }
 
-    p {
-        margin: 0.7rem 0 0;
+  p {
+    margin: 0.7rem 0 0;
 
-        color: rgba(255, 255, 255, 0.48);
-        font-size: 0.78rem;
-    }
+    color: rgba(255, 255, 255, 0.48);
+    font-size: 0.78rem;
+  }
 }
 
 @media (max-width: 1100px) {
-    .plansGrid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+  .plansGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
-    .planCard {
-        min-height: 550px;
-    }
+  .planCard {
+    min-height: 550px;
+  }
 }
 
 @media (max-width: 620px) {
-    .plansGrid {
-        grid-template-columns: 1fr;
-        gap: 14px;
-    }
+  .plansGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
 
-    .planCard {
-        min-height: auto;
-        padding: 1.4rem;
-    }
+  .planCard {
+    min-height: auto;
+    padding: 1.4rem;
+  }
 
-    .planHeader {
-        min-height: auto;
-        padding-top: 0.75rem;
-    }
+  .planHeader {
+    min-height: auto;
+    padding-top: 0.75rem;
+  }
 
-    .description,
-    .billing {
-        min-height: auto;
-    }
+  .description,
+  .billing {
+    min-height: auto;
+  }
 
-    .price {
-        margin-top: 1.35rem;
-    }
+  .price {
+    margin-top: 1.35rem;
+  }
 
-    .benefits {
-        margin-bottom: 1.5rem;
-    }
+  .benefits {
+    margin-bottom: 1.5rem;
+  }
 
-    .selectButton {
-        min-height: 50px;
-    }
+  .selectButton {
+    min-height: 50px;
+  }
 
-    .securityNotice {
-        flex-direction: column;
-        gap: 9px;
-    }
+  .securityNotice {
+    flex-direction: column;
+    gap: 9px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .planCard,
+  .selectButton {
+    transition: none;
+  }
 
-    .planCard,
-    .selectButton {
-        transition: none;
-    }
-
-    .planCard:hover,
-    .selectButton:hover {
-        transform: none;
-    }
+  .planCard:hover,
+  .selectButton:hover {
+    transform: none;
+  }
 }

@@ -13,14 +13,14 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
 import {
-    Bell,
-    ChevronRight,
-    Edit3,
-    LogOut,
-    Mail,
-    Settings,
-    ShieldCheck,
-    UserRound,
+  Bell,
+  ChevronRight,
+  Edit3,
+  LogOut,
+  Mail,
+  Settings,
+  ShieldCheck,
+  UserRound,
 } from 'lucide-react'
 
 import { FaUserCircle } from 'react-icons/fa'
@@ -34,444 +34,256 @@ import { useFlix } from '@/contexts/FlixContext'
 import { cookieOptions } from '@/utils/Variaveis'
 
 export default function Me() {
-    const router = useRouter()
+  const router = useRouter()
 
-    const { user, setUser, signOut } = useFlix()
+  const { user, setUser, signOut } = useFlix()
 
-    const [modalVisible, setModalVisible] = useState<boolean>(false)
+  const [modalVisible, setModalVisible] = useState<boolean>(false)
 
-    const [editarDados, setEditarDados] = useState<boolean>(false)
+  const [editarDados, setEditarDados] = useState<boolean>(false)
 
-    const [loadingNewsletter, setLoadingNewsletter] = useState<boolean>(false)
+  const [loadingNewsletter, setLoadingNewsletter] = useState<boolean>(false)
 
-    useEffect(() => {
-        if (user) return
+  useEffect(() => {
+    if (user) return
 
-        const { 'flix-user': userCookie, } = parseCookies()
+    const { 'flix-user': userCookie } = parseCookies()
 
-        if (!userCookie) {
-            router.replace('/login')
-        }
-    }, [router, user])
-
-    const handleOpenAvatarModal = (): void => {
-        setModalVisible(true)
+    if (!userCookie) {
+      router.replace('/login')
     }
+  }, [router, user])
 
-    const handleCloseAvatarModal = (): void => {
-        setModalVisible(false)
+  const handleOpenAvatarModal = (): void => {
+    setModalVisible(true)
+  }
+
+  const handleCloseAvatarModal = (): void => {
+    setModalVisible(false)
+  }
+
+  const handleOpenEditModal = (): void => {
+    setEditarDados(true)
+  }
+
+  const handleCloseEditModal = (): void => {
+    setEditarDados(false)
+  }
+
+  const handleLogout = (): void => {
+    signOut()
+  }
+
+  const handleNews = async (newsletter: boolean): Promise<void> => {
+    if (loadingNewsletter || !user) return
+
+    setLoadingNewsletter(true)
+
+    try {
+      const response = await axios.put('/api/user/update', {
+        news: newsletter,
+      })
+
+      const data: UserContext = response.data.request
+
+      destroyCookie(null, 'flix-user', {
+        path: '/',
+      })
+
+      setCookie(null, 'flix-user', JSON.stringify(data), cookieOptions)
+
+      setUser(data)
+
+      toast.success(newsletter ? 'Newsletters ativadas.' : 'Newsletters desativadas.')
+    } catch (error) {
+      console.error('Erro ao alterar newsletter', error)
+
+      toast.error('Não foi possível atualizar sua preferência de newsletters.')
+    } finally {
+      setLoadingNewsletter(false)
     }
+  }
 
-    const handleOpenEditModal = (): void => {
-        setEditarDados(true)
-    }
+  return (
+    <>
+      <SEO
+        title="Minha Conta | FlixNext"
+        description="Gerencie seus dados, avatar, preferências e assinatura."
+      />
 
-    const handleCloseEditModal = (): void => {
-        setEditarDados(false)
-    }
+      <Header />
 
-    const handleLogout = (): void => {
-        signOut()
-    }
+      <main className={styles.container}>
+        {!user ? (
+          <div className={styles.loadingCard}>
+            <div className={styles.loadingSpinner} />
 
-    const handleNews = async (newsletter: boolean): Promise<void> => {
-        if (loadingNewsletter || !user) return
+            <strong>Carregando sua conta</strong>
 
-        setLoadingNewsletter(true)
+            <span>Buscando suas informações...</span>
+          </div>
+        ) : (
+          <div className={styles.accountLayout}>
+            <section className={styles.profileCard}>
+              <div className={styles.profileBackground} />
 
-        try {
-            const response = await axios.put(
-                '/api/user/update',
-                {
-                    news: newsletter,
-                },
-            )
+              <div className={styles.profileHeader}>
+                <div className={styles.avatarWrapper}>
+                  <div className={styles.avatarContainer}>
+                    {user.avatar ? (
+                      <Image
+                        src={user.avatar}
+                        alt={`Avatar de ${user.name}`}
+                        width={150}
+                        height={150}
+                        priority
+                      />
+                    ) : (
+                      <FaUserCircle size={150} />
+                    )}
+                  </div>
 
-            const data: UserContext =
-                response.data.request
+                  <button
+                    type="button"
+                    className={styles.editAvatarButton}
+                    onClick={handleOpenAvatarModal}
+                    aria-label="Alterar avatar"
+                    title="Alterar avatar"
+                  >
+                    <Edit3 size={18} />
+                  </button>
+                </div>
 
-            destroyCookie(
-                null,
-                'flix-user',
-                {
-                    path: '/',
-                },
-            )
+                <div className={styles.profileIdentity}>
+                  <span>Minha conta</span>
 
-            setCookie(
-                null,
-                'flix-user',
-                JSON.stringify(data),
-                cookieOptions,
-            )
+                  <h1>{user.name}</h1>
 
-            setUser(data)
+                  <p>{user.email}</p>
+                </div>
 
-            toast.success(
-                newsletter
-                    ? 'Newsletters ativadas.'
-                    : 'Newsletters desativadas.',
-            )
-        } catch (error) {
-            console.error(
-                'Erro ao alterar newsletter',
-                error,
-            )
+                <div className={styles.profileStatus}>
+                  <ShieldCheck size={18} />
 
-            toast.error(
-                'Não foi possível atualizar sua preferência de newsletters.',
-            )
-        } finally {
-            setLoadingNewsletter(false)
-        }
-    }
+                  <span>Conta ativa</span>
+                </div>
+              </div>
 
-    return (
-        <>
-            <SEO
-                title="Minha Conta | FlixNext"
-                description="Gerencie seus dados, avatar, preferências e assinatura."
-            />
+              <div className={styles.profileActions}>
+                <button
+                  type="button"
+                  className={styles.primaryAction}
+                  onClick={handleOpenEditModal}
+                >
+                  <Edit3 size={18} />
 
-            <Header />
+                  <div>
+                    <strong>Editar dados</strong>
 
-            <main className={styles.container}>
-                {!user ? (
-                    <div className={styles.loadingCard}>
-                        <div className={styles.loadingSpinner} />
+                    <span>Atualize suas informações</span>
+                  </div>
 
-                        <strong>
-                            Carregando sua conta
-                        </strong>
+                  <ChevronRight size={18} />
+                </button>
 
-                        <span>
-                            Buscando suas informações...
-                        </span>
-                    </div>
-                ) : (
-                    <div className={styles.accountLayout}>
-                        <section
-                            className={styles.profileCard}
-                        >
-                            <div
-                                className={
-                                    styles.profileBackground
-                                }
-                            />
+                <button type="button" className={styles.logoutAction} onClick={handleLogout}>
+                  <LogOut size={18} />
 
-                            <div
-                                className={
-                                    styles.profileHeader
-                                }
-                            >
-                                <div
-                                    className={
-                                        styles.avatarWrapper
-                                    }
-                                >
-                                    <div
-                                        className={
-                                            styles.avatarContainer
-                                        }
-                                    >
-                                        {user.avatar ? (
-                                            <Image
-                                                src={user.avatar}
-                                                alt={`Avatar de ${user.name}`}
-                                                width={150}
-                                                height={150}
-                                                priority
-                                            />
-                                        ) : (
-                                            <FaUserCircle
-                                                size={150}
-                                            />
-                                        )}
-                                    </div>
+                  <div>
+                    <strong>Sair da conta</strong>
 
-                                    <button
-                                        type="button"
-                                        className={
-                                            styles.editAvatarButton
-                                        }
-                                        onClick={
-                                            handleOpenAvatarModal
-                                        }
-                                        aria-label="Alterar avatar"
-                                        title="Alterar avatar"
-                                    >
-                                        <Edit3 size={18} />
-                                    </button>
-                                </div>
+                    <span>Encerrar sessão</span>
+                  </div>
 
-                                <div
-                                    className={
-                                        styles.profileIdentity
-                                    }
-                                >
-                                    <span>
-                                        Minha conta
-                                    </span>
+                  <ChevronRight size={18} />
+                </button>
+              </div>
+            </section>
 
-                                    <h1>{user.name}</h1>
+            <section className={styles.detailsCard}>
+              <div className={styles.sectionHeading}>
+                <div>
+                  <span>Informações</span>
 
-                                    <p>{user.email}</p>
-                                </div>
+                  <h2>Dados pessoais</h2>
+                </div>
 
-                                <div
-                                    className={
-                                        styles.profileStatus
-                                    }
-                                >
-                                    <ShieldCheck size={18} />
+                <UserRound size={22} />
+              </div>
 
-                                    <span>
-                                        Conta ativa
-                                    </span>
-                                </div>
-                            </div>
+              <div className={styles.infoGrid}>
+                <article className={styles.infoItem}>
+                  <div className={styles.infoIcon}>
+                    <UserRound size={19} />
+                  </div>
 
-                            <div
-                                className={
-                                    styles.profileActions
-                                }
-                            >
-                                <button
-                                    type="button"
-                                    className={
-                                        styles.primaryAction
-                                    }
-                                    onClick={
-                                        handleOpenEditModal
-                                    }
-                                >
-                                    <Edit3 size={18} />
+                  <div>
+                    <span>Nome</span>
+                    <strong>{user.name}</strong>
+                  </div>
+                </article>
 
-                                    <div>
-                                        <strong>
-                                            Editar dados
-                                        </strong>
+                <article className={styles.infoItem}>
+                  <div className={styles.infoIcon}>
+                    <Mail size={19} />
+                  </div>
 
-                                        <span>
-                                            Atualize suas
-                                            informações
-                                        </span>
-                                    </div>
+                  <div>
+                    <span>E-mail</span>
+                    <strong>{user.email}</strong>
+                  </div>
+                </article>
+              </div>
+            </section>
 
-                                    <ChevronRight
-                                        size={18}
-                                    />
-                                </button>
+            <section className={styles.preferencesCard}>
+              <div className={styles.sectionHeading}>
+                <div>
+                  <span>Preferências</span>
 
-                                <button
-                                    type="button"
-                                    className={
-                                        styles.logoutAction
-                                    }
-                                    onClick={handleLogout}
-                                >
-                                    <LogOut size={18} />
+                  <h2>Comunicação</h2>
+                </div>
 
-                                    <div>
-                                        <strong>
-                                            Sair da conta
-                                        </strong>
+                <Settings size={22} />
+              </div>
 
-                                        <span>
-                                            Encerrar sessão
-                                        </span>
-                                    </div>
+              <div className={styles.preferenceItem}>
+                <div className={styles.preferenceIcon}>
+                  <Bell size={20} />
+                </div>
 
-                                    <ChevronRight
-                                        size={18}
-                                    />
-                                </button>
-                            </div>
-                        </section>
+                <div className={styles.preferenceText}>
+                  <strong>Receber newsletters</strong>
 
-                        <section
-                            className={styles.detailsCard}
-                        >
-                            <div
-                                className={
-                                    styles.sectionHeading
-                                }
-                            >
-                                <div>
-                                    <span>
-                                        Informações
-                                    </span>
+                  <span>Receba novidades, lançamentos e atualizações da plataforma.</span>
+                </div>
 
-                                    <h2>
-                                        Dados pessoais
-                                    </h2>
-                                </div>
+                <Switch checked={user.news} onChange={handleNews} disabled={loadingNewsletter} />
+              </div>
+            </section>
 
-                                <UserRound size={22} />
-                            </div>
+            <section className={styles.subscriptionCard}>
+              <div className={styles.sectionHeading}>
+                <div>
+                  <span>Assinatura</span>
 
-                            <div
-                                className={
-                                    styles.infoGrid
-                                }
-                            >
-                                <article
-                                    className={
-                                        styles.infoItem
-                                    }
-                                >
-                                    <div
-                                        className={
-                                            styles.infoIcon
-                                        }
-                                    >
-                                        <UserRound
-                                            size={19}
-                                        />
-                                    </div>
+                  <h2>Plano e pagamentos</h2>
+                </div>
 
-                                    <div>
-                                        <span>Nome</span>
-                                        <strong>
-                                            {user.name}
-                                        </strong>
-                                    </div>
-                                </article>
+                <ShieldCheck size={22} />
+              </div>
 
-                                <article
-                                    className={
-                                        styles.infoItem
-                                    }
-                                >
-                                    <div
-                                        className={
-                                            styles.infoIcon
-                                        }
-                                    >
-                                        <Mail size={19} />
-                                    </div>
+              <SubConfig />
+            </section>
+          </div>
+        )}
+      </main>
 
-                                    <div>
-                                        <span>E-mail</span>
-                                        <strong>
-                                            {user.email}
-                                        </strong>
-                                    </div>
-                                </article>
-                            </div>
-                        </section>
+      {modalVisible && <Avatar handleCloseModal={handleCloseAvatarModal} />}
 
-                        <section
-                            className={
-                                styles.preferencesCard
-                            }
-                        >
-                            <div
-                                className={
-                                    styles.sectionHeading
-                                }
-                            >
-                                <div>
-                                    <span>
-                                        Preferências
-                                    </span>
+      {editarDados && <EditarDados handleClose={handleCloseEditModal} />}
 
-                                    <h2>
-                                        Comunicação
-                                    </h2>
-                                </div>
-
-                                <Settings size={22} />
-                            </div>
-
-                            <div
-                                className={
-                                    styles.preferenceItem
-                                }
-                            >
-                                <div
-                                    className={
-                                        styles.preferenceIcon
-                                    }
-                                >
-                                    <Bell size={20} />
-                                </div>
-
-                                <div
-                                    className={
-                                        styles.preferenceText
-                                    }
-                                >
-                                    <strong>
-                                        Receber newsletters
-                                    </strong>
-
-                                    <span>
-                                        Receba novidades,
-                                        lançamentos e
-                                        atualizações da
-                                        plataforma.
-                                    </span>
-                                </div>
-
-                                <Switch
-                                    checked={user.news}
-                                    onChange={
-                                        handleNews
-                                    }
-                                    disabled={
-                                        loadingNewsletter
-                                    }
-                                />
-                            </div>
-                        </section>
-
-                        <section
-                            className={
-                                styles.subscriptionCard
-                            }
-                        >
-                            <div
-                                className={
-                                    styles.sectionHeading
-                                }
-                            >
-                                <div>
-                                    <span>
-                                        Assinatura
-                                    </span>
-
-                                    <h2>
-                                        Plano e pagamentos
-                                    </h2>
-                                </div>
-
-                                <ShieldCheck size={22} />
-                            </div>
-
-                            <SubConfig />
-                        </section>
-                    </div>
-                )}
-            </main>
-
-            {modalVisible && (
-                <Avatar
-                    handleCloseModal={
-                        handleCloseAvatarModal
-                    }
-                />
-            )}
-
-            {editarDados && (
-                <EditarDados
-                    handleClose={
-                        handleCloseEditModal
-                    }
-                />
-            )}
-
-            <Footer />
-        </>
-    )
+      <Footer />
+    </>
+  )
 }

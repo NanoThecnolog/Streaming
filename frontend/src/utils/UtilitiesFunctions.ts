@@ -1,10 +1,10 @@
-import { CardsProps, MovieTMDB } from "@/@types/Cards"
-import { SeriesProps, TMDBSeries } from "@/@types/series"
-import { stateMap } from "./Variaveis"
-import { debug } from "@/classes/DebugLogger"
-import axios from "axios"
-import { SubDataEFIReponse } from "@/@types/subscriptions/subDetails"
-import { UserContext } from "@/@types/user"
+import { CardsProps, MovieTMDB } from '@/@types/Cards'
+import { SeriesProps, TMDBSeries } from '@/@types/series'
+import { stateMap } from './Variaveis'
+import { debug } from '@/classes/DebugLogger'
+import axios from 'axios'
+import { SubDataEFIReponse } from '@/@types/subscriptions/subDetails'
+import { UserContext } from '@/@types/user'
 
 /**
  * Função que transforma minutos em horas
@@ -12,15 +12,15 @@ import { UserContext } from "@/@types/user"
  * @returns Retorna hora e os minutos formatados
  */
 export const minToHour = (min: number = 0): string => {
-    if (min <= 0) {
-        return "--"
-    }
-    const hora = Math.floor(min / 60)
-    const remainingMin = min % 60
-    if (hora === 0) {
-        return `${remainingMin}m`
-    }
-    return `${hora}h ${remainingMin}m`
+  if (min <= 0) {
+    return '--'
+  }
+  const hora = Math.floor(min / 60)
+  const remainingMin = min % 60
+  if (hora === 0) {
+    return `${remainingMin}m`
+  }
+  return `${hora}h ${remainingMin}m`
 }
 /**
  * Função de tradução para os departamentos da equipe técnica
@@ -29,20 +29,20 @@ export const minToHour = (min: number = 0): string => {
  * @returns retorna a tradução correspondente no array translations ou str, caso não exista tradução.
  */
 export const translate = (str: string) => {
-    const translations: { [key: string]: string } = {
-        "Directing": "Direção",
-        "Writing": "Roteiristas",
-        "Production": "Produção",
-        "Editing": "Edição",
-        "Sound": "Som",
-        "Camera": "Câmera",
-        "Art": "Arte",
-        "Costume & Make-Up": "Figurino e Maquiagem",
-        "Visual Effects": "Efeitos Visuais",
-        "Lighting": "Iluminação",
-        "Crew": "Equipe",
-    }
-    return translations[str] || str;
+  const translations: { [key: string]: string } = {
+    Directing: 'Direção',
+    Writing: 'Roteiristas',
+    Production: 'Produção',
+    Editing: 'Edição',
+    Sound: 'Som',
+    Camera: 'Câmera',
+    Art: 'Arte',
+    'Costume & Make-Up': 'Figurino e Maquiagem',
+    'Visual Effects': 'Efeitos Visuais',
+    Lighting: 'Iluminação',
+    Crew: 'Equipe',
+  }
+  return translations[str] || str
 }
 
 /**
@@ -52,8 +52,8 @@ export const translate = (str: string) => {
  */
 
 export const capitalize = (str: string): string => {
-    if (!str) return '';
-    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
+  if (!str) return ''
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
 }
 
 /**
@@ -63,8 +63,8 @@ export const capitalize = (str: string): string => {
  */
 
 export const normalizing = (str: string) => {
-    if (!str) return ""
-    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+  if (!str) return ''
+  return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
 }
 
 /**
@@ -74,12 +74,12 @@ export const normalizing = (str: string) => {
  */
 
 export const shuffle = <T>(array: T[]): T[] => {
-    const shuffled = [...array]
-    for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled
+  const shuffled = [...array]
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  return shuffled
 }
 
 /**
@@ -89,15 +89,15 @@ export const shuffle = <T>(array: T[]): T[] => {
  */
 
 export const formatedDate = (date: string | Date) => {
-    if (typeof date === 'string') date = new Date(date)
+  if (typeof date === 'string') date = new Date(date)
 
-    if (isNaN(date.getTime()) || !(date instanceof Date)) return
-    return date.toLocaleDateString('pt-br', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric',
-        timeZone: 'UTC'
-    })
+  if (isNaN(date.getTime()) || !(date instanceof Date)) return
+  return date.toLocaleDateString('pt-br', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    timeZone: 'UTC',
+  })
 }
 
 /**
@@ -107,15 +107,15 @@ export const formatedDate = (date: string | Date) => {
  * @returns retorna o preço com desconto
  */
 export const calculateDiscount = (price: number, disc: number) => {
-    const discount = (price * disc) / 100
-    const priceWithDiscount = parseFloat((price - discount).toFixed(0))
-    let cents = priceWithDiscount % 100
+  const discount = (price * disc) / 100
+  const priceWithDiscount = parseFloat((price - discount).toFixed(0))
+  let cents = priceWithDiscount % 100
 
-    if (cents > 50) {
-        return priceWithDiscount - cents + 99
-    } else {
-        return priceWithDiscount - cents + 49
-    }
+  if (cents > 50) {
+    return priceWithDiscount - cents + 99
+  } else {
+    return priceWithDiscount - cents + 49
+  }
 }
 /**
  * Função para formatar o valor de acordo com a moeda
@@ -123,76 +123,77 @@ export const calculateDiscount = (price: number, disc: number) => {
  * @returns Retorna uma string
  */
 export const formatPrice = (price: number) => {
-    if (!price || isNaN(price)) return
+  if (!price || isNaN(price)) return
 
-    return Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL',
-        minimumFractionDigits: 2
-    }).format(price / 100)
+  return Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 2,
+  }).format(price / 100)
 }
 
 export const getparcels = (price: number, parcels: number): number => {
-    return price / parcels
+  return price / parcels
 }
 
 export const getDate = () => {
-    const hoje = new Date()
-    const data = new Intl.DateTimeFormat('en-CA', {
-        timeZone: 'America/Sao_Paulo',
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit'
-    }).format(hoje)
-    return data
+  const hoje = new Date()
+  const data = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/Sao_Paulo',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(hoje)
+  return data
 }
 
-export const uniqueKey = (card: CardsProps | SeriesProps | MovieTMDB | TMDBSeries, context?: string): string => {
-    return `${context || 'card'}-${('season' in card ? card.tmdbID : 'overview' in card ? card.id : card.tmdbId) || ('season' in card ? card.title + card.tmdbID : 'seasons' in card ? card.name : 'tmdbId' in card ? card.title + card.tmdbId : card.title + card.id)}`
+export const uniqueKey = (
+  card: CardsProps | SeriesProps | MovieTMDB | TMDBSeries,
+  context?: string,
+): string => {
+  return `${context || 'card'}-${('season' in card ? card.tmdbID : 'overview' in card ? card.id : card.tmdbId) || ('season' in card ? card.title + card.tmdbID : 'seasons' in card ? card.name : 'tmdbId' in card ? card.title + card.tmdbId : card.title + card.id)}`
 }
 
 export const expirationSlicer = (expiration: string) => {
-    if (expiration.length < 4) return { month: "", year: "" }
-    return {
-        month: expiration.slice(0, 2),
-        year: `20${expiration.slice(2, 4)}`
-    }
+  if (expiration.length < 4) return { month: '', year: '' }
+  return {
+    month: expiration.slice(0, 2),
+    year: `20${expiration.slice(2, 4)}`,
+  }
 }
 
 export const normalizeState = (state: string): string => {
-    if (!state) return "";
-    const cleaned = state.trim().toLowerCase();
+  if (!state) return ''
+  const cleaned = state.trim().toLowerCase()
 
+  if (/^[A-Z]{2}$/i.test(state)) {
+    return state.toUpperCase()
+  }
 
-    if (/^[A-Z]{2}$/i.test(state)) {
-        return state.toUpperCase();
-    }
-
-    return stateMap[cleaned] ?? "";
+  return stateMap[cleaned] ?? ''
 }
 
 export const normalizeName = (name: string): string => {
-    return name
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '') // remove acentos
-        .replace(/\s+/g, ' ')           // remove espaço duplicado
-        .trim()
+  return name
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '') // remove acentos
+    .replace(/\s+/g, ' ') // remove espaço duplicado
+    .trim()
 }
 
 export const normalizeCPF = (cpf: string): string => {
-    if (!cpf) return ''
-    return cpf.replace(/\D/g, '').slice(11)
+  if (!cpf) return ''
+  return cpf.replace(/\D/g, '').slice(11)
 }
 
 export const statusVerify = (res: PromiseSettledResult<any>): Boolean => {
-    return res.status === 'fulfilled' && res.value.status === 200
+  return res.status === 'fulfilled' && res.value.status === 200
 }
 
 export const getClientX = (e: MouseEvent | TouchEvent | React.MouseEvent | React.TouchEvent) => {
-    if ('touches' in e)
-        return e.touches[0]?.clientX ?? 0
+  if ('touches' in e) return e.touches[0]?.clientX ?? 0
 
-    return (e as MouseEvent).clientX
+  return (e as MouseEvent).clientX
 }
 
 /**
@@ -201,154 +202,150 @@ export const getClientX = (e: MouseEvent | TouchEvent | React.MouseEvent | React
  * @returns Retorna o tempo de vídeo como string (hh:mm:ss)
  */
 export const formatTime = (time: number): string => {
-    //if (isDrive) return ''
-    if (!Number.isFinite(time)) return '00:00'
+  //if (isDrive) return ''
+  if (!Number.isFinite(time)) return '00:00'
 
-    const hours = Math.floor(time / 3600)
-    const minutes = Math.floor((time % 3600) / 60)
-    const seconds = Math.floor(time % 60)
+  const hours = Math.floor(time / 3600)
+  const minutes = Math.floor((time % 3600) / 60)
+  const seconds = Math.floor(time % 60)
 
-    const hh = hours.toString().padStart(2, '0')
-    const mm = minutes.toString().padStart(2, '0')
-    const ss = seconds.toString().padStart(2, '0')
+  const hh = hours.toString().padStart(2, '0')
+  const mm = minutes.toString().padStart(2, '0')
+  const ss = seconds.toString().padStart(2, '0')
 
-    return hours > 0 ? `${hh}:${mm}:${ss}` : `${mm}:${ss}`
+  return hours > 0 ? `${hh}:${mm}:${ss}` : `${mm}:${ss}`
 }
 
+export const normalizeLanguage = (language: string): string => {
+  const languages: Record<string, string> = {
+    PT: 'Português',
+    'PT-BR': 'Português',
+    POR: 'Português',
 
-export const normalizeLanguage = (
-    language: string,
-): string => {
-    const languages: Record<string, string> = {
-        PT: 'Português',
-        "PT-BR": 'Português',
-        POR: 'Português',
+    EN: 'Inglês',
+    ENG: 'Inglês',
 
-        EN: 'Inglês',
-        ENG: 'Inglês',
+    ES: 'Espanhol',
+    SPA: 'Espanhol',
 
-        ES: 'Espanhol',
-        SPA: 'Espanhol',
+    JA: 'Japonês',
+    JPN: 'Japonês',
 
-        JA: 'Japonês',
-        JPN: 'Japonês',
+    FR: 'Francês',
+    FRE: 'Francês',
+    FRA: 'Francês',
 
-        FR: 'Francês',
-        FRE: 'Francês',
-        FRA: 'Francês',
+    DE: 'Alemão',
+    GER: 'Alemão',
+    DEU: 'Alemão',
 
-        DE: 'Alemão',
-        GER: 'Alemão',
-        DEU: 'Alemão',
+    IT: 'Italiano',
+    ITA: 'Italiano',
 
-        IT: 'Italiano',
-        ITA: 'Italiano',
+    RU: 'Russo',
+    RUS: 'Russo',
 
-        RU: 'Russo',
-        RUS: 'Russo',
+    KO: 'Coreano',
+    KOR: 'Coreano',
 
-        KO: 'Coreano',
-        KOR: 'Coreano',
+    ZH: 'Chinês',
+    CHI: 'Chinês',
+    ZHO: 'Chinês',
 
-        ZH: 'Chinês',
-        CHI: 'Chinês',
-        ZHO: 'Chinês',
+    NB: 'Norueguês',
+    NOB: 'Norueguês',
 
-        NB: 'Norueguês',
-        NOB: 'Norueguês',
+    AR: 'Árabe',
+    ARA: 'Árabe',
 
-        AR: 'Árabe',
-        ARA: 'Árabe',
+    CS: 'Tcheco',
+    CZE: 'Tcheco',
+    CES: 'Tcheco',
 
-        CS: 'Tcheco',
-        CZE: 'Tcheco',
-        CES: 'Tcheco',
+    DA: 'Dinamarquês',
+    DAN: 'Dinamarquês',
 
-        DA: 'Dinamarquês',
-        DAN: 'Dinamarquês',
+    EL: 'Grego',
+    GRE: 'Grego',
+    ELL: 'Grego',
 
-        EL: 'Grego',
-        GRE: 'Grego',
-        ELL: 'Grego',
+    FI: 'Finlandês',
+    FIN: 'Finlandês',
 
-        FI: 'Finlandês',
-        FIN: 'Finlandês',
+    HE: 'Hebraico',
+    HEB: 'Hebraico',
 
-        HE: 'Hebraico',
-        HEB: 'Hebraico',
+    HU: 'Húngaro',
+    HUN: 'Húngaro',
 
-        HU: 'Húngaro',
-        HUN: 'Húngaro',
+    ID: 'Indonésio',
+    IND: 'Indonésio',
 
-        ID: 'Indonésio',
-        IND: 'Indonésio',
+    NL: 'Holandês',
+    DUT: 'Holandês',
+    NLD: 'Holandês',
 
-        NL: 'Holandês',
-        DUT: 'Holandês',
-        NLD: 'Holandês',
+    PL: 'Polonês',
+    POL: 'Polonês',
 
-        PL: 'Polonês',
-        POL: 'Polonês',
+    RO: 'Romeno',
+    RUM: 'Romeno',
+    RON: 'Romeno',
 
-        RO: 'Romeno',
-        RUM: 'Romeno',
-        RON: 'Romeno',
+    SV: 'Sueco',
+    SWE: 'Sueco',
 
-        SV: 'Sueco',
-        SWE: 'Sueco',
+    TH: 'Tailandês',
+    THA: 'Tailandês',
 
-        TH: 'Tailandês',
-        THA: 'Tailandês',
+    TR: 'Turco',
+    TUR: 'Turco',
 
-        TR: 'Turco',
-        TUR: 'Turco',
+    VI: 'Vietnamita',
+    VIE: 'Vietnamita',
 
-        VI: 'Vietnamita',
-        VIE: 'Vietnamita',
+    UND: 'Outro',
+    UNK: 'Outro',
+    UNKNOWN: 'Outro',
 
-        UND: 'Outro',
-        UNK: 'Outro',
-        UNKNOWN: 'Outro',
+    FULL: 'Completa',
+    FORCED: 'Forçada',
+    FOR: 'Forçada',
+  }
 
-        FULL: 'Completa',
-        FORCED: 'Forçada',
-        FOR: 'Forçada'
-    }
-
-    return languages[language?.toUpperCase()] || 'Outro'
+  return languages[language?.toUpperCase()] || 'Outro'
 }
 
 export const getThumbnailUrl = (url: string): string => {
-    if (!url) return ''
-    return url.replace(/master\.m3u8$/, "thumbnails.vtt")
+  if (!url) return ''
+  return url.replace(/master\.m3u8$/, 'thumbnails.vtt')
 }
 
 export const hasThumb = async (url: string): Promise<boolean> => {
-    if (!url) return false
+  if (!url) return false
 
-    try {
-        const response = await fetch(url, {
-            method: "HEAD"
-        })
-        return response.ok
-    } catch {
-        return false
-    }
+  try {
+    const response = await fetch(url, {
+      method: 'HEAD',
+    })
+    return response.ok
+  } catch {
+    return false
+  }
 }
 
 export const extractSeasonEpisode = (url: string) => {
-    const match = url.match(/(?:\/|^)(?:S(\d+)E(\d+)|(\d+)x(\d+))(?:\/|$)/i)
+  const match = url.match(/(?:\/|^)(?:S(\d+)E(\d+)|(\d+)x(\d+))(?:\/|$)/i)
 
-    if (!match)
-        return null
+  if (!match) return null
 
-    const season = Number(match[1] ?? match[3])
-    const episode = Number(match[2] ?? match[4])
+  const season = Number(match[1] ?? match[3])
+  const episode = Number(match[2] ?? match[4])
 
-    return {
-        season,
-        episode
-    }
+  return {
+    season,
+    episode,
+  }
 }
 
 /**
@@ -358,103 +355,90 @@ export const extractSeasonEpisode = (url: string) => {
  * @returns porcentagem assistida
  */
 export const calculateVideoProgress = (current: number, duration: number): number => {
-    //debug.log("current vindo do banco em segundos", current, "duração total do tmdb em minutos", duration)
-    if (current <= 0 || duration <= 0) return 0
-    const durationInSeconds = duration * 60
+  //debug.log("current vindo do banco em segundos", current, "duração total do tmdb em minutos", duration)
+  if (current <= 0 || duration <= 0) return 0
+  const durationInSeconds = duration * 60
 
-    if (!Number.isFinite(current) || !Number.isFinite(duration) || durationInSeconds <= 0)
-        return 0
+  if (!Number.isFinite(current) || !Number.isFinite(duration) || durationInSeconds <= 0) return 0
 
-    const percentage = (current / durationInSeconds) * 100
-    return Math.min(100, Math.round(percentage))
+  const percentage = (current / durationInSeconds) * 100
+  return Math.min(100, Math.round(percentage))
 }
 
+export const getDeviceType = (): 'MOBILE' | 'TABLET' | 'DESKTOP' | 'UNKNOWN' => {
+  if (typeof navigator === 'undefined') {
+    return 'UNKNOWN'
+  }
 
-export const getDeviceType = ():
-    | 'MOBILE'
-    | 'TABLET'
-    | 'DESKTOP'
-    | 'UNKNOWN' => {
-    if (typeof navigator === 'undefined') {
-        return 'UNKNOWN'
-    }
+  const userAgent = navigator.userAgent
 
-    const userAgent = navigator.userAgent
+  if (/tablet|ipad/i.test(userAgent)) {
+    return 'TABLET'
+  }
 
-    if (/tablet|ipad/i.test(userAgent)) {
-        return 'TABLET'
-    }
+  if (/mobile|android|iphone/i.test(userAgent)) {
+    return 'MOBILE'
+  }
 
-    if (/mobile|android|iphone/i.test(userAgent)) {
-        return 'MOBILE'
-    }
-
-    return 'DESKTOP'
+  return 'DESKTOP'
 }
 export const shouldRetry = (error: unknown): boolean => {
-    if (!axios.isAxiosError(error)) {
-        return false
-    }
+  if (!axios.isAxiosError(error)) {
+    return false
+  }
 
-    if (error.code === 'ECONNABORTED') {
-        return true
-    }
+  if (error.code === 'ECONNABORTED') {
+    return true
+  }
 
-    if (!error.response) {
-        return true
-    }
+  if (!error.response) {
+    return true
+  }
 
-    return [429, 500, 502, 503, 504].includes(error.response.status)
+  return [429, 500, 502, 503, 504].includes(error.response.status)
 }
 
 export interface TrialInfo {
-    endsAt: string
-    remainingDays: number
+  endsAt: string
+  remainingDays: number
 }
 
 const DAY_IN_MS = 24 * 60 * 60 * 1000
 
 export const getTrialInfo = (subscription: SubDataEFIReponse): TrialInfo | null => {
-    const { trial_days, payment_method, created_at } = subscription
-    debug.info("subscription em getTrialInfo", subscription)
+  const { trial_days, payment_method, created_at } = subscription
+  debug.info('subscription em getTrialInfo', subscription)
 
-    if (
-        payment_method !== 'credit_card' ||
-        !trial_days ||
-        trial_days <= 0
-    ) {
-        return null
-    }
+  if (payment_method !== 'credit_card' || !trial_days || trial_days <= 0) {
+    return null
+  }
 
-    const createdAt = new Date(created_at)
+  const createdAt = new Date(created_at)
 
-    if (Number.isNaN(createdAt.getTime())) {
-        return null
-    }
+  if (Number.isNaN(createdAt.getTime())) {
+    return null
+  }
 
-    const endsAt = new Date(createdAt)
+  const endsAt = new Date(createdAt)
 
-    endsAt.setUTCDate(endsAt.getUTCDate() + trial_days)
+  endsAt.setUTCDate(endsAt.getUTCDate() + trial_days)
 
-    const remainingMilliseconds = endsAt.getTime() - Date.now()
+  const remainingMilliseconds = endsAt.getTime() - Date.now()
 
-    if (remainingMilliseconds <= 0) return null
+  if (remainingMilliseconds <= 0) return null
 
-    return {
-        endsAt: endsAt.toISOString(),
-        remainingDays: Math.ceil(remainingMilliseconds / DAY_IN_MS),
-    }
+  return {
+    endsAt: endsAt.toISOString(),
+    remainingDays: Math.ceil(remainingMilliseconds / DAY_IN_MS),
+  }
 }
 
 export const hasAccess = (user: UserContext): boolean => {
-    if (user.donator) return true
+  if (user.donator) return true
 
-    const accessUntil = user.subscription?.accessUntil
-        ? new Date(user.subscription.accessUntil).getTime()
-        : Number.NaN
+  const accessUntil = user.subscription?.accessUntil
+    ? new Date(user.subscription.accessUntil).getTime()
+    : Number.NaN
 
-    return (
-        Number.isFinite(accessUntil)
-        && accessUntil > Date.now()
-    )
+  return Number.isFinite(accessUntil) && accessUntil > Date.now()
 }

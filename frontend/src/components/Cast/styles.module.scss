@@ -1,140 +1,136 @@
 .castCard {
-    display: flex;
-    flex-direction: column;
-    gap: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
 
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 
-    &:hover {
-        .castImage {
-            border-color: rgba(255, 255, 255, 0.34);
+  &:hover {
+    .castImage {
+      border-color: rgba(255, 255, 255, 0.34);
 
-            box-shadow:
-                0 12px 30px rgba(0, 0, 0, 0.3),
-                0 0 0 1px rgba(229, 9, 20, 0.08);
+      box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(229, 9, 20, 0.08);
 
-            transform: translateY(-3px);
-        }
-
-        .profileImage {
-            transform: scale(1.035);
-        }
+      transform: translateY(-3px);
     }
+
+    .profileImage {
+      transform: scale(1.035);
+    }
+  }
 }
 
 .castImage {
-    position: relative;
+  position: relative;
 
-    display: grid;
-    place-items: center;
+  display: grid;
+  place-items: center;
 
-    width: 100%;
-    aspect-ratio: 3 / 4;
+  width: 100%;
+  aspect-ratio: 3 / 4;
 
-    background:
-        linear-gradient(145deg,
-            rgba(255, 255, 255, 0.06),
-            rgba(255, 255, 255, 0.015)),
-        #1b1b1d;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015)), #1b1b1d;
 
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
 
-    overflow: hidden;
+  overflow: hidden;
 
-    transition:
-        border-color 180ms ease,
-        box-shadow 180ms ease,
-        transform 180ms ease;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
 .profileImage {
-    object-fit: cover;
-    object-position: center top;
+  object-fit: cover;
+  object-position: center top;
 
-    transition: transform 240ms ease;
+  transition: transform 240ms ease;
 }
 
 .placeholderIcon {
-    width: 52%;
-    height: 52%;
+  width: 52%;
+  height: 52%;
 
-    color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.12);
 }
 
 .castInfo {
-    display: flex;
-    flex-direction: column;
-    gap: 0.22rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
 
-    min-width: 0;
-    padding: 0 0.2rem;
+  min-width: 0;
+  padding: 0 0.2rem;
 }
 
 .name {
-    display: -webkit-box;
+  display: -webkit-box;
 
-    margin: 0;
-    overflow: hidden;
+  margin: 0;
+  overflow: hidden;
 
-    color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.92);
 
-    font-size: clamp(0.82rem, 1.3vw, 0.92rem);
-    font-weight: 650;
-    line-height: 1.3;
+  font-size: clamp(0.82rem, 1.3vw, 0.92rem);
+  font-weight: 650;
+  line-height: 1.3;
 
-    overflow-wrap: break-word;
+  overflow-wrap: break-word;
 
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .character {
-    display: -webkit-box;
+  display: -webkit-box;
 
-    margin: 0;
-    overflow: hidden;
+  margin: 0;
+  overflow: hidden;
 
-    color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.5);
 
-    font-size: clamp(0.7rem, 1.1vw, 0.78rem);
-    font-weight: 400;
-    line-height: 1.35;
+  font-size: clamp(0.7rem, 1.1vw, 0.78rem);
+  font-weight: 400;
+  line-height: 1.35;
 
-    overflow-wrap: break-word;
+  overflow-wrap: break-word;
 
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 @media (max-width: 570px) {
-    .castCard {
-        gap: 0.55rem;
-    }
+  .castCard {
+    gap: 0.55rem;
+  }
 
-    .castImage {
-        border-radius: 8px;
-    }
+  .castImage {
+    border-radius: 8px;
+  }
 
-    .castInfo {
-        padding-inline: 0.1rem;
-    }
+  .castInfo {
+    padding-inline: 0.1rem;
+  }
 
-    .name {
-        font-size: 0.78rem;
-    }
+  .name {
+    font-size: 0.78rem;
+  }
 
-    .character {
-        font-size: 0.68rem;
-    }
+  .character {
+    font-size: 0.68rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-
-    .castImage,
-    .profileImage {
-        transition: none;
-    }
+  .castImage,
+  .profileImage {
+    transition: none;
+  }
 }

@@ -9,214 +9,158 @@ import { useFlix } from '@/contexts/FlixContext'
 import styles from './styles.module.scss'
 
 const Search = () => {
-    const [inputSearch, setInputSearch] = useState('')
-    const [isLoadingCatalog, setIsLoadingCatalog] = useState(false)
+  const [inputSearch, setInputSearch] = useState('')
+  const [isLoadingCatalog, setIsLoadingCatalog] = useState(false)
 
-    const router = useRouter()
+  const router = useRouter()
 
-    const {
-        movies,
-        series,
-        setMovies,
-        setSeries,
-    } = useFlix()
+  const { movies, series, setMovies, setSeries } = useFlix()
 
-    const normalizedSearch = inputSearch.trim()
-    const canSearch = normalizedSearch.length >= 2
+  const normalizedSearch = inputSearch.trim()
+  const canSearch = normalizedSearch.length >= 2
 
-    const catalogTotal = useMemo(() => {
-        return movies.length + series.length
-    }, [movies.length, series.length])
+  const catalogTotal = useMemo(() => {
+    return movies.length + series.length
+  }, [movies.length, series.length])
 
-    const handleSearch = (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault()
+  const handleSearch = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
 
-        if (!canSearch) return
+    if (!canSearch) return
 
-        const query = new URLSearchParams({
-            input: normalizedSearch,
-        })
+    const query = new URLSearchParams({
+      input: normalizedSearch,
+    })
 
-        router.push(`/search?${query.toString()}`)
+    router.push(`/search?${query.toString()}`)
+  }
+
+  useEffect(() => {
+    if (movies.length > 0 && series.length > 0) return
+
+    let isMounted = true
+
+    const loadCatalogData = async () => {
+      setIsLoadingCatalog(true)
+
+      try {
+        const [movieData, serieData] = await Promise.all([
+          movies.length === 0 ? mongoService.fetchMovieData() : Promise.resolve(null),
+
+          series.length === 0 ? mongoService.fetchSerieData() : Promise.resolve(null),
+        ])
+
+        if (!isMounted) return
+
+        if (movieData) {
+          setMovies(movieData)
+        }
+
+        if (serieData) {
+          setSeries(serieData)
+        }
+      } catch (error) {
+        console.error('Erro ao carregar informações do catálogo:', error)
+      } finally {
+        if (isMounted) {
+          setIsLoadingCatalog(false)
+        }
+      }
     }
 
-    useEffect(() => {
-        if (movies.length > 0 && series.length > 0) return
+    loadCatalogData()
 
-        let isMounted = true
+    return () => {
+      isMounted = false
+    }
+  }, [movies.length, series.length, setMovies, setSeries])
 
-        const loadCatalogData = async () => {
-            setIsLoadingCatalog(true)
+  return (
+    <section className={styles.searchSection} aria-labelledby="catalog-search-title">
+      <Image
+        fill
+        className={styles.backgroundImage}
+        src="/fundo-filmes.jpg"
+        alt=""
+        quality={55}
+        sizes="100vw"
+        loading="lazy"
+        aria-hidden="true"
+      />
 
-            try {
-                const [movieData, serieData] = await Promise.all([
-                    movies.length === 0
-                        ? mongoService.fetchMovieData()
-                        : Promise.resolve(null),
+      <div className={styles.backgroundOverlay} aria-hidden="true" />
 
-                    series.length === 0
-                        ? mongoService.fetchSerieData()
-                        : Promise.resolve(null),
-                ])
+      <div className={styles.backgroundGlow} aria-hidden="true" />
 
-                if (!isMounted) return
+      <div className={styles.content}>
+        <span className={styles.eyebrow}>Explore a FlixNext</span>
 
-                if (movieData) {
-                    setMovies(movieData)
-                }
+        <h2 id="catalog-search-title">
+          Não encontrou o que queria?
+          <span> Pesquise em todo o catálogo.</span>
+        </h2>
 
-                if (serieData) {
-                    setSeries(serieData)
-                }
-            } catch (error) {
-                console.error(
-                    'Erro ao carregar informações do catálogo:',
-                    error,
-                )
-            } finally {
-                if (isMounted) {
-                    setIsLoadingCatalog(false)
-                }
-            }
-        }
+        <p className={styles.description}>
+          Encontre rapidamente filmes e séries disponíveis para assistir.
+        </p>
 
-        loadCatalogData()
+        <form className={styles.searchForm} role="search" onSubmit={handleSearch}>
+          <FiSearch className={styles.inputIcon} aria-hidden="true" />
 
-        return () => {
-            isMounted = false
-        }
-    }, [
-        movies.length,
-        series.length,
-        setMovies,
-        setSeries,
-    ])
+          <label className={styles.visuallyHidden} htmlFor="catalog-search">
+            Buscar filme ou série
+          </label>
 
-    return (
-        <section
-            className={styles.searchSection}
-            aria-labelledby="catalog-search-title"
-        >
-            <Image
-                fill
-                className={styles.backgroundImage}
-                src="/fundo-filmes.jpg"
-                alt=""
-                quality={55}
-                sizes="100vw"
-                loading="lazy"
-                aria-hidden="true"
-            />
+          <input
+            id="catalog-search"
+            type="search"
+            value={inputSearch}
+            placeholder="Busque por um filme ou série..."
+            autoComplete="off"
+            enterKeyHint="search"
+            maxLength={100}
+            onChange={(event) => {
+              setInputSearch(event.target.value)
+            }}
+          />
 
-            <div
-                className={styles.backgroundOverlay}
-                aria-hidden="true"
-            />
+          <button type="submit" disabled={!canSearch} aria-label="Realizar busca">
+            <span>Buscar</span>
+            <FiSearch aria-hidden="true" />
+          </button>
+        </form>
 
-            <div
-                className={styles.backgroundGlow}
-                aria-hidden="true"
-            />
+        <div className={styles.catalogStats} aria-live="polite">
+          {isLoadingCatalog && catalogTotal === 0 ? (
+            <span className={styles.loading}>
+              <i aria-hidden="true" />
+              Consultando o catálogo...
+            </span>
+          ) : (
+            <>
+              <span>
+                <FiFilm aria-hidden="true" />
+                <strong>{movies.length.toLocaleString('pt-BR')}</strong>
+                filmes
+              </span>
 
-            <div className={styles.content}>
-                <span className={styles.eyebrow}>
-                    Explore a FlixNext
-                </span>
+              <i aria-hidden="true" />
 
-                <h2 id="catalog-search-title">
-                    Não encontrou o que queria?
-                    <span> Pesquise em todo o catálogo.</span>
-                </h2>
+              <span>
+                <FiTv aria-hidden="true" />
+                <strong>{series.length.toLocaleString('pt-BR')}</strong>
+                séries
+              </span>
+            </>
+          )}
+        </div>
 
-                <p className={styles.description}>
-                    Encontre rapidamente filmes e séries disponíveis para
-                    assistir.
-                </p>
-
-                <form
-                    className={styles.searchForm}
-                    role="search"
-                    onSubmit={handleSearch}
-                >
-                    <FiSearch
-                        className={styles.inputIcon}
-                        aria-hidden="true"
-                    />
-
-                    <label
-                        className={styles.visuallyHidden}
-                        htmlFor="catalog-search"
-                    >
-                        Buscar filme ou série
-                    </label>
-
-                    <input
-                        id="catalog-search"
-                        type="search"
-                        value={inputSearch}
-                        placeholder="Busque por um filme ou série..."
-                        autoComplete="off"
-                        enterKeyHint="search"
-                        maxLength={100}
-                        onChange={(event) => {
-                            setInputSearch(event.target.value)
-                        }}
-                    />
-
-                    <button
-                        type="submit"
-                        disabled={!canSearch}
-                        aria-label="Realizar busca"
-                    >
-                        <span>Buscar</span>
-                        <FiSearch aria-hidden="true" />
-                    </button>
-                </form>
-
-                <div
-                    className={styles.catalogStats}
-                    aria-live="polite"
-                >
-                    {isLoadingCatalog && catalogTotal === 0 ? (
-                        <span className={styles.loading}>
-                            <i aria-hidden="true" />
-                            Consultando o catálogo...
-                        </span>
-                    ) : (
-                        <>
-                            <span>
-                                <FiFilm aria-hidden="true" />
-
-                                <strong>
-                                    {movies.length.toLocaleString('pt-BR')}
-                                </strong>
-
-                                filmes
-                            </span>
-
-                            <i aria-hidden="true" />
-
-                            <span>
-                                <FiTv aria-hidden="true" />
-
-                                <strong>
-                                    {series.length.toLocaleString('pt-BR')}
-                                </strong>
-
-                                séries
-                            </span>
-                        </>
-                    )}
-                </div>
-
-                {inputSearch.length > 0 && !canSearch && (
-                    <span className={styles.searchHint}>
-                        Digite pelo menos 2 caracteres.
-                    </span>
-                )}
-            </div>
-        </section>
-    )
+        {inputSearch.length > 0 && !canSearch && (
+          <span className={styles.searchHint}>Digite pelo menos 2 caracteres.</span>
+        )}
+      </div>
+    </section>
+  )
 }
 
 export default Search

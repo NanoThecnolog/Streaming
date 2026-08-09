@@ -1,29 +1,28 @@
 import { ResultsProps } from '@/@types/collection'
 import styles from './styles.module.scss'
-import Image from 'next/image';
+import Image from 'next/image'
 
 interface CardProps {
-    card: ResultsProps;
+  card: ResultsProps
 }
 
 export default function CardCollection({ card }: CardProps) {
-    const poster = `https://image.tmdb.org/t/p/w500/${card.poster_path}`
+  const poster = `https://image.tmdb.org/t/p/w500/${card.poster_path}`
 
-
-    return (
-        <div className={styles.collectionContainer}>
-            <div className={styles.imageContainer}>
-                <Image
-                    src={poster}
-                    fill
-                    placeholder='blur'
-                    blurDataURL='/blurImage.png'
-                    quality={35}
-                    priority
-                    sizes="100%"
-                    alt={card.name}
-                />
-            </div>
-        </div>
-    )
+  return (
+    <div className={styles.collectionContainer}>
+      <div className={styles.imageContainer}>
+        <Image
+          src={poster}
+          fill
+          placeholder="blur"
+          blurDataURL="/blurImage.png"
+          quality={35}
+          priority
+          sizes="100%"
+          alt={card.name}
+        />
+      </div>
+    </div>
+  )
 }

@@ -1,17 +1,16 @@
-import { NewUserProps } from "../userTypes/signUp";
+import { NewUserProps } from '../userTypes/signUp'
 
 export interface PixDto {
-    expires_in: number;
+  expires_in: number
 }
 
-
 export interface CreditCardDto {
-    customer: {
-        name: string;
-        cpf: string;
-        email: string;
-        phone_number: string;
-        /*
+  customer: {
+    name: string
+    cpf: string
+    email: string
+    phone_number: string
+    /*
         birth: string | Date;
         address?: {
             street: string;
@@ -23,10 +22,10 @@ export interface CreditCardDto {
             state: string;
         };
         */
-    };
-    installments?: number;
-    capture?: boolean;
-    /*billing_address: {
+  }
+  installments?: number
+  capture?: boolean
+  /*billing_address: {
         street: string;
         number: string;
         neighborhood: string;
@@ -35,25 +34,24 @@ export interface CreditCardDto {
         complement?: string;
         state: string;
     };*/
-    card?: {
-        number: string;
-        holder_name: string;
-        exp_month: string;
-        exp_year: string;
-        cvv: string;
-    };
-    payment_token: string,
-    trial_days?: number
+  card?: {
+    number: string
+    holder_name: string
+    exp_month: string
+    exp_year: string
+    cvv: string
+  }
+  payment_token: string
+  trial_days?: number
 }
 
-
 export interface BankingBilletDto {
-    customer: {
-        name: string;
-        cpf: string;
-        email: string;
-        phone_number: string;
-        /*
+  customer: {
+    name: string
+    cpf: string
+    email: string
+    phone_number: string
+    /*
         birth: string | Date;
         address: {
             street: string;
@@ -65,70 +63,69 @@ export interface BankingBilletDto {
             state: string;
         };
         */
-    };
-    expire_at: string;
+  }
+  expire_at: string
 }
-
 
 export interface CreateSubscriptionDto {
-    user: NewUserProps
-    planId: number;
+  user: NewUserProps
+  planId: number
 
-    items: Array<{
-        name: string;
-        value: number;
-        amount: number;
-        marketplace?: {
-            payee_code: string;
-            percentage?: number;
-        };
-    }>;
+  items: Array<{
+    name: string
+    value: number
+    amount: number
+    marketplace?: {
+      payee_code: string
+      percentage?: number
+    }
+  }>
 
-    shippings?: Array<{
-        name: string;
-        value: number;
-        payee_code?: string;
-    }>;
+  shippings?: Array<{
+    name: string
+    value: number
+    payee_code?: string
+  }>
 
-    metadata?: {
-        custom_id?: string;
-        notification_url?: string;
-    };
+  metadata?: {
+    custom_id?: string
+    notification_url?: string
+  }
 
-    payment: {
-        banking_billet?: BankingBilletDto;
-        credit_card?: CreditCardDto;
-        //pix?: PixDto;
-    };
+  payment: {
+    banking_billet?: BankingBilletDto
+    credit_card?: CreditCardDto
+    //pix?: PixDto;
+  }
 }
 export interface EditSubscriptionDto {
-    user?: NewUserProps
-    planId: number;
+  user?: NewUserProps
+  planId: number
 
-    items: Array<{
-        name: string;
-        value: number;
-        amount: number;
-        marketplace?: {
-            payee_code: string;
-            percentage?: number;
-        };
-    }>;
+  items: Array<{
+    name: string
+    value: number
+    amount: number
+    marketplace?: {
+      payee_code: string
+      percentage?: number
+    }
+  }>
 
-    shippings?: Array<{
-        name: string;
-        value: number;
-        payee_code?: string;
-    }>;
+  shippings?: Array<{
+    name: string
+    value: number
+    payee_code?: string
+  }>
 
-    metadata?: {
-        custom_id?: string;
-        notification_url?: string;
-    };
+  metadata?: {
+    custom_id?: string
+    notification_url?: string
+  }
 
-    payment: {
-        banking_billet?: BankingBilletDto;
-        credit_card?: CreditCardDto;
-        //pix?: PixDto;
-    };
+  payment: {
+    banking_billet?: BankingBilletDto
+    credit_card?: CreditCardDto
+    //pix?: PixDto;
+  }
 }

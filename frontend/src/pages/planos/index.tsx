@@ -1,13 +1,7 @@
 import axios from 'axios'
 import { GetServerSideProps } from 'next'
 import Link from 'next/link'
-import {
-    FiCheck,
-    FiChevronDown,
-    FiMonitor,
-    FiShield,
-    FiSmartphone,
-} from 'react-icons/fi'
+import { FiCheck, FiChevronDown, FiMonitor, FiShield, FiSmartphone } from 'react-icons/fi'
 
 import { MovieTMDB } from '@/@types/Cards'
 import { PlanProp } from '@/@types/plans'
@@ -26,255 +20,205 @@ import 'swiper/css'
 import styles from './styles.module.scss'
 
 interface PagePlansProps {
-    plans: PlanProp[]
-    tmdbMovies: MovieTMDB[]
-    tmdbSeries: TMDBSeries[]
+  plans: PlanProp[]
+  tmdbMovies: MovieTMDB[]
+  tmdbSeries: TMDBSeries[]
 }
 
 const benefits = [
-    'Filmes e séries em um só lugar',
-    'Assista em diferentes dispositivos',
-    'Planos flexíveis e sem fidelidade',
+  'Filmes e séries em um só lugar',
+  'Assista em diferentes dispositivos',
+  'Planos flexíveis e sem fidelidade',
 ]
 
-const PagePlans = ({
-    plans,
-    tmdbMovies,
-    tmdbSeries,
-}: PagePlansProps) => {
-    const hasPlans = plans.length > 0
+const PagePlans = ({ plans, tmdbMovies, tmdbSeries }: PagePlansProps) => {
+  const hasPlans = plans.length > 0
 
-    return (
-        <>
-            <SEO
-                title="Planos de assinatura | FlixNext"
-                description="Escolha o plano ideal e assista aos seus filmes e séries favoritos no FlixNext."
-            />
+  return (
+    <>
+      <SEO
+        title="Planos de assinatura | FlixNext"
+        description="Escolha o plano ideal e assista aos seus filmes e séries favoritos no FlixNext."
+      />
 
-            {//<Header />
-            }
+      {
+        //<Header />
+      }
 
-            <main className={styles.mainPage}>
-                <section className={styles.hero}>
-                    <div
-                        className={styles.heroBackground}
-                        aria-hidden="true"
-                    />
+      <main className={styles.mainPage}>
+        <section className={styles.hero}>
+          <div className={styles.heroBackground} aria-hidden="true" />
 
-                    <div className={styles.heroOverlay} aria-hidden="true" />
+          <div className={styles.heroOverlay} aria-hidden="true" />
 
-                    <div className={styles.heroContent}>
-                        <span className={styles.eyebrow}>
-                            Entretenimento do seu jeito
-                        </span>
+          <div className={styles.heroContent}>
+            <span className={styles.eyebrow}>Entretenimento do seu jeito</span>
 
-                        <h1>
-                            Seus filmes e séries favoritos.
-                            <span> Um plano para cada momento.</span>
-                        </h1>
+            <h1>
+              Seus filmes e séries favoritos.
+              <span> Um plano para cada momento.</span>
+            </h1>
 
-                        <p className={styles.heroDescription}>
-                            Escolha a assinatura que combina com você e tenha
-                            acesso ao catálogo FlixNext de onde estiver.
-                        </p>
+            <p className={styles.heroDescription}>
+              Escolha a assinatura que combina com você e tenha acesso ao catálogo FlixNext de onde
+              estiver.
+            </p>
 
-                        <ul className={styles.benefits}>
-                            {benefits.map((benefit) => (
-                                <li key={benefit}>
-                                    <span>
-                                        <FiCheck aria-hidden="true" />
-                                    </span>
+            <ul className={styles.benefits}>
+              {benefits.map((benefit) => (
+                <li key={benefit}>
+                  <span>
+                    <FiCheck aria-hidden="true" />
+                  </span>
 
-                                    {benefit}
-                                </li>
-                            ))}
-                        </ul>
+                  {benefit}
+                </li>
+              ))}
+            </ul>
 
-                        <div className={styles.heroActions}>
-                            <Link
-                                href="#escolher"
-                                className={styles.primaryAction}
-                            >
-                                Ver planos
-                            </Link>
+            <div className={styles.heroActions}>
+              <Link href="#escolher" className={styles.primaryAction}>
+                Ver planos
+              </Link>
 
-                            <Link
-                                href="/catalogo"
-                                className={styles.secondaryAction}
-                            >
-                                Explorar catálogo
-                            </Link>
-                        </div>
+              <Link href="/catalogo" className={styles.secondaryAction}>
+                Explorar catálogo
+              </Link>
+            </div>
 
-                        <p className={styles.paymentNotice}>
-                            Pagamento seguro · Cancele quando quiser
-                        </p>
-                    </div>
+            <p className={styles.paymentNotice}>Pagamento seguro · Cancele quando quiser</p>
+          </div>
 
-                    <Link
-                        href="#escolher"
-                        className={styles.scrollIndicator}
-                        aria-label="Ir para os planos disponíveis"
-                    >
-                        <span>Conheça os planos</span>
-                        <FiChevronDown aria-hidden="true" />
-                    </Link>
-                </section>
+          <Link
+            href="#escolher"
+            className={styles.scrollIndicator}
+            aria-label="Ir para os planos disponíveis"
+          >
+            <span>Conheça os planos</span>
+            <FiChevronDown aria-hidden="true" />
+          </Link>
+        </section>
 
-                <section
-                    id="escolher"
-                    className={styles.plansSection}
-                    aria-labelledby="plans-title"
-                >
-                    <div className={styles.sectionHeading}>
-                        <span>Planos FlixNext</span>
+        <section id="escolher" className={styles.plansSection} aria-labelledby="plans-title">
+          <div className={styles.sectionHeading}>
+            <span>Planos FlixNext</span>
 
-                        <h2 id="plans-title">
-                            Escolha a melhor opção para você
-                        </h2>
+            <h2 id="plans-title">Escolha a melhor opção para você</h2>
 
-                        <p>
-                            Compare os benefícios e escolha por quanto tempo
-                            deseja aproveitar o catálogo.
-                        </p>
-                    </div>
+            <p>Compare os benefícios e escolha por quanto tempo deseja aproveitar o catálogo.</p>
+          </div>
 
-                    {hasPlans ? (
-                        <Prices plans={plans} />
-                    ) : (
-                        <div className={styles.unavailable}>
-                            <strong>Planos temporariamente indisponíveis</strong>
+          {hasPlans ? (
+            <Prices plans={plans} />
+          ) : (
+            <div className={styles.unavailable}>
+              <strong>Planos temporariamente indisponíveis</strong>
 
-                            <p>
-                                Não foi possível carregar os planos agora.
-                                Tente novamente em alguns instantes.
-                            </p>
-                        </div>
-                    )}
-                </section>
+              <p>Não foi possível carregar os planos agora. Tente novamente em alguns instantes.</p>
+            </div>
+          )}
+        </section>
 
-                <section
-                    className={styles.devicesSection}
-                    aria-labelledby="devices-title"
-                >
-                    <div className={styles.devicesContent}>
-                        <div className={styles.devicesText}>
-                            <span>Assista como preferir</span>
+        <section className={styles.devicesSection} aria-labelledby="devices-title">
+          <div className={styles.devicesContent}>
+            <div className={styles.devicesText}>
+              <span>Assista como preferir</span>
 
-                            <h2 id="devices-title">
-                                Sua diversão acompanha você
-                            </h2>
+              <h2 id="devices-title">Sua diversão acompanha você</h2>
 
-                            <p>
-                                Continue assistindo aos seus conteúdos
-                                favoritos em diferentes dispositivos. *Em breve aplicativo para TVs*
-                            </p>
-                        </div>
+              <p>
+                Continue assistindo aos seus conteúdos favoritos em diferentes dispositivos. *Em
+                breve aplicativo para TVs*
+              </p>
+            </div>
 
-                        <div className={styles.deviceList}>
-                            <article>
-                                <FiMonitor aria-hidden="true" />
-                                <strong>No seu Computador</strong>
-                                <span>Uma experiência feita para telas grandes.</span>
-                            </article>
+            <div className={styles.deviceList}>
+              <article>
+                <FiMonitor aria-hidden="true" />
+                <strong>No seu Computador</strong>
+                <span>Uma experiência feita para telas grandes.</span>
+              </article>
 
-                            <article>
-                                <FiSmartphone aria-hidden="true" />
-                                <strong>No celular</strong>
-                                <span>Seu catálogo sempre ao seu alcance.</span>
-                            </article>
+              <article>
+                <FiSmartphone aria-hidden="true" />
+                <strong>No celular</strong>
+                <span>Seu catálogo sempre ao seu alcance.</span>
+              </article>
 
-                            <article>
-                                <FiShield aria-hidden="true" />
-                                <strong>Com segurança</strong>
-                                <span>Pagamento protegido e acesso individual.</span>
-                            </article>
-                        </div>
-                    </div>
-                </section>
+              <article>
+                <FiShield aria-hidden="true" />
+                <strong>Com segurança</strong>
+                <span>Pagamento protegido e acesso individual.</span>
+              </article>
+            </div>
+          </div>
+        </section>
 
-                {(tmdbMovies.length > 0 || tmdbSeries.length > 0) && (
-                    <section className={styles.catalogSection}>
-                        <Carousel
-                            movies={tmdbMovies}
-                            series={tmdbSeries}
-                        />
-                    </section>
-                )}
+        {(tmdbMovies.length > 0 || tmdbSeries.length > 0) && (
+          <section className={styles.catalogSection}>
+            <Carousel movies={tmdbMovies} series={tmdbSeries} />
+          </section>
+        )}
 
-                <Streaming />
-                <PromoCounting />
-                <PromoFAQ />
-            </main>
+        <Streaming />
+        <PromoCounting />
+        <PromoFAQ />
+      </main>
 
-            <Footer />
-        </>
-    )
+      <Footer />
+    </>
+  )
 }
 
 export default PagePlans
 
 export const getServerSideProps: GetServerSideProps<PagePlansProps> = async () => {
-    const url = process.env.NEXT_PUBLIC_WEBSITE_LINK
-    if (!url) {
-        console.log("WEBSITE_LINK não definido nas variaveis de ambiente.")
-        return {
-            props: {
-                plans: [],
-                tmdbMovies: [],
-                tmdbSeries: [],
-            }
-        }
+  const url = process.env.NEXT_PUBLIC_WEBSITE_LINK
+  if (!url) {
+    console.log('WEBSITE_LINK não definido nas variaveis de ambiente.')
+    return {
+      props: {
+        plans: [],
+        tmdbMovies: [],
+        tmdbSeries: [],
+      },
     }
-    try {
-        const [plansResponse, movies, series] = await Promise.all([
-            axios.get<PlanProp[]>(
-                `${url}/api/plan/list`,
-            ),
-            mongoService.fetchMovieData(),
-            mongoService.fetchSerieData(),
-        ])
+  }
+  try {
+    const [plansResponse, movies, series] = await Promise.all([
+      axios.get<PlanProp[]>(`${url}/api/plan/list`),
+      mongoService.fetchMovieData(),
+      mongoService.fetchSerieData(),
+    ])
 
-        const moviesToFetch = movies.slice(0, 20)
-        const seriesToFetch = series.slice(0, 20)
+    const moviesToFetch = movies.slice(0, 20)
+    const seriesToFetch = series.slice(0, 20)
 
-        const [tmdbMoviesResponse, tmdbSeriesResponse] =
-            await Promise.all([
-                axios.post(
-                    `${url}/api/tmdb/all/movie`,
-                    {
-                        movies: moviesToFetch,
-                    },
-                ),
-                axios.post(
-                    `${url}/api/tmdb/all/tv`,
-                    {
-                        series: seriesToFetch,
-                    },
-                ),
-            ])
+    const [tmdbMoviesResponse, tmdbSeriesResponse] = await Promise.all([
+      axios.post(`${url}/api/tmdb/all/movie`, {
+        movies: moviesToFetch,
+      }),
+      axios.post(`${url}/api/tmdb/all/tv`, {
+        series: seriesToFetch,
+      }),
+    ])
 
-        return {
-            props: {
-                plans: plansResponse.data ?? [],
-                tmdbMovies:
-                    tmdbMoviesResponse.data?.data ?? [],
-                tmdbSeries:
-                    tmdbSeriesResponse.data?.data ?? [],
-            },
-        }
-    } catch (error) {
-        console.error(
-            'Erro ao carregar a página de planos:',
-            error,
-        )
-
-        return {
-            props: {
-                plans: [],
-                tmdbMovies: [],
-                tmdbSeries: [],
-            },
-        }
+    return {
+      props: {
+        plans: plansResponse.data ?? [],
+        tmdbMovies: tmdbMoviesResponse.data?.data ?? [],
+        tmdbSeries: tmdbSeriesResponse.data?.data ?? [],
+      },
     }
+  } catch (error) {
+    console.error('Erro ao carregar a página de planos:', error)
+
+    return {
+      props: {
+        plans: [],
+        tmdbMovies: [],
+        tmdbSeries: [],
+      },
+    }
+  }
 }

@@ -1,6 +1,6 @@
 export interface CheckFileProps {
-    id: string,
-    mimeType: string,
-    name: string,
-    shared: boolean
+  id: string
+  mimeType: string
+  name: string
+  shared: boolean
 }

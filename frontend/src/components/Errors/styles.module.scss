@@ -1,27 +1,25 @@
 .container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    font-family: var(--font-Roboto);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-family: var(--font-Roboto);
+
+  a {
+    color: var(--red);
+  }
+
+  .homeLink {
+    background-color: var(--red-selected);
+    padding: 10px 20px;
+    border-radius: 0.4rem;
+    cursor: pointer;
 
     a {
-        color: var(--red);
+      color: var(--white);
     }
-
-    .homeLink {
-        background-color: var(--red-selected);
-        padding: 10px 20px;
-        border-radius: .4rem;
-        cursor: pointer;
-
-        a {
-            color: var(--white);
-        }
-
-    }
-
+  }
 }

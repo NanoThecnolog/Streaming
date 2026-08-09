@@ -298,26 +298,23 @@ import styles from './styles.module.scss'
 import { GetServerSideProps } from 'next'
 
 export default function OldPayment() {
-    return (
-        <>
-            <Head>
-                <title></title>
-                <meta name='description' content='' />
-                <meta name='viewport' content='width=device-width, initial-scale=1' />
-            </Head>
-            <main className={styles.container}>
-            </main>
-        </>
-    )
+  return (
+    <>
+      <Head>
+        <title></title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <main className={styles.container}></main>
+    </>
+  )
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-
-
-    return {
-        redirect: {
-            destination: '/',
-            permanent: true
-        }
-    }
+  return {
+    redirect: {
+      destination: '/',
+      permanent: true,
+    },
+  }
 }

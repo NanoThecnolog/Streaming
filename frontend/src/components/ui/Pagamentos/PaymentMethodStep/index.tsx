@@ -4,134 +4,116 @@ import { FaBarcode, FaPix } from 'react-icons/fa6'
 import { FaCreditCard } from 'react-icons/fa6'
 import { IconType } from 'react-icons/lib'
 
-type PaymentMethod =
-    | 'pix'
-    | 'credit-card'
-    | 'billet'
+type PaymentMethod = 'pix' | 'credit-card' | 'billet'
 
 interface PaymentMethodStepProps {
-    selectedMethod: PaymentMethod
-    allowedMethods?: PaymentMethod[]
-    onSelectMethod: (method: PaymentMethod) => void
-    onBack: () => void
-    onContinue: () => void
+  selectedMethod: PaymentMethod
+  allowedMethods?: PaymentMethod[]
+  onSelectMethod: (method: PaymentMethod) => void
+  onBack: () => void
+  onContinue: () => void
 }
 
 interface PaymentOption {
-    id: PaymentMethod
-    name: string
-    description: string
-    badge?: string
-    icon: IconType
+  id: PaymentMethod
+  name: string
+  description: string
+  badge?: string
+  icon: IconType
 }
 
 const paymentOptions: PaymentOption[] = [
-    /*{
+  /*{
         id: 'pix',
         name: 'Pix',
         description: 'Confirmação rápida após o pagamento',
         badge: 'Recomendado',
         icon: FaPix,
     },*/
-    {
-        id: 'credit-card',
-        name: 'Cartão de crédito',
-        description: 'Pagamento processado imediatamente',
-        badge: 'Recomendado - 3 dias de trial',
-        icon: FaCreditCard,
-    },
-    {
-        id: 'billet',
-        name: 'Pix ou Boleto bancário',
-        description: 'Boleto pode ser pago por pix',
-        icon: FaBarcode,
-    },
+  {
+    id: 'credit-card',
+    name: 'Cartão de crédito',
+    description: 'Pagamento processado imediatamente',
+    badge: 'Recomendado - 3 dias de trial',
+    icon: FaCreditCard,
+  },
+  {
+    id: 'billet',
+    name: 'Pix ou Boleto bancário',
+    description: 'Boleto pode ser pago por pix',
+    icon: FaBarcode,
+  },
 ]
 
-export function PaymentMethodStep({ selectedMethod, allowedMethods, onSelectMethod, onBack, onContinue }: PaymentMethodStepProps) {
+export function PaymentMethodStep({
+  selectedMethod,
+  allowedMethods,
+  onSelectMethod,
+  onBack,
+  onContinue,
+}: PaymentMethodStepProps) {
+  const methodsToShow = paymentOptions.filter((method) =>
+    allowedMethods ? allowedMethods.includes(method.id) : true,
+  )
 
+  return (
+    <section className={styles.card}>
+      <header className={styles.header}>
+        <span>Forma de pagamento</span>
 
-    const methodsToShow = paymentOptions.filter(method => allowedMethods ? allowedMethods.includes(method.id) : true,
-    )
+        <h1>Como deseja pagar?</h1>
 
-    return (
-        <section className={styles.card}>
-            <header className={styles.header}>
-                <span>Forma de pagamento</span>
+        <p>Selecione uma opção para continuar com a assinatura.</p>
+      </header>
 
-                <h1>Como deseja pagar?</h1>
+      <div className={styles.options}>
+        {methodsToShow.map((option) => {
+          const isSelected = option.id === selectedMethod
 
-                <p>
-                    Selecione uma opção para continuar com a
-                    assinatura.
-                </p>
-            </header>
+          const Icon = option.icon
 
-            <div className={styles.options}>
-                {methodsToShow.map((option) => {
-                    const isSelected = option.id === selectedMethod
+          return (
+            <button
+              key={option.id}
+              type="button"
+              className={[styles.option, isSelected ? styles.selected : ''].join(' ')}
+              onClick={() => onSelectMethod(option.id)}
+            >
+              <span className={styles.icon}>
+                <Icon size={18} />
+              </span>
 
-                    const Icon = option.icon
+              <div className={styles.optionContent}>
+                <div className={styles.optionTitle}>
+                  <strong>{option.name}</strong>
 
-                    return (
-                        <button
-                            key={option.id}
-                            type="button"
-                            className={[styles.option, isSelected ? styles.selected : '',].join(' ')}
-                            onClick={() =>
-                                onSelectMethod(option.id)
-                            }
-                        >
-                            <span className={styles.icon}>
-                                <Icon size={18} />
-                            </span>
+                  {option.badge && <span>{option.badge}</span>}
+                </div>
 
-                            <div className={styles.optionContent}>
-                                <div className={styles.optionTitle}>
-                                    <strong>{option.name}</strong>
+                <p>{option.description}</p>
+              </div>
 
-                                    {option.badge && (
-                                        <span>
-                                            {option.badge}
-                                        </span>
-                                    )}
-                                </div>
+              <span className={styles.radio} />
+            </button>
+          )
+        })}
+      </div>
 
-                                <p>{option.description}</p>
-                            </div>
+      <div className={styles.notice}>
+        <span>✓</span>
 
-                            <span className={styles.radio} />
-                        </button>
-                    )
-                })}
-            </div>
+        <p>O acesso será liberado após a confirmação do pagamento.</p>
+      </div>
 
-            <div className={styles.notice}>
-                <span>✓</span>
+      <div className={styles.actions}>
+        <button type="button" className={styles.back} onClick={onBack}>
+          Voltar
+        </button>
 
-                <p>
-                    O acesso será liberado após a confirmação do
-                    pagamento.
-                </p>
-            </div>
-
-            <div className={styles.actions}>
-                <button
-                    type="button"
-                    className={styles.back}
-                    onClick={onBack}
-                >
-                    Voltar
-                </button>
-
-                <button
-                    type="button"
-                    className={styles.continue}
-                    onClick={onContinue}
-                >
-                    Continuar
-                </button>
-            </div>
-        </section>
-    )
+        <button type="button" className={styles.continue} onClick={onContinue}>
+          Continuar
+        </button>
+      </div>
+    </section>
+  )
 }

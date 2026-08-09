@@ -1,11 +1,11 @@
 export type NewUserProps = {
-    name: string;
-    email: string;
-    //birthday: string;
-    password: string;
-    cpf: string;
-    phone_number: string;
-    /*address?: {
+  name: string
+  email: string
+  //birthday: string;
+  password: string
+  cpf: string
+  phone_number: string
+  /*address?: {
         street: string;
         number: string;
         zipcode: string;
@@ -14,10 +14,10 @@ export type NewUserProps = {
         neighborhood: string;
         complement?: string;
     };*/
-};
+}
 export interface SignUpMethodResponse {
-    user: {
-        /*address?: {
+  user: {
+    /*address?: {
             number: string;
             id: string;
             street: string;
@@ -28,12 +28,12 @@ export interface SignUpMethodResponse {
             state: string;
             userId: string;
         } | null;*/
-        id: string;
-        name: string;
-        email: string;
-        cpf: string | null;
-        phone_number: string | null;
-    };
-    systemNotify: string;
-    userNotify: string;
+    id: string
+    name: string
+    email: string
+    cpf: string | null
+    phone_number: string | null
+  }
+  systemNotify: string
+  userNotify: string
 }

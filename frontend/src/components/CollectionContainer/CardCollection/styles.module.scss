@@ -1,21 +1,21 @@
 .collectionContainer {
-    cursor: pointer;
-    transition: .4s;
-    border: 2px solid transparent;
+  cursor: pointer;
+  transition: 0.4s;
+  border: 2px solid transparent;
 
-    &:hover {
-        //transform: scale(1.1);
-        border: 2px solid white;
+  &:hover {
+    //transform: scale(1.1);
+    border: 2px solid white;
+  }
+
+  .imageContainer {
+    position: relative;
+    width: 350px;
+    height: 600px;
+
+    img {
+      object-fit: cover;
+      object-position: center;
     }
-
-    .imageContainer {
-        position: relative;
-        width: 350px;
-        height: 600px;
-
-        img {
-            object-fit: cover;
-            object-position: center;
-        }
-    }
+  }
 }

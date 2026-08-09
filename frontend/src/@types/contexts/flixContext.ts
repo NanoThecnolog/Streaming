@@ -1,37 +1,37 @@
-import { ReactNode } from "react";
-import { MyListPorps, SubscriptionProps, UserContext, UserCookiesProps, UserProps } from "../user";
-import { ListaFavoritos } from "../favoritos";
-import { SeriesProps } from "../series";
-import { CardsProps } from "../Cards";
+import { ReactNode } from 'react'
+import { MyListPorps, SubscriptionProps, UserContext, UserCookiesProps, UserProps } from '../user'
+import { ListaFavoritos } from '../favoritos'
+import { SeriesProps } from '../series'
+import { CardsProps } from '../Cards'
 
 export type ContextProviderProps = {
-    children: ReactNode;
+  children: ReactNode
 }
 export interface ContextProps {
-    user: UserContext | null | undefined;
-    //favorites: FavoritesContext[],
-    watchLater: WatchLaterContext[],
-    setUser: (user: UserContext) => void
-    setWatchLater: (tmdbid: WatchLaterContext[]) => void
-    //setFavorites: (id: FavoritesContext[]) => void
-    signIn: (credentials: SignInProps) => Promise<void>
-    signOut: () => void
-    movies: CardsProps[]
-    series: SeriesProps[]
-    setMovies: (data: CardsProps[]) => void
-    setSeries: (data: SeriesProps[]) => void
-    subscription: SubscriptionProps | null
-    setSubscription: (data: SubscriptionProps) => void
+  user: UserContext | null | undefined
+  //favorites: FavoritesContext[],
+  watchLater: WatchLaterContext[]
+  setUser: (user: UserContext) => void
+  setWatchLater: (tmdbid: WatchLaterContext[]) => void
+  //setFavorites: (id: FavoritesContext[]) => void
+  signIn: (credentials: SignInProps) => Promise<void>
+  signOut: () => void
+  movies: CardsProps[]
+  series: SeriesProps[]
+  setMovies: (data: CardsProps[]) => void
+  setSeries: (data: SeriesProps[]) => void
+  subscription: SubscriptionProps | null
+  setSubscription: (data: SubscriptionProps) => void
 }
 export type SignInProps = {
-    email: string,
-    password: string
+  email: string
+  password: string
 }
 
 export interface FavoritesContext {
-    id: number
+  id: number
 }
 export interface WatchLaterContext {
-    id: string,
-    tmdbid: number
+  id: string
+  tmdbid: number
 }

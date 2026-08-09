@@ -1,202 +1,200 @@
 .crew {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .header {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    width: 100%;
+  width: 100%;
 }
 
 .title {
-    position: relative;
+  position: relative;
 
-    display: flex;
-    align-items: center;
-    gap: 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
 
-    margin: 0;
+  margin: 0;
 
-    color: rgba(255, 255, 255, 0.94);
+  color: rgba(255, 255, 255, 0.94);
 
-    font-size: clamp(1.25rem, 2.5vw, 1.65rem);
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+  font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 
-    &::before {
-        content: "";
+  &::before {
+    content: '';
 
-        display: block;
-        flex: 0 0 auto;
+    display: block;
+    flex: 0 0 auto;
 
-        width: 4px;
-        height: 1.15em;
+    width: 4px;
+    height: 1.15em;
 
-        background: var(--red-selected);
-        border-radius: 999px;
+    background: var(--red-selected);
+    border-radius: 999px;
 
-        box-shadow: 0 0 14px rgba(229, 9, 20, 0.28);
-    }
+    box-shadow: 0 0 14px rgba(229, 9, 20, 0.28);
+  }
 }
 
 .crewContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
 
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .departmentGroup {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 
-    width: 100%;
-    min-width: 0;
+  width: 100%;
+  min-width: 0;
 }
 
 .departmentHeader {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
 
-    padding-bottom: 0.65rem;
+  padding-bottom: 0.65rem;
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .departmentTitle {
-    margin: 0;
+  margin: 0;
 
-    color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.82);
 
-    font-size: clamp(1rem, 1.8vw, 1.2rem);
-    font-weight: 650;
-    line-height: 1.25;
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  font-weight: 650;
+  line-height: 1.25;
 }
 
 .memberCount {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-    min-width: 25px;
-    height: 21px;
-    padding: 0 0.4rem;
+  min-width: 25px;
+  height: 21px;
+  padding: 0 0.4rem;
 
-    color: rgba(255, 255, 255, 0.56);
-    background: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.56);
+  background: rgba(255, 255, 255, 0.07);
 
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: .4rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.4rem;
 
-    font-size: 0.67rem;
-    font-weight: 600;
+  font-size: 0.67rem;
+  font-weight: 600;
 }
 
 .departmentCrew {
-    display: grid;
-    grid-template-columns: repeat(auto-fill,
-            minmax(145px, 1fr));
-    align-items: stretch;
-    gap: 0.9rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+  align-items: stretch;
+  gap: 0.9rem;
 
+  width: 100%;
+  min-width: 0;
+
+  > * {
     width: 100%;
+    max-width: 100%;
     min-width: 0;
-
-    >* {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-    }
+  }
 }
 
 .toggleButton {
-    display: inline-flex;
-    align-items: center;
-    align-self: flex-start;
-    gap: 0.3rem;
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 0.3rem;
 
-    min-height: 30px;
-    padding: 0;
+  min-height: 30px;
+  padding: 0;
 
-    color: rgba(255, 255, 255, 0.6);
-    background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  background: transparent;
 
-    border: 0;
+  border: 0;
 
-    font-family: inherit;
-    font-size: 0.78rem;
-    font-weight: 600;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition:
-        color 160ms ease,
-        transform 160ms ease;
+  transition:
+    color 160ms ease,
+    transform 160ms ease;
 
-    svg {
-        width: 0.95rem;
-        height: 0.95rem;
-    }
+  svg {
+    width: 0.95rem;
+    height: 0.95rem;
+  }
 
-    &:hover {
-        color: #fff;
-    }
+  &:hover {
+    color: #fff;
+  }
 
-    &:active {
-        transform: scale(0.98);
-    }
+  &:active {
+    transform: scale(0.98);
+  }
 
-    &:focus-visible {
-        outline: 2px solid var(--red-selected);
-        outline-offset: 4px;
-        border-radius: 2px;
-    }
+  &:focus-visible {
+    outline: 2px solid var(--red-selected);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
 }
 
 @media (max-width: 570px) {
-    .crew {
-        gap: 1.25rem;
-    }
+  .crew {
+    gap: 1.25rem;
+  }
 
-    .title {
-        gap: 0.5rem;
-        font-size: 1.15rem;
+  .title {
+    gap: 0.5rem;
+    font-size: 1.15rem;
 
-        &::before {
-            width: 3px;
-        }
+    &::before {
+      width: 3px;
     }
+  }
 
-    .crewContainer {
-        gap: 2rem;
-    }
+  .crewContainer {
+    gap: 2rem;
+  }
 
-    .departmentGroup {
-        gap: 0.8rem;
-    }
+  .departmentGroup {
+    gap: 0.8rem;
+  }
 
-    .departmentCrew {
-        grid-template-columns: repeat(2,
-                minmax(0, 1fr));
-        gap: 0.65rem;
-    }
+  .departmentCrew {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .toggleButton {
-        transition: none;
-    }
+  .toggleButton {
+    transition: none;
+  }
 }

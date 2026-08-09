@@ -1,34 +1,34 @@
 .container {
-    height: 100%;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    color: var(--white);
     width: 100%;
+    background-color: blueviolet;
+    padding: 10px 5px;
+    margin: 10px 0;
+    border-radius: 0.4rem;
+  }
+
+  .mongo {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    gap: 20px;
 
-    button {
-        color: var(--white);
-        width: 100%;
-        background-color: blueviolet;
-        padding: 10px 5px;
-        margin: 10px 0;
-        border-radius: .4rem;
+    .mongoContainer {
+      display: flex;
+      flex-direction: column;
+      //background-color: antiquewhite;
+      justify-content: flex-start;
+      align-items: center;
+      height: 500px;
+      width: 100%;
+      overflow-y: auto;
+      border: 2px solid white;
+      border-radius: 0.4rem;
     }
-
-    .mongo {
-        display: flex;
-        gap: 20px;
-
-        .mongoContainer {
-            display: flex;
-            flex-direction: column;
-            //background-color: antiquewhite;
-            justify-content: flex-start;
-            align-items: center;
-            height: 500px;
-            width: 100%;
-            overflow-y: auto;
-            border: 2px solid white;
-            border-radius: .4rem;
-        }
-    }
+  }
 }

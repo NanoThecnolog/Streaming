@@ -1,421 +1,413 @@
 .form {
-    width: 100%;
-    min-width: 0;
+  width: 100%;
+  min-width: 0;
 
-    display: flex;
-    flex-direction: column;
-    gap: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
 }
 
 .formRow {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 280px;
-    align-items: start;
-    gap: 1.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  align-items: start;
+  gap: 1.5rem;
 
-    >div:first-child {
-        min-width: 0;
-
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-}
-
-.formItem {
+  > div:first-child {
     min-width: 0;
 
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
+  }
+}
 
-    label {
-        color: rgba(255, 255, 255, 0.62);
-        font-size: 0.68rem;
-        font-weight: 700;
-        letter-spacing: 0.055em;
-        text-transform: uppercase;
+.formItem {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+  }
+
+  input,
+  textarea,
+  select {
+    width: 100%;
+    min-width: 0;
+
+    padding: 0.72rem 0.8rem;
+
+    color: var(--white);
+    font-family: inherit;
+    font-size: 0.82rem;
+
+    background: rgba(0, 0, 0, 0.24);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.55rem;
+
+    box-sizing: border-box;
+
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.25);
     }
 
-    input,
-    textarea,
-    select {
-        width: 100%;
-        min-width: 0;
-
-        padding: 0.72rem 0.8rem;
-
-        color: var(--white);
-        font-family: inherit;
-        font-size: 0.82rem;
-
-        background: rgba(0, 0, 0, 0.24);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 0.55rem;
-
-        box-sizing: border-box;
-
-        transition:
-            background-color 0.2s ease,
-            border-color 0.2s ease,
-            box-shadow 0.2s ease;
-
-        &::placeholder {
-            color: rgba(255, 255, 255, 0.25);
-        }
-
-        &:hover:not(:disabled) {
-            border-color: rgba(255, 255, 255, 0.18);
-        }
-
-        &:focus {
-            outline: none;
-
-            background: rgba(0, 0, 0, 0.38);
-            border-color: rgba(229, 9, 20, 0.7);
-
-            box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.12);
-        }
-
-        &:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
+    &:hover:not(:disabled) {
+      border-color: rgba(255, 255, 255, 0.18);
     }
 
-    textarea {
-        min-height: 110px;
+    &:focus {
+      outline: none;
 
-        line-height: 1.55;
-        resize: vertical;
+      background: rgba(0, 0, 0, 0.38);
+      border-color: rgba(229, 9, 20, 0.7);
+
+      box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.12);
     }
 
-    select {
-        cursor: pointer;
-
-        option {
-            color: var(--white);
-            background: #111;
-        }
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
+  }
 
-    small {
-        color: rgba(255, 255, 255, 0.4);
-        font-size: 0.68rem;
+  textarea {
+    min-height: 110px;
+
+    line-height: 1.55;
+    resize: vertical;
+  }
+
+  select {
+    cursor: pointer;
+
+    option {
+      color: var(--white);
+      background: #111;
     }
+  }
 
-    h2 {
-        margin: 0;
+  small {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.68rem;
+  }
 
-        color: var(--white);
-        font-size: 1.1rem;
-    }
+  h2 {
+    margin: 0;
+
+    color: var(--white);
+    font-size: 1.1rem;
+  }
 }
 
 .tmdbid {
-    max-width: 150px;
+  max-width: 150px;
 
-    &::-webkit-inner-spin-button,
-    &::-webkit-outer-spin-button {
-        appearance: none;
-    }
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    appearance: none;
+  }
 }
 
 .selectFaixa {
-    max-width: 110px;
+  max-width: 110px;
 }
 
 .selectNews {
-    max-width: 200px;
+  max-width: 200px;
 }
 
 .chosenFaixa {
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 0.67rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.67rem;
 }
 
 /* Gêneros */
 
-.formRow>aside.formItem {
-    position: sticky;
-    top: 1rem;
+.formRow > aside.formItem {
+  position: sticky;
+  top: 1rem;
 
-    padding: 1.15rem;
+  padding: 1.15rem;
 
-    background:
-        linear-gradient(155deg,
-            rgba(255, 255, 255, 0.045),
-            rgba(255, 255, 255, 0.015));
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015));
 
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 0.8rem;
 
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 
-    select {
-        min-height: 270px;
-        padding: 0.35rem;
+  select {
+    min-height: 270px;
+    padding: 0.35rem;
 
-        option {
-            margin-bottom: 0.15rem;
-            padding: 0.55rem 0.65rem;
+    option {
+      margin-bottom: 0.15rem;
+      padding: 0.55rem 0.65rem;
 
-            border-radius: 0.35rem;
+      border-radius: 0.35rem;
 
-            &:checked {
-                color: var(--white);
-                background:
-                    linear-gradient(rgba(229, 9, 20, 0.8),
-                        rgba(229, 9, 20, 0.8));
-            }
-        }
+      &:checked {
+        color: var(--white);
+        background: linear-gradient(rgba(229, 9, 20, 0.8), rgba(229, 9, 20, 0.8));
+      }
     }
+  }
 
-    p {
-        margin: 0;
+  p {
+    margin: 0;
 
-        color: rgba(255, 255, 255, 0.45);
-        font-size: 0.7rem;
-        line-height: 1.5;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.7rem;
+    line-height: 1.5;
 
-        &:first-of-type {
-            margin-top: 0.5rem;
+    &:first-of-type {
+      margin-top: 0.5rem;
 
-            color: rgba(255, 255, 255, 0.7);
-            font-weight: 700;
-        }
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 700;
     }
+  }
 }
 
 /* Cabeçalho da seção */
 
 .sectionHeader {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 1rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
 
-    margin-top: 1rem;
-    padding-bottom: 1rem;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 
-    >div {
-        min-width: 0;
-    }
+  > div {
+    min-width: 0;
+  }
 
-    span {
-        display: block;
+  span {
+    display: block;
 
-        margin-bottom: 0.25rem;
+    margin-bottom: 0.25rem;
 
-        color: rgba(229, 9, 20, 0.75);
-        font-size: 0.62rem;
-        font-weight: 800;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-    }
+    color: rgba(229, 9, 20, 0.75);
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
 
-    h2 {
-        margin: 0;
+  h2 {
+    margin: 0;
 
-        color: var(--white);
-        font-size: clamp(1rem, 2vw, 1.25rem);
-    }
+    color: var(--white);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+  }
 
-    p {
-        margin: 0.3rem 0 0;
+  p {
+    margin: 0.3rem 0 0;
 
-        color: rgba(255, 255, 255, 0.42);
-        font-size: 0.72rem;
-        line-height: 1.5;
-    }
+    color: rgba(255, 255, 255, 0.42);
+    font-size: 0.72rem;
+    line-height: 1.5;
+  }
 }
 
 /* Temporada */
 
 .seasonForm {
-    min-width: 0;
+  min-width: 0;
 
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 
-    margin-top: 1rem;
-    padding: 1rem;
+  margin-top: 1rem;
+  padding: 1rem;
 
-    background:
-        linear-gradient(145deg,
-            rgba(255, 255, 255, 0.035),
-            rgba(255, 255, 255, 0.012));
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012));
 
-    border: 1px solid rgba(255, 255, 255, 0.075);
-    border-radius: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 0.8rem;
 
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
 
-    >h3 {
-        margin: 0.25rem 0 0;
+  > h3 {
+    margin: 0.25rem 0 0;
 
-        color: rgba(255, 255, 255, 0.72);
-        font-size: 0.75rem;
-        letter-spacing: 0.045em;
-        text-transform: uppercase;
-    }
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.75rem;
+    letter-spacing: 0.045em;
+    text-transform: uppercase;
+  }
 }
 
 .seasonHeader {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 
-    padding-bottom: 0.9rem;
+  padding-bottom: 0.9rem;
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.065);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.065);
 }
 
 .seasonTitle {
-    min-width: 0;
+  min-width: 0;
 
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
 
-    >span {
-        width: 34px;
-        height: 34px;
-        flex: 0 0 auto;
+  > span {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 auto;
 
-        display: grid;
-        place-items: center;
+    display: grid;
+    place-items: center;
 
-        color: var(--white);
-        font-size: 0.75rem;
-        font-weight: 800;
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 800;
 
-        background: rgba(229, 9, 20, 0.15);
-        border: 1px solid rgba(229, 9, 20, 0.3);
-        border-radius: 0.5rem;
-    }
+    background: rgba(229, 9, 20, 0.15);
+    border: 1px solid rgba(229, 9, 20, 0.3);
+    border-radius: 0.5rem;
+  }
 
-    h3 {
-        margin: 0;
+  h3 {
+    margin: 0;
 
-        color: var(--white);
-        font-size: 0.9rem;
-    }
+    color: var(--white);
+    font-size: 0.9rem;
+  }
 
-    small {
-        display: block;
+  small {
+    display: block;
 
-        margin-top: 0.15rem;
+    margin-top: 0.15rem;
 
-        color: rgba(255, 255, 255, 0.38);
-        font-size: 0.65rem;
-    }
+    color: rgba(255, 255, 255, 0.38);
+    font-size: 0.65rem;
+  }
 }
 
 .seasonSettings {
-    display: grid;
-    grid-template-columns: minmax(140px, 180px) minmax(160px, 220px);
-    gap: 1rem;
+  display: grid;
+  grid-template-columns: minmax(140px, 180px) minmax(160px, 220px);
+  gap: 1rem;
 
-    label {
-        display: block;
+  label {
+    display: block;
 
-        margin-bottom: 0.4rem;
+    margin-bottom: 0.4rem;
 
-        color: rgba(255, 255, 255, 0.5);
-        font-size: 0.65rem;
-        font-weight: 700;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-    }
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
 }
 
 .seasonNumber,
 .seasonLang {
-    width: 100%;
-    height: 40px;
+  width: 100%;
+  height: 40px;
 }
 
 .seasonNumber {
-    text-align: center;
+  text-align: center;
 }
 
 /* Episódio */
 
 .episodeForm {
+  min-width: 0;
+
+  display: grid;
+  grid-template-columns: 105px minmax(180px, 1fr) 130px;
+  align-items: end;
+  gap: 0.85rem;
+
+  padding: 0.9rem;
+
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.055);
+  border-radius: 0.65rem;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+
+  &:focus-within {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: rgba(229, 9, 20, 0.2);
+  }
+
+  .field {
     min-width: 0;
 
-    display: grid;
-    grid-template-columns: 105px minmax(180px, 1fr) 130px;
-    align-items: end;
-    gap: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
 
-    padding: 0.9rem;
+    padding: 0;
 
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.055);
-    border-radius: 0.65rem;
-
-    transition:
-        background-color 0.2s ease,
-        border-color 0.2s ease;
-
-    &:focus-within {
-        background: rgba(0, 0, 0, 0.3);
-        border-color: rgba(229, 9, 20, 0.2);
+    label {
+      color: rgba(255, 255, 255, 0.48);
+      font-size: 0.63rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
-    .field {
-        min-width: 0;
+    input {
+      width: 100%;
+      height: 38px;
 
-        display: flex;
-        flex-direction: column;
-        gap: 0.4rem;
+      padding: 0 0.7rem;
 
-        padding: 0;
+      color: var(--white);
+      font-size: 0.75rem;
 
-        label {
-            color: rgba(255, 255, 255, 0.48);
-            font-size: 0.63rem;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-        }
+      background: rgba(0, 0, 0, 0.32);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 0.45rem;
 
-        input {
-            width: 100%;
-            height: 38px;
+      box-sizing: border-box;
 
-            padding: 0 0.7rem;
+      &:focus {
+        outline: none;
 
-            color: var(--white);
-            font-size: 0.75rem;
-
-            background: rgba(0, 0, 0, 0.32);
-            border: 1px solid rgba(255, 255, 255, 0.09);
-            border-radius: 0.45rem;
-
-            box-sizing: border-box;
-
-            &:focus {
-                outline: none;
-
-                border-color: rgba(229, 9, 20, 0.7);
-                box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.1);
-            }
-        }
+        border-color: rgba(229, 9, 20, 0.7);
+        box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.1);
+      }
     }
+  }
 }
 
 .episodeNumber {
-    width: 100%;
-    height: 38px;
+  width: 100%;
+  height: 38px;
 
-    text-align: center;
+  text-align: center;
 }
 
 /* Botões */
@@ -424,299 +416,295 @@
 .removeButton,
 .buttonEpisode button,
 .buttonSeason button {
-    min-height: 36px;
+  min-height: 36px;
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
 
-    padding: 0.55rem 0.85rem;
+  padding: 0.55rem 0.85rem;
 
-    font-family: inherit;
-    font-size: 0.65rem;
-    font-weight: 800;
-    letter-spacing: 0.045em;
-    text-transform: uppercase;
+  font-family: inherit;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
 
-    border-radius: 0.5rem;
+  border-radius: 0.5rem;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition:
-        color 0.2s ease,
-        background-color 0.2s ease,
-        border-color 0.2s ease,
-        opacity 0.2s ease,
-        transform 0.2s ease;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease;
 
-    &:focus-visible {
-        outline: 2px solid rgba(255, 91, 98, 0.8);
-        outline-offset: 3px;
-    }
+  &:focus-visible {
+    outline: 2px solid rgba(255, 91, 98, 0.8);
+    outline-offset: 3px;
+  }
 
-    &:active:not(:disabled) {
-        transform: translateY(1px);
-    }
+  &:active:not(:disabled) {
+    transform: translateY(1px);
+  }
 
-    &:disabled {
-        opacity: 0.35;
-        cursor: not-allowed;
-    }
+  &:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
 }
 
 .addButton,
 .buttonEpisode button:last-child,
 .buttonSeason button {
-    color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.82);
 
-    background: rgba(229, 9, 20, 0.1);
-    border: 1px solid rgba(229, 9, 20, 0.3);
+  background: rgba(229, 9, 20, 0.1);
+  border: 1px solid rgba(229, 9, 20, 0.3);
 
-    &:hover:not(:disabled) {
-        color: var(--white);
+  &:hover:not(:disabled) {
+    color: var(--white);
 
-        background: rgba(229, 9, 20, 0.22);
-        border-color: rgba(229, 9, 20, 0.55);
-    }
+    background: rgba(229, 9, 20, 0.22);
+    border-color: rgba(229, 9, 20, 0.55);
+  }
 }
 
 .removeButton,
 .buttonEpisode button {
-    color: rgba(255, 120, 125, 0.8);
+  color: rgba(255, 120, 125, 0.8);
 
-    background: transparent;
-    border: 1px solid rgba(229, 9, 20, 0.18);
+  background: transparent;
+  border: 1px solid rgba(229, 9, 20, 0.18);
 
-    &:hover:not(:disabled) {
-        color: #ff7b80;
+  &:hover:not(:disabled) {
+    color: #ff7b80;
 
-        background: rgba(229, 9, 20, 0.1);
-        border-color: rgba(229, 9, 20, 0.38);
-    }
+    background: rgba(229, 9, 20, 0.1);
+    border-color: rgba(229, 9, 20, 0.38);
+  }
 }
 
 .buttonEpisode,
 .buttonSeason {
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.6rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
 
-    margin-top: 0.55rem;
+  margin-top: 0.55rem;
 }
 
 /* Envio */
 
 .buttonContainer {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 
-    padding-top: 1.25rem;
+  padding-top: 1.25rem;
 
-    border-top: 1px solid rgba(255, 255, 255, 0.065);
+  border-top: 1px solid rgba(255, 255, 255, 0.065);
 
-    button {
-        min-width: 230px;
-        min-height: 46px;
+  button {
+    min-width: 230px;
+    min-height: 46px;
 
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-        padding: 0.75rem 1.2rem;
+    padding: 0.75rem 1.2rem;
 
-        color: var(--white);
-        font-family: inherit;
-        font-size: 0.7rem;
-        font-weight: 800;
-        letter-spacing: 0.055em;
-        text-transform: uppercase;
+    color: var(--white);
+    font-family: inherit;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
 
-        background:
-            linear-gradient(135deg,
-                #b20710,
-                var(--red));
+    background: linear-gradient(135deg, #b20710, var(--red));
 
-        border: 1px solid rgba(255, 91, 98, 0.32);
-        border-radius: 0.6rem;
+    border: 1px solid rgba(255, 91, 98, 0.32);
+    border-radius: 0.6rem;
 
-        box-shadow: 0 8px 20px rgba(229, 9, 20, 0.17);
+    box-shadow: 0 8px 20px rgba(229, 9, 20, 0.17);
 
-        cursor: pointer;
+    cursor: pointer;
 
-        transition:
-            filter 0.2s ease,
-            transform 0.2s ease,
-            box-shadow 0.2s ease;
+    transition:
+      filter 0.2s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
 
-        &:hover:not(:disabled) {
-            filter: brightness(1.12);
-            transform: translateY(-1px);
+    &:hover:not(:disabled) {
+      filter: brightness(1.12);
+      transform: translateY(-1px);
 
-            box-shadow: 0 11px 25px rgba(229, 9, 20, 0.24);
-        }
-
-        &:focus-visible {
-            outline: 2px solid rgba(255, 91, 98, 0.8);
-            outline-offset: 3px;
-        }
-
-        &:disabled {
-            filter: grayscale(0.4);
-
-            opacity: 0.42;
-            cursor: not-allowed;
-            box-shadow: none;
-        }
+      box-shadow: 0 11px 25px rgba(229, 9, 20, 0.24);
     }
+
+    &:focus-visible {
+      outline: 2px solid rgba(255, 91, 98, 0.8);
+      outline-offset: 3px;
+    }
+
+    &:disabled {
+      filter: grayscale(0.4);
+
+      opacity: 0.42;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+  }
 }
 
 .emptySeasons {
-    min-height: 150px;
+  min-height: 150px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
 
-    margin-top: 1rem;
-    padding: 1.5rem;
+  margin-top: 1rem;
+  padding: 1.5rem;
 
-    text-align: center;
+  text-align: center;
 
-    background: rgba(0, 0, 0, 0.15);
-    border: 1px dashed rgba(255, 255, 255, 0.1);
-    border-radius: 0.7rem;
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 0.7rem;
 
-    strong {
-        color: rgba(255, 255, 255, 0.75);
-        font-size: 0.82rem;
-    }
+  strong {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.82rem;
+  }
 
-    p {
-        max-width: 340px;
+  p {
+    max-width: 340px;
 
-        margin: 0;
+    margin: 0;
 
-        color: rgba(255, 255, 255, 0.38);
-        font-size: 0.7rem;
-        line-height: 1.5;
-    }
+    color: rgba(255, 255, 255, 0.38);
+    font-size: 0.7rem;
+    line-height: 1.5;
+  }
 }
 
 .poster {
-    margin-top: 40px;
+  margin-top: 40px;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 0.65rem;
+
+  img {
     width: 100%;
-    aspect-ratio: 2 / 3;
+    height: 100%;
 
-    overflow: hidden;
+    display: block;
 
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 0.65rem;
-
-    img {
-        width: 100%;
-        height: 100%;
-
-        display: block;
-
-        object-fit: cover;
-    }
+    object-fit: cover;
+  }
 }
 
 .episodeContainer {
-    min-width: 0;
+  min-width: 0;
 
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 920px) {
-    .formRow {
-        grid-template-columns: 1fr;
-    }
+  .formRow {
+    grid-template-columns: 1fr;
+  }
 
-    .formRow>aside.formItem {
-        position: static;
+  .formRow > aside.formItem {
+    position: static;
 
-        select {
-            min-height: 180px;
-        }
+    select {
+      min-height: 180px;
     }
+  }
 }
 
 @media (max-width: 680px) {
-    .sectionHeader {
-        align-items: stretch;
-        flex-direction: column;
-    }
+  .sectionHeader {
+    align-items: stretch;
+    flex-direction: column;
+  }
 
-    .addButton {
-        width: 100%;
-    }
+  .addButton {
+    width: 100%;
+  }
 
-    .seasonHeader {
-        align-items: flex-start;
-        flex-direction: column;
-    }
+  .seasonHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 
-    .removeButton {
-        width: 100%;
-    }
+  .removeButton {
+    width: 100%;
+  }
 
-    .episodeForm {
-        grid-template-columns: 100px minmax(0, 1fr);
+  .episodeForm {
+    grid-template-columns: 100px minmax(0, 1fr);
 
-        .field:nth-child(2) {
-            grid-column: 1 / -1;
-            grid-row: 2;
-        }
+    .field:nth-child(2) {
+      grid-column: 1 / -1;
+      grid-row: 2;
     }
+  }
 }
 
 @media (max-width: 480px) {
-    .seasonForm {
-        padding: 0.8rem;
-    }
+  .seasonForm {
+    padding: 0.8rem;
+  }
 
-    .seasonSettings,
-    .episodeForm {
-        grid-template-columns: 1fr;
-    }
+  .seasonSettings,
+  .episodeForm {
+    grid-template-columns: 1fr;
+  }
 
-    .episodeForm {
-        .field:nth-child(2) {
-            grid-column: auto;
-            grid-row: auto;
-        }
+  .episodeForm {
+    .field:nth-child(2) {
+      grid-column: auto;
+      grid-row: auto;
     }
+  }
 
-    .buttonEpisode,
-    .buttonSeason {
-        button {
-            width: 100%;
-        }
+  .buttonEpisode,
+  .buttonSeason {
+    button {
+      width: 100%;
     }
+  }
 
-    .buttonContainer {
-        button {
-            width: 100%;
-        }
+  .buttonContainer {
+    button {
+      width: 100%;
     }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-
-    .formItem input,
-    .formItem textarea,
-    .formItem select,
-    .episodeForm,
-    .addButton,
-    .removeButton,
-    .buttonEpisode button,
-    .buttonSeason button,
-    .buttonContainer button {
-        transition: none;
-    }
+  .formItem input,
+  .formItem textarea,
+  .formItem select,
+  .episodeForm,
+  .addButton,
+  .removeButton,
+  .buttonEpisode button,
+  .buttonSeason button,
+  .buttonContainer button {
+    transition: none;
+  }
 }

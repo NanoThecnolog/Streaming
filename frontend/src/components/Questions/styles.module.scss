@@ -1,54 +1,50 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  gap: 15px;
+  position: relative;
+  color: var(--white);
+  font-family: var(--font-Roboto);
+  cursor: pointer;
+
+  .icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+
+  .question {
     display: flex;
-    flex-direction: column;
-    width: 100%;
+    padding: 0.5rem 2rem 0.5rem 0.5rem;
+    font-size: 1rem;
+  }
 
-    gap: 15px;
-    position: relative;
-    color: var(--white);
-    font-family: var(--font-Roboto);
-    cursor: pointer;
+  .answer {
+    max-height: 0;
+    overflow-y: hidden;
+    transition: max-height 0.5s;
 
-
-    .icon {
-        position: absolute;
-        top: 5px;
-        right: 5px;
-
+    p {
+      padding: 1rem;
+      font-size: 1.1rem;
     }
 
-    .question {
-        display: flex;
-        padding: 0.5rem 2rem 0.5rem 0.5rem;
-        font-size: 1rem;
+    a {
+      color: var(--red);
+      font-weight: 900;
+      letter-spacing: 1px;
     }
+  }
 
-    .answer {
-        max-height: 0;
-        overflow-y: hidden;
-        transition: max-height 0.5s;
+  .ativo {
+    max-height: 300px;
+    max-width: 95%;
+  }
 
-        p {
-            padding: 1rem;
-            font-size: 1.1rem;
-        }
-
-        a {
-            color: var(--red);
-            font-weight: 900;
-            letter-spacing: 1px;
-        }
-
-    }
-
-    .ativo {
-        max-height: 300px;
-        max-width: 95%;
-    }
-
-    .divider {
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 2rem;
-    }
-
+  .divider {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
+  }
 }

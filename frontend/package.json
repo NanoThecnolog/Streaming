@@ -8,7 +8,9 @@
     "build": "SKIP_TYPECHECK=1 next build --no-lint",
     "start": "next start",
     "lint": "next lint",
-    "build:sitemap": "next-sitemap"
+    "build:sitemap": "next-sitemap",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,scss,json}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,scss,json}\""
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
@@ -57,6 +59,7 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
+    "prettier": "^3.9.6",
     "typescript": "^5"
   }
 }

@@ -1,345 +1,336 @@
 .page {
-    width: 100%;
-    min-height: 100vh;
+  width: 100%;
+  min-height: 100vh;
 
-    padding: 150px 32px 140px;
+  padding: 150px 32px 140px;
 
-    color: var(--white);
-    font-family: var(--font-Roboto);
+  color: var(--white);
+  font-family: var(--font-Roboto);
 
-    background:
-        radial-gradient(circle at 50% 0%,
-            rgba(229, 9, 20, 0.11),
-            transparent 28%),
-        linear-gradient(180deg,
-            var(--background-black) 0%,
-            #101010 100%);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(229, 9, 20, 0.11), transparent 28%),
+    linear-gradient(180deg, var(--background-black) 0%, #101010 100%);
 }
 
 .hero {
-    width: min(1600px, 100%);
+  width: min(1600px, 100%);
 
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 32px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
 
-    margin: 0 auto;
-    padding: 20px 0 48px;
+  margin: 0 auto;
+  padding: 20px 0 48px;
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .heroContent {
-    h1 {
-        margin: 8px 0 12px;
+  h1 {
+    margin: 8px 0 12px;
 
-        font-size: clamp(2.2rem, 5vw, 4rem);
-        line-height: 1;
-        letter-spacing: -0.045em;
-    }
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1;
+    letter-spacing: -0.045em;
+  }
 
-    p {
-        max-width: 570px;
+  p {
+    max-width: 570px;
 
-        margin: 0;
+    margin: 0;
 
-        color: rgba(255, 255, 255, 0.55);
-        font-size: clamp(0.9rem, 2vw, 1rem);
-        line-height: 1.6;
-    }
+    color: rgba(255, 255, 255, 0.55);
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    line-height: 1.6;
+  }
 }
 
 .eyebrow {
-    color: var(--red);
-    font-size: 0.7rem;
-    font-weight: 800;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+  color: var(--red);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 .summary {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    gap: 9px;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 9px;
 
-    padding: 11px 15px;
+  padding: 11px 15px;
 
-    color: rgba(255, 255, 255, 0.68);
-    font-size: 0.78rem;
-    font-weight: 600;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.78rem;
+  font-weight: 600;
 
-    background: rgba(255, 255, 255, 0.045);
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 999px;
 
-    svg {
-        color: var(--red);
-    }
+  svg {
+    color: var(--red);
+  }
 }
 
 .content {
-    width: min(1600px, 100%);
+  width: min(1600px, 100%);
 
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
 
-    margin: 60px auto 0;
+  margin: 60px auto 0;
 }
 
 .category {
-    min-width: 0;
+  min-width: 0;
 }
 
 .categoryHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 26px;
+
+  > div {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 13px;
+  }
 
-    margin-bottom: 26px;
+  h2 {
+    margin: 0 0 4px;
 
-    >div {
-        display: flex;
-        align-items: center;
-        gap: 13px;
-    }
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    letter-spacing: -0.02em;
+  }
 
-    h2 {
-        margin: 0 0 4px;
+  p {
+    margin: 0;
 
-        font-size: clamp(1.3rem, 3vw, 1.7rem);
-        letter-spacing: -0.02em;
-    }
-
-    p {
-        margin: 0;
-
-        color: rgba(255, 255, 255, 0.4);
-        font-size: 0.72rem;
-    }
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.72rem;
+  }
 }
 
 .categoryIcon {
-    width: 43px;
-    height: 43px;
+  width: 43px;
+  height: 43px;
 
-    display: grid;
-    flex-shrink: 0;
-    place-items: center;
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
 
-    color: var(--red);
+  color: var(--red);
 
-    background: rgba(229, 9, 20, 0.09);
-    border: 1px solid rgba(229, 9, 20, 0.2);
-    border-radius: 11px;
+  background: rgba(229, 9, 20, 0.09);
+  border: 1px solid rgba(229, 9, 20, 0.2);
+  border-radius: 11px;
 }
 
 .cardsGrid {
-    display: grid;
-    grid-template-columns: repeat(8, minmax(0, 1fr));
-    gap: 28px 10px;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 28px 10px;
 }
 
 .cardItem {
-    min-width: 0;
+  min-width: 0;
 
-    transition:
-        transform 0.25s ease,
-        filter 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
 
-    &:hover {
-        z-index: 2;
+  &:hover {
+    z-index: 2;
 
-        transform: translateY(-5px);
-        filter: brightness(1.06);
-    }
+    transform: translateY(-5px);
+    filter: brightness(1.06);
+  }
 }
 
 .feedback,
 .emptyState {
-    width: min(620px, 100%);
+  width: min(620px, 100%);
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    margin: 100px auto 0;
-    padding: 55px 30px;
+  margin: 100px auto 0;
+  padding: 55px 30px;
 
-    text-align: center;
+  text-align: center;
 
-    background:
-        linear-gradient(145deg,
-            rgba(255, 255, 255, 0.025),
-            transparent 35%),
-        #181818;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.025), transparent 35%), #181818;
 
-    border: 1px solid rgba(255, 255, 255, 0.085);
-    border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.085);
+  border-radius: 18px;
 
-    strong,
-    h2 {
-        margin: 20px 0 8px;
+  strong,
+  h2 {
+    margin: 20px 0 8px;
 
-        color: var(--white);
-        font-size: 1.25rem;
-    }
+    color: var(--white);
+    font-size: 1.25rem;
+  }
 
-    p {
-        max-width: 420px;
+  p {
+    max-width: 420px;
 
-        margin: 0;
+    margin: 0;
 
-        color: rgba(255, 255, 255, 0.5);
-        font-size: 0.87rem;
-        line-height: 1.65;
-    }
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.87rem;
+    line-height: 1.65;
+  }
 }
 
 .emptyIcon {
-    width: 70px;
-    height: 70px;
+  width: 70px;
+  height: 70px;
 
-    display: grid;
-    place-items: center;
+  display: grid;
+  place-items: center;
 
-    color: var(--red);
+  color: var(--red);
 
-    background: rgba(229, 9, 20, 0.09);
-    border: 1px solid rgba(229, 9, 20, 0.2);
-    border-radius: 20px;
+  background: rgba(229, 9, 20, 0.09);
+  border: 1px solid rgba(229, 9, 20, 0.2);
+  border-radius: 20px;
 }
 
 .emptyState {
-    a {
-        margin-top: 25px;
-        padding: 12px 20px;
+  a {
+    margin-top: 25px;
+    padding: 12px 20px;
 
-        color: var(--white);
-        font-size: 0.8rem;
-        font-weight: 700;
-        text-decoration: none;
+    color: var(--white);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-decoration: none;
 
-        background: var(--red);
-        border-radius: 8px;
+    background: var(--red);
+    border-radius: 8px;
 
-        transition:
-            background-color 0.2s,
-            transform 0.2s;
+    transition:
+      background-color 0.2s,
+      transform 0.2s;
 
-        &:hover {
-            background: #f6121d;
-            transform: translateY(-2px);
-        }
-
-        &:focus-visible {
-            outline: 2px solid var(--white);
-            outline-offset: 3px;
-        }
+    &:hover {
+      background: #f6121d;
+      transform: translateY(-2px);
     }
+
+    &:focus-visible {
+      outline: 2px solid var(--white);
+      outline-offset: 3px;
+    }
+  }
 }
 
 .spinner {
-    color: var(--red);
+  color: var(--red);
 
-    animation: spin 0.8s linear infinite;
+  animation: spin 0.8s linear infinite;
 }
 
 @keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 1500px) {
-    .cardsGrid {
-        grid-template-columns: repeat(7, minmax(0, 1fr));
-    }
+  .cardsGrid {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 1250px) {
-    .cardsGrid {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
-    }
+  .cardsGrid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 1050px) {
-    .cardsGrid {
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-    }
+  .cardsGrid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 850px) {
-    .page {
-        padding: 125px 20px 110px;
-    }
+  .page {
+    padding: 125px 20px 110px;
+  }
 
-    .hero {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 24px;
+  .hero {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 24px;
 
-        padding-bottom: 36px;
-    }
+    padding-bottom: 36px;
+  }
 
-    .summary {
-        align-self: flex-start;
-    }
+  .summary {
+    align-self: flex-start;
+  }
 
-    .content {
-        gap: 65px;
-        margin-top: 45px;
-    }
+  .content {
+    gap: 65px;
+    margin-top: 45px;
+  }
 
-    .cardsGrid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
+  .cardsGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 650px) {
-    .cardsGrid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 22px 8px;
-    }
+  .cardsGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px 8px;
+  }
 }
 
 @media (max-width: 470px) {
-    .page {
-        padding: 105px 12px 90px;
-    }
+  .page {
+    padding: 105px 12px 90px;
+  }
 
-    .heroContent {
-        h1 {
-            font-size: 2.4rem;
-        }
+  .heroContent {
+    h1 {
+      font-size: 2.4rem;
     }
+  }
 
-    .content {
-        gap: 55px;
-    }
+  .content {
+    gap: 55px;
+  }
 
-    .cardsGrid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 20px 7px;
-    }
+  .cardsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 7px;
+  }
 
-    .feedback,
-    .emptyState {
-        margin-top: 60px;
-        padding: 45px 22px;
-    }
+  .feedback,
+  .emptyState {
+    margin-top: 60px;
+    padding: 45px 22px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .cardItem,
+  .emptyState a {
+    transition: none;
+  }
 
-    .cardItem,
-    .emptyState a {
-        transition: none;
-    }
-
-    .spinner {
-        animation-duration: 1.5s;
-    }
+  .spinner {
+    animation-duration: 1.5s;
+  }
 }

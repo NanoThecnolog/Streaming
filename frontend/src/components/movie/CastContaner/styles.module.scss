@@ -1,88 +1,86 @@
 .cast {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    margin: 0;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
 }
 
 .header {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    width: 100%;
+  width: 100%;
 }
 
 .title {
-    position: relative;
+  position: relative;
 
-    display: flex;
-    align-items: center;
-    gap: 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
 
-    margin: 0;
+  margin: 0;
 
-    color: rgba(255, 255, 255, 0.94);
+  color: rgba(255, 255, 255, 0.94);
 
-    font-size: clamp(1.25rem, 2.5vw, 1.65rem);
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+  font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 
-    &::before {
-        content: "";
+  &::before {
+    content: '';
 
-        display: block;
-        flex: 0 0 auto;
+    display: block;
+    flex: 0 0 auto;
 
-        width: 4px;
-        height: 1.15em;
+    width: 4px;
+    height: 1.15em;
 
-        background: var(--red-selected);
-        border-radius: 999px;
+    background: var(--red-selected);
+    border-radius: 999px;
 
-        box-shadow: 0 0 14px rgba(229, 9, 20, 0.28);
-    }
+    box-shadow: 0 0 14px rgba(229, 9, 20, 0.28);
+  }
 }
 
 .castContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill,
-            minmax(145px, 1fr));
-    align-items: stretch;
-    gap: 0.9rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+  align-items: stretch;
+  gap: 0.9rem;
 
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  > * {
     width: 100%;
     max-width: 100%;
     min-width: 0;
-
-    >* {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-    }
+  }
 }
 
 @media (max-width: 570px) {
-    .cast {
-        gap: 1rem;
-    }
+  .cast {
+    gap: 1rem;
+  }
 
-    .title {
-        gap: 0.5rem;
-        font-size: 1.15rem;
+  .title {
+    gap: 0.5rem;
+    font-size: 1.15rem;
 
-        &::before {
-            width: 3px;
-        }
+    &::before {
+      width: 3px;
     }
+  }
 
-    .castContainer {
-        grid-template-columns: repeat(2,
-                minmax(0, 1fr));
-        gap: 0.65rem;
-    }
+  .castContainer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+  }
 }

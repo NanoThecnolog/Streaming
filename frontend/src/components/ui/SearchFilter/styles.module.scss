@@ -1,326 +1,324 @@
 .container {
-    width: 100%;
+  width: 100%;
 
-    color: var(--white);
-    font-family: var(--font-Roboto);
+  color: var(--white);
+  font-family: var(--font-Roboto);
 
-    .header {
-        display: flex;
-        align-items: center;
-        gap: 13px;
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 13px;
 
-        margin-bottom: 22px;
+    margin-bottom: 22px;
 
-        .headerIcon {
-            width: 42px;
-            height: 42px;
+    .headerIcon {
+      width: 42px;
+      height: 42px;
 
-            display: grid;
-            flex-shrink: 0;
-            place-items: center;
+      display: grid;
+      flex-shrink: 0;
+      place-items: center;
 
-            color: var(--red);
+      color: var(--red);
 
-            background: rgba(229, 9, 20, 0.1);
-            border: 1px solid rgba(229, 9, 20, 0.22);
-            border-radius: 11px;
-        }
-
-        h2 {
-            margin: 0 0 4px;
-
-            font-size: 1rem;
-        }
-
-        p {
-            margin: 0;
-
-            color: rgba(255, 255, 255, 0.45);
-            font-size: 0.75rem;
-        }
+      background: rgba(229, 9, 20, 0.1);
+      border: 1px solid rgba(229, 9, 20, 0.22);
+      border-radius: 11px;
     }
 
-    form {
-        display: grid;
-        grid-template-columns:
-            minmax(230px, 1.6fr) repeat(3, minmax(150px, 1fr)) auto;
-        align-items: end;
-        gap: 14px;
+    h2 {
+      margin: 0 0 4px;
+
+      font-size: 1rem;
     }
+
+    p {
+      margin: 0;
+
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 0.75rem;
+    }
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: minmax(230px, 1.6fr) repeat(3, minmax(150px, 1fr)) auto;
+    align-items: end;
+    gap: 14px;
+  }
 }
 
 .searchField,
 .filter {
-    min-width: 0;
+  min-width: 0;
 
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 
-    >span {
-        color: rgba(255, 255, 255, 0.65);
-        font-size: 0.7rem;
-        font-weight: 700;
-        letter-spacing: 0.025em;
-    }
+  > span {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.025em;
+  }
 
-    select {
-        width: 100%;
-        height: 46px;
-
-        padding: 0 38px 0 13px;
-
-        color: var(--white);
-        font: inherit;
-        font-size: 0.8rem;
-
-        background-color: rgba(255, 255, 255, 0.045);
-        border: 1px solid rgba(255, 255, 255, 0.11);
-        border-radius: 9px;
-        outline: 0;
-
-        cursor: pointer;
-
-        transition:
-            border-color 0.2s,
-            box-shadow 0.2s,
-            background-color 0.2s;
-
-        &:hover {
-            background-color: rgba(255, 255, 255, 0.065);
-            border-color: rgba(255, 255, 255, 0.18);
-        }
-
-        &:focus {
-            border-color: var(--red);
-            box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.13);
-        }
-
-        option {
-            color: var(--white);
-            background: #242424;
-        }
-    }
-}
-
-.inputContainer {
-    position: relative;
-
+  select {
     width: 100%;
     height: 46px;
 
-    display: flex;
-    align-items: center;
+    padding: 0 38px 0 13px;
 
-    color: rgba(255, 255, 255, 0.38);
+    color: var(--white);
+    font: inherit;
+    font-size: 0.8rem;
 
-    background: rgba(255, 255, 255, 0.045);
+    background-color: rgba(255, 255, 255, 0.045);
     border: 1px solid rgba(255, 255, 255, 0.11);
     border-radius: 9px;
-
-    transition:
-        color 0.2s,
-        border-color 0.2s,
-        box-shadow 0.2s,
-        background-color 0.2s;
-
-    >svg {
-        position: absolute;
-        left: 13px;
-
-        pointer-events: none;
-    }
-
-    input {
-        width: 100%;
-        height: 100%;
-
-        padding: 0 44px 0 42px;
-
-        color: var(--white);
-        font: inherit;
-        font-size: 0.82rem;
-
-        background: transparent;
-        border: 0;
-        outline: 0;
-
-        &::placeholder {
-            color: rgba(255, 255, 255, 0.3);
-        }
-
-        &::-webkit-search-cancel-button {
-            display: none;
-        }
-    }
-
-    &:hover {
-        background: rgba(255, 255, 255, 0.065);
-        border-color: rgba(255, 255, 255, 0.18);
-    }
-
-    &:focus-within {
-        color: var(--red);
-        border-color: var(--red);
-        box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.13);
-    }
-}
-
-.clearInput {
-    position: absolute;
-    right: 6px;
-
-    width: 33px;
-    height: 33px;
-
-    display: grid;
-    place-items: center;
-
-    padding: 0;
-
-    color: rgba(255, 255, 255, 0.45);
-    background: transparent;
-
-    border: 0;
-    border-radius: 7px;
+    outline: 0;
 
     cursor: pointer;
 
+    transition:
+      border-color 0.2s,
+      box-shadow 0.2s,
+      background-color 0.2s;
+
     &:hover {
-        color: var(--white);
-        background: rgba(255, 255, 255, 0.08);
+      background-color: rgba(255, 255, 255, 0.065);
+      border-color: rgba(255, 255, 255, 0.18);
     }
+
+    &:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.13);
+    }
+
+    option {
+      color: var(--white);
+      background: #242424;
+    }
+  }
+}
+
+.inputContainer {
+  position: relative;
+
+  width: 100%;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+
+  color: rgba(255, 255, 255, 0.38);
+
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 9px;
+
+  transition:
+    color 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s,
+    background-color 0.2s;
+
+  > svg {
+    position: absolute;
+    left: 13px;
+
+    pointer-events: none;
+  }
+
+  input {
+    width: 100%;
+    height: 100%;
+
+    padding: 0 44px 0 42px;
+
+    color: var(--white);
+    font: inherit;
+    font-size: 0.82rem;
+
+    background: transparent;
+    border: 0;
+    outline: 0;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    &::-webkit-search-cancel-button {
+      display: none;
+    }
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.065);
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+
+  &:focus-within {
+    color: var(--red);
+    border-color: var(--red);
+    box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.13);
+  }
+}
+
+.clearInput {
+  position: absolute;
+  right: 6px;
+
+  width: 33px;
+  height: 33px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+
+  color: rgba(255, 255, 255, 0.45);
+  background: transparent;
+
+  border: 0;
+  border-radius: 7px;
+
+  cursor: pointer;
+
+  &:hover {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.08);
+  }
 }
 
 .actions {
+  min-height: 46px;
+
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+
+  button {
     min-height: 46px;
 
-    display: flex;
-    align-items: stretch;
-    gap: 8px;
+    padding: 0 16px;
 
-    button {
-        min-height: 46px;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 800;
 
-        padding: 0 16px;
+    border-radius: 9px;
 
-        font: inherit;
-        font-size: 0.78rem;
-        font-weight: 800;
+    cursor: pointer;
 
-        border-radius: 9px;
+    transition:
+      color 0.2s,
+      background-color 0.2s,
+      border-color 0.2s,
+      filter 0.2s,
+      transform 0.2s;
 
-        cursor: pointer;
-
-        transition:
-            color 0.2s,
-            background-color 0.2s,
-            border-color 0.2s,
-            filter 0.2s,
-            transform 0.2s;
-
-        &:focus-visible {
-            outline: 2px solid var(--white);
-            outline-offset: 3px;
-        }
+    &:focus-visible {
+      outline: 2px solid var(--white);
+      outline-offset: 3px;
     }
+  }
 }
 
 .clearButton {
-    color: rgba(255, 255, 255, 0.62);
-    background: transparent;
+  color: rgba(255, 255, 255, 0.62);
+  background: transparent;
 
-    border: 1px solid rgba(255, 255, 255, 0.11);
+  border: 1px solid rgba(255, 255, 255, 0.11);
 
-    &:hover {
-        color: var(--white);
-        background: rgba(255, 255, 255, 0.06);
-        border-color: rgba(255, 255, 255, 0.2);
-    }
+  &:hover {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
 }
 
 .searchButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
 
-    color: var(--white);
-    background: var(--red);
+  color: var(--white);
+  background: var(--red);
 
-    border: 1px solid var(--red);
+  border: 1px solid var(--red);
 
-    &:hover:not(:disabled) {
-        filter: brightness(1.1);
-        transform: translateY(-1px);
-    }
+  &:hover:not(:disabled) {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+  }
 
-    &:disabled {
-        color: rgba(255, 255, 255, 0.35);
-        background: rgba(255, 255, 255, 0.06);
+  &:disabled {
+    color: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.06);
 
-        border-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.08);
 
-        cursor: not-allowed;
-    }
+    cursor: not-allowed;
+  }
 }
 
 @media (max-width: 1100px) {
-    .container {
-        form {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
+  .container {
+    form {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+  }
 
-    .searchField {
-        grid-column: 1 / -1;
-    }
+  .searchField {
+    grid-column: 1 / -1;
+  }
 
-    .actions {
-        justify-content: flex-end;
-    }
+  .actions {
+    justify-content: flex-end;
+  }
 }
 
 @media (max-width: 680px) {
-    .container {
-        .header {
-            align-items: flex-start;
+  .container {
+    .header {
+      align-items: flex-start;
 
-            p {
-                line-height: 1.5;
-            }
-        }
-
-        form {
-            grid-template-columns: 1fr;
-        }
+      p {
+        line-height: 1.5;
+      }
     }
 
-    .searchField {
-        grid-column: auto;
+    form {
+      grid-template-columns: 1fr;
     }
+  }
 
-    .actions {
-        width: 100%;
-        justify-content: stretch;
+  .searchField {
+    grid-column: auto;
+  }
 
-        button {
-            flex: 1;
-        }
+  .actions {
+    width: 100%;
+    justify-content: stretch;
+
+    button {
+      flex: 1;
     }
+  }
 }
 
 @media (max-width: 420px) {
-    .actions {
-        flex-direction: column-reverse;
-    }
+  .actions {
+    flex-direction: column-reverse;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-
-    .inputContainer,
-    .filter select,
-    .actions button {
-        transition: none;
-    }
+  .inputContainer,
+  .filter select,
+  .actions button {
+    transition: none;
+  }
 }

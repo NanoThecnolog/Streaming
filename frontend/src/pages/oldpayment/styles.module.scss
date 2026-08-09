@@ -1,212 +1,207 @@
 .mainPage {
-    //background-color: var(--white);
-    //height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    //flex-wrap: wrap;
-    padding: 140px 20px;
-    gap: 30px;
-    font-family: var(--font-Roboto);
-    position: relative;
+  //background-color: var(--white);
+  //height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  //flex-wrap: wrap;
+  padding: 140px 20px;
+  gap: 30px;
+  font-family: var(--font-Roboto);
+  position: relative;
 
+  .articleContainer {
+    background-color: var(--white);
+    color: var(--black);
+    height: auto;
+    //width: 1020px;
+    width: 100%;
+    max-width: 800px;
+    //padding: 20px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
 
-    .articleContainer {
-        background-color: var(--white);
-        color: var(--black);
-        height: auto;
-        //width: 1020px;
-        width: 100%;
-        max-width: 800px;
-        //padding: 20px;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
-
-        h2 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-
-        .payOptions {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            //margin-bottom: 20px;
-            flex-wrap: wrap;
-
-            .methodButton {
-                width: 180px;
-                height: 45px;
-                border-radius: 2rem;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-weight: 700;
-                background-color: var(--red);
-                color: var(--white);
-                transition: .4s cubic-bezier(.2, 0, .2, 1);
-
-                &:hover {
-                    background-color: var(--red-selected);
-                    transform: scale(1.02);
-                }
-            }
-
-        }
-
-        .formContainer {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-
-            .form {
-                display: flex;
-                flex-direction: column;
-                gap: 30px;
-
-                .paymentContainer {
-                    width: 100%;
-                    display: flex;
-                    justify-content: center;
-                    padding: 40px 0;
-                }
-            }
-
-            .buttonContainer {
-                display: flex;
-                justify-content: center;
-
-                button {
-                    width: 100%;
-                    max-width: 350px;
-                    height: 55px;
-                    border-radius: 2rem;
-                    font-size: 1rem;
-                    font-weight: 700;
-                    background-color: var(--red);
-                    color: var(--white);
-                    transition: .4s;
-
-                    &:hover:enabled {
-                        //transform: scale(1.05);
-                        transform: translateY(-3px)
-                    }
-                }
-
-                .disabled {
-                    background-color: #ccc;
-                    cursor: not-allowed;
-                    color: #666;
-                }
-            }
-        }
-    }
-
-    .asideContainer {
-        background-color: var(--white);
-        width: 100%;
-        max-width: 320px;
-        padding: 20px;
-        border-radius: .4rem;
-        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
-        color: var(--black);
-        position: sticky;
-        top: 120px;
-        //right: 20px;
-    }
-}
-
-@media (max-width: 1024px) {
-    .mainPage {
-        flex-direction: column;
-        align-items: center;
-
-        .asideContainer {
-            position: relative;
-            top: 0;
-            max-width: 100%;
-        }
-    }
-}
-
-@media(max-width: 768px) {
-    .mainPage {
-        //flex-direction: column;
-        //align-items: center;
-        padding: 120px 15px 60px 15px;
-        gap: 20px;
-
-        .articleContainer {
-            width: 100%;
-            max-width: 100%;
-            padding: 20px;
-        }
-
-        .payOptions {
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-
-            .methodButton {
-                width: 100%;
-            }
-        }
-
-        .asideContainer {
-            width: 100%;
-            height: auto;
-            text-align: center;
-
-            .planCard {
-                min-height: 300px;
-            }
-        }
-    }
-
-    .sectionContainer {
-        width: 100%;
-    }
-
-
-}
-
-@media (max-width: 480px) {
-    .mainPage * {
-        max-width: 100%;
-        box-sizing: border-box;
-
-    }
-
-    .mainPage {
-        flex-direction: column-reverse;
-    }
-
-    .formContainer {
-        gap: 20px;
-
-        .form {
-            gap: 25px;
-        }
-
-        .buttonContainer button {
-            max-width: 100%;
-        }
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
     }
 
     .payOptions {
-        flex-direction: column;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      //margin-bottom: 20px;
+      flex-wrap: wrap;
 
-        .methodButton {
-            width: 100%;
+      .methodButton {
+        width: 180px;
+        height: 45px;
+        border-radius: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+        background-color: var(--red);
+        color: var(--white);
+        transition: 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+
+        &:hover {
+          background-color: var(--red-selected);
+          transform: scale(1.02);
         }
+      }
     }
 
-    .addressGrid {
-        grid-template-columns: 1fr;
+    .formContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        .paymentContainer {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          padding: 40px 0;
+        }
+      }
+
+      .buttonContainer {
+        display: flex;
+        justify-content: center;
+
+        button {
+          width: 100%;
+          max-width: 350px;
+          height: 55px;
+          border-radius: 2rem;
+          font-size: 1rem;
+          font-weight: 700;
+          background-color: var(--red);
+          color: var(--white);
+          transition: 0.4s;
+
+          &:hover:enabled {
+            //transform: scale(1.05);
+            transform: translateY(-3px);
+          }
+        }
+
+        .disabled {
+          background-color: #ccc;
+          cursor: not-allowed;
+          color: #666;
+        }
+      }
     }
+  }
+
+  .asideContainer {
+    background-color: var(--white);
+    width: 100%;
+    max-width: 320px;
+    padding: 20px;
+    border-radius: 0.4rem;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    color: var(--black);
+    position: sticky;
+    top: 120px;
+    //right: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .mainPage {
+    flex-direction: column;
+    align-items: center;
+
+    .asideContainer {
+      position: relative;
+      top: 0;
+      max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .mainPage {
+    //flex-direction: column;
+    //align-items: center;
+    padding: 120px 15px 60px 15px;
+    gap: 20px;
 
     .articleContainer {
-        padding: 15px;
+      width: 100%;
+      max-width: 100%;
+      padding: 20px;
     }
+
+    .payOptions {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+
+      .methodButton {
+        width: 100%;
+      }
+    }
+
+    .asideContainer {
+      width: 100%;
+      height: auto;
+      text-align: center;
+
+      .planCard {
+        min-height: 300px;
+      }
+    }
+  }
+
+  .sectionContainer {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainPage * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .mainPage {
+    flex-direction: column-reverse;
+  }
+
+  .formContainer {
+    gap: 20px;
+
+    .form {
+      gap: 25px;
+    }
+
+    .buttonContainer button {
+      max-width: 100%;
+    }
+  }
+
+  .payOptions {
+    flex-direction: column;
+
+    .methodButton {
+      width: 100%;
+    }
+  }
+
+  .addressGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .articleContainer {
+    padding: 15px;
+  }
 }

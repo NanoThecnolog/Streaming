@@ -15,64 +15,58 @@ import Footer from '@/components/Footer'
 import { useFlix } from '@/contexts/FlixContext'
 
 interface PageProps {
-    collection: Collection | null
+  collection: Collection | null
 }
 
 const TMDB_IMAGE_BASE_URL = 'https://image.tmdb.org/t/p'
 
-const getImageUrl = (
-    path: string | null | undefined,
-    size: 'w500' | 'original' = 'w500'
-) => {
-    if (!path) return '/blurImage.png'
+const getImageUrl = (path: string | null | undefined, size: 'w500' | 'original' = 'w500') => {
+  if (!path) return '/blurImage.png'
 
-    return `${TMDB_IMAGE_BASE_URL}/${size}${path}`
+  return `${TMDB_IMAGE_BASE_URL}/${size}${path}`
 }
 
 const formatRuntime = (runtime: number) => {
-    const hours = Math.floor(runtime / 60)
-    const minutes = runtime % 60
+  const hours = Math.floor(runtime / 60)
+  const minutes = runtime % 60
 
-    if (!hours) return `${minutes}min`
-    if (!minutes) return `${hours}h`
+  if (!hours) return `${minutes}min`
+  if (!minutes) return `${hours}h`
 
-    return `${hours}h ${minutes}min`
+  return `${hours}h ${minutes}min`
 }
 
 const getReleaseYear = (date: string | Date) => {
-    if (!date) return null
+  if (!date) return null
 
-    const parsedDate = new Date(date)
+  const parsedDate = new Date(date)
 
-    if (Number.isNaN(parsedDate.getTime())) {
-        return null
-    }
+  if (Number.isNaN(parsedDate.getTime())) {
+    return null
+  }
 
-    return parsedDate.getFullYear()
+  return parsedDate.getFullYear()
 }
 
 export default function CollectionPage({ collection }: PageProps) {
+  //const { allData, isLoadingMovies } = useTMDB()
+  const { movies } = useFlix()
+  //const [isLoadingMovies, setIsLoadingMovies] = useState(true)
 
-    //const { allData, isLoadingMovies } = useTMDB()
-    const { movies } = useFlix()
-    //const [isLoadingMovies, setIsLoadingMovies] = useState(true)
+  debug.log('dados da coleção', collection)
 
-    debug.log('dados da coleção', collection)
-
-    /*useEffect(() => {
+  /*useEffect(() => {
         if (allData.length > 0) debug.log(allData)
         else debug.log("alldata vazio")
     }, [allData])*/
-    /*
+  /*
     const collectionMovieIDs = new Set(
             collection?.parts.map(movie => movie.id)
     )
     */
-    const moviesIDs = new Set(
-        movies.map(m => m.tmdbId)
-    )
+  const moviesIDs = new Set(movies.map((m) => m.tmdbId))
 
-    /*if (collection && collection.parts.length) {
+  /*if (collection && collection.parts.length) {
         const collectionMovies = await Promise.all(
             collection.parts.map(async part => {
                 const response = await axios.get(`/api/tmdb/movie/${part.}`)
@@ -82,163 +76,134 @@ export default function CollectionPage({ collection }: PageProps) {
     )
     }*/
 
+  const cards = useMemo<Part[]>(() => {
+    if (!collection?.parts?.length || !movies.length) {
+      return []
+    }
 
-    const cards = useMemo<Part[]>(() => {
-        if (!collection?.parts?.length || !movies.length) {
-            return []
-        }
+    const hasMovies = collection.parts.filter((movie) => moviesIDs.has(movie.id))
+    return hasMovies.sort((movieA, movieB) => {
+      const dateA = new Date(movieA.release_date).getTime()
+      const dateB = new Date(movieB.release_date).getTime()
 
-        const hasMovies = collection.parts.filter(movie => moviesIDs.has(movie.id))
-        return hasMovies.sort((movieA, movieB) => {
-            const dateA = new Date(movieA.release_date).getTime()
-            const dateB = new Date(movieB.release_date).getTime()
+      return dateA - dateB
+    })
+  }, [collection])
 
-            return dateA - dateB
-        })
-    }, [collection])
+  debug.log('Cards', cards)
 
-    debug.log("Cards", cards)
+  const collectionInfo = useMemo(() => {
+    if (!collection) return null
 
-    const collectionInfo = useMemo(() => {
-        if (!collection) return null
+    const releaseYears = collection.parts
+      .map((movie) => getReleaseYear(movie.release_date))
+      .filter((year): year is number => year !== null)
+      .sort((yearA, yearB) => yearA - yearB)
 
-        const releaseYears = collection.parts
-            .map(movie => getReleaseYear(movie.release_date))
-            .filter((year): year is number => year !== null)
-            .sort((yearA, yearB) => yearA - yearB)
-
-        /*const totalRuntime = cards.reduce(
+    /*const totalRuntime = cards.reduce(
             (total, movie) => total + (movie. ?? 0),
             0
         )*/
 
-        const averageRating = collection.parts.length
-            ? collection.parts.reduce(
-                (total, movie) => total + movie.vote_average,
-                0
-            ) / collection.parts.length
-            : 0
+    const averageRating = collection.parts.length
+      ? collection.parts.reduce((total, movie) => total + movie.vote_average, 0) /
+        collection.parts.length
+      : 0
 
-        return {
-            firstYear: releaseYears.at(0),
-            lastYear: releaseYears.at(-1),
-            //totalRuntime,
-            averageRating
-        }
-    }, [cards, collection])
-
-    if (!collection) {
-        return (
-            <>
-                <Head>
-                    <title>Coleção não encontrada</title>
-                    <meta
-                        name="description"
-                        content="A coleção solicitada não foi encontrada."
-                    />
-                </Head>
-
-                <main className={styles.notFound}>
-                    <h1>Coleção não encontrada</h1>
-                    <p>
-                        Não foi possível localizar os dados desta coleção.
-                    </p>
-
-                    <Link href="/">
-                        Voltar para o início
-                    </Link>
-                </main>
-            </>
-        )
+    return {
+      firstYear: releaseYears.at(0),
+      lastYear: releaseYears.at(-1),
+      //totalRuntime,
+      averageRating,
     }
+  }, [cards, collection])
 
-    const backdropImage = getImageUrl(
-        collection.backdrop_path,
-        'original'
-    )
-
-    const posterImage = getImageUrl(collection.poster_path)
-
-    const pageDescription =
-        collection.overview ||
-        `Confira todos os filmes da coleção ${collection.name}.`
-
+  if (!collection) {
     return (
-        <>
-            <Head>
-                <title>{collection.name}</title>
+      <>
+        <Head>
+          <title>Coleção não encontrada</title>
+          <meta name="description" content="A coleção solicitada não foi encontrada." />
+        </Head>
 
-                <meta
-                    name="description"
-                    content={pageDescription}
-                />
+        <main className={styles.notFound}>
+          <h1>Coleção não encontrada</h1>
+          <p>Não foi possível localizar os dados desta coleção.</p>
 
-                <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1"
-                />
-            </Head>
+          <Link href="/">Voltar para o início</Link>
+        </main>
+      </>
+    )
+  }
 
-            <Header />
+  const backdropImage = getImageUrl(collection.backdrop_path, 'original')
 
-            <main className={styles.container}>
-                <section
-                    className={styles.hero}
-                    style={{
-                        backgroundImage: `url(${backdropImage})`
-                    }}
-                >
-                    <div className={styles.heroOverlay} />
+  const posterImage = getImageUrl(collection.poster_path)
 
-                    <div className={styles.heroContent}>
-                        <div className={styles.collectionPoster}>
-                            <Image
-                                src={posterImage}
-                                alt={`Pôster da coleção ${collection.name}`}
-                                fill
-                                priority
-                                sizes="(max-width: 768px) 180px, 260px"
-                            />
-                        </div>
+  const pageDescription =
+    collection.overview || `Confira todos os filmes da coleção ${collection.name}.`
 
-                        <div className={styles.collectionInfo}>
-                            <span className={styles.collectionLabel}>
-                                Coleção
-                            </span>
+  return (
+    <>
+      <Head>
+        <title>{collection.name}</title>
 
-                            <h1>{collection.name}</h1>
+        <meta name="description" content={pageDescription} />
 
-                            <div className={styles.metadata}>
-                                <span>
-                                    <FiFilm />
-                                    {collection.parts.length}{' '}
-                                    {collection.parts.length === 1
-                                        ? 'filme'
-                                        : 'filmes'}
-                                </span>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
 
-                                {collectionInfo?.firstYear && (
-                                    <span>
-                                        {collectionInfo.firstYear}
+      <Header />
 
-                                        {collectionInfo.lastYear &&
-                                            collectionInfo.lastYear !==
-                                            collectionInfo.firstYear &&
-                                            ` – ${collectionInfo.lastYear}`}
-                                    </span>
-                                )}
+      <main className={styles.container}>
+        <section
+          className={styles.hero}
+          style={{
+            backgroundImage: `url(${backdropImage})`,
+          }}
+        >
+          <div className={styles.heroOverlay} />
 
-                                {collectionInfo &&
-                                    collectionInfo.averageRating > 0 && (
-                                        <span>
-                                            <FiStar />
-                                            {collectionInfo.averageRating.toFixed(
-                                                1
-                                            )}
-                                        </span>
-                                    )}
+          <div className={styles.heroContent}>
+            <div className={styles.collectionPoster}>
+              <Image
+                src={posterImage}
+                alt={`Pôster da coleção ${collection.name}`}
+                fill
+                priority
+                sizes="(max-width: 768px) 180px, 260px"
+              />
+            </div>
 
-                                {/*collectionInfo &&
+            <div className={styles.collectionInfo}>
+              <span className={styles.collectionLabel}>Coleção</span>
+
+              <h1>{collection.name}</h1>
+
+              <div className={styles.metadata}>
+                <span>
+                  <FiFilm />
+                  {collection.parts.length} {collection.parts.length === 1 ? 'filme' : 'filmes'}
+                </span>
+
+                {collectionInfo?.firstYear && (
+                  <span>
+                    {collectionInfo.firstYear}
+
+                    {collectionInfo.lastYear &&
+                      collectionInfo.lastYear !== collectionInfo.firstYear &&
+                      ` – ${collectionInfo.lastYear}`}
+                  </span>
+                )}
+
+                {collectionInfo && collectionInfo.averageRating > 0 && (
+                  <span>
+                    <FiStar />
+                    {collectionInfo.averageRating.toFixed(1)}
+                  </span>
+                )}
+
+                {/*collectionInfo &&
                                     collectionInfo.totalRuntime > 0 && (
                                         <span>
                                             <FiClock />
@@ -247,119 +212,79 @@ export default function CollectionPage({ collection }: PageProps) {
                                             )}
                                         </span>
                                     )*/}
-                            </div>
+              </div>
 
-                            {collection.overview ? (
-                                <p>{collection.overview}</p>
-                            ) : (
-                                <p>
-                                    Explore os filmes que fazem parte da
-                                    coleção {collection.name}.
-                                </p>
-                            )}
-                        </div>
-                    </div>
-                </section>
+              {collection.overview ? (
+                <p>{collection.overview}</p>
+              ) : (
+                <p>Explore os filmes que fazem parte da coleção {collection.name}.</p>
+              )}
+            </div>
+          </div>
+        </section>
 
-                <section className={styles.content}>
-                    <div className={styles.sectionHeader}>
-                        <div>
-                            <span>Todos os títulos</span>
-                            <h2>Filmes da coleção</h2>
-                        </div>
+        <section className={styles.content}>
+          <div className={styles.sectionHeader}>
+            <div>
+              <span>Todos os títulos</span>
+              <h2>Filmes da coleção</h2>
+            </div>
 
-                        <p>
-                            {cards.length} de {collection.parts.length}{' '}
-                            disponíveis
-                        </p>
-                    </div>
+            <p>
+              {cards.length} de {collection.parts.length} disponíveis
+            </p>
+          </div>
 
-                    {/*isLoadingMovies && cards.length === 0 && (
+          {/*isLoadingMovies && cards.length === 0 && (
                         <div className={styles.loading}>
                             Carregando filmes da coleção...
                         </div>
                     )*/}
 
-                    {cards.length > 0 && (
-                        <div className={styles.moviesGrid}>
-                            {cards.map((movie, index) => {
-                                const year = getReleaseYear(
-                                    movie.release_date
-                                )
+          {cards.length > 0 && (
+            <div className={styles.moviesGrid}>
+              {cards.map((movie, index) => {
+                const year = getReleaseYear(movie.release_date)
 
-                                return (
-                                    <article
-                                        key={movie.id}
-                                        className={styles.movieCard}
-                                    >
-                                        <Link
-                                            href={`/movie/${movie.id}`}
-                                            className={styles.moviePoster}
-                                            aria-label={`Abrir ${movie.title}`}
-                                        >
-                                            <Image
-                                                src={getImageUrl(
-                                                    movie.poster_path
-                                                )}
-                                                alt={`Pôster de ${movie.title}`}
-                                                fill
-                                                sizes="(max-width: 600px) 45vw, (max-width: 1200px) 25vw, 220px"
-                                            />
+                return (
+                  <article key={movie.id} className={styles.movieCard}>
+                    <Link
+                      href={`/movie/${movie.id}`}
+                      className={styles.moviePoster}
+                      aria-label={`Abrir ${movie.title}`}
+                    >
+                      <Image
+                        src={getImageUrl(movie.poster_path)}
+                        alt={`Pôster de ${movie.title}`}
+                        fill
+                        sizes="(max-width: 600px) 45vw, (max-width: 1200px) 25vw, 220px"
+                      />
 
-                                            <div
-                                                className={
-                                                    styles.posterGradient
-                                                }
-                                            />
+                      <div className={styles.posterGradient} />
 
-                                            <span
-                                                className={
-                                                    styles.moviePosition
-                                                }
-                                            >
-                                                {String(index + 1).padStart(
-                                                    2,
-                                                    '0'
-                                                )}
-                                            </span>
+                      <span className={styles.moviePosition}>
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
 
-                                            {movie.vote_average > 0 && (
-                                                <span
-                                                    className={
-                                                        styles.movieRating
-                                                    }
-                                                >
-                                                    <FiStar />
-                                                    {movie.vote_average.toFixed(
-                                                        1
-                                                    )}
-                                                </span>
-                                            )}
-                                        </Link>
+                      {movie.vote_average > 0 && (
+                        <span className={styles.movieRating}>
+                          <FiStar />
+                          {movie.vote_average.toFixed(1)}
+                        </span>
+                      )}
+                    </Link>
 
-                                        <div className={styles.movieContent}>
-                                            <div
-                                                className={
-                                                    styles.movieTitleRow
-                                                }
-                                            >
-                                                <h3>
-                                                    <Link
-                                                        href={`/movie/${movie.id}`}
-                                                    >
-                                                        {movie.title}
-                                                    </Link>
-                                                </h3>
+                    <div className={styles.movieContent}>
+                      <div className={styles.movieTitleRow}>
+                        <h3>
+                          <Link href={`/movie/${movie.id}`}>{movie.title}</Link>
+                        </h3>
 
-                                                {year && <span>{year}</span>}
-                                            </div>
+                        {year && <span>{year}</span>}
+                      </div>
 
-                                            <div
-                                                className={
-                                                    styles.movieMetadata
-                                                }
-                                            >
-                                                {/*movie.runtime > 0 && (
+                      <div className={styles.movieMetadata}>
+                        {/*movie.runtime > 0 && (
                                                     <span>
                                                         <FiClock />
                                                         {formatRuntime(
@@ -368,77 +293,66 @@ export default function CollectionPage({ collection }: PageProps) {
                                                     </span>
                                                 )*/}
 
-                                                {/*movie.genre_ids
+                        {/*movie.genre_ids
                                                     .slice(0, 2)
                                                     .map((genre,i) => (
                                                         <span key={i}>
                                                             {genre.name === 'Thriller' ? 'Suspense' : genre.name}
                                                         </span>
                                                     ))*/}
-                                            </div>
+                      </div>
 
-                                            <p>
-                                                {movie.overview ||
-                                                    'Nenhuma descrição disponível para este filme.'}
-                                            </p>
+                      <p>{movie.overview || 'Nenhuma descrição disponível para este filme.'}</p>
 
-                                            <Link
-                                                href={`/movie/${movie.id}`}
-                                                className={styles.detailsButton}
-                                            >
-                                                Ver detalhes
-                                            </Link>
-                                        </div>
-                                    </article>
-                                )
-                            })}
-                        </div>
-                    )}
+                      <Link href={`/movie/${movie.id}`} className={styles.detailsButton}>
+                        Ver detalhes
+                      </Link>
+                    </div>
+                  </article>
+                )
+              })}
+            </div>
+          )}
 
-                    {cards.length === 0 && (
-                        <div className={styles.emptyState}>
-                            <FiFilm />
+          {cards.length === 0 && (
+            <div className={styles.emptyState}>
+              <FiFilm />
 
-                            <h2>Nenhum filme disponível</h2>
+              <h2>Nenhum filme disponível</h2>
 
-                            <p>
-                                Os filmes desta coleção ainda não estão
-                                disponíveis no catálogo.
-                            </p>
-                        </div>
-                    )}
-                </section>
-            </main>
-            <Footer />
-        </>
-    )
+              <p>Os filmes desta coleção ainda não estão disponíveis no catálogo.</p>
+            </div>
+          )}
+        </section>
+      </main>
+      <Footer />
+    </>
+  )
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-    const { id } = ctx.params as { id: string };
+  const { id } = ctx.params as { id: string }
 
-    const baseurl = process.env.NEXT_PUBLIC_WEBSITE_LINK
-    if (!baseurl) {
-        debug.log('url base não definida corretamente nas variáveis de ambiente')
-        return {
-            props: {}
-        }
+  const baseurl = process.env.NEXT_PUBLIC_WEBSITE_LINK
+  if (!baseurl) {
+    debug.log('url base não definida corretamente nas variáveis de ambiente')
+    return {
+      props: {},
     }
+  }
 
-    try {
-        const { data } = await axios.get<Collection>(`${baseurl}/api/tmdb/collection/${id}`)
+  try {
+    const { data } = await axios.get<Collection>(`${baseurl}/api/tmdb/collection/${id}`)
 
-        return {
-            props: {
-                collection: data
-            }
-        }
-
-    } catch (err) {
-        debug.log('Erro ao buscar dados da collection')
-        return {
-            props: {}
-        }
+    return {
+      props: {
+        collection: data,
+      },
     }
-
+  } catch (err) {
+    debug.log('Erro ao buscar dados da collection')
+    return {
+      props: {},
+    }
+  }
 }

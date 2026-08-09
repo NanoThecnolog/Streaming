@@ -1,286 +1,279 @@
-import styles from '@/styles/Watch.module.scss';
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { useRouter } from "next/router";
-import { ChevronLeft } from 'lucide-react';
-import HelpFlag from "@/components/Helpflag";
-import HelpModal from "@/components/modals/HelpModal/index ";
-import SEO from "@/components/SEO";
-import { useFlix } from '@/contexts/FlixContext';
-import { apiGoogle } from '@/services/apiGoogle';
-import NoFile from '@/components/ui/NoFile';
-import { CheckFileProps } from '@/@types/googleRequest';
-import Spinner from '@/components/ui/Loading/spinner';
-import { debug } from '@/classes/DebugLogger';
-import { mongoService } from '@/classes/MongoContent';
-import { apiEmail } from '@/services/apiMessenger';
-import Head from 'next/head';
-import { GetServerSideProps } from 'next';
-import axios, { AxiosError } from 'axios';
-import { SubscriptionProps, UserContext } from '@/@types/user';
-import { MoviePlayer } from '@/components/ui/Player';
-import { MoviePlayerHLS } from '@/components/ui/PlayerHLS';
-import { hasAccess } from '@/utils/UtilitiesFunctions';
+import styles from '@/styles/Watch.module.scss'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useRouter } from 'next/router'
+import { ChevronLeft } from 'lucide-react'
+import HelpFlag from '@/components/Helpflag'
+import HelpModal from '@/components/modals/HelpModal/index '
+import SEO from '@/components/SEO'
+import { useFlix } from '@/contexts/FlixContext'
+import { apiGoogle } from '@/services/apiGoogle'
+import NoFile from '@/components/ui/NoFile'
+import { CheckFileProps } from '@/@types/googleRequest'
+import Spinner from '@/components/ui/Loading/spinner'
+import { debug } from '@/classes/DebugLogger'
+import { mongoService } from '@/classes/MongoContent'
+import { apiEmail } from '@/services/apiMessenger'
+import Head from 'next/head'
+import { GetServerSideProps } from 'next'
+import axios, { AxiosError } from 'axios'
+import { SubscriptionProps, UserContext } from '@/@types/user'
+import { MoviePlayer } from '@/components/ui/Player'
+import { MoviePlayerHLS } from '@/components/ui/PlayerHLS'
+import { hasAccess } from '@/utils/UtilitiesFunctions'
 
 interface WatchProps {
-    userContext: UserContext | null
+  userContext: UserContext | null
 }
 export default function Watch({ userContext }: WatchProps) {
-    const router = useRouter()
-    const { tmdbId, startTime } = router.query;
-    const [movieData, setMovieData] = useState({ title: '', subtitle: '', src: '', tmdbId: 0 });
-    const { user, setUser, movies } = useFlix()
-    const [visible, setVisible] = useState(false)
-    const [shared, setShared] = useState<boolean | null>(null)
-    const [loading, setLoading] = useState(false)
+  const router = useRouter()
+  const { tmdbId, startTime } = router.query
+  const [movieData, setMovieData] = useState({ title: '', subtitle: '', src: '', tmdbId: 0 })
+  const { user, setUser, movies } = useFlix()
+  const [visible, setVisible] = useState(false)
+  const [shared, setShared] = useState<boolean | null>(null)
+  const [loading, setLoading] = useState(false)
 
-    useEffect(() => {
-        if (!user) {
-            if (!userContext) return
-            setUser(userContext)
-        }
+  useEffect(() => {
+    if (!user) {
+      if (!userContext) return
+      setUser(userContext)
+    }
+  }, [userContext])
 
-    }, [userContext])
+  useEffect(() => {
+    if (user && !user.donator) router.push('/me/escolher-plano')
+  }, [user])
 
-    useEffect(() => {
-        if (user && !user.donator) router.push('/me/escolher-plano')
-    }, [user])
+  const isHLS = useMemo(() => {
+    if (!movieData.src) return false
+    if (movieData.src.includes('.m3u8')) return true
+    return false
+  }, [movieData.src])
 
-    const isHLS = useMemo(() => {
-        if (!movieData.src) return false
-        if (movieData.src.includes('.m3u8')) return true
-        return false
+  const isDrive = useMemo(() => {
+    if (!movieData.src) return null
+    try {
+      return !new URL(movieData.src).hostname.includes('backblazeb2.com')
+    } catch {
+      return null
+    }
+  }, [movieData.src])
 
-    }, [movieData.src])
+  useEffect(() => {
+    async function getMovieMongoData() {
+      const movie = await mongoService.findOneMovieById(parseInt(tmdbId as string))
+      if (!movie) return
+      setMovieData({
+        title: movie.title,
+        subtitle: movie.subtitle ?? '',
+        src: movie.src,
+        tmdbId: movie.tmdbId,
+      })
+    }
+    if (tmdbId) getMovieMongoData()
+  }, [router, tmdbId])
 
-    const isDrive = useMemo(() => {
-        if (!movieData.src) return null
-        try {
-            return !new URL(movieData.src).hostname.includes('backblazeb2.com')
-        } catch {
-            return null
-        }
-    }, [movieData.src])
+  const handleBack = useCallback(() => {
+    router.back()
+  }, [router])
 
+  const handleHelpModal = useCallback(() => {
+    setVisible((prev) => !prev)
+  }, [])
 
-    useEffect(() => {
-        async function getMovieMongoData() {
-            const movie = await mongoService.findOneMovieById(parseInt(tmdbId as string))
-            if (!movie) return
-            setMovieData({
-                title: movie.title,
-                subtitle: movie.subtitle ?? '',
-                src: movie.src,
-                tmdbId: movie.tmdbId
-            })
-        }
-        if (tmdbId) getMovieMongoData()
-    }, [router, tmdbId])
+  useEffect(() => {
+    debug.log('drive?', isDrive)
+    debug.log('shared?', shared)
+    if (!movieData.src || isDrive === null) return
+    if (isDrive === false) {
+      setShared(true)
+      return
+    }
+    shareVerify(movieData.src)
 
-    const handleBack = useCallback(() => {
-        router.back()
-    }, [router])
-
-
-    const handleHelpModal = useCallback(() => {
-        setVisible(prev => !prev)
-    }, [])
-
-    useEffect(() => {
-        debug.log("drive?", isDrive)
-        debug.log("shared?", shared)
-        if (!movieData.src || isDrive === null) return
-        if (isDrive === false) {
-            setShared(true)
-            return
-        }
-        shareVerify(movieData.src)
-
-
-        /*if (movieData.src) {
+    /*if (movieData.src) {
             debug.log("movie data ao verificar: ", movieData)
             shareVerify(movieData.src)
         } else {
             if (isDrive) setShared(false)
             debug.log("não fazer nada!")
         }*/
+  }, [movieData.src, isDrive])
 
-    }, [movieData.src, isDrive])
+  const shareVerify = async (link: string) => {
+    //if (loading) return
+    setLoading(true)
 
+    try {
+      const { data } = await apiGoogle.get(`/${encodeURIComponent(link)}`)
+      debug.log('arquivo verificado: ', data)
+      const fileCheck: CheckFileProps = data
 
-    const shareVerify = async (link: string) => {
-        //if (loading) return
-        setLoading(true)
+      setShared(!!fileCheck.shared)
+    } catch (err: any) {
+      const status = err?.response?.status
 
+      debug.error('Erro ao verificar arquivo', status)
+
+      if (status === 400 || status === 404 || status === 403) {
         try {
-
-            const { data } = await apiGoogle.get(`/${encodeURIComponent(link)}`)
-            debug.log("arquivo verificado: ", data)
-            const fileCheck: CheckFileProps = data
-
-            setShared(!!fileCheck.shared)
-
-        } catch (err: any) {
-            const status = err?.response?.status
-
-            debug.error('Erro ao verificar arquivo', status)
-
-            if (status === 400 || status === 404 || status === 403) {
-                try {
-                    await apiEmail.post('/notification/problem', {
-                        title: movieData.title,
-                        description: 'Problema com arquivo',
-                        tmdbId: movieData.tmdbId,
-                        email: user?.email
-                    })
-                } catch (mailError) {
-                    debug.warn('Falha ao enviar notificação de erro', mailError)
-                }
-            }
-            setShared(false)
-        } finally {
-            setLoading(false)
+          await apiEmail.post('/notification/problem', {
+            title: movieData.title,
+            description: 'Problema com arquivo',
+            tmdbId: movieData.tmdbId,
+            email: user?.email,
+          })
+        } catch (mailError) {
+          debug.warn('Falha ao enviar notificação de erro', mailError)
         }
+      }
+      setShared(false)
+    } finally {
+      setLoading(false)
     }
+  }
 
-    const handleMovieEnded = () => {
-        router.back()
-    }
+  const handleMovieEnded = () => {
+    router.back()
+  }
 
-    return (
-        <>
-            <Head>
-                <meta name='robots' content='noindex, nofollow' />
-            </Head>
-            <SEO title={`${movieData.title}${movieData.subtitle ? ` - ${movieData.subtitle}` : ''} - FlixNext`} description=" " />
-            <div className={styles.container}>
-                <div className={styles.movie}>
-                    <div className={styles.movieName}>
-                        <button
-                            onClick={handleBack}
-                            title="Voltar ao início"
-                            aria-label='Voltar'
-                            className={styles.buttonPreview}
-                        >
-                            <ChevronLeft size={30} />
-                        </button>
-                        <h3>{movieData.title}
-                            {movieData.subtitle && `- ${movieData.subtitle}`}
-                        </h3>
-                    </div>
+  return (
+    <>
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
+      <SEO
+        title={`${movieData.title}${movieData.subtitle ? ` - ${movieData.subtitle}` : ''} - FlixNext`}
+        description=" "
+      />
+      <div className={styles.container}>
+        <div className={styles.movie}>
+          <div className={styles.movieName}>
+            <button
+              onClick={handleBack}
+              title="Voltar ao início"
+              aria-label="Voltar"
+              className={styles.buttonPreview}
+            >
+              <ChevronLeft size={30} />
+            </button>
+            <h3>
+              {movieData.title}
+              {movieData.subtitle && `- ${movieData.subtitle}`}
+            </h3>
+          </div>
 
-                    <div className={styles.flagContainer}>
-                        <HelpFlag modalVisible={handleHelpModal} />
-                    </div>
+          <div className={styles.flagContainer}>
+            <HelpFlag modalVisible={handleHelpModal} />
+          </div>
 
-                    <div className={styles.iframe} id="iframe">
-                        {
-                            isHLS
-                                ? <MoviePlayerHLS
-                                    //loading={loading}
-                                    handleEnded={handleMovieEnded}
-                                    src={movieData.src}
-                                    tmdbID={Number(tmdbId as string)}
-                                    mediaType='movie'
-                                    startTime={Number(startTime) ?? 0}
-                                />
-                                : <MoviePlayer
-                                    loading={loading}
-                                    shared={shared}
-                                    src={movieData.src}
-                                    title={movieData.title}
-                                    isSerie={true}
-                                />
-                        }
-                    </div>
-                    {visible && (
-                        <HelpModal
-                            handleHelpModal={handleHelpModal}
-                            email={user?.email}
-                            tmdbId={Number(tmdbId)}
-                        />
-                    )}
-                </div>
-            </div>
-        </>
-    )
+          <div className={styles.iframe} id="iframe">
+            {isHLS ? (
+              <MoviePlayerHLS
+                //loading={loading}
+                handleEnded={handleMovieEnded}
+                src={movieData.src}
+                tmdbID={Number(tmdbId as string)}
+                mediaType="movie"
+                startTime={Number(startTime) ?? 0}
+              />
+            ) : (
+              <MoviePlayer
+                loading={loading}
+                shared={shared}
+                src={movieData.src}
+                title={movieData.title}
+                isSerie={true}
+              />
+            )}
+          </div>
+          {visible && (
+            <HelpModal
+              handleHelpModal={handleHelpModal}
+              email={user?.email}
+              tmdbId={Number(tmdbId)}
+            />
+          )}
+        </div>
+      </div>
+    </>
+  )
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-    const token = ctx.req.cookies['flix-token']
+  const token = ctx.req.cookies['flix-token']
 
-    if (!token) return {
+  if (!token)
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    }
+  //const url = process.env.NEXT_PUBLIC_WEBSITE_LINK
+  const userBackendUrl = process.env.NEXT_PUBLIC_RENDER
+
+  if (!userBackendUrl) throw new Error('URL Backend não configuradas corretamente')
+
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  }
+
+  try {
+    const response = await axios.get<UserContext>(`${userBackendUrl}/user`, { headers })
+    const user = response.data
+
+    const access = hasAccess(user)
+    if (!access) {
+      if (user.subscription.subId && user.subscription.subId > 0) {
+        const subId = user.subscription.subId
+        return {
+          redirect: {
+            destination: `/me/assinatura/${subId}`,
+            permanent: false,
+          },
+        }
+      }
+      return {
         redirect: {
+          destination: '/me/escolher-plano',
+          permanent: false,
+        },
+      }
+    }
+    return {
+      props: {
+        userContext: user,
+      },
+    }
+  } catch (err) {
+    if (err instanceof AxiosError) {
+      if (err.response?.status === 401) {
+        return {
+          redirect: {
             destination: '/login',
-            permanent: false
+            permanent: false,
+          },
         }
-    }
-    //const url = process.env.NEXT_PUBLIC_WEBSITE_LINK
-    const userBackendUrl = process.env.NEXT_PUBLIC_RENDER
+      }
 
-    if (!userBackendUrl) throw new Error('URL Backend não configuradas corretamente')
-
-    const headers = {
-        Authorization: `Bearer ${token}`
-    }
-
-    try {
-        const response = await axios.get<UserContext>(`${userBackendUrl}/user`, { headers })
-        const user = response.data
-
-        const access = hasAccess(user)
-        if (!access) {
-            if (user.subscription.subId && user.subscription.subId > 0) {
-                const subId = user.subscription.subId
-                return {
-                    redirect: {
-                        destination: `/me/assinatura/${subId}`,
-                        permanent: false
-                    }
-                }
-            }
-            return {
-                redirect: {
-                    destination: '/me/escolher-plano',
-                    permanent: false
-                }
-            }
-        }
+      if (err.response?.status === 404) {
         return {
-            props: {
-                userContext: user
-            }
+          redirect: {
+            destination: '/me',
+            permanent: false,
+          },
         }
-    } catch (err) {
-        if (err instanceof AxiosError) {
-            if (err.response?.status === 401) {
-                return {
-                    redirect: {
-                        destination: '/login',
-                        permanent: false,
-                    },
-                }
-            }
-
-            if (err.response?.status === 404) {
-                return {
-                    redirect: {
-                        destination: '/me',
-                        permanent: false,
-                    },
-                }
-            }
-        }
-
-        console.error(
-            'Erro ao validar usuário e assinatura na página /watch',
-            err,
-        )
-
-        return {
-            redirect: {
-                destination: '/me',
-                permanent: false,
-            },
-        }
+      }
     }
+
+    console.error('Erro ao validar usuário e assinatura na página /watch', err)
+
+    return {
+      redirect: {
+        destination: '/me',
+        permanent: false,
+      },
+    }
+  }
 }

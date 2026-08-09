@@ -1,39 +1,38 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { useCallback, useEffect, useState } from "react";
-import styles from "@/styles/Home.module.scss";
-import Search from "@/pages/api/Searching";
-import SEO from "@/components/SEO";
-import { useTMDB } from "@/contexts/TMDBContext";
-import Loading from "@/components/ui/Loading";
-import { agp, gen } from "@/utils/Genres";
-import BackTopButton from "@/components/ui/BackToTop";
-import debounce from "lodash.debounce";
-import Carousel from "@/components/Carousel";
-import { breakpoints, trendingBreakpoints } from "@/utils/Variaveis";
-import { useFlix } from "@/contexts/FlixContext";
-import NewTop from "@/components/newTop";
-import { CardsProps } from "@/@types/Cards";
-import TopPopularMovies from "@/components/TopPopularMovies";
-import HeroSection from "@/components/HeroSection";
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import { useCallback, useEffect, useState } from 'react'
+import styles from '@/styles/Home.module.scss'
+import Search from '@/pages/api/Searching'
+import SEO from '@/components/SEO'
+import { useTMDB } from '@/contexts/TMDBContext'
+import Loading from '@/components/ui/Loading'
+import { agp, gen } from '@/utils/Genres'
+import BackTopButton from '@/components/ui/BackToTop'
+import debounce from 'lodash.debounce'
+import Carousel from '@/components/Carousel'
+import { breakpoints, trendingBreakpoints } from '@/utils/Variaveis'
+import { useFlix } from '@/contexts/FlixContext'
+import NewTop from '@/components/newTop'
+import { CardsProps } from '@/@types/Cards'
+import TopPopularMovies from '@/components/TopPopularMovies'
+import HeroSection from '@/components/HeroSection'
 //import { useDailyModal } from "@/hooks/useDailyModal";
-
 
 export default function Home() {
   const [cardPerContainer, setCardPerContainer] = useState<number>(5)
   const [trendingCardsPerContainer, setTrendingCardsPerContainer] = useState<number>(5)
   const [width, setWidth] = useState<number>(0)
   const removedSections = [agp.dc, agp.marvel, agp.hero]
-  const generos = Object.values(gen);
-  const agrupadores = Object.values(agp);
-  const combined = [...generos, ...agrupadores.filter(item => removedSections.includes(item))];
+  const generos = Object.values(gen)
+  const agrupadores = Object.values(agp)
+  const combined = [...generos, ...agrupadores.filter((item) => removedSections.includes(item))]
   const divisaoPorGenero = combined
   const { allData } = useTMDB()
   const [visible, setvisible] = useState(false)
   const { movies } = useFlix()
   //const { isOpen, close } = useDailyModal()
 
-  const tmdbid = 1314481;
+  const tmdbid = 1314481
   const [topCard, setTopCard] = useState<CardsProps | null>(null)
 
   useEffect(() => {
@@ -43,11 +42,11 @@ export default function Home() {
 
   useEffect(() => {
     const handleResize = () => {
-      const windowWidth = window.innerWidth;
+      const windowWidth = window.innerWidth
       setWidth(windowWidth)
-      const { cards } = breakpoints.find(b => windowWidth < b.width) || { cards: 5 }
+      const { cards } = breakpoints.find((b) => windowWidth < b.width) || { cards: 5 }
       setCardPerContainer(cards)
-      const trendCards = trendingBreakpoints.find(b => windowWidth < b.width) || { cards: 5 }
+      const trendCards = trendingBreakpoints.find((b) => windowWidth < b.width) || { cards: 5 }
       setTrendingCardsPerContainer(trendCards.cards)
     }
     window.addEventListener('resize', handleResize)
@@ -63,8 +62,8 @@ export default function Home() {
         setvisible(false)
       }
     }, 200),
-    []
-  );
+    [],
+  )
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
@@ -81,48 +80,50 @@ export default function Home() {
         image="https://flixnext.com.br/blurImage.png"
         url="https://flixnext.com.br"
       />
-      {
-        allData.length > 0 ?
-          <>
-            <Header />
-            <main className={styles.main}>
-              <div className={styles.content}>
-                {movies && movies.length > 0 &&
-                  <>
-                    <div className={styles.top}>
-                      {
-                        //topCard && <NewTop width={width} id={tmdbid} isActive={true} type="movie" />
-                        <HeroSection width={width} page={'movie'} />
-                      }
-                    </div>
+      {allData.length > 0 ? (
+        <>
+          <Header />
+          <main className={styles.main}>
+            <div className={styles.content}>
+              {movies && movies.length > 0 && (
+                <>
+                  <div className={styles.top}>
+                    {
+                      //topCard && <NewTop width={width} id={tmdbid} isActive={true} type="movie" />
+                      <HeroSection width={width} page={'movie'} />
+                    }
+                  </div>
 
-                    <div className={styles.mid} id="filmes">
-                      <TopPopularMovies cardPerContainer={trendingCardsPerContainer} />
-                      {
-                        divisaoPorGenero.map((sec, index) => {
-                          return (
-                            <div key={`${sec}+${index}`}>
-                              <Carousel type="movie" section={sec} cardPerContainer={cardPerContainer} />
-                            </div>
-                          )
-                        })}
-                      <Search />
-                    </div>
-
-                  </>
-                }
-              </div>
-              <BackTopButton visible={visible} />
-            </main>
-            {
-              //!user?.donator && <DailyWarningModal open={isOpen} onClose={close} />
-            }
-            <Footer />
-          </> :
-          <div className={styles.loading}>
-            <Loading />
-          </div>
-      }
+                  <div className={styles.mid} id="filmes">
+                    <TopPopularMovies cardPerContainer={trendingCardsPerContainer} />
+                    {divisaoPorGenero.map((sec, index) => {
+                      return (
+                        <div key={`${sec}+${index}`}>
+                          <Carousel
+                            type="movie"
+                            section={sec}
+                            cardPerContainer={cardPerContainer}
+                          />
+                        </div>
+                      )
+                    })}
+                    <Search />
+                  </div>
+                </>
+              )}
+            </div>
+            <BackTopButton visible={visible} />
+          </main>
+          {
+            //!user?.donator && <DailyWarningModal open={isOpen} onClose={close} />
+          }
+          <Footer />
+        </>
+      ) : (
+        <div className={styles.loading}>
+          <Loading />
+        </div>
+      )}
     </>
-  );
+  )
 }

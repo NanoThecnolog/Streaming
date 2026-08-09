@@ -1,7 +1,7 @@
 export interface ListaFavoritos {
-    id: string,
-    tmdbid: number,
-    title: string,
-    subtitle: string,
-    userId: string
+  id: string
+  tmdbid: number
+  title: string
+  subtitle: string
+  userId: string
 }

@@ -1,15 +1,15 @@
 .container {
-    position: relative;
+  position: relative;
 
-    button {
-        color: var(--white);
+  button {
+    color: var(--white);
 
-        svg {
-            cursor: pointer;
-        }
-
-        &:hover {
-            transform: scale(1.1);
-        }
+    svg {
+      cursor: pointer;
     }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 }

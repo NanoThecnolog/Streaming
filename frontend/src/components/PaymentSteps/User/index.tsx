@@ -6,70 +6,70 @@ import { FaEye, FaRegEyeSlash } from 'react-icons/fa'
 import { useState } from 'react'
 
 interface UserStepProps {
-    data: UserDataProps,
-    setDataUser: React.Dispatch<React.SetStateAction<UserDataProps>>,
-    confirmarSenha: React.Dispatch<React.SetStateAction<string>>,
-    senha: string,
-    valid: boolean
+  data: UserDataProps
+  setDataUser: React.Dispatch<React.SetStateAction<UserDataProps>>
+  confirmarSenha: React.Dispatch<React.SetStateAction<string>>
+  senha: string
+  valid: boolean
 }
 
 export default function User({ data, setDataUser, senha, confirmarSenha }: UserStepProps) {
-    const [revelium, setRevelium] = useState(false)
+  const [revelium, setRevelium] = useState(false)
 
-    return (
-        <>
-            <div className={styles.userData}>
-                <h3>Dados do Usuário</h3>
-                <p>Complete os seus dados</p>
-                <div className={styles.formContainer}>
-                    <div>
-                        <label htmlFor="nome">
-                            Nome
-                            <input
-                                type="text"
-                                id="nome"
-                                value={data.nome || ""}
-                                onChange={(e) => setDataUser((prev) => ({ ...prev, nome: e.target.value }))}
-                                required
-                                placeholder='Nome e Sobrenome'
-                            />
-                        </label>
-                        <label htmlFor="email">
-                            Email
-                            <input
-                                type="text"
-                                id="email"
-                                value={data.email || ""}
-                                onChange={(e) => setDataUser((prev) => ({ ...prev, email: e.target.value }))}
-                                required
-                                placeholder='email válido'
-                            />
-                        </label>
-                        <label htmlFor="cpf">
-                            CPF
-                            <input
-                                type="text"
-                                id="cpf"
-                                value={data.cpf || ""}
-                                onChange={(e) => setDataUser((prev) => ({ ...prev, cpf: e.target.value }))}
-                                required
-                                placeholder='Somente números - 11122233398'
-                            />
-                        </label>
-                        <label htmlFor="phone">
-                            Telefone
-                            <input
-                                type="tel"
-                                id="phone"
-                                value={data.telefone || ""}
-                                onChange={(e) => setDataUser((prev) => ({ ...prev, telefone: e.target.value }))}
-                                required
-                                placeholder='DDD+Número - 21991234567'
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        {/*<label htmlFor='birthday'>
+  return (
+    <>
+      <div className={styles.userData}>
+        <h3>Dados do Usuário</h3>
+        <p>Complete os seus dados</p>
+        <div className={styles.formContainer}>
+          <div>
+            <label htmlFor="nome">
+              Nome
+              <input
+                type="text"
+                id="nome"
+                value={data.nome || ''}
+                onChange={(e) => setDataUser((prev) => ({ ...prev, nome: e.target.value }))}
+                required
+                placeholder="Nome e Sobrenome"
+              />
+            </label>
+            <label htmlFor="email">
+              Email
+              <input
+                type="text"
+                id="email"
+                value={data.email || ''}
+                onChange={(e) => setDataUser((prev) => ({ ...prev, email: e.target.value }))}
+                required
+                placeholder="email válido"
+              />
+            </label>
+            <label htmlFor="cpf">
+              CPF
+              <input
+                type="text"
+                id="cpf"
+                value={data.cpf || ''}
+                onChange={(e) => setDataUser((prev) => ({ ...prev, cpf: e.target.value }))}
+                required
+                placeholder="Somente números - 11122233398"
+              />
+            </label>
+            <label htmlFor="phone">
+              Telefone
+              <input
+                type="tel"
+                id="phone"
+                value={data.telefone || ''}
+                onChange={(e) => setDataUser((prev) => ({ ...prev, telefone: e.target.value }))}
+                required
+                placeholder="DDD+Número - 21991234567"
+              />
+            </label>
+          </div>
+          <div>
+            {/*<label htmlFor='birthday'>
                             Data de Nascimento
                             <input
                                 type="date"
@@ -82,55 +82,49 @@ export default function User({ data, setDataUser, senha, confirmarSenha }: UserS
                                 onChange={(e) => setDataUser((prev) => ({ ...prev, birthday: e.target.value }))}
                             />
                         </label>*/}
-                        <label htmlFor='senha'>
-                            Senha
-
-                            <input
-                                type={revelium ? 'text' : 'password'}
-                                id='senha'
-                                name='senha'
-                                required
-                                minLength={6}
-                                pattern='^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$'
-                                title='A senha deve conter pelo menos 6 caracteres, uma letra, um número e um caractere especial.'
-                                value={data.password}
-                                onChange={(e) => setDataUser((prev) => ({ ...prev, password: e.target.value }))}
-                                placeholder='Mínimo de 6 caracteres'
-                            />
-                            <div onClick={() => setRevelium(!revelium)}>
-                                {
-                                    data.password ? revelium
-                                        ? <FaRegEyeSlash />
-                                        : <FaEye /> : ''
-                                }
-                            </div>
-
-                        </label>
-                        <label htmlFor='confirmarSenha'>
-                            Confirmar senha
-                            <input
-                                type={revelium ? 'text' : 'password'}
-                                id='confirmarSenha'
-                                name='confirmarSenha'
-                                required
-                                value={senha}
-                                onChange={(e) => confirmarSenha(e.target.value)}
-                            />
-                        </label>
-                        <div className={styles.passwordRequires}>
-                            <p>*Sua senha deve conter:</p>
-                            <ul>
-                                <li>mais de 6 caracteres</li>
-                                <li>Maiúsculas</li>
-                                <li>Minúsculas</li>
-                                <li>Número</li>
-                                <li>Caractere especial</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <label htmlFor="senha">
+              Senha
+              <input
+                type={revelium ? 'text' : 'password'}
+                id="senha"
+                name="senha"
+                required
+                minLength={6}
+                pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$"
+                title="A senha deve conter pelo menos 6 caracteres, uma letra, um número e um caractere especial."
+                value={data.password}
+                onChange={(e) => setDataUser((prev) => ({ ...prev, password: e.target.value }))}
+                placeholder="Mínimo de 6 caracteres"
+              />
+              <div onClick={() => setRevelium(!revelium)}>
+                {data.password ? revelium ? <FaRegEyeSlash /> : <FaEye /> : ''}
+              </div>
+            </label>
+            <label htmlFor="confirmarSenha">
+              Confirmar senha
+              <input
+                type={revelium ? 'text' : 'password'}
+                id="confirmarSenha"
+                name="confirmarSenha"
+                required
+                value={senha}
+                onChange={(e) => confirmarSenha(e.target.value)}
+              />
+            </label>
+            <div className={styles.passwordRequires}>
+              <p>*Sua senha deve conter:</p>
+              <ul>
+                <li>mais de 6 caracteres</li>
+                <li>Maiúsculas</li>
+                <li>Minúsculas</li>
+                <li>Número</li>
+                <li>Caractere especial</li>
+              </ul>
             </div>
-            {/*<div className={styles.userData}>
+          </div>
+        </div>
+      </div>
+      {/*<div className={styles.userData}>
                 <h4>Endereço</h4>
                 <div className={styles.addressGrid}>
                     <label htmlFor="zipcode">
@@ -207,6 +201,6 @@ export default function User({ data, setDataUser, senha, confirmarSenha }: UserS
                     </label>
                 </div>
             </div>*/}
-        </>
-    )
+    </>
+  )
 }

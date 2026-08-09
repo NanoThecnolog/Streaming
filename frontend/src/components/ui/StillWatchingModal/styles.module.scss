@@ -1,256 +1,249 @@
 .backdrop {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    padding: 1.25rem;
-    cursor: default;
+  padding: 1.25rem;
+  cursor: default;
 
-    background:
-        radial-gradient(circle at 50% 45%,
-            rgba(255, 0, 85, 0.12),
-            transparent 34rem),
-        rgba(0, 0, 0, 0.82);
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255, 0, 85, 0.12), transparent 34rem),
+    rgba(0, 0, 0, 0.82);
 
-    backdrop-filter: blur(12px);
-    animation: backdropIn 180ms ease-out;
+  backdrop-filter: blur(12px);
+  animation: backdropIn 180ms ease-out;
 }
 
 .modal {
-    position: relative;
+  position: relative;
 
-    width: min(100%, 32rem);
-    padding: clamp(1.75rem, 4vw, 2.5rem);
+  width: min(100%, 32rem);
+  padding: clamp(1.75rem, 4vw, 2.5rem);
 
-    color: var(--white);
-    font-family: var(--font-Roboto);
+  color: var(--white);
+  font-family: var(--font-Roboto);
 
-    background:
-        linear-gradient(145deg,
-            rgba(255, 255, 255, 0.06),
-            transparent 45%),
-        #111113;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), transparent 45%), #111113;
 
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
 
-    box-shadow:
-        0 2rem 5rem rgba(0, 0, 0, 0.55),
-        0 0 3rem rgba(255, 0, 85, 0.08);
+  box-shadow:
+    0 2rem 5rem rgba(0, 0, 0, 0.55),
+    0 0 3rem rgba(255, 0, 85, 0.08);
 
-    animation: modalIn 220ms ease-out;
+  animation: modalIn 220ms ease-out;
 }
 
 .closeButton {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 
-    display: grid;
-    place-items: center;
+  display: grid;
+  place-items: center;
 
-    width: 2.5rem;
-    height: 2.5rem;
-    padding: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
 
-    color: rgba(255, 255, 255, 0.62);
-    background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.62);
+  background: rgba(255, 255, 255, 0.06);
 
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
 
-    cursor: pointer;
-    transition:
-        color 160ms ease,
-        background 160ms ease,
-        transform 160ms ease;
+  cursor: pointer;
+  transition:
+    color 160ms ease,
+    background 160ms ease,
+    transform 160ms ease;
 
-    &:hover {
-        color: var(--white);
-        background: rgba(255, 255, 255, 0.12);
-        transform: rotate(5deg);
-    }
+  &:hover {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.12);
+    transform: rotate(5deg);
+  }
 
-    &:focus-visible {
-        outline: 2px solid #ff0055;
-        outline-offset: 3px;
-    }
+  &:focus-visible {
+    outline: 2px solid #ff0055;
+    outline-offset: 3px;
+  }
 }
 
 .iconContainer {
-    display: grid;
-    place-items: center;
+  display: grid;
+  place-items: center;
 
-    width: 4.5rem;
-    height: 4.5rem;
-    margin-bottom: 1.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  margin-bottom: 1.5rem;
 
-    color: #ff0055;
-    background: rgba(255, 0, 85, 0.1);
+  color: #ff0055;
+  background: rgba(255, 0, 85, 0.1);
 
-    border: 1px solid rgba(255, 0, 85, 0.22);
-    border-radius: 1.25rem;
+  border: 1px solid rgba(255, 0, 85, 0.22);
+  border-radius: 1.25rem;
 
-    box-shadow: 0 0 2.5rem rgba(255, 0, 85, 0.12);
+  box-shadow: 0 0 2.5rem rgba(255, 0, 85, 0.12);
 }
 
 .content {
-    padding-right: 1rem;
+  padding-right: 1rem;
 }
 
 .eyebrow {
-    display: block;
-    margin-bottom: 0.55rem;
+  display: block;
+  margin-bottom: 0.55rem;
 
-    color: #ff477e;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.11em;
-    text-transform: uppercase;
+  color: #ff477e;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
 }
 
 .title {
-    margin: 0;
+  margin: 0;
 
-    color: var(--white);
-    font-size: clamp(1.65rem, 5vw, 2.15rem);
-    font-weight: 700;
-    line-height: 1.12;
-    letter-spacing: -0.025em;
+  color: var(--white);
+  font-size: clamp(1.65rem, 5vw, 2.15rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
 }
 
 .description {
-    margin: 1rem 0 0;
+  margin: 1rem 0 0;
 
-    color: rgba(255, 255, 255, 0.62);
-    font-size: 0.95rem;
-    line-height: 1.6;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .actions {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .continueButton,
 .stopButton {
-    min-height: 3.25rem;
-    padding: 0.8rem 1.25rem;
+  min-height: 3.25rem;
+  padding: 0.8rem 1.25rem;
 
-    font-family: inherit;
-    font-size: 0.95rem;
-    font-weight: 700;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
 
-    border-radius: 0.8rem;
-    cursor: pointer;
+  border-radius: 0.8rem;
+  cursor: pointer;
 
-    transition:
-        background 160ms ease,
-        border-color 160ms ease,
-        color 160ms ease,
-        transform 160ms ease;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
 
-    &:active {
-        transform: scale(0.98);
-    }
+  &:active {
+    transform: scale(0.98);
+  }
 
-    &:focus-visible {
-        outline: 2px solid #ff0055;
-        outline-offset: 3px;
-    }
+  &:focus-visible {
+    outline: 2px solid #ff0055;
+    outline-offset: 3px;
+  }
 }
 
 .continueButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
 
-    color: var(--white);
-    background: linear-gradient(135deg, #ff0055, #e0004b);
-    border: 1px solid transparent;
+  color: var(--white);
+  background: linear-gradient(135deg, #ff0055, #e0004b);
+  border: 1px solid transparent;
 
-    box-shadow: 0 0.75rem 2rem rgba(255, 0, 85, 0.2);
+  box-shadow: 0 0.75rem 2rem rgba(255, 0, 85, 0.2);
 
-    &:hover {
-        background: linear-gradient(135deg, #ff1f69, #f00050);
-        transform: translateY(-1px);
-    }
+  &:hover {
+    background: linear-gradient(135deg, #ff1f69, #f00050);
+    transform: translateY(-1px);
+  }
 }
 
 .stopButton {
-    color: rgba(255, 255, 255, 0.72);
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 
-    &:hover {
-        color: var(--white);
-        background: rgba(255, 255, 255, 0.09);
-        border-color: rgba(255, 255, 255, 0.16);
-    }
+  &:hover {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.16);
+  }
 }
 
 @keyframes backdropIn {
-    from {
-        opacity: 0;
-    }
+  from {
+    opacity: 0;
+  }
 
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes modalIn {
-    from {
-        opacity: 0;
-        transform: translateY(1rem) scale(0.97);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(1rem) scale(0.97);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @media (max-width: 480px) {
-    .backdrop {
-        align-items: flex-end;
-        padding: 0;
-    }
+  .backdrop {
+    align-items: flex-end;
+    padding: 0;
+  }
 
-    .modal {
-        width: 100%;
-        padding: 1.75rem 1.25rem calc(1.5rem + env(safe-area-inset-bottom));
+  .modal {
+    width: 100%;
+    padding: 1.75rem 1.25rem calc(1.5rem + env(safe-area-inset-bottom));
 
-        border-right: 0;
-        border-bottom: 0;
-        border-left: 0;
-        border-radius: 1.5rem 1.5rem 0 0;
-    }
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-radius: 1.5rem 1.5rem 0 0;
+  }
 
-    .iconContainer {
-        width: 4rem;
-        height: 4rem;
-    }
+  .iconContainer {
+    width: 4rem;
+    height: 4rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .backdrop,
+  .modal {
+    animation: none;
+  }
 
-    .backdrop,
-    .modal {
-        animation: none;
-    }
-
-    .closeButton,
-    .continueButton,
-    .stopButton {
-        transition: none;
-    }
+  .closeButton,
+  .continueButton,
+  .stopButton {
+    transition: none;
+  }
 }

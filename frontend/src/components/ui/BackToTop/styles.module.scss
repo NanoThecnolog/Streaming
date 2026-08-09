@@ -1,48 +1,48 @@
 .backTopButton {
-    position: fixed;
-    bottom: 5%;
-    right: 3%;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+  position: fixed;
+  bottom: 5%;
+  right: 3%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 11;
+  transition: all 0.4s ease;
+  cursor: pointer;
+
+  .upIcon {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 11;
-    transition: all .4s ease;
-    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    transition: all 4s;
 
-    .upIcon {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        transition: all 4s;
-
-        svg {
-            color: var(--white);
-        }
+    svg {
+      color: var(--white);
     }
+  }
 }
 
 .visible {
-    opacity: 1;
-    pointer-events: auto;
+  opacity: 1;
+  pointer-events: auto;
 
-    &:hover {
-        transform: scale(1.2);
-    }
+  &:hover {
+    transform: scale(1.2);
+  }
 }
 
 .hidden {
-    opacity: 0;
-    pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
 @media (max-width: 915px) {
-    .backTopButton {
-        bottom: 10%;
-        right: 5%;
-    }
+  .backTopButton {
+    bottom: 10%;
+    right: 5%;
+  }
 }

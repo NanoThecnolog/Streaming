@@ -1,212 +1,127 @@
-import {
-    FormEvent,
-    useMemo,
-    useState,
-} from 'react'
+import { FormEvent, useMemo, useState } from 'react'
 
 import styles from './styles.module.scss'
 
 interface PasswordStepProps {
-    email: string
-    onBack: () => void
-    onFinish: (password: string) => void
+  email: string
+  onBack: () => void
+  onFinish: (password: string) => void
 }
 
-export function PasswordStep({
-    email,
-    onBack,
-    onFinish,
-}: PasswordStepProps) {
-    const [password, setPassword] = useState('')
-    const [confirmation, setConfirmation] =
-        useState('')
+export function PasswordStep({ email, onBack, onFinish }: PasswordStepProps) {
+  const [password, setPassword] = useState('')
+  const [confirmation, setConfirmation] = useState('')
 
-    const [showPassword, setShowPassword] =
-        useState(false)
+  const [showPassword, setShowPassword] = useState(false)
 
-    const requirements = useMemo(() => {
-        return {
-            length: password.length >= 8,
-            uppercase: /[A-Z]/.test(password),
-            lowercase: /[a-z]/.test(password),
-            number: /\d/.test(password),
-            matches:
-                password.length > 0 &&
-                password === confirmation,
-        }
-    }, [password, confirmation])
-
-    const canFinish = Object.values(
-        requirements,
-    ).every(Boolean)
-
-    const handleSubmit = (
-        event: FormEvent<HTMLFormElement>,
-    ) => {
-        event.preventDefault()
-
-        if (!canFinish) return
-
-        onFinish(password)
+  const requirements = useMemo(() => {
+    return {
+      length: password.length >= 8,
+      uppercase: /[A-Z]/.test(password),
+      lowercase: /[a-z]/.test(password),
+      number: /\d/.test(password),
+      matches: password.length > 0 && password === confirmation,
     }
+  }, [password, confirmation])
 
-    return (
-        <section className={styles.card}>
-            <header className={styles.header}>
-                <span className={styles.eyebrow}>
-                    Última etapa
-                </span>
+  const canFinish = Object.values(requirements).every(Boolean)
 
-                <h1>Crie sua senha</h1>
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
 
-                <p>
-                    Sua assinatura já está confirmada. Defina uma
-                    senha para acessar sua conta.
-                </p>
-            </header>
+    if (!canFinish) return
 
-            <div className={styles.account}>
-                <span>Conta</span>
-                <strong>{email}</strong>
-            </div>
+    onFinish(password)
+  }
 
-            <form
-                className={styles.form}
-                onSubmit={handleSubmit}
-            >
-                <div className={styles.field}>
-                    <label htmlFor="password">
-                        Senha
-                    </label>
+  return (
+    <section className={styles.card}>
+      <header className={styles.header}>
+        <span className={styles.eyebrow}>Última etapa</span>
 
-                    <div className={styles.passwordInput}>
-                        <input
-                            id="password"
-                            name="password"
-                            type={
-                                showPassword
-                                    ? 'text'
-                                    : 'password'
-                            }
-                            value={password}
-                            onChange={(event) =>
-                                setPassword(
-                                    event.target.value,
-                                )
-                            }
-                            placeholder="Digite uma senha segura"
-                            autoComplete="new-password"
-                            required
-                        />
+        <h1>Crie sua senha</h1>
 
-                        <button
-                            type="button"
-                            onClick={() =>
-                                setShowPassword(
-                                    (current) => !current,
-                                )
-                            }
-                        >
-                            {showPassword
-                                ? 'Ocultar'
-                                : 'Mostrar'}
-                        </button>
-                    </div>
-                </div>
+        <p>Sua assinatura já está confirmada. Defina uma senha para acessar sua conta.</p>
+      </header>
 
-                <div className={styles.field}>
-                    <label htmlFor="confirmation">
-                        Confirmar senha
-                    </label>
+      <div className={styles.account}>
+        <span>Conta</span>
+        <strong>{email}</strong>
+      </div>
 
-                    <input
-                        id="confirmation"
-                        name="confirmation"
-                        type={
-                            showPassword
-                                ? 'text'
-                                : 'password'
-                        }
-                        value={confirmation}
-                        onChange={(event) =>
-                            setConfirmation(
-                                event.target.value,
-                            )
-                        }
-                        placeholder="Digite a senha novamente"
-                        autoComplete="new-password"
-                        required
-                    />
-                </div>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <div className={styles.field}>
+          <label htmlFor="password">Senha</label>
 
-                <ul className={styles.requirements}>
-                    <Requirement
-                        valid={requirements.length}
-                        label="Pelo menos 8 caracteres"
-                    />
+          <div className={styles.passwordInput}>
+            <input
+              id="password"
+              name="password"
+              type={showPassword ? 'text' : 'password'}
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              placeholder="Digite uma senha segura"
+              autoComplete="new-password"
+              required
+            />
 
-                    <Requirement
-                        valid={requirements.uppercase}
-                        label="Uma letra maiúscula"
-                    />
+            <button type="button" onClick={() => setShowPassword((current) => !current)}>
+              {showPassword ? 'Ocultar' : 'Mostrar'}
+            </button>
+          </div>
+        </div>
 
-                    <Requirement
-                        valid={requirements.lowercase}
-                        label="Uma letra minúscula"
-                    />
+        <div className={styles.field}>
+          <label htmlFor="confirmation">Confirmar senha</label>
 
-                    <Requirement
-                        valid={requirements.number}
-                        label="Um número"
-                    />
+          <input
+            id="confirmation"
+            name="confirmation"
+            type={showPassword ? 'text' : 'password'}
+            value={confirmation}
+            onChange={(event) => setConfirmation(event.target.value)}
+            placeholder="Digite a senha novamente"
+            autoComplete="new-password"
+            required
+          />
+        </div>
 
-                    <Requirement
-                        valid={requirements.matches}
-                        label="As senhas são iguais"
-                    />
-                </ul>
+        <ul className={styles.requirements}>
+          <Requirement valid={requirements.length} label="Pelo menos 8 caracteres" />
 
-                <div className={styles.actions}>
-                    <button
-                        type="button"
-                        className={styles.back}
-                        onClick={onBack}
-                    >
-                        Voltar
-                    </button>
+          <Requirement valid={requirements.uppercase} label="Uma letra maiúscula" />
 
-                    <button
-                        type="submit"
-                        className={styles.finish}
-                        disabled={!canFinish}
-                    >
-                        Finalizar cadastro
-                    </button>
-                </div>
-            </form>
-        </section>
-    )
+          <Requirement valid={requirements.lowercase} label="Uma letra minúscula" />
+
+          <Requirement valid={requirements.number} label="Um número" />
+
+          <Requirement valid={requirements.matches} label="As senhas são iguais" />
+        </ul>
+
+        <div className={styles.actions}>
+          <button type="button" className={styles.back} onClick={onBack}>
+            Voltar
+          </button>
+
+          <button type="submit" className={styles.finish} disabled={!canFinish}>
+            Finalizar cadastro
+          </button>
+        </div>
+      </form>
+    </section>
+  )
 }
 
 interface RequirementProps {
-    valid: boolean
-    label: string
+  valid: boolean
+  label: string
 }
 
-function Requirement({
-    valid,
-    label,
-}: RequirementProps) {
-    return (
-        <li
-            className={
-                valid
-                    ? styles.requirementValid
-                    : ''
-            }
-        >
-            <span>{valid ? '✓' : '○'}</span>
-            {label}
-        </li>
-    )
+function Requirement({ valid, label }: RequirementProps) {
+  return (
+    <li className={valid ? styles.requirementValid : ''}>
+      <span>{valid ? '✓' : '○'}</span>
+      {label}
+    </li>
+  )
 }

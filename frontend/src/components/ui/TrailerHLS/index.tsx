@@ -1,70 +1,61 @@
 import { debug } from '@/classes/DebugLogger'
 import Hls from 'hls.js'
-import {
-    forwardRef,
-    memo,
-    useEffect,
-    useImperativeHandle,
-    useRef,
-} from 'react'
+import { forwardRef, memo, useEffect, useImperativeHandle, useRef } from 'react'
 import type { VideoHTMLAttributes } from 'react'
 
 export interface TrailerHLSProps extends Omit<
-    VideoHTMLAttributes<HTMLVideoElement>,
-    'src' | 'onError'
+  VideoHTMLAttributes<HTMLVideoElement>,
+  'src' | 'onError'
 > {
-    src: string
-    volume?: number
-    onError?: (error: Error) => void
+  src: string
+  volume?: number
+  onError?: (error: Error) => void
 }
 
 const HLS_MIME_TYPE = 'application/vnd.apple.mpegurl'
 const MAX_RECOVERY_ATTEMPTS = 2
 
-const TrailerHLS = forwardRef<
-    HTMLVideoElement,
-    TrailerHLSProps
->(({
-    src,
-    preload = 'metadata',
-    crossOrigin = 'anonymous',
-    playsInline = true,
-    disablePictureInPicture = true,
-    muted = true,
-    volume = 0.5,
-    onError,
-    ...videoProps
-}, forwardedRef) => {
+const TrailerHLS = forwardRef<HTMLVideoElement, TrailerHLSProps>(
+  (
+    {
+      src,
+      preload = 'metadata',
+      crossOrigin = 'anonymous',
+      playsInline = true,
+      disablePictureInPicture = true,
+      muted = true,
+      volume = 0.5,
+      onError,
+      ...videoProps
+    },
+    forwardedRef,
+  ) => {
     const videoRef = useRef<HTMLVideoElement>(null)
     const onErrorRef = useRef(onError)
 
-    useImperativeHandle(
-        forwardedRef,
-        () => videoRef.current as HTMLVideoElement,
-        [],
-    )
+    useImperativeHandle(forwardedRef, () => videoRef.current as HTMLVideoElement, [])
 
     useEffect(() => {
-        onErrorRef.current = onError
+      onErrorRef.current = onError
     }, [onError])
 
     useEffect(() => {
-        const video = videoRef.current
+      const video = videoRef.current
 
-        if (!video) return
-        //debug.log('volume mudando', volume)
-        //debug.log('video mutado?', muted)
+      if (!video) return
+      //debug.log('volume mudando', volume)
+      //debug.log('video mutado?', muted)
 
-        video.volume = Math.max(0, Math.min(1, volume))
-        video.muted = muted
+      video.volume = Math.max(0, Math.min(1, volume))
+      video.muted = muted
     }, [muted, volume])
 
     useEffect(() => {
-        const video = videoRef.current
-        if (!video) return
+      const video = videoRef.current
+      if (!video) return
 
-        //debug.log('volume do vídeo', video.volume)
-        //debug.log('volume do vídeo mutado?', video.muted)
+      //debug.log('volume do vídeo', video.volume)
+      //debug.log('volume do vídeo mutado?', video.muted)
     }, [videoRef])
 
     /*
@@ -95,78 +86,69 @@ const TrailerHLS = forwardRef<
      */
 
     useEffect(() => {
-        const video = videoRef.current
+      const video = videoRef.current
 
-        if (!video || !src || preload === 'none') return
+      if (!video || !src || preload === 'none') return
 
-        let networkRecoveryAttempts = 0
-        let mediaRecoveryAttempts = 0
-        let errorWasReported = false
+      let networkRecoveryAttempts = 0
+      let mediaRecoveryAttempts = 0
+      let errorWasReported = false
 
-        const reportError = (message: string) => {
-            if (errorWasReported) return
+      const reportError = (message: string) => {
+        if (errorWasReported) return
 
-            errorWasReported = true
-            onErrorRef.current?.(new Error(message))
-        }
+        errorWasReported = true
+        onErrorRef.current?.(new Error(message))
+      }
 
-        const clearVideo = () => {
-            video.pause()
-            video.removeAttribute('src')
-            video.load()
-        }
+      const clearVideo = () => {
+        video.pause()
+        video.removeAttribute('src')
+        video.load()
+      }
 
-        /*debug.log('Suporte HLS:', {
+      /*debug.log('Suporte HLS:', {
             hlsJs: Hls.isSupported(),
             native: video.canPlayType(HLS_MIME_TYPE),
         })*/
 
-        /*
-         * Prioriza hls.js.
-         * Chrome pode retornar "maybe" para HLS nativo,
-         * mesmo sem oferecer suporte completo às faixas de áudio.
-         */
-        if (Hls.isSupported()) {
-            const hls = new Hls({
-                enableWorker: true,
-                lowLatencyMode: false,
-                backBufferLength: 30,
-                //debug: true,
-            })
+      /*
+       * Prioriza hls.js.
+       * Chrome pode retornar "maybe" para HLS nativo,
+       * mesmo sem oferecer suporte completo às faixas de áudio.
+       */
+      if (Hls.isSupported()) {
+        const hls = new Hls({
+          enableWorker: true,
+          lowLatencyMode: false,
+          backBufferLength: 30,
+          //debug: true,
+        })
 
-            hls.on(Hls.Events.MEDIA_ATTACHED, () => {
-                //debug.log('HLS anexado ao elemento de vídeo')
-                hls.loadSource(src)
-            })
+        hls.on(Hls.Events.MEDIA_ATTACHED, () => {
+          //debug.log('HLS anexado ao elemento de vídeo')
+          hls.loadSource(src)
+        })
 
-            hls.on(
-                Hls.Events.AUDIO_TRACKS_UPDATED,
-                (_, data) => {
-                    /*debug.log(
+        hls.on(Hls.Events.AUDIO_TRACKS_UPDATED, (_, data) => {
+          /*debug.log(
                         'Faixas de áudio encontradas:',
                         data.audioTracks,
                     )*/
 
-                    if (!data.audioTracks.length) return
+          if (!data.audioTracks.length) return
 
-                    const defaultTrackIndex =
-                        data.audioTracks.findIndex(
-                            track => track.default,
-                        )
+          const defaultTrackIndex = data.audioTracks.findIndex((track) => track.default)
 
-                    hls.audioTrack =
-                        defaultTrackIndex >= 0
-                            ? defaultTrackIndex
-                            : 0
+          hls.audioTrack = defaultTrackIndex >= 0 ? defaultTrackIndex : 0
 
-                    /*debug.log(
+          /*debug.log(
                         'Faixa de áudio selecionada:',
                         hls.audioTrack,
                     )*/
-                },
-            )
+        })
 
-            /*hls.on(
+        /*hls.on(
                 Hls.Events.AUDIO_TRACK_LOADING,
                 (_, data) => {
                     debug.log(
@@ -176,7 +158,7 @@ const TrailerHLS = forwardRef<
                 },
             )*/
 
-            /*hls.on(
+        /*hls.on(
                 Hls.Events.AUDIO_TRACK_LOADED,
                 (_, data) => {
                     debug.log(
@@ -186,7 +168,7 @@ const TrailerHLS = forwardRef<
                 },
             )*/
 
-            /*hls.on(
+        /*hls.on(
                 Hls.Events.AUDIO_TRACK_SWITCHED,
                 (_, data) => {
                     debug.log(
@@ -196,7 +178,7 @@ const TrailerHLS = forwardRef<
                 },
             )*/
 
-            /*hls.on(Hls.Events.FRAG_LOADED, (_, data) => {
+        /*hls.on(Hls.Events.FRAG_LOADED, (_, data) => {
                 if (data.frag.type !== 'audio') return
 
                 debug.log(
@@ -205,102 +187,85 @@ const TrailerHLS = forwardRef<
                 )
             })*/
 
-            hls.on(Hls.Events.ERROR, (_, data) => {
-                debug.error('Erro HLS:', {
-                    type: data.type,
-                    details: data.details,
-                    fatal: data.fatal,
-                    url: data.url,
-                    fragmentType: data.frag?.type,
-                })
+        hls.on(Hls.Events.ERROR, (_, data) => {
+          debug.error('Erro HLS:', {
+            type: data.type,
+            details: data.details,
+            fatal: data.fatal,
+            url: data.url,
+            fragmentType: data.frag?.type,
+          })
 
-                if (!data.fatal) return
+          if (!data.fatal) return
 
-                if (
-                    data.type ===
-                    Hls.ErrorTypes.NETWORK_ERROR &&
-                    networkRecoveryAttempts <
-                    MAX_RECOVERY_ATTEMPTS
-                ) {
-                    networkRecoveryAttempts += 1
-                    hls.startLoad()
-                    return
-                }
+          if (
+            data.type === Hls.ErrorTypes.NETWORK_ERROR &&
+            networkRecoveryAttempts < MAX_RECOVERY_ATTEMPTS
+          ) {
+            networkRecoveryAttempts += 1
+            hls.startLoad()
+            return
+          }
 
-                if (
-                    data.type ===
-                    Hls.ErrorTypes.MEDIA_ERROR &&
-                    mediaRecoveryAttempts <
-                    MAX_RECOVERY_ATTEMPTS
-                ) {
-                    mediaRecoveryAttempts += 1
-                    hls.recoverMediaError()
-                    return
-                }
+          if (
+            data.type === Hls.ErrorTypes.MEDIA_ERROR &&
+            mediaRecoveryAttempts < MAX_RECOVERY_ATTEMPTS
+          ) {
+            mediaRecoveryAttempts += 1
+            hls.recoverMediaError()
+            return
+          }
 
-                reportError(
-                    `Erro fatal no trailer HLS: ${data.details}`,
-                )
-            })
+          reportError(`Erro fatal no trailer HLS: ${data.details}`)
+        })
 
-            hls.attachMedia(video)
+        hls.attachMedia(video)
 
-            return () => {
-                hls.destroy()
-                clearVideo()
-            }
+        return () => {
+          hls.destroy()
+          clearVideo()
+        }
+      }
+
+      /*
+       * Fallback para Safari/iOS ou navegadores
+       * sem suporte ao MediaSource.
+       */
+      if (video.canPlayType(HLS_MIME_TYPE)) {
+        const handleNativeError = () => {
+          reportError('Não foi possível carregar o trailer HLS.')
         }
 
-        /*
-         * Fallback para Safari/iOS ou navegadores
-         * sem suporte ao MediaSource.
-         */
-        if (video.canPlayType(HLS_MIME_TYPE)) {
-            const handleNativeError = () => {
-                reportError(
-                    'Não foi possível carregar o trailer HLS.',
-                )
-            }
+        //debug.log('Utilizando HLS nativo')
 
-            //debug.log('Utilizando HLS nativo')
+        video.addEventListener('error', handleNativeError)
 
-            video.addEventListener(
-                'error',
-                handleNativeError,
-            )
+        video.src = src
+        video.load()
 
-            video.src = src
-            video.load()
+        return () => {
+          video.removeEventListener('error', handleNativeError)
 
-            return () => {
-                video.removeEventListener(
-                    'error',
-                    handleNativeError,
-                )
-
-                clearVideo()
-            }
+          clearVideo()
         }
+      }
 
-        reportError(
-            'Este navegador não possui suporte a HLS.',
-        )
+      reportError('Este navegador não possui suporte a HLS.')
     }, [preload, src])
 
     return (
-        <video
-            {...videoProps}
-            ref={videoRef}
-            preload={preload}
-            crossOrigin={crossOrigin}
-            playsInline={playsInline}
-            disablePictureInPicture={
-                disablePictureInPicture
-            }
-            muted={muted}
-        />
+      <video
+        {...videoProps}
+        ref={videoRef}
+        preload={preload}
+        crossOrigin={crossOrigin}
+        playsInline={playsInline}
+        disablePictureInPicture={disablePictureInPicture}
+        muted={muted}
+      />
     )
-})
+  },
+)
 
 TrailerHLS.displayName = 'TrailerHLS'
 

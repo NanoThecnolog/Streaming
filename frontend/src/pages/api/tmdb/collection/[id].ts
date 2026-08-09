@@ -1,31 +1,31 @@
-import { debug } from "@/classes/DebugLogger";
-import axios from "axios";
-import type { NextApiRequest, NextApiResponse } from "next";
+import { debug } from '@/classes/DebugLogger'
+import axios from 'axios'
+import type { NextApiRequest, NextApiResponse } from 'next'
 
-const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN;
+const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const { id } = req.query;
+  const { id } = req.query
 
-    debug.log(id)
+  debug.log(id)
 
-    if (!tmdbToken) {
-        res.status(500).json({ error: "TMDB token is missing" });
-        return;
-    }
+  if (!tmdbToken) {
+    res.status(500).json({ error: 'TMDB token is missing' })
+    return
+  }
 
-    try {
-        const response = await axios.get(`https://api.themoviedb.org/3/collection/${id}`, {
-            headers: {
-                Authorization: `Bearer ${tmdbToken}`
-            },
-            params: {
-                language: "pt-BR",
-            },
-        });
+  try {
+    const response = await axios.get(`https://api.themoviedb.org/3/collection/${id}`, {
+      headers: {
+        Authorization: `Bearer ${tmdbToken}`,
+      },
+      params: {
+        language: 'pt-BR',
+      },
+    })
 
-        res.status(200).json(response.data);
-    } catch (error) {
-        res.status(500).json({ error: "Error fetching data from TMDB" });
-    }
+    res.status(200).json(response.data)
+  } catch (error) {
+    res.status(500).json({ error: 'Error fetching data from TMDB' })
+  }
 }

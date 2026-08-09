@@ -2,12 +2,12 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { SetupAPIClient } from '@/services/api'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const client = new SetupAPIClient({ req })
+  const client = new SetupAPIClient({ req })
 
-    try {
-        const response = await client.api.get('/user')
-        return res.status(200).json(response.data)
-    } catch (err) {
-        return res.status(500).json({ error: 'Erro ao buscar dados do usuário.' })
-    }
+  try {
+    const response = await client.api.get('/user')
+    return res.status(200).json(response.data)
+  } catch (err) {
+    return res.status(500).json({ error: 'Erro ao buscar dados do usuário.' })
+  }
 }

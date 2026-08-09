@@ -1,12 +1,12 @@
 .flagIcon {
-    cursor: pointer;
-    background-color: var(--background-gray);
-    padding: 10px;
-    border-radius: .4rem;
-    transition: .4s;
-    z-index: 200;
+  cursor: pointer;
+  background-color: var(--background-gray);
+  padding: 10px;
+  border-radius: 0.4rem;
+  transition: 0.4s;
+  z-index: 200;
 
-    &:hover {
-        transform: scale(1.1);
-    }
+  &:hover {
+    transform: scale(1.1);
+  }
 }

@@ -1,468 +1,426 @@
 .top_container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #141414;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .image_container {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    background-color: #141414;
-    background-repeat: no-repeat;
-    background-size: cover;
+    justify-content: flex-start;
+    // transition: opacity 1s ease-in-out;
 
-    .image_container {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        // transition: opacity 1s ease-in-out;
+    background: rgb(24, 24, 24);
+    background: linear-gradient(0deg, rgba(20, 20, 20, 1) 0%, rgba(255, 255, 255, 0) 36%);
 
+    .left_side {
+      width: 60%;
+      height: 400px;
+      padding-left: 5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
 
-        background: rgb(24, 24, 24);
-        background: linear-gradient(0deg,
-                rgba(20, 20, 20, 1) 0%,
-                rgba(255, 255, 255, 0) 36%);
-
-        .left_side {
-            width: 60%;
-            height: 400px;
-            padding-left: 5%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            position: relative;
-
-
-            .titulo_principal {
-                h1 {
-                    margin: 0;
-                    font-family: "Montserrat", sans-serif;
-                    font-weight: 600;
-                    font-size: 3rem;
-                    color: white;
-                    text-shadow: 5px 5px 10px black;
-                }
-
-                .newContentBox {
-                    width: 150px;
-                }
-            }
-
-            .subtitulo_principal {
-                margin: 0;
-                font-family: "Montserrat", sans-serif;
-                font-weight: 600;
-                font-size: 2rem;
-                color: white;
-                text-shadow: 5px 5px 10px black;
-            }
-
-
-
-            .description {
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 3;
-                height: 53px;
-                line-clamp: 3;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                padding: 1rem 0;
-
-                p {
-                    margin: 0;
-                    font-family: "Montserrat", sans-serif;
-                    font-weight: 400;
-                    font-size: 1.2rem;
-                    color: white;
-                    text-shadow: 2px 2px 2px black;
-                }
-            }
-
-            .season {
-                padding: .7rem 0;
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                font-family: var(--font-Roboto);
-                font-weight: 900;
-
-                p {
-                    text-shadow: 5px 5px 10px black;
-                }
-            }
-
-            .button_section {
-                width: 100%;
-                display: flex;
-                font-family: var(--font-Roboto);
-
-                svg {
-
-                    min-width: 25px;
-                    padding-left: 10px;
-                }
-
-                .watch,
-                .queue {
-                    padding: 20px 35px;
-                    border-radius: 8px;
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-
-                    h3 {
-                        font-size: 1.4rem;
-
-                    }
-                }
-
-                .watch {
-                    color: var(--black);
-                    display: flex;
-                    gap: 10px;
-                    background-color: var(--white);
-                    transition: all 0.5s;
-
-                    &:hover {
-                        background-color: var(--red-selected);
-                        cursor: pointer;
-                        color: var(--white);
-                        transform: translateY(5px) scale(1.1);
-                    }
-                }
-
-                .queue {
-                    color: white;
-                    display: flex;
-                    background-color: var(--grey);
-                    margin-left: 30px;
-                    transition: all 0.5s;
-
-                    &:hover {
-                        background-color: var(--grey-selected);
-                        cursor: pointer;
-                        transform: translateY(5px) scale(1.1);
-                    }
-                }
-
-            }
-
-
+      .titulo_principal {
+        h1 {
+          margin: 0;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 600;
+          font-size: 3rem;
+          color: white;
+          text-shadow: 5px 5px 10px black;
         }
 
-    }
+        .newContentBox {
+          width: 150px;
+        }
+      }
 
+      .subtitulo_principal {
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 2rem;
+        color: white;
+        text-shadow: 5px 5px 10px black;
+      }
 
+      .description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        height: 53px;
+        line-clamp: 3;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 1rem 0;
 
+        p {
+          margin: 0;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 400;
+          font-size: 1.2rem;
+          color: white;
+          text-shadow: 2px 2px 2px black;
+        }
+      }
 
-
-
-
-
-
-    h3 {
+      .season {
+        padding: 0.7rem 0;
         display: flex;
         align-items: center;
+        gap: 12px;
+        font-family: var(--font-Roboto);
+        font-weight: 900;
+
+        p {
+          text-shadow: 5px 5px 10px black;
+        }
+      }
+
+      .button_section {
+        width: 100%;
+        display: flex;
+        font-family: var(--font-Roboto);
+
+        svg {
+          min-width: 25px;
+          padding-left: 10px;
+        }
+
+        .watch,
+        .queue {
+          padding: 20px 35px;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          h3 {
+            font-size: 1.4rem;
+          }
+        }
+
+        .watch {
+          color: var(--black);
+          display: flex;
+          gap: 10px;
+          background-color: var(--white);
+          transition: all 0.5s;
+
+          &:hover {
+            background-color: var(--red-selected);
+            cursor: pointer;
+            color: var(--white);
+            transform: translateY(5px) scale(1.1);
+          }
+        }
+
+        .queue {
+          color: white;
+          display: flex;
+          background-color: var(--grey);
+          margin-left: 30px;
+          transition: all 0.5s;
+
+          &:hover {
+            background-color: var(--grey-selected);
+            cursor: pointer;
+            transform: translateY(5px) scale(1.1);
+          }
+        }
+      }
     }
+  }
 
-
-
-
+  h3 {
+    display: flex;
+    align-items: center;
+  }
 }
 
-
-
 @-webkit-keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 1;
+  }
 
-
-
-    100% {
-        opacity: 0;
-    }
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 1;
+  }
 
-
-
-    100% {
-        opacity: 0;
-    }
+  100% {
+    opacity: 0;
+  }
 }
 
 .fadeIn {
-    -webkit-animation-name: fadeIn;
-    animation-name: fadeIn;
-    -webkit-animation-duration: 2s;
-    animation-duration: 2s;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
 }
 
 .fadeOut {
-    -webkit-animation-name: fadeOut;
-    animation-name: fadeOut;
-    -webkit-animation-duration: 2s;
-    animation-duration: 2s;
-
-
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
 }
 
 //mobile
 //telas muito pequenas
 //telas smartphone padrão
 @media (max-width: 375px) {
-    .top_container {
-        height: 10%;
-        background-size: contain;
-        justify-content: flex-end;
+  .top_container {
+    height: 10%;
+    background-size: contain;
+    justify-content: flex-end;
 
-        .image_container {
-            background: rgb(24, 24, 24);
-            background: linear-gradient(0deg,
-                    rgba(20, 20, 20, 1) 40%,
-                    rgba(255, 255, 255, 0) 55%);
+    .image_container {
+      background: rgb(24, 24, 24);
+      background: linear-gradient(0deg, rgba(20, 20, 20, 1) 40%, rgba(255, 255, 255, 0) 55%);
 
-            .left_side {
-                justify-content: center;
-                width: 100%;
-                height: 100%;
+      .left_side {
+        justify-content: center;
+        width: 100%;
+        height: 100%;
 
-                .titulo_principal {
-                    padding-top: 140%;
+        .titulo_principal {
+          padding-top: 140%;
 
-                    h1 {
-                        font-size: 1.5rem;
-
-                    }
-                }
-
-                .subtitulo_principal {
-                    font-size: 1.2rem;
-                }
-
-                .description {
-                    height: 40px;
-
-                    p {
-                        font-size: 1rem;
-                    }
-                }
-
-                .button_section {
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: flex-start;
-                    gap: 10px;
-                    //background-color: red;
-
-                    .watch {
-                        display: flex;
-                        justify-content: center;
-                    }
-
-                    .queue {
-                        margin-left: 0;
-
-                        h3 {
-                            font-size: 1.2rem;
-                        }
-                    }
-                }
-            }
+          h1 {
+            font-size: 1.5rem;
+          }
         }
+
+        .subtitulo_principal {
+          font-size: 1.2rem;
+        }
+
+        .description {
+          height: 40px;
+
+          p {
+            font-size: 1rem;
+          }
+        }
+
+        .button_section {
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 10px;
+          //background-color: red;
+
+          .watch {
+            display: flex;
+            justify-content: center;
+          }
+
+          .queue {
+            margin-left: 0;
+
+            h3 {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
     }
+  }
 }
 
 //telas smartphone maiores
 @media (min-width: 375.1px) and (max-width: 560px) {
-    .top_container {
-        height: 10%;
-        background-size: contain;
-        justify-content: flex-end;
+  .top_container {
+    height: 10%;
+    background-size: contain;
+    justify-content: flex-end;
 
-        .image_container {
-            height: 100vh;
-            background: rgb(24, 24, 24);
-            background: linear-gradient(0deg,
-                    rgba(20, 20, 20, 1) 25%,
-                    rgba(255, 255, 255, 0) 53%);
+    .image_container {
+      height: 100vh;
+      background: rgb(24, 24, 24);
+      background: linear-gradient(0deg, rgba(20, 20, 20, 1) 25%, rgba(255, 255, 255, 0) 53%);
 
-            .left_side {
-                justify-content: center;
-                width: 100%;
-                height: 100%;
+      .left_side {
+        justify-content: center;
+        width: 100%;
+        height: 100%;
 
-                .titulo_principal {
-                    padding-top: 120%;
+        .titulo_principal {
+          padding-top: 120%;
 
-                    h1 {
-                        font-size: 2rem;
-
-                    }
-                }
-
-                .subtitulo_principal {
-                    font-size: 1.2rem;
-                }
-
-                .description {
-                    height: 40px;
-
-                    p {
-                        font-size: 1rem;
-                    }
-                }
-
-                .button_section {
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: flex-start;
-                    gap: 10px;
-                    //background-color: red;
-
-                    .watch {
-
-                        display: flex;
-                        justify-content: center;
-                    }
-
-                    .queue {
-                        margin-left: 0;
-
-                        h3 {
-                            font-size: 1.2rem;
-                        }
-                    }
-                }
-            }
+          h1 {
+            font-size: 2rem;
+          }
         }
+
+        .subtitulo_principal {
+          font-size: 1.2rem;
+        }
+
+        .description {
+          height: 40px;
+
+          p {
+            font-size: 1rem;
+          }
+        }
+
+        .button_section {
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 10px;
+          //background-color: red;
+
+          .watch {
+            display: flex;
+            justify-content: center;
+          }
+
+          .queue {
+            margin-left: 0;
+
+            h3 {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
     }
+  }
 }
 
 //telas Tablets (disp. medios)
 @media (min-width: 560.1px) and (max-width: 767.9px) {
-    .top_container {
-        height: 10%;
-        background-size: contain;
-        justify-content: flex-end;
+  .top_container {
+    height: 10%;
+    background-size: contain;
+    justify-content: flex-end;
 
-        .image_container {
-            background: rgb(24, 24, 24);
-            background: linear-gradient(0deg,
-                    rgba(20, 20, 20, 1) 52%,
-                    rgba(255, 255, 255, 0) 65%);
-            height: 130vh;
+    .image_container {
+      background: rgb(24, 24, 24);
+      background: linear-gradient(0deg, rgba(20, 20, 20, 1) 52%, rgba(255, 255, 255, 0) 65%);
+      height: 130vh;
 
-            .left_side {
-                justify-content: center;
-                width: 100%;
-                height: 100%;
+      .left_side {
+        justify-content: center;
+        width: 100%;
+        height: 100%;
 
+        .titulo_principal {
+          padding-top: 40%;
 
-                .titulo_principal {
-                    padding-top: 40%;
-
-                    h1 {
-                        font-size: 2rem;
-                    }
-                }
-
-                .subtitulo_principal {
-                    font-size: 1.2rem;
-                }
-
-                .description {
-                    height: 51px;
-
-                    p {
-                        font-size: 1.2rem;
-                    }
-                }
-
-                .button_section {
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: flex-start;
-                    gap: 10px;
-                    //background-color: red;
-
-                    .watch {
-                        display: flex;
-                        justify-content: center;
-                    }
-
-                    .queue {
-                        margin-left: 0;
-
-                        h3 {
-                            font-size: 1.2rem;
-                        }
-                    }
-                }
-            }
+          h1 {
+            font-size: 2rem;
+          }
         }
+
+        .subtitulo_principal {
+          font-size: 1.2rem;
+        }
+
+        .description {
+          height: 51px;
+
+          p {
+            font-size: 1.2rem;
+          }
+        }
+
+        .button_section {
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 10px;
+          //background-color: red;
+
+          .watch {
+            display: flex;
+            justify-content: center;
+          }
+
+          .queue {
+            margin-left: 0;
+
+            h3 {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
     }
+  }
 }
 
 //telas notebooks e monitores pequenos
 @media (min-width: 768px) and (max-width: 1024px) {
-    .top_container {
-        background-position: center;
+  .top_container {
+    background-position: center;
 
-        .image_container {
-            .left_side {
-                .description {
-                    height: 46px;
+    .image_container {
+      .left_side {
+        .description {
+          height: 46px;
 
-                    p {
-                        font-size: 1.1rem;
-                    }
-                }
-            }
+          p {
+            font-size: 1.1rem;
+          }
         }
+      }
     }
+  }
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
-    .top_container {
-        background-position: center;
-    }
+  .top_container {
+    background-position: center;
+  }
 }
 
 //telas de monitores maiores
 @media (min-width: 1281px) and (max-width: 1440px) {
-    .top_container {
-        background-position: center;
-    }
+  .top_container {
+    background-position: center;
+  }
 }
 
 @media (min-width: 1441px) {
-    .top_container {
-        background-position: center;
-    }
+  .top_container {
+    background-position: center;
+  }
 }

@@ -6,44 +6,38 @@ import { SetupAPIClient } from '@/services/api'
 import { isAxiosError } from 'axios'
 
 export default async function loginHandler(req: NextApiRequest, res: NextApiResponse) {
-    if (req.method !== 'POST') return res.status(405).end()
+  if (req.method !== 'POST') return res.status(405).end()
 
-    const { email, password } = req.body
-    debug.log('Request inside loginHandler')
-    const client = new SetupAPIClient()
+  const { email, password } = req.body
+  debug.log('Request inside loginHandler')
+  const client = new SetupAPIClient()
 
-    debug.log("Iniciando o try catch na rota api/login")
-    try {
-        const response = await client.api.post<LoginProps>('/login', { email, password })
-        debug.log('Resposta do api.post', response.data)
-        const { token, avatar, watchLater, name, id } = response.data
+  debug.log('Iniciando o try catch na rota api/login')
+  try {
+    const response = await client.api.post<LoginProps>('/login', { email, password })
+    debug.log('Resposta do api.post', response.data)
+    const { token, avatar, watchLater, name, id } = response.data
 
-        setCookie({ res }, 'flix-token', token, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            maxAge: 60 * 60 * 24 * 30,
-            path: '/',
-            sameSite: 'lax'
-        })
+    setCookie({ res }, 'flix-token', token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      maxAge: 60 * 60 * 24 * 30,
+      path: '/',
+      sameSite: 'lax',
+    })
 
-        return res.status(200).json({ data: { avatar, watchLater, name, id }, success: true })
-    } catch (err: unknown) {
-        if (isAxiosError(err)) {
-            debug.error("Erro ao fazer login", err.response)
-            return res
-                .status(err.response?.status ?? 502)
-                .json({
-                    error:
-                        err.response?.data?.error ??
-                        err.message,
-                    message:
-                        err.response?.data?.message ??
-                        'Login inválido',
-                })
-        }
-
-        return res.status(500).json({
-            message: 'Erro interno do servidor',
-        })
+    return res.status(200).json({ data: { avatar, watchLater, name, id }, success: true })
+  } catch (err: unknown) {
+    if (isAxiosError(err)) {
+      debug.error('Erro ao fazer login', err.response)
+      return res.status(err.response?.status ?? 502).json({
+        error: err.response?.data?.error ?? err.message,
+        message: err.response?.data?.message ?? 'Login inválido',
+      })
     }
+
+    return res.status(500).json({
+      message: 'Erro interno do servidor',
+    })
+  }
 }

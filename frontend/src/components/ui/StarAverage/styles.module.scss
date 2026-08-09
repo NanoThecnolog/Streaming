@@ -1,83 +1,83 @@
 .rating {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
 
-    min-height: 30px;
+  min-height: 30px;
 
-    color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.85);
 
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .stars {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.16rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.16rem;
 }
 
 .filledStar,
 .emptyStar {
-    flex: 0 0 auto;
+  flex: 0 0 auto;
 
-    width: 1rem;
-    height: 1rem;
+  width: 1rem;
+  height: 1rem;
 }
 
 .filledStar {
-    color: var(--red-selected);
-    filter: drop-shadow(0 2px 5px rgba(229, 9, 20, 0.24));
+  color: var(--red-selected);
+  filter: drop-shadow(0 2px 5px rgba(229, 9, 20, 0.24));
 }
 
 .emptyStar {
-    color: rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.28);
 }
 
 .score {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0.12rem;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.12rem;
 
-    white-space: nowrap;
+  white-space: nowrap;
 
-    strong {
-        color: #fff;
-        font-size: 0.9rem;
-        font-weight: 700;
-    }
+  strong {
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
 
-    span {
-        color: rgba(255, 255, 255, 0.48);
-        font-size: 0.72rem;
-        font-weight: 500;
-    }
+  span {
+    color: rgba(255, 255, 255, 0.48);
+    font-size: 0.72rem;
+    font-weight: 500;
+  }
 }
 
 .unavailable {
-    color: rgba(255, 255, 255, 0.58);
-    font-size: 0.8rem;
-    font-weight: 500;
-    white-space: nowrap;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
 }
 
 @media (max-width: 570px) {
-    .rating {
-        gap: 0.5rem;
+  .rating {
+    gap: 0.5rem;
+  }
+
+  .filledStar,
+  .emptyStar {
+    width: 0.9rem;
+    height: 0.9rem;
+  }
+
+  .score {
+    strong {
+      font-size: 0.82rem;
     }
 
-    .filledStar,
-    .emptyStar {
-        width: 0.9rem;
-        height: 0.9rem;
+    span {
+      font-size: 0.68rem;
     }
-
-    .score {
-        strong {
-            font-size: 0.82rem;
-        }
-
-        span {
-            font-size: 0.68rem;
-        }
-    }
+  }
 }

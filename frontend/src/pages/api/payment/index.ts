@@ -9,201 +9,189 @@ import { apiSub } from '@/services/apiSubManager'
 import axios from 'axios'
 import { NextApiRequest, NextApiResponse } from 'next'
 
-type CheckoutMethod =
-    | 'billet'
-    | 'credit'
+type CheckoutMethod = 'billet' | 'credit'
 
 interface CheckoutAddress {
-    street: string
-    number: string
-    neighborhood: string
-    zipcode: string
-    city: string
-    complement?: string
-    state: string
+  street: string
+  number: string
+  neighborhood: string
+  zipcode: string
+  city: string
+  complement?: string
+  state: string
 }
 
 interface CheckoutCustomer {
-    name: string
-    email: string
-    password: string
-    cpf: string
-    phone_number: string
-    birthday: string
-    payment_token?: string
-    address: CheckoutAddress
+  name: string
+  email: string
+  password: string
+  cpf: string
+  phone_number: string
+  birthday: string
+  payment_token?: string
+  address: CheckoutAddress
 }
 
 interface CheckoutRequest {
-    planId: string
-    method: CheckoutMethod
-    customer: CheckoutCustomer
+  planId: string
+  method: CheckoutMethod
+  customer: CheckoutCustomer
 }
 
 interface NormalizedCheckout {
-    customer: CheckoutCustomer & {
-        name: string
-        cpf: string
-        phone_number: string
-    }
+  customer: CheckoutCustomer & {
+    name: string
+    cpf: string
+    phone_number: string
+  }
 }
 
 function normalizeCheckout(data: CheckoutRequest): NormalizedCheckout {
-    const { customer } = data
+  const { customer } = data
 
-    return {
-        customer: {
-            ...customer,
-            name: Normalize.names(
-                customer.name,
-            ),
-            cpf: Normalize.cpf(
-                customer.cpf,
-            ),
-            phone_number:
-                Normalize.phone(
-                    customer.phone_number,
-                ),
-        }
-    }
+  return {
+    customer: {
+      ...customer,
+      name: Normalize.names(customer.name),
+      cpf: Normalize.cpf(customer.cpf),
+      phone_number: Normalize.phone(customer.phone_number),
+    },
+  }
 }
 
 function buildUserPayload(checkout: NormalizedCheckout) {
-    const { customer } = checkout
+  const { customer } = checkout
 
-    return {
-        name: customer.name,
-        email: customer.email,
-        password: customer.password,
-        cpf: customer.cpf,
-        phone_number:
-            customer.phone_number,
-    }
+  return {
+    name: customer.name,
+    email: customer.email,
+    password: customer.password,
+    cpf: customer.cpf,
+    phone_number: customer.phone_number,
+  }
 }
 
-function buildPayment(method: CheckoutMethod, checkout: NormalizedCheckout): CreateSubscriptionDto['payment'] {
-    const { customer } = checkout
+function buildPayment(
+  method: CheckoutMethod,
+  checkout: NormalizedCheckout,
+): CreateSubscriptionDto['payment'] {
+  const { customer } = checkout
 
-    const customerBase = {
-        name: customer.name,
-        cpf: customer.cpf,
-        email: customer.email,
-        phone_number: customer.phone_number,
-        //donate: false
-    }
+  const customerBase = {
+    name: customer.name,
+    cpf: customer.cpf,
+    email: customer.email,
+    phone_number: customer.phone_number,
+    //donate: false
+  }
 
-    if (method === 'billet') {
-        return {
-            banking_billet: {
-                customer: customerBase,
-                expire_at: Functions.getFiveDaysLaterString()
-            },
-        }
-    }
-
-
-    if (!customer.payment_token) {
-        throw new Error(
-            'Token do cartão não informado',
-        )
-    }
-
-    //customerBase.donate = true
-
+  if (method === 'billet') {
     return {
-        credit_card: {
-            customer: customerBase,
-            payment_token: customer.payment_token,
-            trial_days: 3,
-            /*billing_address:
+      banking_billet: {
+        customer: customerBase,
+        expire_at: Functions.getFiveDaysLaterString(),
+      },
+    }
+  }
+
+  if (!customer.payment_token) {
+    throw new Error('Token do cartão não informado')
+  }
+
+  //customerBase.donate = true
+
+  return {
+    credit_card: {
+      customer: customerBase,
+      payment_token: customer.payment_token,
+      trial_days: 3,
+      /*billing_address:
                 addressBase,*/
-        },
-    }
+    },
+  }
 }
 
-function buildSubscriptionPayload({ plan, userPayload, method, checkout }: { plan: PlanProps, userPayload: NewUserProps, method: CheckoutMethod, checkout: NormalizedCheckout }): CreateSubscriptionDto {
-    const url = process.env.NOTIFICATION_URL
-    if (!url) debug.log("url de notificação não definida")
-    return {
-        user: userPayload,
-        planId: plan.planId,
+function buildSubscriptionPayload({
+  plan,
+  userPayload,
+  method,
+  checkout,
+}: {
+  plan: PlanProps
+  userPayload: NewUserProps
+  method: CheckoutMethod
+  checkout: NormalizedCheckout
+}): CreateSubscriptionDto {
+  const url = process.env.NOTIFICATION_URL
+  if (!url) debug.log('url de notificação não definida')
+  return {
+    user: userPayload,
+    planId: plan.planId,
 
-        items: [
-            {
-                name: plan.name,
-                value: plan.price,
-                amount: 1,
-            },
-        ],
+    items: [
+      {
+        name: plan.name,
+        value: plan.price,
+        amount: 1,
+      },
+    ],
 
-        metadata: {
-            custom_id: '',
-            notification_url: process.env.NOTIFICATION_URL,
-        },
+    metadata: {
+      custom_id: '',
+      notification_url: process.env.NOTIFICATION_URL,
+    },
 
-        payment: buildPayment(
-            method,
-            checkout,
-        ),
-    }
+    payment: buildPayment(method, checkout),
+  }
 }
 
 async function findPlan(planId: string): Promise<PlanProps | null> {
-    const response = await apiSub.get<PlanProps>(`/plans/database/${planId}`)
+  const response = await apiSub.get<PlanProps>(`/plans/database/${planId}`)
 
-    debug.log("plano buscado", planId, response.data)
-    return response.data
+  debug.log('plano buscado', planId, response.data)
+  return response.data
 }
 
 function isValidCheckoutBody(body: unknown): body is CheckoutRequest {
-    if (!body || typeof body !== 'object')
-        return false
+  if (!body || typeof body !== 'object') return false
 
-    const data = body as Partial<CheckoutRequest>
+  const data = body as Partial<CheckoutRequest>
 
-    return Boolean(
-        data.planId &&
-        data.customer &&
-        data.method &&
-        ['billet', 'credit'].includes(
-            data.method,
-        ),
-    )
+  return Boolean(
+    data.planId && data.customer && data.method && ['billet', 'credit'].includes(data.method),
+  )
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    if (req.method !== 'POST') {
-        res.setHeader('Allow', ['POST'])
+  if (req.method !== 'POST') {
+    res.setHeader('Allow', ['POST'])
 
-        return res.status(405).json({
-            message:
-                `Método ${req.method} não permitido`,
-        })
-    }
+    return res.status(405).json({
+      message: `Método ${req.method} não permitido`,
+    })
+  }
 
-    if (!isValidCheckoutBody(req.body)) {
-        return res.status(422).json({
-            message:
-                'Dados do checkout inválidos',
-        })
-    }
+  if (!isValidCheckoutBody(req.body)) {
+    return res.status(422).json({
+      message: 'Dados do checkout inválidos',
+    })
+  }
 
-    try {
-        const data = req.body
-        const plan = await findPlan(data.planId)
+  try {
+    const data = req.body
+    const plan = await findPlan(data.planId)
 
-        if (!plan)
-            return res.status(404).json({
-                message:
-                    'Plano não encontrado',
-            })
+    if (!plan)
+      return res.status(404).json({
+        message: 'Plano não encontrado',
+      })
 
-        const checkout = normalizeCheckout(data)
+    const checkout = normalizeCheckout(data)
 
-        const userPayload = buildUserPayload(checkout)
+    const userPayload = buildUserPayload(checkout)
 
-        //const createdUser = await userMethod.signUp(userPayload)
-        /*const createdUser: SignUpMethodResponse = {
+    //const createdUser = await userMethod.signUp(userPayload)
+    /*const createdUser: SignUpMethodResponse = {
             systemNotify: "",
             userNotify: "",
             user: {
@@ -215,10 +203,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             }
         }*/
 
-        //const userId = createdUser?.user?.id
-        //const userId = '123teste'
+    //const userId = createdUser?.user?.id
+    //const userId = '123teste'
 
-        /*if (!userId) {
+    /*if (!userId) {
             debug.error('API de usuários não retornou um ID')
 
             return res.status(502).json({
@@ -227,67 +215,47 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             })
         }*/
 
-        const subscriptionPayload = buildSubscriptionPayload({
-            plan,
-            userPayload,
-            method: data.method,
-            checkout,
-        })
+    const subscriptionPayload = buildSubscriptionPayload({
+      plan,
+      userPayload,
+      method: data.method,
+      checkout,
+    })
 
-        debug.log('Criando assinatura', {
-            user: userPayload,
-            planId: plan.planId,
-            method: data.method,
-        })
+    debug.log('Criando assinatura', {
+      user: userPayload,
+      planId: plan.planId,
+      method: data.method,
+    })
 
-        const subscriptionResponse = await apiSub.post('/subscription', subscriptionPayload)
+    const subscriptionResponse = await apiSub.post('/subscription', subscriptionPayload)
 
-        return res.status(201).json({
-            user: subscriptionResponse.data.user,
-            subscription:
-                subscriptionResponse.data.subscription,
-        })
-    } catch (error) {
-        if (axios.isAxiosError(error)) {
+    return res.status(201).json({
+      user: subscriptionResponse.data.user,
+      subscription: subscriptionResponse.data.subscription,
+    })
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      debug.error('Erro de comunicação no checkout', {
+        status: error.response?.status,
+        url: error.config?.url,
+        data: error.response?.data,
+        meta: error.response?.data?.error?.meta ?? '',
+      })
 
-            debug.error(
-                'Erro de comunicação no checkout',
-                {
-                    status:
-                        error.response?.status,
-                    url: error.config?.url,
-                    data: error.response?.data,
-                    meta: error.response?.data?.error?.meta ?? ''
-                },
-            )
-
-            return res.status(502).json({
-                message: 'Não foi possível concluir o checkout',
-                error: error.response?.data
-            })
-        }
-
-        debug.error('Erro interno no checkout', error)
-
-        return res.status(500).json({
-            message:
-                'Erro interno ao concluir o checkout',
-        })
+      return res.status(502).json({
+        message: 'Não foi possível concluir o checkout',
+        error: error.response?.data,
+      })
     }
+
+    debug.error('Erro interno no checkout', error)
+
+    return res.status(500).json({
+      message: 'Erro interno ao concluir o checkout',
+    })
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*type PaymentMethod = 'billet' | 'credit'
 
@@ -330,7 +298,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 holderName: "Gorbadoc Oldbuck",
                 holderDocument: "94271564656",
                 reuse: false,
-    *//*
+    */ /*
 
 try {
 //busca de planos
@@ -461,7 +429,7 @@ subscription: createSub.data
 /*console.log("billing_address do body", body.payment.credit_card?.billing_address)
 return res.status(200).json({
 status: 'ok'
-})*//*
+})*/ /*
 }
 
 

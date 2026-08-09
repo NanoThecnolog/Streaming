@@ -13,75 +13,78 @@ import { FaKey } from 'react-icons/fa6'
 import { generate } from '@/classes/Generate'
 import { GetServerSideProps } from 'next'
 
-
-
-
 export default function Signup() {
-    const [passVisible, setPassVisible] = useState<boolean>(true)
+  const [passVisible, setPassVisible] = useState<boolean>(true)
 
-    const [confirmPassword, setConfirmPassword] = useState<string>('')
-    const [loading, setLoading] = useState<boolean>(false)
-    const login = "/login";
-    const [user, setUser] = useState<NewUserProps>({ name: '', email: '', password: '', cpf: '', phone_number: '' })
+  const [confirmPassword, setConfirmPassword] = useState<string>('')
+  const [loading, setLoading] = useState<boolean>(false)
+  const login = '/login'
+  const [user, setUser] = useState<NewUserProps>({
+    name: '',
+    email: '',
+    password: '',
+    cpf: '',
+    phone_number: '',
+  })
 
-    const validate = new Validate()
-    function formatDate(date: unknown): string {
-        const parsed = typeof date === 'string' ? new Date(date) : date;
-        if (parsed instanceof Date && !isNaN(parsed.getTime())) {
-            return parsed.toISOString().substring(0, 10);
-        }
-        return "";
+  const validate = new Validate()
+  function formatDate(date: unknown): string {
+    const parsed = typeof date === 'string' ? new Date(date) : date
+    if (parsed instanceof Date && !isNaN(parsed.getTime())) {
+      return parsed.toISOString().substring(0, 10)
+    }
+    return ''
+  }
+
+  async function handleRegister(event: FormEvent) {
+    event.preventDefault()
+
+    const campos = [
+      { value: user.name, message: 'Digite seu nome!' },
+      { value: user.email, message: 'Digite seu email!' },
+      { value: user.password, message: 'Digite uma senha para cadastrar!' },
+      { value: confirmPassword, message: 'Confirme a senha para cadastrar!' },
+    ]
+
+    for (const campo of campos) {
+      if (!campo.value) {
+        toast.warning(campo.message)
+        return
+      }
+    }
+    if (!Validate.email(user.email)) {
+      toast.warning('Email inválido!')
+      return
     }
 
-    async function handleRegister(event: FormEvent) {
-        event.preventDefault();
-
-        const campos = [
-            { value: user.name, message: "Digite seu nome!" },
-            { value: user.email, message: "Digite seu email!" },
-            { value: user.password, message: "Digite uma senha para cadastrar!" },
-            { value: confirmPassword, message: "Confirme a senha para cadastrar!" }
-        ]
-
-        for (const campo of campos) {
-            if (!campo.value) {
-                toast.warning(campo.message)
-                return;
-            }
-        }
-        if (!Validate.email(user.email)) {
-            toast.warning("Email inválido!")
-            return;
-        }
-
-        /*if (!validate.samePassword(user.password, confirmPassword)) {
+    /*if (!validate.samePassword(user.password, confirmPassword)) {
             toast.warning("As senhas não são iguais.")
             return;
         }*/
 
-        try {
-            setLoading(true)
-            const registerUser = await userMethod.signUp(user)
-            toast.success("Conta criada com sucesso.")
-            debug.log("Conta criada com sucesso", registerUser)
-            Router.push(login)
-
-        } catch (err) {
-            console.log("Erro ao registrar", err)
-            toast.error("Erro ao criar conta. Tente novamente mais tarde.")
-        } finally {
-            setLoading(false)
-        }
+    try {
+      setLoading(true)
+      const registerUser = await userMethod.signUp(user)
+      toast.success('Conta criada com sucesso.')
+      debug.log('Conta criada com sucesso', registerUser)
+      Router.push(login)
+    } catch (err) {
+      console.log('Erro ao registrar', err)
+      toast.error('Erro ao criar conta. Tente novamente mais tarde.')
+    } finally {
+      setLoading(false)
     }
+  }
 
-    const generatePassword = () => {
-        const senhaGerada = generate.password(12)
-        setUser((prev) => ({ ...prev, password: senhaGerada }))
-        setConfirmPassword(senhaGerada)
-    }
+  const generatePassword = () => {
+    const senhaGerada = generate.password(12)
+    setUser((prev) => ({ ...prev, password: senhaGerada }))
+    setConfirmPassword(senhaGerada)
+  }
 
-    return (
-        <>{/*
+  return (
+    <>
+      {/*
             <SEO title='Criar conta | FlixNext' description='Crie sua conta e começe a assistir hoje mesmo!' />
             <div className={styles.container}>
                 <div className={styles.loginContainer}>
@@ -171,17 +174,15 @@ export default function Signup() {
                     </div>
                 </div>
             </div>*/}
-        </>
-    )
+    </>
+  )
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-
-
-    return {
-        redirect: {
-            destination: '/planos',
-            permanent: false
-        }
-    }
+  return {
+    redirect: {
+      destination: '/planos',
+      permanent: false,
+    },
+  }
 }

@@ -1,24 +1,22 @@
-import "@/styles/globals.scss";
-import type { AppProps } from "next/app";
-import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer } from "react-toastify";
-import { TMDBProvider } from "@/contexts/TMDBContext";
-import { useEffect, useRef } from "react";
-import ErrorBoundary from "@/components/Errors/ErrorBoundary";
-import { FlixProvider, useFlix } from "@/contexts/FlixContext";
-import Router, { useRouter } from "next/router";
+import '@/styles/globals.scss'
+import type { AppProps } from 'next/app'
+import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer } from 'react-toastify'
+import { TMDBProvider } from '@/contexts/TMDBContext'
+import { useEffect, useRef } from 'react'
+import ErrorBoundary from '@/components/Errors/ErrorBoundary'
+import { FlixProvider, useFlix } from '@/contexts/FlixContext'
+import Router, { useRouter } from 'next/router'
 //import NProgress from "nprogress"
 //import "nprogress/nprogress.css";
 //import { Functions } from "@/classes/Functions";
-import axios from "axios";
-import { GA_TRACKING_ID, pageview } from "@/utils/gtag";
-import Script from "next/script";
-import { debug } from "@/classes/DebugLogger";
-import NavigationProgress from "@/components/ui/NavigationProgress";
-
+import axios from 'axios'
+import { GA_TRACKING_ID, pageview } from '@/utils/gtag'
+import Script from 'next/script'
+import { debug } from '@/classes/DebugLogger'
+import NavigationProgress from '@/components/ui/NavigationProgress'
 
 export default function App({ Component, pageProps }: AppProps) {
-
   const router = useRouter()
   const lastPathRef = useRef<string | null>(null)
   const { user } = useFlix()
@@ -30,16 +28,15 @@ export default function App({ Component, pageProps }: AppProps) {
       //if (user?.cpf === '14510752784') return
       //debug.log("url no tracking", url)
       if (!url.includes('watch')) {
-        debug.log("não é uma pagina watch")
+        debug.log('não é uma pagina watch')
         return
       }
 
       pageview(url)
       if (lastPathRef.current === url) return
 
-
       lastPathRef.current = url
-      await axios.post('/api/track', { path: url }).catch(() => { })
+      await axios.post('/api/track', { path: url }).catch(() => {})
     }
 
     trackingRoute(router.asPath)
@@ -52,27 +49,23 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [router.events])
 
   useEffect(() => {
-
-
     if (process.env.NODE_ENV === 'production') {
       console.clear()
-      console.log(
-        '%cATENÇÃO!',
-        'font-size: 48px; font-weight: bold; color: #ff3040;'
-      )
+      console.log('%cATENÇÃO!', 'font-size: 48px; font-weight: bold; color: #ff3040;')
       console.log(
         '%cEssa área é destinada a desenvolvedores. \n' +
-        'Colar código aqui é uma violação dos termos de uso e pode permitir que outras pessoas assumam sua conta. \n' +
-        'Não faça isso!',
-        'font-size: 16px; color: #ccc;'
+          'Colar código aqui é uma violação dos termos de uso e pode permitir que outras pessoas assumam sua conta. \n' +
+          'Não faça isso!',
+        'font-size: 16px; color: #ccc;',
       )
     }
   }, [])
 
-
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_DEBUG === "development") return
-    function rightClickBlock(event: MouseEvent) { event.preventDefault(); }
+    if (process.env.NEXT_PUBLIC_DEBUG === 'development') return
+    function rightClickBlock(event: MouseEvent) {
+      event.preventDefault()
+    }
 
     function openConsoleBlock(event: KeyboardEvent) {
       const blockedKeys = ['F12']
@@ -81,17 +74,17 @@ export default function App({ Component, pageProps }: AppProps) {
         (event.ctrlKey && event.shiftKey && ['I', 'J', 'C'].includes(event.key)) ||
         (event.ctrlKey && event.key === 'u')
       ) {
-        event.preventDefault();
+        event.preventDefault()
       }
-    };
+    }
 
-    document.addEventListener('contextmenu', rightClickBlock);
-    document.addEventListener('keydown', openConsoleBlock);
+    document.addEventListener('contextmenu', rightClickBlock)
+    document.addEventListener('keydown', openConsoleBlock)
 
     return () => {
-      document.removeEventListener('contextmenu', rightClickBlock);
-      document.removeEventListener('keydown', openConsoleBlock);
-    };
+      document.removeEventListener('contextmenu', rightClickBlock)
+      document.removeEventListener('keydown', openConsoleBlock)
+    }
   }, [])
 
   /*useEffect(() => {
@@ -109,11 +102,6 @@ export default function App({ Component, pageProps }: AppProps) {
     }
 
   }, [])*/
-
-
-
-
-
 
   return (
     <ErrorBoundary>

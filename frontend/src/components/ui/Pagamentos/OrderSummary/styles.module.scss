@@ -1,223 +1,223 @@
 .card {
-    position: sticky;
-    top: 24px;
+  position: sticky;
+  top: 24px;
 
-    padding: 26px;
+  padding: 26px;
 
-    background: rgba(24, 24, 27, 0.78);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.24);
-    backdrop-filter: blur(18px);
+  background: rgba(24, 24, 27, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(18px);
 }
 
 .header {
-    span {
-        color: #71717a;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-    }
+  span {
+    color: #71717a;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
 
-    h2 {
-        margin: 7px 0 0;
+  h2 {
+    margin: 7px 0 0;
 
-        color: #fafafa;
-        font-size: 21px;
-        letter-spacing: -0.5px;
-    }
+    color: #fafafa;
+    font-size: 21px;
+    letter-spacing: -0.5px;
+  }
 }
 
 .plan {
-    margin-top: 22px;
-    padding: 18px;
+  margin-top: 22px;
+  padding: 18px;
 
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+
+  background: rgba(237, 58, 58, 0.08);
+  border: 1px solid rgba(246, 92, 92, 0.18);
+  border-radius: 14px;
+
+  > div {
     display: flex;
-    justify-content: space-between;
-    gap: 16px;
+    flex-direction: column;
+    gap: 5px;
+  }
 
-    background: rgba(237, 58, 58, 0.08);
-    border: 1px solid rgba(246, 92, 92, 0.18);
-    border-radius: 14px;
+  strong {
+    color: #f4f4f5;
+    font-size: 14px;
+  }
 
-    >div {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-    }
+  > strong {
+    white-space: nowrap;
+  }
 
-    strong {
-        color: #f4f4f5;
-        font-size: 14px;
-    }
-
-    >strong {
-        white-space: nowrap;
-    }
-
-    span {
-        color: #71717a;
-        font-size: 11px;
-    }
+  span {
+    color: #71717a;
+    font-size: 11px;
+  }
 }
 
 .details {
-    margin-top: 22px;
+  margin-top: 22px;
 
-    display: grid;
-    gap: 15px;
+  display: grid;
+  gap: 15px;
 
-    >div {
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-    }
+  > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
 
-    span {
-        color: #71717a;
-        font-size: 12px;
-    }
+  span {
+    color: #71717a;
+    font-size: 12px;
+  }
 
-    strong {
-        max-width: 180px;
+  strong {
+    max-width: 180px;
 
-        overflow: hidden;
+    overflow: hidden;
 
-        color: #d4d4d8;
-        font-size: 12px;
-        font-weight: 500;
-        text-align: right;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
+    color: #d4d4d8;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 
 .total {
-    margin-top: 22px;
-    padding-top: 20px;
+  margin-top: 22px;
+  padding-top: 20px;
 
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 18px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  > div {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 18px;
+    flex-direction: column;
+    gap: 4px;
+  }
 
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  span {
+    color: #e4e4e7;
+    font-size: 14px;
+    font-weight: 700;
+  }
 
-    >div {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-    }
+  small {
+    color: #71717a;
+    font-size: 10px;
+  }
 
-    span {
-        color: #e4e4e7;
-        font-size: 14px;
-        font-weight: 700;
-    }
-
-    small {
-        color: #71717a;
-        font-size: 10px;
-    }
-
-    >strong {
-        color: #ffffff;
-        font-size: 23px;
-        letter-spacing: -0.8px;
-    }
+  > strong {
+    color: #ffffff;
+    font-size: 23px;
+    letter-spacing: -0.8px;
+  }
 }
 
 .benefits {
-    margin: 22px 0 0;
-    padding: 20px 0 0;
+  margin: 22px 0 0;
+  padding: 20px 0 0;
 
-    display: grid;
-    gap: 11px;
+  display: grid;
+  gap: 11px;
 
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    list-style: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  list-style: none;
 
-    li {
-        display: flex;
-        align-items: center;
-        gap: 9px;
+  li {
+    display: flex;
+    align-items: center;
+    gap: 9px;
 
-        color: #a1a1aa;
-        font-size: 12px;
-    }
+    color: #a1a1aa;
+    font-size: 12px;
+  }
 
-    span {
-        color: #86efac;
-        font-weight: 700;
-    }
+  span {
+    color: #86efac;
+    font-weight: 700;
+  }
 }
 
 .safe {
-    margin-top: 22px;
-    padding: 14px;
+  margin-top: 22px;
+  padding: 14px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  background: rgba(39, 39, 42, 0.54);
+  border-radius: 12px;
+
+  > span {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
 
     display: flex;
-    align-items: flex-start;
-    gap: 10px;
+    align-items: center;
+    justify-content: center;
 
-    background: rgba(39, 39, 42, 0.54);
-    border-radius: 12px;
+    color: #86efac;
+    background: rgba(34, 197, 94, 0.12);
+    border-radius: 50%;
 
-    >span {
-        width: 24px;
-        height: 24px;
-        flex: 0 0 24px;
+    font-size: 11px;
+    font-weight: 700;
+  }
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
 
-        color: #86efac;
-        background: rgba(34, 197, 94, 0.12);
-        border-radius: 50%;
+  strong {
+    color: #d4d4d8;
+    font-size: 12px;
+  }
 
-        font-size: 11px;
-        font-weight: 700;
-    }
+  p {
+    margin: 0;
 
-    div {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-    }
-
-    strong {
-        color: #d4d4d8;
-        font-size: 12px;
-    }
-
-    p {
-        margin: 0;
-
-        color: #71717a;
-        font-size: 11px;
-        line-height: 1.5;
-    }
+    color: #71717a;
+    font-size: 11px;
+    line-height: 1.5;
+  }
 }
 
 @media (max-width: 940px) {
-    .card {
-        position: static;
-    }
+  .card {
+    position: static;
+  }
 
-    .benefits,
-    .safe {
-        display: none;
-    }
+  .benefits,
+  .safe {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
-    .card {
-        padding: 20px;
-    }
+  .card {
+    padding: 20px;
+  }
 
-    .details {
-        display: none;
-    }
+  .details {
+    display: none;
+  }
 }

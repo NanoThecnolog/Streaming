@@ -1,25 +1,25 @@
 .carouselContainer {
-    position: relative;
-    width: 100%;
-    margin: 0;
-    padding-right: 7px;
-    //outline: 2px solid red;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding-right: 7px;
+  //outline: 2px solid red;
 
-    .contentTitle {
-        font-family: var(--font-bebas);
-        color: var(--white);
-        font-size: clamp(1.2rem, 1rem + 1vw, 1.8rem);
-        letter-spacing: 4px;
-        //padding-left: 40px;
-        //margin-bottom: 10px;
-    }
+  .contentTitle {
+    font-family: var(--font-bebas);
+    color: var(--white);
+    font-size: clamp(1.2rem, 1rem + 1vw, 1.8rem);
+    letter-spacing: 4px;
+    //padding-left: 40px;
+    //margin-bottom: 10px;
+  }
 
-    .carousel {
-        padding-right: 4px;
-        //outline: 2px solid blue;
-    }
+  .carousel {
+    padding-right: 4px;
+    //outline: 2px solid blue;
+  }
 
-    h2 {
-        user-select: none;
-    }
+  h2 {
+    user-select: none;
+  }
 }

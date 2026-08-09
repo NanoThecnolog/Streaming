@@ -1,117 +1,116 @@
 .buttonWatchLater {
-    display: flex;
-    width: auto;
+  display: flex;
+  width: auto;
 }
 
 .button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.65rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
 
-    min-width: 180px;
-    min-height: 48px;
-    padding: 0.75rem 1.1rem;
+  min-width: 180px;
+  min-height: 48px;
+  padding: 0.75rem 1.1rem;
 
-    color: rgba(255, 255, 255, 0.88);
-    background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.08);
 
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9px;
 
-    font-family: inherit;
-    font-size: 0.88rem;
-    font-weight: 600;
-    white-space: nowrap;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  white-space: nowrap;
 
-    cursor: pointer;
-    backdrop-filter: blur(8px);
+  cursor: pointer;
+  backdrop-filter: blur(8px);
 
-    transition:
-        color 160ms ease,
-        background-color 160ms ease,
-        border-color 160ms ease,
-        box-shadow 160ms ease,
-        transform 160ms ease;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
 
-    svg {
-        flex: 0 0 auto;
+  svg {
+    flex: 0 0 auto;
 
-        width: 1.1rem;
-        height: 1.1rem;
+    width: 1.1rem;
+    height: 1.1rem;
 
-        stroke-width: 2.4;
-    }
+    stroke-width: 2.4;
+  }
 
-    &:hover:not(:disabled) {
-        color: #fff;
-        background: rgba(255, 255, 255, 0.14);
-        border-color: rgba(255, 255, 255, 0.25);
+  &:hover:not(:disabled) {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.25);
 
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-        transform: translateY(-2px);
-    }
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
 
-    &:active:not(:disabled) {
-        transform: translateY(0) scale(0.985);
-    }
+  &:active:not(:disabled) {
+    transform: translateY(0) scale(0.985);
+  }
 
-    &:focus-visible {
-        outline: 2px solid var(--red-selected);
-        outline-offset: 3px;
-    }
+  &:focus-visible {
+    outline: 2px solid var(--red-selected);
+    outline-offset: 3px;
+  }
 
-    &:disabled {
-        cursor: wait;
-        opacity: 0.65;
-    }
+  &:disabled {
+    cursor: wait;
+    opacity: 0.65;
+  }
 }
 
 .active {
-    color: #fff;
-    background: rgba(62, 194, 118, 0.12);
-    border-color: rgba(62, 194, 118, 0.35);
+  color: #fff;
+  background: rgba(62, 194, 118, 0.12);
+  border-color: rgba(62, 194, 118, 0.35);
 
-    svg {
-        color: #55d187;
-    }
+  svg {
+    color: #55d187;
+  }
 
-    &:hover:not(:disabled) {
-        background: rgba(62, 194, 118, 0.18);
-        border-color: rgba(62, 194, 118, 0.48);
-    }
+  &:hover:not(:disabled) {
+    background: rgba(62, 194, 118, 0.18);
+    border-color: rgba(62, 194, 118, 0.48);
+  }
 }
 
 .loadingIcon {
-    animation: spin 800ms linear infinite;
+  animation: spin 800ms linear infinite;
 }
 
 @keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 570px) {
+  .buttonWatchLater,
+  .button {
+    width: 100%;
+    min-width: 0;
+  }
 
-    .buttonWatchLater,
-    .button {
-        width: 100%;
-        min-width: 0;
-    }
-
-    .button {
-        padding-inline: 0.8rem;
-        font-size: 0.82rem;
-    }
+  .button {
+    padding-inline: 0.8rem;
+    font-size: 0.82rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .button {
-        transition: none;
-    }
+  .button {
+    transition: none;
+  }
 
-    .loadingIcon {
-        animation-duration: 1.5s;
-    }
+  .loadingIcon {
+    animation-duration: 1.5s;
+  }
 }

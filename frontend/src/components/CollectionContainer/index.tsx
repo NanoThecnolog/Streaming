@@ -8,99 +8,103 @@ import { useRouter } from 'next/router'
 import { tmdb } from '@/classes/TMDB'
 
 interface CollectionProps {
-    cardPerContainer: number
+  cardPerContainer: number
 }
 
 export default function CollectionContainer({ cardPerContainer }: CollectionProps) {
-    const router = useRouter()
-    const [resultados, setResultados] = useState<ResultsProps[]>([])
-    const [cardsPerPage, setCardsPerPage] = useState(cardPerContainer)
-    const [currentIndex, setCurrentIndex] = useState(0)
-    const collectionsName: string[] = [
-        'harry potter',
-        'missão impossível',
-        'pânico',
-        'divergente',
-        'vingadores',
-        'O Cavaleiro das Trevas',
-        'O Senhor dos Anéis',
-        'Anjos da Noite',
-        'Transformers'
-    ]
-    useEffect(() => {
-        if (cardPerContainer) {
-            setCardsPerPage(cardPerContainer)
-        }
-    }, [cardPerContainer])
-
-    /**
- * Faz a requisição de dados das coleções, realizando as seguintes etapas:
- * 
- * 1. Mapeia os nomes das coleções da constante `collectionsName` e executa uma função de busca para cada nome.
- * 2. Filtra os resultados da requisição, descartando os valores `null`, e os organiza em um único array.
- * 3. Cria um `Set` contendo os IDs das coleções a partir da constante importada `collections`.
- * 4. Filtra os resultados da requisição, mantendo apenas os objetos cujo ID esteja presente no `Set` de IDs.
- * 5. Atualiza o estado `resultados` com os dados filtrados.
- * 
- * Em caso de erro, a função captura e exibe o erro no console.
- */
-
-    const fetchCollectionData = useCallback(async () => {
-        try {
-            const resultados = (await Promise.all(collectionsName.map(tmdb.fetchCollection)))
-                .flat()
-                .filter((result): result is ResultsProps => result !== null)
-
-            const colecaoIds = new Set(collections.map(({ id }) => id))
-            setResultados(resultados.filter(({ id }) => colecaoIds.has(id)))
-        } catch (err) {
-            console.error(err)
-        }
-    }, [collectionsName])
-
-
-    useEffect(() => {
-        fetchCollectionData()
-    }, [fetchCollectionData])
-
-
-    function nextPage() {
-        if (currentIndex + 1 < resultados.length) {
-
-            setCurrentIndex(currentIndex + 1)
-        }
+  const router = useRouter()
+  const [resultados, setResultados] = useState<ResultsProps[]>([])
+  const [cardsPerPage, setCardsPerPage] = useState(cardPerContainer)
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const collectionsName: string[] = [
+    'harry potter',
+    'missão impossível',
+    'pânico',
+    'divergente',
+    'vingadores',
+    'O Cavaleiro das Trevas',
+    'O Senhor dos Anéis',
+    'Anjos da Noite',
+    'Transformers',
+  ]
+  useEffect(() => {
+    if (cardPerContainer) {
+      setCardsPerPage(cardPerContainer)
     }
-    function prevPage() {
-        if (currentIndex - 1 >= 0) {
-            setCurrentIndex(currentIndex - 1)
-        }
+  }, [cardPerContainer])
+
+  /**
+   * Faz a requisição de dados das coleções, realizando as seguintes etapas:
+   *
+   * 1. Mapeia os nomes das coleções da constante `collectionsName` e executa uma função de busca para cada nome.
+   * 2. Filtra os resultados da requisição, descartando os valores `null`, e os organiza em um único array.
+   * 3. Cria um `Set` contendo os IDs das coleções a partir da constante importada `collections`.
+   * 4. Filtra os resultados da requisição, mantendo apenas os objetos cujo ID esteja presente no `Set` de IDs.
+   * 5. Atualiza o estado `resultados` com os dados filtrados.
+   *
+   * Em caso de erro, a função captura e exibe o erro no console.
+   */
+
+  const fetchCollectionData = useCallback(async () => {
+    try {
+      const resultados = (await Promise.all(collectionsName.map(tmdb.fetchCollection)))
+        .flat()
+        .filter((result): result is ResultsProps => result !== null)
+
+      const colecaoIds = new Set(collections.map(({ id }) => id))
+      setResultados(resultados.filter(({ id }) => colecaoIds.has(id)))
+    } catch (err) {
+      console.error(err)
     }
-    function handleClick(collection: ResultsProps) {
-        const collectionString = JSON.stringify(collection)
-        router.push(`/colecao?collection=${collectionString}`)
+  }, [collectionsName])
+
+  useEffect(() => {
+    fetchCollectionData()
+  }, [fetchCollectionData])
+
+  function nextPage() {
+    if (currentIndex + 1 < resultados.length) {
+      setCurrentIndex(currentIndex + 1)
     }
-    return (
-        <div className={styles.content_area}>
-            <div className={styles.content_title}>
-                <h3>
-                    Coleções
-                </h3>
-            </div>
-            <div className={styles.card_carousel}>
-                <button className={styles.beforeButton} onClick={prevPage} disabled={currentIndex === 0}>
-                    <MdNavigateBefore size={30} />
-                </button>
-                <button className={styles.nextButton} onClick={nextPage} disabled={currentIndex + cardsPerPage >= resultados.length}>
-                    <MdNavigateNext size={30} />
-                </button>
-                <div className={styles.cardContainer}>
-                    {resultados && resultados.slice(currentIndex, currentIndex + cardsPerPage).map(collection => (
-                        <div className={styles.card} key={collection.id} onClick={() => handleClick(collection)}>
-                            <CardCollection card={collection} />
-                        </div>
-                    ))}
-                </div>
-            </div>
+  }
+  function prevPage() {
+    if (currentIndex - 1 >= 0) {
+      setCurrentIndex(currentIndex - 1)
+    }
+  }
+  function handleClick(collection: ResultsProps) {
+    const collectionString = JSON.stringify(collection)
+    router.push(`/colecao?collection=${collectionString}`)
+  }
+  return (
+    <div className={styles.content_area}>
+      <div className={styles.content_title}>
+        <h3>Coleções</h3>
+      </div>
+      <div className={styles.card_carousel}>
+        <button className={styles.beforeButton} onClick={prevPage} disabled={currentIndex === 0}>
+          <MdNavigateBefore size={30} />
+        </button>
+        <button
+          className={styles.nextButton}
+          onClick={nextPage}
+          disabled={currentIndex + cardsPerPage >= resultados.length}
+        >
+          <MdNavigateNext size={30} />
+        </button>
+        <div className={styles.cardContainer}>
+          {resultados &&
+            resultados.slice(currentIndex, currentIndex + cardsPerPage).map((collection) => (
+              <div
+                className={styles.card}
+                key={collection.id}
+                onClick={() => handleClick(collection)}
+              >
+                <CardCollection card={collection} />
+              </div>
+            ))}
         </div>
-    )
+      </div>
+    </div>
+  )
 }

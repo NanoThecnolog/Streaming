@@ -1,342 +1,331 @@
 .page {
-    width: 100%;
-    min-height: 100vh;
+  width: 100%;
+  min-height: 100vh;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
 
-    padding: 150px 24px 120px;
+  padding: 150px 24px 120px;
 
-    color: var(--white);
-    font-family: var(--font-Roboto);
+  color: var(--white);
+  font-family: var(--font-Roboto);
 
-    background:
-        radial-gradient(circle at 50% 0%,
-            rgba(229, 9, 20, 0.11),
-            transparent 30%),
-        var(--black);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(229, 9, 20, 0.11), transparent 30%), var(--black);
 }
 
 .hero,
 .faqSection,
 .supportCard {
-    width: min(1040px, 100%);
+  width: min(1040px, 100%);
 }
 
 .hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    padding: 22px 0 40px;
+  padding: 22px 0 40px;
 
-    text-align: center;
+  text-align: center;
 
-    h1 {
-        margin: 0;
+  h1 {
+    margin: 0;
 
-        font-size: clamp(2.3rem, 6vw, 4rem);
-        line-height: 1.08;
-        letter-spacing: -0.04em;
-    }
+    font-size: clamp(2.3rem, 6vw, 4rem);
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+  }
 
-    >p {
-        max-width: 650px;
+  > p {
+    max-width: 650px;
 
-        margin: 20px 0 0;
+    margin: 20px 0 0;
 
-        color: rgba(255, 255, 255, 0.6);
-        font-size: clamp(0.94rem, 2vw, 1.06rem);
-        line-height: 1.7;
-    }
+    color: rgba(255, 255, 255, 0.6);
+    font-size: clamp(0.94rem, 2vw, 1.06rem);
+    line-height: 1.7;
+  }
 }
 
 .heroIcon {
-    width: 66px;
-    height: 66px;
+  width: 66px;
+  height: 66px;
 
-    display: grid;
-    place-items: center;
+  display: grid;
+  place-items: center;
 
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 
-    color: var(--red);
+  color: var(--red);
 
-    background: rgba(229, 9, 20, 0.1);
-    border: 1px solid rgba(229, 9, 20, 0.22);
-    border-radius: 18px;
-    box-shadow: 0 16px 50px rgba(229, 9, 20, 0.1);
+  background: rgba(229, 9, 20, 0.1);
+  border: 1px solid rgba(229, 9, 20, 0.22);
+  border-radius: 18px;
+  box-shadow: 0 16px 50px rgba(229, 9, 20, 0.1);
 }
 
 .eyebrow {
-    display: block;
+  display: block;
 
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 
-    color: var(--red);
-    font-size: 0.73rem;
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+  color: var(--red);
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .faqSection {
-    overflow: hidden;
+  overflow: hidden;
 
-    background:
-        linear-gradient(145deg,
-            rgba(255, 255, 255, 0.045),
-            transparent 45%),
-        #181818;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.045), transparent 45%), #181818;
 
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
 }
 
 .sectionHeader {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 
-    padding: 30px 34px;
+  padding: 30px 34px;
 
-    background: rgba(255, 255, 255, 0.035);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.035);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
 
-    h2 {
-        margin: 0;
+  h2 {
+    margin: 0;
 
-        font-size: clamp(1.45rem, 4vw, 2rem);
-    }
+    font-size: clamp(1.45rem, 4vw, 2rem);
+  }
 
-    .eyebrow {
-        margin-bottom: 7px;
-    }
+  .eyebrow {
+    margin-bottom: 7px;
+  }
 }
 
 .questionCount {
-    flex-shrink: 0;
+  flex-shrink: 0;
 
-    padding: 8px 12px;
+  padding: 8px 12px;
 
-    color: rgba(255, 255, 255, 0.64);
-    font-size: 0.75rem;
-    font-weight: 700;
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 0.75rem;
+  font-weight: 700;
 
-    background: rgba(255, 255, 255, 0.055);
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    border-radius: 999px;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 999px;
 }
 
 .questionsContainer {
-    width: 100%;
+  width: 100%;
 
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 
-    padding: 30px 34px 34px;
+  padding: 30px 34px 34px;
 
-    a {
-        color: var(--red);
-    }
+  a {
+    color: var(--red);
+  }
 }
 
 .supportCard {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    align-items: center;
-    gap: 22px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 22px;
 
-    padding: 28px 30px;
+  padding: 28px 30px;
 
-    background:
-        linear-gradient(135deg,
-            rgba(229, 9, 20, 0.06),
-            transparent 48%),
-        var(--background-gray);
+  background:
+    linear-gradient(135deg, rgba(229, 9, 20, 0.06), transparent 48%), var(--background-gray);
 
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
 }
 
 .supportIcon {
-    width: 54px;
-    height: 54px;
+  width: 54px;
+  height: 54px;
 
-    display: grid;
-    place-items: center;
+  display: grid;
+  place-items: center;
 
-    color: var(--red);
+  color: var(--red);
 
-    background: rgba(229, 9, 20, 0.1);
-    border: 1px solid rgba(229, 9, 20, 0.2);
-    border-radius: 14px;
+  background: rgba(229, 9, 20, 0.1);
+  border: 1px solid rgba(229, 9, 20, 0.2);
+  border-radius: 14px;
 }
 
 .supportContent {
-    min-width: 0;
+  min-width: 0;
 
-    h2 {
-        margin: 4px 0 6px;
+  h2 {
+    margin: 4px 0 6px;
 
-        font-size: clamp(1.2rem, 3vw, 1.45rem);
-    }
+    font-size: clamp(1.2rem, 3vw, 1.45rem);
+  }
 
-    p {
-        margin: 0;
+  p {
+    margin: 0;
 
-        color: rgba(255, 255, 255, 0.55);
-        font-size: 0.86rem;
-        line-height: 1.5;
-    }
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.86rem;
+    line-height: 1.5;
+  }
 }
 
 .supportLabel {
-    color: var(--red);
-    font-size: 0.68rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+  color: var(--red);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .supportActions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .secondaryButton,
 .contactButton {
-    min-height: 44px;
+  min-height: 44px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 
-    padding: 0 17px;
+  padding: 0 17px;
 
-    font-size: 0.82rem;
-    font-weight: 800;
-    text-decoration: none;
-    white-space: nowrap;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
 
-    border-radius: 9px;
+  border-radius: 9px;
 
-    transition:
-        color 0.2s,
-        background-color 0.2s,
-        border-color 0.2s,
-        filter 0.2s,
-        transform 0.2s;
+  transition:
+    color 0.2s,
+    background-color 0.2s,
+    border-color 0.2s,
+    filter 0.2s,
+    transform 0.2s;
 }
 
 .secondaryButton {
-    color: rgba(255, 255, 255, 0.76);
+  color: rgba(255, 255, 255, 0.76);
 
-    background: rgba(255, 255, 255, 0.045);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 
-    &:hover {
-        color: var(--white);
-        background: rgba(255, 255, 255, 0.08);
-        border-color: rgba(255, 255, 255, 0.22);
-    }
+  &:hover {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.22);
+  }
 }
 
 .contactButton {
-    color: var(--white);
+  color: var(--white);
 
-    background: var(--red);
-    border: 1px solid transparent;
+  background: var(--red);
+  border: 1px solid transparent;
 
-    &:hover {
-        filter: brightness(1.1);
-        transform: translateY(-1px);
-    }
+  &:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+  }
 }
 
 .secondaryButton,
 .contactButton {
-    &:focus-visible {
-        outline: 2px solid var(--white);
-        outline-offset: 3px;
-    }
+  &:focus-visible {
+    outline: 2px solid var(--white);
+    outline-offset: 3px;
+  }
 }
 
 @media (max-width: 820px) {
-    .supportCard {
-        grid-template-columns: auto minmax(0, 1fr);
-    }
+  .supportCard {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
 
-    .supportActions {
-        grid-column: 1 / -1;
-        width: 100%;
-        justify-content: flex-end;
-    }
+  .supportActions {
+    grid-column: 1 / -1;
+    width: 100%;
+    justify-content: flex-end;
+  }
 }
 
 @media (max-width: 600px) {
-    .page {
-        gap: 28px;
+  .page {
+    gap: 28px;
 
-        padding: 120px 14px 80px;
-    }
+    padding: 120px 14px 80px;
+  }
 
-    .hero {
-        padding-bottom: 22px;
-    }
+  .hero {
+    padding-bottom: 22px;
+  }
 
-    .heroIcon {
-        width: 58px;
-        height: 58px;
-    }
+  .heroIcon {
+    width: 58px;
+    height: 58px;
+  }
 
-    .faqSection,
-    .supportCard {
-        border-radius: 15px;
-    }
+  .faqSection,
+  .supportCard {
+    border-radius: 15px;
+  }
 
-    .sectionHeader {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 14px;
+  .sectionHeader {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
 
-        padding: 24px 20px;
-    }
+    padding: 24px 20px;
+  }
 
-    .questionsContainer {
-        padding: 20px;
-    }
+  .questionsContainer {
+    padding: 20px;
+  }
 
-    .supportCard {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+  .supportCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 
-        padding: 22px;
-    }
+    padding: 22px;
+  }
 
-    .supportActions {
-        width: 100%;
-        flex-direction: column;
-    }
+  .supportActions {
+    width: 100%;
+    flex-direction: column;
+  }
 
-    .secondaryButton,
-    .contactButton {
-        width: 100%;
-    }
+  .secondaryButton,
+  .contactButton {
+    width: 100%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-
-    .secondaryButton,
-    .contactButton {
-        transition: none;
-    }
+  .secondaryButton,
+  .contactButton {
+    transition: none;
+  }
 }
