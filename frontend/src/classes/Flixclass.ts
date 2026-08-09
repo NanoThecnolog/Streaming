@@ -1,101 +1,80 @@
-import { apiTMDB } from "@/services/apiTMDB";
-import { debug } from "./DebugLogger";
-import { CardsProps, MovieTMDB } from "@/@types/Cards";
-import { SeriesProps, TMDBSeries } from "@/@types/series";
+import { MovieTMDB } from '@/@types/Cards'
+import { TMDBSeries } from '@/@types/series'
+import { apiManager } from '@/services/apiManager'
+import axios from 'axios'
+import { debug } from './DebugLogger'
+
+interface ContentError {
+    id: number
+    code: 'TMDB_HTTP_ERROR' | 'TMDB_REQUEST_ERROR'
+    message: string
+    status: number | null
+    retryable: boolean
+}
+
+interface ContentResponse<T> {
+    success: boolean
+    status: 'complete' | 'partial'
+    data: T[]
+    errors: ContentError[]
+}
 
 class FlixFetcher {
-    private movieLoading: boolean
-    private serieLoading: boolean
-    private allData: MovieTMDB[]
-    private serieData: TMDBSeries[]
-    private maxRetries: number
+    private movieRequest: Promise<MovieTMDB[]> | null = null
+    private serieRequest: Promise<TMDBSeries[]> | null = null
 
-    constructor() {
-        this.movieLoading = false
-        this.serieLoading = false
-        this.allData = []
-        this.serieData = []
-        this.maxRetries = 5
+    fetchMovieData(): Promise<MovieTMDB[]> {
+        if (this.movieRequest) return this.movieRequest
+
+        const request = this.fetchContent<MovieTMDB>('/movie/tmdb', 'filmes')
+        this.movieRequest = request
+
+        void request.finally(() => {
+            if (this.movieRequest === request) this.movieRequest = null
+        }).catch(() => undefined)
+
+        return request
     }
 
-    /**
-     * Realiza a busca dos dados no TMDB e salva no context.
-     * @returns não retorna dado nenhum
-    */
-    async fetchMovieData(setAllData: (data: MovieTMDB[]) => void, movies: CardsProps[], attempt: number = 1) {
-        if (this.movieLoading) return
-        if (movies.length === 0) return debug.error("Lista movies vazia!", movies)
+    fetchSerieData(): Promise<TMDBSeries[]> {
+        if (this.serieRequest) return this.serieRequest
 
-        this.movieLoading = true
+        const request = this.fetchContent<TMDBSeries>('/serie/tmdb', 'séries')
+        this.serieRequest = request
+
+        void request.finally(() => {
+            if (this.serieRequest === request) this.serieRequest = null
+        }).catch(() => undefined)
+
+        return request
+    }
+
+    private async fetchContent<T>(path: string, contentType: string): Promise<T[]> {
         try {
-            const response = await apiTMDB.post<{ success: boolean, data: MovieTMDB[], errors: any[] }>('/all/movie', {
-                movies
-            })
+            const response = await apiManager.get<ContentResponse<T>>(path)
+            const { data, errors, status } = response.data
 
-            if (response.status === 502 || !response.data) {
-                await this.retryMovie(setAllData, attempt, movies)
-                return
+            if (status === 'partial') {
+                debug.warn(`Resposta parcial ao carregar ${contentType}.`, errors)
             }
 
-            debug.log("Erros na requisição ao tmdb de filmes: ", response.data.errors)
-            this.allData = response.data.data as MovieTMDB[]
-            setAllData(this.allData)
-        } catch (err) {
-            debug.error(`Erro na tentativa ${attempt}`, err)
-            await this.retryMovie(setAllData, attempt, movies)
-        } finally {
-            this.movieLoading = false
-        }
-    }
-
-    async fetchSerieData(setSerieData: (data: TMDBSeries[]) => void, series: SeriesProps[], attempt: number = 1) {
-        if (this.serieLoading) return
-
-        this.serieLoading = true
-
-        if (!series || !series.length) {
-            debug.warn("series em fetchSeriesData vazio", series)
-            return
-        }
-
-        //debug.log("Series em fecthSerieData", series)
-
-        try {
-            const response = await apiTMDB.post('/all/tv', {
-                series
-            })
-
-            if (response.status === 502 || !response.data) {
-                await this.retrySerie(setSerieData, series, attempt)
-                return
+            if (!data.length && errors.length) {
+                throw new Error(`Nenhum item de ${contentType} pôde ser carregado.`)
             }
 
-            debug.log("Erros na requisição ao tmdb de séries: ", response.data.errors)
+            return data
+        } catch (error: unknown) {
+            if (axios.isAxiosError(error)) {
+                const message = error.response?.data?.message
+                const code = error.response?.data?.code
 
-            this.serieData = response.data.data as TMDBSeries[]
-            setSerieData(this.serieData)
-        } catch (err) {
-            debug.error(`Erro na tentativa ${attempt}`, err)
-            await this.retrySerie(setSerieData, series, attempt)
-        } finally {
-            this.serieLoading = false
-        }
-    }
+                throw new Error(
+                    [code, message].filter(Boolean).join(': ') ||
+                    `Não foi possível carregar ${contentType}.`,
+                )
+            }
 
-    private retryMovie(setAllData: (data: MovieTMDB[]) => void, attempt: number, movies: CardsProps[]) {
-        if (attempt < this.maxRetries) {
-            debug.warn(`Tentativa ${attempt}/${this.maxRetries} falhou. Tentando novamente em 4 segundos...`)
-            setTimeout(() => this.fetchMovieData(setAllData, movies, attempt + 1), 4000)
-        } else {
-            debug.log("Numero maximo de tentativas atingido.")
-        }
-    }
-    private retrySerie(setSerieData: (data: TMDBSeries[]) => void, series: SeriesProps[], attempt: number) {
-        if (attempt < this.maxRetries) {
-            debug.warn(`Tentativa ${attempt}/${this.maxRetries} falhou. Tentando novamente em 4 segundos...`)
-            setTimeout(() => this.fetchSerieData(setSerieData, series, attempt + 1), 4000)
-        } else {
-            debug.log("Numero maximo de tentativas atingido.")
+            throw error
         }
     }
 }

@@ -127,6 +127,22 @@
     gap: 0.85rem;
 }
 
+.contentFacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem 1rem;
+    padding: 0;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.82);
+    list-style: none;
+
+    li {
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
+    }
+}
+
 .actions {
     display: flex;
     align-items: stretch;

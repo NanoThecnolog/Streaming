@@ -1,3 +1,5 @@
+import { WithWatchProviders } from './watchProviders'
+
 export interface SeriesProps {
     tmdbID: number;
     background: string;
@@ -35,7 +37,7 @@ export interface TMDBEpisodes {
     season_number: number,
     runtime: number
 }
-export interface TMDBSeries {
+export interface TMDBSeries extends WithWatchProviders {
     seasons: SeasonTMDB[],
     backdrop_path: string,
     id: number,
@@ -49,6 +51,7 @@ export interface TMDBSeries {
     }[]
     popularity: number,
     first_air_date: string
+    status: string
 
 }
 export interface DubbedEpisode {

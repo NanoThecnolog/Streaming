@@ -12,6 +12,8 @@ import { debug } from '@/classes/DebugLogger'
 import { mongoService } from '@/classes/MongoContent'
 import { agp, gen, stm } from '@/utils/Genres'
 import { classification } from '@/utils/Variaveis'
+import { tmdb } from '@/classes/TMDB'
+import { getAvailableStreamingGenres, mergeStreamingGenres } from '@/utils/WatchProviders'
 
 import { TVProps } from '../Create'
 
@@ -88,8 +90,10 @@ const PutTV = ({ tmdbid }: PutTVProps) => {
             setLoadingSerie(true)
 
             try {
-                const response =
-                    await mongoService.findOneSerieById(tmdbid)
+                const [response, tmdbDetails] = await Promise.all([
+                    mongoService.findOneSerieById(tmdbid),
+                    tmdb.fetchSeriesDetails(tmdbid),
+                ])
 
                 if (!active) return
 
@@ -103,11 +107,16 @@ const PutTV = ({ tmdbid }: PutTVProps) => {
                 debug.log('Gêneros salvos:', response.genero)
                 debug.log('Opções disponíveis:', genres)
 
+                const storedGenres = matchGenres(response.genero ?? [], genres)
+                const streamingGenres = tmdbDetails
+                    ? getAvailableStreamingGenres(tmdbDetails)
+                    : []
+
                 setSerieData({
                     ...initialSerieData,
                     ...response,
                     news: response.news ?? '',
-                    genero: matchGenres(response.genero ?? [], genres),
+                    genero: mergeStreamingGenres(storedGenres, streamingGenres),
                     season: response.season ?? [],
                 })
             } catch (error) {

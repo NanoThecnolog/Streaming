@@ -14,6 +14,7 @@ import { mongoService } from '@/classes/MongoContent'
 import { tmdb } from '@/classes/TMDB'
 import { agp, gen, stm } from '@/utils/Genres'
 import { classification } from '@/utils/Variaveis'
+import { getAvailableStreamingGenres, mergeStreamingGenres } from '@/utils/WatchProviders'
 
 import styles from './styles.module.scss'
 
@@ -92,15 +93,16 @@ const CreateTV = () => {
 
                 if (!data) return
 
+                const tmdbGenres = data.genres.map(({ name }) => {
+                    return name === 'Thriller' ? 'Suspense' : name
+                })
+                const streamingGenres = getAvailableStreamingGenres(data)
+
                 setSerieData((previousData) => ({
                     ...previousData,
                     title: data.name ?? '',
                     description: data.overview ?? '',
-                    genero: data.genres.map(({ name }) => {
-                        return name === 'Thriller'
-                            ? 'Suspense'
-                            : name
-                    }),
+                    genero: mergeStreamingGenres(tmdbGenres, streamingGenres),
                 }))
             } catch (error) {
                 debug.log(

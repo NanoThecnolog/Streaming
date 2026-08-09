@@ -11,7 +11,6 @@ import BackTopButton from "@/components/ui/BackToTop";
 import debounce from "lodash.debounce";
 import Carousel from "@/components/Carousel";
 import { breakpoints, trendingBreakpoints } from "@/utils/Variaveis";
-import { flixFetcher } from "@/classes/Flixclass";
 import { useFlix } from "@/contexts/FlixContext";
 import TopPopularMovies from "@/components/TopPopularMovies";
 import HeroSection from "@/components/HeroSection";
@@ -36,19 +35,8 @@ export default function Home() {
   const combined = [...generos, ...agrupadores.filter(item => removedSections.includes(item))];
   const divisaoPorGenero = combined
 
-  const { allData, setAllData, serieData, setSerieData } = useTMDB()
+  const { allData, serieData } = useTMDB()
   const { movies, series, user } = useFlix()
-
-
-
-  useEffect(() => {
-    if (movies.length > 0 && allData.length === 0) flixFetcher.fetchMovieData(setAllData, movies)
-
-  }, [movies, allData.length, setAllData])
-
-  useEffect(() => {
-    if (series.length > 0 && serieData.length === 0) flixFetcher.fetchSerieData(setSerieData, series)
-  }, [series.length, serieData.length, setSerieData])
 
   useEffect(() => {
     const handleResize = () => {
@@ -120,7 +108,7 @@ export default function Home() {
 
                           return (
                             <div key={`${sec}+${index}`}>
-                              <Carousel type="movie" section={sec} cardPerContainer={cardPerContainer} />
+                              <Carousel type="all" section={sec} cardPerContainer={cardPerContainer} />
                             </div>
                           )
                         })

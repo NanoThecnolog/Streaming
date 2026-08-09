@@ -10,6 +10,7 @@ import { FaPlay } from 'react-icons/fa'
 import { toast } from 'react-toastify'
 
 import { Episodes, SeriesProps, TMDBEpisodes, TMDBSeries } from '@/@types/series'
+import { CardsProps } from '@/@types/Cards'
 import { CastProps } from '@/@types/movie/cast'
 import { groupedByDepartment } from '@/@types/movie/crew'
 import { EpisodeProgressProps, ProgressResponse } from '@/@types/watchedProgress'
@@ -42,7 +43,7 @@ import { mongoService } from '@/classes/MongoContent'
 import { tmdb } from '@/classes/TMDB'
 import { debug } from '@/classes/DebugLogger'
 
-import { getRelatedSerieCards } from '@/utils/CardsManipulation'
+import { getRelatedContent } from '@/utils/CardsManipulation'
 import { calculateVideoProgress, hasAccess } from '@/utils/UtilitiesFunctions'
 
 import styles from './styles.module.scss'
@@ -50,6 +51,15 @@ import styles from './styles.module.scss'
 interface SeriePageProps {
     data: TMDBSeries
     buttonVisible: boolean
+}
+
+const seriesStatusLabels: Record<string, string> = {
+    'Returning Series': 'Renovada',
+    Planned: 'Planejada',
+    'In Production': 'Em produção',
+    Ended: 'Finalizada',
+    Canceled: 'Cancelada',
+    Pilot: 'Piloto',
 }
 
 const getSeasonLanguage = (language?: string): string | null => {
@@ -73,8 +83,8 @@ const getSeasonLanguage = (language?: string): string | null => {
 export default function Serie({ data, buttonVisible }: SeriePageProps) {
     const router = useRouter()
 
-    const { user, series, setSeries } = useFlix()
-    const { serieData } = useTMDB()
+    const { user, movies, series, setSeries } = useFlix()
+    const { allData, serieData } = useTMDB()
 
     const watchLaterManager = useMemo(() => new WatchLaterManager(), [])
 
@@ -86,7 +96,7 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
 
     const [onWatchLater, setOnWatchLater] = useState(false)
 
-    const [relatedCards, setRelatedCards] = useState<SeriesProps[]>([])
+    const [relatedCards, setRelatedCards] = useState<Array<CardsProps | SeriesProps>>([])
 
     const [cast, setCast] = useState<CastProps[]>([])
     const [crewDepartment, setCrewDepartment] = useState<groupedByDepartment>({})
@@ -261,12 +271,13 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
                     return
                 }
 
-                const related =
-                    getRelatedSerieCards(
-                        serie,
-                        series,
-                        serieData,
-                    ) ?? []
+                const related = getRelatedContent(
+                    serie,
+                    movies,
+                    series,
+                    allData,
+                    serieData,
+                )
 
                 if (active) {
                     setRelatedCards(related)
@@ -290,7 +301,9 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
         }
     }, [
         serie,
+        movies,
         series,
+        allData,
         serieData,
         setSeries,
     ])
@@ -639,6 +652,9 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
     const seasonsLabel = seasonsAmount === 1 ? '1 temporada' : `${seasonsAmount} temporadas`
 
     const releaseYear = data.first_air_date?.match(/^(\d{4})/)?.[1] ?? null
+    const translatedStatus = data.status
+        ? seriesStatusLabels[data.status] ?? data.status
+        : null
 
     const backdropImage = data.backdrop_path ? `https://image.tmdb.org/t/p/original${data.backdrop_path}` : serie?.background ?? '/fundo-largo.jpg'
     const posterImage = data.poster_path ? `https://image.tmdb.org/t/p/w780${data.poster_path}` : backdropImage
@@ -795,6 +811,11 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
                                                 {releaseYear}
                                             </li>
                                         )}
+
+                                        {translatedStatus && (
+                                            <li>Status: {translatedStatus}</li>
+                                        )}
+
                                     </ul>
 
                                     <Genre genres={genres} />

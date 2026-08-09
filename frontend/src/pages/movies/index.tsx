@@ -11,7 +11,6 @@ import BackTopButton from "@/components/ui/BackToTop";
 import debounce from "lodash.debounce";
 import Carousel from "@/components/Carousel";
 import { breakpoints, trendingBreakpoints } from "@/utils/Variaveis";
-import { flixFetcher } from "@/classes/Flixclass";
 import { useFlix } from "@/contexts/FlixContext";
 import NewTop from "@/components/newTop";
 import { CardsProps } from "@/@types/Cards";
@@ -29,9 +28,9 @@ export default function Home() {
   const agrupadores = Object.values(agp);
   const combined = [...generos, ...agrupadores.filter(item => removedSections.includes(item))];
   const divisaoPorGenero = combined
-  const { allData, setAllData, serieData, setSerieData } = useTMDB()
+  const { allData } = useTMDB()
   const [visible, setvisible] = useState(false)
-  const { movies, series } = useFlix()
+  const { movies } = useFlix()
   //const { isOpen, close } = useDailyModal()
 
   const tmdbid = 1314481;
@@ -41,13 +40,6 @@ export default function Home() {
     const card = movies.find((card) => card.tmdbId === tmdbid)
     if (card && (!topCard || topCard.tmdbId !== card.tmdbId)) setTopCard(card)
   }, [movies])
-
-  useEffect(() => {
-    //if (allData.length > 0 && serieData.length > 0) return
-    if (movies.length > 0 && allData.length === 0) flixFetcher.fetchMovieData(setAllData, movies)
-    if (serieData.length === 0) flixFetcher.fetchSerieData(setSerieData, series)
-  }, [movies, setAllData, serieData, setSerieData])
-
 
   useEffect(() => {
     const handleResize = () => {

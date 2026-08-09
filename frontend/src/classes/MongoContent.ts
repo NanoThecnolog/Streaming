@@ -12,9 +12,7 @@ class MongoContentService {
             const response = await apiManager.get('/movie')
             const data: CardsProps[] = response.data
             //debug.log('Filmes', data)
-            const driveLink = '//drive.google.com'
-            const filtred = data.filter(movie => !movie.src.includes(driveLink))
-            return filtred
+            return data
         } catch (err) {
             debug.error(err)
             return []

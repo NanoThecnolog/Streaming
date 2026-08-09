@@ -11,6 +11,8 @@ import { debug } from '@/classes/DebugLogger'
 import { mongoService } from '@/classes/MongoContent'
 import { agp, gen, stm } from '@/utils/Genres'
 import { classification } from '@/utils/Variaveis'
+import { tmdb } from '@/classes/TMDB'
+import { getAvailableStreamingGenres, mergeStreamingGenres } from '@/utils/WatchProviders'
 
 import styles from './styles.module.scss'
 import { useTMDB } from '@/contexts/TMDBContext'
@@ -95,7 +97,10 @@ const Put = ({ tmdbid }: PutProps) => {
             setMovieData(createInitialMovieData(tmdbid))
 
             try {
-                const movie = await mongoService.findOneMovieById(tmdbid)
+                const [movie, tmdbDetails] = await Promise.all([
+                    mongoService.findOneMovieById(tmdbid),
+                    tmdb.fetchMovieDetails(tmdbid),
+                ])
 
                 if (!isCurrentRequest) return
 
@@ -106,11 +111,16 @@ const Put = ({ tmdbid }: PutProps) => {
                     return
                 }
 
+                const storedGenres = matchGenres(movie.genero ?? [], genres)
+                const streamingGenres = tmdbDetails
+                    ? getAvailableStreamingGenres(tmdbDetails)
+                    : []
+
                 setMovieData({
                     ...createInitialMovieData(tmdbid),
                     ...movie,
                     tmdbId: tmdbid,
-                    genero: matchGenres(movie.genero ?? [], genres),
+                    genero: mergeStreamingGenres(storedGenres, streamingGenres),
                 })
 
                 setMovieFound(true)

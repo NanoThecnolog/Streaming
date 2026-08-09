@@ -18,6 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             },
             params: {
                 language: "pt-BR",
+                append_to_response: "watch/providers",
             },
         });
 

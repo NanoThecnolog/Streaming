@@ -1,17 +1,17 @@
 import { SeriesProps, TMDBSeries } from '@/@types/series'
-import { debug } from '@/classes/DebugLogger'
 import axios, { AxiosError } from 'axios'
 import type { NextApiRequest, NextApiResponse } from 'next'
+import pLimit from 'p-limit'
 
 //const tmdbToken = process.env.TMDB_TOKEN
 
 const maxAttempts = 3
-const batchSize = 30
 const requestTimeout = 8_000
-const batchInterval = 500
 const retryInterval = 2_000
+const defaultConcurrency = 16
 
 const cache = new Map<number, TMDBSeries>()
+const inFlightRequests = new Map<number, Promise<CardDataResponse>>()
 
 interface SeriesRequestBody {
     series?: SeriesProps[]
@@ -36,6 +36,27 @@ interface HandlerResponse {
     data?: TMDBSeries[]
     errors?: CardDataFailure[]
     error?: string
+    metrics?: CacheMetrics
+}
+
+interface CacheMetrics {
+    cacheHits: number
+    cacheMisses: number
+    cacheSize: number
+    durationMs: number
+    concurrency: number
+    tmdbRequests: number
+    retries: number
+    rateLimited: number
+    failures: number
+    averageLatencyMs: number
+}
+
+interface RequestMetrics {
+    tmdbRequests: number
+    retries: number
+    rateLimited: number
+    totalLatencyMs: number
 }
 
 const getTmdbToken = (): string => {
@@ -99,9 +120,10 @@ const getErrorMessage = (error: unknown): string => {
     return error.message
 }
 
-const fetchCardData = async (
+const requestCardData = async (
     cardId: number,
     token: string,
+    metrics: RequestMetrics,
     attempt = 1,
 
 ): Promise<CardDataResponse> => {
@@ -119,7 +141,10 @@ const fetchCardData = async (
 
 
 
+    const requestStartedAt = Date.now()
+
     try {
+        metrics.tmdbRequests += 1
         const response = await axios.get<TMDBSeries>(
             `https://api.themoviedb.org/3/tv/${cardId}`,
             {
@@ -132,6 +157,7 @@ const fetchCardData = async (
                 //timeout: requestTimeout,
             },
         )
+        metrics.totalLatencyMs += Date.now() - requestStartedAt
 
         cache.set(cardId, response.data)
 
@@ -141,16 +167,21 @@ const fetchCardData = async (
             data: response.data,
         }
     } catch (error: unknown) {
+        metrics.totalLatencyMs += Date.now() - requestStartedAt
+        if (axios.isAxiosError(error) && error.response?.status === 429) {
+            metrics.rateLimited += 1
+        }
         const canRetry =
             attempt < maxAttempts &&
             shouldRetry(error)
 
         if (canRetry) {
+            metrics.retries += 1
             //debug.log(                `Tentativa ${attempt} falhou para a série ${cardId}. Tentando novamente...`,            )
 
             await sleep(retryInterval * attempt)
 
-            return fetchCardData(cardId, token, attempt + 1)
+            return requestCardData(cardId, token, metrics, attempt + 1)
         }
 
         return {
@@ -161,36 +192,62 @@ const fetchCardData = async (
     }
 }
 
-const fetchInBatches = async (
-    items: SeriesProps[],
-    size: number,
-    token: string
-): Promise<CardDataResponse[]> => {
-    const results: CardDataResponse[] = []
+const fetchCardData = async (
+    cardId: number,
+    token: string,
+    metrics: RequestMetrics,
+): Promise<CardDataResponse> => {
+    const cachedCard = cache.get(cardId)
 
-    for (let index = 0; index < items.length; index += size) {
-        const batch = items.slice(index, index + size)
-
-        const batchResults = await Promise.all(
-            batch.map(serie => fetchCardData(serie.tmdbID, token)),
-        )
-
-        results.push(...batchResults)
-
-        const hasNextBatch = index + size < items.length
-
-        if (hasNextBatch) {
-            await sleep(batchInterval)
-        }
+    if (cachedCard) {
+        return { success: true, cardId, data: cachedCard }
     }
 
-    return results
+    const pendingRequest = inFlightRequests.get(cardId)
+    if (pendingRequest) return pendingRequest
+
+    const request = requestCardData(cardId, token, metrics)
+    inFlightRequests.set(cardId, request)
+
+    try {
+        return await request
+    } finally {
+        if (inFlightRequests.get(cardId) === request) inFlightRequests.delete(cardId)
+    }
+}
+
+const fetchWithConcurrency = async (
+    items: SeriesProps[],
+    token: string,
+    concurrency: number,
+    metrics: RequestMetrics,
+): Promise<CardDataResponse[]> => {
+    const limit = pLimit(concurrency)
+    let completed = 0
+    console.info(`[TMDB series] Fila iniciada: ${items.length} IDs, concorrência ${concurrency}.`)
+    const watchdog = setInterval(() => {
+        console.info(`[TMDB series] Progresso: ${completed}/${items.length}; ativas: ${limit.activeCount}; aguardando: ${limit.pendingCount}.`)
+    }, 10_000)
+
+    try {
+        return await Promise.all(items.map(serie => limit(async () => {
+            try {
+                return await fetchCardData(serie.tmdbID, token, metrics)
+            } finally {
+                completed += 1
+            }
+        })))
+    } finally {
+        clearInterval(watchdog)
+    }
 }
 
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<HandlerResponse>,
 ): Promise<void> {
+    const startedAt = Date.now()
+
     if (req.method !== 'POST') {
         res.setHeader('Allow', ['POST'])
 
@@ -251,11 +308,35 @@ export default async function handler(
             ).values(),
         )
 
-        const results = await fetchInBatches(
-            uniqueSeries,
-            batchSize,
-            token
+        const cachedResults: CardDataSuccess[] = []
+        const missingSeries: SeriesProps[] = []
+
+        for (const serie of uniqueSeries) {
+            const cachedSerie = cache.get(serie.tmdbID)
+
+            if (cachedSerie) {
+                cachedResults.push({
+                    success: true,
+                    cardId: serie.tmdbID,
+                    data: cachedSerie,
+                })
+            } else {
+                missingSeries.push(serie)
+            }
+        }
+
+        const concurrency = Math.max(1, Number(process.env.TMDB_FETCH_CONCURRENCY) || defaultConcurrency)
+        const requestMetrics: RequestMetrics = { tmdbRequests: 0, retries: 0, rateLimited: 0, totalLatencyMs: 0 }
+        const fetchedResults = await fetchWithConcurrency(
+            missingSeries,
+            token,
+            concurrency,
+            requestMetrics,
         )
+        const results: CardDataResponse[] = [
+            ...cachedResults,
+            ...fetchedResults,
+        ]
 
         const successfulById = new Map<number, TMDBSeries>()
 
@@ -280,10 +361,28 @@ export default async function handler(
             return result ? [result] : []
         })
 
+        const metrics: CacheMetrics = {
+            cacheHits: cachedResults.length,
+            cacheMisses: missingSeries.length,
+            cacheSize: cache.size,
+            durationMs: Date.now() - startedAt,
+            concurrency,
+            tmdbRequests: requestMetrics.tmdbRequests,
+            retries: requestMetrics.retries,
+            rateLimited: requestMetrics.rateLimited,
+            failures: errors.length,
+            averageLatencyMs: requestMetrics.tmdbRequests
+                ? Math.round(requestMetrics.totalLatencyMs / requestMetrics.tmdbRequests)
+                : 0,
+        }
+
+        console.info('[TMDB series] Métricas finais:', metrics)
+
         res.status(200).json({
             success: true,
             data,
             errors,
+            metrics,
         })
     } catch (error: unknown) {
         console.error(

@@ -1,15 +1,15 @@
 import { CardsProps, MovieTMDB } from '@/@types/Cards'
-import { debug } from '@/classes/DebugLogger'
 import axios, { AxiosError } from 'axios'
 import type { NextApiRequest, NextApiResponse } from 'next'
+import pLimit from 'p-limit'
 
 const maxAttempts = 3
-const batchSize = 50
 const requestTimeout = 15_000
-const batchInterval = 500
 const retryInterval = 2_000
+const defaultConcurrency = 16
 
 const cache = new Map<number, MovieTMDB>()
+const inFlightRequests = new Map<number, Promise<MovieResult>>()
 
 interface MoviesRequestBody {
     movies?: CardsProps[]
@@ -34,6 +34,27 @@ interface MoviesResponse {
     data?: MovieTMDB[]
     errors?: MovieErrorResult[]
     error?: string
+    metrics?: CacheMetrics
+}
+
+interface CacheMetrics {
+    cacheHits: number
+    cacheMisses: number
+    cacheSize: number
+    durationMs: number
+    concurrency: number
+    tmdbRequests: number
+    retries: number
+    rateLimited: number
+    failures: number
+    averageLatencyMs: number
+}
+
+interface RequestMetrics {
+    tmdbRequests: number
+    retries: number
+    rateLimited: number
+    totalLatencyMs: number
 }
 
 const sleep = async (milliseconds: number): Promise<void> => {
@@ -93,7 +114,7 @@ const getErrorMessage = (error: unknown): string => {
     return error.message
 }
 
-const fetchMovieData = async (movieId: number, token: string, attempt = 1): Promise<MovieResult> => {
+const requestMovieData = async (movieId: number, token: string, metrics: RequestMetrics, attempt = 1): Promise<MovieResult> => {
     const cachedMovie = cache.get(movieId)
 
     if (cachedMovie) {
@@ -106,7 +127,11 @@ const fetchMovieData = async (movieId: number, token: string, attempt = 1): Prom
         }
     }
 
+    const requestStartedAt = Date.now()
+
     try {
+        metrics.tmdbRequests += 1
+
         const response = await axios.get<MovieTMDB>(
             `https://api.themoviedb.org/3/movie/${movieId}`,
             {
@@ -121,6 +146,8 @@ const fetchMovieData = async (movieId: number, token: string, attempt = 1): Prom
             },
         )
 
+        metrics.totalLatencyMs += Date.now() - requestStartedAt
+
         cache.set(movieId, response.data)
 
         return {
@@ -129,16 +156,23 @@ const fetchMovieData = async (movieId: number, token: string, attempt = 1): Prom
             data: response.data,
         }
     } catch (error: unknown) {
+        metrics.totalLatencyMs += Date.now() - requestStartedAt
+
+        if (axios.isAxiosError(error)) {
+            if (error.response?.status === 429) metrics.rateLimited += 1
+        }
         const canRetry = attempt < maxAttempts && shouldRetry(error)
 
         if (canRetry) {
+            metrics.retries += 1
             //debug.log(`Tentativa ${attempt} falhou para o filme ${movieId}. Tentando novamente...`)
 
             await sleep(retryInterval * attempt)
 
-            return fetchMovieData(
+            return requestMovieData(
                 movieId,
                 token,
+                metrics,
                 attempt + 1,
             )
         }
@@ -151,35 +185,52 @@ const fetchMovieData = async (movieId: number, token: string, attempt = 1): Prom
     }
 }
 
-const fetchInBatches = async (items: CardsProps[], size: number, token: string): Promise<MovieResult[]> => {
-    const results: MovieResult[] = []
+const fetchMovieData = async (movieId: number, token: string, metrics: RequestMetrics): Promise<MovieResult> => {
+    const cachedMovie = cache.get(movieId)
 
-    for (let index = 0; index < items.length; index += size) {
-        const batch = items.slice(index, index + size)
-
-        const batchResults = await Promise.all(
-            batch.map(movie =>
-                fetchMovieData(
-                    movie.tmdbId,
-                    token,
-                ),
-            ),
-        )
-
-        results.push(...batchResults)
-
-        const hasNextBatch =
-            index + size < items.length
-
-        if (hasNextBatch) {
-            await sleep(batchInterval)
-        }
+    if (cachedMovie) {
+        return { success: true, cardId: movieId, data: cachedMovie }
     }
 
-    return results
+    const pendingRequest = inFlightRequests.get(movieId)
+    if (pendingRequest) return pendingRequest
+
+    const request = requestMovieData(movieId, token, metrics)
+    inFlightRequests.set(movieId, request)
+
+    try {
+        return await request
+    } finally {
+        if (inFlightRequests.get(movieId) === request) inFlightRequests.delete(movieId)
+    }
+}
+
+const fetchWithConcurrency = async (items: CardsProps[], token: string, concurrency: number, metrics: RequestMetrics): Promise<MovieResult[]> => {
+    const limit = pLimit(concurrency)
+    let completed = 0
+
+    console.info(`[TMDB movies] Fila iniciada: ${items.length} IDs, concorrência ${concurrency}.`)
+
+    const watchdog = setInterval(() => {
+        console.info(`[TMDB movies] Progresso: ${completed}/${items.length}; ativas: ${limit.activeCount}; aguardando: ${limit.pendingCount}.`)
+    }, 10_000)
+
+    try {
+        return await Promise.all(items.map(movie => limit(async () => {
+            try {
+                return await fetchMovieData(movie.tmdbId, token, metrics)
+            } finally {
+                completed += 1
+            }
+        })))
+    } finally {
+        clearInterval(watchdog)
+    }
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<MoviesResponse>): Promise<void> {
+    const startedAt = Date.now()
+
     if (req.method !== 'POST') {
         res.setHeader('Allow', ['POST'])
 
@@ -247,11 +298,35 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             ).values(),
         )
 
-        const results = await fetchInBatches(
-            uniqueMovies,
-            batchSize,
+        const cachedResults: MovieSuccessResult[] = []
+        const missingMovies: CardsProps[] = []
+
+        for (const movie of uniqueMovies) {
+            const cachedMovie = cache.get(movie.tmdbId)
+
+            if (cachedMovie) {
+                cachedResults.push({
+                    success: true,
+                    cardId: movie.tmdbId,
+                    data: cachedMovie,
+                })
+            } else {
+                missingMovies.push(movie)
+            }
+        }
+
+        const concurrency = Math.max(1, Number(process.env.TMDB_FETCH_CONCURRENCY) || defaultConcurrency)
+        const requestMetrics: RequestMetrics = { tmdbRequests: 0, retries: 0, rateLimited: 0, totalLatencyMs: 0 }
+        const fetchedResults = await fetchWithConcurrency(
+            missingMovies,
             token,
+            concurrency,
+            requestMetrics,
         )
+        const results: MovieResult[] = [
+            ...cachedResults,
+            ...fetchedResults,
+        ]
 
         const moviesById = new Map<number, MovieTMDB>()
         const errors: MovieErrorResult[] = []
@@ -280,10 +355,28 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                 : []
         })
 
+        const metrics: CacheMetrics = {
+            cacheHits: cachedResults.length,
+            cacheMisses: missingMovies.length,
+            cacheSize: cache.size,
+            durationMs: Date.now() - startedAt,
+            concurrency,
+            tmdbRequests: requestMetrics.tmdbRequests,
+            retries: requestMetrics.retries,
+            rateLimited: requestMetrics.rateLimited,
+            failures: errors.length,
+            averageLatencyMs: requestMetrics.tmdbRequests
+                ? Math.round(requestMetrics.totalLatencyMs / requestMetrics.tmdbRequests)
+                : 0,
+        }
+
+        console.info('[TMDB movies] Métricas finais:', metrics)
+
         res.status(200).json({
             success: true,
             data,
             errors,
+            metrics,
         })
     } catch (error: unknown) {
         console.error(
@@ -295,7 +388,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             success: false,
             error: 'Erro interno ao buscar dados dos filmes.',
         })
-    } finally {
-        debug.timeEnd('TempoTotalDaRotaMovies')
     }
 }

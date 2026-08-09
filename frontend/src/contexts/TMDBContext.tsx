@@ -1,7 +1,6 @@
 import { MovieTMDB } from "@/@types/Cards";
 import { TMDBSeries } from "@/@types/series";
 import { createContext, useContext, useState, ReactNode, useEffect } from "react";
-import { useFlix } from "./FlixContext";
 import { flixFetcher } from "@/classes/Flixclass";
 import { debug } from "@/classes/DebugLogger";
 
@@ -20,6 +19,8 @@ interface TMDBContextProps {
 
     isLoadingMovies: boolean
     isLoadingSeries: boolean
+    movieError: string | null
+    seriesError: string | null
 }
 
 export const TMDBContext = createContext<TMDBContextProps>({
@@ -31,19 +32,21 @@ export const TMDBContext = createContext<TMDBContextProps>({
     setCachedImage: () => { },
 
     isLoadingMovies: true,
-    isLoadingSeries: true
+    isLoadingSeries: true,
+    movieError: null,
+    seriesError: null,
 });
 
 export function TMDBProvider({ children }: TMDBProviderProps) {
     const [allData, setAllData] = useState<MovieTMDB[]>([])
     const [serieData, setSerieData] = useState<TMDBSeries[]>([])
 
-    const { movies, series } = useFlix()
-
     const [cachedImages, setCachedImages] = useState<Record<number, string>>({})
 
     const [isLoadingMovies, setIsLoadingMovies] = useState(true)
     const [isLoadingSeries, setIsLoadingSeries] = useState(true)
+    const [movieError, setMovieError] = useState<string | null>(null)
+    const [seriesError, setSeriesError] = useState<string | null>(null)
 
 
     /*useEffect(() => {
@@ -56,57 +59,66 @@ export function TMDBProvider({ children }: TMDBProviderProps) {
 
 
     useEffect(() => {
-        const controller = new AbortController()
+        let cancelled = false
 
         const getMovieData = async () => {
-            if (!movies.length) {
-                setAllData([])
-                setIsLoadingMovies(false)
-                return
-            }
             setIsLoadingMovies(true)
+            setMovieError(null)
 
             try {
-                await flixFetcher.fetchMovieData(setAllData, movies)
+                const movies = await flixFetcher.fetchMovieData()
+                if (!cancelled) setAllData(movies)
+            } catch (error: unknown) {
+                if (!cancelled) {
+                    setMovieError(error instanceof Error ? error.message : 'Erro ao carregar filmes.')
+                }
             } finally {
-                setIsLoadingMovies(false)
+                if (!cancelled) setIsLoadingMovies(false)
             }
         }
         void getMovieData()
 
         return () => {
-            controller.abort()
+            cancelled = true
         }
-    }, [movies])
+    }, [])
 
     useEffect(() => {
-        const controller = new AbortController()
+        let cancelled = false
 
         const getSerieData = async () => {
-            if (series.length === 0) {
-                debug.log("tornando serieData um array vazio")
-                setSerieData([])
-                setIsLoadingSeries(false)
-                return
-            }
             setIsLoadingSeries(true)
-            try {
-                await flixFetcher.fetchSerieData(setSerieData, series)
-            } finally {
-                setIsLoadingSeries(false)
-            }
+            setSeriesError(null)
 
+            try {
+                const series = await flixFetcher.fetchSerieData()
+                if (!cancelled) setSerieData(series)
+            } catch (error: unknown) {
+                if (!cancelled) {
+                    setSeriesError(error instanceof Error ? error.message : 'Erro ao carregar séries.')
+                }
+            } finally {
+                if (!cancelled) setIsLoadingSeries(false)
+            }
         }
         void getSerieData()
 
         return () => {
-            controller.abort()
+            cancelled = true
         }
-    }, [series])
+    }, [])
 
     const setCachedImage = (id: number, url: string) => {
         setCachedImages((prev) => ({ ...prev, [id]: url }))
     }
+
+    useEffect(() => {
+        if (serieData.length > 0) debug.log("Series no TMDBContext", serieData)
+    }, [serieData])
+
+    useEffect(() => {
+        if (allData.length > 0) debug.log("Movies no TMDBContext", allData)
+    }, [allData])
 
     return (
         <TMDBContext.Provider value={{
@@ -117,7 +129,9 @@ export function TMDBProvider({ children }: TMDBProviderProps) {
             cachedImages,
             setCachedImage,
             isLoadingMovies,
-            isLoadingSeries
+            isLoadingSeries,
+            movieError,
+            seriesError,
         }}>
             {children}
         </TMDBContext.Provider>

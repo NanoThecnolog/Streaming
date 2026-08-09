@@ -5,6 +5,8 @@ type RelatedCard<T> = T & {
     score: number
 }
 
+type CatalogContent = CardsProps | SeriesProps
+
 type RecommendationConfig<T> = {
     getId: (item: T) => number
     getTitle: (item: T) => string
@@ -199,6 +201,69 @@ export const getRelatedSerieCards = (
             getGenres: item => item.genero ?? [],
         },
     )
+}
+
+const isSeriesContent = (
+    item: CatalogContent,
+): item is SeriesProps => {
+    return 'season' in item
+}
+
+export const getRelatedContent = (
+    reference: CatalogContent,
+    movies: CardsProps[],
+    series: SeriesProps[],
+    movieData: MovieTMDB[],
+    seriesData: TMDBSeries[],
+): RelatedCard<CatalogContent>[] => {
+    const limit = 20
+    const popularityById = new Map<number, number>([
+        ...movieData.map((item): [number, number] => [
+            item.id,
+            item.popularity ?? 0,
+        ]),
+        ...seriesData.map((item): [number, number] => [
+            -item.id,
+            item.popularity ?? 0,
+        ]),
+    ])
+
+    const rankedItems = getRelatedItems<CatalogContent>(
+        reference,
+        [...movies, ...series],
+        popularityById,
+        {
+            getId: item => isSeriesContent(item)
+                ? -item.tmdbID
+                : item.tmdbId,
+            getTitle: item => item.title,
+            getGenres: item => item.genero ?? [],
+            limit: movies.length + series.length,
+        },
+    )
+
+    const selectedItems = [
+        ...rankedItems.filter(item => !isSeriesContent(item)).slice(0, limit / 2),
+        ...rankedItems.filter(isSeriesContent).slice(0, limit / 2),
+    ]
+    const selectedKeys = new Set(selectedItems.map(item => (
+        isSeriesContent(item) ? `series-${item.tmdbID}` : `movie-${item.tmdbId}`
+    )))
+
+    for (const item of rankedItems) {
+        if (selectedItems.length >= limit) break
+
+        const key = isSeriesContent(item)
+            ? `series-${item.tmdbID}`
+            : `movie-${item.tmdbId}`
+
+        if (!selectedKeys.has(key)) {
+            selectedItems.push(item)
+            selectedKeys.add(key)
+        }
+    }
+
+    return selectedItems.sort((a, b) => b.score - a.score)
 }
 
 export const filterCards = <T extends CardsProps | SeriesProps>(

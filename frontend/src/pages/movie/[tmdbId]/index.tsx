@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import styles from './styles.module.scss'
 import { useEffect, useState } from 'react';
 import { CardsProps, MovieTMDB } from '@/@types/Cards';
+import { SeriesProps } from '@/@types/series';
 import Header from '@/components/Header';
 import Stars from '@/components/ui/StarAverage';
 import Adult from '@/components/ui/Adult';
@@ -11,7 +12,7 @@ import Footer from '@/components/Footer';
 import Spinner from '@/components/ui/Loading/spinner';
 import { TrailerProps } from '@/@types/trailer';
 import TrailerButton from '@/components/ui/TrailerButton';
-import { getRelatedCards } from '@/utils/CardsManipulation';
+import { getRelatedContent } from '@/utils/CardsManipulation';
 import { useTMDB } from '@/contexts/TMDBContext';
 import { useFlix } from '@/contexts/FlixContext';
 import { debug } from '@/classes/DebugLogger';
@@ -49,11 +50,11 @@ interface MovieProps {
 export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
     const router = useRouter()
     const { tmdbId } = router.query;
-    const { allData } = useTMDB()
-    const { user, movies, setMovies } = useFlix()
+    const { allData, serieData } = useTMDB()
+    const { user, movies, series, setMovies } = useFlix()
     const [filme, setFilme] = useState<CardsProps | null>(null)
     const [onWatchLater, setOnWatchLater] = useState(false)
-    const [relatedCards, setRelatedCards] = useState<CardsProps[]>([])
+    const [relatedCards, setRelatedCards] = useState<Array<CardsProps | SeriesProps>>([])
     const [trailer, setTrailer] = useState<TrailerProps | null>(null)
     const [loadingButton, setLoadingButton] = useState(false)
     const [warningModalOpen, setWarningModalOpen] = useState(false)
@@ -110,10 +111,16 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
         }
         if (movies.length === 0) getMoviesMongoDB()*/
         if (!filme) return debug.log('movie not found above relatedCards')
-        const relatedCards = getRelatedCards(filme, movies, allData)
+        const relatedCards = getRelatedContent(
+            filme,
+            movies,
+            series,
+            allData,
+            serieData,
+        )
         if (relatedCards && relatedCards.length > 0) setRelatedCards(relatedCards)
         watchLater()
-    }, [movie, movies, allData, filme])
+    }, [movie, movies, series, allData, serieData, filme])
 
     useEffect(() => {
         if (movies.length === 0) return
@@ -200,6 +207,35 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
         : hasProgress
             ? 'Continuar assistindo'
             : 'Começar a assistir'
+
+    const formatRevenue = (revenue: number): string | null => {
+        if (revenue <= 0) return null
+
+        const units = [
+            { value: 1_000_000_000, singular: 'bilhão', plural: 'bilhões' },
+            { value: 1_000_000, singular: 'milhão', plural: 'milhões' },
+            { value: 1_000, singular: 'mil', plural: 'mil' },
+        ]
+        const unit = units.find(({ value }) => revenue >= value)
+
+        if (!unit) {
+            return new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'USD',
+                maximumFractionDigits: 0,
+            }).format(revenue)
+        }
+
+        const amount = revenue / unit.value
+        const formattedAmount = new Intl.NumberFormat('pt-BR', {
+            maximumFractionDigits: 2,
+        }).format(amount)
+        const label = amount === 1 ? unit.singular : unit.plural
+
+        return `US$ ${formattedAmount} ${label}`
+    }
+
+    const formattedRevenue = formatRevenue(movie.revenue)
 
     const PlayIcon = hasProgress
         ? FaPlay
@@ -325,6 +361,12 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
                                         <Stars average={movie.vote_average} />
                                         <Adult faixa={filme.faixa} />
                                     </div>
+
+                                    {formattedRevenue && (
+                                        <ul className={styles.contentFacts} aria-label="Informações adicionais do filme">
+                                            <li>Receita: {formattedRevenue}</li>
+                                        </ul>
+                                    )}
                                 </div>
 
                                 <Overview text={movie.overview} />

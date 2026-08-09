@@ -11,13 +11,11 @@ import debounce from "lodash.debounce";
 import BackTopButton from "@/components/ui/BackToTop";
 import Carousel from "@/components/Carousel";
 import { breakpoints, trendingBreakpoints } from "@/utils/Variaveis";
-import { flixFetcher } from "@/classes/Flixclass";
 import { SeriesProps } from "@/@types/series";
 import { mongoService } from "@/classes/MongoContent";
 import { useFlix } from "@/contexts/FlixContext";
 import NewTopSerie from "@/components/seriesComponents/newTopSerie";
 import TopPopularTVShows from "@/components/TopPopularTV";
-import { CardsProps } from "@/@types/Cards";
 //import { DailyWarningModal } from "@/components/ui/DailyModal";
 import { useDailyModal } from "@/hooks/useDailyModal";
 import NewTop from "@/components/newTop";
@@ -35,7 +33,7 @@ export default function Series() {
     const removedSections = ["Romance", "Terror", "Globo Play", "Paramount", "StarZ", "SKY"]
     const divisaoPorGenero = combined.filter(item => !removedSections.includes(item))
     //const [loading, setLoading] = useState(false)
-    const { serieData, setSerieData, setAllData, allData } = useTMDB()
+    const { serieData } = useTMDB()
     const [visible, setvisible] = useState(false)
     const { user, series, setSeries } = useFlix()
 
@@ -48,17 +46,6 @@ export default function Series() {
         }
         if (series.length === 0) fetchSeriesMongoDB()
     }, [series])
-
-    useEffect(() => {
-        //if (serieData.length > 0) return
-        async function fetchMoviesMongoDB() {
-            const movies: CardsProps[] = await mongoService.fetchMovieData()
-            if (movies.length > 0) await flixFetcher.fetchMovieData(setAllData, movies)
-        }
-
-        if (serieData.length === 0) flixFetcher.fetchSerieData(setSerieData, series)
-        if (allData.length === 0) fetchMoviesMongoDB()
-    }, [serieData, allData])
 
     useEffect(() => {
         function handleResize() {

@@ -16,7 +16,7 @@ interface CarouselProps {
     //cards: CardsProps[],
     section: string,
     cardPerContainer: number
-    type: 'movie' | 'tv'
+    type: 'movie' | 'tv' | 'all'
 }
 
 export default function Carousel({ type, section, cardPerContainer }: CarouselProps) {
@@ -34,12 +34,19 @@ export default function Carousel({ type, section, cardPerContainer }: CarouselPr
     };
 
     useEffect(() => {
-        const filter = type === 'movie' ? movies.filter(card => card.genero.some(gen => gen.toLowerCase() === section?.toLowerCase())) : series.filter(card => card.genero.some(gen => gen.toLowerCase() === section?.toLowerCase()))
-        let shuffled: CardsProps[] | SeriesProps[];
-        if (type === 'movie') shuffled = shuffle(filter as CardsProps[])
-        else shuffled = shuffle(filter as SeriesProps[])
-        setFilter(shuffled)
-    }, [section, movies, series])
+        const matchesSection = (card: CardsProps | SeriesProps) => {
+            return card.genero.some(genre => (
+                genre.toLocaleLowerCase('pt-BR') === section.toLocaleLowerCase('pt-BR')
+            ))
+        }
+        const availableCards: Array<CardsProps | SeriesProps> = type === 'movie'
+            ? movies
+            : type === 'tv'
+                ? series
+                : [...movies, ...series]
+
+        setFilter(shuffle(availableCards.filter(matchesSection)))
+    }, [type, section, movies, series])
 
     useEffect(() => {
         if (swiperInstance && swiperRef.current && swiperRef.current.swiper && prevRef.current && nextRef.current) {
@@ -67,11 +74,11 @@ export default function Carousel({ type, section, cardPerContainer }: CarouselPr
             >
                 {filter.map((card, index) => {
                     if ('season' in card) {
-                        return <SwiperSlide key={card.tmdbID}>
+                        return <SwiperSlide key={`series-${card.tmdbID}`}>
                             <Card card={card} />
                         </SwiperSlide>
                     } else {
-                        return <SwiperSlide key={`${card.tmdbId}+${index}`}>
+                        return <SwiperSlide key={`movie-${card.tmdbId}-${index}`}>
                             <Card card={card} />
                         </SwiperSlide>
                     }

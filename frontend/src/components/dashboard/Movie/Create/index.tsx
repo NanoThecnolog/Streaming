@@ -11,6 +11,7 @@ import { mongoService } from '@/classes/MongoContent'
 import { tmdb } from '@/classes/TMDB'
 import { agp, gen, stm } from '@/utils/Genres'
 import { minToHour } from '@/utils/UtilitiesFunctions'
+import { getAvailableStreamingGenres, mergeStreamingGenres } from '@/utils/WatchProviders'
 import { classification } from '@/utils/Variaveis'
 
 import styles from './styles.module.scss'
@@ -86,6 +87,13 @@ const Create = ({ tmdbid }: CreateProps) => {
 
                 debug.log('Dados do filme:', dataTMDB)
 
+                const tmdbGenres = dataTMDB.genres.map((genre) => {
+                    return genre.name === 'Thriller'
+                        ? 'Suspense'
+                        : genre.name
+                })
+                const streamingGenres = getAvailableStreamingGenres(dataTMDB)
+
                 setMovieData((previousData) => ({
                     ...previousData,
                     tmdbId: tmdbid,
@@ -94,11 +102,7 @@ const Create = ({ tmdbid }: CreateProps) => {
                     duration: dataTMDB.runtime
                         ? minToHour(dataTMDB.runtime)
                         : '',
-                    genero: dataTMDB.genres.map((genre) => {
-                        return genre.name === 'Thriller'
-                            ? 'Suspense'
-                            : genre.name
-                    }),
+                    genero: mergeStreamingGenres(tmdbGenres, streamingGenres),
                 }))
             } catch (error) {
                 if (!isCurrentRequest) return
