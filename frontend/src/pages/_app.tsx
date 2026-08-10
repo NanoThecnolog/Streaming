@@ -1,7 +1,5 @@
 import '@/styles/globals.scss'
 import type { AppProps } from 'next/app'
-import 'react-toastify/dist/ReactToastify.css'
-import { ToastContainer } from 'react-toastify'
 import { TMDBProvider } from '@/contexts/TMDBContext'
 import { useEffect, useRef } from 'react'
 import ErrorBoundary from '@/components/Errors/ErrorBoundary'
@@ -15,6 +13,7 @@ import { GA_TRACKING_ID, pageview } from '@/utils/gtag'
 import Script from 'next/script'
 import { debug } from '@/classes/DebugLogger'
 import NavigationProgress from '@/components/ui/NavigationProgress'
+import Notifications from '@/components/ui/Notifications'
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -124,7 +123,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <TMDBProvider>
           <NavigationProgress />
           <Component {...pageProps} />
-          <ToastContainer autoClose={3500} />
+          <Notifications />
         </TMDBProvider>
       </FlixProvider>
     </ErrorBoundary>

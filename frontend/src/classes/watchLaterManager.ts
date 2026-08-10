@@ -4,7 +4,7 @@ import { SeriesProps } from '@/@types/series'
 import { debug } from './DebugLogger'
 import { WatchLaterProps } from '@/@types/watchLater'
 import { WatchLaterContext } from '@/@types/contexts/flixContext'
-import { toast } from 'react-toastify'
+import { toast } from '@/components/ui/Notifications'
 import { SetupAPIClient } from '@/services/api'
 
 export class WatchLaterManager extends ListManager {

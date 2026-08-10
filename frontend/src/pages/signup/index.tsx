@@ -1,7 +1,7 @@
 import { FormEvent, useState } from 'react'
 import styles from './styles.module.scss'
 import Link from 'next/link'
-import { toast } from 'react-toastify'
+import { toast } from '@/components/ui/Notifications'
 import Router from 'next/router'
 import { FaEye, FaEyeSlash, FaSpinner } from 'react-icons/fa'
 import SEO from '@/components/SEO'

@@ -12,7 +12,7 @@ import {
   ShieldCheck,
 } from 'lucide-react'
 import { isAxiosError } from 'axios'
-import { toast } from 'react-toastify'
+import { toast } from '@/components/ui/Notifications'
 
 import SEO from '@/components/SEO'
 import { SetupAPIClient } from '@/services/api'

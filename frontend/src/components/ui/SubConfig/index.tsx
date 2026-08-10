@@ -1,15 +1,4 @@
-import {
-  CalendarDays,
-  ChevronRight,
-  CircleDollarSign,
-  Clock3,
-  CreditCard,
-  Crown,
-  Gift,
-  Loader2,
-  ReceiptText,
-  ShieldCheck,
-} from 'lucide-react'
+import { ChevronRight, Crown, Gift, Loader2, ReceiptText, ShieldCheck } from 'lucide-react'
 
 import styles from './styles.module.scss'
 
@@ -26,27 +15,6 @@ import { Normalize } from '@/classes/Normalize'
 import { SubDataEFIReponse, SubDetailsResponseProps } from '@/@types/subscriptions/subDetails'
 
 type SubscriptionStatus = 'active' | 'new_charge' | 'canceled' | 'expired' | 'inactive' | string
-
-const formatCurrency = (value: number): string => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-  }).format(value / 100)
-}
-
-const getPaymentMethodLabel = (method: string): string => {
-  const methods: Record<string, string> = {
-    banking_billet: 'Boleto bancário',
-    credit_card: 'Cartão de crédito',
-    pix: 'Pix',
-  }
-
-  return methods[method] ?? method
-}
-
-const isSubscriptionActive = (status: string): boolean => {
-  return ['active', 'new_charge'].includes(status)
-}
 
 const getStatusClassName = (status: SubscriptionStatus): string => {
   const classes: Record<string, string> = {
@@ -153,8 +121,6 @@ export default function SubConfig() {
   }
 
   if (subEFI) {
-    const active = isSubscriptionActive(subEFI.status)
-
     const normalizedStatus = Normalize.subscriptionStatus(subEFI.status)
 
     return (
@@ -167,9 +133,12 @@ export default function SubConfig() {
 
             <div>
               <span>Plano atual</span>
-              <h3>{subEFI.plan.name}</h3>
 
-              <p>Assinatura #{subEFI.subscription_id}</p>
+              <div className={styles.planTitleRow}>
+                <h3>{subEFI.plan.name}</h3>
+
+                <p>Assinante desde {formatedDate(subEFI.created_at)}</p>
+              </div>
             </div>
           </div>
 
@@ -182,60 +151,6 @@ export default function SubConfig() {
             {normalizedStatus}
           </span>
         </header>
-
-        <div className={styles.subscriptionSummary}>
-          <article className={styles.summaryItem}>
-            <div className={styles.summaryIcon}>
-              <CircleDollarSign size={19} />
-            </div>
-
-            <div>
-              <span>Valor</span>
-
-              <strong>{formatCurrency(subEFI.value)}</strong>
-            </div>
-          </article>
-
-          <article className={styles.summaryItem}>
-            <div className={styles.summaryIcon}>
-              <CreditCard size={19} />
-            </div>
-
-            <div>
-              <span>Pagamento</span>
-
-              <strong>{getPaymentMethodLabel(subEFI.payment_method || '')}</strong>
-            </div>
-          </article>
-
-          <article className={styles.summaryItem}>
-            <div className={styles.summaryIcon}>
-              <CalendarDays size={19} />
-            </div>
-
-            <div>
-              <span>{active ? 'Próximo vencimento' : 'Situação'}</span>
-
-              <strong>
-                {active && subEFI.next_expire_at
-                  ? formatedDate(subEFI.next_expire_at)
-                  : normalizedStatus}
-              </strong>
-            </div>
-          </article>
-
-          <article className={styles.summaryItem}>
-            <div className={styles.summaryIcon}>
-              <Clock3 size={19} />
-            </div>
-
-            <div>
-              <span>Assinante desde</span>
-
-              <strong>{formatedDate(subEFI.created_at)}</strong>
-            </div>
-          </article>
-        </div>
 
         <button type="button" className={styles.manageButton} onClick={handleManageSubscription}>
           <div className={styles.manageButtonIcon}>

@@ -4,10 +4,9 @@ import { useRouter } from 'next/router'
 import { useEffect, useMemo, useState } from 'react'
 
 import axios from 'axios'
-import { verify } from 'jsonwebtoken'
 import nookies from 'nookies'
 import { FaPlay } from 'react-icons/fa'
-import { toast } from 'react-toastify'
+import { toast } from '@/components/ui/Notifications'
 
 import { Episodes, SeriesProps, TMDBEpisodes, TMDBSeries } from '@/@types/series'
 import { CardsProps } from '@/@types/Cards'
@@ -777,7 +776,7 @@ export const getServerSideProps: GetServerSideProps<SeriePageProps> = async (con
     tmdbId: string
   }
 
-  const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN
+  const tmdbToken = process.env.TMDB_TOKEN
 
   if (!tmdbToken) {
     return {
@@ -805,25 +804,18 @@ export const getServerSideProps: GetServerSideProps<SeriePageProps> = async (con
 
     const cookies = nookies.get(context)
     const token = cookies['flix-token']
-    const jwtSecret = process.env.SECRET_JWT
+    let buttonVisible = false
 
-    let userId: string | null = null
-
-    if (token && jwtSecret) {
+    if (token) {
       try {
-        const decoded = verify(token, jwtSecret)
-
-        if (typeof decoded !== 'string' && typeof decoded.sub === 'string') {
-          userId = decoded.sub
-        }
+        await axios.get(`${process.env.NEXT_PUBLIC_RENDER}/user/access`, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        buttonVisible = true
       } catch (error) {
-        debug.warn('Token inválido ou expirado', error)
+        debug.warn('Usuário sem acesso administrativo', error)
       }
     }
-
-    const adminUserId = process.env.ADMIN_USER_ID ?? '14864ef2-94ca-4b02-a41b-b69dbc306489'
-
-    const buttonVisible = userId === adminUserId
 
     return {
       props: {

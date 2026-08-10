@@ -1,117 +1,289 @@
-/* OVERLAY */
-.modalOverlay {
+.overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  inset: 0;
+  z-index: 1000;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999;
-  animation: fadeIn 0.25s ease;
+
+  padding: calc(88px + 1.25rem) 1.25rem 1.25rem;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+
+  animation: fadeIn 0.2s ease-out;
 }
 
-/* CAIXA DO MODAL */
 .modal {
-  background: #1a1a1a;
-  padding: 32px;
-  width: 95%;
-  max-width: 420px;
-  border-radius: 18px;
-  text-align: center;
-  animation: scaleIn 0.25s ease;
-  box-shadow: 0 8px 34px rgba(0, 0, 0, 0.55);
-}
+  width: 100%;
+  max-width: 510px;
+  max-height: 100%;
 
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.85);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.modalIcon {
-  color: #f2c94c;
-  margin-bottom: 12px;
-}
-
-.modal h2 {
-  font-size: 1.5rem;
-  margin-bottom: 14px;
-}
-
-.modal p {
-  font-size: 0.95rem;
-  opacity: 0.85;
-  margin-bottom: 24px;
-}
-
-/* AÇÕES DO MODAL */
-.modalActions {
   display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  color: var(--white);
+  background: linear-gradient(145deg, rgba(212, 44, 44, 0.08), transparent 42%), var(--black);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.68);
+
+  animation: modalIn 0.22s ease-out;
 }
 
-.modalCancel,
-.modalConfirm {
-  padding: 12px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  border: none;
-  font-size: 0.95rem;
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease;
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 13px;
+
+  padding: 20px 22px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* botão fechar */
-.modalCancel {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+.icon {
+  width: 46px;
+  height: 46px;
 
-  &:hover {
-    background: rgba(255, 255, 255, 0.18);
-    transform: translateY(-2px);
+  display: grid;
+  place-items: center;
+
+  color: #ff8e8e;
+  background: rgba(212, 44, 44, 0.14);
+  border: 1px solid rgba(212, 44, 44, 0.3);
+  border-radius: 12px;
+}
+
+.heading {
+  min-width: 0;
+
+  > span {
+    display: block;
+    margin-bottom: 4px;
+
+    color: rgba(255, 255, 255, 0.44);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    margin: 0;
+
+    font-size: clamp(1.15rem, 3vw, 1.4rem);
+    line-height: 1.25;
   }
 }
 
-/* botão confirmar cancelamento */
-.modalConfirm {
-  background: #d94141;
-  color: #fff;
+.closeButton {
+  width: 38px;
+  height: 38px;
 
-  &:hover {
-    background: #b63232;
-    transform: translateY(-2px);
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+
+  color: rgba(255, 255, 255, 0.68);
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid transparent;
+  border-radius: 50%;
+
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    background-color 0.2s,
+    transform 0.2s;
+
+  &:hover:not(:disabled) {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.11);
+    transform: rotate(4deg);
   }
 
   &:disabled {
-    opacity: 0.6;
+    opacity: 0.45;
     cursor: not-allowed;
   }
 }
 
-/* MOBILE */
-@media (max-width: 480px) {
+.content {
+  min-height: 0;
+  overflow-y: auto;
+
+  padding: 24px 22px;
+
+  > p {
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+}
+
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  margin-top: 18px;
+  padding: 15px;
+
+  background: rgba(212, 44, 44, 0.075);
+  border: 1px solid rgba(212, 44, 44, 0.2);
+  border-radius: 12px;
+
+  > svg {
+    flex: 0 0 auto;
+    margin-top: 1px;
+    color: #ee7777;
+  }
+
+  strong,
+  span {
+    display: block;
+  }
+
+  strong {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.82rem;
+  }
+
+  span {
+    margin-top: 5px;
+
+    color: rgba(255, 255, 255, 0.52);
+    font-size: 0.77rem;
+    line-height: 1.55;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+
+  padding: 17px 22px;
+
+  background: rgba(0, 0, 0, 0.18);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  button {
+    min-height: 43px;
+    padding: 0 18px;
+
+    border: 1px solid transparent;
+    border-radius: 999px;
+
+    color: var(--white);
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition:
+      filter 0.2s,
+      transform 0.2s,
+      background-color 0.2s;
+
+    &:hover:not(:disabled) {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.keepButton {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.confirmButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  background: var(--red);
+  box-shadow: 0 8px 24px rgba(212, 44, 44, 0.18);
+}
+
+.spinner {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 820px) {
+  .overlay {
+    padding-top: 1.25rem;
+    padding-bottom: calc(72px + 1.25rem);
+  }
+}
+
+@media (max-width: 520px) {
+  .overlay {
+    align-items: flex-end;
+    padding: 0 0 72px;
+  }
+
   .modal {
-    padding: 24px;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-radius: 16px 16px 0 0;
   }
 
-  .modalActions {
-    flex-direction: column;
+  .header,
+  .content {
+    padding-right: 18px;
+    padding-left: 18px;
   }
 
-  .modalCancel,
-  .modalConfirm {
-    width: 100%;
+  .actions {
+    flex-direction: column-reverse;
+    padding: 15px 18px max(15px, env(safe-area-inset-bottom));
+
+    button {
+      width: 100%;
+    }
   }
 }

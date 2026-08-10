@@ -1,4 +1,4 @@
-import { toast } from 'react-toastify'
+import { toast } from '@/components/ui/Notifications'
 import { UserProps } from '@/@types/user'
 import { NewUserProps, SignUpMethodResponse } from '@/@types/userTypes/signUp'
 import { SetupAPIClient } from '@/services/api'
@@ -6,17 +6,18 @@ import { apiSub } from '@/services/apiSubManager'
 import { SubDetailsResponseProps } from '@/@types/subscriptions/subDetails'
 import { ChargeDetailResponse } from '@/@types/efi/chargeEfi'
 import { SubDBResponse } from '@/@types/userTypes/subscriptionDBDetail'
+import axios from 'axios'
 
 export class UserMethods {
   private client = new SetupAPIClient()
 
   public async signIn(email: string, password: string): Promise<UserProps | null> {
     try {
-      const response = await this.client.api.post<UserProps>('/login', {
+      const response = await axios.post<{ data: UserProps }>('/api/login', {
         email,
         password,
       })
-      const data = response.data
+      const data = response.data.data
       return data
     } catch (err) {
       console.log('Erro ao autenticar usuário.', err)

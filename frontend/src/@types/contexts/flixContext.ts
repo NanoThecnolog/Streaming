@@ -1,5 +1,12 @@
 import { ReactNode } from 'react'
-import { MyListPorps, SubscriptionProps, UserContext, UserCookiesProps, UserProps } from '../user'
+import {
+  DeviceVerificationRequired,
+  MyListPorps,
+  SubscriptionProps,
+  UserContext,
+  UserCookiesProps,
+  UserProps,
+} from '../user'
 import { ListaFavoritos } from '../favoritos'
 import { SeriesProps } from '../series'
 import { CardsProps } from '../Cards'
@@ -14,8 +21,8 @@ export interface ContextProps {
   setUser: (user: UserContext) => void
   setWatchLater: (tmdbid: WatchLaterContext[]) => void
   //setFavorites: (id: FavoritesContext[]) => void
-  signIn: (credentials: SignInProps) => Promise<void>
-  signOut: () => void
+  signIn: (credentials: SignInProps) => Promise<DeviceVerificationRequired | void>
+  signOut: (reason?: 'manual' | 'revoked', beforeLogout?: () => Promise<void>) => Promise<void>
   movies: CardsProps[]
   series: SeriesProps[]
   setMovies: (data: CardsProps[]) => void
@@ -26,6 +33,7 @@ export interface ContextProps {
 export type SignInProps = {
   email: string
   password: string
+  replaceDeviceId?: string
 }
 
 export interface FavoritesContext {

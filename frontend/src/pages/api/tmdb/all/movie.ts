@@ -62,7 +62,7 @@ const sleep = async (milliseconds: number): Promise<void> => {
 }
 
 const getTmdbToken = (): string | null => {
-  const token = process.env.NEXT_PUBLIC_TMDB_TOKEN?.trim()
+  const token = process.env.TMDB_TOKEN?.trim()
 
   return token || null
 }

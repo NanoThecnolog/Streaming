@@ -17,6 +17,7 @@ export interface UserProps {
 }
 
 export interface UserContext {
+  id: string
   name: string
   email: string
   cpf: string | null
@@ -72,4 +73,13 @@ export interface LoginProps {
   avatar: string
   watchLater: MyListPorps[]
   token: string
+  deviceToken: string
+}
+
+export interface DeviceVerificationRequired {
+  verificationRequired: true
+  challengeId: string
+  maskedEmail: string
+  expiresInSeconds: number
+  resendAfterSeconds: number
 }

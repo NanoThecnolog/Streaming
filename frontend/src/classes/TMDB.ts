@@ -2,19 +2,11 @@ import { apiTMDB } from '@/services/apiTMDB'
 import { debug } from './DebugLogger'
 import { TrailerProps } from '@/@types/trailer'
 import { CollectionProps, ResultsProps } from '@/@types/collection'
-import axios from 'axios'
 import { TMDBEpisodes, TMDBSeries } from '@/@types/series'
 import { CastProps } from '@/@types/movie/cast'
 import { MovieTMDB } from '@/@types/Cards'
 
 class TMDBService {
-  private static tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN
-
-  constructor() {
-    if (!TMDBService.tmdbToken) {
-      debug.warn('Variável de ambiente TMDB não definida.')
-    }
-  }
   /**
    * Método para chamada da API do TMDB. Parâmetro type distingue entre filmes e séries. Aceita o parametro imageType que determina o que deve ser buscado.
    * @param tmdbID ID do filme no TMDB
@@ -31,7 +23,7 @@ class TMDBService {
     cast: boolean = false,
     season?: number,
   ): Promise<T | null> {
-    if (!TMDBService.tmdbToken || tmdbID === 0) throw new Error('TMDBID ou TMDBToken inválidos.')
+    if (tmdbID === 0) throw new Error('TMDBID inválido.')
 
     let endPoint = `/${type}/${tmdbID}`
     if (cast) {
@@ -131,18 +123,12 @@ class TMDBService {
    */
 
   public async fetchEpisodeData(tmdbID: number, season: number): Promise<TMDBEpisodes[] | null> {
-    if (!TMDBService.tmdbToken) {
-      debug.warn('Variável de ambiente TMDB não definida.')
-      return null
-    }
     if (tmdbID === 0) return null
 
-    const endPoint = `https://api.themoviedb.org/3/tv/${tmdbID}/season/${season}?language=pt-BR`
+    const endPoint = `/tv/${tmdbID}/season/${season}`
 
     try {
-      const response = await axios.get(endPoint, {
-        headers: { Authorization: `Bearer ${TMDBService.tmdbToken}` },
-      })
+      const response = await apiTMDB.get(endPoint)
       return response.data.episodes
     } catch (err) {
       debug.error('Erro ao buscar imagens dos episódios', err)

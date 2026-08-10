@@ -25,19 +25,6 @@ export interface UserDataProps {
         state: string
     }*/
 }
-export interface CreditPayment {
-  brand: string
-  number: string
-  cvv: string
-  expiration: string
-  expirationMonth: string
-  expirationYear: string
-  holderName: string
-  holderDocument: string
-  reuse: boolean
-  fullComplete: boolean
-}
-
 export type PaymentMethod = 'pix' | 'credit-card' | 'billet'
 
 export type ApiPaymentMethod = 'credit' | 'billet'

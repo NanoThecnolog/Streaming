@@ -7,7 +7,9 @@
   align-items: center;
   justify-content: center;
 
-  padding: 1.25rem;
+  padding: calc(88px + 1.25rem) 1.25rem 1.25rem;
+  box-sizing: border-box;
+  overflow: hidden;
 
   background: rgba(0, 0, 0, 0.78);
   backdrop-filter: blur(5px);
@@ -18,7 +20,8 @@
 .modal {
   width: 100%;
   max-width: 650px;
-  max-height: calc(100vh - 2.5rem);
+  max-height: 100%;
+  box-sizing: border-box;
 
   display: flex;
   flex-direction: column;
@@ -41,6 +44,8 @@
 }
 
 .header {
+  flex: 0 0 auto;
+
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -132,10 +137,47 @@
 }
 
 .content {
-  flex: 1;
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow-x: hidden;
   overflow-y: auto;
+  overscroll-behavior: contain;
 
   padding: 1.5rem;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+  }
+}
+
+.methodChoice {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+
+  button {
+    padding: 0.8rem 1rem;
+    color: rgba(255, 255, 255, 0.72);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.65rem;
+    cursor: pointer;
+  }
+
+  .selectedChoice {
+    color: var(--white);
+    background: rgba(212, 44, 44, 0.16);
+    border-color: rgba(212, 44, 44, 0.55);
+  }
 }
 
 .warning {
@@ -201,6 +243,8 @@
 }
 
 .actions {
+  flex: 0 0 auto;
+
   display: flex;
   justify-content: flex-end;
   gap: 0.75rem;
@@ -279,7 +323,7 @@
   }
 
   .modal {
-    max-height: 92vh;
+    max-height: 100%;
 
     border-right: none;
     border-bottom: none;
@@ -298,10 +342,19 @@
 
   .actions {
     padding: 1rem;
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
 
     button {
       flex: 1;
       min-width: 0;
     }
+  }
+}
+
+@media (max-width: 820px) {
+  .overlay {
+    inset: 0;
+    padding-top: 0;
+    padding-bottom: 72px;
   }
 }

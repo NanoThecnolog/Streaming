@@ -1,7 +1,7 @@
 import { FormEvent, KeyboardEvent, MouseEvent, useEffect, useMemo, useState } from 'react'
 import { isAxiosError } from 'axios'
 import { ArrowRight, KeyRound, LoaderCircle, Mail, ShieldCheck, X } from 'lucide-react'
-import { toast } from 'react-toastify'
+import { toast } from '@/components/ui/Notifications'
 
 import { SetupAPIClient } from '@/services/api'
 

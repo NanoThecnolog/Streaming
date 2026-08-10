@@ -1,0 +1,174 @@
+.viewport {
+  --notification-surface: rgba(23, 23, 23, 0.96);
+  --notification-border: rgba(255, 255, 255, 0.1);
+  --notification-text: #f3f4f6;
+  --notification-muted: rgba(255, 255, 255, 0.62);
+
+  position: fixed;
+  z-index: 100000;
+  top: 92px;
+  right: 22px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  width: min(390px, calc(100vw - 28px));
+
+  pointer-events: none;
+
+  @media (max-width: 600px) {
+    top: 74px;
+    right: 14px;
+  }
+}
+
+.notification {
+  --notification-accent: #88a5fb;
+  --notification-accent-rgb: 136, 165, 251;
+
+  position: relative;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: flex-start;
+  gap: 12px;
+
+  padding: 15px 14px 17px;
+
+  overflow: hidden;
+
+  color: var(--notification-text);
+  background:
+    linear-gradient(135deg, rgba(var(--notification-accent-rgb), 0.1), transparent 48%),
+    var(--notification-surface);
+  border: 1px solid var(--notification-border);
+  border-radius: 15px;
+
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(16px);
+
+  pointer-events: auto;
+  animation: notificationIn 0.3s cubic-bezier(0.2, 0.85, 0.3, 1);
+}
+
+.success {
+  --notification-accent: #79e6ad;
+  --notification-accent-rgb: 121, 230, 173;
+}
+
+.error {
+  --notification-accent: #ff8f96;
+  --notification-accent-rgb: 255, 98, 108;
+}
+
+.warning {
+  --notification-accent: #f4cf72;
+  --notification-accent-rgb: 244, 207, 114;
+}
+
+.info {
+  --notification-accent: #88a5fb;
+  --notification-accent-rgb: 136, 165, 251;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  color: var(--notification-accent);
+  background: rgba(var(--notification-accent-rgb), 0.12);
+  border: 1px solid rgba(var(--notification-accent-rgb), 0.2);
+  border-radius: 11px;
+}
+
+.content {
+  min-width: 0;
+  padding-top: 1px;
+
+  strong {
+    display: block;
+    margin-bottom: 3px;
+    font-family: var(--font-Inter);
+    font-size: 0.86rem;
+    font-weight: 700;
+  }
+
+  p {
+    color: var(--notification-muted);
+    font-family: var(--font-Inter);
+    font-size: 0.78rem;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+}
+
+.close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+  padding: 0;
+
+  color: rgba(255, 255, 255, 0.48);
+  border-radius: 8px;
+
+  &:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.progress {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  height: 2px;
+
+  background: var(--notification-accent);
+  transform-origin: left;
+  animation-name: notificationProgress;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+.paused {
+  animation-play-state: paused;
+}
+
+@keyframes notificationIn {
+  from {
+    opacity: 0;
+    transform: translate3d(24px, -4px, 0) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes notificationProgress {
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    transform: scaleX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .notification,
+  .progress {
+    animation: none;
+  }
+}

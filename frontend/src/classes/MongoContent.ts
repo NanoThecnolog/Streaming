@@ -5,6 +5,14 @@ import { SeriesProps } from '@/@types/series'
 import { MovieProps } from '@/components/dashboard/Movie/Create'
 import { TVProps } from '@/components/dashboard/Tv/Create'
 
+export interface LatestEpisode {
+  tmdbID: number
+  seasonNumber: number
+  episodeNumber: number
+  language: string
+  addedAt: string
+}
+
 class MongoContentService {
   constructor() {}
   async fetchMovieData(): Promise<CardsProps[]> {
@@ -24,6 +32,18 @@ class MongoContentService {
       const data: SeriesProps[] = response.data
       //debug.log('Series', data)
       return data
+    } catch (err) {
+      debug.error(err)
+      return []
+    }
+  }
+
+  async fetchLatestEpisodes(limit = 24): Promise<LatestEpisode[]> {
+    try {
+      const response = await apiManager.get<LatestEpisode[]>('/serie/latest-episodes', {
+        params: { limit },
+      })
+      return response.data
     } catch (err) {
       debug.error(err)
       return []

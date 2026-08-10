@@ -37,7 +37,7 @@ import { debug } from '@/classes/DebugLogger'
 import { apiSub } from '@/services/apiSubManager'
 import { formatedDate, getTrialInfo, TrialInfo } from '@/utils/UtilitiesFunctions'
 
-import { toast } from 'react-toastify'
+import { toast } from '@/components/ui/Notifications'
 
 interface SubscriptionPageProps {
   subscription: SubDetailsResponseProps
@@ -125,10 +125,12 @@ export default function SubscriptionPage({ subscription }: SubscriptionPageProps
     setChargeDetails(null)
   }
 
-  const refreshSubscription = async (): Promise<void> => {
+  const refreshSubscription = async (subscriptionId?: number): Promise<void> => {
     if (!assinatura) return
 
-    const response = await userMethod.getSubscriptionDetails(assinatura.subscription_id)
+    const response = await userMethod.getSubscriptionDetails(
+      subscriptionId ?? assinatura.subscription_id,
+    )
 
     if (!response?.data) return
 
@@ -534,8 +536,20 @@ export default function SubscriptionPage({ subscription }: SubscriptionPageProps
           <ChangeMethodModal
             closeModal={() => setChangeMethodModal(false)}
             before={assinatura.payment_method === 'banking_billet' ? 'billet' : 'credit'}
-            setNewMethod={async () => {
-              await refreshSubscription()
+            setNewMethod={async (payload) => {
+              const response = await fetch('/api/user/payment-method', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  subscriptionId: assinatura.subscription_id,
+                  ...payload,
+                }),
+              })
+              const result = await response.json().catch(() => null)
+              if (!response.ok) {
+                throw new Error(result?.message ?? 'Não foi possível alterar o pagamento.')
+              }
+              await refreshSubscription(result?.subscription?.subscription_id)
               setChangeMethodModal(false)
             }}
           />

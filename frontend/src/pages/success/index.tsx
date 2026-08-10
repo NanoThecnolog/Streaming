@@ -36,9 +36,7 @@ export default function SuccessPage() {
           <p className={styles.thanks}>Obrigado pelo seu apoio!</p>
 
           <p className={styles.info}>
-            Você receberá dois e-mails:
-            <br />• Um com o link para ativar sua conta, caso ainda não esteja ativa.
-            <br />• Outro com as informações de pagamento e detalhes da assinatura.
+            Você receberá um e-mail com as informações de pagamento e os detalhes da assinatura.
           </p>
 
           <h3>

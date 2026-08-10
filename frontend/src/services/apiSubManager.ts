@@ -1,9 +1,17 @@
 import { debug } from '@/classes/DebugLogger'
 import axios from 'axios'
 
-const url = process.env.NEXT_PUBLIC_SUBMANAGER_URL
-const apiKey = process.env.NEXT_PUBLIC_API_KEY
-if (!url || !apiKey) console.error('Url do submanager ou key não definida')
+const isServer = typeof window === 'undefined'
+const url = isServer ? process.env.NEXT_PUBLIC_SUBMANAGER_URL : '/api/subscription'
+const apiKey = isServer ? process.env.API_KEY : undefined
+
+if (isServer && !url) {
+  debug.error('URL do gerenciador de assinaturas não configurada.')
+}
+
+if (isServer && !apiKey) {
+  debug.error('API_KEY do gerenciador de assinaturas não configurada.')
+}
 
 //debug.log('url', url)
 export const apiSub = axios.create({
@@ -12,10 +20,17 @@ export const apiSub = axios.create({
 
 apiSub.interceptors.request.use(
   async (config) => {
-    if (apiKey) {
-      config.headers = config.headers ?? {}
-      config.headers['key'] = apiKey
-    } else debug.error('enviroment variable API_KEY missing')
+    if (!isServer) return config
+
+    if (!apiKey) {
+      return Promise.reject(
+        new Error('API_KEY do gerenciador de assinaturas não configurada.'),
+      )
+    }
+
+    config.headers = config.headers ?? {}
+    config.headers['key'] = apiKey
+
     return config
   },
   (error) => {

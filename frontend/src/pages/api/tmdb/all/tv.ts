@@ -60,7 +60,7 @@ interface RequestMetrics {
 }
 
 const getTmdbToken = (): string => {
-  const token = process.env.NEXT_PUBLIC_TMDB_TOKEN?.trim()
+  const token = process.env.TMDB_TOKEN?.trim()
 
   if (!token) {
     throw new Error('TMDB_TOKEN não configurado')

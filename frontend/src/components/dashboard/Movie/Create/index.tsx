@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
-import { toast } from 'react-toastify'
+import { toast } from '@/components/ui/Notifications'
 
 import { debug } from '@/classes/DebugLogger'
 import { mongoService } from '@/classes/MongoContent'

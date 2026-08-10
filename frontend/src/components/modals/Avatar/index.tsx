@@ -4,7 +4,7 @@ import Router from 'next/router'
 import { useState } from 'react'
 import { X } from 'lucide-react'
 import { destroyCookie, parseCookies, setCookie } from 'nookies'
-import { toast } from 'react-toastify'
+import { toast } from '@/components/ui/Notifications'
 
 import { UserContext } from '@/@types/user'
 import { useFlix } from '@/contexts/FlixContext'

@@ -6,7 +6,7 @@ import { SeriesProps } from '@/@types/series'
 import Header from '@/components/Header'
 import Stars from '@/components/ui/StarAverage'
 import Adult from '@/components/ui/Adult'
-import { toast } from 'react-toastify'
+import { toast } from '@/components/ui/Notifications'
 import { CastingProps } from '@/@types/movie/cast'
 import Footer from '@/components/Footer'
 import Spinner from '@/components/ui/Loading/spinner'
@@ -426,7 +426,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const { tmdbId } = context.params as { tmdbId: string }
   //debug.log('ids no staticprops', tmdbId)
-  const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN
+  const tmdbToken = process.env.TMDB_TOKEN
 
   try {
     const [resMovie, resCast /*progressData*/] = await Promise.all([

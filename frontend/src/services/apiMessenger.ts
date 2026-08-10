@@ -1,9 +1,17 @@
 import { debug } from '@/classes/DebugLogger'
 import axios from 'axios'
 
-const url = process.env.NEXT_PUBLIC_MENSAGERIA
-const apiKey = process.env.NEXT_PUBLIC_API_KEY
-if (!url) console.error('Url da mensageria não definida')
+const isServer = typeof window === 'undefined'
+const url = isServer ? process.env.NEXT_PUBLIC_MENSAGERIA : '/api/messaging'
+const apiKey = isServer ? process.env.API_KEY : undefined
+
+if (isServer && !url) {
+  debug.error('URL da mensageria não configurada.')
+}
+
+if (isServer && !apiKey) {
+  debug.error('API_KEY da mensageria não configurada.')
+}
 
 //debug.log('url', url)
 export const apiEmail = axios.create({
@@ -12,10 +20,17 @@ export const apiEmail = axios.create({
 
 apiEmail.interceptors.request.use(
   async (config) => {
-    if (apiKey) {
-      config.headers = config.headers ?? {}
-      config.headers['key'] = apiKey
-    } else debug.error('enviroment variable API_KEY missing')
+    if (!isServer) return config
+
+    if (!apiKey) {
+      return Promise.reject(
+        new Error('API_KEY da mensageria não configurada.'),
+      )
+    }
+
+    config.headers = config.headers ?? {}
+    config.headers['key'] = apiKey
+
     return config
   },
   (error) => {

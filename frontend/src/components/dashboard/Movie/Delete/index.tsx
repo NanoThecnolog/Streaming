@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { MdDeleteOutline, MdWarningAmber } from 'react-icons/md'
-import { toast } from 'react-toastify'
+import { toast } from '@/components/ui/Notifications'
 
 import { CardsProps } from '@/@types/Cards'
 import { debug } from '@/classes/DebugLogger'

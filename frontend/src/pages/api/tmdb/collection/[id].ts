@@ -2,7 +2,7 @@ import { debug } from '@/classes/DebugLogger'
 import axios from 'axios'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-const tmdbToken = process.env.NEXT_PUBLIC_TMDB_TOKEN
+const tmdbToken = process.env.TMDB_TOKEN
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { id } = req.query

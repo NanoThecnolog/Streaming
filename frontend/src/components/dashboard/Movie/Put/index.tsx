@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
-import { toast } from 'react-toastify'
+import { toast } from '@/components/ui/Notifications'
 
 import { CardsProps } from '@/@types/Cards'
 import { debug } from '@/classes/DebugLogger'

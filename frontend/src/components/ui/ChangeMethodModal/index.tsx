@@ -1,17 +1,18 @@
 import { MouseEvent, useEffect, useMemo, useState } from 'react'
-import { toast } from 'react-toastify'
+import { toast } from '@/components/ui/Notifications'
 import { MdClose, MdCreditCard, MdLock, MdReceiptLong } from 'react-icons/md'
 
-import { CreditPayment } from '@/@types/payment'
-import PaymentCredit from '@/components/PaymentSteps/paymentCredit'
+import { CreditCardData } from '@/@types/payment'
+import CreditCardFields from '@/components/ui/Pagamentos/CreditCardFields'
 import { useFlix } from '@/contexts/FlixContext'
-import { expirationSlicer } from '@/utils/UtilitiesFunctions'
+import { Validate } from '@/classes/validator'
 
 import styles from './styles.module.scss'
 
 type PaymentMethod = 'billet' | 'credit'
 
 interface ChangeMethodPayload {
+  action: 'change-method' | 'update-card'
   method: PaymentMethod
   paymentToken?: string
   cardMask?: string
@@ -67,23 +68,40 @@ const normalizeDocument = (document: string): string => {
   return document.replace(/\D/g, '')
 }
 
+const initialCreditCard: CreditCardData = {
+  brand: '',
+  holderName: '',
+  holderDocument: '',
+  number: '',
+  expiryMonth: '',
+  expiryYear: '',
+  cvv: '',
+}
+
 const ChangeMethodModal = ({ closeModal, before, setNewMethod }: ModalProps) => {
   const { user } = useFlix()
 
-  const [credit, setCredit] = useState<CreditPayment | null>(null)
+  const [creditCard, setCreditCard] = useState<CreditCardData>(initialCreditCard)
 
   const [submitting, setSubmitting] = useState(false)
+  const [action, setAction] = useState<'change-method' | 'update-card'>(
+    before === 'credit' ? 'update-card' : 'change-method',
+  )
 
-  const isFinish = false
+  const isFinish = true
 
-  const newMethod: PaymentMethod = before === 'billet' ? 'credit' : 'billet'
+  const newMethod: PaymentMethod =
+    action === 'update-card' ? 'credit' : before === 'billet' ? 'credit' : 'billet'
 
   const methodContent = useMemo(() => {
     if (newMethod === 'credit') {
       return {
-        title: 'Alterar para cartão de crédito',
-        description: 'Preencha os dados do cartão que será usado nas próximas cobranças.',
-        buttonLabel: 'Salvar novo cartão',
+        title: action === 'update-card' ? 'Atualizar cartão' : 'Alterar para cartão de crédito',
+        description:
+          action === 'update-card'
+            ? 'O novo cartão será utilizado nas próximas cobranças da assinatura.'
+            : 'Uma nova recorrência será criada sem interromper o período de acesso atual.',
+        buttonLabel: action === 'update-card' ? 'Atualizar cartão' : 'Alterar para cartão',
         Icon: MdCreditCard,
       }
     }
@@ -94,25 +112,20 @@ const ChangeMethodModal = ({ closeModal, before, setNewMethod }: ModalProps) => 
       buttonLabel: 'Confirmar boleto',
       Icon: MdReceiptLong,
     }
-  }, [newMethod])
+  }, [action, newMethod])
 
   const { title, description, buttonLabel, Icon } = methodContent
 
-  const cpf = normalizeDocument(user?.cpf ?? '')
+  const accountCpf = normalizeDocument(user?.cpf ?? '')
+  const normalizedHolderDocument = normalizeDocument(creditCard.holderDocument)
+  const hasAccountPaymentData = accountCpf.length === 11 && Boolean(user?.phone_number)
 
   const hasValidCreditData = useMemo(() => {
     if (newMethod !== 'credit') return true
-    if (!credit) return false
+    return Validate.creditCard(creditCard)
+  }, [creditCard, newMethod])
 
-    return Boolean(
-      credit.brand &&
-      credit.number?.replace(/\D/g, '').length >= 13 &&
-      credit.cvv?.replace(/\D/g, '').length >= 3 &&
-      credit.expiration?.replace(/\D/g, '').length === 4 &&
-      credit.holderName?.trim().length >= 3 &&
-      cpf.length === 11,
-    )
-  }, [credit, cpf, newMethod])
+  const canSubmit = hasValidCreditData && (action === 'update-card' || hasAccountPaymentData)
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -135,12 +148,8 @@ const ChangeMethodModal = ({ closeModal, before, setNewMethod }: ModalProps) => 
   }
 
   const createCreditToken = async (): Promise<EfiTokenResult> => {
-    if (!credit) {
-      throw new Error('Preencha os dados do cartão.')
-    }
-
-    if (cpf.length !== 11) {
-      throw new Error('O CPF do titular não está cadastrado corretamente.')
+    if (!Validate.cpf(normalizedHolderDocument)) {
+      throw new Error('Informe corretamente o CPF do titular do cartão.')
     }
 
     const accountId = process.env.NEXT_PUBLIC_EFI_ACCOUNT_ID
@@ -151,26 +160,18 @@ const ChangeMethodModal = ({ closeModal, before, setNewMethod }: ModalProps) => 
       throw new Error('A configuração de pagamento está indisponível.')
     }
 
-    const expiration = credit.expiration.replace(/\D/g, '')
-
-    if (expiration.length !== 4) {
-      throw new Error('Informe uma validade válida.')
-    }
-
-    const { month: expirationMonth, year: expirationYear } = expirationSlicer(expiration)
-
     const EfiPay = await loadEfiPay()
 
     const result = await EfiPay.CreditCard.setAccount(accountId)
       .setEnvironment(environment)
       .setCreditCardData({
-        brand: credit.brand,
-        number: credit.number.replace(/\D/g, ''),
-        cvv: credit.cvv.replace(/\D/g, ''),
-        expirationMonth,
-        expirationYear,
-        holderName: credit.holderName.trim(),
-        holderDocument: cpf,
+        brand: creditCard.brand,
+        number: creditCard.number.replace(/\D/g, ''),
+        cvv: creditCard.cvv.replace(/\D/g, ''),
+        expirationMonth: creditCard.expiryMonth,
+        expirationYear: creditCard.expiryYear,
+        holderName: creditCard.holderName.trim(),
+        holderDocument: normalizedHolderDocument,
         reuse: true,
       })
       .getPaymentToken()
@@ -204,12 +205,14 @@ const ChangeMethodModal = ({ closeModal, before, setNewMethod }: ModalProps) => 
         const token = await createCreditToken()
 
         await setNewMethod({
+          action,
           method: 'credit',
           paymentToken: token.payment_token,
           cardMask: token.card_mask,
         })
       } else {
         await setNewMethod({
+          action: 'change-method',
           method: 'billet',
         })
       }
@@ -265,15 +268,38 @@ const ChangeMethodModal = ({ closeModal, before, setNewMethod }: ModalProps) => 
             </header>
 
             <div className={styles.content}>
+              {before === 'credit' && (
+                <div className={styles.methodChoice}>
+                  <button
+                    type="button"
+                    className={action === 'update-card' ? styles.selectedChoice : ''}
+                    onClick={() => setAction('update-card')}
+                  >
+                    Atualizar cartão
+                  </button>
+                  <button
+                    type="button"
+                    className={action === 'change-method' ? styles.selectedChoice : ''}
+                    onClick={() => setAction('change-method')}
+                  >
+                    Alterar para boleto
+                  </button>
+                </div>
+              )}
+
               {newMethod === 'credit' ? (
                 <>
-                  {!user?.cpf && (
+                  {action === 'change-method' && !hasAccountPaymentData && (
                     <div className={styles.warning} role="alert">
-                      Cadastre seu CPF antes de adicionar um cartão.
+                      Cadastre CPF e telefone na conta antes de alterar o pagamento.
                     </div>
                   )}
 
-                  <PaymentCredit credit={credit} setCredit={setCredit} />
+                  <CreditCardFields
+                    creditCard={creditCard}
+                    onChange={setCreditCard}
+                    idPrefix="change-payment"
+                  />
 
                   <div className={styles.security}>
                     <MdLock aria-hidden="true" />
@@ -312,7 +338,7 @@ const ChangeMethodModal = ({ closeModal, before, setNewMethod }: ModalProps) => 
               <button
                 type="button"
                 className={styles.confirmButton}
-                disabled={submitting || !hasValidCreditData}
+                disabled={submitting || !canSubmit}
                 onClick={handleChangeMethod}
               >
                 {submitting ? 'Alterando...' : buttonLabel}

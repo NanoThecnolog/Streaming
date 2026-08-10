@@ -1,5 +1,6 @@
 import { Address } from '@/@types/efi/chargeEfi'
 import { PlanProps } from '@/@types/payment'
+import { UserContext } from '@/@types/user'
 import {
   CreateSubscriptionDto,
   EditSubscriptionDto,
@@ -10,7 +11,6 @@ import { Normalize } from '@/classes/Normalize'
 import { Validate } from '@/classes/validator'
 import { SetupAPIClient } from '@/services/api'
 import { apiSub } from '@/services/apiSubManager'
-import { JwtPayload, verify } from 'jsonwebtoken'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export interface EditUserRequest {
@@ -42,8 +42,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const client = new SetupAPIClient({ req })
 
   try {
-    const decoded = verify(token, process.env.SECRET_JWT as string) as JwtPayload
-    const userId = decoded.sub
+    const { data: authenticatedUser } = await client.api.get<UserContext>('/user')
+    const userId = authenticatedUser.id
     if (!userId) return res.status(401).json({ error: 'ID do usuário não encontrado' })
 
     //busca de planos

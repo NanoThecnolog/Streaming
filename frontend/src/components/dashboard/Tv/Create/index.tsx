@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useEffect, useMemo, useState } from 'react'
 import debounce from 'lodash.debounce'
-import { toast } from 'react-toastify'
+import { toast } from '@/components/ui/Notifications'
 
 import { Episodes, Seasons } from '@/@types/series'
 import { debug } from '@/classes/DebugLogger'

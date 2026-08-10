@@ -1,10 +1,9 @@
 import { ChangeEvent, FormEvent, useMemo, useState } from 'react'
 
 import styles from './styles.module.scss'
-import { CreditCardData, PaymentMethod, PersonalData } from '@/pages/payment'
-import { TbLock } from 'react-icons/tb'
+import { CreditCardData, PaymentMethod, PersonalData } from '@/@types/payment'
 import { Validate } from '@/classes/validator'
-import { brands } from '@/utils/Variaveis'
+import CreditCardFields from '@/components/ui/Pagamentos/CreditCardFields'
 
 interface PersonalDataStepProps {
   data: PersonalData
@@ -35,26 +34,6 @@ const formatCpf = (value: string): string => {
     .replace(/^(\d{3})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3-$4')
 }
 
-const formatCardNumber = (value: string): string => {
-  return value
-    .replace(/\D/g, '')
-    .slice(0, 19)
-    .replace(/(\d{4})(?=\d)/g, '$1 ')
-}
-
-const formatExpiry = (value: string): string => {
-  const numbers = value.replace(/\D/g, '').slice(0, 4)
-
-  if (numbers.length <= 2) {
-    return numbers
-  }
-
-  return `${numbers.slice(0, 2)}/${numbers.slice(2)}`
-}
-
-const formatCvv = (value: string): string => {
-  return value.replace(/\D/g, '').slice(0, 4)
-}
 const formatPhone = (value: string): string => {
   const numbers = value.replace(/\D/g, '').slice(0, 11)
 
@@ -81,7 +60,6 @@ export function PersonalDataStep({
   isProcessing,
   paymentError,
 }: PersonalDataStepProps) {
-  const [showCvv, setShowCvv] = useState(false)
   const isCreditCard = paymentMethod === 'credit-card'
   const personalDataIsValid = Validate.personalData(data)
   const creditCardIsValid = Validate.creditCard(creditCard)
@@ -110,14 +88,8 @@ export function PersonalDataStep({
     (!isCreditCard || creditCardIsValid) &&
     !isProcessing
 
-  const Icon = creditCard.brand ? brands[creditCard.brand] : undefined
-
   const updatePersonalData = (field: keyof PersonalData, value: string) => {
     onDataChange({ ...data, [field]: value })
-  }
-
-  const updateCreditCard = (field: keyof CreditCardData, value: string) => {
-    onCreditCardChange({ ...creditCard, [field]: value })
   }
 
   const handleCpfChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -280,154 +252,7 @@ export function PersonalDataStep({
           </div>
         </fieldset>
 
-        {isCreditCard && (
-          <fieldset className={styles.section}>
-            <div className={styles.sectionHeader}>
-              <legend>Dados do cartão</legend>
-
-              <span>
-                <TbLock size={15} />
-                Ambiente protegido
-              </span>
-            </div>
-
-            <div className={styles.fields}>
-              <div className={`${styles.field} ${styles.fullWidth}`}>
-                <label htmlFor="cardNumber">Número do cartão</label>
-
-                <div className={styles.inputWithIcon}>
-                  <input
-                    id="cardNumber"
-                    name="cardNumber"
-                    type="text"
-                    value={creditCard.number}
-                    onChange={(event) =>
-                      updateCreditCard('number', formatCardNumber(event.target.value))
-                    }
-                    placeholder="0000 0000 0000 0000"
-                    inputMode="numeric"
-                    autoComplete="cc-number"
-                    maxLength={23}
-                    required
-                  />
-
-                  <span aria-hidden="true">{Icon ? <Icon /> : '▣'}</span>
-                </div>
-              </div>
-
-              <div className={`${styles.field} ${styles.fullWidth}`}>
-                <label htmlFor="holderName">Nome impresso no cartão</label>
-
-                <input
-                  id="holderName"
-                  name="holderName"
-                  type="text"
-                  value={creditCard.holderName}
-                  onChange={(event) =>
-                    updateCreditCard('holderName', event.target.value.toUpperCase())
-                  }
-                  placeholder="NOME COMO ESTÁ NO CARTÃO"
-                  autoComplete="cc-name"
-                  required
-                />
-              </div>
-              <div className={`${styles.field} ${styles.fullWidth}`}>
-                <label htmlFor="holderDocument">CPF do titular do cartão</label>
-
-                <input
-                  id="holderDocument"
-                  name="holderDocument"
-                  type="text"
-                  value={creditCard.holderDocument}
-                  onChange={(event) =>
-                    updateCreditCard('holderDocument', formatCpf(event.target.value))
-                  }
-                  autoComplete="cc-cpf"
-                  placeholder="000.000.000-00"
-                  inputMode="numeric"
-                  maxLength={14}
-                  required
-                />
-              </div>
-
-              <div className={styles.field}>
-                <label htmlFor="expiryMonth">Mês de validade</label>
-
-                <input
-                  id="expiryMonth"
-                  name="expiryMonth"
-                  type="text"
-                  value={creditCard.expiryMonth}
-                  onChange={(event) =>
-                    updateCreditCard(
-                      'expiryMonth',
-                      event.target.value.replace(/\D/g, '').slice(0, 2),
-                    )
-                  }
-                  placeholder="MM"
-                  inputMode="numeric"
-                  autoComplete="cc-exp-month"
-                  maxLength={2}
-                  required
-                />
-              </div>
-
-              <div className={styles.field}>
-                <label htmlFor="expiryYear">Ano de validade</label>
-
-                <input
-                  id="expiryYear"
-                  name="expiryYear"
-                  type="text"
-                  value={creditCard.expiryYear}
-                  onChange={(event) =>
-                    updateCreditCard(
-                      'expiryYear',
-                      event.target.value.replace(/\D/g, '').slice(0, 4),
-                    )
-                  }
-                  placeholder="AAAA"
-                  inputMode="numeric"
-                  autoComplete="cc-exp-year"
-                  maxLength={4}
-                  required
-                />
-              </div>
-
-              <div className={styles.field}>
-                <label htmlFor="cvv">Código de segurança</label>
-
-                <div className={styles.passwordInput}>
-                  <input
-                    id="cvv"
-                    name="cvv"
-                    type={showCvv ? 'text' : 'password'}
-                    value={creditCard.cvv}
-                    onChange={(event) => updateCreditCard('cvv', formatCvv(event.target.value))}
-                    placeholder="CVV"
-                    inputMode="numeric"
-                    autoComplete="cc-csc"
-                    maxLength={4}
-                    required
-                  />
-
-                  <button type="button" onClick={() => setShowCvv((current) => !current)}>
-                    {showCvv ? 'Ocultar' : 'Mostrar'}
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className={styles.cardNotice}>
-              <span>!</span>
-
-              <p>
-                Os dados do cartão serão utilizados somente para processar o pagamento. Eles não são
-                armazenados em nossa plataforma.
-              </p>
-            </div>
-          </fieldset>
-        )}
+        {isCreditCard && <CreditCardFields creditCard={creditCard} onChange={onCreditCardChange} />}
 
         {!isCreditCard && (
           <div className={styles.notice}>

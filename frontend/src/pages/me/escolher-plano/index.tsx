@@ -4,7 +4,7 @@ import valid from 'card-validator'
 import { GetServerSideProps } from 'next'
 import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
-import { toast } from 'react-toastify'
+import { toast } from '@/components/ui/Notifications'
 
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'

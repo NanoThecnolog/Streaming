@@ -5,6 +5,8 @@ import SubConfig from '@/components/ui/SubConfig'
 import Switch from '@/components/ui/Switch'
 import Avatar from '@/components/modals/Avatar'
 import EditarDados from '@/components/modals/EditarDados'
+import TrustedDevices from '@/components/ui/TrustedDevices'
+import ActiveSessions from '@/components/ui/ActiveSessions'
 
 import styles from './styles.module.scss'
 
@@ -25,7 +27,7 @@ import {
 
 import { FaUserCircle } from 'react-icons/fa'
 
-import { toast } from 'react-toastify'
+import { toast } from '@/components/ui/Notifications'
 import { destroyCookie, parseCookies, setCookie } from 'nookies'
 import axios from 'axios'
 
@@ -267,7 +269,7 @@ export default function Me() {
                 <div>
                   <span>Assinatura</span>
 
-                  <h2>Plano e pagamentos</h2>
+                  <h2>Plano atual</h2>
                 </div>
 
                 <ShieldCheck size={22} />
@@ -275,6 +277,10 @@ export default function Me() {
 
               <SubConfig />
             </section>
+
+            <TrustedDevices />
+
+            <ActiveSessions />
           </div>
         )}
       </main>

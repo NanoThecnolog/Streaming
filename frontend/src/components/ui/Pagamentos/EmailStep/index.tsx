@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent } from 'react'
 
 import styles from './styles.module.scss'
-import { toast } from 'react-toastify'
+import { toast } from '@/components/ui/Notifications'
 import { Payments } from '@/classes/Payments'
 import { debug } from '@/classes/DebugLogger'
 

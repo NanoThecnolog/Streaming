@@ -3,7 +3,7 @@ import { FormEvent, MouseEvent, useEffect, useMemo, useState } from 'react'
 import { Check, Eye, EyeOff, UserRound, X } from 'lucide-react'
 import { FaSpinner } from 'react-icons/fa6'
 import { destroyCookie, setCookie } from 'nookies'
-import { toast } from 'react-toastify'
+import { toast } from '@/components/ui/Notifications'
 
 import { UserContext, UserCookiesProps } from '@/@types/user'
 import { useFlix } from '@/contexts/FlixContext'

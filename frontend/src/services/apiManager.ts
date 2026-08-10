@@ -1,20 +1,36 @@
 import { debug } from '@/classes/DebugLogger'
 import axios from 'axios'
 
-const url = process.env.NEXT_PUBLIC_CONTENT_MANAGER_URL
-if (!url) console.error('url do gerenciador de conteúdo não configurada.')
-const apiKey = process.env.NEXT_PUBLIC_API_KEY
-if (!apiKey) debug.error('apiKey do contentManager ausente.')
+const isServer = typeof window === 'undefined'
+
+const url = isServer ? process.env.NEXT_PUBLIC_CONTENT_MANAGER_URL : '/api/content'
+const apiKey = isServer ? process.env.API_KEY : undefined
+
+if (isServer && !url) {
+  debug.error('URL do gerenciador de conteúdo não configurada.')
+}
+
+if (isServer && !apiKey) {
+  debug.error('API_KEY do gerenciador de conteúdo não configurada.')
+}
+
 export const apiManager = axios.create({
   baseURL: url,
 })
 
 apiManager.interceptors.request.use(
   async (config) => {
-    if (apiKey) {
-      config.headers = config.headers ?? {}
-      config.headers['key'] = apiKey
-    } else debug.error('enviroment variable API_KEY missing')
+    if (!isServer) return config
+
+    if (!apiKey) {
+      return Promise.reject(
+        new Error('API_KEY do gerenciador de conteúdo não configurada.'),
+      )
+    }
+
+    config.headers = config.headers ?? {}
+    config.headers['key'] = apiKey
+
     return config
   },
   (error) => {

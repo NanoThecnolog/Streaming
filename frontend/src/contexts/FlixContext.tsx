@@ -7,16 +7,23 @@ import {
 } from '@/@types/contexts/flixContext'
 import { SeriesProps } from '@/@types/series'
 import { SubDetailsResponseProps } from '@/@types/subscriptions/subDetails'
-import { LoginProps, SubscriptionProps, UserContext, UserCookiesProps } from '@/@types/user'
+import {
+  DeviceVerificationRequired,
+  LoginProps,
+  SubscriptionProps,
+  UserContext,
+  UserCookiesProps,
+} from '@/@types/user'
 import { debug } from '@/classes/DebugLogger'
 import { mongoService } from '@/classes/MongoContent'
 import { apiEmail } from '@/services/apiMessenger'
 import { cookieOptions } from '@/utils/Variaveis'
 import axios, { isAxiosError } from 'axios'
 import { useRouter } from 'next/navigation'
+import Router from 'next/router'
 import { destroyCookie, setCookie } from 'nookies'
-import { createContext, useContext, useEffect, useState } from 'react'
-import { toast } from 'react-toastify'
+import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react'
+import { toast } from '@/components/ui/Notifications'
 
 export const FlixContext = createContext({} as ContextProps)
 
@@ -28,16 +35,21 @@ export function FlixProvider({ children }: ContextProviderProps) {
   const [movies, setMovies] = useState<CardsProps[]>([])
   const [series, setSeries] = useState<SeriesProps[]>([])
   const [subscription, setSubscription] = useState<SubscriptionProps | null>(null)
+  const signingOutRef = useRef(false)
 
   //favoritos, watch later, dados do usuário, tudo aqui
-  async function signIn({ email, password }: SignInProps) {
+  async function signIn({ email, password, replaceDeviceId }: SignInProps) {
     try {
       debug.log('Iniciando login')
-      const response = await axios.post<LoginProps>('/api/login', {
+      const response = await axios.post<
+        { data: LoginProps; success: true } | DeviceVerificationRequired
+      >('/api/login', {
         email,
         password,
+        replaceDeviceId,
       })
       if (response.status != 200) debug.log('Erro no primeiro axios ao fazer login')
+      if ('verificationRequired' in response.data) return response.data
 
       const userData = await axios.get<UserContext>('/api/user')
       const data = userData.data
@@ -48,7 +60,7 @@ export function FlixProvider({ children }: ContextProviderProps) {
           const sendNotificationToUser = await apiEmail.post('/notification/user/new', {
             name: data.name,
             email: data.email,
-            id: response.data.id,
+            id: response.data.data.id,
             qrCode,
           })
           debug.log('email enviado', sendNotificationToUser)
@@ -89,6 +101,7 @@ export function FlixProvider({ children }: ContextProviderProps) {
       router.push('/')
     } catch (err) {
       if (isAxiosError(err)) {
+        if (err.response?.data?.code === 'DEVICE_LIMIT_REACHED') throw err
         if (err.status === 429) {
           toast.error('Muitas tentativas de login. Tente novamente mais tarde.')
           return
@@ -102,22 +115,79 @@ export function FlixProvider({ children }: ContextProviderProps) {
     }
   }
 
-  async function signOut() {
-    try {
-      setUser(null)
-      setWatchLater([])
-      setSubscription(null)
-      await destroyCookie(null, 'flix-watch', cookieOptions)
-      await destroyCookie(null, 'flix-user', cookieOptions)
-      const logout = await axios.get('/api/user/logout')
-      debug.log(logout.data.message)
-    } catch (err) {
-      toast.error('Erro ao deslogar.')
-      console.log('Erro ao deslogar', err)
-    } finally {
-      router.push('/login')
+  const signOut = useCallback(
+    async (reason: 'manual' | 'revoked' = 'manual', beforeLogout?: () => Promise<void>) => {
+      if (signingOutRef.current) return
+      signingOutRef.current = true
+
+      if (reason === 'revoked') {
+        toast.info('Este dispositivo foi desconectado. Entre novamente para continuar.')
+      }
+
+      try {
+        setUser(null)
+        setWatchLater([])
+        setSubscription(null)
+        try {
+          await beforeLogout?.()
+        } catch (err) {
+          debug.warn('Não foi possível concluir a ação anterior ao logout.', err)
+        }
+        await destroyCookie(null, 'flix-watch', cookieOptions)
+        await destroyCookie(null, 'flix-user', cookieOptions)
+        await axios.post('/api/user/logout')
+      } catch (err) {
+        debug.warn('A sessão já estava encerrada no servidor.', err)
+      } finally {
+        router.push('/login')
+      }
+    },
+    [router],
+  )
+
+  useEffect(() => {
+    if (user) signingOutRef.current = false
+  }, [user])
+
+  useEffect(() => {
+    if (!user) return
+
+    let validating = false
+
+    const validateSession = async () => {
+      if (validating || signingOutRef.current) return
+      validating = true
+
+      try {
+        const { data } = await axios.get<UserContext>('/api/user')
+
+        setUser(data)
+        setSubscription(data.subscription)
+      } catch (error) {
+        if (isAxiosError(error) && error.response?.status === 401) {
+          await signOut('revoked')
+        }
+      } finally {
+        validating = false
+      }
     }
-  }
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') void validateSession()
+    }
+
+    const interval = window.setInterval(() => void validateSession(), 60_000)
+    Router.events.on('routeChangeComplete', validateSession)
+    window.addEventListener('focus', validateSession)
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+
+    return () => {
+      window.clearInterval(interval)
+      Router.events.off('routeChangeComplete', validateSession)
+      window.removeEventListener('focus', validateSession)
+      document.removeEventListener('visibilitychange', handleVisibilityChange)
+    }
+  }, [signOut, user])
 
   useEffect(() => {
     const fetchMoviesMongoDB = async () => {
@@ -146,6 +216,7 @@ export function FlixProvider({ children }: ContextProviderProps) {
         if (userData) {
           setUser(userData.data)
           setSubscription(userData.data.subscription)
+          await axios.post('/api/user/session/refresh')
         }
       } catch (err) {
         debug.error('Sem dados do usuário')

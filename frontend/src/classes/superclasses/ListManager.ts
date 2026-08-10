@@ -1,7 +1,7 @@
 import { SetupAPIClient } from '@/services/api'
 import { cookieOptions } from '@/utils/Variaveis'
 import { destroyCookie, parseCookies, setCookie } from 'nookies'
-import { toast } from 'react-toastify'
+import { toast } from '@/components/ui/Notifications'
 
 export class ListManager {
   protected client?: SetupAPIClient

@@ -17,7 +17,7 @@ import {
   X,
 } from 'lucide-react'
 import { isAxiosError } from 'axios'
-import { toast } from 'react-toastify'
+import { toast } from '@/components/ui/Notifications'
 
 import { SeriesProps } from '@/@types/series'
 import { debug } from '@/classes/DebugLogger'

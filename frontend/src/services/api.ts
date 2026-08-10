@@ -3,7 +3,8 @@ import axios, { AxiosInstance } from 'axios'
 import { NextPageContext } from 'next'
 import { parseCookies } from 'nookies'
 
-const url = process.env.NEXT_PUBLIC_RENDER
+const isServer = typeof window === 'undefined'
+const url = isServer ? process.env.NEXT_PUBLIC_RENDER : '/api/backend'
 if (!url) debug.error('variável de ambiente não configurada.')
 
 export class SetupAPIClient {
@@ -11,8 +12,8 @@ export class SetupAPIClient {
   public api: AxiosInstance
 
   constructor(ctx?: Pick<NextPageContext, 'req'>) {
-    const cookies = parseCookies(ctx)
-    this.token = cookies['flix-token']
+    const cookies = isServer ? parseCookies(ctx) : {}
+    this.token = cookies['flix-token'] ?? ''
 
     //debug.log('token dentro de setupApiClient', this.token)
 
