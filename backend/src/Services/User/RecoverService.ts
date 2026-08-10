@@ -1,6 +1,9 @@
 import prismaClient from "../../prisma";
-import { compare, hash } from "bcrypt";
 import { JwtPayload, verify } from "jsonwebtoken";
+import { AuthSessionService } from './AuthSessionService'
+import { createHash } from 'crypto'
+import { notifyAccountSecurityChange } from '../../Utils/securityNotification'
+import { SecurityService } from '../../classes/security'
 
 
 
@@ -16,15 +19,21 @@ export class RecoverService {
         })
 
         if (!userExiste) throw new Error("Usuário não encontrado.")
-        const comparePassword = await compare(newPassword, userExiste.password)
-        if (comparePassword) throw new Error("Senha igual a anterior")
-        const passwordHash = await hash(newPassword, 8)
+        const currentPasswordVersion = createHash('sha256').update(userExiste.password).digest('hex')
+        if (!decoded.passwordVersion || decoded.passwordVersion !== currentPasswordVersion) {
+            throw new Error('Link de recuperação inválido ou já utilizado.')
+        }
+        const currentPassword = await SecurityService.verify(newPassword, userExiste.password)
+        if (currentPassword.success) throw new Error("Senha igual a anterior")
+        const passwordHash = await SecurityService.hash(newPassword)
         const updateUser = await prismaClient.user.update({
             where: { id: userId },
             data: {
                 password: passwordHash
             }
         })
+        await AuthSessionService.revokeAllForUser(userId)
+        await notifyAccountSecurityChange(updateUser, 'Senha redefinida por recuperação de conta')
         return {
             id: updateUser.id,
             name: updateUser.name,

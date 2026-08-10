@@ -3,6 +3,7 @@ import nodemailer from 'nodemailer'
 import { sign } from "jsonwebtoken";
 import { RecoverAccService } from "../Email/RecoverEmail";
 import { debugLog } from "../../Utils/DebugLog";
+import { createHash } from 'crypto'
 
 
 export class GenerateRecoverTokenService {
@@ -11,7 +12,7 @@ export class GenerateRecoverTokenService {
         const userExiste = await prismaClient.user.findUnique({
             where: { email }
         })
-        if (!userExiste) throw new Error("Usuário não encontrado")
+        if (!userExiste) return { status: 'Se o email estiver cadastrado, o link será enviado.' }
 
         const secret = process.env.SECRET_JWT
         if (!secret) throw new Error("Variável de ambiente não definida")
@@ -20,7 +21,8 @@ export class GenerateRecoverTokenService {
             {
                 userId: userExiste.id,
                 name: userExiste.name,
-                email: userExiste.email
+                email: userExiste.email,
+                passwordVersion: createHash('sha256').update(userExiste.password).digest('hex'),
             },
             secret,
             {
@@ -34,19 +36,9 @@ export class GenerateRecoverTokenService {
 
             debugLog("mensagem enviada")
 
-            if (!response) return {
-                id: userExiste.id,
-                name: userExiste.name,
-                email: userExiste.email,
-                status: "Email não enviado"
-            }
+            if (!response) throw new Error('Email não enviado')
 
-            return {
-                id: userExiste.id,
-                name: userExiste.name,
-                email: userExiste.email,
-                status: "Email enviado"
-            }
+            return { status: 'Se o email estiver cadastrado, o link será enviado.' }
 
 
         } catch (err) {

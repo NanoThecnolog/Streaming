@@ -13,23 +13,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ADMAuth = void 0;
-const jsonwebtoken_1 = require("jsonwebtoken");
 const prisma_1 = __importDefault(require("../prisma"));
+const AuthSessionService_1 = require("../Services/User/AuthSessionService");
 const ADMAuth = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const authToken = req.headers.authorization;
     if (!authToken || !authToken.startsWith("Bearer ")) {
         return res.status(401).json({ error: "Token inválido ou inexistente." });
     }
     const [, token] = authToken.split(" ");
-    const secret = process.env.SECRET_JWT;
-    if (!secret) {
-        throw new Error('variável de ambiente não definida');
-    }
     try {
-        const { sub } = (0, jsonwebtoken_1.verify)(token, secret);
-        req.user_id = sub;
+        const session = yield AuthSessionService_1.AuthSessionService.authenticate(token);
+        req.user_id = session.userId;
+        req.session_id = session.id;
+        req.session_token = token;
         const user = yield prisma_1.default.user.findUnique({
-            where: { id: sub }
+            where: { id: session.userId }
         });
         if (!user)
             return res.status(404).json({ error: "Usuário não encontrado." });
@@ -39,7 +37,7 @@ const ADMAuth = (req, res, next) => __awaiter(void 0, void 0, void 0, function* 
     }
     catch (err) {
         if (err instanceof Error) {
-            return res.status(401).json({ error: err.message });
+            return res.status(401).json({ error: 'Sessão inválida ou expirada.' });
         }
         return res.status(401).json({ error: "Erro ao autenticar usuário." });
     }

@@ -5,3 +5,5 @@ html
 node_modules
 
 *.js
+
+agenda.md

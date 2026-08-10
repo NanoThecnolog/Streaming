@@ -23,6 +23,22 @@ import { GetWatchedController } from "./Controllers/User/GetWatchedController";
 import { EmailVerifyController } from "./Controllers/Email/EmailVerifyController";
 import { CheckoutEventController } from "./Controllers/CheckoutEvent/CheckoutEventController";
 import { DashboardController } from "./Controllers/Dashboard/DashboardController";
+import {
+    ListSessionsController,
+    LogoutController,
+    RefreshSessionController,
+    RevokeOtherSessionsController,
+    RevokeSessionController,
+} from './Controllers/User/AuthSessionController'
+import {
+    ListTrustedDevicesController,
+    RevokeOtherDevicesController,
+    RevokeTrustedDeviceController,
+} from './Controllers/User/TrustedDeviceController'
+import {
+    ResendDeviceCodeController,
+    VerifyDeviceController,
+} from './Controllers/User/DeviceVerificationController'
 
 
 const router = Router()
@@ -36,6 +52,30 @@ const loginRateLimit = rateLimit({
     message: { error: "Max attempts exceed. Please try later." }
 })
 
+const deviceVerificationRateLimit = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    limit: 20,
+    standardHeaders: 'draft-8',
+    legacyHeaders: false,
+    message: { error: 'Muitas tentativas. Tente novamente mais tarde.' },
+})
+
+const recoveryRateLimit = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    limit: 5,
+    standardHeaders: 'draft-8',
+    legacyHeaders: false,
+    message: { error: 'Muitas tentativas de recuperação. Tente novamente mais tarde.' },
+})
+
+const sessionRefreshRateLimit = rateLimit({
+    windowMs: 5 * 60 * 1000,
+    limit: 30,
+    standardHeaders: 'draft-8',
+    legacyHeaders: false,
+    message: { error: 'Muitas tentativas de renovação. Tente novamente mais tarde.' },
+})
+
 router.get('/acordar', (req, res) => {
     res.json({ status: 'acordado' })
 })
@@ -44,12 +84,22 @@ router.get('/pix', new GeneratePixController().handle);
 
 router.post('/user', new CreateUserController().handle);
 router.post('/login', loginRateLimit, new AuthUserController().handle);
+router.post('/login/device/verify', deviceVerificationRateLimit, new VerifyDeviceController().handle)
+router.post('/login/device/resend', deviceVerificationRateLimit, new ResendDeviceCodeController().handle)
+router.post('/logout', Authenticate, new LogoutController().handle)
+router.post('/session/refresh', Authenticate, sessionRefreshRateLimit, new RefreshSessionController().handle)
+router.get('/sessions', Authenticate, new ListSessionsController().handle)
+router.delete('/sessions', Authenticate, new RevokeOtherSessionsController().handle)
+router.delete('/sessions/:id', Authenticate, new RevokeSessionController().handle)
+router.get('/devices', Authenticate, new ListTrustedDevicesController().handle)
+router.delete('/devices', Authenticate, new RevokeOtherDevicesController().handle)
+router.delete('/devices/:id', Authenticate, new RevokeTrustedDeviceController().handle)
 router.put('/user', Authenticate, new EditUserController().handle)
 router.get('/users', ADMAuth, new ListUserController().handle)
 router.delete('/user', ADMAuth, new DeleteUserController().handle)
 router.get('/user', Authenticate, new DetailUserController().handle);
-router.post('/recovertoken', new GenerateRecoverTokenController().handle);
-router.put('/recover', new RecoverController().handle);
+router.post('/recovertoken', recoveryRateLimit, new GenerateRecoverTokenController().handle);
+router.put('/recover', recoveryRateLimit, new RecoverController().handle);
 router.post('/track', Authenticate, new TrackingController().handle)
 router.post('/user/verify', new EmailVerifyController().handle)
 

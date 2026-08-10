@@ -31,13 +31,76 @@ model user {
 
   address address?
 
-  favoritos    favorito[]
-  loginHistory loginHistory?
-  subscription subscription?
-  watchLater   watchLater[]
-  watched      watched[]
+  favoritos        favorito[]
+  loginHistory     loginHistory?
+  subscription     subscription?
+  watchLater       watchLater[]
+  watched          watched[]
+  authSessions     authSession[]
+  trustedDevices   trustedDevice[]
+  deviceChallenges deviceVerificationChallenge[]
 
   genPreferences userGenPreference[]
+}
+
+model authSession {
+  id                     String    @id @default(uuid())
+  userId                 String
+  tokenHash              String    @unique
+  previousTokenHash      String?
+  previousTokenExpiresAt DateTime?
+  userAgent              String?
+  ipAddress              String?
+  createdAt              DateTime  @default(now())
+  lastSeenAt             DateTime  @default(now())
+  expiresAt              DateTime
+  revokedAt              DateTime?
+  deviceId               String?
+
+  user   user           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  device trustedDevice? @relation(fields: [deviceId], references: [id], onDelete: SetNull)
+
+  @@index([userId, revokedAt])
+  @@index([expiresAt])
+  @@index([deviceId])
+  @@index([previousTokenHash])
+}
+
+model trustedDevice {
+  id         String    @id @default(uuid())
+  userId     String
+  tokenHash  String    @unique
+  name       String
+  userAgent  String?
+  ipAddress  String?
+  createdAt  DateTime  @default(now())
+  lastSeenAt DateTime  @default(now())
+  revokedAt  DateTime?
+
+  user     user          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sessions authSession[]
+
+  @@index([userId, revokedAt])
+  @@index([lastSeenAt])
+}
+
+model deviceVerificationChallenge {
+  id              String    @id @default(uuid())
+  userId          String
+  codeHash        String
+  userAgent       String?
+  ipAddress       String?
+  replaceDeviceId String?
+  attempts        Int       @default(0)
+  createdAt       DateTime  @default(now())
+  lastSentAt      DateTime  @default(now())
+  expiresAt       DateTime
+  consumedAt      DateTime?
+
+  user user @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, consumedAt])
+  @@index([expiresAt])
 }
 
 model userGenPreference {

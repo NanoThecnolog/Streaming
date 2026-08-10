@@ -1,6 +1,8 @@
-import { hash } from "bcrypt";
 import prismaClient from "../../prisma";
 import { address } from "@prisma/client";
+import { AuthSessionService } from './AuthSessionService'
+import { notifyAccountSecurityChange } from '../../Utils/securityNotification'
+import { SecurityService } from '../../classes/security'
 
 interface EditUserRequest {
     id: string,
@@ -26,7 +28,7 @@ class EditUserService {
         if (!userExiste) throw new Error("Usuário não existe.")
         let passwordHash;
         if (password) {
-            passwordHash = await hash(password, 8)
+            passwordHash = await SecurityService.hash(password)
         }
         const editUser = await prismaClient.user.update({
             where: { id },
@@ -74,6 +76,10 @@ class EditUserService {
                 watchLater: true
             }
         })
+        if (password) {
+            await AuthSessionService.revokeAllForUser(id)
+            await notifyAccountSecurityChange(editUser, 'Senha da conta alterada')
+        }
         return editUser;
     }
 }

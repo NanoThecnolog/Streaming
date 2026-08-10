@@ -3,16 +3,22 @@ dotenv.config()
 import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors'
 import { router } from './router';
+import { corsOptions } from './Utils/CorsOptions'
+import { SecurityHeaders } from './middlewares/SecurityHeaders'
+import { SecurityCleanupService } from './Services/User/SecurityCleanupService'
 
 
 const app = express();
 const port = process.env.PORT || 3333;
+const SECURITY_CLEANUP_INTERVAL_MS = 6 * 60 * 60 * 1000
 
 
 app.use(express.json({ limit: '40mb' }));
 app.use(express.urlencoded({ limit: '40mb', extended: true }));
 app.set('trust proxy', 1)
-app.use(cors());
+app.disable('x-powered-by')
+app.use(SecurityHeaders)
+app.use(cors(corsOptions));
 app.use(router);
 
 // Tratamento de erros
@@ -29,3 +35,14 @@ app.get("*", (req, res) => {
 app.listen(Number(port), "0.0.0.0", () => {
     console.log(`Servidor rodando na porta ${port}`);
 })
+
+void SecurityCleanupService.execute().catch((error) => {
+    console.error('Erro ao limpar registros de segurança expirados.', error)
+})
+
+const securityCleanupTimer = setInterval(() => {
+    void SecurityCleanupService.execute().catch((error) => {
+        console.error('Erro ao limpar registros de segurança expirados.', error)
+    })
+}, SECURITY_CLEANUP_INTERVAL_MS)
+securityCleanupTimer.unref()

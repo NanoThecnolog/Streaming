@@ -1,8 +1,8 @@
-import { sign } from "jsonwebtoken";
 import prismaClient from "../../prisma";
 import { address } from "@prisma/client";
 
 interface DetailUserProps {
+    id: string,
     name: string,
     email: string,
     cpf: string | null,
@@ -91,6 +91,7 @@ export class DetailUserService {
             }
         })
         return {
+            id: user.id,
             name: user.name,
             email: user.email,
             avatar: user.avatar,

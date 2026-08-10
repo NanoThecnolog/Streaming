@@ -1,13 +1,20 @@
 import { compare } from "bcrypt";
 import prismaClient from "../../prisma";
-import { sign } from "jsonwebtoken";
 import { AppError } from '../../Utils/AppErrorExtend'
 import { SecurityService } from "../../classes/security";
+import { AuthSessionService } from './AuthSessionService'
+import { TrustedDeviceService } from './TrustedDeviceService'
+import { DeviceVerificationService } from './DeviceVerificationService'
+
+interface LoginContext {
+    userAgent?: string
+    ipAddress?: string
+    deviceToken?: string
+    replaceDeviceId?: string
+}
 
 class AuthUserService {
-    async execute(email: string, password: string) {
-        const secret = process.env.SECRET_JWT;
-        if (!secret) throw new AppError("Variável de ambiente não definida corretamente.", 500)
+    async execute(email: string, password: string, context: LoginContext = {}) {
         const userExiste = await prismaClient.user.findUnique({
             where: { email },
             select: {
@@ -36,17 +43,30 @@ class AuthUserService {
         }
 
 
-        const token = sign(
-            {
+        const device = await TrustedDeviceService.findExisting({
+            userId: userExiste.id,
+            deviceToken: context.deviceToken,
+            userAgent: context.userAgent,
+            ipAddress: context.ipAddress,
+        })
+        if (!device) {
+            await TrustedDeviceService.checkCapacity(userExiste.id, context.replaceDeviceId)
+            return DeviceVerificationService.create({
+                userId: userExiste.id,
                 name: userExiste.name,
                 email: userExiste.email,
-            },
-            secret,
-            {
-                subject: userExiste.id,
-                expiresIn: '30d'
-            }
-        )
+                userAgent: context.userAgent,
+                ipAddress: context.ipAddress,
+                replaceDeviceId: context.replaceDeviceId,
+            })
+        }
+
+        const token = await AuthSessionService.create({
+            userId: userExiste.id,
+            deviceId: device.id,
+            userAgent: context.userAgent,
+            ipAddress: context.ipAddress,
+        })
         /*const watchLaterList = await prismaClient.watchLater.findMany({
             where: {
                 userId: userExiste.id
@@ -59,10 +79,10 @@ class AuthUserService {
             avatar: userExiste.avatar,
             watchLater: userExiste.watchLater,
             token: token,
+            deviceToken: device.token,
             //donator: userExiste.donator
         }
     }
 }
 
 export { AuthUserService }
-
