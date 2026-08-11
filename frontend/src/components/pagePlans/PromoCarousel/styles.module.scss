@@ -154,49 +154,6 @@
   overflow: hidden;
 
   padding: 4px 2px 16px;
-
-  :global(.swiper-button-prev),
-  :global(.swiper-button-next) {
-    width: 42px;
-    height: 42px;
-
-    color: var(--white);
-
-    background: rgba(10, 10, 10, 0.86);
-    border: 1px solid rgba(255, 255, 255, 0.13);
-    border-radius: 50%;
-    backdrop-filter: blur(12px);
-
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.32);
-
-    transition:
-      background-color 0.2s ease,
-      border-color 0.2s ease,
-      transform 0.2s ease;
-
-    &::after {
-      font-size: 0.85rem;
-      font-weight: 900;
-    }
-
-    &:hover {
-      background: var(--red);
-      border-color: var(--red);
-      transform: scale(1.06);
-    }
-  }
-
-  :global(.swiper-button-prev) {
-    left: 10px;
-  }
-
-  :global(.swiper-button-next) {
-    right: 10px;
-  }
-
-  :global(.swiper-button-disabled) {
-    display: none;
-  }
 }
 
 .card {
@@ -396,13 +353,6 @@
     display: none;
   }
 
-  .swiper {
-    :global(.swiper-button-prev),
-    :global(.swiper-button-next) {
-      display: none;
-    }
-  }
-
   .poster {
     border-radius: 9px;
   }
@@ -419,13 +369,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .swiper {
-    :global(.swiper-button-prev),
-    :global(.swiper-button-next) {
-      transition: none;
-    }
-  }
-
   .card,
   .card span,
   .poster,

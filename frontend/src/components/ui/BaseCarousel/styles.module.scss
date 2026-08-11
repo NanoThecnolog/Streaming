@@ -1,23 +1,15 @@
 .carouselContainer {
   width: 100%;
   margin: 0;
-  padding-right: 7px;
-
-  .contentTitle {
-    font-family: var(--font-bebas);
-    color: var(--white);
-    font-size: clamp(1.2rem, 1rem + 1vw, 1.8rem);
-    letter-spacing: 4px;
-  }
+  padding-right: 2px;
 
   .carousel {
-    //padding-right: 4px;
+    padding: 0.25rem 0.15rem 0.75rem;
 
     .slide {
       position: relative;
       display: flex;
       align-items: center;
-      //padding-left: 4.5rem;
 
       .index {
         position: absolute;
@@ -58,15 +50,6 @@
         font-size: clamp(8.5rem, 8vw, 11rem);
       }
     }
-
-    .slide :global(.card) {
-      position: relative;
-      z-index: 2;
-    }
-  }
-
-  h2 {
-    user-select: none;
   }
 }
 

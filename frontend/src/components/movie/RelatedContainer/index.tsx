@@ -5,8 +5,6 @@ import { CardsProps } from '@/@types/Cards'
 import { SeriesProps } from '@/@types/series'
 import Card from '@/components/Card'
 
-import 'swiper/css'
-
 import styles from './styles.module.scss'
 
 interface RelatedProps {

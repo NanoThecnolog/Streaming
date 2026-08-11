@@ -2,6 +2,15 @@
 const nextConfig = {
   reactStrictMode: false,
   poweredByHeader: false,
+  async redirects() {
+    return [
+      {
+        source: '/movie/:tmdbId',
+        destination: '/movies/movie/:tmdbId',
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       {

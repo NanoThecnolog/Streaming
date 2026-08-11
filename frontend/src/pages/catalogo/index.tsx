@@ -252,7 +252,7 @@ export default function Catalogo() {
                 {filteredMovies.map((movie, index) => (
                   <Link
                     key={movie.tmdbId}
-                    href={`/movie/${movie.tmdbId}`}
+                    href={`/movies/movie/${movie.tmdbId}`}
                     className={styles.catalogItem}
                   >
                     <span className={styles.itemIndex}>{String(index + 1).padStart(2, '0')}</span>

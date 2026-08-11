@@ -1,4 +1,3 @@
-import { Heading3 } from 'lucide-react'
 import styles from './styles.module.scss'
 
 interface NewContentProps {
@@ -6,11 +5,11 @@ interface NewContentProps {
 }
 
 export default function NewContent({ type }: NewContentProps) {
-  return (
-    <div className={styles.container}>
-      <h3>
-        {type === 'season' ? 'Nova temporada' : type === 'news' ? 'Novidade' : 'Novos Episódios'}
-      </h3>
-    </div>
-  )
+  const labels: Record<NewContentProps['type'], string> = {
+    season: 'Nova temporada',
+    news: 'Nova série',
+    episode: 'Novos episódios',
+  }
+
+  return <span className={styles.container}>{labels[type]}</span>
 }

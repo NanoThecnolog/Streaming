@@ -1,6 +1,6 @@
 import { ChangeEvent, useEffect, useState } from 'react'
 import type { Swiper as SwiperType } from 'swiper'
-import { Navigation, Pagination } from 'swiper/modules'
+import { Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import NewTop from '../newTop'
@@ -55,11 +55,10 @@ const HeroSection = ({ width, page }: HeroProps) => {
     <section className={styles.container} aria-label="Conteúdos em destaque">
       <Swiper
         className={styles.carousel}
-        modules={[Navigation, Pagination]}
+        modules={[Pagination]}
         speed={1500}
         slidesPerView={1}
         loop
-        navigation={!isMobile}
         pagination={
           isMobile
             ? false

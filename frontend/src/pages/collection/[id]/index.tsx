@@ -249,7 +249,7 @@ export default function CollectionPage({ collection }: PageProps) {
                 return (
                   <article key={movie.id} className={styles.movieCard}>
                     <Link
-                      href={`/movie/${movie.id}`}
+                      href={`/movies/movie/${movie.id}`}
                       className={styles.moviePoster}
                       aria-label={`Abrir ${movie.title}`}
                     >
@@ -277,7 +277,7 @@ export default function CollectionPage({ collection }: PageProps) {
                     <div className={styles.movieContent}>
                       <div className={styles.movieTitleRow}>
                         <h3>
-                          <Link href={`/movie/${movie.id}`}>{movie.title}</Link>
+                          <Link href={`/movies/movie/${movie.id}`}>{movie.title}</Link>
                         </h3>
 
                         {year && <span>{year}</span>}
@@ -304,7 +304,7 @@ export default function CollectionPage({ collection }: PageProps) {
 
                       <p>{movie.overview || 'Nenhuma descrição disponível para este filme.'}</p>
 
-                      <Link href={`/movie/${movie.id}`} className={styles.detailsButton}>
+                      <Link href={`/movies/movie/${movie.id}`} className={styles.detailsButton}>
                         Ver detalhes
                       </Link>
                     </div>

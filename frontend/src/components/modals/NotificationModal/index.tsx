@@ -39,7 +39,7 @@ export default function NotificationModal({ content }: ModalProps) {
                   <div
                     className={styles.modalItem}
                     key={uniqueKey(ctn, 'movie-notification')}
-                    onClick={() => handleClick(`/movie/${ctn.id}`)}
+                    onClick={() => handleClick(`/movies/movie/${ctn.id}`)}
                   >
                     <img
                       src={`https://image.tmdb.org/t/p/w500${ctn?.poster_path}`}

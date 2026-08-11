@@ -79,53 +79,6 @@
     transform: none;
   }
 
-  :global(.swiper-button-prev),
-  :global(.swiper-button-next) {
-    width: 46px;
-    height: 46px;
-
-    color: var(--white);
-
-    background: rgba(10, 10, 10, 0.45);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 50%;
-
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-
-    opacity: 0;
-
-    transition:
-      opacity 0.25s ease,
-      background-color 0.25s ease,
-      transform 0.25s ease;
-
-    &::after {
-      font-size: 1rem;
-      font-weight: 900;
-    }
-
-    &:hover {
-      background: rgba(10, 10, 10, 0.78);
-      transform: scale(1.06);
-    }
-  }
-
-  &:hover {
-    :global(.swiper-button-prev),
-    :global(.swiper-button-next) {
-      opacity: 1;
-    }
-  }
-
-  :global(.swiper-button-prev) {
-    left: 1.25rem;
-  }
-
-  :global(.swiper-button-next) {
-    right: 1.25rem;
-  }
-
   :global(.swiper-wrapper) {
     transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
   }
@@ -245,11 +198,7 @@
     height: 100dvh;
     min-height: 590px;
 
-    // Garantia adicional caso a paginação já tenha sido
-    // criada antes de uma mudança de largura.
-    :global(.swiper-pagination),
-    :global(.swiper-button-prev),
-    :global(.swiper-button-next) {
+    :global(.swiper-pagination) {
       display: none;
     }
   }
@@ -264,9 +213,7 @@
 @media (prefers-reduced-motion: reduce) {
   .container {
     :global(.swiper-wrapper),
-    :global(.swiper-pagination-bullet),
-    :global(.swiper-button-prev),
-    :global(.swiper-button-next) {
+    :global(.swiper-pagination-bullet) {
       transition-duration: 0.01ms;
     }
   }

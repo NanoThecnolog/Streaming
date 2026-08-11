@@ -241,7 +241,7 @@ const NewTop = ({
   const handleMoreInfo = () => {
     if (!card) return
 
-    router.push(type === 'movie' ? `/movie/${id}` : `/series/serie/${id}`)
+    router.push(type === 'movie' ? `/movies/movie/${id}` : `/series/serie/${id}`)
   }
 
   const handleWatch = () => {

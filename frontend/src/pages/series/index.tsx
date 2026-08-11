@@ -1,5 +1,5 @@
 import Header from '@/components/Header'
-import styles from './styles.module.scss'
+import styles from '@/styles/Home.module.scss'
 import { useCallback, useEffect, useState } from 'react'
 import Search from '@/pages/api/Searching'
 import Footer from '@/components/Footer'
@@ -20,6 +20,7 @@ import TopPopularTVShows from '@/components/TopPopularTV'
 import { useDailyModal } from '@/hooks/useDailyModal'
 import NewTop from '@/components/newTop'
 import HeroSection from '@/components/HeroSection'
+import LatestEpisodesCarousel from '@/components/LatestEpisodesCarousel'
 
 export default function Series() {
   //refatorar
@@ -103,6 +104,7 @@ export default function Series() {
                     }
                   </div>
                   <div className={styles.mid}>
+                    <LatestEpisodesCarousel featured />
                     <TopPopularTVShows cardPerContainer={trendingCardsPerContainer} />
 
                     {divisaoPorGenero.map((sec, index) => (

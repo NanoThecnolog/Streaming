@@ -280,7 +280,7 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
           property="og:image"
           content={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
         />
-        <meta property="og:url" content={`https://flixnext.com.br/movie/${movie.id}`} />
+        <meta property="og:url" content={`https://flixnext.com.br/movies/movie/${movie.id}`} />
         <meta property="og:type" content="video.movie" />
 
         {/* Meta Twitter */}
@@ -291,7 +291,7 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
           name="twitter:image"
           content={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
         />
-        <meta property="twitter:url" content={`https://flixnext.com.br/movie/${movie.id}`} />
+        <meta property="twitter:url" content={`https://flixnext.com.br/movies/movie/${movie.id}`} />
 
         <link rel="icon" href="/favicon_io/android-chrome-192x192.png" />
 

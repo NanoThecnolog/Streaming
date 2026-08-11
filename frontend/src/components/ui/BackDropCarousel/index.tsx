@@ -1,6 +1,5 @@
 import styles from './styles.module.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation } from 'swiper/modules'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { TrackingParsed } from '@/@types/watchedResponse'
@@ -15,6 +14,7 @@ import { debug } from '@/classes/DebugLogger'
 import { tmdb } from '@/classes/TMDB'
 import { ProgressResponse } from '@/@types/watchedProgress'
 import Router from 'next/router'
+import SectionHeader from '../SectionHeader'
 
 interface BaseProps {
   title: string
@@ -240,9 +240,8 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
 
   return (
     <div className={styles.carouselContainer}>
-      <h2 className={styles.contentTitle}>{title.toUpperCase()}</h2>
+      <SectionHeader eyebrow="Continue assistindo" title={title} />
       <Swiper
-        modules={[Navigation]}
         spaceBetween={8}
         slidesPerView={cardPerContainer}
         loop={false}

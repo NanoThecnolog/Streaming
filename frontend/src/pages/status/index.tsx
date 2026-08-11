@@ -3,14 +3,14 @@ import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo } from 'react'
 
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import { useTMDB } from '@/contexts/TMDBContext'
 import { platformFeatures, statusMessages } from '@/config/statusPage'
 import { statusVerify } from '@/utils/UtilitiesFunctions'
-import { LatestEpisode, mongoService } from '@/classes/MongoContent'
+import { useLatestEpisodes } from '@/hooks/useLatestEpisodes'
 
 import styles from './styles.module.scss'
 import { debug } from '@/classes/DebugLogger'
@@ -46,36 +46,12 @@ const formatDate = (value: string): string => {
 export default function StatusPage({ services, checkedAt }: StatusPageProps) {
   const { allData, serieData, isLoadingMovies, isLoadingSeries, movieError, seriesError } =
     useTMDB()
-  const [latestEpisodes, setLatestEpisodes] = useState<LatestEpisode[]>([])
-
-  useEffect(() => {
-    let active = true
-    void mongoService.fetchLatestEpisodes().then((episodes) => {
-      if (active) setLatestEpisodes(episodes)
-    })
-    return () => {
-      active = false
-    }
-  }, [])
-
-  const episodeGroups = useMemo(() => {
-    const groups = new Map<string, LatestEpisode & { episodeNumbers: number[] }>()
-
-    latestEpisodes.forEach((episode) => {
-      const key = `${episode.tmdbID}:${episode.seasonNumber}`
-      const current = groups.get(key)
-      if (current) {
-        current.episodeNumbers.push(episode.episodeNumber)
-        if (new Date(episode.addedAt) > new Date(current.addedAt)) current.addedAt = episode.addedAt
-      } else {
-        groups.set(key, { ...episode, episodeNumbers: [episode.episodeNumber] })
-      }
-    })
-
-    return Array.from(groups.values())
-      .sort((a, b) => new Date(b.addedAt).getTime() - new Date(a.addedAt).getTime())
-      .slice(0, 8)
-  }, [latestEpisodes])
+  const { groups: episodeGroups } = useLatestEpisodes()
+  const seriesById = useMemo(
+    () => new Map(serieData.map((serie) => [serie.id, serie])),
+    [serieData],
+  )
+  const availableEpisodeGroups = episodeGroups.filter((group) => seriesById.has(group.tmdbID))
 
   const serviceEntries = Object.entries(services) as Array<
     [keyof StatusPageProps['services'], boolean]
@@ -246,10 +222,10 @@ export default function StatusPage({ services, checkedAt }: StatusPageProps) {
               <h2>Últimos episódios adicionados</h2>
             </div>
           </div>
-          {episodeGroups.length > 0 ? (
+          {availableEpisodeGroups.length > 0 ? (
             <div className={styles.episodeGrid}>
-              {episodeGroups.map((group) => {
-                const tmdbSerie = serieData.find((serie) => serie.id === group.tmdbID)
+              {availableEpisodeGroups.map((group) => {
+                const tmdbSerie = seriesById.get(group.tmdbID)!
                 const episodes = [...group.episodeNumbers].sort((a, b) => a - b)
                 const episodeLabel =
                   episodes.length === 1
@@ -263,7 +239,7 @@ export default function StatusPage({ services, checkedAt }: StatusPageProps) {
                     key={`${group.tmdbID}-${group.seasonNumber}`}
                   >
                     <div className={styles.poster}>
-                      {tmdbSerie?.poster_path ? (
+                      {tmdbSerie.poster_path ? (
                         <Image
                           src={`https://image.tmdb.org/t/p/w500${tmdbSerie.poster_path}`}
                           alt=""
@@ -280,7 +256,7 @@ export default function StatusPage({ services, checkedAt }: StatusPageProps) {
                           new Date(group.addedAt),
                         )}
                       </time>
-                      <h3>{tmdbSerie?.name ?? `Série ${group.tmdbID}`}</h3>
+                      <h3>{tmdbSerie.name}</h3>
                       <p>
                         Temporada {group.seasonNumber} · {episodeLabel}
                       </p>

@@ -14,6 +14,7 @@ import Script from 'next/script'
 import { debug } from '@/classes/DebugLogger'
 import NavigationProgress from '@/components/ui/NavigationProgress'
 import Notifications from '@/components/ui/Notifications'
+import 'swiper/css'
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()

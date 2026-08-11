@@ -16,7 +16,6 @@ import Prices from '@/components/pagePlans/PromoPrices'
 import Streaming from '@/components/pagePlans/PromoStreamings'
 import { mongoService } from '@/classes/MongoContent'
 
-import 'swiper/css'
 import styles from './styles.module.scss'
 
 interface PagePlansProps {

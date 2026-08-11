@@ -86,7 +86,7 @@ export default function Top({ width, cards }: TopProps) {
   }
 
   function handleMoreInfo() {
-    router.push(`/movie/${card.tmdbId}`)
+    router.push(`/movies/movie/${card.tmdbId}`)
   }
   function handleWatch() {
     const { tmdbId } = card

@@ -1,7 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mouse+Memoirs&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@300..900&family=Montserrat:wght@200;400;600;700&family=Mouse+Memoirs&family=Noto+Sans:wght@300..900&family=Nunito:wght@200..1000&family=Poppins:wght@100..900&family=Raleway:wght@100..900&family=Roboto:wght@400;500;600;700;900&family=Rubik:wght@300..900&display=swap');
 
 @font-face {
   font-family: 'HarryPotter';
@@ -49,7 +46,7 @@
 
   --font-bebas: 'Bebas Neue', cursive;
   --font-Anton: 'Anton', sans-serif;
-  --font-Roboto: 'Roboto', serif;
+  --font-Roboto: 'Roboto', sans-serif;
   --font-Montserrat: 'Montserrat', sans-serif;
   --font-Potter: 'HarryPotter', sans-serif;
   --font-Poppins: 'Poppins', sans-serif; //hbo e paramount
@@ -60,8 +57,10 @@
   --font-Raleway: 'Raleway', sans-serif; //starz
 }
 
-* {
-  transition: all 0.4s;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html,
@@ -70,7 +69,6 @@ body {
   padding: 0;
   width: 100%;
   background-color: var(--background-black);
-  box-sizing: border-box;
   scroll-behavior: smooth;
   overflow-x: hidden;
   color: var(--white);
@@ -92,9 +90,9 @@ input {
   border-radius: 0.4rem;
   padding: 5px 10px;
 
-  &:focus {
-    border: none;
-    outline: none;
+  &:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 2px;
   }
 }
 
@@ -116,8 +114,20 @@ a {
   color: var(--white);
 }
 
-// styles/globals.scss
-// styles/globals.scss
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 
 #nprogress {
   pointer-events: none;

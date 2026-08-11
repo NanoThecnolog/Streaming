@@ -1,77 +1,41 @@
 .card {
+  position: relative;
+  display: block;
   width: 100%;
   aspect-ratio: 2 / 3;
-  color: var(--white);
-  position: relative;
-  border: 2px solid transparent;
   overflow: hidden;
-  transition: all 0.5s;
+  color: var(--white);
+  background: #191919;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.65rem;
   cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 
-  &:hover {
-    border: 2px solid white;
+  &:hover,
+  &:focus-visible {
+    border-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.42);
+    transform: translateY(-3px);
 
-    .overlay {
-      opacity: 1;
-      visibility: visible;
+    .backgroundImage {
+      filter: brightness(0.88);
+      transform: scale(1.035);
     }
   }
 
+  &:focus-visible {
+    outline: 2px solid var(--white);
+    outline-offset: 3px;
+  }
+
   .newsContainer {
-    /*position: absolute;
-        top: 12px;
-        right: -30px;
-        z-index: 2;
-
-        background: linear-gradient(135deg, #e50914, #b20710);
-        color: var(--white);
-
-        padding: 4px 40px;
-        font-family: var(--font-bebas);
-        font-size: .75rem;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-
-        transform: rotade(35deg);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, .5);
-
-        border-top: 1px solid rgba(255, 255, 255, .2);
-        border-bottom: 1px solid rgba(0, 0, 0, .3);
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        white-space: nowrap;*/
-
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 0.65rem;
+    left: 0.65rem;
     z-index: 9;
-
-    background: rgba(229, 9, 20, 0.95);
-    color: #fff;
-
-    padding: 4px 10px;
-    border-radius: 3px;
-
-    font-family: var(--font-bebas);
-    font-size: clamp(0.8rem, 1.2vw, 1rem);
-    font-weight: 600;
-    letter-spacing: clamp(0.02rem, 0.1vw, 0.08rem);
-
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-    filter: drop-shadow(0 clamp(2px, 0.5vw, 4px) clamp(4px, 1vw, 8px) rgba(0, 0, 0, 0.5));
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-
-    //border-radius: .4rem;
-
-    //width: 120px;
-
-    //text-align: right;
   }
 
   .backgroundImage {
@@ -82,6 +46,9 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+    transition:
+      filter 0.2s ease,
+      transform 0.3s ease;
   }
 }
 
@@ -117,10 +84,9 @@
 
 @media (max-width: 915px) {
   .card {
-    border: none;
-
-    &:hover {
-      border: none;
+    &:hover,
+    &:focus-visible {
+      transform: none;
     }
   }
 }

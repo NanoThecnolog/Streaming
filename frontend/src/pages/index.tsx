@@ -20,6 +20,7 @@ import { useDailyModal } from '@/hooks/useDailyModal'
 import LastContentAdded from '@/components/LastContentAdded'
 import BackDropCarousel from '@/components/ui/BackDropCarousel'
 import DailyWarningModal from '@/components/ui/DailyModal'
+import LatestEpisodesCarousel from '@/components/LatestEpisodesCarousel'
 
 export default function Home() {
   const { isOpen, close } = useDailyModal()
@@ -89,7 +90,8 @@ export default function Home() {
                     <HeroSection width={width} />
                   </div>
                   <div className={styles.mid} id="filmes">
-                    <BackDropCarousel title="Assistido Recentemente" />
+                    <BackDropCarousel title="Onde você parou" />
+                    <LatestEpisodesCarousel />
                     <TopPopularMovies cardPerContainer={trendingCardsPerContainer} />
                     <TopPopularTVShows cardPerContainer={trendingCardsPerContainer} />
                     <TrendingCarousel cardPerContainer={cardPerContainer} />

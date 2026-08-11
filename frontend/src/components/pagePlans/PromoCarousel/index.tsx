@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { FiArrowRight, FiFilm, FiTv } from 'react-icons/fi'
-import { Autoplay, Navigation } from 'swiper/modules'
+import { Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { MovieTMDB } from '@/@types/Cards'
@@ -94,8 +94,7 @@ const Carousel = ({ movies = [], series = [] }: CarouselProps) => {
 
               <Swiper
                 className={styles.swiper}
-                modules={[Navigation, Autoplay]}
-                //navigation
+                modules={[Autoplay]}
                 autoplay={{
                   delay: 3500,
                   disableOnInteraction: false,
@@ -147,8 +146,7 @@ const Carousel = ({ movies = [], series = [] }: CarouselProps) => {
 
               <Swiper
                 className={styles.swiper}
-                modules={[Navigation, Autoplay]}
-                //navigation
+                modules={[Autoplay]}
                 autoplay={{
                   delay: 4000,
                   disableOnInteraction: false,

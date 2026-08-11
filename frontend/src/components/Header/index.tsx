@@ -223,7 +223,7 @@ export default function Header() {
     setSearchInput('')
     setRelatedSearch([])
 
-    const path = isSeries(item) ? `/series/serie/${item.tmdbID}` : `/movie/${item.tmdbId}`
+    const path = isSeries(item) ? `/series/serie/${item.tmdbID}` : `/movies/movie/${item.tmdbId}`
 
     try {
       await router.push(path)

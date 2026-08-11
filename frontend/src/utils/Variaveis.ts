@@ -36,7 +36,7 @@ export const planValues = {
 }
 
 export const trendingBreakpoints = [
-  { width: 560, cards: 2 },
+  { width: 560, cards: 1.8 },
   { width: 780, cards: 3 },
   { width: 915, cards: 4 },
   { width: 1160, cards: 5 },
@@ -46,7 +46,7 @@ export const trendingBreakpoints = [
 ]
 
 export const breakpoints = [
-  { width: 560, cards: 3 },
+  { width: 560, cards: 2.15 },
   { width: 780, cards: 3 },
   { width: 915, cards: 4 },
   { width: 1160, cards: 5 },

@@ -1,12 +1,10 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import styles from './styles.module.scss'
 import Card from '@/components/Card'
-import { Navigation } from 'swiper/modules'
 import { CardsProps } from '@/@types/Cards'
 import { SeriesProps } from '@/@types/series'
-import Link from 'next/link'
-//import { debug } from '@/classes/DebugLogger'
 import { uniqueKey } from '@/utils/UtilitiesFunctions'
+import SectionHeader from '../SectionHeader'
 
 interface BaseProps {
   title: string
@@ -21,20 +19,14 @@ export default function CommonCarousel({ title, cardPerContainer, cards }: BaseP
 
   return (
     <div className={styles.carouselContainer}>
-      <h2 className={styles.contentTitle}>{title.toUpperCase()}</h2>
-
-      {
-        //debug.log('cards', cards.map(c => 'season' in c ? c.tmdbID : c.tmdbId))
-      }
+      <SectionHeader title={title} />
       <Swiper
-        //ref={swiperRef}
-        modules={[Navigation]}
         spaceBetween={10}
         slidesPerView={cardPerContainer}
-        loop={true}
+        loop={uniqueCards.length > Math.ceil(cardPerContainer)}
         className={styles.carousel}
       >
-        {uniqueCards.map((card, index) => {
+        {uniqueCards.map((card) => {
           if ('season' in card) {
             return (
               <SwiperSlide key={uniqueKey(card)} className={styles.slide}>

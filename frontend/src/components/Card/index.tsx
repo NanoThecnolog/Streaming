@@ -1,11 +1,12 @@
 import { CardsProps } from '@/@types/Cards'
 import styles from './styles.module.scss'
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
+import Link from 'next/link'
 import { useTMDB } from '@/contexts/TMDBContext'
 import { SeriesProps } from '@/@types/series'
 import { debug } from '@/classes/DebugLogger'
 import { tmdb } from '@/classes/TMDB'
+import NewContent from '@/components/ui/NewContent'
 
 interface CardProps {
   card: CardsProps | SeriesProps
@@ -15,7 +16,6 @@ interface TMDBImagesProps {
 }
 
 export default function Card({ card }: CardProps) {
-  const router = useRouter()
   const { allData, serieData } = useTMDB()
   const [TMDBImages, setTMDBImages] = useState<TMDBImagesProps>()
   const [infoNews, setInfoNews] = useState<'news' | 'episode' | 'season' | null>(null)
@@ -61,36 +61,24 @@ export default function Card({ card }: CardProps) {
     getImage()
   }, [card, allData, serieData])
 
-  function handleClick() {
-    if ('season' in card) {
-      router.push(`/series/serie/${card.tmdbID}`)
-    } else {
-      router.push(`/movie/${card.tmdbId}`)
-    }
-  }
-
-  const newsMap: Record<string, string> = {
-    news: 'Nova Série',
-    season: 'Nova Temporada',
-    episode: 'Novos Episódios',
-  }
+  const href = 'season' in card ? `/series/serie/${card.tmdbID}` : `/movies/movie/${card.tmdbId}`
 
   return (
-    <>
-      <div className={styles.card} id={card.genero[0].toLowerCase()}>
-        {infoNews && (
-          <div className={styles.newsContainer}>
-            <p>{newsMap[infoNews]}</p>
-          </div>
-        )}
+    <Link className={styles.card} href={href} aria-label={`Ver detalhes de ${card.title}`}>
+      {infoNews && (
+        <div className={styles.newsContainer}>
+          <NewContent type={infoNews} />
+        </div>
+      )}
 
-        <img
-          src={TMDBImages ? TMDBImages.poster : card.overlay}
-          alt={card.title}
-          className={styles.backgroundImage}
-          onClick={() => handleClick()}
-        />
-      </div>
-    </>
+      <img
+        src={TMDBImages ? TMDBImages.poster : card.overlay}
+        alt={card.title}
+        className={styles.backgroundImage}
+        loading="lazy"
+        decoding="async"
+        draggable={false}
+      />
+    </Link>
   )
 }

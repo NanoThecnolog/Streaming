@@ -657,7 +657,7 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
                         type="button"
                         className={styles.editButton}
                         onClick={() => {
-                          void router.push(`/dashboard?id=${data.id}`)
+                          void router.push(`/dashboard?type=tv&id=${data.id}`)
                         }}
                       >
                         Editar série

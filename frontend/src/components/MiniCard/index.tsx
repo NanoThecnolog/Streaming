@@ -38,7 +38,7 @@ export default function MiniCard({ card }: MiniProps) {
   }, [card, allData, cachedImages, setCachedImage])
 
   function handleClick() {
-    router.push(`/movie/${card.tmdbId}`)
+    router.push(`/movies/movie/${card.tmdbId}`)
   }
   return (
     <div className={styles.container}>

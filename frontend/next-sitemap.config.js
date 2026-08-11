@@ -13,7 +13,7 @@ module.exports = {
           '/',
           '/series',
           '/movies',
-          '/movie/*',
+          '/movies/movie/*',
           '/series/*',
           '/login',
           '/sobre',
@@ -37,7 +37,7 @@ module.exports = {
       /*{ userAgent: '*', allow: '/' },
             { userAgent: '*', allow: '/series' },
             { userAgent: '*', allow: '/movies' },
-            { userAgent: '*', allow: '/movie/*' },
+            { userAgent: '*', allow: '/movies/movie/*' },
             { userAgent: '*', allow: '/series/serie/*' },
             { userAgent: '*', allow: '/signup' },
             { userAgent: '*', allow: '/login' },
@@ -96,7 +96,7 @@ module.exports = {
     if (!Array.isArray(m)) throw new Error('[sitemap] resposta inválida da api /api/seo')
 
     return m.map((movie) => ({
-      loc: `/movie/${movie.id}`,
+      loc: `/movies/movie/${movie.id}`,
       changefreq: 'weekly',
       priority: 0.8,
       lastmod: new Date().toISOString(),

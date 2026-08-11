@@ -1,12 +1,11 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import styles from './styles.module.scss'
 import Card from '@/components/Card'
-import { Navigation } from 'swiper/modules'
 import { CardsProps } from '@/@types/Cards'
 import { SeriesProps } from '@/@types/series'
 import Link from 'next/link'
-//import { debug } from '@/classes/DebugLogger'
 import { uniqueKey } from '@/utils/UtilitiesFunctions'
+import SectionHeader from '../SectionHeader'
 
 interface BaseProps {
   title: string
@@ -21,9 +20,8 @@ export default function BaseCarousel({ title, cardPerContainer, cards }: BasePro
 
   return (
     <div className={styles.carouselContainer}>
-      <h2 className={styles.contentTitle}>{title.toUpperCase()}</h2>
+      <SectionHeader title={title} />
       <Swiper
-        modules={[Navigation]}
         spaceBetween={10}
         slidesPerView={cardPerContainer - (cardPerContainer === 8 ? 1 : 0)}
         loop={false}
@@ -53,7 +51,7 @@ export default function BaseCarousel({ title, cardPerContainer, cards }: BasePro
           } else {
             return (
               <SwiperSlide key={uniqueKey(card)} className={styles.slide}>
-                <Link href={`/movie/${card.tmdbId}`}>
+                <Link href={`/movies/movie/${card.tmdbId}`}>
                   <p className={styles.index}>
                     {index === 9 ? (
                       <>
