@@ -216,104 +216,205 @@ export const formatTime = (time: number): string => {
   return hours > 0 ? `${hh}:${mm}:${ss}` : `${mm}:${ss}`
 }
 
-export const normalizeLanguage = (language: string): string => {
-  const languages: Record<string, string> = {
-    PT: 'Português',
-    'PT-BR': 'Português',
-    POR: 'Português',
+const languageAliases: Record<string, string> = {
+  PT: 'Português',
+  POR: 'Português',
+  POB: 'Português',
+  PORTUGUES: 'Português',
+  PORTUGUESE: 'Português',
+  'BRAZILIAN PORTUGUESE': 'Português',
+  'PORTUGUES BRASIL': 'Português',
+  EN: 'Inglês',
+  ENG: 'Inglês',
+  ENGLISH: 'Inglês',
+  INGLES: 'Inglês',
+  ES: 'Espanhol',
+  SPA: 'Espanhol',
+  ESP: 'Espanhol',
+  SPANISH: 'Espanhol',
+  ESPANOL: 'Espanhol',
+  JA: 'Japonês',
+  JPN: 'Japonês',
+  JAP: 'Japonês',
+  JAPANESE: 'Japonês',
+  JAPONES: 'Japonês',
+  FR: 'Francês',
+  FRE: 'Francês',
+  FRA: 'Francês',
+  FRENCH: 'Francês',
+  FRANCES: 'Francês',
+  DE: 'Alemão',
+  GER: 'Alemão',
+  DEU: 'Alemão',
+  GERMAN: 'Alemão',
+  ALEMAO: 'Alemão',
+  IT: 'Italiano',
+  ITA: 'Italiano',
+  ITALIAN: 'Italiano',
+  ITALIANO: 'Italiano',
+  RU: 'Russo',
+  RUS: 'Russo',
+  RUSSIAN: 'Russo',
+  RUSSO: 'Russo',
+  KO: 'Coreano',
+  KOR: 'Coreano',
+  KOREAN: 'Coreano',
+  COREANO: 'Coreano',
+  ZH: 'Chinês',
+  CHI: 'Chinês',
+  ZHO: 'Chinês',
+  CMN: 'Chinês',
+  CHINESE: 'Chinês',
+  CHINES: 'Chinês',
+  NO: 'Norueguês',
+  NOR: 'Norueguês',
+  NB: 'Norueguês',
+  NOB: 'Norueguês',
+  NN: 'Norueguês',
+  NNO: 'Norueguês',
+  NORWEGIAN: 'Norueguês',
+  NORUEGUES: 'Norueguês',
+  AR: 'Árabe',
+  ARA: 'Árabe',
+  ARABIC: 'Árabe',
+  ARABE: 'Árabe',
+  CS: 'Tcheco',
+  CZE: 'Tcheco',
+  CES: 'Tcheco',
+  CZECH: 'Tcheco',
+  TCHECO: 'Tcheco',
+  DA: 'Dinamarquês',
+  DAN: 'Dinamarquês',
+  DANISH: 'Dinamarquês',
+  DINAMARQUES: 'Dinamarquês',
+  EL: 'Grego',
+  GRE: 'Grego',
+  ELL: 'Grego',
+  GREEK: 'Grego',
+  GREGO: 'Grego',
+  FI: 'Finlandês',
+  FIN: 'Finlandês',
+  FINNISH: 'Finlandês',
+  FINLANDES: 'Finlandês',
+  HE: 'Hebraico',
+  HEB: 'Hebraico',
+  HEBREW: 'Hebraico',
+  HEBRAICO: 'Hebraico',
+  HU: 'Húngaro',
+  HUN: 'Húngaro',
+  HUNGARIAN: 'Húngaro',
+  HUNGARO: 'Húngaro',
+  ID: 'Indonésio',
+  IND: 'Indonésio',
+  INDONESIAN: 'Indonésio',
+  INDONESIO: 'Indonésio',
+  NL: 'Holandês',
+  DUT: 'Holandês',
+  NLD: 'Holandês',
+  DUTCH: 'Holandês',
+  HOLANDES: 'Holandês',
+  PL: 'Polonês',
+  POL: 'Polonês',
+  POLISH: 'Polonês',
+  POLONES: 'Polonês',
+  RO: 'Romeno',
+  RUM: 'Romeno',
+  RON: 'Romeno',
+  ROMANIAN: 'Romeno',
+  ROMENO: 'Romeno',
+  SV: 'Sueco',
+  SWE: 'Sueco',
+  SWEDISH: 'Sueco',
+  SUECO: 'Sueco',
+  TH: 'Tailandês',
+  THA: 'Tailandês',
+  TAI: 'Tailandês',
+  THAI: 'Tailandês',
+  TAILANDES: 'Tailandês',
+  TR: 'Turco',
+  TUR: 'Turco',
+  TURKISH: 'Turco',
+  TURCO: 'Turco',
+  VI: 'Vietnamita',
+  VIE: 'Vietnamita',
+  VIETNAMESE: 'Vietnamita',
+  VIETNAMITA: 'Vietnamita',
+  UK: 'Ucraniano',
+  UKR: 'Ucraniano',
+  UKRAINIAN: 'Ucraniano',
+  UCRANIANO: 'Ucraniano',
+  HI: 'Hindi',
+  HIN: 'Hindi',
+  HINDI: 'Hindi',
+  BN: 'Bengali',
+  BEN: 'Bengali',
+  BENGALI: 'Bengali',
+  TA: 'Tâmil',
+  TAM: 'Tâmil',
+  TAMIL: 'Tâmil',
+  TE: 'Télugo',
+  TEL: 'Télugo',
+  TELUGU: 'Télugo',
+  MS: 'Malaio',
+  MSA: 'Malaio',
+  MAY: 'Malaio',
+  MALAY: 'Malaio',
+  MALAIO: 'Malaio',
+  FA: 'Persa',
+  PER: 'Persa',
+  FAS: 'Persa',
+  FARSI: 'Persa',
+  PERSIAN: 'Persa',
+  PERSA: 'Persa',
+  TL: 'Filipino',
+  TGL: 'Filipino',
+  FIL: 'Filipino',
+  FILIPINO: 'Filipino',
+  UND: 'Outro',
+  UNK: 'Outro',
+  UNKNOWN: 'Outro',
+  DESCONHECIDO: 'Outro',
+  FULL: 'Completa',
+  COMPLETE: 'Completa',
+  COMPLETA: 'Completa',
+  FORCED: 'Forçada',
+  FOR: 'Forçada',
+  FORCADA: 'Forçada',
+}
 
-    EN: 'Inglês',
-    ENG: 'Inglês',
+const normalizeLanguageKey = (value: string) =>
+  value
+    .trim()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/_/g, '-')
+    .replace(/\s+/g, ' ')
+    .toUpperCase()
 
-    ES: 'Espanhol',
-    SPA: 'Espanhol',
+export const normalizeLanguage = (language?: string | null): string => {
+  if (!language?.trim()) return 'Outro'
 
-    JA: 'Japonês',
-    JPN: 'Japonês',
+  const normalized = normalizeLanguageKey(language)
+  const exactMatch = languageAliases[normalized]
 
-    FR: 'Francês',
-    FRE: 'Francês',
-    FRA: 'Francês',
+  if (exactMatch) return exactMatch
 
-    DE: 'Alemão',
-    GER: 'Alemão',
-    DEU: 'Alemão',
+  const withoutRegion = normalized.replace(/\s*\([^)]*\)\s*$/, '')
+  const regionMatch = languageAliases[withoutRegion]
 
-    IT: 'Italiano',
-    ITA: 'Italiano',
+  if (regionMatch) return regionMatch
 
-    RU: 'Russo',
-    RUS: 'Russo',
+  const baseCode = normalized.split('-')[0]
+  const baseCodeMatch = languageAliases[baseCode]
 
-    KO: 'Coreano',
-    KOR: 'Coreano',
+  if (baseCodeMatch) return baseCodeMatch
 
-    ZH: 'Chinês',
-    CHI: 'Chinês',
-    ZHO: 'Chinês',
+  const tokens = normalized.split(/[^A-Z]+/).filter(Boolean)
+  const tokenMatch = tokens
+    .map((token) => languageAliases[token])
+    .find((translation) => translation && translation !== 'Outro')
 
-    NB: 'Norueguês',
-    NOB: 'Norueguês',
-
-    AR: 'Árabe',
-    ARA: 'Árabe',
-
-    CS: 'Tcheco',
-    CZE: 'Tcheco',
-    CES: 'Tcheco',
-
-    DA: 'Dinamarquês',
-    DAN: 'Dinamarquês',
-
-    EL: 'Grego',
-    GRE: 'Grego',
-    ELL: 'Grego',
-
-    FI: 'Finlandês',
-    FIN: 'Finlandês',
-
-    HE: 'Hebraico',
-    HEB: 'Hebraico',
-
-    HU: 'Húngaro',
-    HUN: 'Húngaro',
-
-    ID: 'Indonésio',
-    IND: 'Indonésio',
-
-    NL: 'Holandês',
-    DUT: 'Holandês',
-    NLD: 'Holandês',
-
-    PL: 'Polonês',
-    POL: 'Polonês',
-
-    RO: 'Romeno',
-    RUM: 'Romeno',
-    RON: 'Romeno',
-
-    SV: 'Sueco',
-    SWE: 'Sueco',
-
-    TH: 'Tailandês',
-    THA: 'Tailandês',
-
-    TR: 'Turco',
-    TUR: 'Turco',
-
-    VI: 'Vietnamita',
-    VIE: 'Vietnamita',
-
-    UND: 'Outro',
-    UNK: 'Outro',
-    UNKNOWN: 'Outro',
-
-    FULL: 'Completa',
-    FORCED: 'Forçada',
-    FOR: 'Forçada',
-  }
-
-  return languages[language?.toUpperCase()] || 'Outro'
+  return tokenMatch || 'Outro'
 }
 
 export const getThumbnailUrl = (url: string): string => {

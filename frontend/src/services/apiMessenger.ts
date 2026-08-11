@@ -23,9 +23,7 @@ apiEmail.interceptors.request.use(
     if (!isServer) return config
 
     if (!apiKey) {
-      return Promise.reject(
-        new Error('API_KEY da mensageria não configurada.'),
-      )
+      return Promise.reject(new Error('API_KEY da mensageria não configurada.'))
     }
 
     config.headers = config.headers ?? {}

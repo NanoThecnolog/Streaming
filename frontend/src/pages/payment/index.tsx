@@ -288,7 +288,10 @@ export default function NewPaymentPage({ plans }: Props) {
         durationMs: Date.now() - stepStartedAtRef.current,
       })
 
-      navigator.sendBeacon('/api/events/checkout', new Blob([payload], { type: 'application/json' }))
+      navigator.sendBeacon(
+        '/api/events/checkout',
+        new Blob([payload], { type: 'application/json' }),
+      )
       sessionStorage.removeItem('flixnext-checkout-session')
     }
 

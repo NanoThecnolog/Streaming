@@ -21,11 +21,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (axios.isAxiosError(err)) {
       return res.status(err.response?.status ?? 500).json(err.response?.data)
     }
-    return res
-      .status(500)
-      .json({
-        error: err,
-        message: 'Erro interno do servidor ao buscar a lista de filmes para assistir mais tarde',
-      })
+    return res.status(500).json({
+      error: err,
+      message: 'Erro interno do servidor ao buscar a lista de filmes para assistir mais tarde',
+    })
   }
 }

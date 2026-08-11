@@ -489,14 +489,6 @@ export const brands: Record<string, IconType> = {
   'american-express': SiAmericanexpress,
 }
 
-export const normalizeAudioTrack: Record<string, string> = {
-  por: 'português',
-  eng: 'inglês',
-  jap: 'japonês',
-  nob: 'norueguês',
-  und: 'outro',
-}
-
 export const checkoutStepMap: Record<CheckoutStep, CheckoutTrackStep> = {
   email: 'EMAIL',
   plan: 'PLAN',

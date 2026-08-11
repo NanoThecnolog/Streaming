@@ -4,7 +4,6 @@ import { normalizeLanguage } from '@/utils/UtilitiesFunctions'
 
 import { HiMiniSpeakerWave } from 'react-icons/hi2'
 import { MdSubtitles, MdSubtitlesOff, MdCheck } from 'react-icons/md'
-import { normalizeAudioTrack } from '@/utils/Variaveis'
 
 interface Props {
   audioTracks: AudioTrack[]
@@ -33,11 +32,21 @@ export default function PlayerConfigModal({
   selectSubtitleTrack,
   disableAllSubtitles,
 }: Props) {
+  const getAudioLanguage = (track: AudioTrack) => {
+    const language = normalizeLanguage(track.lang)
+
+    if (language !== 'Outro') return language
+
+    const name = normalizeLanguage(track.name)
+
+    return name !== 'Outro' ? name : track.name?.trim() || 'Outro'
+  }
+
   const sortedAudio = audio
     .map((track, index) => ({ track, originalIndex: index }))
     .sort((a, b) => {
-      const getPriority = (lang: string) => {
-        const normalized = normalizeLanguage(lang).toLowerCase()
+      const getPriority = (track: AudioTrack) => {
+        const normalized = getAudioLanguage(track).toLowerCase()
 
         if (normalized.includes('portugu')) return 0
         if (normalized.includes('english') || normalized.includes('ingl')) return 1
@@ -45,7 +54,7 @@ export default function PlayerConfigModal({
         return 2
       }
 
-      return getPriority(a.track.lang) - getPriority(b.track.lang)
+      return getPriority(a.track) - getPriority(b.track)
     })
   return (
     <section className={styles.container} onClick={onClose}>
@@ -63,7 +72,7 @@ export default function PlayerConfigModal({
                 className={`${styles.item} ${selectedAudio === originalIndex ? styles.active : ''}`}
                 onClick={() => changeAudioTrack(originalIndex)}
               >
-                <span>{normalizeLanguage(track.lang)}</span>
+                <span>{getAudioLanguage(track)}</span>
 
                 {selectedAudio === originalIndex && <MdCheck size={20} />}
               </button>

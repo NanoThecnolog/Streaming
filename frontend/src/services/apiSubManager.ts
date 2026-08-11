@@ -23,9 +23,7 @@ apiSub.interceptors.request.use(
     if (!isServer) return config
 
     if (!apiKey) {
-      return Promise.reject(
-        new Error('API_KEY do gerenciador de assinaturas não configurada.'),
-      )
+      return Promise.reject(new Error('API_KEY do gerenciador de assinaturas não configurada.'))
     }
 
     config.headers = config.headers ?? {}
