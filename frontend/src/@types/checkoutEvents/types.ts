@@ -17,7 +17,6 @@ export type CheckoutTrackEvent =
   | 'VALIDATION_ERROR'
   | 'PAYMENT_ATTEMPTED'
   | 'PAYMENT_FAILED'
-  | 'PAYMENT_APPROVED'
   | 'CHECKOUT_COMPLETED'
   | 'CHECKOUT_ABANDONED'
 
@@ -35,6 +34,7 @@ export type CheckoutTrackField =
   | 'card_document'
 
 export interface CheckoutTrackPayload {
+  eventId?: string
   type: CheckoutTrackEvent
   step: CheckoutTrackStep
 

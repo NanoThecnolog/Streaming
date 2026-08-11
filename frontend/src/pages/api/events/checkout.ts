@@ -1,4 +1,3 @@
-import { debug } from '@/classes/DebugLogger'
 import { SetupAPIClient } from '@/services/api'
 import axios from 'axios'
 import { NextApiRequest, NextApiResponse } from 'next'
@@ -20,7 +19,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const client = new SetupAPIClient({ req })
 
   try {
-    debug.log('conteúdo do checkout enviado pro backend', req.body)
     const response = await client.api.post('/checkout/events', req.body)
 
     return res.status(response.status).json(response.data)

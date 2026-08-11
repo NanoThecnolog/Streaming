@@ -161,6 +161,12 @@ export default function NewPaymentPage({ plans }: Props) {
   //==================================================================================================================
 
   const checkoutSessionIdRef = useRef<string | null>(null)
+  const checkoutEventQueueRef = useRef<Promise<void>>(Promise.resolve())
+  const checkoutCompletedRef = useRef(false)
+  const abandonmentSentRef = useRef(false)
+  const checkoutStartedTrackedRef = useRef(false)
+  const lastViewedStepRef = useRef<CheckoutStep | null>(null)
+  const currentStepRef = useRef<CheckoutStep>('email')
   const stepStartedAtRef = useRef<number>(Date.now())
 
   const getCheckoutSessionId = (): string => {
@@ -182,21 +188,52 @@ export default function NewPaymentPage({ plans }: Props) {
     return sessionId
   }
 
-  const trackCheckoutEvent = async (payload: CheckoutTrackPayload): Promise<void> => {
-    if (typeof window === 'undefined') return
+  const trackCheckoutEvent = (payload: CheckoutTrackPayload): Promise<boolean> => {
+    if (typeof window === 'undefined') return Promise.resolve(false)
 
-    try {
-      await axios.post('/api/events/checkout', {
-        sessionId: getCheckoutSessionId(),
-        ...payload,
-      })
-    } catch (error) {
-      debug.error('Erro ao registrar evento do checkout', error)
+    const event = {
+      sessionId: getCheckoutSessionId(),
+      ...payload,
+      eventId: payload.eventId ?? crypto.randomUUID(),
     }
+
+    const request = async (): Promise<boolean> => {
+      const retryDelays = [0, 300, 900]
+
+      for (let attempt = 0; attempt < retryDelays.length; attempt += 1) {
+        if (retryDelays[attempt] > 0) {
+          await new Promise((resolve) => window.setTimeout(resolve, retryDelays[attempt]))
+        }
+
+        try {
+          await axios.post('/api/events/checkout', event)
+          return true
+        } catch (error) {
+          const shouldRetry =
+            axios.isAxiosError(error) &&
+            (!error.response || error.response.status === 429 || error.response.status >= 500)
+
+          if (!shouldRetry || attempt === retryDelays.length - 1) {
+            debug.error('Erro ao registrar evento do checkout', error)
+            return false
+          }
+        }
+      }
+
+      return false
+    }
+
+    const queuedRequest = checkoutEventQueueRef.current.then(request, request)
+
+    checkoutEventQueueRef.current = queuedRequest.then(() => undefined)
+
+    return queuedRequest
   }
 
   useEffect(() => {
-    if (!router.isReady) return
+    if (!router.isReady || checkoutStartedTrackedRef.current) return
+
+    checkoutStartedTrackedRef.current = true
 
     const params = new URLSearchParams(window.location.search)
 
@@ -218,7 +255,12 @@ export default function NewPaymentPage({ plans }: Props) {
   }, [router.isReady])
 
   useEffect(() => {
+    currentStepRef.current = currentStep
     stepStartedAtRef.current = Date.now()
+
+    if (currentStep === 'confirmation' || lastViewedStepRef.current === currentStep) return
+
+    lastViewedStepRef.current = currentStep
 
     void trackCheckoutEvent({
       type: 'STEP_VIEWED',
@@ -226,8 +268,55 @@ export default function NewPaymentPage({ plans }: Props) {
     })
   }, [currentStep])
 
+  useEffect(() => {
+    const handlePageHide = () => {
+      if (
+        checkoutCompletedRef.current ||
+        abandonmentSentRef.current ||
+        !checkoutSessionIdRef.current
+      ) {
+        return
+      }
+
+      abandonmentSentRef.current = true
+
+      const payload = JSON.stringify({
+        eventId: crypto.randomUUID(),
+        sessionId: checkoutSessionIdRef.current,
+        type: 'CHECKOUT_ABANDONED',
+        step: checkoutStepMap[currentStepRef.current],
+        durationMs: Date.now() - stepStartedAtRef.current,
+      })
+
+      navigator.sendBeacon('/api/events/checkout', new Blob([payload], { type: 'application/json' }))
+      sessionStorage.removeItem('flixnext-checkout-session')
+    }
+
+    window.addEventListener('pagehide', handlePageHide)
+
+    return () => window.removeEventListener('pagehide', handlePageHide)
+  }, [])
+
   const goToStep = (nextStep: CheckoutStep, direction: 'continue' | 'back' = 'continue'): void => {
     const durationMs = Date.now() - stepStartedAtRef.current
+
+    if (direction === 'continue' && currentStep === 'email' && normalizeEmail(email)) {
+      void trackCheckoutEvent({
+        type: 'FIELD_COMPLETED',
+        step: 'EMAIL',
+        field: 'email',
+        email: normalizeEmail(email),
+      })
+    }
+
+    if (direction === 'continue' && currentStep === 'plan' && selectedPlan) {
+      void trackCheckoutEvent({
+        type: 'FIELD_COMPLETED',
+        step: 'PLAN',
+        field: 'plan',
+        planId: selectedPlan.planId,
+      })
+    }
 
     void trackCheckoutEvent({
       type: direction === 'continue' ? 'STEP_COMPLETED' : 'STEP_RETURNED',
@@ -291,10 +380,14 @@ export default function NewPaymentPage({ plans }: Props) {
     })
   }
 
-  const trackValidationError = (errorCode: string, errorMessage: string): void => {
+  const trackValidationError = (
+    errorCode: string,
+    errorMessage: string,
+    step: CheckoutTrackPayload['step'] = 'PERSONAL_DATA',
+  ): void => {
     void trackCheckoutEvent({
       type: 'VALIDATION_ERROR',
-      step: 'PERSONAL_DATA',
+      step,
       errorCode,
       errorMessage,
     })
@@ -576,7 +669,7 @@ export default function NewPaymentPage({ plans }: Props) {
 
       setPaymentError(message)
 
-      trackValidationError('PLAN_NOT_SELECTED', message)
+      trackValidationError('PLAN_NOT_SELECTED', message, 'PLAN')
       return
     }
 
@@ -634,22 +727,14 @@ export default function NewPaymentPage({ plans }: Props) {
       const paymentType = subscription.payment
 
       if (paymentType === 'credit_card') {
-        setPaymentStatus('confirmed')
-
-        void trackCheckoutEvent({
-          type: 'PAYMENT_APPROVED',
-          step: 'PAYMENT_DATA',
-          paymentId: String(subscription.charge.id),
-          planId: selectedPlan.planId,
-          paymentMethod: 'CREDIT_CARD',
-        })
+        setPaymentStatus('pending')
       } else if (paymentType === 'banking_billet') {
         setPaymentStatus('pending')
       } else {
         throw new Error('A API retornou uma forma de pagamento desconhecida.')
       }
 
-      void trackCheckoutEvent({
+      await trackCheckoutEvent({
         type: 'CHECKOUT_COMPLETED',
         step: 'COMPLETED',
         subscriptionId: String(subscription.subscription_id),
@@ -658,6 +743,7 @@ export default function NewPaymentPage({ plans }: Props) {
         paymentMethod: paymentMethodMap[paymentMethod],
       })
 
+      checkoutCompletedRef.current = true
       sessionStorage.removeItem('flixnext-checkout-session')
 
       setCurrentStep('confirmation')
