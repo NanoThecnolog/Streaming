@@ -6,6 +6,7 @@ import { FaPause, FaPlay } from 'react-icons/fa'
 import { MdFullscreen, MdFullscreenExit, MdSettings } from 'react-icons/md'
 import { debug } from '@/classes/DebugLogger'
 import { IoMdVolumeHigh } from 'react-icons/io'
+import { TbPlayerTrackNextFilled, TbPlayerTrackPrevFilled } from 'react-icons/tb'
 import {
   extractSeasonEpisode,
   formatTime,
@@ -23,6 +24,10 @@ interface MoviePlayerProps {
   src: string
   nextEp?: (e: boolean) => void
   handleEnded?: () => void
+  onPreviousEpisode?: () => void
+  onNextEpisode?: () => void
+  hasPreviousEpisode?: boolean
+  hasNextEpisode?: boolean
 
   handlePlayBackStarted?: () => void
   handleUserPause?: () => void
@@ -39,6 +44,10 @@ function PlayerHLS({
   src,
   nextEp,
   handleEnded,
+  onPreviousEpisode,
+  onNextEpisode,
+  hasPreviousEpisode = false,
+  hasNextEpisode = false,
   handlePlayBackStarted,
   handleUserPause,
   handleUserInteraction,
@@ -1110,6 +1119,10 @@ function PlayerHLS({
                     <div className={styles.actions}>
                       <div className={styles.playContainer}>
                         <button
+                          type="button"
+                          className={styles.controlButton}
+                          title={isPlaying ? 'Pausar' : 'Reproduzir'}
+                          aria-label={isPlaying ? 'Pausar vídeo' : 'Reproduzir vídeo'}
                           onClick={(e) => {
                             e.stopPropagation()
                             handleUserInteraction?.()
@@ -1122,6 +1135,38 @@ function PlayerHLS({
                         <span>
                           {formatTime((progress / 100) * duration)} / {formatTime(duration)}
                         </span>
+
+                        {(onPreviousEpisode || onNextEpisode) && (
+                          <div className={styles.episodeNavigation}>
+                            <button
+                              type="button"
+                              title="Episódio anterior"
+                              aria-label="Ir para o episódio anterior"
+                              disabled={!hasPreviousEpisode}
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                handleUserInteraction?.()
+                                onPreviousEpisode?.()
+                              }}
+                            >
+                              <TbPlayerTrackPrevFilled size={22} />
+                            </button>
+
+                            <button
+                              type="button"
+                              title="Próximo episódio"
+                              aria-label="Ir para o próximo episódio"
+                              disabled={!hasNextEpisode}
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                handleUserInteraction?.()
+                                onNextEpisode?.()
+                              }}
+                            >
+                              <TbPlayerTrackNextFilled size={22} />
+                            </button>
+                          </div>
+                        )}
                       </div>
 
                       <div className={styles.volumeContainer}>
@@ -1181,6 +1226,10 @@ function PlayerHLS({
                           />
                         </div>
                         <button
+                          type="button"
+                          className={styles.controlButton}
+                          title={isFullscreen ? 'Sair da tela cheia' : 'Tela cheia'}
+                          aria-label={isFullscreen ? 'Sair da tela cheia' : 'Entrar em tela cheia'}
                           onClick={(e) => {
                             e.stopPropagation()
                             handleUserInteraction?.()

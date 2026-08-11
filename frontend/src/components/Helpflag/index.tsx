@@ -7,8 +7,14 @@ interface HelpProps {
 
 export default function HelpFlag({ modalVisible }: HelpProps) {
   return (
-    <>
-      <FaRegFlag size={30} className={styles.flagIcon} onClick={modalVisible} />
-    </>
+    <button
+      type="button"
+      className={styles.helpButton}
+      onClick={modalVisible}
+      title="Informar um problema"
+      aria-label="Informar um problema com este conteúdo"
+    >
+      <FaRegFlag aria-hidden="true" />
+    </button>
   )
 }

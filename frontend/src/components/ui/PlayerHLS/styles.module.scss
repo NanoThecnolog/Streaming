@@ -214,6 +214,43 @@
           color: var(--white);
           font-family: var(--font-Roboto);
         }
+
+        .episodeNavigation {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          padding-left: 8px;
+          border-left: 1px solid rgba(255, 255, 255, 0.2);
+
+          button {
+            width: 42px;
+            height: 42px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition:
+              background-color 0.2s ease,
+              opacity 0.2s ease,
+              transform 0.2s ease;
+
+            @media (hover: hover) and (pointer: fine) {
+              &:not(:disabled):hover {
+                background: rgba(255, 255, 255, 0.12);
+              }
+            }
+
+            &:not(:disabled):active {
+              transform: scale(0.92);
+            }
+
+            &:disabled {
+              opacity: 0.3;
+              cursor: not-allowed;
+            }
+          }
+        }
       }
 
       .volumeContainer {
@@ -336,6 +373,35 @@
         padding: 8px;
       }
 
+      .controlButton {
+        width: 42px;
+        height: 42px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 42px;
+        border-radius: 50%;
+        transition:
+          background-color 0.2s ease,
+          transform 0.2s ease;
+
+        svg {
+          width: 22px;
+          height: 22px;
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+          &:hover {
+            background: rgba(255, 255, 255, 0.12);
+          }
+        }
+
+        &:active {
+          transform: scale(0.92);
+        }
+      }
+
       span {
         color: #fff;
         font-size: 14px;
@@ -403,7 +469,36 @@
 
     .actions {
       justify-content: center;
-      gap: 20px;
+      gap: 8px;
+
+      .playContainer {
+        gap: 8px;
+
+        .episodeNavigation {
+          gap: 0;
+          padding-left: 4px;
+
+          button {
+            width: 36px;
+            height: 36px;
+          }
+        }
+      }
+
+      .volumeContainer {
+        gap: 8px;
+      }
+
+      .controlButton {
+        width: 36px;
+        height: 36px;
+        flex-basis: 36px;
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
     }
 
     .timeline {

@@ -6,6 +6,7 @@ import { FaPause, FaPlay } from 'react-icons/fa'
 import { MdFullscreen, MdFullscreenExit, MdSubtitles, MdSubtitlesOff } from 'react-icons/md'
 import { debug } from '@/classes/DebugLogger'
 import { IoMdVolumeHigh } from 'react-icons/io'
+import { TbPlayerTrackNextFilled, TbPlayerTrackPrevFilled } from 'react-icons/tb'
 import { formatTime, getClientX } from '@/utils/UtilitiesFunctions'
 
 interface MoviePlayerProps {
@@ -14,9 +15,23 @@ interface MoviePlayerProps {
   src: string
   title: string
   isSerie?: boolean
+  onPreviousEpisode?: () => void
+  onNextEpisode?: () => void
+  hasPreviousEpisode?: boolean
+  hasNextEpisode?: boolean
 }
 
-function Player({ loading, shared, src, title, isSerie }: MoviePlayerProps) {
+function Player({
+  loading,
+  shared,
+  src,
+  title,
+  isSerie,
+  onPreviousEpisode,
+  onNextEpisode,
+  hasPreviousEpisode = false,
+  hasNextEpisode = false,
+}: MoviePlayerProps) {
   //verificação se vem do drive ou do b2
   const isDrive = useMemo(() => {
     try {
@@ -589,18 +604,54 @@ function Player({ loading, shared, src, title, isSerie }: MoviePlayerProps) {
     return <NoFile type="movie" />
   }
 
+  const episodeNavigation = (overlay = false) =>
+    (onPreviousEpisode || onNextEpisode) && (
+      <div
+        className={`${styles.episodeNavigation} ${overlay ? styles.episodeNavigationOverlay : ''}`}
+      >
+        <button
+          type="button"
+          title="Episódio anterior"
+          aria-label="Ir para o episódio anterior"
+          disabled={!hasPreviousEpisode}
+          onClick={(e) => {
+            e.stopPropagation()
+            onPreviousEpisode?.()
+          }}
+        >
+          <TbPlayerTrackPrevFilled size={22} />
+        </button>
+
+        <button
+          type="button"
+          title="Próximo episódio"
+          aria-label="Ir para o próximo episódio"
+          disabled={!hasNextEpisode}
+          onClick={(e) => {
+            e.stopPropagation()
+            onNextEpisode?.()
+          }}
+        >
+          <TbPlayerTrackNextFilled size={22} />
+        </button>
+      </div>
+    )
+
   return (
     <>
       {isDrive === true && (
-        <iframe
-          title={title}
-          src={src}
-          allowFullScreen
-          sandbox="allow-same-origin allow-scripts allow-presentation"
-          width="100%"
-          height="100%"
-          className={styles.player}
-        />
+        <div className={styles.drivePlayerContainer}>
+          <iframe
+            title={title}
+            src={src}
+            allowFullScreen
+            sandbox="allow-same-origin allow-scripts allow-presentation"
+            width="100%"
+            height="100%"
+            className={styles.player}
+          />
+          {episodeNavigation(true)}
+        </div>
       )}
       {isDrive === false && (
         <div
@@ -714,6 +765,10 @@ function Player({ loading, shared, src, title, isSerie }: MoviePlayerProps) {
                       <div className={styles.actions}>
                         <div className={styles.playContainer}>
                           <button
+                            type="button"
+                            className={styles.controlButton}
+                            title={isPlaying ? 'Pausar' : 'Reproduzir'}
+                            aria-label={isPlaying ? 'Pausar vídeo' : 'Reproduzir vídeo'}
                             onClick={(e) => {
                               ;(e.stopPropagation(), togglePlay())
                             }}
@@ -724,6 +779,8 @@ function Player({ loading, shared, src, title, isSerie }: MoviePlayerProps) {
                           <span>
                             {formatTime((progress / 100) * duration)} / {formatTime(duration)}
                           </span>
+
+                          {episodeNavigation()}
                         </div>
 
                         <div className={styles.volumeContainer}>
@@ -757,6 +814,12 @@ function Player({ loading, shared, src, title, isSerie }: MoviePlayerProps) {
                             />
                           </div>
                           <button
+                            type="button"
+                            className={styles.controlButton}
+                            title={isFullscreen ? 'Sair da tela cheia' : 'Tela cheia'}
+                            aria-label={
+                              isFullscreen ? 'Sair da tela cheia' : 'Entrar em tela cheia'
+                            }
                             onClick={(e) => {
                               ;(e.stopPropagation(), toggleFullScreen())
                             }}

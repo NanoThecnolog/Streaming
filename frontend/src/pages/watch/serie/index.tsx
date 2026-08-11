@@ -2,8 +2,6 @@ import Router, { useRouter } from 'next/router'
 import styles from '@/styles/Watch.module.scss'
 import { ChevronLeft } from 'lucide-react'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import NextEpisode, { NextEpisodeProps } from '@/components/ui/NextEpisode'
-import PrevEpisode from '@/components/ui/PreviousEpisode'
 import SEO from '@/components/SEO'
 import HelpFlag from '@/components/Helpflag'
 import HelpModal from '@/components/modals/HelpModal/index '
@@ -34,6 +32,12 @@ interface EpisodeProps {
   episode: number
   src: string
   season: number
+}
+
+interface EpisodeNavigationTarget {
+  season: number
+  episode: number
+  src: string
 }
 
 interface WatchSerieProps {
@@ -192,7 +196,37 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
     }
   }
 
-  const nextEpisode = useMemo((): NextEpisodeProps | null => {
+  const previousEpisode = useMemo((): EpisodeNavigationTarget | null => {
+    if (!serie || !episodio) return null
+
+    const currentSeason = serie.season[episodio.season - 1]
+    if (!currentSeason) return null
+
+    if (episodio.episode > 1) {
+      const previous = currentSeason.episodes[episodio.episode - 2]
+
+      if (previous) {
+        return {
+          season: currentSeason.s,
+          episode: previous.ep,
+          src: previous.src,
+        }
+      }
+    }
+
+    const previousSeason = serie.season[episodio.season - 2]
+    const previous = previousSeason?.episodes.at(-1)
+
+    if (!previousSeason || !previous) return null
+
+    return {
+      season: previousSeason.s,
+      episode: previous.ep,
+      src: previous.src,
+    }
+  }, [serie, episodio])
+
+  const nextEpisode = useMemo((): EpisodeNavigationTarget | null => {
     if (!serie || !episodio) return null
 
     const ep = episodio.episode
@@ -220,30 +254,22 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
     return null
   }, [serie, episodio])
 
-  const handleNextEpisode = (autoPlay = true) => {
+  const navigateToEpisode = (target: EpisodeNavigationTarget, autoPlay: boolean) => {
     if (!serie) return
 
-    if (!nextEpisode) return router.push(`/series/serie/${serie.tmdbID}`)
-
-    debug.log('chamando próximo episódio')
-
-    const nextEpisodio: EpisodeProps = {
+    setShouldAutoPlay(autoPlay)
+    setEpisodio({
       title: serie.title,
       subtitle: serie.subtitle ?? '',
-      src: nextEpisode.src,
-      episode: nextEpisode.episode,
-      season: nextEpisode.season,
-    }
-
-    setShouldAutoPlay(autoPlay)
-    setEpisodio(nextEpisodio)
+      src: target.src,
+      episode: target.episode,
+      season: target.season,
+    })
 
     const params = new URLSearchParams({
-      //title: nextEpisodio.title,
-      //subtitle: nextEpisodio.subtitle,
-      src: nextEpisodio.src,
-      episode: String(nextEpisodio.episode),
-      season: String(nextEpisodio.season),
+      src: target.src,
+      episode: String(target.episode),
+      season: String(target.season),
       tmdbID: String(serie.tmdbID),
     })
 
@@ -251,6 +277,22 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
       shallow: true,
       scroll: false,
     })
+  }
+
+  const handlePreviousEpisode = () => {
+    if (!previousEpisode) return
+
+    navigateToEpisode(previousEpisode, false)
+  }
+
+  const handleNextEpisode = (autoPlay = true) => {
+    if (!serie) return
+
+    if (!nextEpisode) return router.push(`/series/serie/${serie.tmdbID}`)
+
+    debug.log('chamando próximo episódio')
+
+    navigateToEpisode(nextEpisode, autoPlay)
   }
 
   const handleEpisodeEnded = async () => {
@@ -282,6 +324,7 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
         [serie, episodio]
     )*/
   const hasNextEpisode = !!nextEpisode
+  const hasPreviousEpisode = !!previousEpisode
 
   return (
     <>
@@ -318,6 +361,10 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
                     //loading={loading}
                     src={episodio.src}
                     nextEp={handleEpisodeEnded} //handleNextEpisode
+                    onPreviousEpisode={handlePreviousEpisode}
+                    onNextEpisode={() => handleNextEpisode(false)}
+                    hasPreviousEpisode={hasPreviousEpisode}
+                    hasNextEpisode={hasNextEpisode}
                     autoPlayOnLoad={shouldAutoPlay}
                     tmdbID={Number(tmdbID as string)}
                     mediaType="tv"
@@ -334,26 +381,12 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
                     src={episodio.src}
                     title={episodio.title}
                     isSerie={true}
+                    onPreviousEpisode={handlePreviousEpisode}
+                    onNextEpisode={() => handleNextEpisode(false)}
+                    hasPreviousEpisode={hasPreviousEpisode}
+                    hasNextEpisode={hasNextEpisode}
                   />
                 )}
-              </div>
-              <div className={styles.buttonContainer} onClickCapture={registerUserInteraction}>
-                <PrevEpisode
-                  //title={episodio.title}
-                  //subtitle={episodio.subtitle}
-                  season={episodio.season}
-                  episode={episodio.episode}
-                  serie={serie}
-                />
-                <NextEpisode
-                  nextEP={handleNextEpisode}
-                  hasNextEP={hasNextEpisode}
-                  /*title={episodio.title}
-                            subtitle={episodio.subtitle}
-                            season={episodio.season}
-                            episode={episodio.episode}
-                            serie={serie}*/
-                />
               </div>
             </>
           )}
