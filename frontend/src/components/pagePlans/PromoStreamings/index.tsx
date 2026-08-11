@@ -5,7 +5,7 @@ import {
   SiHbo,
   SiNetflix,
   SiParamountplus,
-  SiPrimevideo,
+  SiPrimevue,
   SiSky,
   SiStarz,
 } from 'react-icons/si'
@@ -13,6 +13,7 @@ import { TbBrandDisney } from 'react-icons/tb'
 import { FiArrowRight, FiCheck } from 'react-icons/fi'
 
 import styles from './styles.module.scss'
+import { FaAmazon } from 'react-icons/fa'
 
 type BrandTheme = 'netflix' | 'hbo' | 'prime' | 'disney' | 'sky' | 'apple' | 'paramount' | 'starz'
 
@@ -35,7 +36,7 @@ const streamingBrands: StreamingBrand[] = [
   },
   {
     name: 'Prime Video',
-    icon: SiPrimevideo,
+    icon: FaAmazon,
     theme: 'prime',
   },
   {
