@@ -59,6 +59,9 @@ const fieldUpdateMap: Record<
     card_cvv: {
         cardCvvFilled: true,
     },
+    card_document: {
+        cardDocumentFilled: true,
+    },
 }
 
 const createEmailHash = (email: string): string => {
@@ -68,7 +71,30 @@ const createEmailHash = (email: string): string => {
 }
 
 export class CheckoutEventService {
-    public async execute({
+    public async execute(request: CheckoutEventRequest) {
+        const maxAttempts = 3
+
+        for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+            try {
+                return await this.persistEvent(request)
+            } catch (error) {
+                const shouldRetry =
+                    error instanceof Prisma.PrismaClientKnownRequestError &&
+                    (error.code === 'P2034' ||
+                        (error.code === 'P2002' && Boolean(request.eventId))) &&
+                    attempt < maxAttempts
+
+                if (!shouldRetry) {
+                    throw error
+                }
+            }
+        }
+
+        throw new Error('Não foi possível registrar o evento do checkout.')
+    }
+
+    private async persistEvent({
+        eventId,
         sessionId,
         type,
         step,
@@ -112,7 +138,7 @@ export class CheckoutEventService {
             ? createEmailHash(email)
             : undefined
 
-        const eventUpdate = this.resolveEventUpdate({
+        const incomingEventUpdate = this.resolveEventUpdate({
             type,
             step,
             field,
@@ -125,6 +151,27 @@ export class CheckoutEventService {
 
         return prismaClient.$transaction(
             async (transaction) => {
+                if (eventId) {
+                    const existingEvent = await transaction.checkoutTrackEvent.findUnique({
+                        where: { eventId },
+                        include: { checkout: true },
+                    })
+
+                    if (existingEvent) {
+                        if (existingEvent.checkout.sessionId !== normalizedSessionId) {
+                            throw new Error('O ID do evento já pertence a outra sessão de checkout.')
+                        }
+
+                        const { checkout, ...event } = existingEvent
+
+                        return {
+                            checkout,
+                            event,
+                            duplicate: true,
+                        }
+                    }
+                }
+
                 const checkout =
                     await transaction.checkoutTrack.upsert({
                         where: {
@@ -149,7 +196,9 @@ export class CheckoutEventService {
                             browser,
                             os,
                             lastEventAt: now,
-                            ...eventUpdate,
+                            emailFilled: Boolean(email),
+                            planSelected: planId !== undefined,
+                            ...incomingEventUpdate,
                         },
                         update: {},
                     })
@@ -159,6 +208,19 @@ export class CheckoutEventService {
                         checkout.highestStep,
                         step,
                     )
+
+                const isCompleted = checkout.status === CheckoutStatus.COMPLETED
+                const isAbandoned = checkout.status === CheckoutStatus.ABANDONED
+                const isCompleting = type === CheckoutEventType.CHECKOUT_COMPLETED
+                const canUpdateProgress = !isCompleted && (!isAbandoned || isCompleting)
+
+                const eventUpdate = canUpdateProgress
+                    ? incomingEventUpdate
+                    : {}
+
+                const currentStep = canUpdateProgress
+                    ? this.resolveCurrentStep(checkout.currentStep, step, type)
+                    : checkout.currentStep
 
                 const updatedCheckout =
                     await transaction.checkoutTrack.update({
@@ -170,7 +232,7 @@ export class CheckoutEventService {
                             emailHash,
                             planId,
                             paymentMethod,
-                            currentStep: step,
+                            currentStep,
                             highestStep,
                             status: this.resolveStatus(
                                 type,
@@ -186,6 +248,8 @@ export class CheckoutEventService {
                             browser,
                             os,
                             lastEventAt: now,
+                            ...(email ? { emailFilled: true } : {}),
+                            ...(planId !== undefined ? { planSelected: true } : {}),
                             ...eventUpdate,
                         },
                     })
@@ -193,6 +257,7 @@ export class CheckoutEventService {
                 const event =
                     await transaction.checkoutTrackEvent.create({
                         data: {
+                            eventId,
                             checkoutId: checkout.id,
                             type,
                             step,
@@ -207,9 +272,29 @@ export class CheckoutEventService {
                 return {
                     checkout: updatedCheckout,
                     event,
+                    duplicate: false,
                 }
             },
+            {
+                isolationLevel: Prisma.TransactionIsolationLevel.Serializable,
+            },
         )
+    }
+
+    private resolveCurrentStep(
+        currentStep: CheckoutStep,
+        incomingStep: CheckoutStep,
+        eventType: CheckoutEventType,
+    ): CheckoutStep {
+        if (eventType === CheckoutEventType.CHECKOUT_COMPLETED) {
+            return CheckoutStep.COMPLETED
+        }
+
+        if (eventType === CheckoutEventType.CHECKOUT_STARTED && stepOrder[currentStep] > stepOrder[CheckoutStep.EMAIL]) {
+            return currentStep
+        }
+
+        return incomingStep
     }
 
     private resolveHighestStep(
@@ -228,6 +313,22 @@ export class CheckoutEventService {
         eventType: CheckoutEventType,
         currentStatus: CheckoutStatus = CheckoutStatus.STARTED,
     ): CheckoutStatus {
+        if (currentStatus === CheckoutStatus.COMPLETED) {
+            return CheckoutStatus.COMPLETED
+        }
+
+        if (eventType === CheckoutEventType.CHECKOUT_COMPLETED) {
+            return CheckoutStatus.COMPLETED
+        }
+
+        if (currentStatus === CheckoutStatus.ABANDONED) {
+            return CheckoutStatus.ABANDONED
+        }
+
+        if (eventType === CheckoutEventType.CHECKOUT_STARTED && currentStatus !== CheckoutStatus.STARTED) {
+            return currentStatus
+        }
+
         const statusByEvent: Partial<
             Record<CheckoutEventType, CheckoutStatus>
         > = {
@@ -240,7 +341,6 @@ export class CheckoutEventService {
             PAYMENT_ATTEMPTED:
                 CheckoutStatus.PAYMENT_PENDING,
             PAYMENT_FAILED: CheckoutStatus.FAILED,
-            CHECKOUT_COMPLETED: CheckoutStatus.COMPLETED,
             CHECKOUT_ABANDONED:
                 CheckoutStatus.ABANDONED,
         }
@@ -305,6 +405,7 @@ export class CheckoutEventService {
         ) {
             update.completedAt = now
             update.subscriptionId = subscriptionId
+            update.paymentId = paymentId
             update.errorCode = null
             update.errorMessage = null
             update.failedStep = null

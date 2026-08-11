@@ -449,6 +449,7 @@ model CheckoutTrack {
   cardExpiryFilled Boolean @default(false)
   cardHolderFilled Boolean @default(false)
   cardCvvFilled    Boolean @default(false)
+  cardDocumentFilled Boolean @default(false)
 
   // Resultado do pagamento
   paymentAttempted Boolean       @default(false)
@@ -506,6 +507,7 @@ enum CheckoutEventType {
 
 model CheckoutTrackEvent {
   id         String @id @default(uuid())
+  eventId    String? @unique
   checkoutId String
 
   type       CheckoutEventType

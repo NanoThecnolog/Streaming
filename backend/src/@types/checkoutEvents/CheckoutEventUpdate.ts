@@ -25,4 +25,5 @@ export interface CheckoutEventUpdate {
     cardExpiryFilled?: boolean
     cardHolderFilled?: boolean
     cardCvvFilled?: boolean
+    cardDocumentFilled?: boolean
 }

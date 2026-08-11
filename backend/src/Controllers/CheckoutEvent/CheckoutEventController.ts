@@ -6,6 +6,7 @@ import { CheckoutEventRequest } from '../../@types/checkoutEvents/CheckoutEventR
 
 
 interface CheckoutEventBody {
+    eventId?: unknown
     sessionId?: unknown
     type?: unknown
     step?: unknown
@@ -48,7 +49,10 @@ const checkoutFields: CheckoutField[] = [
     'card_expiry',
     'card_holder',
     'card_cvv',
+    'card_document',
 ]
+
+const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
 
 const isEnumValue = <T extends Record<string, string>>(enumObject: T, value: unknown): value is T[keyof T] => {
     return (
@@ -82,23 +86,29 @@ const optionalString = (value: unknown, fieldName: string): string | undefined =
 
 export class CheckoutEventController {
     handle = async (req: Request<Record<string, never>, unknown, CheckoutEventBody>, res: Response): Promise<Response> => {
-        try {
-            const data = this.validateRequest(req.body)
+        let data: CheckoutEventRequest
 
+        try {
+            data = this.validateRequest(req.body)
+        } catch (err) {
+            return res.status(400).json({
+                error: err instanceof Error ? err.message : 'Dados do evento do checkout inválidos.',
+            })
+        }
+
+        try {
             const checkoutEventService = new CheckoutEventService()
 
             const result = await checkoutEventService.execute(data)
 
-            return res.status(201).json({
-                message: 'Evento do checkout registrado.',
+            return res.status(result.duplicate ? 200 : 201).json({
+                message: result.duplicate
+                    ? 'Evento do checkout já registrado.'
+                    : 'Evento do checkout registrado.',
                 result,
             })
         } catch (err) {
-            if (err instanceof Error) {
-                return res.status(400).json({
-                    error: err.message,
-                })
-            }
+            console.error('Erro ao persistir evento do checkout:', err)
 
             return res.status(500).json({
                 error: 'Erro ao registrar evento do checkout.',
@@ -107,6 +117,12 @@ export class CheckoutEventController {
     }
 
     private validateRequest(body: CheckoutEventBody): CheckoutEventRequest {
+        const eventId = optionalString(body.eventId, 'eventId')
+
+        if (eventId && !UUID_PATTERN.test(eventId)) {
+            throw new Error('ID do evento do checkout inválido.')
+        }
+
         if (typeof body.sessionId !== 'string' || !body.sessionId.trim()) {
             throw new Error(
                 'Session ID do checkout não informado.',
@@ -158,19 +174,29 @@ export class CheckoutEventController {
             )
         }
 
-        if (body.type === CheckoutEventType.PAYMENT_APPROVED && typeof body.paymentId !== 'string') {
+        const paymentId = optionalString(body.paymentId, 'paymentId')
+        const subscriptionId = optionalString(body.subscriptionId, 'subscriptionId')
+
+        if (body.type === CheckoutEventType.PAYMENT_APPROVED && !paymentId) {
             throw new Error(
                 'O ID do pagamento é obrigatório para pagamentos aprovados.',
             )
         }
 
-        if (body.type === CheckoutEventType.CHECKOUT_COMPLETED && typeof body.subscriptionId !== 'string') {
+        if (body.type === CheckoutEventType.CHECKOUT_COMPLETED && !subscriptionId) {
             throw new Error(
                 'O ID da assinatura é obrigatório para concluir o checkout.',
             )
         }
 
+        if (body.type === CheckoutEventType.CHECKOUT_COMPLETED && !paymentId) {
+            throw new Error(
+                'O ID da cobrança é obrigatório para concluir o checkout.',
+            )
+        }
+
         return {
+            eventId,
             sessionId: body.sessionId.trim(),
             type: body.type,
             step: body.step,
@@ -209,15 +235,9 @@ export class CheckoutEventController {
                 'errorMessage',
             ),
 
-            subscriptionId: optionalString(
-                body.subscriptionId,
-                'subscriptionId',
-            ),
+            subscriptionId,
 
-            paymentId: optionalString(
-                body.paymentId,
-                'paymentId',
-            ),
+            paymentId,
 
             source: optionalString(body.source, 'source'),
             medium: optionalString(body.medium, 'medium'),

@@ -9,3 +9,4 @@ export type CheckoutField =
     | 'card_expiry'
     | 'card_holder'
     | 'card_cvv'
+    | 'card_document'

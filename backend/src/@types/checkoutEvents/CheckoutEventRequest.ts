@@ -2,6 +2,7 @@ import { CheckoutDevice, CheckoutEventType, CheckoutPaymentMethod, CheckoutStep,
 import { CheckoutField } from "./CheckoutField"
 
 export interface CheckoutEventRequest {
+    eventId?: string
     sessionId: string
     type: CheckoutEventType
     step: CheckoutStep
