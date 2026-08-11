@@ -1,5 +1,6 @@
 import { FormEvent, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Image from 'next/image'
+import { isDiceBearAvatar } from '@/utils/diceBear'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Fuse from 'fuse.js'
@@ -334,7 +335,13 @@ export default function Header() {
             onClick={() => togglePanel('profile')}
           >
             {user?.avatar ? (
-              <Image src={user.avatar} alt="" width={40} height={40} />
+              <Image
+                src={user.avatar}
+                alt=""
+                width={40}
+                height={40}
+                unoptimized={isDiceBearAvatar(user.avatar)}
+              />
             ) : user ? (
               <span>{userInitial}</span>
             ) : (
@@ -382,7 +389,13 @@ export default function Header() {
           onClick={() => togglePanel('profile')}
         >
           {user?.avatar ? (
-            <Image src={user.avatar} alt="" width={25} height={25} />
+            <Image
+              src={user.avatar}
+              alt=""
+              width={25}
+              height={25}
+              unoptimized={isDiceBearAvatar(user.avatar)}
+            />
           ) : user ? (
             <span className={styles.mobileInitial}>{userInitial}</span>
           ) : (

@@ -19,11 +19,6 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'external-content.duckduckgo.com',
-        port: '',
-      },
-      {
-        protocol: 'https',
         hostname: 'blogger.googleusercontent.com',
         port: '',
       },
@@ -36,6 +31,12 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'images6.fanpop.com',
         port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'api.dicebear.com',
+        port: '',
+        pathname: '/10.x/**',
       },
     ],
     minimumCacheTTL: 86400,

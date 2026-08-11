@@ -186,6 +186,11 @@
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
+
+  .bottomIcons {
+    display: flex;
+    gap: 10px;
+  }
 }
 
 .copyright {
@@ -196,7 +201,7 @@
   line-height: 1.5;
 }
 
-.tmdbLink {
+.iconLink {
   display: inline-flex;
   flex: 0 0 auto;
   align-items: center;

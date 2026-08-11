@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { SiThemoviedatabase } from 'react-icons/si'
+import { SiDicebear, SiThemoviedatabase } from 'react-icons/si'
 import styles from './styles.module.scss'
 
 interface FooterLink {
@@ -75,16 +75,29 @@ const Footer = () => {
           <p className={styles.copyright}>
             © {currentYear} Flixnext, Inc. Todos os direitos reservados.
           </p>
+          <div className={styles.bottomIcons}>
+            <a
+              className={styles.iconLink}
+              href="https://www.dicebear.com"
+              target="_blank"
+              rel="noopener noreferrer"
 
-          <a
-            href="https://www.themoviedb.org/?language=pt-BR"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.tmdbLink}
-            aria-label="Acessar o site do The Movie Database"
-          >
-            <SiThemoviedatabase size={25} aria-hidden="true" />
-          </a>
+              aria-label="Acessar o site do Dice Bear"
+            >
+              <SiDicebear size={25} aria-hidden="true" />
+            </a>
+
+            <a
+              className={styles.iconLink}
+              href="https://www.themoviedb.org/?language=pt-BR"
+              target="_blank"
+              rel="noopener noreferrer"
+
+              aria-label="Acessar o site do The Movie Database"
+            >
+              <SiThemoviedatabase size={25} aria-hidden="true" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>

@@ -26,6 +26,7 @@ import {
 } from 'lucide-react'
 
 import { FaUserCircle } from 'react-icons/fa'
+import { isDiceBearAvatar } from '@/utils/diceBear'
 
 import { toast } from '@/components/ui/Notifications'
 import { destroyCookie, parseCookies, setCookie } from 'nookies'
@@ -139,6 +140,7 @@ export default function Me() {
                         width={150}
                         height={150}
                         priority
+                        unoptimized={isDiceBearAvatar(user.avatar)}
                       />
                     ) : (
                       <FaUserCircle size={150} />
