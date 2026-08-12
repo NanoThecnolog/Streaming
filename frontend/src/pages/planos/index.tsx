@@ -17,6 +17,7 @@ import Streaming from '@/components/pagePlans/PromoStreamings'
 import { mongoService } from '@/classes/MongoContent'
 
 import styles from './styles.module.scss'
+import HeaderSecundario from '@/components/HeaderSecundario'
 
 interface PagePlansProps {
   plans: PlanProp[]
@@ -41,9 +42,7 @@ const PagePlans = ({ plans, tmdbMovies, tmdbSeries }: PagePlansProps) => {
         description="Conheça os planos da FlixNext e escolha sua assinatura para assistir seus filmes e séries online."
       />
 
-      {
-        //<Header />
-      }
+      {<HeaderSecundario />}
 
       <main className={styles.mainPage}>
         <section className={styles.hero}>
