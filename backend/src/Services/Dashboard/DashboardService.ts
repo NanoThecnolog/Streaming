@@ -240,8 +240,8 @@ export class DashboardService {
 
                 prismaClient.invoice.findMany({
                     orderBy: [
-                        { updatedAt: 'desc' },
                         { createdAt: 'desc' },
+                        { chargeId: 'desc' },
                     ],
                     take: 10,
                     include: {
@@ -498,7 +498,7 @@ export class DashboardService {
                         ? null
                         : this.centsToReais(invoice.value),
                     status: this.formatInvoiceStatus(invoice.current),
-                    date: this.formatRelativeDate(invoice.updatedAt, now),
+                    date: this.formatRelativeDate(invoice.createdAt, now),
                 }
             }),
 
