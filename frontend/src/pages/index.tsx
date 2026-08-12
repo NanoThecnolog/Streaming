@@ -21,6 +21,7 @@ import LastContentAdded from '@/components/LastContentAdded'
 import BackDropCarousel from '@/components/ui/BackDropCarousel'
 import DailyWarningModal from '@/components/ui/DailyModal'
 import LatestEpisodesCarousel from '@/components/LatestEpisodesCarousel'
+import { GetServerSideProps } from 'next'
 
 export default function Home() {
   const { isOpen, close } = useDailyModal()
@@ -125,4 +126,20 @@ export default function Home() {
       )}
     </>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const token = ctx.req.cookies['flix-token']
+
+  if (!token)
+    return {
+      redirect: {
+        destination: '/planos',
+        permanent: false,
+      },
+    }
+
+  return {
+    props: {},
+  }
 }

@@ -28,6 +28,7 @@ const benefits = [
   'Filmes e séries em um só lugar',
   'Assista em diferentes dispositivos',
   'Planos flexíveis e sem fidelidade',
+  'Sem anúncios!',
 ]
 
 const PagePlans = ({ plans, tmdbMovies, tmdbSeries }: PagePlansProps) => {

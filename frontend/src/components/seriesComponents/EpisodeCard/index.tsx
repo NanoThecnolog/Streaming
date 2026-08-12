@@ -65,7 +65,7 @@ export default function EpisodeCard({ episodeData, handlePlay }: EpisodeProps) {
 
   const duration = getEpisodeDuration(episode, data.duration)
 
-  const imageSource = imageError ? '/blurImage.png' : episodeData.image
+  const imageSource = imageError ? '/logo.png' : episodeData.image
 
   const actionLabel = isComplete
     ? 'Assistir novamente'
@@ -92,7 +92,7 @@ export default function EpisodeCard({ episodeData, handlePlay }: EpisodeProps) {
           alt=""
           className={styles.image}
           placeholder="blur"
-          blurDataURL="/blurImage.png"
+          blurDataURL="/logo.png"
           onError={() => setImageError(true)}
         />
 

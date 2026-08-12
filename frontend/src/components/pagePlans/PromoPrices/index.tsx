@@ -52,7 +52,7 @@ const benefits = [
   'Acesso ao catálogo completo',
   'Mais de 800 filmes e séries',
   'Conteúdos raros e difíceis de encontrar',
-  'Novos títulos adicionados frequentemente',
+  'Novos títulos adicionados diariamente',
   'Experiência sem anúncios invasivos',
   'Suporte humano todos os dias',
 ]
