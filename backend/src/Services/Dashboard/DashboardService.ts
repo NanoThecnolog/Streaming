@@ -28,13 +28,85 @@ const TIME_ZONE = 'America/Sao_Paulo'
 const REVENUE_BUCKETS = 8
 
 export class DashboardService {
+    async listSubscriptions(searchValue?: string, statusValue?: string) {
+        const search = searchValue?.trim()
+        const status = statusValue?.trim().toLowerCase()
+        const now = new Date()
+        const statusWhere = status === 'trial'
+            ? { trialEndsAt: { gt: now } }
+            : status === 'active'
+                ? { accessUntil: { gt: now }, OR: [{ trialEndsAt: null }, { trialEndsAt: { lte: now } }] }
+                : status === 'expired'
+                    ? { OR: [{ accessUntil: null }, { accessUntil: { lte: now } }] }
+                    : status && status !== 'all'
+                        ? { status }
+                        : {}
+        const subscriptions = await prismaClient.subscription.findMany({
+            where: {
+                ...statusWhere,
+                ...(search
+                    ? {
+                        OR: [
+                            { user: { name: { contains: search, mode: 'insensitive' } } },
+                            { user: { email: { contains: search, mode: 'insensitive' } } },
+                            ...(Number.isInteger(Number(search))
+                                ? [{ subId: Number(search) }]
+                                : []),
+                        ],
+                    }
+                    : {}),
+            },
+            orderBy: { updatedAt: 'desc' },
+            take: 100,
+            include: {
+                user: { select: { name: true, email: true } },
+                plan: { select: { name: true, price: true, type: true } },
+                invoice: {
+                    orderBy: { updatedAt: 'desc' },
+                    take: 1,
+                    select: {
+                        current: true,
+                        paymentMethod: true,
+                        value: true,
+                        updatedAt: true,
+                    },
+                },
+            },
+        })
+
+        return subscriptions.map(subscription => ({
+            id: subscription.id,
+            subId: subscription.subId,
+            customer: subscription.user,
+            plan: {
+                name: subscription.plan.name,
+                type: subscription.plan.type,
+                price: this.centsToReais(subscription.plan.price),
+            },
+            status: subscription.status,
+            startedAt: subscription.startedAt,
+            statusUpdatedAt: subscription.statusUpdatedAt,
+            trialEndsAt: subscription.trialEndsAt,
+            accessUntil: subscription.accessUntil,
+            updatedAt: subscription.updatedAt,
+            latestInvoice: subscription.invoice[0]
+                ? {
+                    ...subscription.invoice[0],
+                    value: subscription.invoice[0].value === null
+                        ? null
+                        : this.centsToReais(subscription.invoice[0].value),
+                }
+                : null,
+        }))
+    }
+
     async execute(periodValue: string = '30d') {
         const period = this.normalizePeriod(periodValue)
         const now = new Date()
 
         const { start, previousStart } = this.getPeriodRange(period, now)
 
-        const [currentRevenueInvoices, previousRevenueInvoices, subscriptionGroups, currentStartedSubscriptions, previousStartedSubscriptions, currentSubscriptionChanges, previousSubscriptionChanges, currentCheckouts, previousCheckouts, recentInvoices, watchedGroups, recentIssues, openedProblemsCount, checkingProblemsCount, notificationGroups] =
+        const [currentRevenueInvoices, previousRevenueInvoices, subscriptions, currentStartedSubscriptions, previousStartedSubscriptions, currentSubscriptionChanges, previousSubscriptionChanges, currentCheckouts, previousCheckouts, recentInvoices, watchedGroups, recentIssues, openedProblemsCount, checkingProblemsCount, notificationGroups] =
             await Promise.all([
                 prismaClient.invoice.findMany({
                     where: {
@@ -68,10 +140,11 @@ export class DashboardService {
                     },
                 }),
 
-                prismaClient.subscription.groupBy({
-                    by: ['status'],
-                    _count: {
-                        _all: true,
+                prismaClient.subscription.findMany({
+                    select: {
+                        status: true,
+                        trialEndsAt: true,
+                        accessUntil: true,
                     },
                 }),
 
@@ -166,10 +239,11 @@ export class DashboardService {
                 }),
 
                 prismaClient.invoice.findMany({
-                    orderBy: {
-                        updatedAt: 'desc',
-                    },
-                    take: 5,
+                    orderBy: [
+                        { updatedAt: 'desc' },
+                        { createdAt: 'desc' },
+                    ],
+                    take: 10,
                     include: {
                         subscription: {
                             select: {
@@ -237,7 +311,6 @@ export class DashboardService {
                         status: {
                             in: [
                                 'checking',
-                                'in_progress',
                                 'CHECKING',
                                 'IN_PROGRESS',
                             ],
@@ -262,10 +335,14 @@ export class DashboardService {
         const currentRevenue = this.sumRevenue(currentRevenueInvoices)
         const previousRevenue = this.sumRevenue(previousRevenueInvoices)
 
-        const activeSubscriptions = this.countSubscriptionStatuses(
-            subscriptionGroups,
-            ['active', 'trial', 'new_charge'],
+        const subscriptionGroups = this.buildCurrentSubscriptionGroups(
+            subscriptions,
+            now,
         )
+
+        const activeSubscriptions = subscriptions.filter((subscription) =>
+            subscription.accessUntil !== null && subscription.accessUntil > now,
+        ).length
 
         const currentLostSubscriptions = this.getChangedSubscriptionIds(
             currentSubscriptionChanges,
@@ -409,11 +486,6 @@ export class DashboardService {
                 const customer =
                     invoice.subscription?.user.name ?? 'Usuário removido'
 
-                const storedValue =
-                    invoice.value ??
-                    invoice.subscription?.plan.price ??
-                    0
-
                 return {
                     id: `#${invoice.chargeId}`,
                     customer,
@@ -422,7 +494,9 @@ export class DashboardService {
                     paymentMethod: this.formatPaymentMethod(
                         invoice.paymentMethod,
                     ),
-                    value: this.centsToReais(storedValue),
+                    value: invoice.value === null
+                        ? null
+                        : this.centsToReais(invoice.value),
                     status: this.formatInvoiceStatus(invoice.current),
                     date: this.formatRelativeDate(invoice.updatedAt, now),
                 }
@@ -642,6 +716,47 @@ export class DashboardService {
                 color: '#3f4350',
             },
         ]
+    }
+
+    private buildCurrentSubscriptionGroups(
+        subscriptions: Array<{
+            status: string
+            trialEndsAt: Date | null
+            accessUntil: Date | null
+        }>,
+        now: Date,
+    ) {
+        const counts = new Map<string, number>([
+            ['active', 0],
+            ['trial', 0],
+            ['inactive', 0],
+            ['canceled', 0],
+        ])
+
+        subscriptions.forEach((subscription) => {
+            const status = subscription.status.toLowerCase()
+            const hasAccess = Boolean(
+                subscription.accessUntil && subscription.accessUntil > now,
+            )
+            const inTrial = Boolean(
+                subscription.trialEndsAt && subscription.trialEndsAt > now,
+            ) && ['new', 'active', 'new_charge'].includes(status)
+
+            const category = status === 'canceled' || status === 'cancelled'
+                ? 'canceled'
+                : inTrial
+                    ? 'trial'
+                    : hasAccess
+                        ? 'active'
+                        : 'inactive'
+
+            counts.set(category, (counts.get(category) ?? 0) + 1)
+        })
+
+        return Array.from(counts, ([status, count]) => ({
+            status,
+            _count: { _all: count },
+        }))
     }
 
     private countSubscriptionStatuses(
@@ -1020,21 +1135,21 @@ export class DashboardService {
     }
 
     private formatInvoiceStatus(status: string) {
-        if (status === 'refunded') {
-            return 'refunded' as const
-        }
+        const statuses = new Set([
+            'new',
+            'waiting',
+            'identified',
+            'approved',
+            'paid',
+            'unpaid',
+            'refunded',
+            'contested',
+            'canceled',
+            'expired',
+            'settled',
+        ])
 
-        if (['paid', 'settled'].includes(status)) {
-            return 'paid' as const
-        }
-
-        if (
-            ['new', 'waiting', 'identified', 'approved'].includes(status)
-        ) {
-            return 'waiting' as const
-        }
-
-        return 'unpaid' as const
+        return statuses.has(status) ? status : 'unpaid'
     }
 
     private formatIssueReference(

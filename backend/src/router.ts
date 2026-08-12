@@ -163,5 +163,6 @@ router.post(
 );
 
 router.get("/admin/dashboard", ADMAuth, new DashboardController().handle);
+router.get("/admin/subscriptions", ADMAuth, new DashboardController().subscriptions);
 
 export { router };
