@@ -81,9 +81,17 @@ export default function LatestEpisodesCarousel({
         >
           {availableGroups.map((group) => {
             const serie = seriesById.get(group.tmdbID)!
-            const imagePath = featured
-              ? serie.backdrop_path || serie.poster_path
-              : serie.poster_path || serie.backdrop_path
+            const season = serie.seasons?.find(
+              ({ season_number }) => season_number === group.seasonNumber,
+            )
+            const imagePath =
+              season?.poster_path ||
+              (featured
+                ? serie.backdrop_path || serie.poster_path
+                : serie.poster_path || serie.backdrop_path)
+            const imageAlt = season?.poster_path
+              ? `Pôster da temporada ${group.seasonNumber} de ${serie.name}`
+              : `Capa de ${serie.name}`
 
             return (
               <SwiperSlide key={`${group.tmdbID}-${group.seasonNumber}`}>
@@ -92,7 +100,7 @@ export default function LatestEpisodesCarousel({
                     {imagePath ? (
                       <Image
                         src={`https://image.tmdb.org/t/p/w500${imagePath}`}
-                        alt={`Capa de ${serie.name}`}
+                        alt={imageAlt}
                         fill
                         sizes="(max-width: 480px) 80vw, (max-width: 1000px) 40vw, 22vw"
                       />
