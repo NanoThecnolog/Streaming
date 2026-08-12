@@ -8,6 +8,8 @@ $muted: #8f919d;
   color: #f7f7f9;
   background:
     radial-gradient(circle at 88% 2%, rgba(255, 45, 103, 0.07), transparent 22rem), #08090d;
+
+  font-family: var(--font-Roboto);
 }
 
 .sidebar {
@@ -93,6 +95,11 @@ $muted: #8f919d;
   font-weight: 600;
   text-align: left;
   transition: 160ms ease;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.45;
+  }
 
   &:hover {
     color: #fff;
@@ -821,6 +828,12 @@ $muted: #8f919d;
   color: #50d8a6;
   background: rgba(53, 212, 154, 0.08);
 }
+.new,
+.identified,
+.approved {
+  color: #7fc9ff;
+  background: rgba(72, 166, 255, 0.1);
+}
 .waiting {
   color: #f2b94b;
   background: rgba(245, 158, 11, 0.09);
@@ -832,6 +845,12 @@ $muted: #8f919d;
 .refunded {
   color: #a99dff;
   background: rgba(139, 92, 246, 0.1);
+}
+.contested,
+.canceled,
+.expired {
+  color: #ff9c9c;
+  background: rgba(255, 67, 98, 0.09);
 }
 
 .sideColumn {

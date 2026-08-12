@@ -25,7 +25,18 @@ export interface CheckoutFunnelItem {
   percentage: number
 }
 
-export type InvoiceStatus = 'paid' | 'waiting' | 'unpaid' | 'refunded'
+export type InvoiceStatus =
+  | 'new'
+  | 'waiting'
+  | 'identified'
+  | 'approved'
+  | 'paid'
+  | 'unpaid'
+  | 'refunded'
+  | 'contested'
+  | 'canceled'
+  | 'expired'
+  | 'settled'
 
 export interface RecentInvoice {
   id: string
@@ -33,7 +44,7 @@ export interface RecentInvoice {
   initials: string
   plan: string
   paymentMethod: string
-  value: number
+  value: number | null
   status: InvoiceStatus
   date: string
 }
@@ -70,4 +81,23 @@ export interface DashboardOverview {
   popularContent: PopularContent[]
   issues: PlatformIssue[]
   operationalStatus: OperationalStatus[]
+}
+
+export interface DashboardSubscription {
+  id: string
+  subId: number
+  customer: { name: string; email: string }
+  plan: { name: string; type: string; price: number }
+  status: string
+  startedAt: string
+  statusUpdatedAt: string | null
+  trialEndsAt: string | null
+  accessUntil: string | null
+  updatedAt: string
+  latestInvoice: {
+    current: InvoiceStatus
+    paymentMethod: string | null
+    value: number | null
+    updatedAt: string
+  } | null
 }

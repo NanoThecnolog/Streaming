@@ -1,6 +1,4 @@
-import { DashboardOverview, DashboardPeriod } from '@/@types/Dashboard/dashboard'
-import { dashboardOverviewMock } from '@/components/dashboard/Panel/mocks/dashboard'
-import { SetupAPIClient } from '@/services/api'
+import { DashboardOverview, DashboardPeriod, DashboardSubscription } from '@/@types/Dashboard/dashboard'
 import axios from 'axios'
 
 class DashboardService {
@@ -16,6 +14,12 @@ class DashboardService {
     }
 
     return overview.data
+  }
+
+  public async getSubscriptions(params?: { search?: string; status?: string }): Promise<DashboardSubscription[]> {
+    const response = await axios.get('/api/admin/subscriptions', { params })
+    if (response.status !== 200) throw new Error(`Subscriptions request failed with status ${response.status}`)
+    return response.data.subscriptions
   }
 }
 

@@ -118,6 +118,8 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
       try {
         const response = await mongoService.findOneSerieById(data.id)
 
+        debug.log('dados da série no banco', response)
+
         if (!active) return
 
         if (!response) {
@@ -156,8 +158,19 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
 
     const selectedSeason = serie.season.find((season) => season.s === seasonToShow)
 
+    debug.log('episódios no banco da temporada selecionada', selectedSeason?.episodes)
+
     setEpisodesToShow(selectedSeason?.episodes ?? [])
   }, [serie, seasonToShow])
+
+  useEffect(() => {
+    const episodes = episodesData[seasonToShow]
+    debug.log('Episódios da temporada no TMDB', seasonToShow, episodes)
+  }, [episodesData, seasonToShow])
+
+  useEffect(() => {
+    debug.log('Dados da série no TMDB', data)
+  }, [data])
 
   /*
    * Verifica se a série está na Minha Lista.
@@ -189,6 +202,7 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
         const result = await Promise.all(
           serie.season.map((season) => tmdb.fetchEpisodeData(serie.tmdbID, season.s)),
         )
+        //debug.log('dados dos episódios no TMDB', result)
 
         if (active) {
           setEpisodesData(result)
@@ -495,6 +509,8 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
 
     const seasonExists = serie.season.some((season) => season.s === seasonNumber)
 
+    debug.log('mudando a série, numero', seasonNumber, 'season existe?', seasonExists)
+
     if (seasonExists) {
       setSeasonToShow(seasonNumber)
     }
@@ -714,7 +730,7 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
 
                 const image = episode?.still_path
                   ? `https://image.tmdb.org/t/p/w500${episode.still_path}`
-                  : '/blurImage.png'
+                  : '/logo.png'
 
                 const episodeInfo = {
                   serieTmdbId: serie.tmdbID,
@@ -724,6 +740,7 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
                   data: internalEpisode,
                   progress,
                 }
+                debug.log('informações dos episódios', episodeInfo)
 
                 return (
                   <div

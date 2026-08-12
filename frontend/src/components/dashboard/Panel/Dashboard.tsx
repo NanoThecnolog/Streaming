@@ -20,21 +20,21 @@ import {
 } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import styles from './styles.module.scss'
-import { DashboardOverview, DashboardPeriod, RevenuePoint } from '@/@types/Dashboard/dashboard'
+import { DashboardOverview, DashboardPeriod } from '@/@types/Dashboard/dashboard'
 import { dashboardService } from '@/classes/DashboardService'
 import { debug } from '@/classes/DebugLogger'
-import { useTMDB } from '@/contexts/TMDBContext'
-import { SeriesProps, TMDBSeries } from '@/@types/series'
-import { CardsProps, MovieTMDB } from '@/@types/Cards'
+import { SeriesProps } from '@/@types/series'
+import { CardsProps } from '@/@types/Cards'
 import { useFlix } from '@/contexts/FlixContext'
+import { SubscriptionsPanel } from './Subscriptions/SubscriptionsPanel'
 
 const navigation = [
-  { label: 'Visão geral', icon: Gauge, active: true },
-  { label: 'Assinaturas', icon: CreditCard },
-  { label: 'Financeiro', icon: CircleDollarSign },
-  { label: 'Usuários', icon: Users },
-  { label: 'Catálogo', icon: Film },
-  { label: 'Atividade', icon: Activity },
+  { label: 'Visão geral', icon: Gauge, section: 'overview', enabled: true },
+  { label: 'Assinaturas', icon: CreditCard, section: 'subscriptions', enabled: true },
+  { label: 'Financeiro', icon: CircleDollarSign, section: 'finance', enabled: false },
+  { label: 'Usuários', icon: Users, section: 'users', enabled: false },
+  { label: 'Catálogo', icon: Film, section: 'catalog', enabled: false },
+  { label: 'Atividade', icon: Activity, section: 'activity', enabled: false },
 ]
 
 const formatCurrencyShort = (value: number) => {
@@ -55,18 +55,18 @@ const formatCurrencyShort = (value: number) => {
   return `R$ ${formattedValue}`
 }
 
-const getRevenuePath = (points: RevenuePoint[]) => {
-  const max = Math.max(...points.map((point) => point.revenue))
-  const min = Math.min(...points.map((point) => point.revenue))
-  const range = max - min || 1
-
-  return points
-    .map((point, index) => {
-      const x = 32 + index * (656 / (points.length - 1))
-      const y = 214 - ((point.revenue - min) / range) * 158
-      return `${index === 0 ? 'M' : 'L'} ${x} ${y}`
-    })
-    .join(' ')
+const invoiceStatusLabels: Record<DashboardOverview['recentInvoices'][number]['status'], string> = {
+  new: 'Nova',
+  waiting: 'Aguardando',
+  identified: 'Identificado',
+  approved: 'Aprovado',
+  paid: 'Pago',
+  settled: 'Pago',
+  unpaid: 'Não pago',
+  refunded: 'Devolvido',
+  contested: 'Contestado',
+  canceled: 'Cancelado',
+  expired: 'Expirado',
 }
 
 type RevenueItem = DashboardOverview['revenue'][number]
@@ -110,10 +110,8 @@ export const Dashboard = ({ overview }: Props) => {
   const [isRefreshing, setIsRefreshing] = useState(false)
   const [data, setData] = useState<DashboardOverview | null>(null)
   const [requestError, setRequestError] = useState<string | null>(null)
-  const [totalSubscriptions, setTotalsubscriptions] = useState<number>(0)
-  const [popularContent, setPopularContent] = useState()
+  const [activeSection, setActiveSection] = useState('overview')
 
-  //const { allData, serieData } = useTMDB()
   const { movies, series } = useFlix()
 
   //-------------------Carregamento inicial de dados-----------------------------------------
@@ -123,23 +121,10 @@ export const Dashboard = ({ overview }: Props) => {
     setData(overview)
   }, [overview])
 
-  //------------------------Carregando populares----------------------------
-  /*  useEffect(() => {
-      if (!data) return
-      
-      const popularMovies = 
-    },[data, allData, serieData])*/
-
-  //--------------------------Total de assinaturas--------------------------
-  useEffect(() => {
-    if (!data) return
-
-    const totalSubscriptions = data.subscriptionStatus.reduce(
-      (total, item) => total + item.value,
-      0,
-    )
-    setTotalsubscriptions(totalSubscriptions || 0)
-  }, [data])
+  const totalSubscriptions = useMemo(
+    () => data?.subscriptionStatus.reduce((total, item) => total + item.value, 0) ?? 0,
+    [data?.subscriptionStatus],
+  )
 
   //--------------Atualização dos dados---------------------------
   const handleRefresh = async () => {
@@ -157,11 +142,6 @@ export const Dashboard = ({ overview }: Props) => {
     }
   }
 
-  /*const revenuePath = useMemo(() =>
-    getRevenuePath(data?.revenue ?? []),
-    [data?.revenue]
-  )*/
-
   const revenueMetric = useMemo(
     () => data?.metrics.find((metric) => metric.label === 'Receita recorrente') ?? null,
     [data?.metrics],
@@ -172,6 +152,15 @@ export const Dashboard = ({ overview }: Props) => {
   const formattedRevenueVariation = `${revenueVariation > 0 ? '+' : ''}${revenueVariation.toFixed(1).replace('.', ',')}%`
 
   const revenuePoints = useMemo(() => getRevenueCoordinates(data?.revenue ?? []), [data?.revenue])
+
+  const revenueAxis = useMemo(() => {
+    const max = Math.max(...(data?.revenue ?? []).map((point) => point.revenue), 0)
+    const step = max > 0 ? max / 3 : 0
+
+    return [step * 3, step * 2, step, 0]
+  }, [data?.revenue])
+
+  const checkoutCompletion = data?.checkoutFunnel.at(-1)?.percentage ?? 0
 
   const revenuePath = useMemo(
     () =>
@@ -214,12 +203,13 @@ export const Dashboard = ({ overview }: Props) => {
 
         <nav className={styles.navigation} aria-label="Navegação principal">
           <span className={styles.navTitle}>MENU</span>
-          {navigation.map(({ label, icon: Icon, active }) => (
+          {navigation.map(({ label, icon: Icon, section, enabled }) => (
             <button
               key={label}
-              className={`${styles.navItem} ${active ? styles.navItemActive : ''}`}
+              className={`${styles.navItem} ${activeSection === section ? styles.navItemActive : ''}`}
+              disabled={!enabled}
               type="button"
-              onClick={() => setMenuIsOpen(false)}
+              onClick={() => { if (enabled) setActiveSection(section); setMenuIsOpen(false) }}
             >
               <Icon size={19} strokeWidth={1.8} />
               {label}
@@ -267,7 +257,7 @@ export const Dashboard = ({ overview }: Props) => {
           </button>
         </header>
 
-        {data && (
+        {data && (activeSection === 'subscriptions' ? <SubscriptionsPanel /> : (
           <div className={styles.content}>
             <section className={styles.pageHeading}>
               <div>
@@ -352,10 +342,9 @@ export const Dashboard = ({ overview }: Props) => {
 
                 <div className={styles.chart}>
                   <div className={styles.yAxis}>
-                    <span>{formatCurrencyShort(1900)}</span>
-                    <span>{formatCurrencyShort(1400)}</span>
-                    <span>{formatCurrencyShort(900)}</span>
-                    <span>R$ 0</span>
+                    {revenueAxis.map((value, index) => (
+                      <span key={`${value}-${index}`}>{formatCurrencyShort(value)}</span>
+                    ))}
                   </div>
                   <svg viewBox="0 0 720 250" role="img" aria-label="Crescimento da receita">
                     <defs>
@@ -428,7 +417,12 @@ export const Dashboard = ({ overview }: Props) => {
                         {item.label}
                       </span>
                       <strong>{item.value}</strong>
-                      <small>{Math.round((item.value / totalSubscriptions) * 100)}%</small>
+                      <small>
+                        {totalSubscriptions > 0
+                          ? Math.round((item.value / totalSubscriptions) * 100)
+                          : 0}
+                        %
+                      </small>
                     </div>
                   ))}
                 </div>
@@ -442,7 +436,9 @@ export const Dashboard = ({ overview }: Props) => {
                     <h2>Funil do checkout</h2>
                     <p>Conversão entre as etapas</p>
                   </div>
-                  <span className={styles.funnelResult}>18,4% concluído</span>
+                  <span className={styles.funnelResult}>
+                    {checkoutCompletion.toLocaleString('pt-BR')}% concluído
+                  </span>
                 </div>
                 <div className={styles.funnelList}>
                   {data.checkoutFunnel.map((item) => (
@@ -519,8 +515,8 @@ export const Dashboard = ({ overview }: Props) => {
                       </tr>
                     </thead>
                     <tbody>
-                      {data.recentInvoices.map((invoice, i) => (
-                        <tr key={`${invoice.id}-${i}`}>
+                      {data.recentInvoices.map((invoice) => (
+                        <tr key={invoice.id}>
                           <td>
                             <span className={styles.customerAvatar}>{invoice.initials}</span>
                             <span>
@@ -532,21 +528,17 @@ export const Dashboard = ({ overview }: Props) => {
                           <td>{invoice.paymentMethod}</td>
                           <td>
                             <strong>
-                              {invoice.value.toLocaleString('pt-BR', {
-                                style: 'currency',
-                                currency: 'BRL',
-                              })}
+                              {invoice.value === null
+                                ? '—'
+                                : invoice.value.toLocaleString('pt-BR', {
+                                    style: 'currency',
+                                    currency: 'BRL',
+                                  })}
                             </strong>
                           </td>
                           <td>
                             <span className={`${styles.invoiceStatus} ${styles[invoice.status]}`}>
-                              {invoice.status === 'paid'
-                                ? 'Pago'
-                                : invoice.status === 'waiting'
-                                  ? 'Aguardando'
-                                  : invoice.status === 'unpaid'
-                                    ? 'Não pago'
-                                    : 'Reembolsado'}
+                              {invoiceStatusLabels[invoice.status]}
                             </span>
                           </td>
                           <td>{invoice.date}</td>
@@ -613,7 +605,7 @@ export const Dashboard = ({ overview }: Props) => {
               <span>Flixnext Admin · Ambiente de produção</span>
             </footer>
           </div>
-        )}
+        ))}
       </main>
     </div>
   )
