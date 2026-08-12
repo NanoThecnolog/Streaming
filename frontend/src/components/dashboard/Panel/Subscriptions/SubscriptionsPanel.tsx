@@ -35,7 +35,15 @@ const money = (value: number | null) =>
 
 const subscriptionState = (subscription: DashboardSubscription) => {
   const now = Date.now()
-  if (subscription.status.toLowerCase() === 'canceled') return 'canceled'
+  const currentStatus = subscription.status.toLowerCase()
+  if (currentStatus === 'canceled' || currentStatus === 'cancelled') return 'canceled'
+  if (
+    currentStatus === 'active' ||
+    currentStatus === 'new_charge'
+  ) {
+    if (currentStatus === 'active' && subscription.trialEndsAt && new Date(subscription.trialEndsAt).getTime() > now) return 'trial'
+    return 'active'
+  }
   if (subscription.accessUntil && new Date(subscription.accessUntil).getTime() > now) {
     if (subscription.trialEndsAt && new Date(subscription.trialEndsAt).getTime() > now)
       return 'trial'

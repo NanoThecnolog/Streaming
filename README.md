@@ -16,7 +16,7 @@ Este projeto foi concebido com o intuito de oferecer uma experiência imersiva e
 - **Página de Séries**: Visualização estruturada de temporadas, episódios e elenco principal.
 - **Gerenciamento de Contas de Usuário**: Personalização de avatares e notificações por e-mail para novos lançamentos.
 - **Autenticação Segura**: Validação de credenciais com tokens para recuperação de contas.
-- **Email Service Automatizado**: Comunicação eficiente para ativação de contas, recuperação de senhas e marketing.
+- **Email Service Automatizado**: Comunicação eficiente para segurança, recuperação de senhas e marketing.
 - **Reprodução de Vídeos**: Streaming de alta performance.
 - **Interface Responsiva**: Design adaptável a dispositivos móveis, tablets e desktops.
 
@@ -36,8 +36,6 @@ A escolha tecnológica reflete o compromisso com performance, segurança e escal
 
 Cada tecnologia foi estrategicamente selecionada para alinhar-se aos requisitos de um sistema moderno e de alta qualidade.
 
----
-
 ## 🎨 Estrutura e Arquitetura
 
 O projeto FlixNext adota uma arquitetura modular híbrida, combinando um monólito modular com microsserviços especializados. Essa abordagem equilibra simplicidade operacional com escalabilidade, permitindo que o projeto evolua de forma sustentável conforme cresce em complexidade e volume de acesso.
@@ -49,13 +47,13 @@ O núcleo da aplicação concentra as regras centrais de negócio, enquanto serv
 A arquitetura é composta por:
 
 - Frontend (Next.js)
-Responsável pela interface do usuário, renderização e experiência de navegação.
+  Responsável pela interface do usuário, renderização e experiência de navegação.
 
 - Backend Core (Express – Monólito Modular)
-Centraliza autenticação, usuários, permissões e regras de negócio principais, mantendo os domínios bem isolados internamente.
+  Centraliza autenticação, usuários, permissões e regras de negócio principais, mantendo os domínios bem isolados internamente.
 
 - Microsserviços (NestJS)
-Serviços independentes, desacoplados do core, responsáveis por funcionalidades específicas:
+  Serviços independentes, desacoplados do core, responsáveis por funcionalidades específicas:
 
 **Mensageria**
 
