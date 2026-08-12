@@ -21,7 +21,7 @@ export default function FAQ() {
     <>
       <SEO
         title="Perguntas frequentes | FlixNext"
-        description="Encontre respostas para as perguntas frequentes sobre a FlixNext, assinaturas, pagamentos e acesso à plataforma."
+        description="Tire suas dúvidas sobre planos, pagamentos, acesso e como assistir filmes e séries na plataforma FlixNext."
       />
 
       <Header />

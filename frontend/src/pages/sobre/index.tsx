@@ -8,7 +8,10 @@ export default function About() {
     <>
       <Head>
         <title></title>
-        <meta name="description" content="" />
+        <meta
+          name="description"
+          content="Conheça a FlixNext, uma plataforma de streaming criada para oferecer filmes e séries com uma experiência simples e moderna."
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Header />

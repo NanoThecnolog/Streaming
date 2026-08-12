@@ -82,8 +82,8 @@ export default function Series() {
     <>
       <SEO
         title="Series | FlixNext"
-        description="Várias séries para maratonar!"
-        image="https://flixnext.com.br/blurImage.png"
+        description="Assista séries online na FlixNext e descubra temporadas completas em uma plataforma de streaming feita para quem ama histórias."
+        image="https://flixnext.com.br/logo.png"
         url="https://flixnext.com.br"
       />
       {serieData.length > 0 ? (

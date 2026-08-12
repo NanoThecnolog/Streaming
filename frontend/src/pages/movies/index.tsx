@@ -76,8 +76,8 @@ export default function Home() {
     <>
       <SEO
         title="FlixNext - Início"
-        description="Um Streaming nunca antes visto porque é novo."
-        image="https://flixnext.com.br/blurImage.png"
+        description="Explore filmes online na FlixNext, uma plataforma de streaming com títulos para assistir quando quiser."
+        image="https://flixnext.com.br/logo.png"
         url="https://flixnext.com.br"
       />
       {allData.length > 0 ? (

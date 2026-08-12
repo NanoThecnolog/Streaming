@@ -13,16 +13,16 @@ module.exports = {
           '/',
           '/series',
           '/movies',
-          '/movies/movie/*',
+          '/movies/*',
           '/series/*',
           '/login',
           '/sobre',
           '/privacidade',
           '/termos-de-uso',
           '/catalogo',
+          '/planos',
         ],
         disallow: [
-          '/planos',
           '/payment',
           '/watch',
           '/recover',
@@ -57,7 +57,6 @@ module.exports = {
       path.startsWith('/dashboard') ||
       path.startsWith('/teste') ||
       path.startsWith('/payment') ||
-      path.startsWith('/planos') ||
       path.startsWith('/success') ||
       path.startsWith('/request') ||
       path.startsWith('/me') ||
@@ -67,8 +66,8 @@ module.exports = {
 
     let priority = config.priority
 
-    if (path === '/') priority = 1.0
-    if (path === '/signup') priority = 0.9
+    if (path === '/planos') priority = 1
+    if (path === '/') priority = 0.9
     if (path === '/login') priority = 0.8
 
     return {

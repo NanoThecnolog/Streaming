@@ -94,7 +94,7 @@ export default function Catalogo() {
     <>
       <SEO
         title="Catálogo | FlixNext"
-        description={`Explore o catálogo da FlixNext com ${totalTitles} filmes e séries disponíveis.`}
+        description={`Explore o catálogo da FlixNext com filmes e séries para assistir online, organizados por gêneros e novidades.`}
       />
 
       <Header />

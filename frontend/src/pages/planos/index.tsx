@@ -37,7 +37,7 @@ const PagePlans = ({ plans, tmdbMovies, tmdbSeries }: PagePlansProps) => {
     <>
       <SEO
         title="Planos de assinatura | FlixNext"
-        description="Escolha o plano ideal e assista aos seus filmes e séries favoritos no FlixNext."
+        description="Conheça os planos da FlixNext e escolha sua assinatura para assistir seus filmes e séries online."
       />
 
       {

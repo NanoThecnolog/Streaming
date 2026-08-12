@@ -75,7 +75,7 @@ export default function Home() {
     <>
       <SEO
         title="FlixNext - Início"
-        description="Feito por quem ama cinema."
+        description="A FlixNext é uma plataforma de streaming de filmes e séries para assistir séries online, descobrir novos conteúdos e acompanhar seus títulos favoritos. Feito por quem ama cinema."
         image="https://flixnext.com.br/blurImage.png"
         url="https://flixnext.com.br"
       />

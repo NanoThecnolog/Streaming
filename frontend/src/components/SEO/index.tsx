@@ -8,7 +8,7 @@ interface SEOProps {
 }
 export default function SEO({ title, description, image, url }: SEOProps) {
   const website = 'https://flixnext.com.br'
-  const websiteImage = 'https://flixnext.com.br/burImage.png'
+  const websiteImage = 'https://flixnext.com.br/logo.png'
   return (
     <Head>
       <title>{title}</title>

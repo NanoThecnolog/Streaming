@@ -173,7 +173,7 @@ export default function SubConfig() {
     return null
   }
 
-  if (user.donator) {
+  if (user.donator && !subEFI) {
     return (
       <div className={styles.lifetimeContainer}>
         <div className={styles.lifetimeIcon}>

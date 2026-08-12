@@ -182,7 +182,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return {
     redirect: {
       destination: '/planos',
-      permanent: false,
+      permanent: true,
     },
   }
 }

@@ -16,7 +16,7 @@ export default function Suport() {
     <>
       <SEO
         title="Suporte | FlixNext"
-        description="Encontre respostas para dúvidas frequentes ou entre em contato com o suporte da FlixNext."
+        description="Acesse o suporte da FlixNext para encontrar respostas e ajuda com sua conta, assinatura e reprodução de conteúdos."
       />
 
       <Header />

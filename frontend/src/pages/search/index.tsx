@@ -228,7 +228,7 @@ export default function Search() {
     <>
       <SEO
         title="Busca | FlixNext"
-        description="Busque entre os filmes e séries disponíveis na FlixNext."
+        description="Encontre filmes e séries na FlixNext e descubra o que assistir na sua próxima maratona."
       />
 
       <Header />
