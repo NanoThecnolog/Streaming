@@ -740,13 +740,14 @@ export class DashboardService {
             )
             const inTrial = Boolean(
                 subscription.trialEndsAt && subscription.trialEndsAt > now,
-            ) && ['new', 'active', 'new_charge'].includes(status)
+            ) && ['new', 'active'].includes(status)
+            const isActiveStatus = ['active', 'new_charge'].includes(status)
 
             const category = status === 'canceled' || status === 'cancelled'
                 ? 'canceled'
                 : inTrial
                     ? 'trial'
-                    : hasAccess
+                    : isActiveStatus || hasAccess
                         ? 'active'
                         : 'inactive'
 
