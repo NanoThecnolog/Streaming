@@ -11,18 +11,16 @@ interface ComponentProps {
 export default function LastContentAdded({ cardPerContainer, type }: ComponentProps) {
   const { movies, series } = useFlix()
   const [cards, setCards] = useState<CardsProps[] | SeriesProps[]>([])
-
-  const lastMovies = () => {
-    const ultimosFilmes =
-      type === 'movie'
-        ? movies.sort((a, b) => b.index - a.index).slice(0, 20)
-        : series.sort((a, b) => b.index - a.index).slice(0, 20)
-    setCards(ultimosFilmes)
-  }
+  const content = type === 'movie' ? movies : series
 
   useEffect(() => {
-    lastMovies()
-  }, [movies])
+    if (type === 'movie') {
+      setCards([...content].sort((a, b) => b.index - a.index).slice(0, 20) as CardsProps[])
+      return
+    }
+
+    setCards([...content].sort((a, b) => b.index - a.index).slice(0, 20) as SeriesProps[])
+  }, [content, type])
 
   if (cards.length === 0) return null
 
