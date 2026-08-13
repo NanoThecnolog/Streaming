@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import SectionHeader from '@/components/ui/SectionHeader'
 import NewContent from '@/components/ui/NewContent'
 import { useTMDB } from '@/contexts/TMDBContext'
-import { useLatestEpisodes } from '@/hooks/useLatestEpisodes'
+import { getLatestEpisodeDateKey, useLatestEpisodes } from '@/hooks/useLatestEpisodes'
 
 import styles from './styles.module.scss'
 
@@ -94,7 +94,7 @@ export default function LatestEpisodesCarousel({
               : `Capa de ${serie.name}`
 
             return (
-              <SwiperSlide key={`${group.tmdbID}-${group.seasonNumber}`}>
+              <SwiperSlide key={`${group.tmdbID}-${group.seasonNumber}-${getLatestEpisodeDateKey(group.addedAt)}`}>
                 <Link className={styles.card} href={`/series/serie/${group.tmdbID}`}>
                   <div className={styles.poster}>
                     {imagePath ? (

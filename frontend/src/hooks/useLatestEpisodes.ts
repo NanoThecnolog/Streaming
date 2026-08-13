@@ -6,6 +6,16 @@ export interface LatestEpisodeGroup extends LatestEpisode {
   episodeNumbers: number[]
 }
 
+export const getLatestEpisodeDateKey = (value: string) => {
+  const date = new Date(value)
+
+  if (Number.isNaN(date.getTime())) return value
+
+  return [date.getFullYear(), date.getMonth() + 1, date.getDate()]
+    .map((part) => String(part).padStart(2, '0'))
+    .join('-')
+}
+
 const CACHE_TTL_MS = 60_000
 const requests = new Map<number, { createdAt: number; promise: Promise<LatestEpisode[]> }>()
 
@@ -28,7 +38,7 @@ export const groupLatestEpisodes = (episodes: LatestEpisode[], limit = 8): Lates
   const groups = new Map<string, LatestEpisodeGroup>()
 
   episodes.forEach((episode) => {
-    const key = `${episode.tmdbID}:${episode.seasonNumber}`
+    const key = `${episode.tmdbID}:${episode.seasonNumber}:${getLatestEpisodeDateKey(episode.addedAt)}`
     const current = groups.get(key)
 
     if (!current) {

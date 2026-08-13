@@ -10,7 +10,7 @@ import Header from '@/components/Header'
 import { useTMDB } from '@/contexts/TMDBContext'
 import { platformFeatures, statusMessages } from '@/config/statusPage'
 import { statusVerify } from '@/utils/UtilitiesFunctions'
-import { useLatestEpisodes } from '@/hooks/useLatestEpisodes'
+import { getLatestEpisodeDateKey, useLatestEpisodes } from '@/hooks/useLatestEpisodes'
 
 import styles from './styles.module.scss'
 import { debug } from '@/classes/DebugLogger'
@@ -236,7 +236,7 @@ export default function StatusPage({ services, checkedAt }: StatusPageProps) {
                   <Link
                     className={styles.episodeCard}
                     href={`/series/serie/${group.tmdbID}`}
-                    key={`${group.tmdbID}-${group.seasonNumber}`}
+                    key={`${group.tmdbID}-${group.seasonNumber}-${getLatestEpisodeDateKey(group.addedAt)}`}
                   >
                     <div className={styles.poster}>
                       {tmdbSerie.poster_path ? (
