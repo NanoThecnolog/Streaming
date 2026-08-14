@@ -7,6 +7,8 @@ interface ProxyOptions {
   forwardAuthCookie?: boolean
   requireAuth?: boolean
   blockedPaths?: string[]
+  forwardAuthorizationHeader?: boolean
+  headers?: Record<string, string>
 }
 
 const buildTargetUrl = (req: NextApiRequest, baseUrl: string): string => {
@@ -63,12 +65,17 @@ export const proxyRequest = async (
     return
   }
 
-  const headers: Record<string, string> = {}
+  const headers: Record<string, string> = { ...options.headers }
   const contentType = req.headers['content-type']
   const contentLength = req.headers['content-length']
+  const userAgent = req.headers['user-agent']
 
   if (contentType) headers['content-type'] = contentType
   if (contentLength) headers['content-length'] = contentLength
+  if (userAgent) {
+    headers['user-agent'] = userAgent
+    headers['x-client-user-agent'] = userAgent
+  }
   if (options.apiKey) headers.key = options.apiKey
 
   const token = req.cookies['flix-token']
@@ -92,6 +99,11 @@ export const proxyRequest = async (
 
   if (options.forwardAuthCookie) {
     if (token) headers.authorization = `Bearer ${token}`
+  }
+
+  if (options.forwardAuthorizationHeader) {
+    const authorization = req.headers.authorization
+    if (authorization) headers.authorization = authorization
   }
 
   try {
