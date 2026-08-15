@@ -94,7 +94,9 @@ export default function LatestEpisodesCarousel({
               : `Capa de ${serie.name}`
 
             return (
-              <SwiperSlide key={`${group.tmdbID}-${group.seasonNumber}-${getLatestEpisodeDateKey(group.addedAt)}`}>
+              <SwiperSlide
+                key={`${group.tmdbID}-${group.seasonNumber}-${getLatestEpisodeDateKey(group.addedAt)}`}
+              >
                 <Link className={styles.card} href={`/series/serie/${group.tmdbID}`}>
                   <div className={styles.poster}>
                     {imagePath ? (

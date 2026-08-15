@@ -115,7 +115,7 @@ export default function Home() {
           </main>
           {
             //user && !user?.donator && <DailyWarningModal open={isOpen} onClose={close} />
-            user && <DailyWarningModal open={isOpen} onClose={close} />
+            //user && <DailyWarningModal open={isOpen} onClose={close} />
           }
           <Footer />
         </>
