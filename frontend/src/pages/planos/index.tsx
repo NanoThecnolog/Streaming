@@ -121,13 +121,13 @@ const PagePlans = ({ plans, tmdbMovies, tmdbSeries }: PagePlansProps) => {
         <section className={styles.devicesSection} aria-labelledby="devices-title">
           <div className={styles.devicesContent}>
             <div className={styles.devicesText}>
-              <span>Assista como preferir</span>
+              <span>Assista onde quiser</span>
 
               <h2 id="devices-title">Sua diversão acompanha você</h2>
 
               <p>
-                Continue assistindo aos seus conteúdos favoritos em diferentes dispositivos. *Em
-                breve aplicativo para TVs*
+                Assista a quantos filmes e séries quiser no celular, tablet e laptop. *Em breve
+                aplicativo para TVs*
               </p>
             </div>
 

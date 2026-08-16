@@ -291,10 +291,14 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
             )
           } else {
             const path = percentage >= 92 ? 'movie' : 'watch'
+            const startTime = percentage > 92 ? 0 : (progress ?? 0)
+            const link = new URLSearchParams({
+              startTime: `${startTime}`,
+            })
             return (
               <SwiperSlide key={`movie-${card.id}`} className={styles.slide}>
                 <div className={styles.cardWrapper}>
-                  <Link href={`/${path}/${card.id}`} className={styles.link}>
+                  <Link href={`/${path}/${card.id}?${link}`} className={styles.link}>
                     <img
                       src={`https://image.tmdb.org/t/p/w500${card.backdrop_path}`}
                       alt={card.title}
