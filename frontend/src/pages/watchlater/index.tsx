@@ -15,6 +15,7 @@ import { SetupAPIClient } from '@/services/api'
 import { WatchLaterProps } from '@/@types/watchLater'
 
 import styles from './styles.module.scss'
+import Link from 'next/link'
 
 interface PageProps {
   list: WatchLaterProps[]
@@ -122,7 +123,7 @@ export default function WatchLater({ list }: PageProps) {
               tarde.
             </p>
 
-            <a href="/">Explorar catálogo</a>
+            <Link href="/catalogo">Explorar catálogo</Link>
           </section>
         )}
 
