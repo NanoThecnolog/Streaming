@@ -15,16 +15,15 @@
 }
 
 .modal {
-  //background: var(--background-black);
+  background: var(--background-black);
   border-radius: 12px;
   width: 100%;
   max-width: 900px;
   max-height: 90vh;
   display: flex;
-  //flex-direction: column;
+  flex-direction: column;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   position: relative;
-  //outline: 2px solid red;
 }
 
 .modalHeader {
@@ -52,7 +51,7 @@
 .closeButton {
   position: absolute;
   top: 10px;
-  left: 10px;
+  right: 10px;
   background: none;
   border: none;
   color: rgba(255, 255, 255, 0.6);
@@ -78,12 +77,16 @@
 
 .profilesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 2rem;
 
   @media (max-width: 600px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
+  }
+
+  @media (max-width: 400px) {
+    gap: 1.25rem;
   }
 }
 
@@ -96,7 +99,11 @@
   --avatar-size: 150px;
 
   @media (max-width: 600px) {
-    --avatar-size: 120px;
+    --avatar-size: 112px;
+  }
+
+  @media (max-width: 400px) {
+    --avatar-size: 96px;
   }
 }
 
@@ -133,13 +140,8 @@
 
   .avatarWrapper {
     position: relative;
-    width: 150px;
-    height: 150px;
-
-    @media (max-width: 600px) {
-      width: 120px;
-      height: 120px;
-    }
+    width: var(--avatar-size);
+    height: var(--avatar-size);
 
     .avatar {
       position: relative;
@@ -229,19 +231,31 @@
   transition: all 0.2s;
 
   &:hover {
-    //background: rgba(255, 255, 255, 0.1);
-    //border-color: rgba(255, 255, 255, 0.2);
     transform: scale(1.1);
     color: var(--white);
+  }
+
+  @media (max-width: 600px) {
+    width: 34px;
+    height: 34px;
+    top: calc(1rem + var(--avatar-size) - 17px);
   }
 }
 
 .editButton {
   left: calc(50% + var(--avatar-size) / 2 - 20px);
+
+  @media (max-width: 600px) {
+    left: calc(50% + var(--avatar-size) / 2 - 17px);
+  }
 }
 
 .deleteButton {
   left: calc(50% - var(--avatar-size) / 2 - 20px);
+
+  @media (max-width: 600px) {
+    left: calc(50% - var(--avatar-size) / 2 - 17px);
+  }
 
   &:hover {
     color: #ff5252;
@@ -258,7 +272,6 @@
 
 .createCard {
   background: none;
-  //border: 2px dashed rgba(255, 255, 255, 0.2);
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -271,25 +284,26 @@
   width: 100%;
   min-height: 220px;
   color: rgba(255, 255, 255, 0.6);
+  --avatar-size: 150px;
 
   @media (max-width: 600px) {
     min-height: 180px;
+    --avatar-size: 112px;
+  }
+
+  @media (max-width: 400px) {
+    --avatar-size: 96px;
   }
 
   .createIcon {
-    width: 150px;
-    height: 150px;
+    width: var(--avatar-size);
+    height: var(--avatar-size);
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.05);
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s;
-
-    @media (max-width: 600px) {
-      width: 120px;
-      height: 120px;
-    }
   }
 
   span {
