@@ -5,6 +5,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useMemo } from 'react'
 
+import { Swiper, SwiperSlide } from 'swiper/react'
+
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import { useTMDB } from '@/contexts/TMDBContext'
@@ -197,22 +199,47 @@ export default function StatusPage({ services, checkedAt }: StatusPageProps) {
             </div>
           </div>
 
-          <div className={styles.featureGrid}>
-            {activeFeatures.map((feature) => (
-              <article className={styles.featureCard} key={feature.id}>
-                <time dateTime={feature.publishedAt}>{formatDate(feature.publishedAt)}</time>
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
-                {feature.highlights && (
-                  <ul>
-                    {feature.highlights.map((highlight) => (
-                      <li key={highlight}>{highlight}</li>
-                    ))}
-                  </ul>
-                )}
-              </article>
-            ))}
-          </div>
+          {activeFeatures.length > 0 ? (
+            <Swiper
+              className={styles.featureSwiper}
+              spaceBetween={16}
+              slidesPerView={3}
+              watchOverflow
+              breakpoints={{
+                0: {
+                  slidesPerView: 1,
+                },
+                640: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 3,
+                },
+              }}
+            >
+              {activeFeatures.map((feature) => (
+                <SwiperSlide key={feature.id} className={styles.featureSlide}>
+                  <article className={styles.featureCard}>
+                    <time dateTime={feature.publishedAt}>{formatDate(feature.publishedAt)}</time>
+                    <h3>{feature.title}</h3>
+                    <p>{feature.description}</p>
+                    {feature.highlights && (
+                      <ul>
+                        {feature.highlights.map((highlight) => (
+                          <li key={highlight}>{highlight}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </article>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          ) : (
+            <div className={styles.emptyState}>
+              <strong>Nenhuma novidade por enquanto</strong>
+              <p>As próximas atualizações da plataforma serão apresentadas aqui.</p>
+            </div>
+          )}
         </section>
 
         <section className={`${styles.section} ${styles.episodesSection}`}>

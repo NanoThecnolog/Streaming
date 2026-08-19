@@ -3,6 +3,7 @@
   display: grid;
   grid-template-columns: 270px minmax(0, 1fr);
   overflow: hidden;
+  font-family: var(--font-Roboto);
 }
 
 .content.contentSticky {

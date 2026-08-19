@@ -27,6 +27,21 @@ export const statusMessages: StatusMessage[] = [
 
 export const platformFeatures: PlatformFeature[] = [
   {
+    id: 'user-profiles',
+    title: 'Perfis para toda a família',
+    description:
+      'Agora cada pessoa tem o seu próprio espaço na FlixNext, com histórico, lista e preferências independentes.',
+    publishedAt: '2026-08-19',
+    tone: 'success',
+    active: true,
+    highlights: [
+      'Perfis separados para cada pessoa da casa',
+      'Avatar e nome personalizados',
+      'Preferências de gêneros por perfil',
+      'Lista de "Assistir depois" individual',
+    ],
+  },
+  {
     id: 'credit-card-payments',
     title: 'Pagamento com cartão de crédito',
     description:

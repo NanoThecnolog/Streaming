@@ -5,6 +5,7 @@
   background:
     radial-gradient(circle at 15% 0%, rgba(126, 77, 255, 0.2), transparent 32rem),
     linear-gradient(180deg, #090a10 0%, #11131b 100%);
+  font-family: var(--font-Roboto);
 }
 
 .hero,
@@ -98,11 +99,20 @@
   }
 }
 
-.serviceGrid,
-.featureGrid {
+.serviceGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 0.9rem;
+}
+
+.featureSwiper {
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 0.25rem;
+}
+
+.featureSlide {
+  height: auto;
 }
 
 .serviceCard {
@@ -254,6 +264,7 @@
 }
 
 .featureCard {
+  height: 100%;
   padding: 1.4rem;
 
   time {
@@ -305,8 +316,7 @@
     border-radius: 1.1rem;
   }
 
-  .serviceGrid,
-  .featureGrid {
+  .serviceGrid {
     grid-template-columns: 1fr;
   }
 }
