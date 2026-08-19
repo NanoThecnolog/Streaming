@@ -39,7 +39,7 @@ import { cookieOptions } from '@/utils/Variaveis'
 export default function Me() {
   const router = useRouter()
 
-  const { user, setUser, signOut } = useFlix()
+  const { user, setUser, signOut, activeProfile } = useFlix()
 
   const [modalVisible, setModalVisible] = useState<boolean>(false)
 
@@ -133,14 +133,14 @@ export default function Me() {
               <div className={styles.profileHeader}>
                 <div className={styles.avatarWrapper}>
                   <div className={styles.avatarContainer}>
-                    {user.avatar ? (
+                    {activeProfile?.avatar ?? user.avatar ? (
                       <Image
-                        src={user.avatar}
-                        alt={`Avatar de ${user.name}`}
+                        src={activeProfile?.avatar ?? user.avatar ?? ''}
+                        alt={`Avatar de ${activeProfile?.name ?? user.name}`}
                         width={150}
                         height={150}
                         priority
-                        unoptimized={isDiceBearAvatar(user.avatar)}
+                        unoptimized={isDiceBearAvatar(activeProfile?.avatar ?? user.avatar ?? '')}
                       />
                     ) : (
                       <FaUserCircle size={150} />
@@ -159,9 +159,9 @@ export default function Me() {
                 </div>
 
                 <div className={styles.profileIdentity}>
-                  <span>Minha conta</span>
+                  <span>Perfil ativo</span>
 
-                  <h1>{user.name}</h1>
+                  <h1>{activeProfile?.name ?? user.name}</h1>
 
                   <p>{user.email}</p>
                 </div>

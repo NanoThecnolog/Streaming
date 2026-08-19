@@ -16,6 +16,27 @@ export interface UserProps {
   createdAt: Date
 }
 
+export interface ProfileProps {
+  id: string
+  name: string
+  avatar: string | null
+  isDefault: boolean
+  createdAt: Date
+}
+
+export interface GenrePreferenceProps {
+  genId: number
+  name: string
+  slug: string
+  weight: number
+}
+
+export interface GenreProps {
+  id: number
+  name: string
+  slug: string
+}
+
 export interface UserContext {
   id: string
   name: string

@@ -76,7 +76,7 @@ const getSeasonLanguage = (language?: string): string | null => {
 export default function Serie({ data, buttonVisible }: SeriePageProps) {
   const router = useRouter()
 
-  const { user, movies, series, setSeries } = useFlix()
+  const { user, movies, series, setSeries, activeProfile } = useFlix()
   const { allData, serieData } = useTMDB()
 
   const watchLaterManager = useMemo(() => new WatchLaterManager(), [])
@@ -440,7 +440,7 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
     return () => {
       controller.abort()
     }
-  }, [data.id, episodesData])
+  }, [data.id, episodesData, activeProfile?.id])
 
   /*
    * Mapa para evitar percorrer todos os progressos

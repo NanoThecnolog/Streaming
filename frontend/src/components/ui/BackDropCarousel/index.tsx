@@ -1,6 +1,6 @@
 import styles from './styles.module.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
 import { TrackingParsed } from '@/@types/watchedResponse'
 import { calculateVideoProgress } from '@/utils/UtilitiesFunctions'
@@ -51,12 +51,13 @@ interface CarouselCard {
 export default function BackDropCarousel({ title /*cardPerContainer*/ }: BaseProps) {
   //const [cards, setCards] = useState<(MovieTMDB | TMDBSeries | undefined)[]>([])
   const { allData, serieData } = useTMDB()
-  const { user } = useFlix()
+  const { user, activeProfile } = useFlix()
   const [cardPerContainer, setCardPerContainer] = useState(0)
   const [trackingList, setTrackingList] = useState<MapTrackingProps[]>([])
 
   const [baseCards, setBaseCards] = useState<CarouselCard[]>([])
   const [cards, setCards] = useState<CarouselCard[]>([])
+  const resolvedSignatureRef = useRef<string>('')
 
   const typeGuard = (card: MovieTMDB | TMDBSeries): card is TMDBSeries => {
     return 'seasons' in card
@@ -74,7 +75,7 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
   }, [])
 
   useEffect(() => {
-    if (!user) {
+    if (!user?.id || !activeProfile?.id) {
       setTrackingList([])
       return
     }
@@ -86,6 +87,8 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
         const { data } = await axios.get<WatchedRes>('/api/user/watched', {
           signal: controller.signal,
         })
+        debug.log("data from '/api/user/watched':", data)
+
         const parsedTracking: MapTrackingProps[] = data.result.map((item) => {
           if (item.type === 'movie') {
             return {
@@ -116,7 +119,7 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
     return () => {
       controller.abort()
     }
-  }, [user])
+  }, [user?.id, activeProfile?.id])
 
   useEffect(() => {
     if (trackingList.length === 0) {
@@ -152,6 +155,20 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
 
   useEffect(() => {
     if (baseCards.length === 0) return
+
+    // Assinatura baseada no conteúdo + perfil ativo, não na referência do array.
+    // Evita re-buscar progresso quando o array é recriado sem mudanças reais,
+    // mas garante novo fetch quando o perfil muda (progresso por perfil).
+    const signature = `${activeProfile?.id ?? 'none'}|${baseCards
+      .map(
+        (item) =>
+          `${item.card.id}-${item.tracking.type}-${item.tracking.season ?? 0}-${item.tracking.episode ?? 0}`,
+      )
+      .join('|')}`
+
+    if (signature === resolvedSignatureRef.current) return
+
+    resolvedSignatureRef.current = signature
 
     const controller = new AbortController()
 
@@ -234,7 +251,7 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
     void loadProgress()
 
     return () => controller.abort()
-  }, [baseCards])
+  }, [baseCards, activeProfile?.id])
 
   if (!cards || cards.length === 0) return null
 

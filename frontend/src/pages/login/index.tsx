@@ -1,5 +1,6 @@
-import { FormEvent, useEffect, useMemo, useState } from 'react'
+import { FormEvent, useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
+import Router from 'next/router'
 import {
   Eye,
   EyeOff,
@@ -12,10 +13,11 @@ import {
 } from 'lucide-react'
 import { FaSpinner } from 'react-icons/fa'
 import axios, { isAxiosError } from 'axios'
-import { DeviceVerificationRequired } from '@/@types/user'
+import { DeviceVerificationRequired, ProfileProps } from '@/@types/user'
 import { toast } from '@/components/ui/Notifications'
 
 import ForgetPass from '@/components/modals/ForgetPassword'
+import ProfileManager from '@/components/modals/ProfileManager'
 import SEO from '@/components/SEO'
 import { useFlix } from '@/contexts/FlixContext'
 
@@ -39,7 +41,7 @@ interface DeviceLimitResponse {
 }
 
 export default function Login() {
-  const { signIn } = useFlix()
+  const { signIn, completeLogin, cancelPendingLogin } = useFlix()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -54,6 +56,9 @@ export default function Login() {
   const [verificationCode, setVerificationCode] = useState('')
   const [verifying, setVerifying] = useState(false)
   const [resendIn, setResendIn] = useState(0)
+  const [showProfileManager, setShowProfileManager] = useState(false)
+  const pendingSelectionRef = useRef(false)
+  const committedRef = useRef(false)
 
   const normalizedEmail = email.trim().toLowerCase()
 
@@ -73,9 +78,13 @@ export default function Login() {
     try {
       setLoading(true)
       const result = await signIn(credentials)
-      if (result?.verificationRequired) {
+      if (result && 'verificationRequired' in result) {
         setVerification(result)
         setResendIn(result.resendAfterSeconds)
+      } else if (result && 'profileSelectionRequired' in result) {
+        pendingSelectionRef.current = true
+        committedRef.current = false
+        setShowProfileManager(true)
       }
     } catch (error) {
       if (isAxiosError<DeviceLimitResponse>(error) && error.response?.data.code) {
@@ -95,10 +104,15 @@ export default function Login() {
 
     try {
       const result = await signIn({ email: normalizedEmail, password, replaceDeviceId: deviceId })
-      if (result?.verificationRequired) {
+      if (result && 'verificationRequired' in result) {
         setReplacementDevices([])
         setVerification(result)
         setResendIn(result.resendAfterSeconds)
+      } else if (result && 'profileSelectionRequired' in result) {
+        setReplacementDevices([])
+        pendingSelectionRef.current = true
+        committedRef.current = false
+        setShowProfileManager(true)
       }
     } finally {
       setReplacingId(null)
@@ -121,7 +135,11 @@ export default function Login() {
         challengeId: verification.challengeId,
         code: verificationCode,
       })
-      window.location.assign('/')
+      // Após verificação bem-sucedida, exibir Profile Manager
+      // em vez de redirecionar (evita que usuário digite credenciais novamente)
+      setShowProfileManager(true)
+      setVerification(null)
+      setVerificationCode('')
     } catch (error) {
       const message = isAxiosError(error)
         ? error.response?.data?.message
@@ -146,6 +164,50 @@ export default function Login() {
       const message = isAxiosError(error) ? error.response?.data?.message : undefined
       toast.error(message ?? 'Não foi possível reenviar o código.')
     }
+  }
+
+  useEffect(() => {
+    if (!showProfileManager) return
+
+    const revokePending = () => {
+      if (committedRef.current) return
+      pendingSelectionRef.current = false
+      setShowProfileManager(false)
+      void cancelPendingLogin()
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') revokePending()
+    }
+
+    const handleRouteChange = () => {
+      if (pendingSelectionRef.current && !committedRef.current) revokePending()
+    }
+
+    const handlePageHide = () => {
+      if (pendingSelectionRef.current && !committedRef.current) {
+        fetch('/api/user/logout', { method: 'POST', keepalive: true }).catch(() => {})
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    Router.events.on('routeChangeStart', handleRouteChange)
+    window.addEventListener('pagehide', handlePageHide)
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+      Router.events.off('routeChangeStart', handleRouteChange)
+      window.removeEventListener('pagehide', handlePageHide)
+    }
+  }, [cancelPendingLogin, showProfileManager])
+
+  const handleProfileSelect = (profile: ProfileProps) => {
+    if (committedRef.current) return
+    committedRef.current = true
+    pendingSelectionRef.current = false
+    completeLogin(profile)
+    toast.success(`Bem-vindo(a), ${profile.name}!`)
+    Router.push('/')
   }
 
   return (
@@ -257,6 +319,8 @@ export default function Login() {
       </main>
 
       {modalVisible && <ForgetPass handleClose={() => setModalVisible(false)} />}
+
+      {showProfileManager && <ProfileManager onSelect={handleProfileSelect} requireSelection={true} />}
 
       {replacementDevices.length > 0 && (
         <div className={styles.deviceLimitOverlay} role="dialog" aria-modal="true">

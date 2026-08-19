@@ -222,6 +222,7 @@ export default function EditarDados({ handleClose }: EditarDadosProps) {
         </header>
 
         <form className={styles.form} onSubmit={handleDados}>
+          {/*
           <div className={styles.section}>
             <div className={styles.sectionHeader}>
               <h3>Dados pessoais</h3>
@@ -246,6 +247,7 @@ export default function EditarDados({ handleClose }: EditarDadosProps) {
           </div>
 
           <div className={styles.divider} />
+          */}
 
           <div className={styles.section}>
             <div className={styles.sectionHeader}>

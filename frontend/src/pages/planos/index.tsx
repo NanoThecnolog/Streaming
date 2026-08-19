@@ -13,6 +13,7 @@ import Carousel from '@/components/pagePlans/PromoCarousel'
 import PromoCounting from '@/components/pagePlans/PromoCounting'
 import PromoFAQ from '@/components/pagePlans/PromoFaq'
 import Prices from '@/components/pagePlans/PromoPrices'
+import { debug } from '@/classes/DebugLogger'
 import Streaming from '@/components/pagePlans/PromoStreamings'
 import { mongoService } from '@/classes/MongoContent'
 
@@ -174,7 +175,7 @@ export default PagePlans
 export const getServerSideProps: GetServerSideProps<PagePlansProps> = async () => {
   const url = process.env.NEXT_PUBLIC_WEBSITE_LINK
   if (!url) {
-    console.log('WEBSITE_LINK não definido nas variaveis de ambiente.')
+    debug.warn('WEBSITE_LINK não definido nas variaveis de ambiente.')
     return {
       props: {
         plans: [],

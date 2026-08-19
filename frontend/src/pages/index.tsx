@@ -37,7 +37,7 @@ export default function Home() {
   const divisaoPorGenero = combined
 
   const { allData, serieData } = useTMDB()
-  const { movies, series, user } = useFlix()
+  const { movies, series } = useFlix()
 
   useEffect(() => {
     const handleResize = () => {

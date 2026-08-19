@@ -51,7 +51,7 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
   const router = useRouter()
   const { tmdbId } = router.query
   const { allData, serieData } = useTMDB()
-  const { user, movies, series, setMovies } = useFlix()
+  const { user, movies, series, setMovies, activeProfile } = useFlix()
   const [filme, setFilme] = useState<CardsProps | null>(null)
   const [onWatchLater, setOnWatchLater] = useState(false)
   const [relatedCards, setRelatedCards] = useState<Array<CardsProps | SeriesProps>>([])
@@ -169,7 +169,7 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
     return () => {
       controller.abort()
     }
-  }, [movie.id])
+  }, [movie.id, activeProfile?.id])
 
   //==================================================================================================================
   //==========================================Dados Derivados=========================================================

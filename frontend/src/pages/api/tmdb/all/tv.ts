@@ -2,6 +2,7 @@ import { SeriesProps, TMDBSeries } from '@/@types/series'
 import axios, { AxiosError } from 'axios'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import pLimit from 'p-limit'
+import { debug } from '@/classes/DebugLogger'
 
 //const tmdbToken = process.env.TMDB_TOKEN
 
@@ -214,9 +215,9 @@ const fetchWithConcurrency = async (
 ): Promise<CardDataResponse[]> => {
   const limit = pLimit(concurrency)
   let completed = 0
-  console.info(`[TMDB series] Fila iniciada: ${items.length} IDs, concorrência ${concurrency}.`)
+  debug.info(`[TMDB series] Fila iniciada: ${items.length} IDs, concorrência ${concurrency}.`)
   const watchdog = setInterval(() => {
-    console.info(
+    debug.info(
       `[TMDB series] Progresso: ${completed}/${items.length}; ativas: ${limit.activeCount}; aguardando: ${limit.pendingCount}.`,
     )
   }, 10_000)
@@ -366,7 +367,7 @@ export default async function handler(
         : 0,
     }
 
-    console.info('[TMDB series] Métricas finais:', metrics)
+    debug.info('[TMDB series] Métricas finais:', metrics)
 
     res.status(200).json({
       success: true,

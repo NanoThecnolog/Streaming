@@ -2,15 +2,16 @@ import { UserContext } from '@/@types/user'
 import styles from './styles.module.scss'
 import Link from 'next/link'
 import { FaListUl, FaSignInAlt, FaUserCircle } from 'react-icons/fa'
-import { LogOut } from 'lucide-react'
+import { LogOut, Users } from 'lucide-react'
 import { IoCreate } from 'react-icons/io5'
 
 interface Props {
   user: UserContext | null | undefined
   signOut: () => void
+  onOpenProfileManager?: () => void
 }
 
-const DropdownMenuModal = ({ user, signOut }: Props) => {
+const DropdownMenuModal = ({ user, signOut, onOpenProfileManager }: Props) => {
   const userInitial = user?.name?.trim().charAt(0).toUpperCase() || 'U'
 
   return (
@@ -49,6 +50,23 @@ const DropdownMenuModal = ({ user, signOut }: Props) => {
                 <span>Minha lista</span>
               </Link>
             </li>
+
+            {onOpenProfileManager && (
+              <li>
+                <button
+                  type="button"
+                  className={styles.menuItem}
+                  role="menuitem"
+                  onClick={onOpenProfileManager}
+                >
+                  <span className={styles.icon}>
+                    <Users size={18} />
+                  </span>
+
+                  <span>Trocar perfil</span>
+                </button>
+              </li>
+            )}
 
             <li className={styles.separator} />
 

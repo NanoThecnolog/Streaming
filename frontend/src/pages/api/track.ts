@@ -13,12 +13,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const { path } = req.body
   debug.log('path recebido: ', path)
   if (!path || typeof path !== 'string') {
-    console.log('Erro com path recebido na rota de tracking')
+    debug.error('Erro com path recebido na rota de tracking')
     return res.status(400).json({ error: 'Path Inválido' })
   }
 
   if (!path.includes('watch')) {
-    console.log('Caminho não permitido')
+    debug.warn('Caminho não permitido')
     return res.status(400).json({ error: 'Caminho não permitido' })
   }
 

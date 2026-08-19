@@ -21,11 +21,12 @@ export default function Card({ card }: CardProps) {
   const [infoNews, setInfoNews] = useState<'news' | 'episode' | 'season' | null>(null)
   //debug.log("Imagens no card: ", TMDBImages)
 
-  useEffect(() => {
+  /*useEffect(() => {
     if ('season' in card) {
       if (card.news) debug.log('news no card', card.news, card.title)
     }
-  }, [card])
+  }, [card])*/
+
   useEffect(() => {
     async function getImage() {
       if ('season' in card) {

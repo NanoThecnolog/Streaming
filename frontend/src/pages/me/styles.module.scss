@@ -546,3 +546,194 @@
     transform: rotate(360deg);
   }
 }
+
+.activeProfileBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  margin-top: 16px;
+  background: rgba(212, 44, 44, 0.08);
+  border: 1px solid rgba(212, 44, 44, 0.2);
+  border-radius: 12px;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .activeProfileInfo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+
+    span {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+  }
+
+  .switchProfileButton {
+    background: rgba(212, 44, 44, 0.15);
+    border: 1px solid rgba(212, 44, 44, 0.3);
+    color: var(--white);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: var(--font-Roboto);
+
+    &:hover {
+      background: rgba(212, 44, 44, 0.25);
+      border-color: rgba(212, 44, 44, 0.5);
+    }
+
+    @media (max-width: 500px) {
+      width: 100%;
+    }
+  }
+}
+
+.profilesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+
+  @media (max-width: 500px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.addProfileButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 160px;
+  padding: 20px 16px;
+  border-radius: 16px;
+  border: 2px dashed rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 13px;
+  font-family: var(--font-Roboto);
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.02);
+  }
+}
+
+.genrePreferencesSection {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+
+  animation: fadeIn 0.2s ease;
+}
+
+.confirmModal {
+  width: 90%;
+  max-width: 400px;
+  padding: 24px;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.25s ease;
+
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.5;
+    margin-bottom: 20px;
+
+    strong {
+      color: var(--white);
+    }
+  }
+}
+
+.confirmActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.cancelButton {
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-Roboto);
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.deleteConfirmButton {
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  background: #dc2626;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-Roboto);
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background: #b91c1c;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}

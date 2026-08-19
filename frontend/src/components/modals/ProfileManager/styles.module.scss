@@ -1,0 +1,323 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+
+  font-family: var(--font-Roboto);
+}
+
+.modal {
+  //background: var(--background-black);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  display: flex;
+  //flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  position: relative;
+  //outline: 2px solid red;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+
+  div {
+    h3 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--white);
+      margin: 0 0 0.5rem 0;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin: 0;
+    }
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: all 0.2s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+  }
+}
+
+.modalBody {
+  padding: 2rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.profilesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.profileCardWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  position: relative;
+  --avatar-size: 150px;
+
+  @media (max-width: 600px) {
+    --avatar-size: 120px;
+  }
+}
+
+.profileCard {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 14px;
+  transition: all 0.3s;
+  position: relative;
+  width: 100%;
+
+  &:hover {
+    //background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-4px);
+
+    .avatar {
+      border-color: var(--red);
+      box-shadow: 0 0 24px 15px rgba(212, 44, 44, 0.3);
+    }
+  }
+
+  &.selected {
+    .avatar {
+      border-color: var(--red);
+      box-shadow: 0 0 24px 15px rgba(212, 44, 44, 0.4);
+    }
+  }
+
+  .avatarWrapper {
+    position: relative;
+    width: 150px;
+    height: 150px;
+
+    @media (max-width: 600px) {
+      width: 120px;
+      height: 120px;
+    }
+
+    .avatar {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      //border-radius: 12px;
+      border-radius: 50%;
+      overflow: hidden;
+      //border: 3px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s;
+    }
+
+    .checkmark {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--red);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: 0 4px 12px rgba(212, 44, 44, 0.5);
+      z-index: 1;
+    }
+
+    .activeBadge {
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      background: rgb(19, 19, 19);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: var(--white);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      z-index: 1;
+    }
+  }
+
+  .profileName {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--white);
+    text-align: center;
+    word-break: break-word;
+  }
+
+  .defaultBadge {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.25rem 0.75rem;
+    border-radius: 8px;
+  }
+}
+
+.editButton,
+.deleteButton {
+  position: absolute;
+  top: calc(1rem + var(--avatar-size) - 20px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  background: rgb(19, 19, 19);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+
+  padding: 0.5rem 0.75rem;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: var(--font-Roboto);
+
+  cursor: pointer;
+  z-index: 1;
+
+  transition: all 0.2s;
+
+  &:hover {
+    //background: rgba(255, 255, 255, 0.1);
+    //border-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+    color: var(--white);
+  }
+}
+
+.editButton {
+  left: calc(50% + var(--avatar-size) / 2 - 20px);
+}
+
+.deleteButton {
+  left: calc(50% - var(--avatar-size) / 2 - 20px);
+
+  &:hover {
+    color: #ff5252;
+    border-color: rgba(255, 82, 82, 0.4);
+  }
+
+  &.deleteButtonConfirm {
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--white);
+    transform: scale(1.1);
+  }
+}
+
+.createCard {
+  background: none;
+  //border: 2px dashed rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  transition: all 0.3s;
+  width: 100%;
+  min-height: 220px;
+  color: rgba(255, 255, 255, 0.6);
+
+  @media (max-width: 600px) {
+    min-height: 180px;
+  }
+
+  .createIcon {
+    width: 150px;
+    height: 150px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+
+    @media (max-width: 600px) {
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+  span {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  &:hover {
+    border-color: var(--red);
+    color: var(--white);
+    transform: translateY(-4px);
+
+    .createIcon {
+      background: rgba(212, 44, 44, 0.5);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .modalHeader {
+    padding: 1.5rem 1rem 0.5rem;
+
+    div h3 {
+      font-size: 1.4rem;
+    }
+  }
+
+  .modalBody {
+    padding: 1rem;
+  }
+}

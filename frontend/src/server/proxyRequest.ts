@@ -69,12 +69,16 @@ export const proxyRequest = async (
   const contentType = req.headers['content-type']
   const contentLength = req.headers['content-length']
   const userAgent = req.headers['user-agent']
+  const profileId = req.headers['x-profile-id']
 
   if (contentType) headers['content-type'] = contentType
   if (contentLength) headers['content-length'] = contentLength
   if (userAgent) {
     headers['user-agent'] = userAgent
     headers['x-client-user-agent'] = userAgent
+  }
+  if (profileId && typeof profileId === 'string') {
+    headers['x-profile-id'] = profileId
   }
   if (options.apiKey) headers.key = options.apiKey
 

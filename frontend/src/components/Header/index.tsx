@@ -1,4 +1,5 @@
 import { FormEvent, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import Image from 'next/image'
 import { isDiceBearAvatar } from '@/utils/diceBear'
 import Link from 'next/link'
@@ -10,12 +11,15 @@ import { parseCookies } from 'nookies'
 
 import { CardsProps } from '@/@types/Cards'
 import { SeriesProps } from '@/@types/series'
+import { ProfileProps } from '@/@types/user'
 import { useFlix } from '@/contexts/FlixContext'
 import { useTMDB } from '@/contexts/TMDBContext'
 import { fuseConfig } from '@/utils/Variaveis'
 import { uniqueKey } from '@/utils/UtilitiesFunctions'
+import { toast } from '@/components/ui/Notifications'
 
 import DropdownMenuModal from '../ui/DropdownMenuModal'
+import ProfileManager from '../modals/ProfileManager'
 
 import styles from './styles.module.scss'
 
@@ -38,13 +42,14 @@ const isSeries = (item: SearchItem): item is SeriesProps => {
 
 export default function Header() {
   const router = useRouter()
-  const { user, setUser, signOut } = useFlix()
+  const { user, setUser, signOut, activeProfile, setActiveProfile } = useFlix()
   const { allData, serieData } = useTMDB()
 
   const [searchInput, setSearchInput] = useState('')
   const [relatedSearch, setRelatedSearch] = useState<SearchItem[]>([])
   const [fuse, setFuse] = useState<Fuse<SearchItem> | null>(null)
   const [openPanel, setOpenPanel] = useState<OpenPanel>(null)
+  const [profileManagerOpen, setProfileManagerOpen] = useState(false)
   const [isNavigating, setIsNavigating] = useState(false)
   const [isCompact, setIsCompact] = useState(false)
 
@@ -53,6 +58,7 @@ export default function Header() {
   const animationFrameRef = useRef<number | null>(null)
 
   const userInitial = user?.name?.trim().charAt(0).toUpperCase() || '?'
+  const activeProfileInitial = activeProfile?.name?.trim().charAt(0).toUpperCase() || '?'
   const hasSearchResults = searchInput.trim().length > 0 && relatedSearch.length > 0
 
   const posterById = useMemo(() => {
@@ -200,6 +206,20 @@ export default function Header() {
     setOpenPanel((current) => (current === panel ? null : panel))
   }, [])
 
+  const handleOpenProfileManager = useCallback((): void => {
+    setOpenPanel(null)
+    setProfileManagerOpen(true)
+  }, [])
+
+  const handleProfileSelect = useCallback(
+    (profile: ProfileProps): void => {
+      setActiveProfile(profile)
+      toast.success(`Perfil "${profile.name}" ativado.`)
+      router.push('/')
+    },
+    [setActiveProfile],
+  )
+
   const handleSearchChange = (value: string): void => {
     setSearchInput(value)
   }
@@ -334,7 +354,17 @@ export default function Header() {
             aria-expanded={openPanel === 'profile'}
             onClick={() => togglePanel('profile')}
           >
-            {user?.avatar ? (
+            {activeProfile?.avatar ? (
+              <Image
+                src={activeProfile.avatar}
+                alt=""
+                width={40}
+                height={40}
+                unoptimized={isDiceBearAvatar(activeProfile.avatar)}
+              />
+            ) : activeProfile ? (
+              <span>{activeProfileInitial}</span>
+            ) : user?.avatar ? (
               <Image
                 src={user.avatar}
                 alt=""
@@ -349,7 +379,13 @@ export default function Header() {
             )}
           </button>
 
-          {openPanel === 'profile' && <DropdownMenuModal user={user} signOut={signOut} />}
+          {openPanel === 'profile' && (
+            <DropdownMenuModal
+              user={user}
+              signOut={signOut}
+              onOpenProfileManager={handleOpenProfileManager}
+            />
+          )}
         </div>
       </div>
 
@@ -388,7 +424,17 @@ export default function Header() {
           aria-expanded={openPanel === 'profile'}
           onClick={() => togglePanel('profile')}
         >
-          {user?.avatar ? (
+          {activeProfile?.avatar ? (
+            <Image
+              src={activeProfile.avatar}
+              alt=""
+              width={25}
+              height={25}
+              unoptimized={isDiceBearAvatar(activeProfile.avatar)}
+            />
+          ) : activeProfile ? (
+            <span className={styles.mobileInitial}>{activeProfileInitial}</span>
+          ) : user?.avatar ? (
             <Image
               src={user.avatar}
               alt=""
@@ -439,10 +485,23 @@ export default function Header() {
 
         {openPanel === 'profile' && (
           <div className={`${styles.mobilePanel} ${styles.mobileProfilePanel}`}>
-            <DropdownMenuModal user={user} signOut={signOut} />
+            <DropdownMenuModal
+              user={user}
+              signOut={signOut}
+              onOpenProfileManager={handleOpenProfileManager}
+            />
           </div>
         )}
       </nav>
+
+      {profileManagerOpen &&
+        createPortal(
+          <ProfileManager
+            onClose={() => setProfileManagerOpen(false)}
+            onSelect={handleProfileSelect}
+          />,
+          document.body,
+        )}
     </header>
   )
 }

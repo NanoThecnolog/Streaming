@@ -16,6 +16,26 @@ import NavigationProgress from '@/components/ui/NavigationProgress'
 import Notifications from '@/components/ui/Notifications'
 import 'swiper/css'
 
+// Interceptor global para adicionar X-Profile-Id nas requisições autenticadas
+if (typeof window !== 'undefined') {
+  axios.interceptors.request.use((config) => {
+    // Lista de rotas que NÃO devem ter X-Profile-Id
+    const excludedRoutes = ['/login', '/register', '/recovery', '/user/logout']
+    const isExcluded = excludedRoutes.some(route => config.url?.includes(route))
+    
+    // Apenas adicionar X-Profile-Id se:
+    // 1. Não for rota excluída
+    // 2. Houver perfil ativo no localStorage
+    if (!isExcluded) {
+      const activeProfileId = localStorage.getItem('flix-active-profile')
+      if (activeProfileId && activeProfileId.trim() !== '') {
+        config.headers['X-Profile-Id'] = activeProfileId
+      }
+    }
+    return config
+  })
+}
+
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
   const lastPathRef = useRef<string | null>(null)

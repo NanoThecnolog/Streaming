@@ -2,6 +2,7 @@ import { CardsProps, MovieTMDB } from '@/@types/Cards'
 import axios, { AxiosError } from 'axios'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import pLimit from 'p-limit'
+import { debug } from '@/classes/DebugLogger'
 
 const maxAttempts = 3
 const requestTimeout = 15_000
@@ -213,10 +214,10 @@ const fetchWithConcurrency = async (
   const limit = pLimit(concurrency)
   let completed = 0
 
-  console.info(`[TMDB movies] Fila iniciada: ${items.length} IDs, concorrência ${concurrency}.`)
+  debug.info(`[TMDB movies] Fila iniciada: ${items.length} IDs, concorrência ${concurrency}.`)
 
   const watchdog = setInterval(() => {
-    console.info(
+    debug.info(
       `[TMDB movies] Progresso: ${completed}/${items.length}; ativas: ${limit.activeCount}; aguardando: ${limit.pendingCount}.`,
     )
   }, 10_000)
@@ -375,7 +376,7 @@ export default async function handler(
         : 0,
     }
 
-    console.info('[TMDB movies] Métricas finais:', metrics)
+    debug.info('[TMDB movies] Métricas finais:', metrics)
 
     res.status(200).json({
       success: true,
