@@ -4,18 +4,19 @@ interface WatchLaterProps {
     title: string,
     subtitle: string,
     userid: string,
-    tmdbid: number
+    tmdbid: number,
+    profileId?: string,
 }
 
 class WatchLaterService {
-    async execute({ userid, title, subtitle, tmdbid }: WatchLaterProps) {
+    async execute({ userid, title, subtitle, tmdbid, profileId }: WatchLaterProps) {
         const userExiste = await prismaClient.user.findUnique({
             where: { id: userid }
         })
         if (!userExiste) throw new Error("Usuário não encontrado")
 
         const watchLaterList = await prismaClient.watchLater.findMany({
-            where: { userId: userExiste.id }
+            where: { userId: userExiste.id, profileId: profileId ?? null }
         })
         const tituloExisteNaLista = watchLaterList.some(titulo => title === titulo.title && subtitle === titulo.subtitle)
         if (tituloExisteNaLista) {
@@ -29,6 +30,7 @@ class WatchLaterService {
                 user: {
                     connect: { id: userid }
                 },
+                profile: profileId ? { connect: { id: profileId } } : undefined,
                 tmdbid
             }, select: {
                 id: true

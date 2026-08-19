@@ -3,15 +3,21 @@ import { CreateWatchedService } from '../../Services/User/CreateWatchedService';
 import { Entry } from '../../@types/watchedTypes';
 import { debugLog } from '../../Utils/DebugLog';
 
+interface AuthenticatedRequest extends Request {
+    user_id: string;
+    profile_id?: string;
+}
+
 export class CreateWatchedController {
     async handle(req: Request, res: Response) {
         try {
-            //debugLog("controller createWatched iniciando")
+            const r = req as AuthenticatedRequest;
             const watchedService = new CreateWatchedService()
             const { tmdbID, mediaType, season, episode, progress, completed } = req.body
 
             const data: Entry = {
-                userId: req.user_id,
+                userId: r.user_id,
+                profileId: r.profile_id,
                 tmdbID,
                 mediaType,
                 season,
@@ -19,11 +25,8 @@ export class CreateWatchedController {
                 progress,
                 completed
             }
-            //debugLog("objeto recebido", data)
 
             const create = await watchedService.createEntry(data)
-
-            //debugLog("retorno do controller", create)
 
             return res.status(200).json(create)
 

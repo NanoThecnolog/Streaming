@@ -6,8 +6,9 @@ class RemoveWatchLaterController {
     async handle(req: Request, res: Response) {
         try {
             const { id } = req.params;
+            const profileId = req.profile_id;
             const removeService = new RemoveWatchLaterService();
-            const removeFilme = await removeService.execute(id as string);
+            const removeFilme = await removeService.execute(id as string, profileId);
             return res.json(removeFilme)
         } catch (err) {
             if (err instanceof Error) {

@@ -6,12 +6,14 @@ class WatchLaterController {
         try {
             const watchLaterService = new WatchLaterService();
             const id = req.user_id
+            const profileId = req.profile_id
             const { title, subtitle, tmdbid } = req.body;
             const addMovie = await watchLaterService.execute({
                 userid: id,
                 title,
                 subtitle,
-                tmdbid
+                tmdbid,
+                profileId
             });
             return res.json(addMovie)
         } catch (err) {

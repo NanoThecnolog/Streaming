@@ -6,11 +6,13 @@ export class TrackingController {
         try {
             const { path } = req.body;
             const id = req.user_id
+            const profileId = req.profile_id
             console.log(path, id)
             const trackingService = new TrackingService()
             await trackingService.execute({
                 path,
-                userId: id
+                userId: id,
+                profileId
             })
             return res.status(201).json({ message: 'tracked' })
         } catch (err) {

@@ -99,5 +99,8 @@
   },
   "include": [
     "src"
-  ]
+  ],
+  "ts-node": {
+    "preferTsExts": true
+  }
 }

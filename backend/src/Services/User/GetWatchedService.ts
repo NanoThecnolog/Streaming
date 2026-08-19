@@ -1,14 +1,15 @@
 import prismaClient from '../../prisma';
 
 export class getWatchedService {
-    async execute({ uid, tmdbID }: { uid: string, tmdbID: number }) {
+    async execute({ uid, tmdbID, profileId }: { uid: string, tmdbID: number, profileId?: string }) {
 
-        const data = await prismaClient.watched.findMany({
-            where: {
-                userId: uid,
-                tmdbID
-            }
-        })
+        const where: Record<string, unknown> = {
+            userId: uid,
+            tmdbID
+        };
+        if (profileId) where.profileId = profileId;
+
+        const data = await prismaClient.watched.findMany({ where })
 
         if (!data) return {
             result: "nada"

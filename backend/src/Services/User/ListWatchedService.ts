@@ -1,112 +1,113 @@
-import prismaClient from '../../prisma';
+import prismaClient from "../../prisma";
 
 type TrackingParsed =
-    | {
-        id: string
-        name: string
-        type: 'movie'
-        tmdbID: string
-        createdAt: Date
+  | {
+      id: string;
+      name: string;
+      type: "movie";
+      tmdbID: string;
+      createdAt: Date;
     }
-    | {
-        id: string
-        name: string
-        type: 'tv'
-        tmdbID: string
-        season?: number
-        episode?: number
-        createdAt: Date
-    }
+  | {
+      id: string;
+      name: string;
+      type: "tv";
+      tmdbID: string;
+      season?: number;
+      episode?: number;
+      createdAt: Date;
+    };
 
 export class ListWatchedService {
-    async execute(uid: string) {
-        const extractTmdbId = (path: string) => {
-            if (path.includes('?')) {
-                const query = path.split('?')[1]
-                const params = new URLSearchParams(query)
+  async execute(uid: string, profileId?: string) {
+    const extractTmdbId = (path: string) => {
+      if (path.includes("?")) {
+        const query = path.split("?")[1];
+        const params = new URLSearchParams(query);
 
-                const seasonParam = params.get('season')
-                const episodeParam = params.get('episode')
-                const tmdbID = params.get('tmdbID')
+        const seasonParam = params.get("season");
+        const episodeParam = params.get("episode");
+        const tmdbID = params.get("tmdbID");
 
-                const hasSeason = seasonParam !== null
-                const hasEpisode = episodeParam !== null
+        const hasSeason = seasonParam !== null;
+        const hasEpisode = episodeParam !== null;
 
-                if (hasSeason && hasEpisode) {
-                    if (!tmdbID) return null
+        if (hasSeason && hasEpisode) {
+          if (!tmdbID) return null;
 
-                    const season = Number(seasonParam)
-                    const episode = Number(episodeParam)
+          const season = Number(seasonParam);
+          const episode = Number(episodeParam);
 
-                    if (
-                        !Number.isInteger(season) ||
-                        !Number.isInteger(episode) ||
-                        Number(season) < 0 ||
-                        Number(episode) < 0
-                    ) {
-                        return null
-                    }
+          if (
+            !Number.isInteger(season) ||
+            !Number.isInteger(episode) ||
+            Number(season) < 0 ||
+            Number(episode) < 0
+          ) {
+            return null;
+          }
 
-                    return {
-                        type: 'tv',
-                        tmdbID: tmdbID,
-                        season,
-                        episode
-                    }
-                }
-            }
-            const match = path.match(/\/watch\/(\d+)/)
-            if (!match) return null
-
-            return {
-                type: 'movie',
-                tmdbID: match[1]
-            }
+          return {
+            type: "tv",
+            tmdbID: tmdbID,
+            season,
+            episode,
+          };
         }
+      }
+      const match = path.match(/\/watch\/(\d+)/);
+      if (!match) return null;
 
-        const dataTracked = await prismaClient.tracking.findMany({
-            where: {
-                userId: uid
-            },
-            orderBy: {
-                createdAt: 'desc'
-            }
-        })
+      return {
+        type: "movie",
+        tmdbID: match[1],
+      };
+    };
 
-        const map = new Map<string, TrackingParsed>()
+    const dataTracked = await prismaClient.tracking.findMany({
+      where: {
+        //userId: uid,
+        profileId: profileId,
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
 
-        for (const item of dataTracked) {
-            const parsed = extractTmdbId(item.path)
+    const map = new Map<string, TrackingParsed>();
 
-            if (!parsed) continue
+    for (const item of dataTracked) {
+      const parsed = extractTmdbId(item.path);
 
-            if (map.has(String(parsed.tmdbID))) continue
+      if (!parsed) continue;
 
-            if (parsed.type === 'movie') {
-                map.set(String(parsed.tmdbID), {
-                    id: item.id,
-                    name: item.name,
-                    type: 'movie',
-                    tmdbID: String(parsed.tmdbID),
-                    createdAt: item.createdAt
-                })
-            } else {
-                map.set(String(parsed.tmdbID), {
-                    id: item.id,
-                    name: item.name,
-                    type: 'tv',
-                    tmdbID: String(parsed.tmdbID),
-                    season: Number(parsed.season),
-                    episode: Number(parsed.episode),
-                    createdAt: item.createdAt
-                })
-            }
-        }
+      if (map.has(String(parsed.tmdbID))) continue;
 
-        const result = Array.from(map.values())
-        return {
-            count: result.length,
-            result
-        }
+      if (parsed.type === "movie") {
+        map.set(String(parsed.tmdbID), {
+          id: item.id,
+          name: item.name,
+          type: "movie",
+          tmdbID: String(parsed.tmdbID),
+          createdAt: item.createdAt,
+        });
+      } else {
+        map.set(String(parsed.tmdbID), {
+          id: item.id,
+          name: item.name,
+          type: "tv",
+          tmdbID: String(parsed.tmdbID),
+          season: Number(parsed.season),
+          episode: Number(parsed.episode),
+          createdAt: item.createdAt,
+        });
+      }
     }
+
+    const result = Array.from(map.values());
+    return {
+      count: result.length,
+      result,
+    };
+  }
 }

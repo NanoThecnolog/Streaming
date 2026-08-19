@@ -1,6 +1,5 @@
 import { Router } from "express";
 import { GeneratePixController } from "./Controllers/GeneratePixController";
-import { CreateUserController } from "./Controllers/User/CreateUserController";
 import { AuthUserController } from "./Controllers/User/AuthUserController";
 import { EditUserController } from "./Controllers/User/EditUserController";
 import { ListUserController } from "./Controllers/User/ListUserController";
@@ -13,6 +12,7 @@ import { GenerateRecoverTokenController } from "./Controllers/User/GenerateRecov
 import { RecoverController } from "./Controllers/User/RecoverController";
 import { Authenticate } from "./middlewares/Auth";
 import { ADMAuth } from "./middlewares/ADMAuth";
+import { ProfileGuard } from "./middlewares/ProfileGuard";
 import rateLimit from "express-rate-limit";
 import { AccessController } from "./Controllers/User/AccessController";
 import { TrackingController } from "./Controllers/User/trackingController";
@@ -38,6 +38,13 @@ import {
   ResendDeviceCodeController,
   VerifyDeviceController,
 } from "./Controllers/User/DeviceVerificationController";
+import { CreateProfileController } from "./Controllers/Profile/CreateProfileController";
+import { ListProfilesController } from "./Controllers/Profile/ListProfilesController";
+import { EditProfileController } from "./Controllers/Profile/EditProfileController";
+import { DeleteProfileController } from "./Controllers/Profile/DeleteProfileController";
+import { GetProfilePreferencesController } from "./Controllers/Profile/GetProfilePreferencesController";
+import { UpdateProfilePreferencesController } from "./Controllers/Profile/UpdateProfilePreferencesController";
+import { GenreListController } from "./Controllers/Content/GenreListController";
 
 const router = Router();
 
@@ -84,7 +91,6 @@ router.get("/acordar", (req, res) => {
 
 router.get("/pix", new GeneratePixController().handle);
 
-router.post("/user", new CreateUserController().handle);
 router.post("/login", loginRateLimit, new AuthUserController().handle);
 router.post(
   "/login/device/verify",
@@ -135,27 +141,29 @@ router.post(
   new GenerateRecoverTokenController().handle,
 );
 router.put("/recover", recoveryRateLimit, new RecoverController().handle);
-router.post("/track", Authenticate, new TrackingController().handle);
+router.post("/track", Authenticate, ProfileGuard, new TrackingController().handle);
 router.post("/user/verify", new EmailVerifyController().handle);
 
 router.get("/user/access", Authenticate, new AccessController().handle);
 
-router.post("/watchLater", Authenticate, new WatchLaterController().handle);
-router.get("/watchLater", Authenticate, new ListWatchLaterController().handle);
+router.post("/watchLater", Authenticate, ProfileGuard, new WatchLaterController().handle);
+router.get("/watchLater", Authenticate, ProfileGuard, new ListWatchLaterController().handle);
 router.delete(
   "/watchLater/:id",
   Authenticate,
+  ProfileGuard,
   new RemoveWatchLaterController().handle,
 );
 
-router.get("/user/watched", Authenticate, new ListWatchedController().handle);
+router.get("/user/watched", Authenticate, ProfileGuard, new ListWatchedController().handle);
 
 router.post(
   "/content/watched",
   Authenticate,
+  ProfileGuard,
   new CreateWatchedController().handle,
 );
-router.get("/content/watched", Authenticate, new GetWatchedController().handle);
+router.get("/content/watched", Authenticate, ProfileGuard, new GetWatchedController().handle);
 
 router.post(
   "/checkout/events",
@@ -164,5 +172,15 @@ router.post(
 
 router.get("/admin/dashboard", ADMAuth, new DashboardController().handle);
 router.get("/admin/subscriptions", ADMAuth, new DashboardController().subscriptions);
+
+router.post("/profiles", Authenticate, new CreateProfileController().handle);
+router.get("/profiles", Authenticate, new ListProfilesController().handle);
+router.put("/profiles/:id", Authenticate, new EditProfileController().handle);
+router.delete("/profiles/:id", Authenticate, new DeleteProfileController().handle);
+
+router.get("/profiles/:id/preferences", Authenticate, new GetProfilePreferencesController().handle);
+router.put("/profiles/:id/preferences", Authenticate, new UpdateProfilePreferencesController().handle);
+
+router.get("/genres", new GenreListController().handle);
 
 export { router };

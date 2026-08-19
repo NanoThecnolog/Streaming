@@ -66,18 +66,13 @@ class CreateUserService {
         phone_number,
         verified,
         avatar,
-        /*address: address
-                    ? {
-                        create: {
-                            street: address.street,
-                            number: address.number,
-                            neighborhood: address.neighborhood,
-                            zipcode: address.zipcode,
-                            city: address.city,
-                            complement: address.complement ?? null,
-                            state: address.state,
-                        }
-                    } : undefined*/
+        profiles: {
+          create: {
+            name,
+            avatar,
+            isDefault: true,
+          },
+        },
       },
       select: {
         id: true,
