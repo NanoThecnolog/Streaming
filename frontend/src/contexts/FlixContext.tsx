@@ -86,11 +86,14 @@ export function FlixProvider({ children }: ContextProviderProps) {
 
       const storedProfileId = localStorage.getItem('flix-active-profile')
       const current = storedProfileId ? (data.find((p) => p.id === storedProfileId) ?? null) : null
+      const only = current ? null : data.length === 1 ? data[0] : null
+      const next = current ?? only
 
-      if (current) {
-        setActiveProfileState(current)
+      if (next) {
+        setActiveProfileState(next)
+        localStorage.setItem('flix-active-profile', next.id)
         destroyCookie(null, 'flix-active-profile')
-        setCookie(null, 'flix-active-profile', current.id, cookieOptions)
+        setCookie(null, 'flix-active-profile', next.id, cookieOptions)
       }
 
       return data
