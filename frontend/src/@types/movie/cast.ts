@@ -16,4 +16,10 @@ export interface CastingProps {
   character: string
   known_for_department: string
   order: number
+  total_episode_count?: number
+  roles?: {
+    credit_id: string
+    character: string
+    episode_count: number
+  }[]
 }

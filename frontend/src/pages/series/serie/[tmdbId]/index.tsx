@@ -10,7 +10,7 @@ import { toast } from '@/components/ui/Notifications'
 
 import { Episodes, SeriesProps, TMDBEpisodes, TMDBSeries } from '@/@types/series'
 import { CardsProps } from '@/@types/Cards'
-import { CastProps } from '@/@types/movie/cast'
+import { CastProps, CastingProps } from '@/@types/movie/cast'
 import { groupedByDepartment } from '@/@types/movie/crew'
 import { EpisodeProgressProps, ProgressResponse } from '@/@types/watchedProgress'
 import { TrailerProps } from '@/@types/trailer'
@@ -91,7 +91,7 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
 
   const [relatedCards, setRelatedCards] = useState<Array<CardsProps | SeriesProps>>([])
 
-  const [cast, setCast] = useState<CastProps[]>([])
+  const [aggregatedCast, setAggregatedCast] = useState<CastingProps[]>([])
   const [crewDepartment, setCrewDepartment] = useState<groupedByDepartment>({})
   const [castLoading, setCastLoading] = useState(true)
 
@@ -109,7 +109,7 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
 
     setSerie(null)
     setRelatedCards([])
-    setCast([])
+    setAggregatedCast([])
     setCrewDepartment({})
     setEpisodesData([])
     setEpisodeProgress([])
@@ -315,11 +315,14 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
       setCastLoading(true)
 
       try {
-        const mainCredits = await tmdb.fetchSeriesCast(data.id)
+        const [mainCredits, aggregatedCredits] = await Promise.all([
+          tmdb.fetchSeriesCast(data.id),
+          tmdb.fetchSeriesAggregatedCast(data.id),
+        ])
 
         if (!mainCredits) {
           if (active) {
-            setCast([])
+            setAggregatedCast([])
             setCrewDepartment({})
           }
 
@@ -355,14 +358,14 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
         }, {})
 
         if (active) {
-          setCast(credits)
+          setAggregatedCast(aggregatedCredits?.cast ?? [])
           setCrewDepartment(departments)
         }
       } catch (error) {
         debug.error('Erro ao buscar elenco e equipe da série', error)
 
         if (active) {
-          setCast([])
+          setAggregatedCast([])
           setCrewDepartment({})
         }
       } finally {
@@ -451,25 +454,14 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
   }, [episodeProgress])
 
   /*
-   * Remove atores repetidos entre os créditos gerais
-   * e os créditos das temporadas.
+   * Atores agregados da série, ordenados em ordem decrescente
+   * pela quantidade de episódios em que aparecem.
    */
   const castMembers = useMemo(() => {
-    const identifiers = new Set<number>()
-
-    return cast
-      .flatMap((credits) => credits.cast ?? [])
-      .filter((actor) => {
-        if (identifiers.has(actor.id)) {
-          return false
-        }
-
-        identifiers.add(actor.id)
-
-        return true
-      })
-      .slice(0, 20)
-  }, [cast])
+    return [...aggregatedCast]
+      .filter((actor) => actor.known_for_department === 'Acting' || !actor.known_for_department)
+      .sort((a, b) => (b.total_episode_count ?? 0) - (a.total_episode_count ?? 0))
+  }, [aggregatedCast])
 
   const handleWatchLater = async () => {
     if (!user) {
@@ -762,7 +754,9 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
               </div>
             ) : (
               <>
-                {castMembers.length > 0 && <CastContainer cast={castMembers} />}
+                {castMembers.length > 0 && (
+                  <CastContainer cast={castMembers} limit={castMembers.length} />
+                )}
 
                 {hasCrew && <CrewContainer crewDepartment={crewDepartment} />}
               </>

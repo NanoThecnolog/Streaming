@@ -105,6 +105,18 @@ class TMDBService {
     return this.fetchTMDBData<CastProps>(tmdbID, 'tv', 'details', true)
   }
 
+  public async fetchSeriesAggregatedCast(tmdbID: number): Promise<CastProps | null> {
+    if (tmdbID === 0) return null
+
+    try {
+      const response = await apiTMDB.get(`/tv/${tmdbID}/aggregate-credits`)
+      return response.data
+    } catch (err) {
+      debug.error('Erro ao buscar elenco agregado da série', err)
+      return null
+    }
+  }
+
   /**
    * Busca os dados sobre o elenco de uma temporada.
    * @param tmdbID ID da Série no TMDB

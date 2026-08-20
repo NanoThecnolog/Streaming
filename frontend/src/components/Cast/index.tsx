@@ -13,7 +13,9 @@ interface CastComponentProps {
 export default function Cast({ actor }: CastComponentProps) {
   const [imageError, setImageError] = useState(false)
 
-  const character = actor.character?.trim()
+  const character = actor.roles?.[0]?.character?.trim() ?? actor.character?.trim()
+
+  const episodeCount = actor.total_episode_count ?? 0
 
   const hasProfileImage = Boolean(actor.profile_path) && !imageError
 
@@ -49,6 +51,12 @@ export default function Cast({ actor }: CastComponentProps) {
         <h3 className={styles.name}>{actor.name}</h3>
 
         {character && <p className={styles.character}>{character}</p>}
+
+        {episodeCount > 0 && (
+          <p className={styles.episodes}>
+            {episodeCount} {episodeCount === 1 ? 'episódio' : 'episódios'}
+          </p>
+        )}
       </div>
     </article>
   )
