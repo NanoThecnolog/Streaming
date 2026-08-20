@@ -5,7 +5,11 @@
   "scripts": {
     "dev": "ts-node-dev src/server.ts",
     "build": "tsc",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "seed:genres": "ts-node prisma/seed-genres.ts"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed-genres.ts"
   },
   "dependencies": {
     "@prisma/client": "^6.8.2",
