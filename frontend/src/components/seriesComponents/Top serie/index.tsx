@@ -62,9 +62,9 @@ export default function TopSerie({ width }: TopSerieProps) {
     const movie = new URLSearchParams({
       title: `${series[cardOn].title}`,
       subtitle: `${series[cardOn].subtitle}` || '',
-      src: `${series[cardOn].season[0].episodes[0].src}`,
       episode: `${series[cardOn].season[0].episodes[0].ep}`,
       season: `${series[cardOn].season[0].s}`,
+      tmdbID: `${series[cardOn].tmdbID}`,
     })
     const play: string = `/watch/serie?${movie}`
     Router.push(play)

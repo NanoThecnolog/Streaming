@@ -42,7 +42,7 @@ const parseVtt = (vtt: string, baseUrl: string): ThumbnailCue[] => {
       return {
         start: timeToSeconds(startRaw),
         end: timeToSeconds(endRaw),
-        image: new URL(match[1], baseUrl).toString(),
+        image: resolveImageUrl(match[1], baseUrl),
         x: Number(match[2]),
         y: Number(match[3]),
         width: Number(match[4]),
@@ -50,6 +50,21 @@ const parseVtt = (vtt: string, baseUrl: string): ThumbnailCue[] => {
       }
     })
     .filter(Boolean) as ThumbnailCue[]
+}
+
+const resolveImageUrl = (imagePath: string, vttUrl: string): string => {
+  const resolved = new URL(imagePath, vttUrl)
+
+  try {
+    const base = new URL(vttUrl)
+    base.searchParams.forEach((value, key) => {
+      resolved.searchParams.set(key, value)
+    })
+  } catch {
+    // URL inválida: mantém o resolved sem query adicional
+  }
+
+  return resolved.toString()
 }
 
 export default function Thumbnail({ visible, time, positionX, vttUrl }: Props) {

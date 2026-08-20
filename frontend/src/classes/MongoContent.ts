@@ -143,5 +143,47 @@ class MongoContentService {
       return []
     }
   }
+
+  async getMovieStreamUrl(id: number): Promise<StreamUrl | null> {
+    try {
+      const response = await apiManager.get<StreamUrl>(`/stream/movie/${id}`)
+      return response.data
+    } catch (err) {
+      debug.error(err)
+      return null
+    }
+  }
+
+  async getSerieEpisodeStreamUrl(
+    tmdbId: number,
+    season: number,
+    episode: number,
+  ): Promise<StreamUrl | null> {
+    try {
+      const response = await apiManager.get<StreamUrl>(
+        `/stream/serie/${tmdbId}/${season}/${episode}`,
+      )
+      return response.data
+    } catch (err) {
+      debug.error(err)
+      return null
+    }
+  }
+
+  async getTrailerStreamUrl(id: number): Promise<StreamUrl | null> {
+    try {
+      const response = await apiManager.get<StreamUrl>(`/stream/trailer/${id}`)
+      return response.data
+    } catch (err) {
+      debug.error(err)
+      return null
+    }
+  }
 }
+
+export interface StreamUrl {
+  url: string
+  expiresAt: string
+}
+
 export const mongoService = new MongoContentService()

@@ -13,6 +13,7 @@ import Adult from '../ui/Adult'
 
 import styles from './styles.module.scss'
 import TrailerHLS from '../ui/TrailerHLS'
+import { mongoService } from '@/classes/MongoContent'
 
 type ContentType = 'movie' | 'tv'
 
@@ -83,6 +84,7 @@ const NewTop = ({
   const [videoFailed, setVideoFailed] = useState(false)
   const [isMuted, setIsMuted] = useState(true)
   const [volume, setVolume] = useState(0.5)
+  const [trailerSrc, setTrailerSrc] = useState<string | null>(null)
 
   const isMobile = width <= MOBILE_BREAKPOINT
   const isDesktop = width > DESKTOP_BREAKPOINT
@@ -165,6 +167,14 @@ const NewTop = ({
   useEffect(() => {
     setVideoFailed(false)
     setShowVideo(false)
+    setTrailerSrc(null)
+
+    const getTrailer = async () => {
+      const stream = await mongoService.getTrailerStreamUrl(id)
+      setTrailerSrc(stream?.url ?? null)
+    }
+
+    getTrailer()
   }, [id])
 
   useEffect(() => {
@@ -261,7 +271,6 @@ const NewTop = ({
     const params = new URLSearchParams({
       title: card.title,
       subtitle: card.subtitle ?? '',
-      src: firstEpisode.src,
       episode: String(firstEpisode.ep),
       season: String(firstSeason.s),
       tmdbID: String(card.tmdbID),
@@ -317,7 +326,7 @@ const NewTop = ({
 
       <TrailerHLS
         ref={videoRef}
-        src={`https://f005.backblazeb2.com/file/Flixnext/videos/trailers/${id}/master.m3u8`}
+        src={trailerSrc ?? ''}
         className={`${styles.bannerVideo} ${showVideo ? styles.visible : ''}`}
         poster={backgroundImage}
         preload={isActive && !disableVideoOnFirst ? 'metadata' : 'none'}

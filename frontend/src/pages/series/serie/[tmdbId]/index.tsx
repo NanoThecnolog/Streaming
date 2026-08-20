@@ -524,7 +524,6 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
     const params = new URLSearchParams({
       episode: `${episodeData.ep}`,
       tmdbID: `${serie.tmdbID}`,
-      src: `${episodeData.src}`,
       season: `${seasonNumber}`,
       startTime: `${startTime}`,
     })

@@ -15,6 +15,14 @@ export interface TrailerHLSProps extends Omit<
 const HLS_MIME_TYPE = 'application/vnd.apple.mpegurl'
 const MAX_RECOVERY_ATTEMPTS = 2
 
+const getAuthToken = (url: string): string | null => {
+  try {
+    return new URL(url).searchParams.get('Authorization')
+  } catch {
+    return null
+  }
+}
+
 const TrailerHLS = forwardRef<HTMLVideoElement, TrailerHLSProps>(
   (
     {
@@ -118,10 +126,19 @@ const TrailerHLS = forwardRef<HTMLVideoElement, TrailerHLSProps>(
        * mesmo sem oferecer suporte completo às faixas de áudio.
        */
       if (Hls.isSupported()) {
+        const authToken = getAuthToken(src)
+
         const hls = new Hls({
           enableWorker: true,
           lowLatencyMode: false,
           backBufferLength: 30,
+          xhrSetup: (xhr, url) => {
+            if (!authToken) return
+            if (url.includes('backblazeb2.com') && !url.includes('Authorization=')) {
+              const separator = url.includes('?') ? '&' : '?'
+              xhr.open('GET', `${url}${separator}Authorization=${authToken}`, true)
+            }
+          },
           //debug: true,
         })
 

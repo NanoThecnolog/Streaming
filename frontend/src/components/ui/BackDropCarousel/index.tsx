@@ -270,7 +270,6 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
             const link = new URLSearchParams({
               episode: `${tracking.episode}`,
               tmdbID: `${card.id}`,
-              src: `https://f005.backblazeb2.com/file/Flixnext/videos/${card.id}/${tracking.season}x${tracking.episode}/master.m3u8`,
               season: `${tracking.season}`,
               startTime: `${percentage > 95 ? 0 : (progress ?? 0)}`,
             })

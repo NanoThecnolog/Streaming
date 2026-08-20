@@ -20,6 +20,14 @@ import { CookieService } from '@/classes/CookieService'
 import TimelineTooltip from '../TimelineTooltip'
 import axios from 'axios'
 
+const getAuthToken = (url: string): string | null => {
+  try {
+    return new URL(url).searchParams.get('Authorization')
+  } catch {
+    return null
+  }
+}
+
 interface MoviePlayerProps {
   src: string
   nextEp?: (e: boolean) => void
@@ -464,7 +472,21 @@ function PlayerHLS({
     const video = videoRef.current
     if (!video || !video.duration) return
 
-    const bufferedEnd = video.buffered.length ? video.buffered.end(video.buffered.length - 1) : 0
+    const buffered = video.buffered
+    let bufferedEnd = 0
+
+    if (buffered.length) {
+      for (let i = 0; i < buffered.length; i += 1) {
+        if (buffered.start(i) <= video.currentTime && buffered.end(i) > video.currentTime) {
+          bufferedEnd = buffered.end(i)
+          break
+        }
+      }
+
+      if (bufferedEnd === 0) {
+        bufferedEnd = buffered.end(buffered.length - 1)
+      }
+    }
 
     const bufferedPercent = (bufferedEnd / video.duration) * 100
 
@@ -733,6 +755,8 @@ function PlayerHLS({
 
     const isSafari = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent)
 
+    const authToken = getAuthToken(src)
+
     setProgress(0)
     setDuration(0)
     setIsPlaying(false)
@@ -754,7 +778,7 @@ function PlayerHLS({
     }
 
     // Safari nativo
-    if (isSafari && video.canPlayType('application/vnd.apple.mpegurl')) {
+    if (isSafari && video.canPlayType('application/vnd.apple.mpegurl') && !authToken) {
       video.src = src
       video.load()
 
@@ -768,6 +792,13 @@ function PlayerHLS({
         enableWorker: true,
         lowLatencyMode: false,
         backBufferLength: 90,
+        xhrSetup: (xhr, url) => {
+          if (!authToken) return
+          if (url.includes('backblazeb2.com') && !url.includes('Authorization=')) {
+            const separator = url.includes('?') ? '&' : '?'
+            xhr.open('GET', `${url}${separator}Authorization=${authToken}`, true)
+          }
+        },
       })
 
       hlsRef.current = hls

@@ -419,7 +419,7 @@ export const normalizeLanguage = (language?: string | null): string => {
 
 export const getThumbnailUrl = (url: string): string => {
   if (!url) return ''
-  return url.replace(/master\.m3u8$/, 'thumbnails.vtt')
+  return url.replace(/master\.m3u8(?=\?|$)/, 'thumbnails.vtt')
 }
 
 export const hasThumb = async (url: string): Promise<boolean> => {

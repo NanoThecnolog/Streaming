@@ -47,10 +47,11 @@ interface WatchSerieProps {
 export default function WatchSerie({ userContext }: WatchSerieProps) {
   const router = useRouter()
 
-  const { episode, src, season, tmdbID, startTime } = router.query
+  const { episode, season, tmdbID, startTime } = router.query
 
   const [episodio, setEpisodio] = useState<EpisodeProps | null>(null)
   const [serie, setSerie] = useState<SeriesProps | null>(null)
+  const [streamUrl, setStreamUrl] = useState<string | null>(null)
   const [visible, setVisible] = useState<boolean>(false)
   const [shared, setShared] = useState<boolean>(true)
   const [loading, setLoading] = useState<boolean>(false)
@@ -100,7 +101,7 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
     } catch {
       return null
     }
-  }, [src])
+  }, [episodio?.src])
 
   useEffect(() => {
     const getSerieMongoData = async () => {
@@ -109,18 +110,37 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
       if (!serieDb) return debug.log('serieDb vazia ou null')
 
       setSerie(serieDb)
+
+      const currentSeason = serieDb.season.find((s) => s.s === parseInt(season as string))
+      const currentEpisode = currentSeason?.episodes.find(
+        (ep) => ep.ep === parseInt(episode as string),
+      )
+
       setEpisodio({
         title: serieDb.title,
         subtitle: serieDb.subtitle ?? '',
         episode: parseInt(episode as string),
-        src: src ? (src as string) : '',
+        src: currentEpisode?.src ?? '',
         season: parseInt(season as string),
       })
     }
-    if (tmdbID && src && episode && season) {
+    if (tmdbID && episode && season) {
       getSerieMongoData()
     }
-  }, [router, src, episode, season, tmdbID])
+  }, [router, episode, season, tmdbID])
+
+  useEffect(() => {
+    async function getSignedStreamUrl() {
+      if (isDrive !== false || !episodio) return
+      const stream = await mongoService.getSerieEpisodeStreamUrl(
+        parseInt(tmdbID as string),
+        episodio.season,
+        episodio.episode,
+      )
+      setStreamUrl(stream?.url ?? null)
+    }
+    getSignedStreamUrl()
+  }, [isDrive, episodio?.season, episodio?.episode, tmdbID])
 
   const handleBack = useCallback(() => {
     router.push(`/series/serie/${tmdbID}`)
@@ -267,7 +287,6 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
     })
 
     const params = new URLSearchParams({
-      src: target.src,
       episode: String(target.episode),
       season: String(target.season),
       tmdbID: String(serie.tmdbID),
@@ -359,7 +378,7 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
                 {isHLS ? (
                   <MoviePlayerHLS
                     //loading={loading}
-                    src={episodio.src}
+                    src={streamUrl ?? episodio.src}
                     nextEp={handleEpisodeEnded} //handleNextEpisode
                     onPreviousEpisode={handlePreviousEpisode}
                     onNextEpisode={() => handleNextEpisode(false)}

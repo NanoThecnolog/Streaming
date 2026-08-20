@@ -28,6 +28,7 @@ export default function Watch({ userContext }: WatchProps) {
   const router = useRouter()
   const { tmdbId, startTime } = router.query
   const [movieData, setMovieData] = useState({ title: '', subtitle: '', src: '', tmdbId: 0 })
+  const [streamUrl, setStreamUrl] = useState<string | null>(null)
   const { user, setUser, movies } = useFlix()
   const [visible, setVisible] = useState(false)
   const [shared, setShared] = useState<boolean | null>(null)
@@ -72,6 +73,15 @@ export default function Watch({ userContext }: WatchProps) {
     }
     if (tmdbId) getMovieMongoData()
   }, [router, tmdbId])
+
+  useEffect(() => {
+    async function getSignedStreamUrl() {
+      if (isDrive !== false || !movieData.tmdbId) return
+      const stream = await mongoService.getMovieStreamUrl(movieData.tmdbId)
+      setStreamUrl(stream?.url ?? null)
+    }
+    getSignedStreamUrl()
+  }, [isDrive, movieData.tmdbId])
 
   const handleBack = useCallback(() => {
     router.back()
@@ -172,7 +182,7 @@ export default function Watch({ userContext }: WatchProps) {
               <MoviePlayerHLS
                 //loading={loading}
                 handleEnded={handleMovieEnded}
-                src={movieData.src}
+                src={streamUrl ?? movieData.src}
                 tmdbID={Number(tmdbId as string)}
                 mediaType="movie"
                 startTime={Number(startTime) ?? 0}
