@@ -29,10 +29,10 @@ export const fuseConfig = async () => {
 }
 
 export const planValues = {
-  mensal: 1099,
-  trimestral: 3132,
-  semestral: 6132,
-  anual: 11869,
+  mensal: 1349,
+  trimestral: 3849,
+  semestral: 7299,
+  anual: 12949,
 }
 
 export const trendingBreakpoints = [
@@ -235,8 +235,8 @@ export const text = [
 export const desconto: Record<string, number> = {
   mensal: 0,
   trimestral: 5,
-  semestral: 7,
-  anual: 10,
+  semestral: 10,
+  anual: 20,
 }
 
 export const swiperBreakpoints = {

@@ -454,12 +454,21 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
   }, [episodeProgress])
 
   /*
-   * Atores agregados da série, ordenados em ordem decrescente
-   * pela quantidade de episódios em que aparecem.
+   * Atores principais da série (top N por order da TMDB),
+   * ordenados em ordem decrescente pela quantidade de episódios
+   * em que aparecem.
    */
   const castMembers = useMemo(() => {
+    const TOP_CAST_LIMIT = 10
+
     return [...aggregatedCast]
-      .filter((actor) => actor.known_for_department === 'Acting' || !actor.known_for_department)
+      .filter(
+        (actor) =>
+          (actor.known_for_department === 'Acting' || !actor.known_for_department) &&
+          actor.order != null,
+      )
+      .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+      .slice(0, TOP_CAST_LIMIT)
       .sort((a, b) => (b.total_episode_count ?? 0) - (a.total_episode_count ?? 0))
   }, [aggregatedCast])
 
@@ -754,9 +763,7 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
               </div>
             ) : (
               <>
-                {castMembers.length > 0 && (
-                  <CastContainer cast={castMembers} limit={castMembers.length} />
-                )}
+                {castMembers.length > 0 && <CastContainer cast={castMembers} />}
 
                 {hasCrew && <CrewContainer crewDepartment={crewDepartment} />}
               </>
