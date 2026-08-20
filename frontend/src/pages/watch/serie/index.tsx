@@ -5,7 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import SEO from '@/components/SEO'
 import HelpFlag from '@/components/Helpflag'
 import HelpModal from '@/components/modals/HelpModal/index '
-import { SeriesProps } from '@/@types/series'
+import { SeriesProps, TMDBEpisodes } from '@/@types/series'
 import { useFlix } from '@/contexts/FlixContext'
 import { parseCookies } from 'nookies'
 import NoFile from '@/components/ui/NoFile'
@@ -14,6 +14,7 @@ import { CheckFileProps } from '@/@types/googleRequest'
 import Spinner from '@/components/ui/Loading/spinner'
 import { debug } from '@/classes/DebugLogger'
 import { mongoService } from '@/classes/MongoContent'
+import { tmdb } from '@/classes/TMDB'
 import { apiEmail } from '@/services/apiMessenger'
 import Head from 'next/head'
 import { GetServerSideProps } from 'next'
@@ -50,6 +51,7 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
   const { episode, season, tmdbID, startTime } = router.query
 
   const [episodio, setEpisodio] = useState<EpisodeProps | null>(null)
+  const [episodeMeta, setEpisodeMeta] = useState<TMDBEpisodes | null>(null)
   const [serie, setSerie] = useState<SeriesProps | null>(null)
   const [streamUrl, setStreamUrl] = useState<string | null>(null)
   const [visible, setVisible] = useState<boolean>(false)
@@ -128,6 +130,35 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
       getSerieMongoData()
     }
   }, [router, episode, season, tmdbID])
+
+  useEffect(() => {
+    if (!tmdbID || !episodio) {
+      setEpisodeMeta(null)
+      return
+    }
+
+    let active = true
+
+    const loadEpisodeMeta = async () => {
+      try {
+        const episodes = await tmdb.fetchEpisodeData(parseInt(tmdbID as string), episodio.season)
+
+        if (!active) return
+
+        const meta = episodes?.find((ep) => ep.episode_number === episodio.episode) ?? null
+        setEpisodeMeta(meta)
+      } catch (error) {
+        debug.error('Erro ao buscar metadados do episódio', error)
+        if (active) setEpisodeMeta(null)
+      }
+    }
+
+    void loadEpisodeMeta()
+
+    return () => {
+      active = false
+    }
+  }, [episodio?.season, episodio?.episode, tmdbID])
 
   useEffect(() => {
     async function getSignedStreamUrl() {
@@ -392,6 +423,11 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
                     handlePlayBackStarted={registerPlaybackStarted}
                     handleUserPause={registerUserPause}
                     handleUserInteraction={registerUserInteraction}
+                    serieTitle={serie?.title ?? episodio.title}
+                    title={episodeMeta?.name}
+                    subtitle={episodio.subtitle}
+                    season={episodio.season}
+                    episode={episodio.episode}
                   />
                 ) : (
                   <MoviePlayer

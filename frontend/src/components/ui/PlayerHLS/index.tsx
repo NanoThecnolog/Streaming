@@ -46,6 +46,12 @@ interface MoviePlayerProps {
   tmdbID?: number
   mediaType?: 'movie' | 'tv'
   startTime?: number // em segundos
+
+  title?: string
+  subtitle?: string
+  serieTitle?: string
+  season?: number
+  episode?: number
 }
 
 function PlayerHLS({
@@ -64,6 +70,11 @@ function PlayerHLS({
   tmdbID,
   mediaType,
   startTime = 0,
+  title,
+  subtitle,
+  serieTitle,
+  season,
+  episode,
 }: MoviePlayerProps) {
   //estados de referência
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -1112,6 +1123,28 @@ function PlayerHLS({
                   className={`${styles.controls} ${showControls ? styles.visible : styles.hidden}`}
                 >
                   <div className={styles.bottom}>
+                    {isFullscreen && (title || subtitle || serieTitle) && (
+                      <div className={styles.fullscreenInfo}>
+                        {mediaType === 'tv' && season != null && episode != null ? (
+                          <span className={styles.fullscreenTitle}>
+                            {serieTitle}
+                            {subtitle && `: ${subtitle}`}
+                            {' - '}T {season} E {episode}
+                            {title && (
+                              <>
+                                {' - '}
+                                {title}
+                              </>
+                            )}
+                          </span>
+                        ) : (
+                          <span className={styles.fullscreenTitle}>
+                            {title}
+                            {subtitle && ` - ${subtitle}`}
+                          </span>
+                        )}
+                      </div>
+                    )}
                     <div
                       ref={timelineRef}
                       className={styles.timeline}

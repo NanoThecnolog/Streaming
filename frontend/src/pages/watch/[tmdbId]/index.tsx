@@ -186,6 +186,8 @@ export default function Watch({ userContext }: WatchProps) {
                 tmdbID={Number(tmdbId as string)}
                 mediaType="movie"
                 startTime={Number(startTime) ?? 0}
+                title={movieData.title}
+                subtitle={movieData.subtitle}
               />
             ) : (
               <MoviePlayer
