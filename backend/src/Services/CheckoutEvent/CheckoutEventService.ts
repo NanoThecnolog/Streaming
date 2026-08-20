@@ -1,4 +1,3 @@
-import { createHash } from 'node:crypto'
 import {
     CheckoutDevice,
     CheckoutEventType,
@@ -62,12 +61,6 @@ const fieldUpdateMap: Record<
     card_document: {
         cardDocumentFilled: true,
     },
-}
-
-const createEmailHash = (email: string): string => {
-    return createHash('sha256')
-        .update(email.trim().toLowerCase())
-        .digest('hex')
 }
 
 export class CheckoutEventService {
@@ -134,8 +127,8 @@ export class CheckoutEventService {
         }
 
         const now = new Date()
-        const emailHash = email
-            ? createEmailHash(email)
+        const checkoutEmail = email
+            ? email.trim().toLowerCase()
             : undefined
 
         const incomingEventUpdate = this.resolveEventUpdate({
@@ -180,7 +173,7 @@ export class CheckoutEventService {
                         create: {
                             sessionId: normalizedSessionId,
                             userId,
-                            emailHash,
+                            emailHash: checkoutEmail,
                             planId,
                             paymentMethod,
                             currentStep: step,
@@ -229,7 +222,7 @@ export class CheckoutEventService {
                         },
                         data: {
                             userId,
-                            emailHash,
+                            emailHash: checkoutEmail,
                             planId,
                             paymentMethod,
                             currentStep,
