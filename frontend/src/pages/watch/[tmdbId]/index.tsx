@@ -29,6 +29,7 @@ export default function Watch({ userContext }: WatchProps) {
   const { tmdbId, startTime } = router.query
   const [movieData, setMovieData] = useState({ title: '', subtitle: '', src: '', tmdbId: 0 })
   const [streamUrl, setStreamUrl] = useState<string | null>(null)
+  const [expiresAt, setExpiresAt] = useState<string | null>(null)
   const { user, setUser, movies } = useFlix()
   const [visible, setVisible] = useState(false)
   const [shared, setShared] = useState<boolean | null>(null)
@@ -79,8 +80,17 @@ export default function Watch({ userContext }: WatchProps) {
       if (isDrive !== false || !movieData.tmdbId) return
       const stream = await mongoService.getMovieStreamUrl(movieData.tmdbId)
       setStreamUrl(stream?.url ?? null)
+      setExpiresAt(stream?.expiresAt ?? null)
     }
     getSignedStreamUrl()
+  }, [isDrive, movieData.tmdbId])
+
+  const renewStreamUrl = useCallback(async (): Promise<string | null> => {
+    if (isDrive !== false || !movieData.tmdbId) return null
+    const stream = await mongoService.getMovieStreamUrl(movieData.tmdbId)
+    if (!stream) return null
+    setExpiresAt(stream.expiresAt)
+    return stream.url
   }, [isDrive, movieData.tmdbId])
 
   const handleBack = useCallback(() => {
@@ -183,6 +193,8 @@ export default function Watch({ userContext }: WatchProps) {
                 //loading={loading}
                 handleEnded={handleMovieEnded}
                 src={streamUrl ?? movieData.src}
+                expiresAt={expiresAt}
+                renewAuthToken={renewStreamUrl}
                 tmdbID={Number(tmdbId as string)}
                 mediaType="movie"
                 startTime={Number(startTime) ?? 0}

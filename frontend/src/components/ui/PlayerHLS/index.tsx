@@ -52,6 +52,9 @@ interface MoviePlayerProps {
   serieTitle?: string
   season?: number
   episode?: number
+
+  expiresAt?: string | null
+  renewAuthToken?: () => Promise<string | null>
 }
 
 function PlayerHLS({
@@ -75,6 +78,8 @@ function PlayerHLS({
   serieTitle,
   season,
   episode,
+  expiresAt,
+  renewAuthToken,
 }: MoviePlayerProps) {
   //estados de referência
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -89,6 +94,8 @@ function PlayerHLS({
 
   const isTouchRef = useRef<boolean>(false)
   const hlsRef = useRef<Hls | null>(null)
+  const authTokenRef = useRef<string | null>(null)
+  const lastReactiveRenewalRef = useRef<number>(0)
 
   const preferencesAppliedRef = useRef(false)
   const savedPreferencesRef = useRef<PlayerPreferences | null>(null)
@@ -766,7 +773,8 @@ function PlayerHLS({
 
     const isSafari = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent)
 
-    const authToken = getAuthToken(src)
+    authTokenRef.current = getAuthToken(src)
+    lastReactiveRenewalRef.current = 0
 
     setProgress(0)
     setDuration(0)
@@ -789,7 +797,7 @@ function PlayerHLS({
     }
 
     // Safari nativo
-    if (isSafari && video.canPlayType('application/vnd.apple.mpegurl') && !authToken) {
+    if (isSafari && video.canPlayType('application/vnd.apple.mpegurl') && !authTokenRef.current) {
       video.src = src
       video.load()
 
@@ -804,6 +812,7 @@ function PlayerHLS({
         lowLatencyMode: false,
         backBufferLength: 90,
         xhrSetup: (xhr, url) => {
+          const authToken = authTokenRef.current
           if (!authToken) return
           if (url.includes('backblazeb2.com') && !url.includes('Authorization=')) {
             const separator = url.includes('?') ? '&' : '?'
@@ -873,12 +882,30 @@ function PlayerHLS({
         }
       })
 
+      const tryRenewExpiredToken = async () => {
+        if (!renewAuthToken || !authTokenRef.current) return
+
+        const now = Date.now()
+        if (now - lastReactiveRenewalRef.current < 60000) return
+        lastReactiveRenewalRef.current = now
+
+        try {
+          debug.log('Renovando token de download B2 após erro de rede')
+          const renewedSrc = await renewAuthToken()
+          const token = renewedSrc ? getAuthToken(renewedSrc) : null
+          if (token) authTokenRef.current = token
+        } catch (err) {
+          debug.warn('Falha ao renovar token de download B2', err)
+        }
+      }
+
       hls.on(Hls.Events.ERROR, (_, data) => {
         debug.error('HLS ERROR', data)
 
         if (data.fatal) {
           switch (data.type) {
             case Hls.ErrorTypes.NETWORK_ERROR:
+              void tryRenewExpiredToken()
               hls.startLoad()
               break
 
@@ -894,6 +921,7 @@ function PlayerHLS({
       })
 
       hls.on(Hls.Events.LEVEL_LOADED, () => {
+        lastReactiveRenewalRef.current = 0
         setIsVideoLoading(false)
       })
 
@@ -912,6 +940,28 @@ function PlayerHLS({
       }
     }
   }, [src])
+
+  useEffect(() => {
+    if (!expiresAt || !renewAuthToken) return
+
+    const expiresAtMs = new Date(expiresAt).getTime()
+    if (Number.isNaN(expiresAtMs)) return
+
+    const marginMs = 5 * 60 * 1000
+    const delay = Math.max(0, expiresAtMs - Date.now() - marginMs)
+
+    const timeout = setTimeout(() => {
+      debug.log('Renovando token de download B2 antes da expiração')
+      Promise.resolve(renewAuthToken())
+        .then((renewedSrc) => {
+          const token = renewedSrc ? getAuthToken(renewedSrc) : null
+          if (token) authTokenRef.current = token
+        })
+        .catch((err) => debug.warn('Falha ao renovar token de download B2', err))
+    }, delay)
+
+    return () => clearTimeout(timeout)
+  }, [expiresAt, renewAuthToken])
 
   useEffect(() => {
     const handleFullScreenChange = () => {

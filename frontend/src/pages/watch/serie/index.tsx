@@ -54,6 +54,7 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
   const [episodeMeta, setEpisodeMeta] = useState<TMDBEpisodes | null>(null)
   const [serie, setSerie] = useState<SeriesProps | null>(null)
   const [streamUrl, setStreamUrl] = useState<string | null>(null)
+  const [expiresAt, setExpiresAt] = useState<string | null>(null)
   const [visible, setVisible] = useState<boolean>(false)
   const [shared, setShared] = useState<boolean>(true)
   const [loading, setLoading] = useState<boolean>(false)
@@ -169,9 +170,22 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
         episodio.episode,
       )
       setStreamUrl(stream?.url ?? null)
+      setExpiresAt(stream?.expiresAt ?? null)
     }
     getSignedStreamUrl()
   }, [isDrive, episodio?.season, episodio?.episode, tmdbID])
+
+  const renewStreamUrl = useCallback(async (): Promise<string | null> => {
+    if (isDrive !== false || !episodio) return null
+    const stream = await mongoService.getSerieEpisodeStreamUrl(
+      parseInt(tmdbID as string),
+      episodio.season,
+      episodio.episode,
+    )
+    if (!stream) return null
+    setExpiresAt(stream.expiresAt)
+    return stream.url
+  }, [isDrive, episodio, tmdbID])
 
   const handleBack = useCallback(() => {
     router.push(`/series/serie/${tmdbID}`)
@@ -410,6 +424,8 @@ export default function WatchSerie({ userContext }: WatchSerieProps) {
                   <MoviePlayerHLS
                     //loading={loading}
                     src={streamUrl ?? episodio.src}
+                    expiresAt={expiresAt}
+                    renewAuthToken={renewStreamUrl}
                     nextEp={handleEpisodeEnded} //handleNextEpisode
                     onPreviousEpisode={handlePreviousEpisode}
                     onNextEpisode={() => handleNextEpisode(false)}
