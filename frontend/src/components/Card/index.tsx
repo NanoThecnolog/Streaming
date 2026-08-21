@@ -1,6 +1,6 @@
 import { CardsProps } from '@/@types/Cards'
 import styles from './styles.module.scss'
-import { useEffect, useState } from 'react'
+import { memo, useCallback, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useTMDB } from '@/contexts/TMDBContext'
 import { SeriesProps } from '@/@types/series'
@@ -10,59 +10,97 @@ import NewContent from '@/components/ui/NewContent'
 
 interface CardProps {
   card: CardsProps | SeriesProps
-}
-interface TMDBImagesProps {
-  poster: string
+  priority?: boolean
 }
 
-export default function Card({ card }: CardProps) {
-  const { allData, serieData } = useTMDB()
-  const [TMDBImages, setTMDBImages] = useState<TMDBImagesProps>()
-  const [infoNews, setInfoNews] = useState<'news' | 'episode' | 'season' | null>(null)
-  //debug.log("Imagens no card: ", TMDBImages)
+const FALLBACK_POSTER = '/fundo-alto.jpg'
+const TMDB_POSTER_BASE = 'https://image.tmdb.org/t/p/w500'
 
-  /*useEffect(() => {
-    if ('season' in card) {
-      if (card.news) debug.log('news no card', card.news, card.title)
+function Card({ card, priority = false }: CardProps) {
+  const { allData, serieData, cachedImages, setCachedImage } = useTMDB()
+  const isSeries = 'season' in card
+  const contentId = isSeries ? card.tmdbID : card.tmdbId
+  const infoNews = isSeries ? (card.news ?? null) : null
+
+  const [poster, setPoster] = useState('')
+  const [showFallback, setShowFallback] = useState(false)
+  const hasTriedTMDBRef = useRef(false)
+  const isOverlayRef = useRef(false)
+
+  const resolvePosterFromTMDB = useCallback(async (): Promise<string | null> => {
+    const cached = cachedImages[contentId]
+    if (cached) return cached
+
+    const contextData = isSeries
+      ? serieData.find((item) => item.id === contentId)
+      : allData.find((item) => item.id === contentId)
+
+    if (contextData?.poster_path) {
+      const url = `${TMDB_POSTER_BASE}${contextData.poster_path}`
+      setCachedImage(contentId, url)
+      return url
     }
-  }, [card])*/
+
+    try {
+      let url: string | null = null
+
+      if (isSeries) {
+        const result = await tmdb.fetchSeriesDetails(contentId)
+        url = result?.poster_path ? `${TMDB_POSTER_BASE}${result.poster_path}` : null
+      } else {
+        url = await tmdb.fetchMoviePoster(contentId)
+      }
+
+      if (url) setCachedImage(contentId, url)
+      return url ?? null
+    } catch (err) {
+      debug.error('Erro ao buscar imagem do card: ', err)
+      return null
+    }
+  }, [contentId, isSeries, cachedImages, allData, serieData, setCachedImage])
 
   useEffect(() => {
-    async function getImage() {
-      if ('season' in card) {
-        const news = card.news
-        setInfoNews(news ?? null)
+    hasTriedTMDBRef.current = false
+    isOverlayRef.current = false
+    setShowFallback(false)
+    setPoster('')
+  }, [card])
 
-        const data = serieData.find((data) => data.id === card.tmdbID)
-        //debug.log('serie no card: ', data)
-        const url = data
-          ? `https://image.tmdb.org/t/p/w500${data.poster_path}`
-          : await tmdb.fetchSeriesDetails(card.tmdbID)
+  useEffect(() => {
+    if (poster !== '' || showFallback || hasTriedTMDBRef.current) return
 
-        if (url) {
-          if (typeof url === 'string') setTMDBImages({ poster: url })
-          else if ('poster_path' in url) {
-            const posterUrl = `https://image.tmdb.org/t/p/w500${url.poster_path}`
-            setTMDBImages({ poster: posterUrl })
-          }
-        }
-      } else {
-        const data = allData.find((data) => data.id === card.tmdbId)
-        //debug.log('movie no card: ', data)
-        const url = data
-          ? `https://image.tmdb.org/t/p/w500${data.poster_path}`
-          : await tmdb.fetchMoviePoster(card.tmdbId)
+    hasTriedTMDBRef.current = true
 
-        if (url) setTMDBImages({ poster: url })
-        else {
-          debug.error('url não definida')
-        }
+    void resolvePosterFromTMDB().then((url) => {
+      if (url) {
+        isOverlayRef.current = false
+        setPoster(url)
+        return
       }
-    }
-    getImage()
-  }, [card, allData, serieData])
 
-  const href = 'season' in card ? `/series/serie/${card.tmdbID}` : `/movies/movie/${card.tmdbId}`
+      if (card.overlay) {
+        isOverlayRef.current = true
+        setPoster(card.overlay)
+        return
+      }
+
+      setShowFallback(true)
+    })
+  }, [poster, showFallback, card, resolvePosterFromTMDB])
+
+  const handleImageError = () => {
+    if (!poster) return
+
+    if (!isOverlayRef.current && card.overlay && card.overlay !== poster) {
+      isOverlayRef.current = true
+      setPoster(card.overlay)
+      return
+    }
+
+    setShowFallback(true)
+  }
+
+  const href = isSeries ? `/series/serie/${card.tmdbID}` : `/movies/movie/${card.tmdbId}`
 
   return (
     <Link className={styles.card} href={href} aria-label={`Ver detalhes de ${card.title}`}>
@@ -72,14 +110,22 @@ export default function Card({ card }: CardProps) {
         </div>
       )}
 
-      <img
-        src={TMDBImages ? TMDBImages.poster : card.overlay}
-        alt={card.title}
-        className={styles.backgroundImage}
-        loading="lazy"
-        decoding="async"
-        draggable={false}
-      />
+      {(poster !== '' || showFallback) && (
+        <img
+          src={showFallback ? FALLBACK_POSTER : poster}
+          alt={card.title}
+          className={styles.backgroundImage}
+          loading={priority ? 'eager' : 'lazy'}
+          decoding="async"
+          draggable={false}
+          {...(priority ? { fetchpriority: 'high' } : {})}
+          onError={() => {
+            void handleImageError()
+          }}
+        />
+      )}
     </Link>
   )
 }
+
+export default memo(Card)

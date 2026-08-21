@@ -4,7 +4,7 @@
   justify-content: space-between;
   gap: 1rem;
   min-width: 0;
-  margin-bottom: 0.75rem;
+  //margin-bottom: 0.75rem;
 
   > div {
     min-width: 0;
@@ -28,7 +28,7 @@
     font-size: clamp(1.35rem, 1rem + 1vw, 1.9rem);
     font-weight: 500;
     line-height: 1.08;
-    letter-spacing: clamp(0.12rem, 0.25vw, 0.25rem);
+    letter-spacing: clamp(0.07rem, 0.15vw, 0.15rem);
     text-transform: uppercase;
     text-wrap: balance;
     user-select: none;
