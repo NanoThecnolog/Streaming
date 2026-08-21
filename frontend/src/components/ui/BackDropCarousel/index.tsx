@@ -281,17 +281,6 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
                       src={`https://image.tmdb.org/t/p/w500${card.backdrop_path}`}
                       alt={card.name}
                     />
-                    <div className={styles.info}>
-                      <div className={styles.textContent}>
-                        <h3 className={styles.title}>{card.name}</h3>
-                        <p className={styles.metadata}>
-                          <span>Temporada {tracking.season}</span>
-                          <span className={styles.separator}>•</span>
-                          <span>Episódio {tracking.episode}</span>
-                        </p>
-                      </div>
-                    </div>
-
                     <div
                       className={styles.progress}
                       style={{ width: `${percentage > 4 ? 100 : 0}%` }}
@@ -302,6 +291,14 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
                       />
                     </div>
                   </Link>
+                </div>
+                <div className={styles.cardInfo}>
+                  <h3 className={styles.title}>{card.name}</h3>
+                  <p className={styles.metadata}>
+                    <span>Temporada {tracking.season}</span>
+                    <span className={styles.separator}>•</span>
+                    <span>Episódio {tracking.episode}</span>
+                  </p>
                 </div>
               </SwiperSlide>
             )
@@ -319,23 +316,6 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
                       src={`https://image.tmdb.org/t/p/w500${card.backdrop_path}`}
                       alt={card.title}
                     />
-
-                    <div className={styles.info}>
-                      <div className={styles.textContent}>
-                        <h3 className={styles.title}>{card.title}</h3>
-
-                        <p className={styles.metadata}>
-                          <span>Filme</span>
-                          {percentage > 4 && (
-                            <>
-                              <span className={styles.separator}>•</span>
-                              <span>{percentage >= 92 ? 100 : percentage}% assistido</span>
-                            </>
-                          )}
-                        </p>
-                      </div>
-                    </div>
-
                     <div
                       className={styles.progress}
                       style={{ width: `${percentage > 4 ? 100 : 0}%` }}
@@ -346,6 +326,18 @@ export default function BackDropCarousel({ title /*cardPerContainer*/ }: BasePro
                       />
                     </div>
                   </Link>
+                </div>
+                <div className={styles.cardInfo}>
+                  <h3 className={styles.title}>{card.title}</h3>
+                  <p className={styles.metadata}>
+                    <span>Filme</span>
+                    {percentage > 4 && (
+                      <>
+                        <span className={styles.separator}>•</span>
+                        <span>{percentage >= 92 ? 100 : percentage}% assistido</span>
+                      </>
+                    )}
+                  </p>
                 </div>
               </SwiperSlide>
             )

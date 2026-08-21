@@ -9,6 +9,7 @@
     .slide {
       position: relative;
       display: flex;
+      flex-direction: column;
       align-items: center;
 
       .cardWrapper {
@@ -51,80 +52,6 @@
             filter 0.25s ease;
         }
 
-        .info {
-          position: absolute;
-          inset: 0;
-
-          display: flex;
-          align-items: flex-end;
-
-          padding: clamp(0.55rem, 1.5vw, 1rem) clamp(0.6rem, 1.5vw, 1rem)
-            clamp(0.75rem, 1.8vw, 1.15rem);
-
-          font-family: var(--font-Roboto);
-
-          background: linear-gradient(
-            to top,
-            rgba(0, 0, 0, 0.95) 0%,
-            rgba(0, 0, 0, 0.72) 32%,
-            rgba(0, 0, 0, 0.25) 62%,
-            transparent 85%
-          );
-
-          transition:
-            opacity 0.25s ease,
-            transform 0.25s ease;
-
-          pointer-events: none;
-
-          .textContent {
-            width: 100%;
-            min-width: 0;
-          }
-
-          .title {
-            display: -webkit-box;
-
-            margin: 0;
-
-            overflow: hidden;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 2;
-
-            font-size: clamp(0.82rem, 0.7rem + 0.35vw, 1rem);
-            font-weight: 700;
-            line-height: 1.15;
-            letter-spacing: -0.01em;
-
-            color: var(--white);
-
-            text-shadow:
-              0 1px 2px rgba(0, 0, 0, 0.85),
-              0 2px 8px rgba(0, 0, 0, 0.55);
-          }
-
-          .metadata {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0.3rem;
-
-            margin: 0.25rem 0 0;
-
-            font-size: clamp(0.65rem, 0.58rem + 0.25vw, 0.78rem);
-            font-weight: 400;
-            line-height: 1.2;
-
-            color: rgba(255, 255, 255, 0.78);
-
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
-          }
-
-          .separator {
-            color: rgba(255, 255, 255, 0.45);
-          }
-        }
-
         .progress {
           position: absolute;
           bottom: 0;
@@ -154,6 +81,64 @@
         }
       }
     }
+
+    .cardInfo {
+      //outline: 2px solid red;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.15rem;
+      width: 100%;
+
+      margin-top: 0.35rem;
+      padding: 0 0.2rem;
+
+      text-align: start;
+      font-family: var(--font-Roboto);
+
+      .title {
+        display: -webkit-box;
+
+        margin: 0;
+
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+
+        font-size: clamp(0.78rem, 0.68rem + 0.28vw, 0.92rem);
+        font-weight: 700;
+
+        line-height: 1.15;
+        letter-spacing: -0.01em;
+
+        color: var(--white);
+
+        text-shadow:
+          0 1px 2px rgba(0, 0, 0, 0.85),
+          0 2px 8px rgba(0, 0, 0, 0.55);
+      }
+
+      .metadata {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+
+        margin: 0;
+
+        font-size: clamp(0.62rem, 0.55rem + 0.22vw, 0.74rem);
+        font-weight: 400;
+        line-height: 1.2;
+
+        color: rgba(255, 255, 255, 0.78);
+
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+      }
+
+      .separator {
+        color: rgba(255, 255, 255, 0.45);
+      }
+    }
   }
 }
 
@@ -161,17 +146,13 @@
   .carouselContainer {
     .carousel {
       .slide {
-        .cardWrapper {
-          .info {
-            padding: 0.55rem 0.6rem 0.7rem;
+        .cardInfo {
+          .title {
+            -webkit-line-clamp: 1;
+          }
 
-            .title {
-              -webkit-line-clamp: 1;
-            }
-
-            .metadata {
-              margin-top: 0.15rem;
-            }
+          .metadata {
+            margin-top: 0.15rem;
           }
         }
       }
@@ -184,22 +165,12 @@
     .carousel {
       .slide {
         .cardWrapper {
-          .info {
-            opacity: 0;
-            transform: translateY(8px);
-          }
-
           &:hover {
             box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
 
             img {
               transform: scale(1.045);
               filter: brightness(0.8);
-            }
-
-            .info {
-              opacity: 1;
-              transform: translateY(0);
             }
 
             .progress {

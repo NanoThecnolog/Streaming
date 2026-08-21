@@ -39,6 +39,7 @@ export interface ContextProps {
   setSubscription: (data: SubscriptionProps) => void
   profiles: ProfileProps[]
   setProfiles: (profiles: ProfileProps[]) => void
+  fetchProfiles: () => Promise<ProfileProps[]>
   activeProfile: ProfileProps | null
   setActiveProfile: (profile: ProfileProps) => void
   genrePreferences: GenrePreferenceProps[]

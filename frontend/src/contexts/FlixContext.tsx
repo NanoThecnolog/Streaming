@@ -386,6 +386,7 @@ export function FlixProvider({ children }: ContextProviderProps) {
         setSeries,
         profiles,
         setProfiles,
+        fetchProfiles,
         activeProfile,
         setActiveProfile,
         genrePreferences,

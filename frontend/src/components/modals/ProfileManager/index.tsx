@@ -20,12 +20,18 @@ export default function ProfileManager({
   onClose,
   requireSelection = false,
 }: ProfileManagerProps) {
-  const { profiles, setProfiles, activeProfile, setActiveProfile } = useFlix()
+  const { profiles, setProfiles, activeProfile, setActiveProfile, fetchProfiles } = useFlix()
   const [selectedId, setSelectedId] = useState<string | null>(activeProfile?.id ?? null)
   const [customizingProfile, setCustomizingProfile] = useState<ProfileProps | null>(null)
   const [creatingProfile, setCreatingProfile] = useState(false)
   const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null)
   const [deletingId, setDeletingId] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (profiles.length === 0) {
+      void fetchProfiles()
+    }
+  }, [profiles.length, fetchProfiles])
 
   useEffect(() => {
     if (!confirmDeleteId) return
