@@ -483,6 +483,7 @@
 
     .actions {
       justify-content: center;
+      flex-wrap: wrap;
       gap: 8px;
 
       .playContainer {
@@ -501,6 +502,15 @@
 
       .volumeContainer {
         gap: 8px;
+
+        .configButton button {
+          width: 36px;
+          height: 36px;
+        }
+
+        .volumeSlider {
+          display: none;
+        }
       }
 
       .controlButton {

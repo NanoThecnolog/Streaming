@@ -20,7 +20,7 @@
     display: flex;
     align-items: center;
     gap: 20px;
-    width: 700px;
+    width: min(700px, 96%);
 
     .buttonPreview {
       background-color: transparent;
@@ -43,7 +43,9 @@
     h3 {
       z-index: 99;
       color: var(--white);
-      font-size: 2rem;
+      font-size: clamp(1.25rem, 4vw + 0.5rem, 2rem);
+      line-height: 1.15;
+      overflow-wrap: break-word;
       font-family: var(--font-bebas);
     }
   }

@@ -104,6 +104,7 @@
         overflow: hidden;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
+        line-clamp: 2;
 
         font-size: clamp(0.78rem, 0.68rem + 0.28vw, 0.92rem);
         font-weight: 700;
@@ -148,6 +149,7 @@
       .slide {
         .cardInfo {
           .title {
+            line-clamp: 1;
             -webkit-line-clamp: 1;
           }
 
