@@ -89,6 +89,15 @@ export default function Movie({ movie, cast, crewByDepartment }: MovieProps) {
     })),
   }
 
+  //reset de estado ao navegar entre filmes diferentes
+  useEffect(() => {
+    setFilme(null)
+    setRelatedCards([])
+    setTrailer(null)
+    setProgressData([])
+    setProgressPercentage(0)
+  }, [movie.id])
+
   //atualização de dados e estado
   useEffect(() => {
     if (!movie) return

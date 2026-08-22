@@ -7,6 +7,7 @@ import { CastProps } from '@/@types/movie/cast'
 import { MovieTMDB } from '@/@types/Cards'
 
 class TMDBService {
+  private episodeDataCache = new Map<string, TMDBEpisodes[]>()
   /**
    * Método para chamada da API do TMDB. Parâmetro type distingue entre filmes e séries. Aceita o parametro imageType que determina o que deve ser buscado.
    * @param tmdbID ID do filme no TMDB
@@ -147,6 +148,31 @@ class TMDBService {
       return null
     }
   }
+
+  /**
+   * Busca os episódios de uma temporada com cache em memória por sessão.
+   * Resultados válidos são cacheados; falhas retornam null e podem ser re-tentadas.
+   */
+  public async getEpisodeDataCached(
+    tmdbID: number,
+    season: number,
+  ): Promise<TMDBEpisodes[] | null> {
+    if (tmdbID === 0) return null
+
+    const cacheKey = `${tmdbID}-${season}`
+    const cached = this.episodeDataCache.get(cacheKey)
+
+    if (cached) return cached
+
+    const episodes = await this.fetchEpisodeData(tmdbID, season)
+
+    if (episodes && episodes.length > 0) {
+      this.episodeDataCache.set(cacheKey, episodes)
+    }
+
+    return episodes
+  }
+
   /**
    * Busca dados de uma coleção de filmes.
    * @param name nome da coleção

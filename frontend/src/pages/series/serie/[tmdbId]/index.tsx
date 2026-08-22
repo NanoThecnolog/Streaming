@@ -27,6 +27,7 @@ import WatchLaterContainer from '@/components/ui/ButtonWatchLater'
 import TrailerButton from '@/components/ui/TrailerButton'
 import NewContent from '@/components/ui/NewContent'
 import Spinner from '@/components/ui/Loading/spinner'
+import CustomSelect from '@/components/ui/CustomSelect'
 import { WarningModal } from '@/components/ui/WarningModal'
 
 import CastContainer from '@/components/movie/CastContaner'
@@ -84,7 +85,7 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
   const [serie, setSerie] = useState<SeriesProps | null>(null)
   const [seasonToShow, setSeasonToShow] = useState(1)
   const [episodesToShow, setEpisodesToShow] = useState<Episodes[]>([])
-  const [episodesData, setEpisodesData] = useState<Array<TMDBEpisodes[] | null>>([])
+  const [episodesData, setEpisodesData] = useState<TMDBEpisodes[] | null>(null)
   const [episodeProgress, setEpisodeProgress] = useState<EpisodeProgressProps[]>([])
 
   const [onWatchLater, setOnWatchLater] = useState(false)
@@ -111,7 +112,7 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
     setRelatedCards([])
     setAggregatedCast([])
     setCrewDepartment({})
-    setEpisodesData([])
+    setEpisodesData(null)
     setEpisodeProgress([])
 
     const fetchSerie = async () => {
@@ -164,8 +165,7 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
   }, [serie, seasonToShow])
 
   useEffect(() => {
-    const episodes = episodesData[seasonToShow]
-    debug.log('Episódios da temporada no TMDB', seasonToShow, episodes)
+    debug.log('Episódios da temporada no TMDB', seasonToShow, episodesData)
   }, [episodesData, seasonToShow])
 
   useEffect(() => {
@@ -184,40 +184,53 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
   }, [serie, watchLaterManager])
 
   /*
-   * Busca os metadados de todos os episódios uma única
-   * vez para cada série.
+   * Busca os metadados apenas da temporada exibida, com cache
+   * em memória e retry único para falhas transitórias.
    */
   useEffect(() => {
     if (!serie) {
-      setEpisodesData([])
+      setEpisodesData(null)
       return
     }
 
     let active = true
+    let retryTimer: ReturnType<typeof setTimeout> | undefined
 
-    const loadEpisodesData = async () => {
+    setEpisodesData(null)
+
+    const loadSeasonEpisodes = async () => {
       try {
-        setEpisodesData([])
+        const result = await tmdb.getEpisodeDataCached(serie.tmdbID, seasonToShow)
 
-        const result = await Promise.all(
-          serie.season.map((season) => tmdb.fetchEpisodeData(serie.tmdbID, season.s)),
-        )
-        //debug.log('dados dos episódios no TMDB', result)
+        if (!active) return
 
-        if (active) {
+        if (result) {
           setEpisodesData(result)
+          return
         }
+
+        retryTimer = setTimeout(() => {
+          void (async () => {
+            const retried = await tmdb.fetchEpisodeData(serie.tmdbID, seasonToShow)
+
+            if (active && retried) {
+              setEpisodesData(retried)
+            }
+          })()
+        }, 1500)
       } catch (error) {
         debug.error('Erro ao buscar episódios da série', error)
       }
     }
 
-    void loadEpisodesData()
+    void loadSeasonEpisodes()
 
     return () => {
       active = false
+
+      if (retryTimer) clearTimeout(retryTimer)
     }
-  }, [serie])
+  }, [serie, seasonToShow])
 
   /*
    * Confirma se a série continua disponível no catálogo.
@@ -387,7 +400,7 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
    * com o runtime retornado pelo TMDB.
    */
   useEffect(() => {
-    if (episodesData.length === 0) {
+    if (!episodesData || episodesData.length === 0) {
       setEpisodeProgress([])
       return
     }
@@ -403,7 +416,7 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
           signal: controller.signal,
         })
 
-        const allEpisodes = episodesData.flatMap((season) => season ?? [])
+        const allEpisodes = episodesData
 
         const episodesWithProgress: EpisodeProgressProps[] = response.data.result.flatMap(
           (progress) => {
@@ -560,11 +573,7 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
 
   const overview = serie?.description?.trim() || data.overview?.trim() || ''
 
-  const selectedSeasonIndex = serie
-    ? serie.season.findIndex((season) => season.s === seasonToShow)
-    : -1
-
-  const selectedSeasonEpisodes = selectedSeasonIndex >= 0 ? episodesData[selectedSeasonIndex] : null
+  const selectedSeasonEpisodes = episodesData
 
   const hasCrew = Object.keys(crewDepartment).length > 0
 
@@ -694,30 +703,29 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
               <div className={styles.seasonControl}>
                 <label htmlFor="season-select">Temporada</label>
 
-                <div className={styles.selectWrapper}>
-                  <select
-                    id="season-select"
-                    value={seasonToShow}
-                    onChange={(event) => {
-                      handleChangeSeason(Number(event.target.value))
-                    }}
-                  >
-                    {serie.season.map((season) => {
-                      const language = getSeasonLanguage(season.lang)
+              <div className={styles.selectWrapper}>
+                <CustomSelect
+                  id="season-select"
+                  ariaLabel="Escolher temporada"
+                  value={`${seasonToShow}`}
+                  onChange={(value) => {
+                    handleChangeSeason(Number(value))
+                  }}
+                  options={serie.season.map((season) => {
+                    const language = getSeasonLanguage(season.lang)
 
-                      return (
-                        <option key={season.s} value={season.s}>
-                          {`Temporada ${season.s}${language ? ` · ${language}` : ''}`}
-                        </option>
-                      )
-                    })}
-                  </select>
-                </div>
+                    return {
+                      value: `${season.s}`,
+                      label: `Temporada ${season.s}${language ? ` · ${language}` : ''}`,
+                    }
+                  })}
+                />
+              </div>
               </div>
             </header>
 
             <div className={styles.cardContainer}>
-              {episodesToShow.map((internalEpisode) => {
+              {episodesToShow.map((internalEpisode, episodeIndex) => {
                 const episode = selectedSeasonEpisodes?.find(
                   (item) => item.episode_number === internalEpisode.ep,
                 )
@@ -747,7 +755,11 @@ export default function Serie({ data, buttonVisible }: SeriePageProps) {
                     key={`${seasonToShow}-${internalEpisode.ep}`}
                     className={styles.episodeContainer}
                   >
-                    <EpisodeCard episodeData={episodeInfo} handlePlay={handlePlayEpisode} />
+                    <EpisodeCard
+                      episodeData={episodeInfo}
+                      handlePlay={handlePlayEpisode}
+                      priority={episodeIndex === 0}
+                    />
                   </div>
                 )
               })}

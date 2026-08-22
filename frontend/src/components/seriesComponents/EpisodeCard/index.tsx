@@ -18,6 +18,7 @@ interface EpisodeProps {
     progress: EpisodeProgressProps | null
   }
   handlePlay: (episode: Episodes, startTime?: number, season?: number) => void
+  priority?: boolean
 }
 
 const normalizePercentage = (percentage?: number): number => {
@@ -42,13 +43,15 @@ const getEpisodeDuration = (episode?: TMDBEpisodes, internalDuration?: string): 
   return duration || 'Duração não informada'
 }
 
-export default function EpisodeCard({ episodeData, handlePlay }: EpisodeProps) {
+export default function EpisodeCard({ episodeData, handlePlay, priority = false }: EpisodeProps) {
   const [imageError, setImageError] = useState(false)
+  const [usingDirectSource, setUsingDirectSource] = useState(false)
 
   const { data, episode, progress, seasonNumber } = episodeData
 
   useEffect(() => {
     setImageError(false)
+    setUsingDirectSource(false)
   }, [episodeData.image])
 
   const episodeName = episode?.name?.trim() || `Episódio ${data.ep}`
@@ -66,6 +69,15 @@ export default function EpisodeCard({ episodeData, handlePlay }: EpisodeProps) {
   const duration = getEpisodeDuration(episode, data.duration)
 
   const imageSource = imageError ? '/logo.png' : episodeData.image
+
+  const handleImageError = () => {
+    if (!usingDirectSource && !imageError) {
+      setUsingDirectSource(true)
+      return
+    }
+
+    setImageError(true)
+  }
 
   const actionLabel = isComplete
     ? 'Assistir novamente'
@@ -91,9 +103,9 @@ export default function EpisodeCard({ episodeData, handlePlay }: EpisodeProps) {
           src={imageSource}
           alt=""
           className={styles.image}
-          placeholder="blur"
-          blurDataURL="/logo.png"
-          onError={() => setImageError(true)}
+          unoptimized={usingDirectSource}
+          priority={priority}
+          onError={handleImageError}
         />
 
         <div className={styles.imageOverlay} aria-hidden="true" />
