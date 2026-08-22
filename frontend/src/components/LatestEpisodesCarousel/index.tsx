@@ -9,6 +9,7 @@ import { useTMDB } from '@/contexts/TMDBContext'
 import { getLatestEpisodeDateKey, useLatestEpisodes } from '@/hooks/useLatestEpisodes'
 
 import styles from './styles.module.scss'
+import { useFlix } from '@/contexts/FlixContext'
 
 interface LatestEpisodesCarouselProps {
   featured?: boolean
@@ -39,6 +40,7 @@ export default function LatestEpisodesCarousel({
   limit = 8,
 }: LatestEpisodesCarouselProps) {
   const { serieData } = useTMDB()
+  const { series } = useFlix()
   const { groups, isLoading } = useLatestEpisodes(24, limit)
   const seriesById = useMemo(
     () => new Map(serieData.map((serie) => [serie.id, serie])),
@@ -81,6 +83,7 @@ export default function LatestEpisodesCarousel({
         >
           {availableGroups.map((group) => {
             const serie = seriesById.get(group.tmdbID)!
+            const serieDB = series.find((s) => s.tmdbID === serie.id)
             const season = serie.seasons?.find(
               ({ season_number }) => season_number === group.seasonNumber,
             )
@@ -112,7 +115,7 @@ export default function LatestEpisodesCarousel({
                       </span>
                     )}
                     <div className={styles.badge}>
-                      <NewContent type="episode" />
+                      <NewContent type={serieDB?.news || 'episode'} />
                     </div>
                     <div className={styles.overlay}>
                       <time dateTime={group.addedAt}>{formatRelativeDate(group.addedAt)}</time>
